@@ -3,12 +3,67 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TD3</title>
+    <title>灯湾环堤 · TD3</title>
   </head>
   <body>
     <main>
-      <h1>TD3</h1>
-      <p id="app-status">正在启动应用…</p>
+      <header class="masthead">
+        <div>
+          <p class="brand"><span></span> TD3</p>
+          <h1>灯湾环堤</h1>
+        </div>
+        <div class="header-meta">
+          <p id="phase">标准难度 · 主线</p>
+          <p id="app-status" role="status">正在读取存档…</p>
+        </div>
+      </header>
+      <div class="layout" inert>
+        <section class="field" aria-label="战场">
+          <div class="field-stats">
+            <div><span>波次</span><strong id="wave">—</strong></div>
+            <div><span>容怪</span><strong id="containment">—</strong></div>
+            <div><span>金币</span><strong id="gold">—</strong></div>
+            <div><span>时间</span><strong id="time">—</strong></div>
+          </div>
+          <div class="viewport">
+            <canvas id="battlefield" aria-label="灯湾环堤三维战场"></canvas>
+            <p id="next-wave"></p>
+            <div id="settlement" class="settlement" hidden>
+              <h2 id="settlement-title"></h2>
+              <p id="settlement-detail"></p>
+              <button id="endless" class="primary" type="button">进入无尽</button>
+              <button id="restart" class="primary" type="button">重开一局</button>
+            </div>
+          </div>
+          <footer class="field-controls">
+            <p>点击阵位选塔，点击敌人指定目标</p>
+            <div>
+              <button id="pause" type="button">暂停</button>
+              <button id="speed" type="button" aria-label="切换倍速">1×</button>
+            </div>
+          </footer>
+        </section>
+        <aside aria-label="局内操作">
+          <section class="panel">
+            <h2>防线</h2>
+            <div id="sites" class="sites" aria-label="建造阵位"></div>
+            <p id="selected-site"></p>
+            <div id="build-options" class="actions"></div>
+            <button id="upgrade" type="button">升级</button>
+            <button id="draw" type="button">抽卡 <span>20 金</span></button>
+          </section>
+          <section class="panel">
+            <h2>商店</h2>
+            <div id="shop" class="actions"></div>
+          </section>
+          <section class="panel">
+            <h2>背包</h2>
+            <p id="backpack"></p>
+            <div id="crafting" class="actions"></div>
+          </section>
+          <p id="feedback" role="status" aria-atomic="true"></p>
+        </aside>
+      </div>
     </main>
     <script type="module" src="/src/main.ts"></script>
   </body>
