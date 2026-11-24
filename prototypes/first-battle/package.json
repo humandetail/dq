@@ -1,0 +1,19 @@
+{
+  "name": "td3-first-battle-prototype",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "check": "tsc --noEmit --strict --skipLibCheck --allowImportingTsExtensions --target es2022 --module esnext --moduleResolution bundler *.ts checks/*.ts",
+    "check:battle": "node checks/battle.mjs"
+  },
+  "dependencies": {
+    "gl-matrix": "3.4.4",
+    "war3-model": "4.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "vite": "8.3.8"
+  }
+}

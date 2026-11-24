@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>塔防 · 首个验证场景</title>
+  <style>
+    :root { color-scheme: dark; font: 16px/1.55 system-ui, sans-serif; background: #101920; color: #eaf0ef; }
+    body { max-width: 1080px; margin: 32px auto; padding: 0 20px; }
+    h1 { margin-bottom: 6px; font-size: clamp(26px, 4vw, 38px); }
+    h2 { font-size: 19px; margin-top: 0; }
+    p { margin: 8px 0 16px; color: #bdcdcd; }
+    .layout { display: grid; grid-template-columns: 1.5fr 1fr; gap: 16px; }
+    section { border: 1px solid #34464d; border-radius: 10px; padding: 16px; min-width: 0; }
+    canvas { display: block; width: 100%; aspect-ratio: 16/10; background: #182a32; border-radius: 8px; cursor: crosshair; }
+    .buttons { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0; }
+    button { background: #1b393a; border: 1px solid #5c9690; color: inherit; padding: 5px 10px; border-radius: 5px; cursor: pointer; font: inherit; }
+    button:disabled { opacity: .4; cursor: default; }
+    :focus-visible { outline: 2px solid #a7e1b6; outline-offset: 3px; }
+    pre { white-space: pre-wrap; overflow-wrap: anywhere; margin: 8px 0; font: 13px/1.55 ui-monospace, monospace; }
+    input { max-width: 100%; }
+    output { color: #b9e0c8; display: block; margin-top: 8px; }
+    @media (max-width: 760px) { .layout { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <h1>首个战斗验证场景</h1>
+  <p>下一波出怪时检查圈内容怪点数。用相同输入比较四种推进方式。</p>
+  <main class="layout">
+    <section>
+      <h2>战场</h2>
+      <canvas id="view" width="960" height="600" aria-label="哨塔与敌人的 3D 战场"></canvas>
+      <p><label>加载四糸乃的 MDX 和两张 BLP <input id="files" type="file" accept=".mdx,.blp" multiple></label></p>
+      <div class="buttons">
+        <button id="swap" disabled>切换塔模型</button>
+        <button id="animate" disabled>播放攻击动画</button>
+        <button id="attack" disabled>攻击选中的敌人</button>
+      </div>
+      <output id="asset">使用几何模型</output>
+      <output id="selection">未选中单位</output>
+      <output id="animation">待机</output>
+    </section>
+    <section>
+      <h2>战斗与存档</h2>
+      <div class="buttons">
+        <button id="normal">1×</button>
+        <button id="fast">4×</button>
+        <button id="background">模拟后台补算</button>
+        <button id="reload">第 1 帧存档并刷新</button>
+        <button id="loss">反例 · 不攻击</button>
+        <button id="step">单步推进</button>
+        <button id="reset">重置</button>
+        <button id="pause" disabled>暂停</button>
+        <button id="speed" disabled>切换倍速</button>
+      </div>
+      <output id="mode">等待运行</output>
+      <pre id="state"></pre>
+      <h2>事件顺序</h2>
+      <pre id="events"></pre>
+      <details><summary>完整快照</summary><pre id="snapshot"></pre></details>
+    </section>
+  </main>
+  <script type="module" src="/main.ts"></script>
+</body>
+</html>
