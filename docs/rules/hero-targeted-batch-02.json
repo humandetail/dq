@@ -1,0 +1,1263 @@
+[
+  {
+    "id": "A122",
+    "status": "pending",
+    "rules": {
+      "range": 900,
+      "cooldown": 9,
+      "damage": [
+        1200,
+        1400,
+        1600,
+        1800,
+        2000,
+        2200
+      ],
+      "slow": [
+        0.4,
+        4
+      ],
+      "illusionLife": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "illusionAttackRatio": 1
+    },
+    "sourceRefs": {
+      "workbookRowsOnBoth": [
+        290
+      ],
+      "guideUnits": [
+        "H035"
+      ],
+      "playerTipStart": 1818,
+      "objectIndex": 920,
+      "entryPoints": [
+        [
+          "main/f291/f1",
+          2438,
+          165064
+        ],
+        [
+          "main/f291/f14",
+          835,
+          170916
+        ],
+        [
+          "main/f291/f27",
+          1951,
+          176167
+        ]
+      ],
+      "functions": [
+        [
+          "main/f95",
+          83007,
+          83034
+        ],
+        [
+          "main/f95/f0",
+          83035,
+          83098
+        ],
+        [
+          "main/f95/f1",
+          83099,
+          83172
+        ],
+        [
+          "main/f95/f2",
+          83173,
+          83371
+        ]
+      ],
+      "hash": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+      "auxiliary": [
+        "q029",
+        "T130",
+        "T131",
+        "T132",
+        "BIil"
+      ]
+    },
+    "differences": [],
+    "unresolved": [
+      "Confirm staff jump count/exclusion/revisit and overlapping hits with shared table.",
+      "Resolve T132 illusion through SUMMON, A123/A124 count, ownership and snapshot."
+    ],
+    "validation": {
+      "workbookAndObjects": true,
+      "sourceVM": null,
+      "webVector": null,
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A127",
+    "status": "ready",
+    "rules": {
+      "forms": [
+        "H036",
+        "E016"
+      ],
+      "orders": [
+        "bearform",
+        "unbearform"
+      ],
+      "cooldown": 5,
+      "heroAndBearBonus": [
+        50,
+        100,
+        150,
+        200,
+        250,
+        300
+      ],
+      "baseAttack": [
+        [
+          28,
+          34
+        ],
+        [
+          232,
+          238
+        ]
+      ],
+      "range": [
+        1200,
+        800
+      ],
+      "period": [
+        1.1,
+        1.2
+      ],
+      "stableEntity": true
+    },
+    "sourceRefs": {
+      "workbookRowsOnBoth": [
+        302,
+        307
+      ],
+      "guideUnits": [
+        "E016",
+        "H036"
+      ],
+      "playerTipStart": 1889,
+      "objectIndex": 925,
+      "entryPoints": [
+        [
+          "main/f291/f10",
+          192,
+          169242
+        ]
+      ],
+      "functions": [
+        [
+          "main/f99",
+          84773,
+          84795
+        ],
+        [
+          "main/f99/f0",
+          84796,
+          84834
+        ],
+        [
+          "main/f99/f1",
+          84835,
+          84862
+        ],
+        [
+          "main/f99/f2",
+          84863,
+          84908
+        ]
+      ],
+      "hash": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+      "auxiliary": [
+        "T138"
+      ]
+    },
+    "differences": [
+      "Workbook explicitly provides both form attack ranges, source tip rounds +204 to +200."
+    ],
+    "unresolved": [],
+    "validation": {
+      "workbookAndObjects": true,
+      "sourceVM": {
+        "sourceHeroAndBearRanks": [
+          3,
+          5
+        ]
+      },
+      "webVector": null,
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A133",
+    "status": "ready",
+    "rules": {
+      "range": 9999,
+      "duration": 7,
+      "mana": [
+        20,
+        30,
+        40,
+        50,
+        60,
+        70
+      ],
+      "cooldown": [
+        14,
+        13,
+        12,
+        11,
+        10,
+        9
+      ],
+      "attackSpeed": [
+        0.7,
+        0.8,
+        0.9,
+        1,
+        1.1,
+        1.2
+      ],
+      "attack": [
+        300,
+        400,
+        500,
+        600,
+        700,
+        800
+      ],
+      "cleanseBeforeStrengthCheck": true
+    },
+    "sourceRefs": {
+      "workbookRowsOnBoth": [
+        171,
+        571
+      ],
+      "guideUnits": [
+        "G062",
+        "H037"
+      ],
+      "playerTipStart": 1986,
+      "objectIndex": 931,
+      "entryPoints": [
+        [
+          "main/f291/f14",
+          889,
+          170975
+        ],
+        [
+          "main/f291/f27",
+          2031,
+          176253
+        ]
+      ],
+      "functions": [
+        [
+          "main/f101",
+          85099,
+          85124
+        ],
+        [
+          "main/f101/f0",
+          85125,
+          85282
+        ],
+        [
+          "main/f101/f1",
+          85283,
+          85330
+        ]
+      ],
+      "hash": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+      "auxiliary": [
+        "T155",
+        "T156"
+      ]
+    },
+    "differences": [],
+    "unresolved": [],
+    "validation": {
+      "workbookAndObjects": true,
+      "sourceVM": {
+        "sourceLowerRankCleansedAndDidNotRefresh": true
+      },
+      "webVector": null,
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A134",
+    "status": "ready",
+    "rules": {
+      "range": 800,
+      "duration": 5,
+      "pollPeriod": 0.5,
+      "control": "movement only",
+      "cooldown": [
+        110,
+        100,
+        90,
+        80,
+        70,
+        55
+      ],
+      "baseWinAttack": 100,
+      "scepterWinAttack": 200,
+      "maxAttack": 15000,
+      "failureCooldownRewrite": false,
+      "decision": "Q72"
+    },
+    "sourceRefs": {
+      "workbookRowsOnBoth": [
+        172,
+        572
+      ],
+      "guideUnits": [
+        "G062",
+        "H037"
+      ],
+      "playerTipStart": 2003,
+      "objectIndex": 932,
+      "entryPoints": [
+        [
+          "main/f291/f14",
+          899,
+          170986
+        ],
+        [
+          "main/f291/f27",
+          2170,
+          176402
+        ]
+      ],
+      "functions": [
+        [
+          "main/f102",
+          85331,
+          85367
+        ],
+        [
+          "main/f102/f0",
+          85368,
+          85492
+        ],
+        [
+          "main/f102/f1",
+          85493,
+          85776
+        ],
+        [
+          "main/f102/f2",
+          85777,
+          85833
+        ]
+      ],
+      "hash": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+      "auxiliary": [
+        "T143",
+        "B134",
+        "T149",
+        "T150",
+        "T151",
+        "T152",
+        "T153"
+      ]
+    },
+    "differences": [
+      "Q64 uses movement lock instead of T143 stun. Q72 removes original failure-time 55 second cooldown rewrite."
+    ],
+    "unresolved": [],
+    "validation": {
+      "workbookAndObjects": true,
+      "sourceVM": null,
+      "webVector": {
+        "rank6NaturalRemainingAtFailure": 50,
+        "savedAttackCap": 15000
+      },
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A152",
+    "status": "ready",
+    "rules": {
+      "range": 1000,
+      "mana": [
+        20,
+        35,
+        50,
+        65,
+        80,
+        95
+      ],
+      "cooldown": [
+        14,
+        13,
+        12,
+        11,
+        10,
+        9
+      ],
+      "wave": {
+        "radius": 300,
+        "length": 700,
+        "speed": 2000,
+        "budget": 9999999,
+        "damagePerRank": 500
+      },
+      "armor": {
+        "centres": [
+          300,
+          600,
+          900
+        ],
+        "radius": 300,
+        "deltaPerRank": -10,
+        "duration": 6
+      }
+    },
+    "sourceRefs": {
+      "workbookRowsOnBoth": [
+        246
+      ],
+      "guideUnits": [
+        "H038"
+      ],
+      "playerTipStart": 2147,
+      "objectIndex": 941,
+      "entryPoints": [
+        [
+          "main/f291/f14",
+          940,
+          171029
+        ],
+        [
+          "main/f291/f27",
+          2258,
+          176495
+        ]
+      ],
+      "functions": [
+        [
+          "main/f104",
+          86047,
+          86063
+        ],
+        [
+          "main/f104/f0",
+          86064,
+          86215
+        ]
+      ],
+      "hash": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+      "auxiliary": [
+        "T084",
+        "T094",
+        "B103"
+      ]
+    },
+    "differences": [],
+    "unresolved": [],
+    "validation": {
+      "workbookAndObjects": true,
+      "sourceVM": {
+        "sourceWaveAndThreeIndependentCentres": [
+          [
+            "T084",
+            [
+              0,
+              0
+            ],
+            3,
+            1
+          ],
+          [
+            "T094",
+            [
+              300,
+              0
+            ],
+            3,
+            1
+          ],
+          [
+            "T094",
+            [
+              600,
+              0
+            ],
+            3,
+            1
+          ],
+          [
+            "T094",
+            [
+              900,
+              0
+            ],
+            3,
+            1
+          ]
+        ]
+      },
+      "webVector": null,
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A155",
+    "status": "ready",
+    "rules": {
+      "range": 900,
+      "mana": [
+        60,
+        65,
+        70,
+        75,
+        80,
+        85
+      ],
+      "cooldown": [
+        6,
+        5.5,
+        5,
+        4.5,
+        4,
+        3
+      ],
+      "refresh": 5,
+      "stackKey": "target",
+      "cap": [
+        5,
+        10
+      ],
+      "unstackable": [
+        "mBOS",
+        "Abyss_BOSS",
+        "IsShopBoss"
+      ],
+      "damage": "(1000+life*.05)*layers",
+      "decision": "Q71"
+    },
+    "sourceRefs": {
+      "workbookRowsOnBoth": [
+        532,
+        605
+      ],
+      "guideUnits": [
+        "G064",
+        "H039"
+      ],
+      "playerTipStart": 2194,
+      "objectIndex": 944,
+      "entryPoints": [
+        [
+          "main/f291/f14",
+          994,
+          171087
+        ],
+        [
+          "main/f291/f27",
+          2392,
+          176637
+        ]
+      ],
+      "functions": [
+        [
+          "main/f106",
+          86370,
+          86392
+        ],
+        [
+          "main/f106/f0",
+          86393,
+          86528
+        ],
+        [
+          "main/f106/f1",
+          86529,
+          86562
+        ]
+      ],
+      "hash": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+      "auxiliary": []
+    },
+    "differences": [
+      "Q71 replaces (1000+HP*.03*layers), 4 seconds and blanket Abyss cap. Target slots isolate source -1 collision."
+    ],
+    "unresolved": [],
+    "validation": {
+      "workbookAndObjects": true,
+      "sourceVM": {
+        "sourceUntouchedSecondTargetReceivedLayer2": [
+          1000,
+          1600.0
+        ]
+      },
+      "webVector": {
+        "separateTargetLayers": [
+          1,
+          1,
+          2,
+          1
+        ],
+        "life100000Tier2": 12000
+      },
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A156",
+    "status": "ready",
+    "rules": {
+      "range": 800,
+      "mana": [
+        50,
+        60,
+        70,
+        80,
+        90,
+        100
+      ],
+      "cooldown": [
+        17,
+        15,
+        13,
+        11,
+        9,
+        7
+      ],
+      "duration": [
+        3.5,
+        4,
+        4.5,
+        5,
+        5.5,
+        6
+      ],
+      "physicalFactors": [
+        1.5,
+        1.25
+      ],
+      "magicResist": 1,
+      "isMagicImmune": false,
+      "oneTimerPerTarget": true
+    },
+    "sourceRefs": {
+      "workbookRowsOnBoth": [
+        533,
+        606
+      ],
+      "guideUnits": [
+        "G064",
+        "H039"
+      ],
+      "playerTipStart": 2211,
+      "objectIndex": 945,
+      "entryPoints": [
+        [
+          "main/f291/f14",
+          1004,
+          171098
+        ],
+        [
+          "main/f291/f27",
+          2342,
+          176584
+        ]
+      ],
+      "functions": [
+        [
+          "main/f107",
+          86563,
+          86584
+        ],
+        [
+          "main/f107/f0",
+          86585,
+          86674
+        ],
+        [
+          "main/f107/f1",
+          86675,
+          86715
+        ]
+      ],
+      "hash": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+      "auxiliary": [
+        "T167"
+      ]
+    },
+    "differences": [
+      "Workbook welfare +25% replaces source +20%. Per-target timers prevent orphan T167 from -1 slot collision."
+    ],
+    "unresolved": [],
+    "validation": {
+      "workbookAndObjects": true,
+      "sourceVM": {
+        "sourceT167AfterBothDeadlines": [
+          true,
+          false
+        ]
+      },
+      "webVector": null,
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A157",
+    "status": "ready",
+    "rules": {
+      "range": 800,
+      "mana": 200,
+      "cooldown": 20,
+      "duration": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "aliveRadius": 425,
+      "deathRadius": 500,
+      "baseFactors": [
+        1,
+        2
+      ],
+      "deathFactor": 1.5,
+      "bossExtraFactor": 1,
+      "damageType": "divine",
+      "purgeFrequency": 1,
+      "purge": {
+        "steps": 3,
+        "duration": [
+          2,
+          1
+        ],
+        "pause": [
+          3,
+          0
+        ]
+      }
+    },
+    "sourceRefs": {
+      "workbookRowsOnBoth": [
+        534,
+        607
+      ],
+      "guideUnits": [
+        "G064",
+        "H039"
+      ],
+      "playerTipStart": 2228,
+      "objectIndex": 946,
+      "entryPoints": [
+        [
+          "main/f291/f14",
+          1014,
+          171109
+        ],
+        [
+          "main/f291/f27",
+          2292,
+          176531
+        ]
+      ],
+      "functions": [
+        [
+          "main/f108",
+          86716,
+          86745
+        ],
+        [
+          "main/f108/f0",
+          86746,
+          86851
+        ],
+        [
+          "main/f108/f1",
+          86852,
+          86958
+        ],
+        [
+          "main/f108/f2",
+          86959,
+          87125
+        ],
+        [
+          "main/f108/f3",
+          87126,
+          87180
+        ]
+      ],
+      "hash": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+      "auxiliary": [
+        "T168",
+        "T169",
+        "B100",
+        "Bprg"
+      ]
+    },
+    "differences": [
+      "Source ranges 360/360 vs 425/500, mana [100,120,140,160,180,200] vs 200; staff 1.6/death +.4/local Boss half superseded."
+    ],
+    "unresolved": [],
+    "validation": {
+      "workbookAndObjects": true,
+      "sourceVM": {
+        "sourceAliveBossPipeRadiusAndAmount": [
+          360,
+          50
+        ]
+      },
+      "webVector": {
+        "lifeDelta100Vectors": [
+          [
+            425,
+            100
+          ],
+          [
+            425,
+            200
+          ],
+          [
+            500,
+            150.0
+          ],
+          [
+            500,
+            300.0
+          ]
+        ]
+      },
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A162",
+    "status": "ready",
+    "rules": {
+      "range": 1300,
+      "mana": [
+        30,
+        50,
+        70,
+        90,
+        110,
+        130
+      ],
+      "cooldown": [
+        15,
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "wave": {
+        "radius": 200,
+        "length": 2000,
+        "speed": 3000,
+        "parentDamage": 100,
+        "budget": 99999999
+      },
+      "attenuation": "max(0.4,1-0.1*(n-1)) per shot",
+      "rankMultiplier": [
+        1.5,
+        1.9,
+        2.3,
+        2.7,
+        3.1,
+        3.5
+      ],
+      "speedCeiling": 3
+    },
+    "sourceRefs": {
+      "workbookRowsOnBoth": [
+        497,
+        581
+      ],
+      "guideUnits": [
+        "G072",
+        "H041"
+      ],
+      "playerTipStart": 2306,
+      "objectIndex": 951,
+      "entryPoints": [
+        [
+          "main/f291/f14",
+          518,
+          170567
+        ],
+        [
+          "main/f291/f27",
+          2102,
+          176330
+        ]
+      ],
+      "functions": [
+        [
+          "main/f113",
+          88026,
+          88050
+        ],
+        [
+          "main/f113/f0",
+          88051,
+          88179
+        ],
+        [
+          "main/f113/f1",
+          88180,
+          88284
+        ]
+      ],
+      "hash": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+      "auxiliary": [
+        "q033",
+        "T172",
+        "T260"
+      ]
+    },
+    "differences": [
+      "Source rank factors 14/16/18/20/22/24 superseded by workbook; attenuation stays per shot."
+    ],
+    "unresolved": [],
+    "validation": {
+      "workbookAndObjects": true,
+      "sourceVM": null,
+      "webVector": {
+        "firstSecondSeventhNinthAmounts": [
+          450,
+          405,
+          180,
+          180
+        ],
+        "nextCastStarts450": true
+      },
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A164",
+    "status": "pending",
+    "rules": {
+      "range": 1200,
+      "mana": [
+        30,
+        35,
+        40,
+        45,
+        50,
+        55
+      ],
+      "cooldown": [
+        40,
+        36,
+        32,
+        28,
+        24,
+        20
+      ],
+      "manaRecovery": [
+        0.15,
+        0.2,
+        0.25,
+        0.3,
+        0.35,
+        0.4
+      ],
+      "goldPerUnitLevel": 140,
+      "bossFlatPerLevel": 200,
+      "bossLifeRatios": [
+        0.3,
+        0.1
+      ]
+    },
+    "sourceRefs": {
+      "workbookRowsOnBoth": [
+        60,
+        65
+      ],
+      "guideUnits": [
+        "G061",
+        "H042"
+      ],
+      "playerTipStart": 2340,
+      "objectIndex": 953,
+      "entryPoints": [
+        [
+          "main/f291/f10",
+          229,
+          169283
+        ],
+        [
+          "main/f291/f14",
+          1043,
+          171141
+        ],
+        [
+          "main/f291/f27",
+          2475,
+          176724
+        ]
+      ],
+      "functions": [
+        [
+          "main/f115",
+          88516,
+          88677
+        ],
+        [
+          "main/f115/f0",
+          88678,
+          88730
+        ],
+        [
+          "main/f115/f1",
+          88731,
+          88914
+        ],
+        [
+          "main/f115/f2",
+          88915,
+          88963
+        ],
+        [
+          "main/f115/f3",
+          88964,
+          89259
+        ],
+        [
+          "main/f115/f4",
+          89260,
+          89344
+        ],
+        [
+          "main/f115/f5",
+          89345,
+          89436
+        ],
+        [
+          "main/f115/f6",
+          89437,
+          89571
+        ],
+        [
+          "main/f115/f7",
+          89572,
+          89626
+        ],
+        [
+          "main/f115/f8",
+          89627,
+          89697
+        ],
+        [
+          "main/f115/f9",
+          89698,
+          89909
+        ],
+        [
+          "main/f115/f10",
+          89910,
+          90010
+        ],
+        [
+          "main/f115/f11",
+          90011,
+          90076
+        ],
+        [
+          "main/f115/f12",
+          90077,
+          90104
+        ],
+        [
+          "main/f115/f13",
+          90105,
+          90169
+        ],
+        [
+          "main/f115/f14",
+          90170,
+          90221
+        ],
+        [
+          "main/f115/f15",
+          90222,
+          90264
+        ],
+        [
+          "main/f115/f16",
+          90265,
+          90300
+        ],
+        [
+          "main/f115/f17",
+          90301,
+          90344
+        ],
+        [
+          "main/f115/f18",
+          90345,
+          90502
+        ],
+        [
+          "main/f115/f19",
+          90503,
+          90533
+        ],
+        [
+          "main/f115/f20",
+          90534,
+          90654
+        ],
+        [
+          "main/f115/f21",
+          90655,
+          90817
+        ],
+        [
+          "main/f115/f22",
+          90818,
+          90986
+        ],
+        [
+          "main/f115/f23",
+          90987,
+          91052
+        ],
+        [
+          "main/f115/f24",
+          91053,
+          91111
+        ],
+        [
+          "main/f115/f25",
+          91112,
+          91218
+        ],
+        [
+          "main/f115/f26",
+          91219,
+          91432
+        ],
+        [
+          "main/f115/f27",
+          91433,
+          91462
+        ],
+        [
+          "main/f115/f28",
+          91463,
+          91509
+        ],
+        [
+          "main/f115/f29",
+          91510,
+          91585
+        ],
+        [
+          "main/f115/f30",
+          91586,
+          91615
+        ],
+        [
+          "main/f115/f31",
+          91616,
+          91642
+        ],
+        [
+          "main/f115/f32",
+          91643,
+          91713
+        ],
+        [
+          "main/f115/f33",
+          91714,
+          91885
+        ],
+        [
+          "main/f115/f34",
+          91886,
+          91908
+        ],
+        [
+          "main/f115/f35",
+          91909,
+          91955
+        ],
+        [
+          "main/f115/f36",
+          91956,
+          91982
+        ],
+        [
+          "main/f115/f37",
+          91983,
+          92132
+        ],
+        [
+          "main/f115/f38",
+          92133,
+          92225
+        ],
+        [
+          "main/f115/f39",
+          92226,
+          92422
+        ],
+        [
+          "main/f115/f40",
+          92423,
+          92486
+        ],
+        [
+          "main/f115/f41",
+          92487,
+          92575
+        ],
+        [
+          "main/f115/f42",
+          92576,
+          92623
+        ],
+        [
+          "main/f115/f43",
+          92624,
+          92776
+        ]
+      ],
+      "hash": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+      "auxiliary": [
+        "T329",
+        "T300–T328"
+      ]
+    },
+    "differences": [
+      "Dedicated tier tooltip mana recovery .15–.40 replaces source constant .5."
+    ],
+    "unresolved": [
+      "T329 acquisition, selection, slot replacement and subtype lifetime.",
+      "Digestion retry and award handoff plus actual borrowed T300–T328 hooks."
+    ],
+    "validation": {
+      "workbookAndObjects": true,
+      "sourceVM": null,
+      "webVector": null,
+      "originalClientTested": false
+    }
+  }
+]

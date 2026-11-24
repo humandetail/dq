@@ -1,0 +1,249 @@
+{
+  "scope": "quill-spray-and-warpath",
+  "ready": 2,
+  "pending": 0,
+  "records": [
+    {
+      "id": "A182",
+      "status": "ready",
+      "rules": {
+        "mana": [
+          20,
+          30,
+          40,
+          50,
+          60,
+          70
+        ],
+        "cooldown": 2,
+        "castPoint": 0.4,
+        "backswing": 0.1,
+        "radius": 800,
+        "stackTimeout": 8,
+        "baseCap": 4,
+        "order": "fanofknives",
+        "autoTargetSearch": false,
+        "magicShellDamage": 0,
+        "physicalDamageFlags": [
+          false,
+          false,
+          "HERO",
+          "NORMAL"
+        ],
+        "positiveSettledDamageCommitsStack": true
+      },
+      "sourceRefs": [
+        "A182",
+        "H047",
+        "luaModule",
+        "routing"
+      ],
+      "differences": [
+        "Original AEfk damage/budget fields 1/1; Web command shell serves quoted physical mechanic under Q64",
+        "Original commits before native rejection; Q64 keeps speculative stack until final positive damage"
+      ],
+      "unresolved": [],
+      "validation": [
+        "source rejection",
+        "selected rejection and expiry",
+        "source/caster identity"
+      ]
+    },
+    {
+      "id": "A183",
+      "status": "ready",
+      "rules": {
+        "caps": [
+          5,
+          6,
+          7,
+          8,
+          10,
+          12
+        ],
+        "strengthMayTieForMaximum": true,
+        "thresholds": [
+          5,
+          7,
+          10,
+          12
+        ],
+        "stunSeconds": 1,
+        "T197MagicDamage": 10,
+        "executeThreshold": 0.2,
+        "tenStackCurrentLifeFactor": 0.3,
+        "twelveStackBasePercent": 4,
+        "intelligencePerPercent": 30,
+        "abyssHeroFactor": 0.25,
+        "nativeEvasion": 0,
+        "decision": "Q65"
+      },
+      "sourceRefs": [
+        "A183",
+        "H047",
+        "T197",
+        "luaModule",
+        "routing"
+      ],
+      "differences": [
+        "A183 AEev 10.0 source evidence; Q65 selects no native evasion",
+        "Graph uses intelligence/30 at twelve stacks, source intelligence/50"
+      ],
+      "unresolved": [],
+      "validation": [
+        "source 5/7/10/12/13 casts",
+        "threshold and intelligence boundary"
+      ]
+    }
+  ],
+  "sourceRefs": {
+    "A182": {
+      "workbookRowOnBoth": 186,
+      "hintLine": 2646,
+      "objectIndex": 971,
+      "w3aIndexes": [
+        112
+      ]
+    },
+    "A183": {
+      "workbookRowOnBoth": 187,
+      "hintLine": 2658,
+      "objectIndex": 972,
+      "w3aIndexes": []
+    },
+    "H047": {
+      "unitAbilityIndex": 957,
+      "weaponIndex": 957
+    },
+    "T197": {
+      "objectIndex": 2068,
+      "hintHeader": 21728
+    },
+    "luaModule": [
+      [
+        "main/f130",
+        97879,
+        97902
+      ],
+      [
+        "main/f130/f0",
+        97903,
+        97921
+      ],
+      [
+        "main/f130/f1",
+        97922,
+        98148
+      ],
+      [
+        "main/f130/f2",
+        98149,
+        98208
+      ],
+      [
+        "main/f130/f3",
+        98209,
+        98512
+      ]
+    ],
+    "routing": {
+      "A182": [
+        {
+          "function": "main/f130/f1",
+          "pc": 4,
+          "sourceLine": 97979
+        },
+        {
+          "function": "main/f130/f3",
+          "pc": 13,
+          "sourceLine": 98288
+        },
+        {
+          "function": "main/f291/f14",
+          "pc": 1148,
+          "sourceLine": 171257
+        },
+        {
+          "function": "main/f291/f27",
+          "pc": 2785,
+          "sourceLine": 177053
+        }
+      ],
+      "A183": [
+        {
+          "function": "main/f130/f3",
+          "pc": 19,
+          "sourceLine": 98294
+        }
+      ],
+      "T197": [
+        {
+          "function": "main/f130/f1",
+          "pc": 144,
+          "sourceLine": 98125
+        }
+      ],
+      "A182_Action": [
+        {
+          "function": "main/f130",
+          "pc": 9,
+          "sourceLine": 97900
+        },
+        {
+          "function": "main/f291/f14",
+          "pc": 1152,
+          "sourceLine": 171261
+        }
+      ]
+    },
+    "disasmSha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+  },
+  "auxiliary": [
+    "T197",
+    "q001",
+    "q025",
+    "BPSE",
+    "N535"
+  ],
+  "validation": {
+    "originalVM": {
+      "thresholds": {
+        "originalFiveStackOrder": "T197",
+        "sevenStackPhysicalPackets": [
+          2240,
+          2240
+        ],
+        "tenStackPhysicalPackets": [
+          3200,
+          3000.0
+        ],
+        "twelveAndThirteen": [
+          3840,
+          600.0
+        ]
+      },
+      "baseAmount": 300,
+      "physicalAfterRejectedAttempt": 600,
+      "independentPeerFirst": 300,
+      "resetAtOriginalExpiry": 300
+    },
+    "selectedWeb": {
+      "sourceAndReceiverIsolated": true,
+      "failedHitNeverCommitsOrRefreshes": true,
+      "onePositiveBaseHitAfterFailure": 300,
+      "returnedToFirstAtExpiry": 300,
+      "twelveStackAmountsAt29_30_119_120": [
+        400,
+        500,
+        700,
+        800
+      ],
+      "abyssHeroAt120": 200,
+      "tenStackStrictThreshold": [
+        1999,
+        2000
+      ]
+    },
+    "originalClientTested": false
+  }
+}

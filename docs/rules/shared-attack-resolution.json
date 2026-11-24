@@ -1,0 +1,172 @@
+{
+  "baselineId": "shared-attack-resolution-v1",
+  "source": {
+    "workbookUnitIds": 344,
+    "explicitEnabledWeaponSlots": {
+      "artillery": 3,
+      "mbounce": 5,
+      "missile": 109,
+      "msplash": 13,
+      "normal": 145
+    },
+    "homingSourceDistribution": {
+      "artillery/0": 3,
+      "mbounce/1": 2,
+      "mbounce/missing": 3,
+      "missile/0": 8,
+      "missile/1": 54,
+      "missile/missing": 47,
+      "msplash/0": 5,
+      "msplash/1": 8
+    },
+    "secondarySameObjectSpeedChoice": {
+      "E010": {
+        "slot": 2,
+        "sourceSpeed": null,
+        "selectedSpeed": 900
+      },
+      "E011": {
+        "slot": 2,
+        "sourceSpeed": null,
+        "selectedSpeed": 900
+      },
+      "E012": {
+        "slot": 2,
+        "sourceSpeed": null,
+        "selectedSpeed": 900
+      },
+      "E013": {
+        "slot": 2,
+        "sourceSpeed": null,
+        "selectedSpeed": 900
+      },
+      "E014": {
+        "slot": 2,
+        "sourceSpeed": null,
+        "selectedSpeed": 900
+      },
+      "E015": {
+        "slot": 2,
+        "sourceSpeed": null,
+        "selectedSpeed": 900
+      },
+      "H032": {
+        "slot": 2,
+        "sourceSpeed": null,
+        "selectedSpeed": 900
+      },
+      "H047": {
+        "slot": 2,
+        "sourceSpeed": null,
+        "selectedSpeed": 800
+      },
+      "H048": {
+        "slot": 2,
+        "sourceSpeed": null,
+        "selectedSpeed": 900
+      },
+      "H056": {
+        "slot": 2,
+        "sourceSpeed": null,
+        "selectedSpeed": 900
+      }
+    },
+    "cliffLayerVertexCounts": {
+      "2": 9409
+    },
+    "minimumRangeChoice": {
+      "decision": "Q78",
+      "raw": 9999999,
+      "selected": 0,
+      "maximum": 800,
+      "units": [
+        "E010",
+        "E011",
+        "E012",
+        "E013",
+        "E014",
+        "E015",
+        "G032",
+        "G033",
+        "H032"
+      ]
+    },
+    "guardTowerSplash": {
+      "units": [
+        "n159",
+        "n160",
+        "n161",
+        "n162",
+        "n163"
+      ],
+      "speed": 750,
+      "homing": false,
+      "bands": [
+        [
+          30,
+          1
+        ],
+        [
+          90,
+          0.4
+        ],
+        [
+          200,
+          0.2
+        ]
+      ],
+      "sourceMask": null
+    },
+    "evasion": {
+      "N523": 0.35,
+      "N524": 0.9,
+      "N572": 1,
+      "A183": 0
+    }
+  },
+  "validation": {
+    "guarantee_does_not_hit_invulnerable": [
+      "invalid",
+      0
+    ],
+    "guarantee_skips_each_regular_miss": [
+      "hit",
+      0
+    ],
+    "target_max_evasion_90_takes_90": [
+      "miss",
+      1
+    ],
+    "target_max_evasion_90_passes_91": [
+      "hit",
+      1
+    ],
+    "uphill_and_accuracy_independent": [
+      "miss",
+      3
+    ],
+    "zero_chances_do_not_draw": [
+      "hit",
+      0
+    ],
+    "Q78_minimum_and_existing_artillery_boundary": {
+      "selected": [
+        0,
+        800
+      ],
+      "artillery": [
+        250,
+        900
+      ]
+    },
+    "release_buffer_example": [
+      900,
+      250,
+      1150
+    ],
+    "in_flight_death_preserves_original_weapon": [
+      "HERO",
+      100
+    ]
+  }
+}

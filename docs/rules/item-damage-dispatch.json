@@ -1,0 +1,568 @@
+{
+  "schemaVersion": 1,
+  "scope": "两个装备伤害分派函数；仅核分派和直接乘算，不代表所有被调装备效果已核实",
+  "source": {
+    "path": "reference/map-6.25/main.disasm",
+    "sha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+    "bindingLines": [
+      143113,
+      143118
+    ]
+  },
+  "notation": "PC为各自函数内部指令号；寄存器/常量保持源样，业务条件见item-damage-dispatch.md；每个条件后紧随JMP已合并为真假目标。",
+  "functions": [
+    {
+      "name": "ItemDamageActionBefore",
+      "bytecodeFunction": "main/f285/f11",
+      "headerLine": 145510,
+      "endLine": 145621,
+      "instructionCount": 75,
+      "conditionCount": 10,
+      "callCount": 18,
+      "directDamageWriteCount": 0,
+      "conditions": [
+        {
+          "pc": 8,
+          "line": 145549,
+          "comparison": "truthy(r2)",
+          "constantOperands": {},
+          "trueNextPC": 10,
+          "falseNextPC": 11
+        },
+        {
+          "pc": 17,
+          "line": 145559,
+          "comparison": "k3 == r2",
+          "constantOperands": {
+            "k3": "nil"
+          },
+          "trueNextPC": 19,
+          "falseNextPC": 27
+        },
+        {
+          "pc": 25,
+          "line": 145567,
+          "comparison": "k3 == r2",
+          "constantOperands": {
+            "k3": "nil"
+          },
+          "trueNextPC": 40,
+          "falseNextPC": 27
+        },
+        {
+          "pc": 30,
+          "line": 145573,
+          "comparison": "k8 == r2",
+          "constantOperands": {
+            "k8": "0"
+          },
+          "trueNextPC": 40,
+          "falseNextPC": 32
+        },
+        {
+          "pc": 36,
+          "line": 145579,
+          "comparison": "truthy(r2)",
+          "constantOperands": {},
+          "trueNextPC": 38,
+          "falseNextPC": 40
+        },
+        {
+          "pc": 46,
+          "line": 145590,
+          "comparison": "k3 == r2",
+          "constantOperands": {
+            "k3": "nil"
+          },
+          "trueNextPC": 61,
+          "falseNextPC": 48
+        },
+        {
+          "pc": 51,
+          "line": 145595,
+          "comparison": "k8 == r2",
+          "constantOperands": {
+            "k8": "0"
+          },
+          "trueNextPC": 61,
+          "falseNextPC": 53
+        },
+        {
+          "pc": 57,
+          "line": 145601,
+          "comparison": "truthy(r2)",
+          "constantOperands": {},
+          "trueNextPC": 59,
+          "falseNextPC": 61
+        },
+        {
+          "pc": 61,
+          "line": 145606,
+          "comparison": "k3 == r0",
+          "constantOperands": {
+            "k3": "nil"
+          },
+          "trueNextPC": 75,
+          "falseNextPC": 63
+        },
+        {
+          "pc": 69,
+          "line": 145614,
+          "comparison": "r2 == r3",
+          "constantOperands": {},
+          "trueNextPC": 71,
+          "falseNextPC": 75
+        }
+      ],
+      "effectCallsInOrder": [
+        {
+          "pc": 39,
+          "line": 145582,
+          "callee": "i115_Action",
+          "loadLine": 145581
+        },
+        {
+          "pc": 60,
+          "line": 145604,
+          "callee": "i322_Action",
+          "loadLine": 145603
+        },
+        {
+          "pc": 74,
+          "line": 145619,
+          "callee": "i322_Damage",
+          "loadLine": 145616
+        }
+      ],
+      "returns": [
+        {
+          "pc": 10,
+          "line": 145551
+        },
+        {
+          "pc": 75,
+          "line": 145621
+        }
+      ],
+      "otherJumps": []
+    },
+    {
+      "name": "ItemDamageActionAfter",
+      "bytecodeFunction": "main/f285/f12",
+      "headerLine": 145623,
+      "endLine": 145997,
+      "instructionCount": 297,
+      "conditionCount": 31,
+      "callCount": 78,
+      "directDamageWriteCount": 6,
+      "conditions": [
+        {
+          "pc": 9,
+          "line": 145691,
+          "comparison": "truthy(r3)",
+          "constantOperands": {},
+          "trueNextPC": 11,
+          "falseNextPC": 16
+        },
+        {
+          "pc": 16,
+          "line": 145699,
+          "comparison": "k5 == r1",
+          "constantOperands": {
+            "k5": "nil"
+          },
+          "trueNextPC": 23,
+          "falseNextPC": 18
+        },
+        {
+          "pc": 21,
+          "line": 145704,
+          "comparison": "k6 == r3",
+          "constantOperands": {
+            "k6": "0"
+          },
+          "trueNextPC": 23,
+          "falseNextPC": 24
+        },
+        {
+          "pc": 27,
+          "line": 145712,
+          "comparison": "truthy(r3)",
+          "constantOperands": {},
+          "trueNextPC": 29,
+          "falseNextPC": 30
+        },
+        {
+          "pc": 36,
+          "line": 145722,
+          "comparison": "k6 < r3",
+          "constantOperands": {
+            "k6": "0"
+          },
+          "trueNextPC": 38,
+          "falseNextPC": 51
+        },
+        {
+          "pc": 43,
+          "line": 145729,
+          "comparison": "truthy(r3)",
+          "constantOperands": {},
+          "trueNextPC": 45,
+          "falseNextPC": 51
+        },
+        {
+          "pc": 57,
+          "line": 145744,
+          "comparison": "k6 < r3",
+          "constantOperands": {
+            "k6": "0"
+          },
+          "trueNextPC": 59,
+          "falseNextPC": 72
+        },
+        {
+          "pc": 64,
+          "line": 145751,
+          "comparison": "truthy(r3)",
+          "constantOperands": {},
+          "trueNextPC": 66,
+          "falseNextPC": 72
+        },
+        {
+          "pc": 79,
+          "line": 145767,
+          "comparison": "k5 == r4",
+          "constantOperands": {
+            "k5": "nil"
+          },
+          "trueNextPC": 81,
+          "falseNextPC": 89
+        },
+        {
+          "pc": 87,
+          "line": 145775,
+          "comparison": "k5 == r4",
+          "constantOperands": {
+            "k5": "nil"
+          },
+          "trueNextPC": 99,
+          "falseNextPC": 89
+        },
+        {
+          "pc": 94,
+          "line": 145783,
+          "comparison": "truthy(r4)",
+          "constantOperands": {},
+          "trueNextPC": 96,
+          "falseNextPC": 99
+        },
+        {
+          "pc": 105,
+          "line": 145795,
+          "comparison": "k5 == r4",
+          "constantOperands": {
+            "k5": "nil"
+          },
+          "trueNextPC": 107,
+          "falseNextPC": 147
+        },
+        {
+          "pc": 113,
+          "line": 145803,
+          "comparison": "k5 == r4",
+          "constantOperands": {
+            "k5": "nil"
+          },
+          "trueNextPC": 115,
+          "falseNextPC": 147
+        },
+        {
+          "pc": 121,
+          "line": 145811,
+          "comparison": "k5 == r4",
+          "constantOperands": {
+            "k5": "nil"
+          },
+          "trueNextPC": 123,
+          "falseNextPC": 147
+        },
+        {
+          "pc": 129,
+          "line": 145819,
+          "comparison": "k5 == r4",
+          "constantOperands": {
+            "k5": "nil"
+          },
+          "trueNextPC": 131,
+          "falseNextPC": 147
+        },
+        {
+          "pc": 137,
+          "line": 145827,
+          "comparison": "k5 == r4",
+          "constantOperands": {
+            "k5": "nil"
+          },
+          "trueNextPC": 139,
+          "falseNextPC": 147
+        },
+        {
+          "pc": 145,
+          "line": 145835,
+          "comparison": "k5 == r4",
+          "constantOperands": {
+            "k5": "nil"
+          },
+          "trueNextPC": 157,
+          "falseNextPC": 147
+        },
+        {
+          "pc": 152,
+          "line": 145843,
+          "comparison": "truthy(r4)",
+          "constantOperands": {},
+          "trueNextPC": 154,
+          "falseNextPC": 157
+        },
+        {
+          "pc": 164,
+          "line": 145856,
+          "comparison": "k5 == r3",
+          "constantOperands": {
+            "k5": "nil"
+          },
+          "trueNextPC": 179,
+          "falseNextPC": 166
+        },
+        {
+          "pc": 171,
+          "line": 145863,
+          "comparison": "truthy(r4)",
+          "constantOperands": {},
+          "trueNextPC": 173,
+          "falseNextPC": 179
+        },
+        {
+          "pc": 184,
+          "line": 145877,
+          "comparison": "truthy(r4)",
+          "constantOperands": {},
+          "trueNextPC": 186,
+          "falseNextPC": 215
+        },
+        {
+          "pc": 192,
+          "line": 145885,
+          "comparison": "k5 == r4",
+          "constantOperands": {
+            "k5": "nil"
+          },
+          "trueNextPC": 201,
+          "falseNextPC": 194
+        },
+        {
+          "pc": 207,
+          "line": 145901,
+          "comparison": "k5 == r4",
+          "constantOperands": {
+            "k5": "nil"
+          },
+          "trueNextPC": 215,
+          "falseNextPC": 209
+        },
+        {
+          "pc": 222,
+          "line": 145917,
+          "comparison": "k5 == r3",
+          "constantOperands": {
+            "k5": "nil"
+          },
+          "trueNextPC": 231,
+          "falseNextPC": 224
+        },
+        {
+          "pc": 227,
+          "line": 145922,
+          "comparison": "k6 == r4",
+          "constantOperands": {
+            "k6": "0"
+          },
+          "trueNextPC": 231,
+          "falseNextPC": 229
+        },
+        {
+          "pc": 238,
+          "line": 145934,
+          "comparison": "k5 == r3",
+          "constantOperands": {
+            "k5": "nil"
+          },
+          "trueNextPC": 249,
+          "falseNextPC": 240
+        },
+        {
+          "pc": 245,
+          "line": 145941,
+          "comparison": "truthy(r4)",
+          "constantOperands": {},
+          "trueNextPC": 247,
+          "falseNextPC": 249
+        },
+        {
+          "pc": 256,
+          "line": 145953,
+          "comparison": "k5 == r3",
+          "constantOperands": {
+            "k5": "nil"
+          },
+          "trueNextPC": 267,
+          "falseNextPC": 258
+        },
+        {
+          "pc": 263,
+          "line": 145960,
+          "comparison": "truthy(r4)",
+          "constantOperands": {},
+          "trueNextPC": 265,
+          "falseNextPC": 267
+        },
+        {
+          "pc": 274,
+          "line": 145972,
+          "comparison": "k5 == r3",
+          "constantOperands": {
+            "k5": "nil"
+          },
+          "trueNextPC": 297,
+          "falseNextPC": 276
+        },
+        {
+          "pc": 287,
+          "line": 145985,
+          "comparison": "truthy(r4)",
+          "constantOperands": {},
+          "trueNextPC": 289,
+          "falseNextPC": 293
+        }
+      ],
+      "effectCallsInOrder": [
+        {
+          "pc": 50,
+          "line": 145736,
+          "callee": "EXSetEventDamage",
+          "loadLine": 145734
+        },
+        {
+          "pc": 71,
+          "line": 145758,
+          "callee": "EXSetEventDamage",
+          "loadLine": 145756
+        },
+        {
+          "pc": 98,
+          "line": 145787,
+          "callee": "i119_Action",
+          "loadLine": 145785
+        },
+        {
+          "pc": 156,
+          "line": 145847,
+          "callee": "i184_Action",
+          "loadLine": 145845
+        },
+        {
+          "pc": 178,
+          "line": 145870,
+          "callee": "EXSetEventDamage",
+          "loadLine": 145865
+        },
+        {
+          "pc": 199,
+          "line": 145892,
+          "callee": "EXSetEventDamage",
+          "loadLine": 145887
+        },
+        {
+          "pc": 214,
+          "line": 145908,
+          "callee": "EXSetEventDamage",
+          "loadLine": 145903
+        },
+        {
+          "pc": 230,
+          "line": 145925,
+          "callee": "i267_Action",
+          "loadLine": 145924
+        },
+        {
+          "pc": 248,
+          "line": 145944,
+          "callee": "i132_Action",
+          "loadLine": 145943
+        },
+        {
+          "pc": 266,
+          "line": 145963,
+          "callee": "i134_Action",
+          "loadLine": 145962
+        },
+        {
+          "pc": 281,
+          "line": 145979,
+          "callee": "EXSetEventDamage",
+          "loadLine": 145974
+        },
+        {
+          "pc": 291,
+          "line": 145989,
+          "callee": "i263_Action2",
+          "loadLine": 145987
+        },
+        {
+          "pc": 296,
+          "line": 145995,
+          "callee": "i263_Action1",
+          "loadLine": 145992
+        }
+      ],
+      "returns": [
+        {
+          "pc": 23,
+          "line": 145707
+        },
+        {
+          "pc": 29,
+          "line": 145714
+        },
+        {
+          "pc": 297,
+          "line": 145997
+        }
+      ],
+      "otherJumps": [
+        {
+          "pc": 200,
+          "line": 145893,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l215"
+          ]
+        },
+        {
+          "pc": 292,
+          "line": 145990,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l297"
+          ]
+        }
+      ]
+    }
+  ],
+  "knownWebDecisions": {
+    "i119": "10% × 1.4",
+    "i161": "25% × 2.0"
+  }
+}

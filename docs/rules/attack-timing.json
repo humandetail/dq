@@ -1,0 +1,2485 @@
+{
+  "version": "attack-timing-v1",
+  "status": "bounded source investigation and explicit Q24 Web baseline; Q35 A022 input confirmed; prior A163/A180 row mismatch corrected; no original-client or Web runtime tests",
+  "scope": [
+    "speed aggregation",
+    "state37/81 API",
+    "weapon C/P/B",
+    "in-progress retiming",
+    "stage scheduling and save semantics"
+  ],
+  "exclusions": [
+    "hit resolution",
+    "projectiles",
+    "damage categories",
+    "complete skill/item lifecycles",
+    "all template inheritance"
+  ],
+  "mapMisc": {
+    "AgiAttackSpeedBonus": {
+      "value": 0.002,
+      "source": {
+        "file": "reference/map-6.25/war3mapMisc.txt",
+        "line": 7
+      }
+    },
+    "FrostAttackSpeedDecrease": {
+      "value": 0.6,
+      "source": {
+        "file": "reference/map-6.25/war3mapMisc.txt",
+        "line": 26
+      }
+    },
+    "IllusionsGetAttackSpeedBonus": {
+      "value": 1,
+      "source": {
+        "file": "reference/map-6.25/war3mapMisc.txt",
+        "line": 41
+      }
+    }
+  },
+  "primarySources": [
+    {
+      "url": "https://classic.battle.net/war3/basics/heroes.shtml",
+      "supports": "additive agility/item/ability bonuses and reciprocal cooldown formula; map overrides agility coefficient",
+      "doesNotProve": [
+        "map client limits",
+        "in-flight retiming",
+        "backswing behavior"
+      ]
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Plugin/Warcraft3/yd_jass_api/UnitState.cpp",
+      "sha256": "cce69daa88a376177c31dacf52901e30f9bb37fd28cfb3abfbabe112a3d139a8",
+      "supports": "original extension author state meanings and direct memory getter/setter",
+      "doesNotProve": [
+        "map shipped extension binary identity",
+        "engine final speed clamp",
+        "later native recomputation preservation",
+        "in-flight retiming"
+      ],
+      "lineNumbers": "physical raw file lines, not browser extracted line numbering"
+    }
+  ],
+  "nativeStateInterface": [
+    {
+      "state": 37,
+      "field": "attack1_interval",
+      "getterLines": [
+        280,
+        282
+      ],
+      "setterLines": [
+        525,
+        527
+      ]
+    },
+    {
+      "state": 38,
+      "field": "attack1_dmgpt",
+      "getterLines": [
+        283,
+        284
+      ],
+      "setterLines": [
+        528,
+        530
+      ]
+    },
+    {
+      "state": 40,
+      "field": "attack1_back_swing",
+      "getterLines": [
+        295,
+        296
+      ],
+      "setterLines": [
+        537,
+        539
+      ]
+    },
+    {
+      "state": 81,
+      "field": "rate_of_fire",
+      "getterLines": [
+        251,
+        252
+      ],
+      "setterLines": [
+        491,
+        493
+      ]
+    }
+  ],
+  "coverage": {
+    "literalState37Or81References": 59,
+    "literalWrites": 27,
+    "literalReadsIncludingReadModifyWrite": 32,
+    "searchedOtherTimingStates": [
+      38,
+      40,
+      56,
+      57,
+      68
+    ],
+    "otherTimingLiteralCallsFound": 0,
+    "additionalNamedTimingSetterFound": false,
+    "scopeCaveat": "literal call-site inventory and arithmetic, not complete lifecycle/alias provenance proof",
+    "w3uTimingKeysScanned": [
+      "ua1c",
+      "ua2c",
+      "udp1",
+      "udp2",
+      "ubs1",
+      "ubs2",
+      "uaen"
+    ],
+    "w3uTimingOverrideCount": 0,
+    "workbookTowerCount": 274,
+    "explicitFirstWeaponTimingTriples": 270,
+    "PPlusBGreaterThanCCount": 41
+  },
+  "weaponExamples": [
+    {
+      "id": "G037",
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 21160
+      },
+      "fields": {
+        "weapsOn": {
+          "value": 1,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 21189
+          }
+        },
+        "cool1": {
+          "value": 1.2,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 21168
+          }
+        },
+        "dmgpt1": {
+          "value": 0.433,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 21173
+          }
+        },
+        "backSw1": {
+          "value": 0.567,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 21164
+          }
+        },
+        "cool2": {
+          "value": 2.13,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 21169
+          }
+        },
+        "dmgpt2": {
+          "value": 0.433,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 21174
+          }
+        },
+        "backSw2": {
+          "value": 0.567,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 21165
+          }
+        },
+        "castpt": {
+          "value": 0.5,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 21167
+          }
+        },
+        "castbsw": {
+          "value": 0.1,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 21166
+          }
+        }
+      }
+    },
+    {
+      "id": "H006",
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 22880
+      },
+      "fields": {
+        "weapsOn": {
+          "value": 1,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 22909
+          }
+        },
+        "cool1": {
+          "value": 1.2,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 22888
+          }
+        },
+        "dmgpt1": {
+          "value": 0.433,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 22893
+          }
+        },
+        "backSw1": {
+          "value": 0.567,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 22884
+          }
+        },
+        "cool2": {
+          "value": 2.13,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 22889
+          }
+        },
+        "dmgpt2": {
+          "value": 0.433,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 22894
+          }
+        },
+        "backSw2": {
+          "value": 0.567,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 22885
+          }
+        },
+        "castpt": {
+          "value": 0.5,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 22887
+          }
+        },
+        "castbsw": {
+          "value": 0.1,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 22886
+          }
+        }
+      }
+    },
+    {
+      "id": "G065",
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 22141
+      },
+      "fields": {
+        "weapsOn": {
+          "value": 1,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 22170
+          }
+        },
+        "cool1": {
+          "value": 1.2,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 22149
+          }
+        },
+        "dmgpt1": {
+          "value": 0.35,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 22154
+          }
+        },
+        "backSw1": {
+          "value": 0.65,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 22145
+          }
+        },
+        "cool2": {
+          "value": 2.13,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 22150
+          }
+        },
+        "dmgpt2": {
+          "value": 0.35,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 22155
+          }
+        },
+        "backSw2": {
+          "value": 0.65,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 22146
+          }
+        },
+        "castpt": {
+          "value": 0.01,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 22148
+          }
+        },
+        "castbsw": {
+          "value": 0.1,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 22147
+          }
+        }
+      }
+    },
+    {
+      "id": "H046",
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 24278
+      },
+      "fields": {
+        "weapsOn": {
+          "value": 1,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 24307
+          }
+        },
+        "cool1": {
+          "value": 1.2,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 24286
+          }
+        },
+        "dmgpt1": {
+          "value": 0.35,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 24291
+          }
+        },
+        "backSw1": {
+          "value": 0.65,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 24282
+          }
+        },
+        "cool2": {
+          "value": 2.13,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 24287
+          }
+        },
+        "dmgpt2": {
+          "value": 0.35,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 24292
+          }
+        },
+        "backSw2": {
+          "value": 0.65,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 24283
+          }
+        },
+        "castpt": {
+          "value": 0.01,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 24285
+          }
+        },
+        "castbsw": {
+          "value": 0.1,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 24284
+          }
+        }
+      }
+    },
+    {
+      "id": "H001",
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 22699
+      },
+      "fields": {
+        "weapsOn": {
+          "value": 1,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 22732
+          }
+        },
+        "cool1": {
+          "value": 1.1,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 22707
+          }
+        },
+        "dmgpt1": {
+          "value": 0.5,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 22712
+          }
+        },
+        "backSw1": {
+          "value": 0.54,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 22703
+          }
+        },
+        "cool2": {
+          "value": 2.13,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 22708
+          }
+        },
+        "dmgpt2": {
+          "value": 0.46,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 22713
+          }
+        },
+        "backSw2": {
+          "value": 0.54,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 22704
+          }
+        },
+        "castpt": {
+          "value": 0.67,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 22706
+          }
+        },
+        "castbsw": {
+          "value": 0.4,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 22705
+          }
+        }
+      }
+    },
+    {
+      "id": "E014",
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 20388
+      },
+      "fields": {
+        "weapsOn": {
+          "value": 3,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 20418
+          }
+        },
+        "cool1": {
+          "value": 0.95,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 20396
+          }
+        },
+        "dmgpt1": {
+          "value": 0.35,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 20401
+          }
+        },
+        "backSw1": {
+          "value": 0.65,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 20392
+          }
+        },
+        "cool2": {
+          "value": 2.5,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 20397
+          }
+        },
+        "dmgpt2": {
+          "value": 0.35,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 20402
+          }
+        },
+        "backSw2": {
+          "value": 0.65,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 20393
+          }
+        },
+        "castpt": {
+          "value": 0.4,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 20395
+          }
+        },
+        "castbsw": {
+          "value": 0.1,
+          "source": {
+            "file": "reference/map-6.25/units_unitweapons.json",
+            "line": 20394
+          }
+        }
+      }
+    }
+  ],
+  "PPlusBGreaterThanC": [
+    {
+      "id": "E014",
+      "C": 0.95,
+      "P": 0.35,
+      "B": 0.65,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 20388
+      }
+    },
+    {
+      "id": "E015",
+      "C": 0.9,
+      "P": 0.35,
+      "B": 0.65,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 20424
+      }
+    },
+    {
+      "id": "G022",
+      "C": 1.2,
+      "P": 0.55,
+      "B": 0.85,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 20980
+      }
+    },
+    {
+      "id": "G035",
+      "C": 1.26,
+      "P": 0.73,
+      "B": 0.54,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 21087
+      }
+    },
+    {
+      "id": "G036",
+      "C": 1.1,
+      "P": 0.33,
+      "B": 0.84,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 21125
+      }
+    },
+    {
+      "id": "G040",
+      "C": 1.1,
+      "P": 0.33,
+      "B": 0.84,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 21265
+      }
+    },
+    {
+      "id": "G041",
+      "C": 1.1,
+      "P": 0.33,
+      "B": 0.84,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 21300
+      }
+    },
+    {
+      "id": "G043",
+      "C": 1.26,
+      "P": 0.73,
+      "B": 0.54,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 21370
+      }
+    },
+    {
+      "id": "G055",
+      "C": 1.2,
+      "P": 0.55,
+      "B": 0.85,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 21796
+      }
+    },
+    {
+      "id": "G057",
+      "C": 1.2,
+      "P": 0.55,
+      "B": 0.85,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 21860
+      }
+    },
+    {
+      "id": "G058",
+      "C": 1.2,
+      "P": 0.55,
+      "B": 0.85,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 21895
+      }
+    },
+    {
+      "id": "G072",
+      "C": 1.2,
+      "P": 0.7,
+      "B": 0.58,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 22387
+      }
+    },
+    {
+      "id": "G074",
+      "C": 1.1,
+      "P": 0.55,
+      "B": 0.85,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 22457
+      }
+    },
+    {
+      "id": "G080",
+      "C": 1.2,
+      "P": 0.55,
+      "B": 0.85,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 22664
+      }
+    },
+    {
+      "id": "H002",
+      "C": 1.26,
+      "P": 0.73,
+      "B": 0.54,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 22737
+      }
+    },
+    {
+      "id": "H005",
+      "C": 1.1,
+      "P": 0.55,
+      "B": 0.85,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 22845
+      }
+    },
+    {
+      "id": "H012",
+      "C": 1.0,
+      "P": 0.55,
+      "B": 0.85,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 23090
+      }
+    },
+    {
+      "id": "H013",
+      "C": 1.1,
+      "P": 0.33,
+      "B": 0.84,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 23125
+      }
+    },
+    {
+      "id": "H015",
+      "C": 1.2,
+      "P": 0.55,
+      "B": 0.85,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 23195
+      }
+    },
+    {
+      "id": "H016",
+      "C": 1.1,
+      "P": 0.55,
+      "B": 0.85,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 23230
+      }
+    },
+    {
+      "id": "H020",
+      "C": 1.2,
+      "P": 0.55,
+      "B": 0.85,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 23371
+      }
+    },
+    {
+      "id": "H024",
+      "C": 1.1,
+      "P": 0.33,
+      "B": 0.84,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 23514
+      }
+    },
+    {
+      "id": "H033",
+      "C": 1.2,
+      "P": 0.55,
+      "B": 0.85,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 23825
+      }
+    },
+    {
+      "id": "H034",
+      "C": 1.1,
+      "P": 0.55,
+      "B": 0.85,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 23860
+      }
+    },
+    {
+      "id": "H036",
+      "C": 1.1,
+      "P": 0.55,
+      "B": 0.85,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 23930
+      }
+    },
+    {
+      "id": "H038",
+      "C": 1.1,
+      "P": 0.55,
+      "B": 0.85,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 24000
+      }
+    },
+    {
+      "id": "H041",
+      "C": 1.2,
+      "P": 0.7,
+      "B": 0.58,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 24105
+      }
+    },
+    {
+      "id": "H042",
+      "C": 1.2,
+      "P": 0.8,
+      "B": 0.7,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 24139
+      }
+    },
+    {
+      "id": "H044",
+      "C": 1.25,
+      "P": 0.55,
+      "B": 0.85,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 24209
+      }
+    },
+    {
+      "id": "H049",
+      "C": 1.3,
+      "P": 0.55,
+      "B": 0.85,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 24383
+      }
+    },
+    {
+      "id": "H051",
+      "C": 1.2,
+      "P": 0.55,
+      "B": 0.85,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 24453
+      }
+    },
+    {
+      "id": "n153",
+      "C": 1.7,
+      "P": 0.1,
+      "B": 1.9,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 30800
+      }
+    },
+    {
+      "id": "n154",
+      "C": 1.7,
+      "P": 0.1,
+      "B": 1.9,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 30852
+      }
+    },
+    {
+      "id": "n155",
+      "C": 1.7,
+      "P": 0.1,
+      "B": 1.9,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 30904
+      }
+    },
+    {
+      "id": "n163",
+      "C": 0.9,
+      "P": 0.4,
+      "B": 0.6,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 31277
+      }
+    },
+    {
+      "id": "n167",
+      "C": 0.9,
+      "P": 0.4,
+      "B": 0.6,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 31454
+      }
+    },
+    {
+      "id": "n185",
+      "C": 1.0,
+      "P": 0.5,
+      "B": 0.56,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 31945
+      }
+    },
+    {
+      "id": "n194",
+      "C": 0.6,
+      "P": 0.33,
+      "B": 0.64,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 32186
+      }
+    },
+    {
+      "id": "n227",
+      "C": 0.9,
+      "P": 0.56,
+      "B": 0.44,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 33121
+      }
+    },
+    {
+      "id": "n235",
+      "C": 1.1,
+      "P": 0.5,
+      "B": 0.67,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 33355
+      }
+    },
+    {
+      "id": "n236",
+      "C": 1.0,
+      "P": 0.5,
+      "B": 0.67,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 33380
+      }
+    }
+  ],
+  "literalStateCallSites": [
+    {
+      "function": "main/f41/f2",
+      "operation": "GetUnitState",
+      "state": 37,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 66155,
+        "stateLine": 66158
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 40889
+      }
+    },
+    {
+      "function": "main/f41/f2",
+      "operation": "GetUnitState",
+      "state": 81,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 66161,
+        "stateLine": 66164
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 40895
+      }
+    },
+    {
+      "function": "main/f89/f0",
+      "operation": "SetUnitState",
+      "state": 37,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 80458,
+        "stateLine": 80461
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 50228
+      },
+      "module": "A111",
+      "arithmetic": "C += 0.1"
+    },
+    {
+      "function": "main/f89/f0",
+      "operation": "GetUnitState",
+      "state": 37,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 80463,
+        "stateLine": 80466
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 50233
+      }
+    },
+    {
+      "function": "main/f89/f2",
+      "operation": "SetUnitState",
+      "state": 37,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 80810,
+        "stateLine": 80813
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 50484
+      },
+      "module": "A111",
+      "arithmetic": "C -= 0.1"
+    },
+    {
+      "function": "main/f89/f2",
+      "operation": "GetUnitState",
+      "state": 37,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 80815,
+        "stateLine": 80818
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 50489
+      }
+    },
+    {
+      "function": "main/f97/f1",
+      "operation": "SetUnitState",
+      "state": 37,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 84216,
+        "stateLine": 84219
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 52787
+      },
+      "module": "A125",
+      "arithmetic": "C += savedDelta"
+    },
+    {
+      "function": "main/f97/f1",
+      "operation": "GetUnitState",
+      "state": 37,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 84221,
+        "stateLine": 84224
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 52792
+      }
+    },
+    {
+      "function": "main/f97/f1",
+      "operation": "SetUnitState",
+      "state": 37,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 84239,
+        "stateLine": 84242
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 52808
+      },
+      "module": "A125",
+      "arithmetic": "savedDelta = 0.2; C -= savedDelta"
+    },
+    {
+      "function": "main/f97/f1",
+      "operation": "GetUnitState",
+      "state": 37,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 84244,
+        "stateLine": 84247
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 52813
+      }
+    },
+    {
+      "function": "main/f113/f1",
+      "operation": "GetUnitState",
+      "state": 81,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 88258,
+        "stateLine": 88261
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 55471
+      }
+    },
+    {
+      "function": "main/f114/f0",
+      "operation": "SetUnitState",
+      "state": 37,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 88344,
+        "stateLine": 88347
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 55525
+      },
+      "module": "A163",
+      "arithmetic": "C += 0.2"
+    },
+    {
+      "function": "main/f114/f0",
+      "operation": "GetUnitState",
+      "state": 37,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 88349,
+        "stateLine": 88352
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 55530
+      }
+    },
+    {
+      "function": "main/f114/f1",
+      "operation": "SetUnitState",
+      "state": 37,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 88462,
+        "stateLine": 88465
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 55593
+      },
+      "module": "A163",
+      "arithmetic": "C -= 0.2"
+    },
+    {
+      "function": "main/f114/f1",
+      "operation": "GetUnitState",
+      "state": 37,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 88467,
+        "stateLine": 88470
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 55598
+      }
+    },
+    {
+      "function": "main/f127/f0",
+      "operation": "SetUnitState",
+      "state": 37,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 96271,
+        "stateLine": 96274
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 60513
+      },
+      "module": "A180",
+      "arithmetic": "C += savedDelta"
+    },
+    {
+      "function": "main/f127/f0",
+      "operation": "GetUnitState",
+      "state": 37,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 96276,
+        "stateLine": 96279
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 60518
+      }
+    },
+    {
+      "function": "main/f127/f0",
+      "operation": "SetUnitState",
+      "state": 81,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 96284,
+        "stateLine": 96287
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 60526
+      },
+      "module": "A180",
+      "arithmetic": "R -= 5"
+    },
+    {
+      "function": "main/f127/f0",
+      "operation": "GetUnitState",
+      "state": 81,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 96289,
+        "stateLine": 96292
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 60531
+      }
+    },
+    {
+      "function": "main/f127/f3",
+      "operation": "GetUnitState",
+      "state": 37,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 96691,
+        "stateLine": 96694
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 60783
+      }
+    },
+    {
+      "function": "main/f127/f3",
+      "operation": "SetUnitState",
+      "state": 37,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 96706,
+        "stateLine": 96709
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 60798
+      },
+      "module": "A180",
+      "arithmetic": "C = 0.3; savedDelta was oldC - 0.3"
+    },
+    {
+      "function": "main/f127/f3",
+      "operation": "SetUnitState",
+      "state": 81,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 96713,
+        "stateLine": 96716
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 60805
+      },
+      "module": "A180",
+      "arithmetic": "R += 5"
+    },
+    {
+      "function": "main/f127/f3",
+      "operation": "GetUnitState",
+      "state": 81,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 96718,
+        "stateLine": 96721
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 60810
+      }
+    },
+    {
+      "function": "main/f151/f1",
+      "operation": "SetUnitState",
+      "state": 37,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 105158,
+        "stateLine": 105161
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 66258
+      },
+      "module": "A206",
+      "arithmetic": "q051.C = 0.3 when Has_A_Item(source)"
+    },
+    {
+      "function": "main/f178/f0",
+      "operation": "GetUnitState",
+      "state": 37,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 113570,
+        "stateLine": 113573
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 71831
+      }
+    },
+    {
+      "function": "main/f178/f0",
+      "operation": "GetUnitState",
+      "state": 81,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 113576,
+        "stateLine": 113579
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 71837
+      }
+    },
+    {
+      "function": "main/f232/f0",
+      "operation": "SetUnitState",
+      "state": 81,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 125777,
+        "stateLine": 125780
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 79682
+      },
+      "module": "i240_254",
+      "arithmetic": "R += 0.4; source has i243 or i249 or i250"
+    },
+    {
+      "function": "main/f232/f0",
+      "operation": "GetUnitState",
+      "state": 81,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 125782,
+        "stateLine": 125785
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 79687
+      }
+    },
+    {
+      "function": "main/f232/f0",
+      "operation": "SetUnitState",
+      "state": 81,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 125817,
+        "stateLine": 125820
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 79722
+      },
+      "module": "i240_254",
+      "arithmetic": "R += 0.4; source has i245 or i251 or i252"
+    },
+    {
+      "function": "main/f232/f0",
+      "operation": "GetUnitState",
+      "state": 81,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 125822,
+        "stateLine": 125825
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 79727
+      }
+    },
+    {
+      "function": "main/f232/f0",
+      "operation": "SetUnitState",
+      "state": 81,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 125857,
+        "stateLine": 125860
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 79762
+      },
+      "module": "i240_254",
+      "arithmetic": "R += 0.4; source has i247 or i253 or i254"
+    },
+    {
+      "function": "main/f232/f0",
+      "operation": "GetUnitState",
+      "state": 81,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 125862,
+        "stateLine": 125865
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 79767
+      }
+    },
+    {
+      "function": "main/f232/f0",
+      "operation": "SetUnitState",
+      "state": 81,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 125879,
+        "stateLine": 125882
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 79783
+      },
+      "module": "i240_254",
+      "arithmetic": "R += 0.3; source has i240"
+    },
+    {
+      "function": "main/f232/f0",
+      "operation": "GetUnitState",
+      "state": 81,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 125884,
+        "stateLine": 125887
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 79788
+      }
+    },
+    {
+      "function": "main/f232/f0",
+      "operation": "SetUnitState",
+      "state": 81,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 125901,
+        "stateLine": 125904
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 79804
+      },
+      "module": "i240_254",
+      "arithmetic": "R += 0.2; source has i242"
+    },
+    {
+      "function": "main/f232/f0",
+      "operation": "GetUnitState",
+      "state": 81,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 125906,
+        "stateLine": 125909
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 79809
+      }
+    },
+    {
+      "function": "main/f267/f1",
+      "operation": "GetUnitState",
+      "state": 37,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 133375,
+        "stateLine": 133378
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 84659
+      }
+    },
+    {
+      "function": "main/f267/f1",
+      "operation": "GetUnitState",
+      "state": 81,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 133381,
+        "stateLine": 133384
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 84665
+      }
+    },
+    {
+      "function": "main/f285/f10",
+      "operation": "SetUnitState",
+      "state": 37,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 145019,
+        "stateLine": 145022
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 96860
+      },
+      "module": "Item_Get",
+      "arithmetic": "i304: C -= 0.2; earlier qualification path"
+    },
+    {
+      "function": "main/f285/f10",
+      "operation": "GetUnitState",
+      "state": 37,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 145024,
+        "stateLine": 145027
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 96865
+      }
+    },
+    {
+      "function": "main/f285/f10",
+      "operation": "SetUnitState",
+      "state": 37,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 145323,
+        "stateLine": 145326
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 97149
+      },
+      "module": "Item_Get",
+      "arithmetic": "i304: C -= 0.2; ordinary non-box/non-worker path; return"
+    },
+    {
+      "function": "main/f285/f10",
+      "operation": "GetUnitState",
+      "state": 37,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 145328,
+        "stateLine": 145331
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 97154
+      }
+    },
+    {
+      "function": "main/f285/f18",
+      "operation": "SetUnitState",
+      "state": 37,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 147203,
+        "stateLine": 147206
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 98640
+      },
+      "module": "Item_Drop",
+      "arithmetic": "i304: C += 0.2; return"
+    },
+    {
+      "function": "main/f285/f18",
+      "operation": "GetUnitState",
+      "state": 37,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 147208,
+        "stateLine": 147211
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 98645
+      }
+    },
+    {
+      "function": "main/f285/f18",
+      "operation": "SetUnitState",
+      "state": 81,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 147432,
+        "stateLine": 147435
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 98862
+      },
+      "module": "Item_Drop companion",
+      "arithmetic": "R -= 0.4; i243/i249/i250 branch; return"
+    },
+    {
+      "function": "main/f285/f18",
+      "operation": "GetUnitState",
+      "state": 81,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 147437,
+        "stateLine": 147440
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 98867
+      }
+    },
+    {
+      "function": "main/f285/f18",
+      "operation": "SetUnitState",
+      "state": 81,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 147489,
+        "stateLine": 147492
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 98920
+      },
+      "module": "Item_Drop companion",
+      "arithmetic": "R -= 0.4; i245/i251/i252 branch; return"
+    },
+    {
+      "function": "main/f285/f18",
+      "operation": "GetUnitState",
+      "state": 81,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 147494,
+        "stateLine": 147497
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 98925
+      }
+    },
+    {
+      "function": "main/f285/f18",
+      "operation": "SetUnitState",
+      "state": 81,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 147546,
+        "stateLine": 147549
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 98978
+      },
+      "module": "Item_Drop companion",
+      "arithmetic": "R -= 0.4; i247/i253/i254 branch; return"
+    },
+    {
+      "function": "main/f285/f18",
+      "operation": "GetUnitState",
+      "state": 81,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 147551,
+        "stateLine": 147554
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 98983
+      }
+    },
+    {
+      "function": "main/f285/f18",
+      "operation": "SetUnitState",
+      "state": 81,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 147575,
+        "stateLine": 147578
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 99006
+      },
+      "module": "Item_Drop companion",
+      "arithmetic": "R -= 0.3; literal i247 branch, not i240; return"
+    },
+    {
+      "function": "main/f285/f18",
+      "operation": "GetUnitState",
+      "state": 81,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 147580,
+        "stateLine": 147583
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 99011
+      }
+    },
+    {
+      "function": "main/f285/f18",
+      "operation": "SetUnitState",
+      "state": 81,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 147604,
+        "stateLine": 147607
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 99034
+      },
+      "module": "Item_Drop companion",
+      "arithmetic": "R -= 0.2; i242 branch; return"
+    },
+    {
+      "function": "main/f285/f18",
+      "operation": "GetUnitState",
+      "state": 81,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 147609,
+        "stateLine": 147612
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 99039
+      }
+    },
+    {
+      "function": "main/f291/f12",
+      "operation": "SetUnitState",
+      "state": 37,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 169395,
+        "stateLine": 169398
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 116499
+      },
+      "module": "restoration callback",
+      "arithmetic": "C = current unit type cool1"
+    },
+    {
+      "function": "main/f291/f12",
+      "operation": "SetUnitState",
+      "state": 37,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 169420,
+        "stateLine": 169423
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 116521
+      },
+      "module": "restoration callback",
+      "arithmetic": "non-worker/non-box with i304: C -= 0.2"
+    },
+    {
+      "function": "main/f291/f12",
+      "operation": "GetUnitState",
+      "state": 37,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 169425,
+        "stateLine": 169428
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 116526
+      }
+    },
+    {
+      "function": "main/f291/f12",
+      "operation": "SetUnitState",
+      "state": 37,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 169440,
+        "stateLine": 169443
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 116542
+      },
+      "module": "restoration callback",
+      "arithmetic": "member of A111_113_tar: C -= 0.1"
+    },
+    {
+      "function": "main/f291/f12",
+      "operation": "GetUnitState",
+      "state": 37,
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 169445,
+        "stateLine": 169448
+      },
+      "readableSource": {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 116547
+      }
+    }
+  ],
+  "webRules": {
+    "T01": {
+      "classification": "Q24 Web selection, not native fact",
+      "rawR": "1 + 0.002 * current native-hero agility including effective bonuses + sum(active accepted speed contributions) + J",
+      "setState81": "J += suppliedValue - currentRawR",
+      "getState81": "rawR, unclamped",
+      "laterNativeContributionChanges": "preserve J; lifecycle modules resolve contributions first",
+      "setState37": "rawC = suppliedValue in script order",
+      "getState37": "rawC",
+      "effectiveK": "clamp(rawR, 0.2, 5)",
+      "effectiveRateMin": 0.2,
+      "effectiveRateMax": 5,
+      "includeDirectScriptOffsetInClamp": true,
+      "clampWritesBackToR": false,
+      "nativeLimitVerified": false
+    },
+    "T02": {
+      "classification": "Q24 Web selection, not native fact",
+      "effectiveC": "max(rawC, 0.000001)",
+      "cooldown": "Ceff/K, runs from attack start",
+      "windup": "P/K",
+      "fullBackswing": "B/K from release",
+      "continuousStartInterval": "max(Ceff,P)/K",
+      "backswingMayBeTruncatedByReadyNextAttack": true,
+      "parallelWindupsOfSameWeapon": false,
+      "missingPandB": "must resolve template; never treat missing as zero",
+      "explicitZeroStage": "queue at same battle-time tail under B05; one submission only",
+      "spellCastPointScaledByAttackSpeed": false,
+      "beginEvent": "one chooseAttackedAction dispatch; initial phase progress exists at zero before callbacks; changes affect this attack"
+    },
+    "T03": {
+      "classification": "Q24 Web selection consistent with existing A022 timing contract",
+      "state": "independent cooldown/windup/backswing normalized progress",
+      "speedOnlyRemaining": "remainingOld * Kold/Knew",
+      "cooldownFieldChangeRemaining": "(1-pc) * Ceff_new/Knew",
+      "completedStages": "do not reopen, repeat release, or retime independent projectile",
+      "unchangedK": "do not requeue speed-only stage events",
+      "alreadyDueCompletion": "keep original pending entry/order when work already reached completion at current battle time",
+      "reschedule": "invalidate old stage generation and enqueue new deadline under B05",
+      "quantization": "nearest integer microsecond, ties upward; positive remaining work rounds to at least one microsecond; explicit zero may stay same tick",
+      "save": [
+        "rules version",
+        "raw C/P/B",
+        "raw R contributions and J",
+        "weapon and attack generation",
+        "phase progress and last integration time",
+        "completed stage flags",
+        "queued deadlines/order/generations"
+      ],
+      "restore": "no repeated buff add/remove, no attack-start replay"
+    }
+  },
+  "examples": [
+    {
+      "id": "normal",
+      "kind": "Web mathematical acceptance, not original-client observation",
+      "conditionalUnresolvedInput": false,
+      "input": {
+        "agility": 100,
+        "bonuses": [
+          0.3
+        ],
+        "directOffset": 0,
+        "C": 1.2,
+        "P": 0.433,
+        "B": 0.567
+      },
+      "rawR": 1.5,
+      "effectiveK": 1.5,
+      "cooldown": {
+        "exactSeconds": "4/5",
+        "seconds": 0.8,
+        "microseconds": 800000
+      },
+      "windup": {
+        "exactSeconds": "433/1500",
+        "seconds": 0.2886666666666667,
+        "microseconds": 288667
+      },
+      "fullBackswing": {
+        "exactSeconds": "189/500",
+        "seconds": 0.378,
+        "microseconds": 378000
+      },
+      "continuousStartInterval": {
+        "exactSeconds": "4/5",
+        "seconds": 0.8,
+        "microseconds": 800000
+      }
+    },
+    {
+      "id": "negative",
+      "kind": "Web mathematical acceptance, not original-client observation",
+      "conditionalUnresolvedInput": false,
+      "input": {
+        "agility": 0,
+        "bonuses": [
+          -0.6
+        ],
+        "directOffset": 0,
+        "C": 1.2,
+        "P": 0.433,
+        "B": 0.567
+      },
+      "rawR": 0.4,
+      "effectiveK": 0.4,
+      "cooldown": {
+        "exactSeconds": "3",
+        "seconds": 3.0,
+        "microseconds": 3000000
+      },
+      "windup": {
+        "exactSeconds": "433/400",
+        "seconds": 1.0825,
+        "microseconds": 1082500
+      },
+      "fullBackswing": {
+        "exactSeconds": "567/400",
+        "seconds": 1.4175,
+        "microseconds": 1417500
+      },
+      "continuousStartInterval": {
+        "exactSeconds": "3",
+        "seconds": 3.0,
+        "microseconds": 3000000
+      }
+    },
+    {
+      "id": "lower-bound",
+      "kind": "Web mathematical acceptance, not original-client observation",
+      "conditionalUnresolvedInput": false,
+      "input": {
+        "agility": 0,
+        "bonuses": [
+          -1.2
+        ],
+        "directOffset": 0,
+        "C": 1.2,
+        "P": 0.433,
+        "B": 0.567
+      },
+      "rawR": -0.2,
+      "effectiveK": 0.2,
+      "cooldown": {
+        "exactSeconds": "6",
+        "seconds": 6.0,
+        "microseconds": 6000000
+      },
+      "windup": {
+        "exactSeconds": "433/200",
+        "seconds": 2.165,
+        "microseconds": 2165000
+      },
+      "fullBackswing": {
+        "exactSeconds": "567/200",
+        "seconds": 2.835,
+        "microseconds": 2835000
+      },
+      "continuousStartInterval": {
+        "exactSeconds": "6",
+        "seconds": 6.0,
+        "microseconds": 6000000
+      }
+    },
+    {
+      "id": "A022-candidate4-cap",
+      "kind": "Web mathematical acceptance, not original-client observation",
+      "conditionalUnresolvedInput": false,
+      "input": {
+        "agility": 100,
+        "bonuses": [
+          0.4,
+          4
+        ],
+        "directOffset": 0,
+        "C": 1.2,
+        "P": 0.433,
+        "B": 0.567
+      },
+      "rawR": 5.6,
+      "effectiveK": 5.0,
+      "cooldown": {
+        "exactSeconds": "6/25",
+        "seconds": 0.24,
+        "microseconds": 240000
+      },
+      "windup": {
+        "exactSeconds": "433/5000",
+        "seconds": 0.0866,
+        "microseconds": 86600
+      },
+      "fullBackswing": {
+        "exactSeconds": "567/5000",
+        "seconds": 0.1134,
+        "microseconds": 113400
+      },
+      "continuousStartInterval": {
+        "exactSeconds": "6/25",
+        "seconds": 0.24,
+        "microseconds": 240000
+      },
+      "interpretation": "original map input comparison, not selected Web value"
+    },
+    {
+      "id": "A022-candidate5-cap",
+      "kind": "Web mathematical acceptance, not original-client observation",
+      "conditionalUnresolvedInput": false,
+      "input": {
+        "agility": 100,
+        "bonuses": [
+          0.4,
+          5
+        ],
+        "directOffset": 0,
+        "C": 1.2,
+        "P": 0.433,
+        "B": 0.567
+      },
+      "rawR": 6.6,
+      "effectiveK": 5.0,
+      "cooldown": {
+        "exactSeconds": "6/25",
+        "seconds": 0.24,
+        "microseconds": 240000
+      },
+      "windup": {
+        "exactSeconds": "433/5000",
+        "seconds": 0.0866,
+        "microseconds": 86600
+      },
+      "fullBackswing": {
+        "exactSeconds": "567/5000",
+        "seconds": 0.1134,
+        "microseconds": 113400
+      },
+      "continuousStartInterval": {
+        "exactSeconds": "6/25",
+        "seconds": 0.24,
+        "microseconds": 240000
+      },
+      "interpretation": "Q35 selected input"
+    },
+    {
+      "id": "A022-candidate4-slow",
+      "kind": "Web mathematical acceptance, not original-client observation",
+      "conditionalUnresolvedInput": false,
+      "input": {
+        "agility": 0,
+        "bonuses": [
+          -0.6,
+          4
+        ],
+        "directOffset": 0,
+        "C": 1.2,
+        "P": 0.433,
+        "B": 0.567
+      },
+      "rawR": 4.4,
+      "effectiveK": 4.4,
+      "cooldown": {
+        "exactSeconds": "3/11",
+        "seconds": 0.2727272727272727,
+        "microseconds": 272727
+      },
+      "windup": {
+        "exactSeconds": "433/4400",
+        "seconds": 0.0984090909090909,
+        "microseconds": 98409
+      },
+      "fullBackswing": {
+        "exactSeconds": "567/4400",
+        "seconds": 0.12886363636363637,
+        "microseconds": 128864
+      },
+      "continuousStartInterval": {
+        "exactSeconds": "3/11",
+        "seconds": 0.2727272727272727,
+        "microseconds": 272727
+      },
+      "interpretation": "original map input comparison, not selected Web value"
+    },
+    {
+      "id": "A022-candidate5-slow",
+      "kind": "Web mathematical acceptance, not original-client observation",
+      "conditionalUnresolvedInput": false,
+      "input": {
+        "agility": 0,
+        "bonuses": [
+          -0.6,
+          5
+        ],
+        "directOffset": 0,
+        "C": 1.2,
+        "P": 0.433,
+        "B": 0.567
+      },
+      "rawR": 5.4,
+      "effectiveK": 5.0,
+      "cooldown": {
+        "exactSeconds": "6/25",
+        "seconds": 0.24,
+        "microseconds": 240000
+      },
+      "windup": {
+        "exactSeconds": "433/5000",
+        "seconds": 0.0866,
+        "microseconds": 86600
+      },
+      "fullBackswing": {
+        "exactSeconds": "567/5000",
+        "seconds": 0.1134,
+        "microseconds": 113400
+      },
+      "continuousStartInterval": {
+        "exactSeconds": "6/25",
+        "seconds": 0.24,
+        "microseconds": 240000
+      },
+      "interpretation": "Q35 selected input"
+    },
+    {
+      "id": "E014-backswing-truncate",
+      "kind": "Web mathematical acceptance, not original-client observation",
+      "conditionalUnresolvedInput": false,
+      "input": {
+        "agility": 0,
+        "bonuses": [],
+        "directOffset": 0,
+        "C": 0.95,
+        "P": 0.35,
+        "B": 0.65
+      },
+      "rawR": 1.0,
+      "effectiveK": 1.0,
+      "cooldown": {
+        "exactSeconds": "19/20",
+        "seconds": 0.95,
+        "microseconds": 950000
+      },
+      "windup": {
+        "exactSeconds": "7/20",
+        "seconds": 0.35,
+        "microseconds": 350000
+      },
+      "fullBackswing": {
+        "exactSeconds": "13/20",
+        "seconds": 0.65,
+        "microseconds": 650000
+      },
+      "continuousStartInterval": {
+        "exactSeconds": "19/20",
+        "seconds": 0.95,
+        "microseconds": 950000
+      }
+    },
+    {
+      "id": "A180-source-C-below-P",
+      "kind": "Web mathematical acceptance, not original-client observation",
+      "conditionalUnresolvedInput": false,
+      "input": {
+        "agility": 0,
+        "bonuses": [
+          5
+        ],
+        "directOffset": 0,
+        "C": 0.3,
+        "P": 0.35,
+        "B": 0.65
+      },
+      "rawR": 6.0,
+      "effectiveK": 5.0,
+      "cooldown": {
+        "exactSeconds": "3/50",
+        "seconds": 0.06,
+        "microseconds": 60000
+      },
+      "windup": {
+        "exactSeconds": "7/100",
+        "seconds": 0.07,
+        "microseconds": 70000
+      },
+      "fullBackswing": {
+        "exactSeconds": "13/100",
+        "seconds": 0.13,
+        "microseconds": 130000
+      },
+      "continuousStartInterval": {
+        "exactSeconds": "7/100",
+        "seconds": 0.07,
+        "microseconds": 70000
+      },
+      "interpretation": "A180 source timing plus Q24 Web scheduler; no workbook conflict"
+    }
+  ],
+  "midAttackExamples": [
+    {
+      "id": "windup-faster",
+      "input": {
+        "oldK": 1,
+        "newK": 2,
+        "changeAt": 0.2,
+        "oldC": 1.2,
+        "newC": 1.2,
+        "P": 0.433,
+        "B": 0.567
+      },
+      "changePhase": "windup",
+      "releaseAt": {
+        "exactSeconds": "633/2000",
+        "seconds": 0.3165,
+        "microseconds": 316500
+      },
+      "fullBackswingEndAt": {
+        "exactSeconds": "3/5",
+        "seconds": 0.6,
+        "microseconds": 600000
+      },
+      "cooldownReadyAt": {
+        "exactSeconds": "7/10",
+        "seconds": 0.7,
+        "microseconds": 700000
+      },
+      "nextAttackEarliestAt": {
+        "exactSeconds": "7/10",
+        "seconds": 0.7,
+        "microseconds": 700000
+      }
+    },
+    {
+      "id": "windup-slower",
+      "input": {
+        "oldK": 2,
+        "newK": 0.5,
+        "changeAt": 0.1,
+        "oldC": 1.2,
+        "newC": 1.2,
+        "P": 0.433,
+        "B": 0.567
+      },
+      "changePhase": "windup",
+      "releaseAt": {
+        "exactSeconds": "283/500",
+        "seconds": 0.566,
+        "microseconds": 566000
+      },
+      "fullBackswingEndAt": {
+        "exactSeconds": "17/10",
+        "seconds": 1.7,
+        "microseconds": 1700000
+      },
+      "cooldownReadyAt": {
+        "exactSeconds": "21/10",
+        "seconds": 2.1,
+        "microseconds": 2100000
+      },
+      "nextAttackEarliestAt": {
+        "exactSeconds": "21/10",
+        "seconds": 2.1,
+        "microseconds": 2100000
+      }
+    },
+    {
+      "id": "backswing-faster",
+      "input": {
+        "oldK": 1,
+        "newK": 2,
+        "changeAt": 0.6,
+        "oldC": 1.2,
+        "newC": 1.2,
+        "P": 0.433,
+        "B": 0.567
+      },
+      "changePhase": "backswing",
+      "releaseAt": {
+        "exactSeconds": "433/1000",
+        "seconds": 0.433,
+        "microseconds": 433000
+      },
+      "fullBackswingEndAt": {
+        "exactSeconds": "4/5",
+        "seconds": 0.8,
+        "microseconds": 800000
+      },
+      "cooldownReadyAt": {
+        "exactSeconds": "9/10",
+        "seconds": 0.9,
+        "microseconds": 900000
+      },
+      "nextAttackEarliestAt": {
+        "exactSeconds": "9/10",
+        "seconds": 0.9,
+        "microseconds": 900000
+      }
+    },
+    {
+      "id": "C-change-keeps-fraction",
+      "input": {
+        "oldK": 1,
+        "newK": 1,
+        "changeAt": 0.3,
+        "oldC": 1.2,
+        "newC": 1.0,
+        "P": 0.433,
+        "B": 0.567
+      },
+      "changePhase": "windup",
+      "releaseAt": {
+        "exactSeconds": "433/1000",
+        "seconds": 0.433,
+        "microseconds": 433000
+      },
+      "fullBackswingEndAt": {
+        "exactSeconds": "1",
+        "seconds": 1.0,
+        "microseconds": 1000000
+      },
+      "cooldownReadyAt": {
+        "exactSeconds": "21/20",
+        "seconds": 1.05,
+        "microseconds": 1050000
+      },
+      "nextAttackEarliestAt": {
+        "exactSeconds": "21/20",
+        "seconds": 1.05,
+        "microseconds": 1050000
+      }
+    }
+  ],
+  "overflowExample": {
+    "rawRBefore": 5.6,
+    "add": 5,
+    "rawRAfterAdd": 10.6,
+    "effectiveKAfterAdd": 5,
+    "subtract": 5,
+    "rawRAfterSubtract": 5.6,
+    "effectiveKAfterSubtract": 5
+  },
+  "validation": {
+    "kind": "source and exact rational specification checks only",
+    "countsVerified": true,
+    "exampleArithmeticVerified": true,
+    "sourceLineReferencesVerified": true,
+    "originalClientTested": false,
+    "gameRuntimeTested": false,
+    "checkedSourceObjects": 224,
+    "checkedLocalMarkdownLinks": 5,
+    "checkedWeaponFieldValues": 54,
+    "staticExamples": 9,
+    "midAttackExamples": 4
+  },
+  "nativeEvidenceGaps": [
+    "matching client/extension final caps",
+    "raw direct write bypass of cap and persistence after native recalculation",
+    "backswing truncation and windup scaling",
+    "mid-attack native retiming"
+  ],
+  "minimalFutureNativeComparison": [
+    "one known C/P/B weapon; record attack-start and release times at R 0.1/0.2/1/5/6",
+    "change R during windup, backswing and remaining cooldown",
+    "one C<P case",
+    "apply raw R write then change agility/buff and read R again"
+  ],
+  "resolvedInputs": [
+    {
+      "id": "A022-speed-input",
+      "workbookCells": [
+        "塔技能!H190",
+        "塔技能!H451"
+      ],
+      "chosenValue": 5,
+      "candidates": [
+        4,
+        5
+      ],
+      "sourceRule": "docs/rules/skill-overpower.md",
+      "scope": "additive input only, not final capped K",
+      "authority": "Q35",
+      "status": "confirmed"
+    }
+  ],
+  "pendingConflicts": [],
+  "sourceCorrections": [
+    {
+      "id": "A163-A180-row-mismatch",
+      "status": "corrected; not a rule conflict or user decision",
+      "A163": {
+        "name": "集中火力",
+        "workbookCells": [
+          "塔技能!F498:H498",
+          "塔技能!F582:H582"
+        ],
+        "units": [
+          "G072",
+          "H041"
+        ],
+        "operation": "C-=0.2; on end C+=0.2",
+        "sourceModule": "main/f114"
+      },
+      "A180": {
+        "name": "无影拳",
+        "workbookCells": [
+          "塔技能!F433:H433",
+          "塔技能!F448:H448"
+        ],
+        "units": [
+          "H046",
+          "G065"
+        ],
+        "operation": "save oldC-0.3; C=0.3; R+=5; restore saved difference and subtract5",
+        "sourceModule": "main/f127",
+        "basis": "workbook and actual tooltip do not specify C; source supplements missing timing"
+      },
+      "retraction": "removed invalid focusFireCooldownPolicy candidates comparing different ability IDs"
+    }
+  ]
+}

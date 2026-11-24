@@ -1,0 +1,1035 @@
+{
+  "scope": 8,
+  "ready": 8,
+  "pending": 0,
+  "workbookSkillCountIncrement": 0,
+  "workbookOverview": [
+    {
+      "source": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+      "row": 5,
+      "cell": "B5"
+    },
+    {
+      "source": "图鉴.xlsx",
+      "row": 6,
+      "cell": "B6"
+    }
+  ],
+  "selection": {
+    "sourceBook": {
+      "sourcePath": "reference/map-6.25/units_abilitydata.json",
+      "jsonIndex": 2207,
+      "id": "W001",
+      "fields": {
+        "alias": "W001",
+        "code": "Aspb",
+        "DataA1": "W002,W003,W004,W005,W006,W007,W008,W009",
+        "DataC1": 11,
+        "DataD1": 11,
+        "DataE1": "ravenform",
+        "levels": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "choiceMap": {
+      "W002": "W012",
+      "W003": "W013",
+      "W004": "W014",
+      "W005": "W015",
+      "W006": "W016",
+      "W007": "W017",
+      "W008": "W018",
+      "W009": "W019"
+    },
+    "baseRank": 1,
+    "promotionWaves": [
+      10,
+      20,
+      30,
+      40
+    ],
+    "retirementModes": [
+      "Endless entry",
+      "Abyss entry"
+    ],
+    "carryEarnedAttributeContribution": true
+  },
+  "records": [
+    {
+      "id": "W012",
+      "status": "ready",
+      "rules": {
+        "inventorySlot": 1,
+        "cardPools": {
+          "N": [
+            701,
+            717
+          ],
+          "R": [
+            601,
+            609
+          ],
+          "SR": [
+            551,
+            597
+          ],
+          "SSR": [
+            501,
+            510
+          ]
+        },
+        "inputTiers": [
+          "N",
+          "R",
+          "SR"
+        ],
+        "excludeOriginal": true,
+        "qualificationBlockedItems": [
+          "c001",
+          "c002",
+          "c003",
+          "c004",
+          "c005",
+          "c006",
+          "c007",
+          "c008",
+          "c009",
+          "c010",
+          "c011",
+          "c012",
+          "c013"
+        ],
+        "failedCooldownResetAfter": 0.1,
+        "delivery": "delete old complete instance, create result, normal D01 add or ground",
+        "invalidOutsideTierPoolBeforeRemove": true,
+        "mana": 0,
+        "cooldown": [
+          230,
+          190,
+          150,
+          110,
+          70
+        ]
+      },
+      "sourceRefs": {
+        "object": {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 2216,
+          "id": "W012",
+          "fields": {
+            "alias": "W012",
+            "code": "ANcl",
+            "checkDep": 1,
+            "Cool1": 230.0,
+            "Cool2": 190.0,
+            "Cool3": 150.0,
+            "Cool4": 110.0,
+            "DataC1": 1,
+            "DataC2": 1,
+            "DataC3": 1,
+            "DataC4": 1,
+            "DataF1": "animatedead",
+            "DataF2": "animatedead",
+            "DataF3": "animatedead",
+            "DataF4": "animatedead",
+            "levels": 5,
+            "reqLevel": 1,
+            "Rng1": 500.0,
+            "Rng2": 500.0,
+            "Rng3": 500.0,
+            "Rng4": 500.0,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        "objectOverrides": [
+          {
+            "sourcePath": "reference/map-6.25/war3map.w3a.json",
+            "jsonIndex": 265,
+            "id": "W012",
+            "fields": {
+              "old": "W012",
+              "new": "\u0000\u0000\u0000\u0000",
+              "mods": [
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 5,
+                  "data": 0,
+                  "value": 70.0
+                }
+              ]
+            }
+          }
+        ],
+        "profileTipLine": 23545,
+        "routing": [
+          [
+            "main/f294/f47",
+            275,
+            187596
+          ],
+          [
+            "main/f296/f0",
+            25,
+            188458
+          ],
+          [
+            "main/f296/f0",
+            32,
+            188465
+          ],
+          [
+            "main/f296/f1",
+            13,
+            188690
+          ],
+          [
+            "main/f296/f4",
+            4,
+            188867
+          ],
+          [
+            "main/f296/f22",
+            9,
+            190448
+          ],
+          [
+            "main/f296/f23",
+            57,
+            190738
+          ]
+        ],
+        "functions": [
+          "main/f296/f1",
+          "main/f296/f2",
+          "main/f296/f3",
+          "main/f296/f4"
+        ]
+      },
+      "unresolved": [],
+      "differences": "native source i902/i903 level13 can be removed before invalid output",
+      "validation": "source and relevant grouped VM probe"
+    },
+    {
+      "id": "W013",
+      "status": "ready",
+      "rules": {
+        "heroDamageFactor": [
+          1.04,
+          1.08,
+          1.12,
+          1.16,
+          1.2
+        ],
+        "context": "B03 PC2070, O is actual attributed native HERO; owner lookup on O; no additional damage kind gate"
+      },
+      "sourceRefs": {
+        "object": {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 2217,
+          "id": "W013",
+          "fields": {
+            "alias": "W013",
+            "code": "Aamk",
+            "checkDep": 1,
+            "levels": 5,
+            "reqLevel": 1,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        "objectOverrides": [],
+        "profileTipLine": 23558,
+        "routing": [
+          [
+            "main/f294/f47",
+            281,
+            187602
+          ],
+          [
+            "main/f296/f0",
+            50,
+            188484
+          ],
+          [
+            "main/f296/f0",
+            57,
+            188491
+          ],
+          [
+            "main/f296/f5",
+            22,
+            189112
+          ],
+          [
+            "main/f296/f22",
+            32,
+            190472
+          ],
+          [
+            "main/f296/f23",
+            73,
+            190755
+          ]
+        ],
+        "functions": [
+          "main/f296/f5",
+          "main/f291/f1:2070–2073"
+        ]
+      },
+      "unresolved": [],
+      "differences": null,
+      "validation": "source and relevant grouped VM probe"
+    },
+    {
+      "id": "W014",
+      "status": "ready",
+      "rules": {
+        "boxIds": [
+          "i401",
+          "i402",
+          "i403",
+          "i404"
+        ],
+        "keyIds": [
+          "i411",
+          "i412",
+          "i413",
+          "i414"
+        ],
+        "oneEachInOrder": [
+          "box",
+          "key"
+        ],
+        "rarityIntervals": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "independentDraws": true,
+        "skipRngAtRank1": true,
+        "useD01Separately": true,
+        "mana": 0,
+        "cooldown": [
+          250,
+          250,
+          250,
+          250,
+          250
+        ]
+      },
+      "sourceRefs": {
+        "object": {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 2218,
+          "id": "W014",
+          "fields": {
+            "alias": "W014",
+            "code": "ANcl",
+            "checkDep": 1,
+            "Cool1": 250.0,
+            "Cool2": 250.0,
+            "Cool3": 250.0,
+            "Cool4": 250.0,
+            "DataC1": 1,
+            "DataC2": 1,
+            "DataC3": 1,
+            "DataC4": 1,
+            "DataF1": "animatedead",
+            "DataF2": "animatedead",
+            "DataF3": "animatedead",
+            "DataF4": "animatedead",
+            "levels": 5,
+            "reqLevel": 1,
+            "Rng1": 500.0,
+            "Rng2": 500.0,
+            "Rng3": 500.0,
+            "Rng4": 500.0,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        "objectOverrides": [],
+        "profileTipLine": 23570,
+        "routing": [
+          [
+            "main/f294/f47",
+            287,
+            187608
+          ],
+          [
+            "main/f296/f0",
+            75,
+            188510
+          ],
+          [
+            "main/f296/f0",
+            82,
+            188517
+          ],
+          [
+            "main/f296/f6",
+            4,
+            189189
+          ],
+          [
+            "main/f296/f6",
+            14,
+            189200
+          ],
+          [
+            "main/f296/f22",
+            55,
+            190496
+          ],
+          [
+            "main/f296/f23",
+            89,
+            190772
+          ]
+        ],
+        "functions": [
+          "main/f296/f6"
+        ]
+      },
+      "unresolved": [],
+      "differences": null,
+      "validation": "source and relevant grouped VM probe"
+    },
+    {
+      "id": "W015",
+      "status": "ready",
+      "rules": {
+        "goldPerMonsterKill": [
+          5,
+          9,
+          14,
+          20,
+          27
+        ],
+        "owner": "actual killing unit Owner",
+        "triggerBoundary": "actual P11 monster death; source callback also receives deaths of Player 0–3",
+        "supplementalToBounty": true,
+        "policy": "Q71 exclusive monster wording"
+      },
+      "sourceRefs": {
+        "object": {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 2219,
+          "id": "W015",
+          "fields": {
+            "alias": "W015",
+            "code": "AOcr",
+            "checkDep": 1,
+            "levels": 5,
+            "reqLevel": 1,
+            "targs1": "air,ground,enemy,neutral",
+            "targs2": "air,ground,enemy,neutral",
+            "targs3": "air,ground,enemy,neutral",
+            "targs4": "air,ground,enemy,neutral"
+          }
+        },
+        "objectOverrides": [],
+        "profileTipLine": 23582,
+        "routing": [
+          [
+            "main/f294/f47",
+            293,
+            187614
+          ],
+          [
+            "main/f296/f0",
+            100,
+            188536
+          ],
+          [
+            "main/f296/f0",
+            107,
+            188543
+          ],
+          [
+            "main/f296/f7",
+            15,
+            189372
+          ],
+          [
+            "main/f296/f22",
+            78,
+            190520
+          ],
+          [
+            "main/f296/f23",
+            105,
+            190789
+          ]
+        ],
+        "functions": [
+          "main/f296/f7",
+          "main/f291/f9:1–8",
+          "main/f291/f32"
+        ]
+      },
+      "unresolved": [],
+      "differences": "source pays on P11 and P0–3; dedicated tooltip restricts to killing monsters",
+      "validation": "source and relevant grouped VM probe"
+    },
+    {
+      "id": "W016",
+      "status": "ready",
+      "rules": {
+        "firstFourInSlotOrder": true,
+        "routes": [
+          {
+            "objectLevel": 11,
+            "target": "uniform R"
+          },
+          {
+            "objectLevel": 12,
+            "target": "uniform SR"
+          }
+        ],
+        "requiresSameQuality": 4,
+        "qualifiedSpecialCardsCanBeMaterials": true,
+        "failedCooldownResetAfter": 0.1,
+        "delivery": "remove all four, create one new result using D01",
+        "mana": 0,
+        "cooldown": [
+          160,
+          150,
+          140,
+          130,
+          120
+        ]
+      },
+      "sourceRefs": {
+        "object": {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 2220,
+          "id": "W016",
+          "fields": {
+            "alias": "W016",
+            "code": "ANcl",
+            "checkDep": 1,
+            "Cool1": 160.0,
+            "Cool2": 150.0,
+            "Cool3": 140.0,
+            "Cool4": 130.0,
+            "DataC1": 1,
+            "DataC2": 1,
+            "DataC3": 1,
+            "DataC4": 1,
+            "DataF1": "animatedead",
+            "DataF2": "animatedead",
+            "DataF3": "animatedead",
+            "DataF4": "animatedead",
+            "levels": 5,
+            "reqLevel": 1,
+            "Rng1": 500.0,
+            "Rng2": 500.0,
+            "Rng3": 500.0,
+            "Rng4": 500.0,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        "objectOverrides": [
+          {
+            "sourcePath": "reference/map-6.25/war3map.w3a.json",
+            "jsonIndex": 266,
+            "id": "W016",
+            "fields": {
+              "old": "W016",
+              "new": "\u0000\u0000\u0000\u0000",
+              "mods": [
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 5,
+                  "data": 0,
+                  "value": 120.0
+                }
+              ]
+            }
+          }
+        ],
+        "profileTipLine": 23594,
+        "routing": [
+          [
+            "main/f294/f47",
+            299,
+            187620
+          ],
+          [
+            "main/f296/f0",
+            125,
+            188562
+          ],
+          [
+            "main/f296/f0",
+            132,
+            188569
+          ],
+          [
+            "main/f296/f14",
+            13,
+            189722
+          ],
+          [
+            "main/f296/f15",
+            4,
+            189782
+          ],
+          [
+            "main/f296/f22",
+            101,
+            190544
+          ],
+          [
+            "main/f296/f23",
+            121,
+            190806
+          ]
+        ],
+        "functions": [
+          "main/f296/f8",
+          "main/f296/f9",
+          "main/f296/f10",
+          "main/f296/f11",
+          "main/f296/f12",
+          "main/f296/f13",
+          "main/f296/f14",
+          "main/f296/f15"
+        ]
+      },
+      "unresolved": [],
+      "differences": null,
+      "validation": "source and relevant grouped VM probe"
+    },
+    {
+      "id": "W017",
+      "status": "ready",
+      "rules": {
+        "uses": [
+          "I001",
+          "I002",
+          "I003",
+          "I005"
+        ],
+        "afterCommit": true,
+        "rawExclusiveThreshold": [
+          10,
+          13,
+          16,
+          19,
+          24
+        ],
+        "webInclusivePercent": [
+          10,
+          13,
+          16,
+          19,
+          25
+        ],
+        "decision": "Q17",
+        "bonusDrawThenNormal": true,
+        "rerollsAndPersonalWeight": "ordinary independent logic with current player weight after preceding draw",
+        "preserveOneChanceRollEvenWhenRankIsZero": true
+      },
+      "sourceRefs": {
+        "object": {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 2221,
+          "id": "W017",
+          "fields": {
+            "alias": "W017",
+            "code": "Awar",
+            "levels": 5,
+            "targs1": "ground,enemy,neutral",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        "objectOverrides": [],
+        "profileTipLine": 23602,
+        "routing": [
+          [
+            "main/f294/f47",
+            305,
+            187626
+          ],
+          [
+            "main/f296/f0",
+            150,
+            188588
+          ],
+          [
+            "main/f296/f0",
+            157,
+            188595
+          ],
+          [
+            "main/f296/f16",
+            13,
+            189945
+          ],
+          [
+            "main/f296/f22",
+            124,
+            190568
+          ],
+          [
+            "main/f296/f23",
+            137,
+            190823
+          ]
+        ],
+        "functions": [
+          "main/f296/f16",
+          "main/f285/f6:1–52"
+        ]
+      },
+      "unresolved": [],
+      "differences": "Q17 corrected map UI probabilities",
+      "validation": "source and relevant grouped VM probe"
+    },
+    {
+      "id": "W018",
+      "status": "ready",
+      "rules": {
+        "range": 9999,
+        "includesOnlySameOwnerAndNotCircleAtOriginalHandler": true,
+        "spatialRule": "pathing-and-placement.md",
+        "mana": 0,
+        "cooldown": [
+          25,
+          20,
+          15,
+          10,
+          5
+        ]
+      },
+      "sourceRefs": {
+        "object": {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 2222,
+          "id": "W018",
+          "fields": {
+            "alias": "W018",
+            "code": "ANcl",
+            "checkDep": 1,
+            "Cool1": 25.0,
+            "Cool2": 20.0,
+            "Cool3": 15.0,
+            "Cool4": 10.0,
+            "DataB1": 1,
+            "DataB2": 1,
+            "DataB3": 1,
+            "DataB4": 1,
+            "DataC1": 1,
+            "DataC2": 1,
+            "DataC3": 1,
+            "DataC4": 1,
+            "DataD1": 1.0,
+            "DataD2": 1.0,
+            "DataD3": 1.0,
+            "DataD4": 1.0,
+            "DataF1": "animatedead",
+            "DataF2": "animatedead",
+            "DataF3": "animatedead",
+            "DataF4": "animatedead",
+            "levels": 5,
+            "reqLevel": 1,
+            "Rng1": 9999.0,
+            "Rng2": 9999.0,
+            "Rng3": 9999.0,
+            "Rng4": 9999.0,
+            "targs1": "friend,invulnerable",
+            "targs2": "friend,invulnerable",
+            "targs3": "friend,invulnerable",
+            "targs4": "friend,invulnerable"
+          }
+        },
+        "objectOverrides": [
+          {
+            "sourcePath": "reference/map-6.25/war3map.w3a.json",
+            "jsonIndex": 267,
+            "id": "W018",
+            "fields": {
+              "old": "W018",
+              "new": "\u0000\u0000\u0000\u0000",
+              "mods": [
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 5,
+                  "data": 0,
+                  "value": 5.0
+                }
+              ]
+            }
+          }
+        ],
+        "profileTipLine": 23614,
+        "routing": [
+          [
+            "main/f294/f47",
+            311,
+            187632
+          ],
+          [
+            "main/f296/f0",
+            175,
+            188614
+          ],
+          [
+            "main/f296/f0",
+            182,
+            188621
+          ],
+          [
+            "main/f296/f17",
+            13,
+            190017
+          ],
+          [
+            "main/f296/f19",
+            4,
+            190130
+          ],
+          [
+            "main/f296/f22",
+            147,
+            190592
+          ],
+          [
+            "main/f296/f23",
+            153,
+            190840
+          ]
+        ],
+        "functions": [
+          "main/f296/f17",
+          "main/f296/f18",
+          "main/f296/f19"
+        ]
+      },
+      "unresolved": [],
+      "differences": null,
+      "validation": "source and relevant grouped VM probe"
+    },
+    {
+      "id": "W019",
+      "status": "ready",
+      "rules": {
+        "contribution": "floor((.5*talentRank+.5)*heroEventRank)",
+        "startupSelectionDoesNotRewriteExisting": true,
+        "sources": [
+          "hero level event",
+          "talent upgrade across actual owned Tower_ALL"
+        ],
+        "retainsEarnedContributionAfterRetirement": true,
+        "attributeRule": "hero-attribute-interface.md"
+      },
+      "sourceRefs": {
+        "object": {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 2223,
+          "id": "W019",
+          "fields": {
+            "alias": "W019",
+            "code": "AOcr",
+            "checkDep": 1,
+            "levels": 5,
+            "reqLevel": 1,
+            "targs1": "air,ground,enemy,neutral",
+            "targs2": "air,ground,enemy,neutral",
+            "targs3": "air,ground,enemy,neutral",
+            "targs4": "air,ground,enemy,neutral"
+          }
+        },
+        "objectOverrides": [],
+        "profileTipLine": 23626,
+        "routing": [
+          [
+            "main/f294/f47",
+            317,
+            187638
+          ],
+          [
+            "main/f296/f0",
+            200,
+            188640
+          ],
+          [
+            "main/f296/f0",
+            207,
+            188647
+          ],
+          [
+            "main/f296/f21",
+            23,
+            190325
+          ],
+          [
+            "main/f296/f22",
+            170,
+            190616
+          ],
+          [
+            "main/f296/f23",
+            169,
+            190857
+          ]
+        ],
+        "functions": [
+          "main/f296/f20",
+          "main/f296/f21",
+          "main/f291/f18"
+        ]
+      },
+      "unresolved": [],
+      "differences": null,
+      "validation": "source and relevant grouped VM probe"
+    }
+  ],
+  "validation": {
+    "rawVM": {
+      "W001": {
+        "W002": "W012",
+        "W003": "W013",
+        "W004": "W014",
+        "W005": "W015",
+        "W006": "W016",
+        "W007": "W017",
+        "W008": "W018",
+        "W009": "W019"
+      },
+      "W012": {
+        "ringWrap": [
+          "i717",
+          "i701"
+        ],
+        "oneRefundTimer": true,
+        "rawNoMatchResult": null
+      },
+      "W013": {
+        "multipliers": [
+          1.04,
+          1.08,
+          1.12,
+          1.16,
+          1.2
+        ],
+        "nonHero": 100
+      },
+      "W014": {
+        "rank1NoRNG": [
+          "i401",
+          "i411"
+        ],
+        "rank5Independent": [
+          "i404",
+          "i412"
+        ]
+      },
+      "W015": {
+        "rawP11ThenP1": [
+          27,
+          54
+        ],
+        "selectedP11ThenP1": [
+          27,
+          27
+        ]
+      },
+      "W016": {
+        "first4N": [
+          "i701",
+          "c001",
+          "i702",
+          "i703"
+        ],
+        "NResult": "i609",
+        "RResult": "i597",
+        "level13Fails": true
+      },
+      "W017": {
+        "rawDrawCount": [
+          [
+            "I001",
+            9,
+            1,
+            2
+          ],
+          [
+            "I001",
+            10,
+            1,
+            1
+          ],
+          [
+            "I002",
+            23,
+            5,
+            2
+          ],
+          [
+            "I003",
+            24,
+            5,
+            1
+          ],
+          [
+            "I004",
+            1,
+            5,
+            1
+          ],
+          [
+            "I005",
+            1,
+            0,
+            1
+          ]
+        ],
+        "selectedTopRank25Succeeds": true
+      },
+      "W019": {
+        "afterSelectableRank1AndWaveUpgrade2": 31,
+        "retainedAfterRemove": 31
+      }
+    },
+    "originalClient": "untested"
+  },
+  "sourceHash": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+}

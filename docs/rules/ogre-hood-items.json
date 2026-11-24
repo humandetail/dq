@@ -1,0 +1,458 @@
+{
+  "items": [
+    {
+      "id": "i318",
+      "status": "ready",
+      "rules": {
+        "radius": 400,
+        "intellect": 150,
+        "selected": {
+          "baseMagic": 4000,
+          "intellectMultiplier": 5,
+          "currentManaFraction": 0.2,
+          "ordinaryCurrentLifeFraction": 0.03,
+          "bossCurrentLifeFraction": 0.01
+        }
+      },
+      "sourceRefs": {
+        "sheet": "装备与道具",
+        "range": "H211",
+        "itemJsonIndex": 504,
+        "abilityJsonIndex": 1090
+      },
+      "differences": {
+        "original": {
+          "baseMagic": 3000,
+          "intellectMultiplier": 4,
+          "currentManaFraction": 0.15,
+          "ordinaryCurrentLifeFraction": 0.02,
+          "bossCurrentLifeFraction": 0.01
+        },
+        "Q53": "每5层扣5，保留余数"
+      },
+      "unresolved": [],
+      "validation": "对象、双图鉴、原双段调用和Q53契约向量"
+    },
+    {
+      "id": "i319",
+      "status": "ready",
+      "rules": {
+        "radius": 500,
+        "intellect": 150,
+        "selected": {
+          "baseMagic": 8000,
+          "intellectMultiplier": 6,
+          "currentManaFraction": 0.25,
+          "ordinaryCurrentLifeFraction": 0.06,
+          "bossCurrentLifeFraction": 0.02
+        }
+      },
+      "sourceRefs": {
+        "sheet": "装备与道具",
+        "range": "H212",
+        "itemJsonIndex": 505,
+        "abilityJsonIndex": 1090
+      },
+      "differences": {
+        "original": {
+          "baseMagic": 5000,
+          "intellectMultiplier": 5,
+          "currentManaFraction": 0.2,
+          "ordinaryCurrentLifeFraction": 0.04,
+          "bossCurrentLifeFraction": 0.02
+        },
+        "Q53": "每5层扣5，保留余数"
+      },
+      "unresolved": [],
+      "validation": "对象、双图鉴、原双段调用和Q53契约向量"
+    },
+    {
+      "id": "i320",
+      "status": "ready",
+      "rules": {
+        "radius": 600,
+        "intellect": 150,
+        "selected": {
+          "baseMagic": 12000,
+          "intellectMultiplier": 7,
+          "currentManaFraction": 0.3,
+          "ordinaryCurrentLifeFraction": 0.09,
+          "bossCurrentLifeFraction": 0.03
+        }
+      },
+      "sourceRefs": {
+        "sheet": "装备与道具",
+        "range": "H213",
+        "itemJsonIndex": 506,
+        "abilityJsonIndex": 1090
+      },
+      "differences": {
+        "original": {
+          "baseMagic": 7000,
+          "intellectMultiplier": 6,
+          "currentManaFraction": 0.25,
+          "ordinaryCurrentLifeFraction": 0.06,
+          "bossCurrentLifeFraction": 0.03
+        },
+        "Q53": "每5层扣5，保留余数"
+      },
+      "unresolved": [],
+      "validation": "对象、双图鉴、原双段调用和Q53契约向量"
+    }
+  ],
+  "sourceRefs": {
+    "functions": [
+      {
+        "function": "main/f270/f0",
+        "startLine": 134091,
+        "endLine": 134311
+      },
+      {
+        "function": "main/f270/f1",
+        "startLine": 134312,
+        "endLine": 134439
+      },
+      {
+        "function": "main/f287/f0",
+        "startLine": 153141,
+        "endLine": 153361
+      },
+      {
+        "function": "main/f287/f1",
+        "startLine": 153362,
+        "endLine": 153489
+      },
+      {
+        "function": "main/f285/f16",
+        "startLine": 146437,
+        "endLine": 146703
+      },
+      {
+        "function": "main/f291/f16",
+        "startLine": 172233,
+        "endLine": 172449
+      },
+      {
+        "function": "main/f53/f1",
+        "startLine": 69445,
+        "endLine": 69713
+      },
+      {
+        "function": "main/f285/f8",
+        "startLine": 144417,
+        "endLine": 144462
+      },
+      {
+        "function": "main/f285/f18",
+        "startLine": 147097,
+        "endLine": 147620
+      },
+      {
+        "function": "main/f7/f31",
+        "startLine": 51972,
+        "endLine": 52002
+      },
+      {
+        "function": "main/f7/f35",
+        "startLine": 52090,
+        "endLine": 52117
+      },
+      {
+        "function": "main/f7/f45",
+        "startLine": 52444,
+        "endLine": 52481
+      }
+    ],
+    "references": {
+      "i318_Sign": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f53/f1",
+          "key": "k18",
+          "constantLine": 69474,
+          "pc": 53,
+          "sourceLine": 69567,
+          "instruction": "gettabup r7 u0 k18"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f53/f1",
+          "key": "k18",
+          "constantLine": 69474,
+          "pc": 54,
+          "sourceLine": 69568,
+          "instruction": "gettabup r8 u0 k18"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f270",
+          "key": "k0",
+          "constantLine": 134079,
+          "pc": 2,
+          "sourceLine": 134084,
+          "instruction": "settabup u0 k0 r1"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f270/f1",
+          "key": "k6",
+          "constantLine": 134329,
+          "pc": 26,
+          "sourceLine": 134374,
+          "instruction": "gettabup r2 u0 k6"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f270/f1",
+          "key": "k6",
+          "constantLine": 134329,
+          "pc": 30,
+          "sourceLine": 134378,
+          "instruction": "gettabup r2 u0 k6"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f270/f1",
+          "key": "k6",
+          "constantLine": 134329,
+          "pc": 34,
+          "sourceLine": 134383,
+          "instruction": "gettabup r2 u0 k6"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f270/f1",
+          "key": "k6",
+          "constantLine": 134329,
+          "pc": 37,
+          "sourceLine": 134387,
+          "instruction": "gettabup r2 u0 k6"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f270/f1",
+          "key": "k6",
+          "constantLine": 134329,
+          "pc": 63,
+          "sourceLine": 134413,
+          "instruction": "gettabup r5 u0 k6"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f270/f1",
+          "key": "k6",
+          "constantLine": 134329,
+          "pc": 80,
+          "sourceLine": 134432,
+          "instruction": "gettabup r2 u0 k6"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f270/f1",
+          "key": "k6",
+          "constantLine": 134329,
+          "pc": 81,
+          "sourceLine": 134433,
+          "instruction": "gettabup r3 u0 k6"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f287",
+          "key": "k0",
+          "constantLine": 153129,
+          "pc": 2,
+          "sourceLine": 153134,
+          "instruction": "settabup u0 k0 r1"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f287/f1",
+          "key": "k6",
+          "constantLine": 153379,
+          "pc": 26,
+          "sourceLine": 153424,
+          "instruction": "gettabup r2 u0 k6"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f287/f1",
+          "key": "k6",
+          "constantLine": 153379,
+          "pc": 30,
+          "sourceLine": 153428,
+          "instruction": "gettabup r2 u0 k6"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f287/f1",
+          "key": "k6",
+          "constantLine": 153379,
+          "pc": 34,
+          "sourceLine": 153433,
+          "instruction": "gettabup r2 u0 k6"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f287/f1",
+          "key": "k6",
+          "constantLine": 153379,
+          "pc": 37,
+          "sourceLine": 153437,
+          "instruction": "gettabup r2 u0 k6"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f287/f1",
+          "key": "k6",
+          "constantLine": 153379,
+          "pc": 63,
+          "sourceLine": 153463,
+          "instruction": "gettabup r5 u0 k6"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f287/f1",
+          "key": "k6",
+          "constantLine": 153379,
+          "pc": 80,
+          "sourceLine": 153482,
+          "instruction": "gettabup r2 u0 k6"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f287/f1",
+          "key": "k6",
+          "constantLine": 153379,
+          "pc": 81,
+          "sourceLine": 153483,
+          "instruction": "gettabup r3 u0 k6"
+        }
+      ],
+      "i318_AddSign": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f270",
+          "key": "k2",
+          "constantLine": 134081,
+          "pc": 6,
+          "sourceLine": 134088,
+          "instruction": "settabup u0 k2 r1"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f285/f16",
+          "key": "k38",
+          "constantLine": 146486,
+          "pc": 176,
+          "sourceLine": 146675,
+          "instruction": "gettabup r5 u0 k38"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f287",
+          "key": "k2",
+          "constantLine": 153131,
+          "pc": 6,
+          "sourceLine": 153138,
+          "instruction": "settabup u0 k2 r1"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f16",
+          "key": "k21",
+          "constantLine": 172267,
+          "pc": 112,
+          "sourceLine": 172394,
+          "instruction": "gettabup r2 u0 k21"
+        }
+      ],
+      "i318_Action": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f270",
+          "key": "k1",
+          "constantLine": 134080,
+          "pc": 4,
+          "sourceLine": 134086,
+          "instruction": "settabup u0 k1 r1"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f270/f1",
+          "key": "k20",
+          "constantLine": 134343,
+          "pc": 69,
+          "sourceLine": 134419,
+          "instruction": "gettabup r5 u0 k20"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f287",
+          "key": "k1",
+          "constantLine": 153130,
+          "pc": 4,
+          "sourceLine": 153136,
+          "instruction": "settabup u0 k1 r1"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f287/f1",
+          "key": "k20",
+          "constantLine": 153393,
+          "pc": 69,
+          "sourceLine": 153469,
+          "instruction": "gettabup r5 u0 k20"
+        }
+      ]
+    },
+    "fingerprints": {
+      "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx": "47af226c7d16f240975d148e4b8f20bbcbf43c6141987cffc67435c1e0f437a1",
+      "图鉴.xlsx": "457c8f7e37e19412a0dd072ce941e95604b0b8910860b9e1eb9883e6b82bb6af",
+      "reference/map-6.25/units_abilitydata.json": "b772de42ebcfc1d3818298b35dbe81a35826892848c7cbfef70bf5097e481861",
+      "reference/map-6.25/units_itemdata.json": "569b41f4be3caf8844a0ac7184fef0076f75118faf60fdb3e14b157aa992e113",
+      "reference/map-6.25/main.disasm": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+    }
+  },
+  "validation": {
+    "original": {
+      "tierPackets": {
+        "i318": {
+          "originalMagic": 3950.0,
+          "selectedMagic": 5200.0,
+          "originalDivineOrdinary": 1921.0,
+          "originalDivineBoss": 960.5
+        },
+        "i319": {
+          "originalMagic": 6200.0,
+          "selectedMagic": 9450.0,
+          "originalDivineOrdinary": 3752.0,
+          "originalDivineBoss": 1876.0
+        },
+        "i320": {
+          "originalMagic": 8450.0,
+          "selectedMagic": 13700.0,
+          "originalDivineOrdinary": 5493.0,
+          "originalDivineBoss": 2746.5
+        }
+      },
+      "recheckedDivineSnapshot": true,
+      "originalOverfullWithTargetEndsAtZero": true,
+      "originalOverfullWithoutTargetDoesNotAddOne": true,
+      "highestTierWins": true,
+      "tiesEligibleButLowerIntIneligible": true
+    },
+    "Q53": {
+      "checked": [
+        "multiBurstRemainder",
+        "unspentNoTarget",
+        "noTargetNewMark",
+        "nextEligibleCast",
+        "recheckAfterCenterDies",
+        "noHoodNoChange",
+        "transferDoesNotMoveMarks",
+        "plannedExtraDoesNotDrain"
+      ]
+    },
+    "originalClientTested": false
+  }
+}

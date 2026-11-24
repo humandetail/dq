@@ -1,0 +1,3838 @@
+{
+  "schema_version": 1,
+  "status": "Q40 confirmed: workbook six-rank growth, range300, Q39 shared cooldown2; original fixed-level1 preserved; ANcs native details bounded",
+  "decision": {
+    "id": "Q40",
+    "status": "confirmed",
+    "selected": {
+      "id": "workbook_growth",
+      "selected_by": "user Q40 option1"
+    },
+    "subject": "A067/A148 six-rank damage and stun growth vs source fixed level1 dummy ability",
+    "workbook_damage": [
+      150,
+      275,
+      420,
+      650,
+      860,
+      1120
+    ],
+    "workbook_normal_stun_seconds": [
+      0.4,
+      0.6,
+      0.8,
+      1,
+      1.2,
+      1.5
+    ],
+    "source_dummy_ability_level_by_hero_skill_rank": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "source_level1_fields": {
+      "DataA": 150,
+      "Dur": 0.4,
+      "HeroDur": 0.1,
+      "Area": 300
+    },
+    "options": [
+      {
+        "id": "workbook_growth",
+        "description": "按图鉴六级伤害/眩晕成长，范围保持300；具体ANcs原生未知另行闭合，不能仅切高等级而引入200范围"
+      },
+      {
+        "id": "source_fixed_level1",
+        "description": "保留T059/T162始终一级的源执行，不宣称150就是原生整次实测总伤害"
+      }
+    ],
+    "not_selected_here": [
+      "fractional probability rounding",
+      "native eligibility, packet timings and hero/resistant-unit stun modifiers remain outside this rank-profile batch"
+    ]
+  },
+  "existing_decision": {
+    "id": "Q39",
+    "selected_shared_cooldown_seconds": 2,
+    "unchanged": true
+  },
+  "workbook": [
+    {
+      "row": 270,
+      "cells": {
+        "A270": "小小<SR>",
+        "B270": "H021",
+        "C270": 1,
+        "D270": "学习技能",
+        "E270": "山崩",
+        "F270": "A067",
+        "G270": 6,
+        "H270": "攻击有15%的概率造成山崩，对目标300范围内敌人眩晕以及伤害，每100点力量提升5%的概率，概率最高达到60%，内置冷却2秒。",
+        "I270": "等级 1｜造成150点伤害，眩晕0.4秒。\n等级 2｜造成275点伤害，眩晕0.6秒。\n等级 3｜造成420点伤害，眩晕0.8秒。\n等级 4｜造成650点伤害，眩晕1秒。\n等级 5｜造成860点伤害，眩晕1.2秒。\n等级 6｜造成1120点伤害，眩晕1.5秒。\n伤害类型 法术伤害"
+      }
+    },
+    {
+      "row": 426,
+      "cells": {
+        "A426": "火焰领主<SR>",
+        "B426": "G059",
+        "C426": 1,
+        "D426": "学习技能",
+        "E426": "山崩",
+        "F426": "A067",
+        "G426": 6,
+        "H426": "攻击有15%的概率造成山崩，对目标300范围内敌人眩晕以及伤害，每100点力量提升5%的概率，概率最高达到60%，内置冷却2秒。",
+        "I426": "等级 1｜造成150点伤害，眩晕0.4秒。\n等级 2｜造成275点伤害，眩晕0.6秒。\n等级 3｜造成420点伤害，眩晕0.8秒。\n等级 4｜造成650点伤害，眩晕1秒。\n等级 5｜造成860点伤害，眩晕1.2秒。\n等级 6｜造成1120点伤害，眩晕1.5秒。\n伤害类型 法术伤害"
+      }
+    }
+  ],
+  "actual_main_tooltips": [
+    {
+      "id": "A067",
+      "section_line": 961,
+      "fields": {
+        "Name": {
+          "line": 965,
+          "value": "|cffffcc00山崩|r|n|n攻击有15%的概率造成山崩，对目标300范围内敌人眩晕以及伤害，每100点力量提升5%的概率，概率最高达到60%，内置冷却2秒。"
+        },
+        "Researchubertip": {
+          "line": 970,
+          "value": "攻击有15%的概率造成山崩，对目标300范围内敌人眩晕以及伤害，每100点力量提升5%的概率，概率最高达到60%，内置冷却2秒。|n|cffffcc00等级 1|r |n-造成150点伤害，眩晕0.4秒。|n|cffffcc00等级 2|r |n-造成275点伤害，眩晕0.6秒。|n|cffffcc00等级 3|r |n-造成420点伤害，眩晕0.8秒。|n|cffffcc00等级 4|r |n-造成650点伤害，眩晕1秒。|n|cffffcc00等级 5|r |n-造成860点伤害，眩晕1.2秒。|n|cffffcc00等级 6|r |n-造成1120点伤害，眩晕1.5秒。|n|n|cffffcc00伤害类型：|r法术伤害"
+        },
+        "Tip": {
+          "line": 971,
+          "value": "山崩[|cffffcc00W|r] - [|cffffcc00等级 1|r],山崩[|cffffcc00W|r] - [|cffffcc00等级 2|r],山崩[|cffffcc00W|r] - [|cffffcc00等级 3|r],山崩[|cffffcc00W|r] - [|cffffcc00等级 4|r],山崩[|cffffcc00W|r] - [|cffffcc00等级 5|r],山崩[|cffffcc00W|r] - [|cffffcc00等级 6|r]"
+        },
+        "Ubertip": {
+          "line": 972,
+          "value": "攻击有15%的概率造成山崩，对目标300范围内敌人造成150点伤害，眩晕0.4秒，每100点力量提升5%的概率。,攻击有15%的概率造成山崩，对目标300范围内敌人造成275点伤害，眩晕0.6秒，每100点力量提升5%的概率。,攻击有15%的概率造成山崩，对目标300范围内敌人造成420点伤害，眩晕0.8秒，每100点力量提升5%的概率。,攻击有15%的概率造成山崩，对目标300范围内敌人造成650点伤害，眩晕1秒，每100点力量提升5%的概率。,攻击有15%的概率造成山崩，对目标300范围内敌人造成860点伤害，眩晕1.2秒，每100点力量提升5%的概率。,攻击有15%的概率造成山崩，对目标300范围内敌人造成1120点伤害，眩晕1.5秒，每100点力量提升5%的概率。"
+        }
+      }
+    },
+    {
+      "id": "A148",
+      "section_line": 2088,
+      "fields": {
+        "Name": {
+          "line": 2092,
+          "value": "|cffffcc00山崩|r|n|n攻击有15%的概率造成山崩，对目标300范围内敌人眩晕以及伤害，每100点力量提升5%的概率，概率最高达到60%，内置冷却2秒。"
+        },
+        "Researchubertip": {
+          "line": 2097,
+          "value": "攻击有15%的概率造成山崩，对目标300范围内敌人眩晕以及伤害，每100点力量提升5%的概率，概率最高达到60%，内置冷却2秒。|n|cffffcc00等级 1|r|n-造成150点伤害，眩晕0.4秒。|n|cffffcc00等级 2|r|n-造成275点伤害，眩晕0.6秒。|n|cffffcc00等级 3|r|n-造成420点伤害，眩晕0.8秒。|n|cffffcc00等级 4|r|n-造成650点伤害，眩晕1秒。|n|cffffcc00等级 5|r|n-造成860点伤害，眩晕1.2秒。|n|cffffcc00等级 6|r|n-造成1120点伤害，眩晕1.5秒。|n|n|cffffcc00伤害类型：|r法术伤害"
+        },
+        "Tip": {
+          "line": 2098,
+          "value": "山崩[|cffffcc00W|r] - [|cffffcc00等级 1|r],山崩[|cffffcc00W|r] - [|cffffcc00等级 2|r],山崩[|cffffcc00W|r] - [|cffffcc00等级 3|r],山崩[|cffffcc00W|r] - [|cffffcc00等级 4|r],山崩[|cffffcc00W|r] - [|cffffcc00等级 5|r],山崩[|cffffcc00W|r] - [|cffffcc00等级 6|r]"
+        },
+        "Ubertip": {
+          "line": 2099,
+          "value": "攻击有15%的概率造成山崩，对目标300范围内敌人造成150点伤害，眩晕0.4秒，每100点力量提升5%的概率。,攻击有15%的概率造成山崩，对目标300范围内敌人造成275点伤害，眩晕0.6秒，每100点力量提升5%的概率。,攻击有15%的概率造成山崩，对目标300范围内敌人造成420点伤害，眩晕0.8秒，每100点力量提升5%的概率。,攻击有15%的概率造成山崩，对目标300范围内敌人造成650点伤害，眩晕1秒，每100点力量提升5%的概率。,攻击有15%的概率造成山崩，对目标300范围内敌人造成860点伤害，眩晕1.2秒，每100点力量提升5%的概率。,攻击有15%的概率造成山崩，对目标300范围内敌人造成1120点伤害，眩晕1.5秒，每100点力量提升5%的概率。"
+        }
+      }
+    }
+  ],
+  "dummy_tooltips": [
+    {
+      "id": "T059",
+      "section_line": 20021,
+      "fields": {
+        "Missilearc": {
+          "line": 20026,
+          "value": "0.2"
+        },
+        "Missileart": {
+          "line": 20027,
+          "value": "Abilities\\Spells\\Orc\\EarthQuake\\EarthQuakeTarget.mdl"
+        },
+        "MissileHoming": {
+          "line": 20028,
+          "value": "1"
+        },
+        "Missilespeed": {
+          "line": 20029,
+          "value": "700"
+        },
+        "Name": {
+          "line": 20030,
+          "value": "马甲-山崩"
+        },
+        "Order": {
+          "line": 20031,
+          "value": "clusterrockets"
+        },
+        "Researchubertip": {
+          "line": 20035,
+          "value": "对某个区域用火箭进行攻击，使目标在1 秒内处于昏晕状态，并对其造成一定程度的伤害。|n|n|cffffcc00等级 1|r - 35 攻击力。|n|cffffcc00等级 2|r - 65 攻击力。|n|cffffcc00等级 3|r - 100 攻击力。"
+        },
+        "Ubertip": {
+          "line": 20037,
+          "value": "对某个区域用火箭进行攻击，对周围的地面单位造成35点的伤害，并在1 秒内让其处于昏晕状态。,对某个区域用火箭进行攻击，对周围的地面单位造成65点的伤害，并在1 秒内让其处于昏晕状态。,对某个区域用火箭进行攻击，对周围的地面单位造成100点的伤害，并在1 秒内让其处于昏晕状态。"
+        }
+      }
+    },
+    {
+      "id": "T162",
+      "section_line": 21325,
+      "fields": {
+        "Missilearc": {
+          "line": 21330,
+          "value": "0.2"
+        },
+        "Missileart": {
+          "line": 21331,
+          "value": "AZ_silingfashi02_attack.mdx"
+        },
+        "MissileHoming": {
+          "line": 21332,
+          "value": "1"
+        },
+        "Missilespeed": {
+          "line": 21333,
+          "value": "700"
+        },
+        "Name": {
+          "line": 21334,
+          "value": "马甲-山崩-火焰领主"
+        },
+        "Order": {
+          "line": 21335,
+          "value": "clusterrockets"
+        },
+        "Researchubertip": {
+          "line": 21339,
+          "value": "对某个区域用火箭进行攻击，使目标在1 秒内处于昏晕状态，并对其造成一定程度的伤害。|n|n|cffffcc00等级 1|r - 35 攻击力。|n|cffffcc00等级 2|r - 65 攻击力。|n|cffffcc00等级 3|r - 100 攻击力。"
+        },
+        "Ubertip": {
+          "line": 21341,
+          "value": "对某个区域用火箭进行攻击，对周围的地面单位造成35点的伤害，并在1 秒内让其处于昏晕状态。,对某个区域用火箭进行攻击，对周围的地面单位造成65点的伤害，并在1 秒内让其处于昏晕状态。,对某个区域用火箭进行攻击，对周围的地面单位造成100点的伤害，并在1 秒内让其处于昏晕状态。"
+        }
+      }
+    }
+  ],
+  "objects": {
+    "units_abilitydata.json": [
+      {
+        "line": 33503,
+        "record": {
+          "alias": "T059",
+          "code": "ANcs",
+          "Area1": 300.0,
+          "Area2": 200.0,
+          "Area3": 200.0,
+          "Area4": 200.0,
+          "BuffID1": "BNcs",
+          "BuffID2": "BNcs",
+          "BuffID3": "BNcs",
+          "BuffID4": "BNcs",
+          "checkDep": 1,
+          "DataA1": 150.0,
+          "DataA2": 275.0,
+          "DataA3": 420.0,
+          "DataA4": 650.0,
+          "DataB1": 0.25,
+          "DataB2": 0.25,
+          "DataB3": 0.25,
+          "DataB4": 0.25,
+          "DataC1": 12,
+          "DataC2": 12,
+          "DataC3": 12,
+          "DataC4": 12,
+          "DataD1": 1000000.0,
+          "DataD2": 1000000.0,
+          "DataD3": 1000000.0,
+          "DataD4": 1000000.0,
+          "DataE1": 1.0,
+          "DataE2": 1.0,
+          "DataE3": 1.0,
+          "DataE4": 1.0,
+          "DataF1": 1.01,
+          "DataF2": 1.01,
+          "DataF3": 1.01,
+          "DataF4": 1.01,
+          "Dur1": 0.4,
+          "Dur2": 0.6,
+          "Dur3": 0.8,
+          "Dur4": 1.0,
+          "EfctID1": "XNcs",
+          "EfctID2": "XNcs",
+          "EfctID3": "XNcs",
+          "EfctID4": "XNcs",
+          "HeroDur1": 0.1,
+          "HeroDur2": 0.3,
+          "HeroDur3": 0.4,
+          "HeroDur4": 0.5,
+          "levels": 6,
+          "reqLevel": 1,
+          "Rng1": 1500.0,
+          "Rng2": 1500.0,
+          "Rng3": 1500.0,
+          "Rng4": 1500.0,
+          "targs1": "enemies",
+          "targs2": "enemies",
+          "targs3": "enemies",
+          "targs4": "enemies"
+        }
+      },
+      {
+        "line": 35608,
+        "record": {
+          "alias": "T162",
+          "code": "ANcs",
+          "Area1": 300.0,
+          "Area2": 200.0,
+          "Area3": 200.0,
+          "Area4": 200.0,
+          "BuffID1": "BNcs",
+          "BuffID2": "BNcs",
+          "BuffID3": "BNcs",
+          "BuffID4": "BNcs",
+          "checkDep": 1,
+          "DataA1": 150.0,
+          "DataA2": 275.0,
+          "DataA3": 420.0,
+          "DataA4": 650.0,
+          "DataB1": 0.25,
+          "DataB2": 0.25,
+          "DataB3": 0.25,
+          "DataB4": 0.25,
+          "DataC1": 12,
+          "DataC2": 12,
+          "DataC3": 12,
+          "DataC4": 12,
+          "DataD1": 1000000.0,
+          "DataD2": 1000000.0,
+          "DataD3": 1000000.0,
+          "DataD4": 1000000.0,
+          "DataE1": 1.0,
+          "DataE2": 1.0,
+          "DataE3": 1.0,
+          "DataE4": 1.0,
+          "DataF1": 1.01,
+          "DataF2": 1.01,
+          "DataF3": 1.01,
+          "DataF4": 1.01,
+          "Dur1": 0.4,
+          "Dur2": 0.6,
+          "Dur3": 0.8,
+          "Dur4": 1.0,
+          "EfctID1": "XNcs",
+          "EfctID2": "XNcs",
+          "EfctID3": "XNcs",
+          "EfctID4": "XNcs",
+          "HeroDur1": 0.1,
+          "HeroDur2": 0.3,
+          "HeroDur3": 0.4,
+          "HeroDur4": 0.5,
+          "levels": 6,
+          "reqLevel": 1,
+          "Rng1": 1500.0,
+          "Rng2": 1500.0,
+          "Rng3": 1500.0,
+          "Rng4": 1500.0,
+          "targs1": "enemies",
+          "targs2": "enemies",
+          "targs3": "enemies",
+          "targs4": "enemies"
+        }
+      }
+    ],
+    "units_unitabilities.json": [
+      {
+        "line": 6555,
+        "record": {
+          "unitAbilID": "q001",
+          "abilList": "Avul,Aloc",
+          "auto": "_"
+        }
+      }
+    ]
+  },
+  "w3a_overlay": [
+    {
+      "line": 6932,
+      "record": {
+        "old": "T059",
+        "new": "\u0000\u0000\u0000\u0000",
+        "mods": [
+          {
+            "key": "Ncs1",
+            "type": 2,
+            "level": 5,
+            "data": 1,
+            "value": 860.0
+          },
+          {
+            "key": "Ncs1",
+            "type": 2,
+            "level": 6,
+            "data": 1,
+            "value": 1120.0
+          },
+          {
+            "key": "adur",
+            "type": 2,
+            "level": 5,
+            "data": 0,
+            "value": 1.2000000476837158
+          },
+          {
+            "key": "adur",
+            "type": 2,
+            "level": 6,
+            "data": 0,
+            "value": 1.5
+          },
+          {
+            "key": "ahdu",
+            "type": 2,
+            "level": 5,
+            "data": 0,
+            "value": 0.6000000238418579
+          },
+          {
+            "key": "ahdu",
+            "type": 2,
+            "level": 6,
+            "data": 0,
+            "value": 0.800000011920929
+          }
+        ]
+      }
+    },
+    {
+      "line": 9996,
+      "record": {
+        "old": "T162",
+        "new": "\u0000\u0000\u0000\u0000",
+        "mods": [
+          {
+            "key": "Ncs1",
+            "type": 2,
+            "level": 5,
+            "data": 1,
+            "value": 860.0
+          },
+          {
+            "key": "Ncs1",
+            "type": 2,
+            "level": 6,
+            "data": 1,
+            "value": 1120.0
+          },
+          {
+            "key": "adur",
+            "type": 2,
+            "level": 5,
+            "data": 0,
+            "value": 1.2000000476837158
+          },
+          {
+            "key": "adur",
+            "type": 2,
+            "level": 6,
+            "data": 0,
+            "value": 1.5
+          },
+          {
+            "key": "ahdu",
+            "type": 2,
+            "level": 5,
+            "data": 0,
+            "value": 0.6000000238418579
+          },
+          {
+            "key": "ahdu",
+            "type": 2,
+            "level": 6,
+            "data": 0,
+            "value": 0.800000011920929
+          }
+        ]
+      }
+    }
+  ],
+  "raw_slk_alias_lines": {
+    "T059": 29718,
+    "T162": 31621
+  },
+  "effective_explicit_levels": [
+    {
+      "id": "T059",
+      "records": [
+        {
+          "rank": 1,
+          "DataA": 150.0,
+          "Dur": 0.4,
+          "HeroDur": 0.1,
+          "Area_explicit": 300.0
+        },
+        {
+          "rank": 2,
+          "DataA": 275.0,
+          "Dur": 0.6,
+          "HeroDur": 0.3,
+          "Area_explicit": 200.0
+        },
+        {
+          "rank": 3,
+          "DataA": 420.0,
+          "Dur": 0.8,
+          "HeroDur": 0.4,
+          "Area_explicit": 200.0
+        },
+        {
+          "rank": 4,
+          "DataA": 650.0,
+          "Dur": 1.0,
+          "HeroDur": 0.5,
+          "Area_explicit": 200.0
+        },
+        {
+          "rank": 5,
+          "DataA": 860.0,
+          "Dur": 1.2000000476837158,
+          "HeroDur": 0.6000000238418579,
+          "Area_explicit": null
+        },
+        {
+          "rank": 6,
+          "DataA": 1120.0,
+          "Dur": 1.5,
+          "HeroDur": 0.800000011920929,
+          "Area_explicit": null
+        }
+      ],
+      "note": "DataA/Dur/HeroDur levels5–6 overlaid from w3a; Area5–6 intentionally remains null, no inferred default."
+    },
+    {
+      "id": "T162",
+      "records": [
+        {
+          "rank": 1,
+          "DataA": 150.0,
+          "Dur": 0.4,
+          "HeroDur": 0.1,
+          "Area_explicit": 300.0
+        },
+        {
+          "rank": 2,
+          "DataA": 275.0,
+          "Dur": 0.6,
+          "HeroDur": 0.3,
+          "Area_explicit": 200.0
+        },
+        {
+          "rank": 3,
+          "DataA": 420.0,
+          "Dur": 0.8,
+          "HeroDur": 0.4,
+          "Area_explicit": 200.0
+        },
+        {
+          "rank": 4,
+          "DataA": 650.0,
+          "Dur": 1.0,
+          "HeroDur": 0.5,
+          "Area_explicit": 200.0
+        },
+        {
+          "rank": 5,
+          "DataA": 860.0,
+          "Dur": 1.2000000476837158,
+          "HeroDur": 0.6000000238418579,
+          "Area_explicit": null
+        },
+        {
+          "rank": 6,
+          "DataA": 1120.0,
+          "Dur": 1.5,
+          "HeroDur": 0.800000011920929,
+          "Area_explicit": null
+        }
+      ],
+      "note": "DataA/Dur/HeroDur levels5–6 overlaid from w3a; Area5–6 intentionally remains null, no inferred default."
+    }
+  ],
+  "action": {
+    "function": "main/f59/f1",
+    "lines": [
+      71839,
+      71976
+    ],
+    "constants": {
+      "k0": "IsInTable",
+      "k1": "Tower_ALL",
+      "k2": null,
+      "k3": "GetRandomInt",
+      "k4": 1,
+      "k5": 100,
+      "k6": "GetHeroStr",
+      "k7": 5,
+      "k8": 15,
+      "k9": 60,
+      "k10": "GetUnitLoc",
+      "k11": "GetUnitTypeId",
+      "k12": "GetId",
+      "k13": "G059",
+      "k14": "GetUnitAbilityLevel",
+      "k15": "A148",
+      "k16": "T162",
+      "k17": "A067",
+      "k18": "T059",
+      "k19": "CreateTempAndSetAbilityLv",
+      "k20": "GetOwningPlayer",
+      "k21": 3,
+      "k22": "IssuePointOrderLoc",
+      "k23": "clusterrockets",
+      "k24": "SetUnitUserData",
+      "k25": "RemoveLocation",
+      "k26": "CreateTimer",
+      "k27": "TimerStart",
+      "k28": 2.4
+    },
+    "instructions": [
+      {
+        "pc": 1,
+        "line": 71882,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k0"
+        ]
+      },
+      {
+        "pc": 2,
+        "line": 71883,
+        "op": "move",
+        "args": [
+          "r3",
+          "r0"
+        ]
+      },
+      {
+        "pc": 3,
+        "line": 71884,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k1"
+        ]
+      },
+      {
+        "pc": 4,
+        "line": 71885,
+        "op": "call",
+        "args": [
+          "r2",
+          "3",
+          "2"
+        ]
+      },
+      {
+        "pc": 5,
+        "line": 71886,
+        "op": "gettabup",
+        "args": [
+          "r3",
+          "u1",
+          "r2"
+        ]
+      },
+      {
+        "pc": 6,
+        "line": 71887,
+        "op": "eq",
+        "args": [
+          "1",
+          "k2",
+          "r3"
+        ]
+      },
+      {
+        "pc": 7,
+        "line": 71888,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l9"
+        ]
+      },
+      {
+        "pc": 8,
+        "line": 71889,
+        "op": "return",
+        "args": [
+          "r0",
+          "1"
+        ]
+      },
+      {
+        "pc": 9,
+        "line": 71891,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k3"
+        ]
+      },
+      {
+        "pc": 10,
+        "line": 71892,
+        "op": "loadk",
+        "args": [
+          "r5",
+          "k4"
+        ]
+      },
+      {
+        "pc": 11,
+        "line": 71893,
+        "op": "loadk",
+        "args": [
+          "r6",
+          "k5"
+        ]
+      },
+      {
+        "pc": 12,
+        "line": 71894,
+        "op": "call",
+        "args": [
+          "r4",
+          "3",
+          "2"
+        ]
+      },
+      {
+        "pc": 13,
+        "line": 71895,
+        "op": "gettabup",
+        "args": [
+          "r5",
+          "u0",
+          "k6"
+        ]
+      },
+      {
+        "pc": 14,
+        "line": 71896,
+        "op": "move",
+        "args": [
+          "r6",
+          "r0"
+        ]
+      },
+      {
+        "pc": 15,
+        "line": 71897,
+        "op": "loadbool",
+        "args": [
+          "r7",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "pc": 16,
+        "line": 71898,
+        "op": "call",
+        "args": [
+          "r5",
+          "3",
+          "2"
+        ]
+      },
+      {
+        "pc": 17,
+        "line": 71899,
+        "op": "div",
+        "args": [
+          "r5",
+          "r5",
+          "k5"
+        ]
+      },
+      {
+        "pc": 18,
+        "line": 71900,
+        "op": "mul",
+        "args": [
+          "r5",
+          "r5",
+          "k7"
+        ]
+      },
+      {
+        "pc": 19,
+        "line": 71901,
+        "op": "add",
+        "args": [
+          "r5",
+          "k8",
+          "r5"
+        ]
+      },
+      {
+        "pc": 20,
+        "line": 71902,
+        "op": "lt",
+        "args": [
+          "0",
+          "k9",
+          "r5"
+        ]
+      },
+      {
+        "pc": 21,
+        "line": 71903,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l23"
+        ]
+      },
+      {
+        "pc": 22,
+        "line": 71904,
+        "op": "loadk",
+        "args": [
+          "r5",
+          "k9"
+        ]
+      },
+      {
+        "pc": 23,
+        "line": 71906,
+        "op": "lt",
+        "args": [
+          "0",
+          "r5",
+          "r4"
+        ]
+      },
+      {
+        "pc": 24,
+        "line": 71907,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l26"
+        ]
+      },
+      {
+        "pc": 25,
+        "line": 71908,
+        "op": "return",
+        "args": [
+          "r0",
+          "1"
+        ]
+      },
+      {
+        "pc": 26,
+        "line": 71910,
+        "op": "gettabup",
+        "args": [
+          "r6",
+          "u0",
+          "k10"
+        ]
+      },
+      {
+        "pc": 27,
+        "line": 71911,
+        "op": "move",
+        "args": [
+          "r7",
+          "r1"
+        ]
+      },
+      {
+        "pc": 28,
+        "line": 71912,
+        "op": "call",
+        "args": [
+          "r6",
+          "2",
+          "2"
+        ]
+      },
+      {
+        "pc": 29,
+        "line": 71913,
+        "op": "loadnil",
+        "args": [
+          "r7",
+          "1"
+        ]
+      },
+      {
+        "pc": 30,
+        "line": 71914,
+        "op": "gettabup",
+        "args": [
+          "r9",
+          "u0",
+          "k11"
+        ]
+      },
+      {
+        "pc": 31,
+        "line": 71915,
+        "op": "move",
+        "args": [
+          "r10",
+          "r0"
+        ]
+      },
+      {
+        "pc": 32,
+        "line": 71916,
+        "op": "call",
+        "args": [
+          "r9",
+          "2",
+          "2"
+        ]
+      },
+      {
+        "pc": 33,
+        "line": 71917,
+        "op": "gettabup",
+        "args": [
+          "r10",
+          "u0",
+          "k12"
+        ]
+      },
+      {
+        "pc": 34,
+        "line": 71918,
+        "op": "loadk",
+        "args": [
+          "r11",
+          "k13"
+        ]
+      },
+      {
+        "pc": 35,
+        "line": 71919,
+        "op": "call",
+        "args": [
+          "r10",
+          "2",
+          "2"
+        ]
+      },
+      {
+        "pc": 36,
+        "line": 71920,
+        "op": "eq",
+        "args": [
+          "0",
+          "r9",
+          "r10"
+        ]
+      },
+      {
+        "pc": 37,
+        "line": 71921,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l47"
+        ]
+      },
+      {
+        "pc": 38,
+        "line": 71922,
+        "op": "gettabup",
+        "args": [
+          "r9",
+          "u0",
+          "k14"
+        ]
+      },
+      {
+        "pc": 39,
+        "line": 71923,
+        "op": "move",
+        "args": [
+          "r10",
+          "r0"
+        ]
+      },
+      {
+        "pc": 40,
+        "line": 71924,
+        "op": "gettabup",
+        "args": [
+          "r11",
+          "u0",
+          "k12"
+        ]
+      },
+      {
+        "pc": 41,
+        "line": 71925,
+        "op": "loadk",
+        "args": [
+          "r12",
+          "k15"
+        ]
+      },
+      {
+        "pc": 42,
+        "line": 71926,
+        "op": "call",
+        "args": [
+          "r11",
+          "2",
+          "0"
+        ]
+      },
+      {
+        "pc": 43,
+        "line": 71927,
+        "op": "call",
+        "args": [
+          "r9",
+          "0",
+          "2"
+        ]
+      },
+      {
+        "pc": 44,
+        "line": 71928,
+        "op": "move",
+        "args": [
+          "r7",
+          "r9"
+        ]
+      },
+      {
+        "pc": 45,
+        "line": 71929,
+        "op": "loadk",
+        "args": [
+          "r8",
+          "k16"
+        ]
+      },
+      {
+        "pc": 46,
+        "line": 71930,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l55"
+        ]
+      },
+      {
+        "pc": 47,
+        "line": 71932,
+        "op": "gettabup",
+        "args": [
+          "r9",
+          "u0",
+          "k14"
+        ]
+      },
+      {
+        "pc": 48,
+        "line": 71933,
+        "op": "move",
+        "args": [
+          "r10",
+          "r0"
+        ]
+      },
+      {
+        "pc": 49,
+        "line": 71934,
+        "op": "gettabup",
+        "args": [
+          "r11",
+          "u0",
+          "k12"
+        ]
+      },
+      {
+        "pc": 50,
+        "line": 71935,
+        "op": "loadk",
+        "args": [
+          "r12",
+          "k17"
+        ]
+      },
+      {
+        "pc": 51,
+        "line": 71936,
+        "op": "call",
+        "args": [
+          "r11",
+          "2",
+          "0"
+        ]
+      },
+      {
+        "pc": 52,
+        "line": 71937,
+        "op": "call",
+        "args": [
+          "r9",
+          "0",
+          "2"
+        ]
+      },
+      {
+        "pc": 53,
+        "line": 71938,
+        "op": "move",
+        "args": [
+          "r7",
+          "r9"
+        ]
+      },
+      {
+        "pc": 54,
+        "line": 71939,
+        "op": "loadk",
+        "args": [
+          "r8",
+          "k18"
+        ]
+      },
+      {
+        "pc": 55,
+        "line": 71941,
+        "op": "gettabup",
+        "args": [
+          "r9",
+          "u0",
+          "k19"
+        ]
+      },
+      {
+        "pc": 56,
+        "line": 71942,
+        "op": "gettabup",
+        "args": [
+          "r10",
+          "u0",
+          "k20"
+        ]
+      },
+      {
+        "pc": 57,
+        "line": 71943,
+        "op": "move",
+        "args": [
+          "r11",
+          "r0"
+        ]
+      },
+      {
+        "pc": 58,
+        "line": 71944,
+        "op": "call",
+        "args": [
+          "r10",
+          "2",
+          "2"
+        ]
+      },
+      {
+        "pc": 59,
+        "line": 71945,
+        "op": "gettabup",
+        "args": [
+          "r11",
+          "u0",
+          "k10"
+        ]
+      },
+      {
+        "pc": 60,
+        "line": 71946,
+        "op": "move",
+        "args": [
+          "r12",
+          "r0"
+        ]
+      },
+      {
+        "pc": 61,
+        "line": 71947,
+        "op": "call",
+        "args": [
+          "r11",
+          "2",
+          "2"
+        ]
+      },
+      {
+        "pc": 62,
+        "line": 71948,
+        "op": "move",
+        "args": [
+          "r12",
+          "r7"
+        ]
+      },
+      {
+        "pc": 63,
+        "line": 71949,
+        "op": "move",
+        "args": [
+          "r13",
+          "r8"
+        ]
+      },
+      {
+        "pc": 64,
+        "line": 71950,
+        "op": "loadk",
+        "args": [
+          "r14",
+          "k4"
+        ]
+      },
+      {
+        "pc": 65,
+        "line": 71951,
+        "op": "loadk",
+        "args": [
+          "r15",
+          "k21"
+        ]
+      },
+      {
+        "pc": 66,
+        "line": 71952,
+        "op": "call",
+        "args": [
+          "r9",
+          "7",
+          "2"
+        ]
+      },
+      {
+        "pc": 67,
+        "line": 71953,
+        "op": "gettabup",
+        "args": [
+          "r10",
+          "u0",
+          "k22"
+        ]
+      },
+      {
+        "pc": 68,
+        "line": 71954,
+        "op": "move",
+        "args": [
+          "r11",
+          "r9"
+        ]
+      },
+      {
+        "pc": 69,
+        "line": 71955,
+        "op": "loadk",
+        "args": [
+          "r12",
+          "k23"
+        ]
+      },
+      {
+        "pc": 70,
+        "line": 71956,
+        "op": "move",
+        "args": [
+          "r13",
+          "r6"
+        ]
+      },
+      {
+        "pc": 71,
+        "line": 71957,
+        "op": "call",
+        "args": [
+          "r10",
+          "4",
+          "1"
+        ]
+      },
+      {
+        "pc": 72,
+        "line": 71958,
+        "op": "gettabup",
+        "args": [
+          "r10",
+          "u0",
+          "k24"
+        ]
+      },
+      {
+        "pc": 73,
+        "line": 71959,
+        "op": "move",
+        "args": [
+          "r11",
+          "r9"
+        ]
+      },
+      {
+        "pc": 74,
+        "line": 71960,
+        "op": "move",
+        "args": [
+          "r12",
+          "r2"
+        ]
+      },
+      {
+        "pc": 75,
+        "line": 71961,
+        "op": "call",
+        "args": [
+          "r10",
+          "3",
+          "1"
+        ]
+      },
+      {
+        "pc": 76,
+        "line": 71962,
+        "op": "gettabup",
+        "args": [
+          "r10",
+          "u0",
+          "k25"
+        ]
+      },
+      {
+        "pc": 77,
+        "line": 71963,
+        "op": "move",
+        "args": [
+          "r11",
+          "r6"
+        ]
+      },
+      {
+        "pc": 78,
+        "line": 71964,
+        "op": "call",
+        "args": [
+          "r10",
+          "2",
+          "1"
+        ]
+      },
+      {
+        "pc": 79,
+        "line": 71965,
+        "op": "gettabup",
+        "args": [
+          "r10",
+          "u0",
+          "k26"
+        ]
+      },
+      {
+        "pc": 80,
+        "line": 71966,
+        "op": "call",
+        "args": [
+          "r10",
+          "1",
+          "2"
+        ]
+      },
+      {
+        "pc": 81,
+        "line": 71967,
+        "op": "move",
+        "args": [
+          "r3",
+          "r10"
+        ]
+      },
+      {
+        "pc": 82,
+        "line": 71968,
+        "op": "gettabup",
+        "args": [
+          "r10",
+          "u0",
+          "k27"
+        ]
+      },
+      {
+        "pc": 83,
+        "line": 71969,
+        "op": "move",
+        "args": [
+          "r11",
+          "r3"
+        ]
+      },
+      {
+        "pc": 84,
+        "line": 71970,
+        "op": "loadk",
+        "args": [
+          "r12",
+          "k28"
+        ]
+      },
+      {
+        "pc": 85,
+        "line": 71971,
+        "op": "loadbool",
+        "args": [
+          "r13",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "pc": 86,
+        "line": 71972,
+        "op": "getupval",
+        "args": [
+          "r14",
+          "u2"
+        ]
+      },
+      {
+        "pc": 87,
+        "line": 71973,
+        "op": "call",
+        "args": [
+          "r10",
+          "5",
+          "1"
+        ]
+      },
+      {
+        "pc": 88,
+        "line": 71974,
+        "op": "settabup",
+        "args": [
+          "u1",
+          "r2",
+          "r3"
+        ]
+      },
+      {
+        "pc": 89,
+        "line": 71975,
+        "op": "return",
+        "args": [
+          "r0",
+          "1"
+        ]
+      }
+    ],
+    "labels": {
+      "l9": 9,
+      "l23": 23,
+      "l26": 26,
+      "l47": 47,
+      "l55": 55
+    }
+  },
+  "helper": {
+    "function": "main/f7/f20",
+    "lines": [
+      51457,
+      51510
+    ],
+    "constants": {
+      "k0": "q001",
+      "k1": "CreateUnitAtLoc",
+      "k2": "GetId",
+      "k3": "UnitAddAbility",
+      "k4": "SetUnitAbilityLevel",
+      "k5": "UnitApplyTimedLife",
+      "k6": "BHwe"
+    },
+    "instructions": [
+      {
+        "pc": 1,
+        "line": 51476,
+        "op": "test",
+        "args": [
+          "r6",
+          "1"
+        ]
+      },
+      {
+        "pc": 2,
+        "line": 51477,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l4"
+        ]
+      },
+      {
+        "pc": 3,
+        "line": 51478,
+        "op": "loadk",
+        "args": [
+          "r6",
+          "k0"
+        ]
+      },
+      {
+        "pc": 4,
+        "line": 51480,
+        "op": "gettabup",
+        "args": [
+          "r7",
+          "u0",
+          "k1"
+        ]
+      },
+      {
+        "pc": 5,
+        "line": 51481,
+        "op": "move",
+        "args": [
+          "r8",
+          "r0"
+        ]
+      },
+      {
+        "pc": 6,
+        "line": 51482,
+        "op": "gettabup",
+        "args": [
+          "r9",
+          "u0",
+          "k2"
+        ]
+      },
+      {
+        "pc": 7,
+        "line": 51483,
+        "op": "move",
+        "args": [
+          "r10",
+          "r6"
+        ]
+      },
+      {
+        "pc": 8,
+        "line": 51484,
+        "op": "call",
+        "args": [
+          "r9",
+          "2",
+          "2"
+        ]
+      },
+      {
+        "pc": 9,
+        "line": 51485,
+        "op": "move",
+        "args": [
+          "r10",
+          "r1"
+        ]
+      },
+      {
+        "pc": 10,
+        "line": 51486,
+        "op": "move",
+        "args": [
+          "r11",
+          "r2"
+        ]
+      },
+      {
+        "pc": 11,
+        "line": 51487,
+        "op": "call",
+        "args": [
+          "r7",
+          "5",
+          "2"
+        ]
+      },
+      {
+        "pc": 12,
+        "line": 51488,
+        "op": "gettabup",
+        "args": [
+          "r8",
+          "u0",
+          "k3"
+        ]
+      },
+      {
+        "pc": 13,
+        "line": 51489,
+        "op": "move",
+        "args": [
+          "r9",
+          "r7"
+        ]
+      },
+      {
+        "pc": 14,
+        "line": 51490,
+        "op": "gettabup",
+        "args": [
+          "r10",
+          "u0",
+          "k2"
+        ]
+      },
+      {
+        "pc": 15,
+        "line": 51491,
+        "op": "move",
+        "args": [
+          "r11",
+          "r3"
+        ]
+      },
+      {
+        "pc": 16,
+        "line": 51492,
+        "op": "call",
+        "args": [
+          "r10",
+          "2",
+          "0"
+        ]
+      },
+      {
+        "pc": 17,
+        "line": 51493,
+        "op": "call",
+        "args": [
+          "r8",
+          "0",
+          "1"
+        ]
+      },
+      {
+        "pc": 18,
+        "line": 51494,
+        "op": "gettabup",
+        "args": [
+          "r8",
+          "u0",
+          "k4"
+        ]
+      },
+      {
+        "pc": 19,
+        "line": 51495,
+        "op": "move",
+        "args": [
+          "r9",
+          "r7"
+        ]
+      },
+      {
+        "pc": 20,
+        "line": 51496,
+        "op": "gettabup",
+        "args": [
+          "r10",
+          "u0",
+          "k2"
+        ]
+      },
+      {
+        "pc": 21,
+        "line": 51497,
+        "op": "move",
+        "args": [
+          "r11",
+          "r3"
+        ]
+      },
+      {
+        "pc": 22,
+        "line": 51498,
+        "op": "call",
+        "args": [
+          "r10",
+          "2",
+          "2"
+        ]
+      },
+      {
+        "pc": 23,
+        "line": 51499,
+        "op": "move",
+        "args": [
+          "r11",
+          "r4"
+        ]
+      },
+      {
+        "pc": 24,
+        "line": 51500,
+        "op": "call",
+        "args": [
+          "r8",
+          "4",
+          "1"
+        ]
+      },
+      {
+        "pc": 25,
+        "line": 51501,
+        "op": "gettabup",
+        "args": [
+          "r8",
+          "u0",
+          "k5"
+        ]
+      },
+      {
+        "pc": 26,
+        "line": 51502,
+        "op": "move",
+        "args": [
+          "r9",
+          "r7"
+        ]
+      },
+      {
+        "pc": 27,
+        "line": 51503,
+        "op": "gettabup",
+        "args": [
+          "r10",
+          "u0",
+          "k2"
+        ]
+      },
+      {
+        "pc": 28,
+        "line": 51504,
+        "op": "loadk",
+        "args": [
+          "r11",
+          "k6"
+        ]
+      },
+      {
+        "pc": 29,
+        "line": 51505,
+        "op": "call",
+        "args": [
+          "r10",
+          "2",
+          "2"
+        ]
+      },
+      {
+        "pc": 30,
+        "line": 51506,
+        "op": "move",
+        "args": [
+          "r11",
+          "r5"
+        ]
+      },
+      {
+        "pc": 31,
+        "line": 51507,
+        "op": "call",
+        "args": [
+          "r8",
+          "4",
+          "1"
+        ]
+      },
+      {
+        "pc": 32,
+        "line": 51508,
+        "op": "return",
+        "args": [
+          "r7",
+          "2"
+        ]
+      },
+      {
+        "pc": 33,
+        "line": 51509,
+        "op": "return",
+        "args": [
+          "r0",
+          "1"
+        ]
+      }
+    ],
+    "labels": {
+      "l4": 4
+    }
+  },
+  "helper_signature": [
+    "owner",
+    "location",
+    "facing",
+    "abilityIdString",
+    "abilityLevel",
+    "timedLifeSeconds",
+    "optionalUnitIdString(default q001)"
+  ],
+  "argument_flow": {
+    "caller_function": "main/f59/f1",
+    "G059": {
+      "queried_skill": "A148",
+      "dummy_ability": "T162"
+    },
+    "other_unit_types": {
+      "queried_skill": "A067",
+      "dummy_ability": "T059"
+    },
+    "CreateTempAndSetAbilityLv": [
+      "GetOwningPlayer(attacker)",
+      "GetUnitLoc(attacker)",
+      "queried skill level",
+      "dummy ability ID",
+      1,
+      3
+    ],
+    "native_CreateUnitAtLoc": [
+      "owner",
+      "q001",
+      "source location",
+      "queried skill level as facing"
+    ],
+    "native_SetUnitAbilityLevel": [
+      "new q001",
+      "T059 or T162",
+      1
+    ],
+    "native_UnitApplyTimedLife": [
+      "new q001",
+      "BHwe",
+      3
+    ],
+    "next_operations": [
+      "IssuePointOrderLoc(dummy,clusterrockets,targetLoc)",
+      "SetUnitUserData(dummy,attacker tower index)",
+      "RemoveLocation(targetLoc)",
+      "start shared cooldown timer"
+    ],
+    "order_return_ignored": true,
+    "no_after_creation_level_set_in_action": true
+  },
+  "compensation_audit": {
+    "scope": "full persistent main.readable.lua/main.disasm and war3map.j known level/data mutators; source-table ID references. This is source audit, not proof about unobserved binary modifications.",
+    "business_level_setter_count": 82,
+    "business_data_real_setter_count": 2,
+    "mutation_sites": [
+      {
+        "line": 31473,
+        "module": "scripts.utils.Util",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "A3_3",
+        "literal_id": null,
+        "excerpt_lines": [
+          31473,
+          31480
+        ],
+        "excerpt": "    L8_3 = SetUnitAbilityLevel\n    L9_3 = L7_3\n    L10_3 = GetId\n    L11_3 = A3_3\n    L10_3 = L10_3(L11_3)\n    L11_3 = A4_3\n    L8_3(L9_3, L10_3, L11_3)\n    L8_3 = UnitApplyTimedLife"
+      },
+      {
+        "line": 37769,
+        "module": "scripts.model.skill.A006",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T002\"",
+        "literal_id": "T002",
+        "excerpt_lines": [
+          37769,
+          37776
+        ],
+        "excerpt": "    L3_3 = SetUnitAbilityLevel\n    L4_3 = A0_3\n    L5_3 = GetId\n    L6_3 = \"T002\"\n    L5_3 = L5_3(L6_3)\n    L6_3 = L2_3\n    L3_3(L4_3, L5_3, L6_3)\n  end"
+      },
+      {
+        "line": 39143,
+        "module": "scripts.model.skill.A025",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T008\"",
+        "literal_id": "T008",
+        "excerpt_lines": [
+          39143,
+          39150
+        ],
+        "excerpt": "    L3_3 = SetUnitAbilityLevel\n    L4_3 = A0_3\n    L5_3 = GetId\n    L6_3 = \"T008\"\n    L5_3 = L5_3(L6_3)\n    L6_3 = L2_3\n    L3_3(L4_3, L5_3, L6_3)\n  end"
+      },
+      {
+        "line": 46080,
+        "module": "scripts.model.skill.A077",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"A078\"",
+        "literal_id": "A078",
+        "excerpt_lines": [
+          46080,
+          46087
+        ],
+        "excerpt": "        L6_3 = SetUnitAbilityLevel\n        L7_3 = A0_3\n        L8_3 = GetId\n        L9_3 = \"A078\"\n        L8_3 = L8_3(L9_3)\n        L9_3 = L5_3\n        L6_3(L7_3, L8_3, L9_3)\n        L6_3 = CreateEffByUnit"
+      },
+      {
+        "line": 47282,
+        "module": "scripts.model.skill.A082",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T222\"",
+        "literal_id": "T222",
+        "excerpt_lines": [
+          47282,
+          47289
+        ],
+        "excerpt": "      L5_3 = SetUnitAbilityLevel\n      L6_3 = A0_3\n      L7_3 = GetId\n      L8_3 = \"T222\"\n      L7_3 = L7_3(L8_3)\n      L8_3 = 1\n      L5_3(L6_3, L7_3, L8_3)\n      return"
+      },
+      {
+        "line": 47300,
+        "module": "scripts.model.skill.A082",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T222\"",
+        "literal_id": "T222",
+        "excerpt_lines": [
+          47300,
+          47307
+        ],
+        "excerpt": "    L6_3 = SetUnitAbilityLevel\n    L7_3 = A0_3\n    L8_3 = GetId\n    L9_3 = \"T222\"\n    L8_3 = L8_3(L9_3)\n    L9_3 = L5_3 + 1\n    L6_3(L7_3, L8_3, L9_3)\n    L6_3 = IsInTable"
+      },
+      {
+        "line": 48291,
+        "module": "scripts.model.skill.A088",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T291\"",
+        "literal_id": "T291",
+        "excerpt_lines": [
+          48291,
+          48298
+        ],
+        "excerpt": "                L16_3 = SetUnitAbilityLevel\n                L17_3 = L6_3\n                L18_3 = GetId\n                L19_3 = \"T291\"\n                L18_3 = L18_3(L19_3)\n                L19_3 = L3_3\n                L16_3(L17_3, L18_3, L19_3)\n                L16_3 = CreateTempAndSetAbilityLv"
+      },
+      {
+        "line": 51221,
+        "module": "scripts.model.skill.A112",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "L4_3",
+        "literal_id": null,
+        "excerpt_lines": [
+          51221,
+          51228
+        ],
+        "excerpt": "      L6_3 = SetUnitAbilityLevel\n      L7_3 = L1_3\n      L8_3 = GetId\n      L9_3 = L4_3\n      L8_3 = L8_3(L9_3)\n      L9_3 = A112_Count\n      L9_3 = L9_3[A0_3]\n      L6_3(L7_3, L8_3, L9_3)"
+      },
+      {
+        "line": 51774,
+        "module": "scripts.model.skill.A116",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T117\"",
+        "literal_id": "T117",
+        "excerpt_lines": [
+          51774,
+          51781
+        ],
+        "excerpt": "      L6_3 = SetUnitAbilityLevel\n      L7_3 = L2_3\n      L8_3 = GetId\n      L9_3 = \"T117\"\n      L8_3 = L8_3(L9_3)\n      L9_3 = L5_3\n      L6_3(L7_3, L8_3, L9_3)\n      L6_3 = UnitRemoveAbility"
+      },
+      {
+        "line": 51800,
+        "module": "scripts.model.skill.A116",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T118\"",
+        "literal_id": "T118",
+        "excerpt_lines": [
+          51800,
+          51807
+        ],
+        "excerpt": "      L6_3 = SetUnitAbilityLevel\n      L7_3 = L2_3\n      L8_3 = GetId\n      L9_3 = \"T118\"\n      L8_3 = L8_3(L9_3)\n      L9_3 = L5_3\n      L6_3(L7_3, L8_3, L9_3)\n    end"
+      },
+      {
+        "line": 53061,
+        "module": "scripts.model.skill.A126",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T145\"",
+        "literal_id": "T145",
+        "excerpt_lines": [
+          53061,
+          53068
+        ],
+        "excerpt": "      L5_3 = SetUnitAbilityLevel\n      L6_3 = L4_3\n      L7_3 = GetId\n      L8_3 = \"T145\"\n      L7_3 = L7_3(L8_3)\n      L8_3 = L3_3\n      L5_3(L6_3, L7_3, L8_3)\n      L5_3 = A126_Unit_BB"
+      },
+      {
+        "line": 53096,
+        "module": "scripts.model.skill.A126",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T145\"",
+        "literal_id": "T145",
+        "excerpt_lines": [
+          53096,
+          53103
+        ],
+        "excerpt": "    L5_3 = SetUnitAbilityLevel\n    L6_3 = A0_3\n    L7_3 = GetId\n    L8_3 = \"T145\"\n    L7_3 = L7_3(L8_3)\n    L8_3 = L3_3\n    L5_3(L6_3, L7_3, L8_3)\n    L5_3 = CreateTimer"
+      },
+      {
+        "line": 53237,
+        "module": "scripts.model.skill.A127",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T138\"",
+        "literal_id": "T138",
+        "excerpt_lines": [
+          53237,
+          53244
+        ],
+        "excerpt": "    L2_3 = SetUnitAbilityLevel\n    L3_3 = A0_3\n    L4_3 = GetId\n    L5_3 = \"T138\"\n    L4_3 = L4_3(L5_3)\n    L5_3 = A1_3\n    L2_3(L3_3, L4_3, L5_3)\n  end"
+      },
+      {
+        "line": 53472,
+        "module": "scripts.model.skill.A133",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T155\"",
+        "literal_id": "T155",
+        "excerpt_lines": [
+          53472,
+          53479
+        ],
+        "excerpt": "    L5_3 = SetUnitAbilityLevel\n    L6_3 = A1_3\n    L7_3 = GetId\n    L8_3 = \"T155\"\n    L7_3 = L7_3(L8_3)\n    L8_3 = L3_3\n    L5_3(L6_3, L7_3, L8_3)\n    L5_3 = UnitRemoveAbility"
+      },
+      {
+        "line": 53498,
+        "module": "scripts.model.skill.A133",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T156\"",
+        "literal_id": "T156",
+        "excerpt_lines": [
+          53498,
+          53505
+        ],
+        "excerpt": "    L5_3 = SetUnitAbilityLevel\n    L6_3 = A1_3\n    L7_3 = GetId\n    L8_3 = \"T156\"\n    L7_3 = L7_3(L8_3)\n    L8_3 = L3_3\n    L5_3(L6_3, L7_3, L8_3)\n  end"
+      },
+      {
+        "line": 53793,
+        "module": "scripts.model.skill.A134",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "L4_3",
+        "literal_id": null,
+        "excerpt_lines": [
+          53793,
+          53800
+        ],
+        "excerpt": "        L8_3 = SetUnitAbilityLevel\n        L9_3 = L3_3\n        L10_3 = GetId\n        L11_3 = L4_3\n        L10_3 = L10_3(L11_3)\n        L11_3 = L6_3\n        L8_3(L9_3, L10_3, L11_3)\n        L8_3 = CreateEffAtLoc"
+      },
+      {
+        "line": 55681,
+        "module": "scripts.model.skill.A164",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T329\"",
+        "literal_id": "T329",
+        "excerpt_lines": [
+          55681,
+          55688
+        ],
+        "excerpt": "      L2_3 = SetUnitAbilityLevel\n      L3_3 = A0_3\n      L4_3 = GetId\n      L5_3 = \"T329\"\n      L4_3 = L4_3(L5_3)\n      L5_3 = L1_3\n      L2_3(L3_3, L4_3, L5_3)\n    end"
+      },
+      {
+        "line": 55787,
+        "module": "scripts.model.skill.A164",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "L8_3",
+        "literal_id": null,
+        "excerpt_lines": [
+          55787,
+          55794
+        ],
+        "excerpt": "        L15_3 = SetUnitAbilityLevel\n        L16_3 = A0_3\n        L17_3 = GetId\n        L18_3 = L8_3\n        L17_3 = L17_3(L18_3)\n        L18_3 = L9_3\n        L15_3(L16_3, L17_3, L18_3)\n        break"
+      },
+      {
+        "line": 55818,
+        "module": "scripts.model.skill.A164",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T329\"",
+        "literal_id": "T329",
+        "excerpt_lines": [
+          55818,
+          55825
+        ],
+        "excerpt": "      L10_3 = SetUnitAbilityLevel\n      L11_3 = A0_3\n      L12_3 = GetId\n      L13_3 = \"T329\"\n      L12_3 = L12_3(L13_3)\n      L13_3 = L6_3\n      L10_3(L11_3, L12_3, L13_3)\n    end"
+      },
+      {
+        "line": 56848,
+        "module": "scripts.model.skill.A164",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T124\"",
+        "literal_id": "T124",
+        "excerpt_lines": [
+          56848,
+          56855
+        ],
+        "excerpt": "          L11_3 = SetUnitAbilityLevel\n          L12_3 = L6_3\n          L13_3 = GetId\n          L14_3 = \"T124\"\n          L13_3 = L13_3(L14_3)\n          L14_3 = L4_3\n          L11_3(L12_3, L13_3, L14_3)\n          L11_3 = CreateEffByUnit"
+      },
+      {
+        "line": 58352,
+        "module": "scripts.model.skill.A165",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T175\"",
+        "literal_id": "T175",
+        "excerpt_lines": [
+          58352,
+          58359
+        ],
+        "excerpt": "    L5_3 = SetUnitAbilityLevel\n    L6_3 = A0_3\n    L7_3 = GetId\n    L8_3 = \"T175\"\n    L7_3 = L7_3(L8_3)\n    L8_3 = L3_3\n    L5_3(L6_3, L7_3, L8_3)\n    L5_3 = UnitMakeAbilityPermanent"
+      },
+      {
+        "line": 59816,
+        "module": "scripts.model.skill.A174",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "L5_2[L1_3]",
+        "literal_id": null,
+        "excerpt_lines": [
+          59816,
+          59823
+        ],
+        "excerpt": "    L6_3 = SetUnitAbilityLevel\n    L7_3 = L3_3\n    L8_3 = GetId\n    L9_3 = L5_2[L1_3]\n    L8_3 = L8_3(L9_3)\n    L9_3 = L5_3 + 1\n    L6_3(L7_3, L8_3, L9_3)\n    L6_3 = CreateUnitAtLoc"
+      },
+      {
+        "line": 61596,
+        "module": "scripts.model.skill.A181",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T203\"",
+        "literal_id": "T203",
+        "excerpt_lines": [
+          61596,
+          61603
+        ],
+        "excerpt": "          L18_3 = SetUnitAbilityLevel\n          L19_3 = L9_3\n          L20_3 = GetId\n          L21_3 = \"T203\"\n          L20_3 = L20_3(L21_3)\n          L21_3 = L11_3\n          L18_3(L19_3, L20_3, L21_3)\n          L18_3 = CreateTempAndSetAbilityLv"
+      },
+      {
+        "line": 62460,
+        "module": "scripts.model.skill.A187",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T198\"",
+        "literal_id": "T198",
+        "excerpt_lines": [
+          62460,
+          62467
+        ],
+        "excerpt": "    L5_3 = SetUnitAbilityLevel\n    L6_3 = A1_3\n    L7_3 = GetId\n    L8_3 = \"T198\"\n    L7_3 = L7_3(L8_3)\n    L8_3 = L3_3\n    L5_3(L6_3, L7_3, L8_3)\n  end"
+      },
+      {
+        "line": 63548,
+        "module": "scripts.model.skill.A193",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T208\"",
+        "literal_id": "T208",
+        "excerpt_lines": [
+          63548,
+          63555
+        ],
+        "excerpt": "      L3_3 = SetUnitAbilityLevel\n      L4_3 = A0_3\n      L5_3 = GetId\n      L6_3 = \"T208\"\n      L5_3 = L5_3(L6_3)\n      L6_3 = L1_3\n      L3_3(L4_3, L5_3, L6_3)\n      L3_3 = UnitMakeAbilityPermanent"
+      },
+      {
+        "line": 63568,
+        "module": "scripts.model.skill.A193",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T209\"",
+        "literal_id": "T209",
+        "excerpt_lines": [
+          63568,
+          63575
+        ],
+        "excerpt": "      L3_3 = SetUnitAbilityLevel\n      L4_3 = A0_3\n      L5_3 = GetId\n      L6_3 = \"T209\"\n      L5_3 = L5_3(L6_3)\n      L6_3 = L1_3\n      L3_3(L4_3, L5_3, L6_3)\n      L3_3 = UnitMakeAbilityPermanent"
+      },
+      {
+        "line": 63860,
+        "module": "scripts.model.skill.A195",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T216\"",
+        "literal_id": "T216",
+        "excerpt_lines": [
+          63860,
+          63867
+        ],
+        "excerpt": "    L3_3 = SetUnitAbilityLevel\n    L4_3 = A0_3\n    L5_3 = GetId\n    L6_3 = \"T216\"\n    L5_3 = L5_3(L6_3)\n    L6_3 = L2_3\n    L3_3(L4_3, L5_3, L6_3)\n    L3_3 = L1_2[L1_3]"
+      },
+      {
+        "line": 67468,
+        "module": "scripts.model.skill.A216",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T275\"",
+        "literal_id": "T275",
+        "excerpt_lines": [
+          67468,
+          67475
+        ],
+        "excerpt": "    L3_3 = SetUnitAbilityLevel\n    L4_3 = A0_3\n    L5_3 = GetId\n    L6_3 = \"T275\"\n    L5_3 = L5_3(L6_3)\n    L6_3 = L2_3\n    L3_3(L4_3, L5_3, L6_3)\n  end"
+      },
+      {
+        "line": 67497,
+        "module": "scripts.model.skill.A216",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T275\"",
+        "literal_id": "T275",
+        "excerpt_lines": [
+          67497,
+          67504
+        ],
+        "excerpt": "    L3_3 = SetUnitAbilityLevel\n    L4_3 = L1_3\n    L5_3 = GetId\n    L6_3 = \"T275\"\n    L5_3 = L5_3(L6_3)\n    L6_3 = L2_3\n    L3_3(L4_3, L5_3, L6_3)\n  end"
+      },
+      {
+        "line": 68371,
+        "module": "scripts.model.skill.A224",
+        "native": "L1_2.EXSetAbilityDataReal",
+        "ability_expression": "\"T286\"",
+        "literal_id": "T286",
+        "excerpt_lines": [
+          68371,
+          68378
+        ],
+        "excerpt": "    L10_3 = L1_2.EXSetAbilityDataReal\n    L11_3 = L1_2.EXGetUnitAbility\n    L12_3 = L9_3\n    L13_3 = GetId\n    L14_3 = \"T286\"\n    L13_3, L14_3, L15_3, L16_3 = L13_3(L14_3)\n    L11_3 = L11_3(L12_3, L13_3, L14_3, L15_3, L16_3)\n    L12_3 = 1"
+      },
+      {
+        "line": 68382,
+        "module": "scripts.model.skill.A224",
+        "native": "L1_2.EXSetAbilityDataReal",
+        "ability_expression": "\"T286\"",
+        "literal_id": "T286",
+        "excerpt_lines": [
+          68382,
+          68389
+        ],
+        "excerpt": "    L10_3 = L1_2.EXSetAbilityDataReal\n    L11_3 = L1_2.EXGetUnitAbility\n    L12_3 = L9_3\n    L13_3 = GetId\n    L14_3 = \"T286\"\n    L13_3, L14_3, L15_3, L16_3 = L13_3(L14_3)\n    L11_3 = L11_3(L12_3, L13_3, L14_3, L15_3, L16_3)\n    L12_3 = 1"
+      },
+      {
+        "line": 68566,
+        "module": "scripts.model.skill.A225",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "L11_3",
+        "literal_id": null,
+        "excerpt_lines": [
+          68566,
+          68573
+        ],
+        "excerpt": "          L12_3 = SetUnitAbilityLevel\n          L13_3 = A0_3\n          L14_3 = GetId\n          L15_3 = L11_3\n          L14_3 = L14_3(L15_3)\n          L15_3 = L1_3\n          L12_3(L13_3, L14_3, L15_3)\n          L12_3 = UnitMakeAbilityPermanent"
+      },
+      {
+        "line": 68688,
+        "module": "scripts.model.skill.A225",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"A226\"",
+        "literal_id": "A226",
+        "excerpt_lines": [
+          68688,
+          68695
+        ],
+        "excerpt": "      L8_3 = SetUnitAbilityLevel\n      L9_3 = L2_3\n      L10_3 = GetId\n      L11_3 = \"A226\"\n      L10_3 = L10_3(L11_3)\n      L11_3 = L5_3\n      L8_3(L9_3, L10_3, L11_3)\n      L8_3 = UnitMakeAbilityPermanent"
+      },
+      {
+        "line": 68734,
+        "module": "scripts.model.skill.A225",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"A227\"",
+        "literal_id": "A227",
+        "excerpt_lines": [
+          68734,
+          68741
+        ],
+        "excerpt": "    L2_3 = SetUnitAbilityLevel\n    L3_3 = A0_3\n    L4_3 = GetId\n    L5_3 = \"A227\"\n    L4_3 = L4_3(L5_3)\n    L5_3 = L1_3\n    L2_3(L3_3, L4_3, L5_3)\n    L2_3 = UnitMakeAbilityPermanent"
+      },
+      {
+        "line": 68780,
+        "module": "scripts.model.skill.A225",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"A228\"",
+        "literal_id": "A228",
+        "excerpt_lines": [
+          68780,
+          68787
+        ],
+        "excerpt": "      L2_3 = SetUnitAbilityLevel\n      L3_3 = A0_3\n      L4_3 = GetId\n      L5_3 = \"A228\"\n      L4_3 = L4_3(L5_3)\n      L5_3 = L1_3\n      L2_3(L3_3, L4_3, L5_3)\n      L2_3 = UnitMakeAbilityPermanent"
+      },
+      {
+        "line": 68844,
+        "module": "scripts.model.skill.A225",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"A226\"",
+        "literal_id": "A226",
+        "excerpt_lines": [
+          68844,
+          68851
+        ],
+        "excerpt": "    L2_3 = SetUnitAbilityLevel\n    L3_3 = A0_3\n    L4_3 = GetId\n    L5_3 = \"A226\"\n    L4_3 = L4_3(L5_3)\n    L5_3 = L1_3\n    L2_3(L3_3, L4_3, L5_3)\n    L2_3 = UnitMakeAbilityPermanent"
+      },
+      {
+        "line": 68948,
+        "module": "scripts.model.skill.A225",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"A228\"",
+        "literal_id": "A228",
+        "excerpt_lines": [
+          68948,
+          68955
+        ],
+        "excerpt": "      L8_3 = SetUnitAbilityLevel\n      L9_3 = L2_3\n      L10_3 = GetId\n      L11_3 = \"A228\"\n      L10_3 = L10_3(L11_3)\n      L11_3 = L5_3\n      L8_3(L9_3, L10_3, L11_3)\n      L8_3 = UnitMakeAbilityPermanent"
+      },
+      {
+        "line": 68994,
+        "module": "scripts.model.skill.A225",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"A229\"",
+        "literal_id": "A229",
+        "excerpt_lines": [
+          68994,
+          69001
+        ],
+        "excerpt": "    L2_3 = SetUnitAbilityLevel\n    L3_3 = A0_3\n    L4_3 = GetId\n    L5_3 = \"A229\"\n    L4_3 = L4_3(L5_3)\n    L5_3 = L1_3\n    L2_3(L3_3, L4_3, L5_3)\n    L2_3 = UnitMakeAbilityPermanent"
+      },
+      {
+        "line": 69040,
+        "module": "scripts.model.skill.A225",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"A226\"",
+        "literal_id": "A226",
+        "excerpt_lines": [
+          69040,
+          69047
+        ],
+        "excerpt": "      L2_3 = SetUnitAbilityLevel\n      L3_3 = A0_3\n      L4_3 = GetId\n      L5_3 = \"A226\"\n      L4_3 = L4_3(L5_3)\n      L5_3 = L1_3\n      L2_3(L3_3, L4_3, L5_3)\n      L2_3 = UnitMakeAbilityPermanent"
+      },
+      {
+        "line": 69104,
+        "module": "scripts.model.skill.A225",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"A228\"",
+        "literal_id": "A228",
+        "excerpt_lines": [
+          69104,
+          69111
+        ],
+        "excerpt": "    L2_3 = SetUnitAbilityLevel\n    L3_3 = A0_3\n    L4_3 = GetId\n    L5_3 = \"A228\"\n    L4_3 = L4_3(L5_3)\n    L5_3 = L1_3\n    L2_3(L3_3, L4_3, L5_3)\n    L2_3 = UnitMakeAbilityPermanent"
+      },
+      {
+        "line": 76083,
+        "module": "scripts.model.skill.N571",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"N572\"",
+        "literal_id": "N572",
+        "excerpt_lines": [
+          76083,
+          76090
+        ],
+        "excerpt": "    L4_3 = SetUnitAbilityLevel\n    L5_3 = A0_3\n    L6_3 = GetId\n    L7_3 = \"N572\"\n    L6_3 = L6_3(L7_3)\n    L7_3 = 1\n    L4_3(L5_3, L6_3, L7_3)\n    L4_3 = CreateEffByUnit"
+      },
+      {
+        "line": 77244,
+        "module": "scripts.model.skill.N709",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"N709\"",
+        "literal_id": "N709",
+        "excerpt_lines": [
+          77244,
+          77251
+        ],
+        "excerpt": "    L3_3 = SetUnitAbilityLevel\n    L4_3 = A0_3\n    L5_3 = GetId\n    L6_3 = \"N709\"\n    L5_3 = L5_3(L6_3)\n    L6_3 = L2_3\n    L3_3(L4_3, L5_3, L6_3)\n  end"
+      },
+      {
+        "line": 77699,
+        "module": "scripts.model.Item.i258",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "A2_3",
+        "literal_id": null,
+        "excerpt_lines": [
+          77699,
+          77706
+        ],
+        "excerpt": "    L5_3 = SetUnitAbilityLevel\n    L6_3 = A0_3\n    L7_3 = GetId\n    L8_3 = A2_3\n    L7_3 = L7_3(L8_3)\n    L8_3 = A3_3\n    L5_3(L6_3, L7_3, L8_3)\n    if A1_3 == \"P215\" then"
+      },
+      {
+        "line": 77734,
+        "module": "scripts.model.Item.i258",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T116\"",
+        "literal_id": "T116",
+        "excerpt_lines": [
+          77734,
+          77741
+        ],
+        "excerpt": "      L5_3 = SetUnitAbilityLevel\n      L6_3 = A0_3\n      L7_3 = GetId\n      L8_3 = \"T116\"\n      L7_3 = L7_3(L8_3)\n      L8_3 = A3_3\n      L5_3(L6_3, L7_3, L8_3)\n      L5_3 = UnitAddAbility"
+      },
+      {
+        "line": 77754,
+        "module": "scripts.model.Item.i258",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T114\"",
+        "literal_id": "T114",
+        "excerpt_lines": [
+          77754,
+          77761
+        ],
+        "excerpt": "      L5_3 = SetUnitAbilityLevel\n      L6_3 = A0_3\n      L7_3 = GetId\n      L8_3 = \"T114\"\n      L7_3 = L7_3(L8_3)\n      L8_3 = A3_3\n      L5_3(L6_3, L7_3, L8_3)\n    end"
+      },
+      {
+        "line": 78200,
+        "module": "scripts.model.Item.i258",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T115\"",
+        "literal_id": "T115",
+        "excerpt_lines": [
+          78200,
+          78207
+        ],
+        "excerpt": "      L5_3 = SetUnitAbilityLevel\n      L6_3 = A0_3\n      L7_3 = GetId\n      L8_3 = \"T115\"\n      L7_3 = L7_3(L8_3)\n      L8_3 = A3_3\n      L5_3(L6_3, L7_3, L8_3)\n    end"
+      },
+      {
+        "line": 78856,
+        "module": "scripts.model.Item.i258",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "L2_3",
+        "literal_id": null,
+        "excerpt_lines": [
+          78856,
+          78863
+        ],
+        "excerpt": "    L4_3 = SetUnitAbilityLevel\n    L5_3 = A0_3\n    L6_3 = GetId\n    L7_3 = L2_3\n    L6_3 = L6_3(L7_3)\n    L7_3 = L3_3\n    L4_3(L5_3, L6_3, L7_3)\n  end"
+      },
+      {
+        "line": 79413,
+        "module": "scripts.model.Item.i240_254",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T085\"",
+        "literal_id": "T085",
+        "excerpt_lines": [
+          79413,
+          79420
+        ],
+        "excerpt": "      L2_3 = SetUnitAbilityLevel\n      L3_3 = A1_3\n      L4_3 = GetId\n      L5_3 = \"T085\"\n      L4_3 = L4_3(L5_3)\n      L5_3 = 3\n      L2_3(L3_3, L4_3, L5_3)\n    else"
+      },
+      {
+        "line": 79434,
+        "module": "scripts.model.Item.i240_254",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T085\"",
+        "literal_id": "T085",
+        "excerpt_lines": [
+          79434,
+          79441
+        ],
+        "excerpt": "        L2_3 = SetUnitAbilityLevel\n        L3_3 = A1_3\n        L4_3 = GetId\n        L5_3 = \"T085\"\n        L4_3 = L4_3(L5_3)\n        L5_3 = 2\n        L2_3(L3_3, L4_3, L5_3)\n      else"
+      },
+      {
+        "line": 79455,
+        "module": "scripts.model.Item.i240_254",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T085\"",
+        "literal_id": "T085",
+        "excerpt_lines": [
+          79455,
+          79462
+        ],
+        "excerpt": "          L2_3 = SetUnitAbilityLevel\n          L3_3 = A1_3\n          L4_3 = GetId\n          L5_3 = \"T085\"\n          L4_3 = L4_3(L5_3)\n          L5_3 = 1\n          L2_3(L3_3, L4_3, L5_3)\n        end"
+      },
+      {
+        "line": 79478,
+        "module": "scripts.model.Item.i240_254",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T086\"",
+        "literal_id": "T086",
+        "excerpt_lines": [
+          79478,
+          79485
+        ],
+        "excerpt": "      L2_3 = SetUnitAbilityLevel\n      L3_3 = A1_3\n      L4_3 = GetId\n      L5_3 = \"T086\"\n      L4_3 = L4_3(L5_3)\n      L5_3 = 3\n      L2_3(L3_3, L4_3, L5_3)\n      L2_3 = IsUnitType"
+      },
+      {
+        "line": 79496,
+        "module": "scripts.model.Item.i240_254",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T201\"",
+        "literal_id": "T201",
+        "excerpt_lines": [
+          79496,
+          79503
+        ],
+        "excerpt": "        L2_3 = SetUnitAbilityLevel\n        L3_3 = A1_3\n        L4_3 = GetId\n        L5_3 = \"T201\"\n        L4_3 = L4_3(L5_3)\n        L5_3 = 3\n        L2_3(L3_3, L4_3, L5_3)\n      end"
+      },
+      {
+        "line": 79518,
+        "module": "scripts.model.Item.i240_254",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T086\"",
+        "literal_id": "T086",
+        "excerpt_lines": [
+          79518,
+          79525
+        ],
+        "excerpt": "        L2_3 = SetUnitAbilityLevel\n        L3_3 = A1_3\n        L4_3 = GetId\n        L5_3 = \"T086\"\n        L4_3 = L4_3(L5_3)\n        L5_3 = 2\n        L2_3(L3_3, L4_3, L5_3)\n        L2_3 = IsUnitType"
+      },
+      {
+        "line": 79536,
+        "module": "scripts.model.Item.i240_254",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T201\"",
+        "literal_id": "T201",
+        "excerpt_lines": [
+          79536,
+          79543
+        ],
+        "excerpt": "          L2_3 = SetUnitAbilityLevel\n          L3_3 = A1_3\n          L4_3 = GetId\n          L5_3 = \"T201\"\n          L4_3 = L4_3(L5_3)\n          L5_3 = 2\n          L2_3(L3_3, L4_3, L5_3)\n        end"
+      },
+      {
+        "line": 79558,
+        "module": "scripts.model.Item.i240_254",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T086\"",
+        "literal_id": "T086",
+        "excerpt_lines": [
+          79558,
+          79565
+        ],
+        "excerpt": "          L2_3 = SetUnitAbilityLevel\n          L3_3 = A1_3\n          L4_3 = GetId\n          L5_3 = \"T086\"\n          L4_3 = L4_3(L5_3)\n          L5_3 = 1\n          L2_3(L3_3, L4_3, L5_3)\n          L2_3 = IsUnitType"
+      },
+      {
+        "line": 79576,
+        "module": "scripts.model.Item.i240_254",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T201\"",
+        "literal_id": "T201",
+        "excerpt_lines": [
+          79576,
+          79583
+        ],
+        "excerpt": "            L2_3 = SetUnitAbilityLevel\n            L3_3 = A1_3\n            L4_3 = GetId\n            L5_3 = \"T201\"\n            L4_3 = L4_3(L5_3)\n            L5_3 = 1\n            L2_3(L3_3, L4_3, L5_3)\n          end"
+      },
+      {
+        "line": 79600,
+        "module": "scripts.model.Item.i240_254",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T087\"",
+        "literal_id": "T087",
+        "excerpt_lines": [
+          79600,
+          79607
+        ],
+        "excerpt": "      L2_3 = SetUnitAbilityLevel\n      L3_3 = A1_3\n      L4_3 = GetId\n      L5_3 = \"T087\"\n      L4_3 = L4_3(L5_3)\n      L5_3 = 3\n      L2_3(L3_3, L4_3, L5_3)\n    else"
+      },
+      {
+        "line": 79621,
+        "module": "scripts.model.Item.i240_254",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T087\"",
+        "literal_id": "T087",
+        "excerpt_lines": [
+          79621,
+          79628
+        ],
+        "excerpt": "        L2_3 = SetUnitAbilityLevel\n        L3_3 = A1_3\n        L4_3 = GetId\n        L5_3 = \"T087\"\n        L4_3 = L4_3(L5_3)\n        L5_3 = 2\n        L2_3(L3_3, L4_3, L5_3)\n      else"
+      },
+      {
+        "line": 79642,
+        "module": "scripts.model.Item.i240_254",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T087\"",
+        "literal_id": "T087",
+        "excerpt_lines": [
+          79642,
+          79649
+        ],
+        "excerpt": "          L2_3 = SetUnitAbilityLevel\n          L3_3 = A1_3\n          L4_3 = GetId\n          L5_3 = \"T087\"\n          L4_3 = L4_3(L5_3)\n          L5_3 = 1\n          L2_3(L3_3, L4_3, L5_3)\n        end"
+      },
+      {
+        "line": 82679,
+        "module": "scripts.model.item.i258",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "A2_3",
+        "literal_id": null,
+        "excerpt_lines": [
+          82679,
+          82686
+        ],
+        "excerpt": "    L5_3 = SetUnitAbilityLevel\n    L6_3 = A0_3\n    L7_3 = GetId\n    L8_3 = A2_3\n    L7_3 = L7_3(L8_3)\n    L8_3 = A3_3\n    L5_3(L6_3, L7_3, L8_3)\n    if A1_3 == \"P215\" then"
+      },
+      {
+        "line": 82714,
+        "module": "scripts.model.item.i258",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T116\"",
+        "literal_id": "T116",
+        "excerpt_lines": [
+          82714,
+          82721
+        ],
+        "excerpt": "      L5_3 = SetUnitAbilityLevel\n      L6_3 = A0_3\n      L7_3 = GetId\n      L8_3 = \"T116\"\n      L7_3 = L7_3(L8_3)\n      L8_3 = A3_3\n      L5_3(L6_3, L7_3, L8_3)\n      L5_3 = UnitAddAbility"
+      },
+      {
+        "line": 82734,
+        "module": "scripts.model.item.i258",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T114\"",
+        "literal_id": "T114",
+        "excerpt_lines": [
+          82734,
+          82741
+        ],
+        "excerpt": "      L5_3 = SetUnitAbilityLevel\n      L6_3 = A0_3\n      L7_3 = GetId\n      L8_3 = \"T114\"\n      L7_3 = L7_3(L8_3)\n      L8_3 = A3_3\n      L5_3(L6_3, L7_3, L8_3)\n    end"
+      },
+      {
+        "line": 83180,
+        "module": "scripts.model.item.i258",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T115\"",
+        "literal_id": "T115",
+        "excerpt_lines": [
+          83180,
+          83187
+        ],
+        "excerpt": "      L5_3 = SetUnitAbilityLevel\n      L6_3 = A0_3\n      L7_3 = GetId\n      L8_3 = \"T115\"\n      L7_3 = L7_3(L8_3)\n      L8_3 = A3_3\n      L5_3(L6_3, L7_3, L8_3)\n    end"
+      },
+      {
+        "line": 83836,
+        "module": "scripts.model.item.i258",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "L2_3",
+        "literal_id": null,
+        "excerpt_lines": [
+          83836,
+          83843
+        ],
+        "excerpt": "    L4_3 = SetUnitAbilityLevel\n    L5_3 = A0_3\n    L6_3 = GetId\n    L7_3 = L2_3\n    L6_3 = L6_3(L7_3)\n    L7_3 = L3_3\n    L4_3(L5_3, L6_3, L7_3)\n  end"
+      },
+      {
+        "line": 108183,
+        "module": "scripts.model.abyss.Abyss",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"N566\"",
+        "literal_id": "N566",
+        "excerpt_lines": [
+          108183,
+          108190
+        ],
+        "excerpt": "    L0_3 = SetUnitAbilityLevel\n    L1_3 = Abyss_BOSS\n    L2_3 = GetId\n    L3_3 = \"N566\"\n    L2_3 = L2_3(L3_3)\n    L3_3 = L29_2\n    L4_3 = Abyss_Cur_Rank_Lv\n    L3_3, L4_3 = L3_3(L4_3)"
+      },
+      {
+        "line": 108192,
+        "module": "scripts.model.abyss.Abyss",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"N567\"",
+        "literal_id": "N567",
+        "excerpt_lines": [
+          108192,
+          108199
+        ],
+        "excerpt": "    L0_3 = SetUnitAbilityLevel\n    L1_3 = Abyss_BOSS\n    L2_3 = GetId\n    L3_3 = \"N567\"\n    L2_3 = L2_3(L3_3)\n    L3_3 = L29_2\n    L4_3 = Abyss_Cur_Rank_Lv\n    L3_3, L4_3 = L3_3(L4_3)"
+      },
+      {
+        "line": 108203,
+        "module": "scripts.model.abyss.Abyss",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"N562\"",
+        "literal_id": "N562",
+        "excerpt_lines": [
+          108203,
+          108210
+        ],
+        "excerpt": "      L0_3 = SetUnitAbilityLevel\n      L1_3 = Abyss_BOSS\n      L2_3 = GetId\n      L3_3 = \"N562\"\n      L2_3 = L2_3(L3_3)\n      L3_3 = L29_2\n      L4_3 = Abyss_Cur_Rank_Lv\n      L4_3 = L4_3 - 3"
+      },
+      {
+        "line": 108216,
+        "module": "scripts.model.abyss.Abyss",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"N563\"",
+        "literal_id": "N563",
+        "excerpt_lines": [
+          108216,
+          108223
+        ],
+        "excerpt": "      L0_3 = SetUnitAbilityLevel\n      L1_3 = Abyss_BOSS\n      L2_3 = GetId\n      L3_3 = \"N563\"\n      L2_3 = L2_3(L3_3)\n      L3_3 = L29_2\n      L4_3 = Abyss_Cur_Rank_Lv\n      L4_3 = L4_3 - 5"
+      },
+      {
+        "line": 108229,
+        "module": "scripts.model.abyss.Abyss",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"N565\"",
+        "literal_id": "N565",
+        "excerpt_lines": [
+          108229,
+          108236
+        ],
+        "excerpt": "      L0_3 = SetUnitAbilityLevel\n      L1_3 = Abyss_BOSS\n      L2_3 = GetId\n      L3_3 = \"N565\"\n      L2_3 = L2_3(L3_3)\n      L3_3 = L29_2\n      L4_3 = Abyss_Cur_Rank_Lv\n      L4_3 = L4_3 - 10"
+      },
+      {
+        "line": 108242,
+        "module": "scripts.model.abyss.Abyss",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"N564\"",
+        "literal_id": "N564",
+        "excerpt_lines": [
+          108242,
+          108249
+        ],
+        "excerpt": "      L0_3 = SetUnitAbilityLevel\n      L1_3 = Abyss_BOSS\n      L2_3 = GetId\n      L3_3 = \"N564\"\n      L2_3 = L2_3(L3_3)\n      L3_3 = L29_2\n      L4_3 = Abyss_Cur_Rank_Lv\n      L4_3 = L4_3 - 15"
+      },
+      {
+        "line": 108255,
+        "module": "scripts.model.abyss.Abyss",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"N568\"",
+        "literal_id": "N568",
+        "excerpt_lines": [
+          108255,
+          108262
+        ],
+        "excerpt": "      L0_3 = SetUnitAbilityLevel\n      L1_3 = Abyss_BOSS\n      L2_3 = GetId\n      L3_3 = \"N568\"\n      L2_3 = L2_3(L3_3)\n      L3_3 = L29_2\n      L4_3 = Abyss_Cur_Rank_Lv\n      L4_3 = L4_3 - 20"
+      },
+      {
+        "line": 115404,
+        "module": "scripts.model.Skill",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "L3_3",
+        "literal_id": null,
+        "excerpt_lines": [
+          115404,
+          115411
+        ],
+        "excerpt": "      L4_3 = SetUnitAbilityLevel\n      L5_3 = A0_3\n      L6_3 = GetId\n      L7_3 = L3_3\n      L6_3 = L6_3(L7_3)\n      L7_3 = 1\n      L4_3(L5_3, L6_3, L7_3)\n      L4_3 = UnitMakeAbilityPermanent"
+      },
+      {
+        "line": 116241,
+        "module": "scripts.model.Skill",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"P200\"",
+        "literal_id": "P200",
+        "excerpt_lines": [
+          116241,
+          116248
+        ],
+        "excerpt": "      L2_3 = SetUnitAbilityLevel\n      L3_3 = L1_3\n      L4_3 = GetId\n      L5_3 = \"P200\"\n      L4_3 = L4_3(L5_3)\n      L5_3 = 1\n      L2_3(L3_3, L4_3, L5_3)\n      return"
+      },
+      {
+        "line": 128556,
+        "module": "scripts.model.MonsterShow",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "L5_3",
+        "literal_id": null,
+        "excerpt_lines": [
+          128556,
+          128563
+        ],
+        "excerpt": "          L6_3 = SetUnitAbilityLevel\n          L7_3 = L4_3\n          L8_3 = GetId\n          L9_3 = L5_3\n          L8_3 = L8_3(L9_3)\n          L9_3 = math\n          L9_3 = L9_3.floor\n          L10_3 = cur_monLv"
+      },
+      {
+        "line": 128733,
+        "module": "scripts.model.MonsterShow",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T202\"",
+        "literal_id": "T202",
+        "excerpt_lines": [
+          128733,
+          128740
+        ],
+        "excerpt": "            L8_3 = SetUnitAbilityLevel\n            L9_3 = L4_3\n            L10_3 = GetId\n            L11_3 = \"T202\"\n            L10_3 = L10_3(L11_3)\n            L11_3 = math\n            L11_3 = L11_3.floor\n            L12_3 = L7_3 / 3"
+      },
+      {
+        "line": 128782,
+        "module": "scripts.model.MonsterShow",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "\"T202\"",
+        "literal_id": "T202",
+        "excerpt_lines": [
+          128782,
+          128789
+        ],
+        "excerpt": "          L8_3 = SetUnitAbilityLevel\n          L9_3 = L4_3\n          L10_3 = GetId\n          L11_3 = \"T202\"\n          L10_3 = L10_3(L11_3)\n          L11_3 = L7_3\n          L8_3(L9_3, L10_3, L11_3)\n          L8_3 = SetUnitState"
+      },
+      {
+        "line": 132468,
+        "module": "scripts.model.WorkerAbility",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "L0_3",
+        "literal_id": null,
+        "excerpt_lines": [
+          132468,
+          132475
+        ],
+        "excerpt": "          L7_3 = SetUnitAbilityLevel\n          L8_3 = L6_3\n          L9_3 = GetId\n          L10_3 = L0_3\n          L9_3 = L9_3(L10_3)\n          L10_3 = GetUnitAbilityLevel\n          L11_3 = L6_3\n          L12_3 = GetId"
+      },
+      {
+        "line": 132491,
+        "module": "scripts.model.WorkerAbility",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "L0_3",
+        "literal_id": null,
+        "excerpt_lines": [
+          132491,
+          132498
+        ],
+        "excerpt": "          L7_3 = SetUnitAbilityLevel\n          L8_3 = L6_3\n          L9_3 = GetId\n          L10_3 = L0_3\n          L9_3 = L9_3(L10_3)\n          L10_3 = GetUnitAbilityLevel\n          L11_3 = L6_3\n          L12_3 = GetId"
+      },
+      {
+        "line": 132514,
+        "module": "scripts.model.WorkerAbility",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "L0_3",
+        "literal_id": null,
+        "excerpt_lines": [
+          132514,
+          132521
+        ],
+        "excerpt": "          L7_3 = SetUnitAbilityLevel\n          L8_3 = L6_3\n          L9_3 = GetId\n          L10_3 = L0_3\n          L9_3 = L9_3(L10_3)\n          L10_3 = GetUnitAbilityLevel\n          L11_3 = L6_3\n          L12_3 = GetId"
+      },
+      {
+        "line": 132537,
+        "module": "scripts.model.WorkerAbility",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "L0_3",
+        "literal_id": null,
+        "excerpt_lines": [
+          132537,
+          132544
+        ],
+        "excerpt": "          L7_3 = SetUnitAbilityLevel\n          L8_3 = L6_3\n          L9_3 = GetId\n          L10_3 = L0_3\n          L9_3 = L9_3(L10_3)\n          L10_3 = GetUnitAbilityLevel\n          L11_3 = L6_3\n          L12_3 = GetId"
+      },
+      {
+        "line": 132560,
+        "module": "scripts.model.WorkerAbility",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "L0_3",
+        "literal_id": null,
+        "excerpt_lines": [
+          132560,
+          132567
+        ],
+        "excerpt": "          L7_3 = SetUnitAbilityLevel\n          L8_3 = L6_3\n          L9_3 = GetId\n          L10_3 = L0_3\n          L9_3 = L9_3(L10_3)\n          L10_3 = GetUnitAbilityLevel\n          L11_3 = L6_3\n          L12_3 = GetId"
+      },
+      {
+        "line": 132583,
+        "module": "scripts.model.WorkerAbility",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "L0_3",
+        "literal_id": null,
+        "excerpt_lines": [
+          132583,
+          132590
+        ],
+        "excerpt": "          L7_3 = SetUnitAbilityLevel\n          L8_3 = L6_3\n          L9_3 = GetId\n          L10_3 = L0_3\n          L9_3 = L9_3(L10_3)\n          L10_3 = GetUnitAbilityLevel\n          L11_3 = L6_3\n          L12_3 = GetId"
+      },
+      {
+        "line": 132606,
+        "module": "scripts.model.WorkerAbility",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "L0_3",
+        "literal_id": null,
+        "excerpt_lines": [
+          132606,
+          132613
+        ],
+        "excerpt": "          L7_3 = SetUnitAbilityLevel\n          L8_3 = L6_3\n          L9_3 = GetId\n          L10_3 = L0_3\n          L9_3 = L9_3(L10_3)\n          L10_3 = GetUnitAbilityLevel\n          L11_3 = L6_3\n          L12_3 = GetId"
+      },
+      {
+        "line": 132629,
+        "module": "scripts.model.WorkerAbility",
+        "native": "SetUnitAbilityLevel",
+        "ability_expression": "L0_3",
+        "literal_id": null,
+        "excerpt_lines": [
+          132629,
+          132636
+        ],
+        "excerpt": "          L7_3 = SetUnitAbilityLevel\n          L8_3 = L6_3\n          L9_3 = GetId\n          L10_3 = L0_3\n          L9_3 = L9_3(L10_3)\n          L10_3 = GetUnitAbilityLevel\n          L11_3 = L6_3\n          L12_3 = GetId"
+      }
+    ],
+    "dynamic_id_resolutions": [
+      {
+        "setter_lines": [
+          31473
+        ],
+        "resolved": "CreateTempAndSetAbilityLv parameter abilityId/level; A067 call independently proven T059/T162 level1",
+        "source_lines": [
+          31454,
+          31490
+        ]
+      },
+      {
+        "setter_lines": [
+          51221
+        ],
+        "resolved_ids": [
+          "T121",
+          "T122",
+          "T123"
+        ],
+        "source_lines": [
+          50528,
+          50542
+        ],
+        "meaning": "A112_SkillId list"
+      },
+      {
+        "setter_lines": [
+          53793
+        ],
+        "resolved_ids": [
+          "T149",
+          "T150",
+          "T151",
+          "T152",
+          "T153"
+        ],
+        "source_lines": [
+          53641,
+          53800
+        ],
+        "meaning": "A134 own duel reward ability chain"
+      },
+      {
+        "setter_lines": [
+          55787
+        ],
+        "resolved_ids": [
+          "T300",
+          "T301",
+          "T302",
+          "T303",
+          "T304",
+          "T307",
+          "T310",
+          "T311",
+          "T312",
+          "T313",
+          "T314",
+          "T315",
+          "T316",
+          "T317",
+          "T318",
+          "T319",
+          "T320",
+          "T321",
+          "T322",
+          "T323",
+          "T324",
+          "T325",
+          "T326",
+          "T327",
+          "T328"
+        ],
+        "source_lines": [
+          55713,
+          55795
+        ],
+        "table_lines": [
+          110098,
+          110346
+        ],
+        "meaning": "Monster_Skill_Arr copied ability IDs, no T059/T162"
+      },
+      {
+        "setter_lines": [
+          59816
+        ],
+        "resolved_ids": [
+          "T190",
+          "T191",
+          "T192",
+          "T193",
+          "T194",
+          "T195"
+        ],
+        "source_lines": [
+          59858,
+          59927
+        ],
+        "meaning": "A174 private table filled only by its own rank branch"
+      },
+      {
+        "setter_lines": [
+          68566
+        ],
+        "resolved_ids": [
+          "A226",
+          "A227",
+          "A228",
+          "A229"
+        ],
+        "source_lines": [
+          68540,
+          68574
+        ]
+      },
+      {
+        "setter_lines": [
+          77699,
+          82679
+        ],
+        "resolved_ids": [
+          "P201",
+          "P202",
+          "P203",
+          "P204",
+          "P205",
+          "P206",
+          "P207",
+          "P208",
+          "P209",
+          "P210",
+          "P211",
+          "P212",
+          "P213",
+          "P214",
+          "P215",
+          "P216",
+          "P217",
+          "P218",
+          "P219",
+          "P220",
+          "P221",
+          "P222"
+        ],
+        "source_lines": [
+          77341,
+          77476
+        ],
+        "duplicate_module": "scripts.model.Item.i258 and scripts.model.item.i258",
+        "meaning": "private upgrade closure receives IDs from P201..P222 fixed pool; no dynamic enumeration of all abilities"
+      },
+      {
+        "setter_lines": [
+          78856,
+          83836
+        ],
+        "resolved_ids": [
+          "T125",
+          "T126",
+          "T127",
+          "T128"
+        ],
+        "source_lines": [
+          78808,
+          78823
+        ]
+      },
+      {
+        "setter_lines": [
+          115404
+        ],
+        "resolved_ids": [
+          "P001",
+          "P002",
+          "P003",
+          "P004",
+          "P005",
+          "P006",
+          "P007",
+          "P008",
+          "P009",
+          "P010",
+          "P011",
+          "P012",
+          "P013"
+        ],
+        "source_lines": [
+          115357,
+          115410
+        ]
+      },
+      {
+        "setter_lines": [
+          128556
+        ],
+        "resolved_pattern": "N50 + boss index",
+        "source_lines": [
+          128541,
+          128566
+        ]
+      },
+      {
+        "setter_lines": [
+          132468,
+          132491,
+          132514,
+          132537,
+          132560,
+          132583,
+          132606,
+          132629
+        ],
+        "resolved_ids": [
+          "W012",
+          "W013",
+          "W014",
+          "W015",
+          "W016",
+          "W017",
+          "W018",
+          "W019"
+        ],
+        "source_lines": [
+          132441,
+          132640
+        ]
+      }
+    ],
+    "data_real_bytecode": {
+      "function": "main/f161/f0",
+      "pcs": [
+        39,
+        61
+      ],
+      "lines": [
+        108322,
+        108344
+      ],
+      "constants": {
+        "k14": "T286",
+        "k15": 1,
+        "k17": "EXSetAbilityDataReal",
+        "k18": "EXGetUnitAbility",
+        "k19": 102,
+        "k20": 103,
+        "k21": 0.7,
+        "k22": "SetUnitUserData",
+        "k4": "GetId"
+      },
+      "instructions": [
+        {
+          "pc": 39,
+          "line": 108322,
+          "op": "gettabup",
+          "args": [
+            "r10",
+            "u1",
+            "k17"
+          ]
+        },
+        {
+          "pc": 40,
+          "line": 108323,
+          "op": "gettabup",
+          "args": [
+            "r11",
+            "u1",
+            "k18"
+          ]
+        },
+        {
+          "pc": 41,
+          "line": 108324,
+          "op": "move",
+          "args": [
+            "r12",
+            "r9"
+          ]
+        },
+        {
+          "pc": 42,
+          "line": 108325,
+          "op": "gettabup",
+          "args": [
+            "r13",
+            "u0",
+            "k4"
+          ]
+        },
+        {
+          "pc": 43,
+          "line": 108326,
+          "op": "loadk",
+          "args": [
+            "r14",
+            "k14"
+          ]
+        },
+        {
+          "pc": 44,
+          "line": 108327,
+          "op": "call",
+          "args": [
+            "r13",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 45,
+          "line": 108328,
+          "op": "call",
+          "args": [
+            "r11",
+            "0",
+            "2"
+          ]
+        },
+        {
+          "pc": 46,
+          "line": 108329,
+          "op": "loadk",
+          "args": [
+            "r12",
+            "k15"
+          ]
+        },
+        {
+          "pc": 47,
+          "line": 108330,
+          "op": "loadk",
+          "args": [
+            "r13",
+            "k19"
+          ]
+        },
+        {
+          "pc": 48,
+          "line": 108331,
+          "op": "move",
+          "args": [
+            "r14",
+            "r8"
+          ]
+        },
+        {
+          "pc": 49,
+          "line": 108332,
+          "op": "call",
+          "args": [
+            "r10",
+            "5",
+            "1"
+          ]
+        },
+        {
+          "pc": 50,
+          "line": 108333,
+          "op": "gettabup",
+          "args": [
+            "r10",
+            "u1",
+            "k17"
+          ]
+        },
+        {
+          "pc": 51,
+          "line": 108334,
+          "op": "gettabup",
+          "args": [
+            "r11",
+            "u1",
+            "k18"
+          ]
+        },
+        {
+          "pc": 52,
+          "line": 108335,
+          "op": "move",
+          "args": [
+            "r12",
+            "r9"
+          ]
+        },
+        {
+          "pc": 53,
+          "line": 108336,
+          "op": "gettabup",
+          "args": [
+            "r13",
+            "u0",
+            "k4"
+          ]
+        },
+        {
+          "pc": 54,
+          "line": 108337,
+          "op": "loadk",
+          "args": [
+            "r14",
+            "k14"
+          ]
+        },
+        {
+          "pc": 55,
+          "line": 108338,
+          "op": "call",
+          "args": [
+            "r13",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 56,
+          "line": 108339,
+          "op": "call",
+          "args": [
+            "r11",
+            "0",
+            "2"
+          ]
+        },
+        {
+          "pc": 57,
+          "line": 108340,
+          "op": "loadk",
+          "args": [
+            "r12",
+            "k15"
+          ]
+        },
+        {
+          "pc": 58,
+          "line": 108341,
+          "op": "loadk",
+          "args": [
+            "r13",
+            "k20"
+          ]
+        },
+        {
+          "pc": 59,
+          "line": 108342,
+          "op": "mul",
+          "args": [
+            "r14",
+            "r8",
+            "k21"
+          ]
+        },
+        {
+          "pc": 60,
+          "line": 108343,
+          "op": "call",
+          "args": [
+            "r10",
+            "5",
+            "1"
+          ]
+        },
+        {
+          "pc": 61,
+          "line": 108344,
+          "op": "gettabup",
+          "args": [
+            "r10",
+            "u0",
+            "k22"
+          ]
+        }
+      ],
+      "labels": {},
+      "meaning": "Both EXSetAbilityDataReal sites retrieve the dummy ability T286; arguments level1,data102/103. No T059/T162 field writer."
+    },
+    "literal_T059_T162_constants": {
+      "T059": [
+        {
+          "line": 71870,
+          "text": ".constant\tk18\t\"T059\""
+        }
+      ],
+      "T162": [
+        {
+          "line": 71868,
+          "text": ".constant\tk16\t\"T162\""
+        }
+      ]
+    },
+    "source_exact_references": {
+      "T059": [
+        44596
+      ],
+      "T162": [
+        44587
+      ],
+      "A067": [
+        44592,
+        114888,
+        120873
+      ],
+      "A148": [
+        44583,
+        114895,
+        120880
+      ]
+    },
+    "raw_integer_id_reference_counts": {
+      "T059_decimal1412445497": 0,
+      "T162_decimal1412511282": 0
+    },
+    "standard_wrappers": {
+      "readable_lines": [
+        13392,
+        13425
+      ],
+      "only_defined_not_called_by_business": true,
+      "Inc_Dec_business_calls": 0
+    },
+    "other_writers": "No EXSetAbilityDataInteger/String or BlzSetAbility*/BlzSetUnitAbility* business calls found. DzSetMemory occurs only as JASS native declaration. EXSetAbilityState writes cooldown, not these effect fields.",
+    "damage_pipeline": "q001 is registered in IsTemp; SetUnitUserData indexes Tower_ALL for ordinary attribution. Existing generic equipment/attributes/modifiers still apply, but no A067/A148/T059/T162-specific rank restoration in the damage dispatcher. Do not equate raw DataA with final damage.",
+    "conclusion": "No rank-restoring setter, field rewrite or A067-rank-specific compensation found in available scripts; successful source call always installs level1. Higher-rank data exists but is not selected by this path."
+  },
+  "primary_field_sources": {
+    "commit": "a69c315ebf2886ec54d66200707ab6e38bd3484d",
+    "metadata_url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/Units/AbilityMetaData.slk#L15164",
+    "labels_url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/UI/WorldEditStrings.txt#L6476",
+    "normal_hero_duration_labels_url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/UI/WorldEditStrings.txt#L5838",
+    "local_SHA256": {
+      "AbilityMetaData.slk": "891109928d7f34fc5f4e33eb53b807513ae54107b13dea0dde5ce75bbe063246",
+      "WorldEditStrings.txt": "b0e9a709df79c7b1190f43e621c95ad3babc469d1ecf96e2aa576e74c17e2aa0"
+    },
+    "fields": [
+      {
+        "object_field": "Ncs1",
+        "metadata_lines": [
+          15164,
+          15185
+        ],
+        "field": "Data",
+        "data_index": 1,
+        "useSpecific": "ANhs,ANcs,ANc1,ANc2,ANc3",
+        "label_key": "WESTRING_AEVAL_NCS1",
+        "label": "Damage Amount",
+        "label_line": 6476
+      },
+      {
+        "object_field": "Ncs2",
+        "metadata_lines": [
+          15186,
+          15207
+        ],
+        "field": "Data",
+        "data_index": 2,
+        "useSpecific": "ANhs,ANcs,ANc1,ANc2,ANc3",
+        "label_key": "WESTRING_AEVAL_NCS2",
+        "label": "Damage Interval",
+        "label_line": 6477
+      },
+      {
+        "object_field": "Ncs3",
+        "metadata_lines": [
+          15208,
+          15229
+        ],
+        "field": "Data",
+        "data_index": 3,
+        "useSpecific": "ANhs,ANcs,ANc1,ANc2,ANc3",
+        "label_key": "WESTRING_AEVAL_NCS3",
+        "label": "Missile Count",
+        "label_line": 6478
+      },
+      {
+        "object_field": "Ncs4",
+        "metadata_lines": [
+          15230,
+          15251
+        ],
+        "field": "Data",
+        "data_index": 4,
+        "useSpecific": "ANhs,ANcs,ANc1,ANc2,ANc3",
+        "label_key": "WESTRING_AEVAL_NCS4",
+        "label": "Max Damage",
+        "label_line": 6479
+      },
+      {
+        "object_field": "Ncs5",
+        "metadata_lines": [
+          15252,
+          15273
+        ],
+        "field": "Data",
+        "data_index": 5,
+        "useSpecific": "ANhs,ANcs,ANc1,ANc2,ANc3",
+        "label_key": "WESTRING_AEVAL_NCS5",
+        "label": "Building Damage Factor",
+        "label_line": 6480
+      },
+      {
+        "object_field": "Ncs6",
+        "metadata_lines": [
+          15274,
+          15295
+        ],
+        "field": "Data",
+        "data_index": 6,
+        "useSpecific": "ANcs,ANc1,ANc2,ANc3",
+        "label_key": "WESTRING_AEVAL_NCS6",
+        "label": "Effect Duration",
+        "label_line": 6481
+      },
+      {
+        "object_field": "adur",
+        "metadata_lines": [
+          1240,
+          1260
+        ],
+        "field": "Dur",
+        "data_index": 0,
+        "useSpecific": null,
+        "label_key": "WESTRING_AEVAL_ADUR",
+        "label": "Duration - Normal",
+        "label_line": 5838
+      },
+      {
+        "object_field": "ahdu",
+        "metadata_lines": [
+          1261,
+          1281
+        ],
+        "field": "HeroDur",
+        "data_index": 0,
+        "useSpecific": null,
+        "label_key": "WESTRING_AEVAL_AHDU",
+        "label": "Duration - Hero",
+        "label_line": 5839
+      }
+    ],
+    "boundary": "Developer-distributed metadata explains field labels and SLK/W3A mapping; it is not a matched Warcraft executable or experimental proof of ANcs pulse/total-damage timing."
+  },
+  "native_boundaries": {
+    "fixed_level1_inputs": {
+      "DataA": 150,
+      "DataB": 0.25,
+      "DataC": 12,
+      "DataD": 1000000,
+      "DataE": 1,
+      "DataF": 1.01,
+      "Dur": 0.4,
+      "HeroDur": 0.1,
+      "Area": 300,
+      "Rng": 1500,
+      "targs": "enemies"
+    },
+    "not_inferred": [
+      "DataA as whole-cast total versus per-pulse application",
+      "number of damage packets from DataB/DataC/DataF",
+      "stun refresh and target resistance selection",
+      "ground/air/building/magic-immune native target eligibility beyond field string",
+      "5/6 absent Area default/inheritance",
+      "final delivered damage after shared pipeline"
+    ],
+    "future_fix_caution": "Q40 selected workbook growth: always radius300; do not replay Area2–4=200 or infer absent5–6 defaults. Original single-level source evidence remains unchanged."
+  },
+  "source_hashes": {
+    "main.disasm": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+    "main.readable.lua": "d868f14d946f0780313468f5dd783fa4a6cbe39f5c7851d8e4094ef80aa618b9",
+    "war3map.j": "67d4ebedc82fc39d687689b593efe0d21319ef6fcee44591058812d1baf1c3f8",
+    "units_abilitydata.json": "b772de42ebcfc1d3818298b35dbe81a35826892848c7cbfef70bf5097e481861",
+    "units_abilitydata.slk": "ba7657fe7942696310502e51ab349cc77ccd70016915dc26d92ffbcead7bb53d",
+    "war3map.w3a.json": "d2875f064b389bca471db97121ff7c810d46fbc962ae640ad128d1daa85931bb",
+    "units_unitabilities.json": "ebd8a6fd8410f593c5ecadf6bf7c4f6bbc5b4bb7183c5e986a4d2d77e1747133",
+    "units_campaignabilitystrings.txt": "5240c99230cd441b4c376371a31a7987e65470feed736177473a206c55fbe8cc"
+  },
+  "workbook_sha256": "457c8f7e37e19412a0dd072ce941e95604b0b8910860b9e1eb9883e6b82bb6af",
+  "validation": {
+    "status": "passed",
+    "source_instruction_identity_checks": 145,
+    "integrated_action_to_helper_states": 24,
+    "alias_rank_read_synthetic_boundaries": 4,
+    "rank_states": [
+      {
+        "unit_type": "H021",
+        "source_skill": "A067",
+        "rank": 1,
+        "dummy_ability": "T059",
+        "native_level": 1,
+        "facing": 1,
+        "order_result": true
+      },
+      {
+        "unit_type": "H021",
+        "source_skill": "A067",
+        "rank": 1,
+        "dummy_ability": "T059",
+        "native_level": 1,
+        "facing": 1,
+        "order_result": false
+      },
+      {
+        "unit_type": "H021",
+        "source_skill": "A067",
+        "rank": 2,
+        "dummy_ability": "T059",
+        "native_level": 1,
+        "facing": 2,
+        "order_result": true
+      },
+      {
+        "unit_type": "H021",
+        "source_skill": "A067",
+        "rank": 2,
+        "dummy_ability": "T059",
+        "native_level": 1,
+        "facing": 2,
+        "order_result": false
+      },
+      {
+        "unit_type": "H021",
+        "source_skill": "A067",
+        "rank": 3,
+        "dummy_ability": "T059",
+        "native_level": 1,
+        "facing": 3,
+        "order_result": true
+      },
+      {
+        "unit_type": "H021",
+        "source_skill": "A067",
+        "rank": 3,
+        "dummy_ability": "T059",
+        "native_level": 1,
+        "facing": 3,
+        "order_result": false
+      },
+      {
+        "unit_type": "H021",
+        "source_skill": "A067",
+        "rank": 4,
+        "dummy_ability": "T059",
+        "native_level": 1,
+        "facing": 4,
+        "order_result": true
+      },
+      {
+        "unit_type": "H021",
+        "source_skill": "A067",
+        "rank": 4,
+        "dummy_ability": "T059",
+        "native_level": 1,
+        "facing": 4,
+        "order_result": false
+      },
+      {
+        "unit_type": "H021",
+        "source_skill": "A067",
+        "rank": 5,
+        "dummy_ability": "T059",
+        "native_level": 1,
+        "facing": 5,
+        "order_result": true
+      },
+      {
+        "unit_type": "H021",
+        "source_skill": "A067",
+        "rank": 5,
+        "dummy_ability": "T059",
+        "native_level": 1,
+        "facing": 5,
+        "order_result": false
+      },
+      {
+        "unit_type": "H021",
+        "source_skill": "A067",
+        "rank": 6,
+        "dummy_ability": "T059",
+        "native_level": 1,
+        "facing": 6,
+        "order_result": true
+      },
+      {
+        "unit_type": "H021",
+        "source_skill": "A067",
+        "rank": 6,
+        "dummy_ability": "T059",
+        "native_level": 1,
+        "facing": 6,
+        "order_result": false
+      },
+      {
+        "unit_type": "G059",
+        "source_skill": "A148",
+        "rank": 1,
+        "dummy_ability": "T162",
+        "native_level": 1,
+        "facing": 1,
+        "order_result": true
+      },
+      {
+        "unit_type": "G059",
+        "source_skill": "A148",
+        "rank": 1,
+        "dummy_ability": "T162",
+        "native_level": 1,
+        "facing": 1,
+        "order_result": false
+      },
+      {
+        "unit_type": "G059",
+        "source_skill": "A148",
+        "rank": 2,
+        "dummy_ability": "T162",
+        "native_level": 1,
+        "facing": 2,
+        "order_result": true
+      },
+      {
+        "unit_type": "G059",
+        "source_skill": "A148",
+        "rank": 2,
+        "dummy_ability": "T162",
+        "native_level": 1,
+        "facing": 2,
+        "order_result": false
+      },
+      {
+        "unit_type": "G059",
+        "source_skill": "A148",
+        "rank": 3,
+        "dummy_ability": "T162",
+        "native_level": 1,
+        "facing": 3,
+        "order_result": true
+      },
+      {
+        "unit_type": "G059",
+        "source_skill": "A148",
+        "rank": 3,
+        "dummy_ability": "T162",
+        "native_level": 1,
+        "facing": 3,
+        "order_result": false
+      },
+      {
+        "unit_type": "G059",
+        "source_skill": "A148",
+        "rank": 4,
+        "dummy_ability": "T162",
+        "native_level": 1,
+        "facing": 4,
+        "order_result": true
+      },
+      {
+        "unit_type": "G059",
+        "source_skill": "A148",
+        "rank": 4,
+        "dummy_ability": "T162",
+        "native_level": 1,
+        "facing": 4,
+        "order_result": false
+      },
+      {
+        "unit_type": "G059",
+        "source_skill": "A148",
+        "rank": 5,
+        "dummy_ability": "T162",
+        "native_level": 1,
+        "facing": 5,
+        "order_result": true
+      },
+      {
+        "unit_type": "G059",
+        "source_skill": "A148",
+        "rank": 5,
+        "dummy_ability": "T162",
+        "native_level": 1,
+        "facing": 5,
+        "order_result": false
+      },
+      {
+        "unit_type": "G059",
+        "source_skill": "A148",
+        "rank": 6,
+        "dummy_ability": "T162",
+        "native_level": 1,
+        "facing": 6,
+        "order_result": true
+      },
+      {
+        "unit_type": "G059",
+        "source_skill": "A148",
+        "rank": 6,
+        "dummy_ability": "T162",
+        "native_level": 1,
+        "facing": 6,
+        "order_result": false
+      }
+    ],
+    "explicit_object_level_records": 12,
+    "mutation_sites_checked": 84,
+    "dynamic_id_sites_resolved": 20,
+    "web_rank_profile_records_checked": 6,
+    "method": "Interpreted original action and full creation helper with native function stubs; source profile and Q40 Web profile kept separate. SHA256 and exact source-line checks; no Warcraft client execution.",
+    "Q39_confirmed_2_seconds_preserved": true,
+    "Q40_confirmed": true
+  },
+  "remaining": [
+    "A067/A148 AOcr wrapper, ANeg conversion and full damage callees remain outside the completed T059/T162 layer",
+    "Original-client equality of selected native behavior remains unverified; target/timing/control implementation choices are now defined in avalanche-native-effect.md"
+  ],
+  "web_rank_profile": {
+    "id": "avalanche-rank-profile-v1",
+    "basis": [
+      "user Q40 workbook growth",
+      "user Q39 shared cooldown2",
+      "Q24 explicit local Web baseline for unverified native pulse/total semantics"
+    ],
+    "source_skills": [
+      "A067",
+      "A148"
+    ],
+    "eligible_target_selection": "not defined by this limited rank profile; do not call all native target filters closed",
+    "center": "target location captured by A067_Action",
+    "radius": 300,
+    "shared_internal_cooldown_seconds": 2,
+    "damage_type_text": "法术伤害",
+    "damage_semantics": "One successful attack proc supplies one logical nominal spell-damage application per eligible target, amount from this table. Values are the whole-proc nominal damage for that target; do not multiply by DataC=12, damage interval0.25 or effect duration1.01. Existing shared damage pipeline may modify final damage. This is an explicit local Web choice, not original Warcraft measurement.",
+    "normal_stun_semantics": "At effect resolution apply one normal-target stun using table duration. This rank profile does not silently overwrite separate native HERO/resistance rules.",
+    "levels": [
+      {
+        "rank": 1,
+        "nominal_total_spell_damage_per_target": 150,
+        "normal_stun_seconds": 0.4,
+        "radius": 300
+      },
+      {
+        "rank": 2,
+        "nominal_total_spell_damage_per_target": 275,
+        "normal_stun_seconds": 0.6,
+        "radius": 300
+      },
+      {
+        "rank": 3,
+        "nominal_total_spell_damage_per_target": 420,
+        "normal_stun_seconds": 0.8,
+        "radius": 300
+      },
+      {
+        "rank": 4,
+        "nominal_total_spell_damage_per_target": 650,
+        "normal_stun_seconds": 1,
+        "radius": 300
+      },
+      {
+        "rank": 5,
+        "nominal_total_spell_damage_per_target": 860,
+        "normal_stun_seconds": 1.2,
+        "radius": 300
+      },
+      {
+        "rank": 6,
+        "nominal_total_spell_damage_per_target": 1120,
+        "normal_stun_seconds": 1.5,
+        "radius": 300
+      }
+    ],
+    "higher_native_area_fields_not_replayed": true,
+    "full_effect_complete": false,
+    "remaining_interface": [
+      "Native eligibility and damage attack/type mapping beyond text",
+      "Original ANcs multi-pulse/impact/refresh behavior; Web single logical packet meaning is chosen, timing not yet defined in this rank profile",
+      "Native HERO/resistance target stun admission/adjustment"
+    ]
+  },
+  "nativeEffectFollowup": {
+    "baselineId": "avalanche-native-v1",
+    "specification": "avalanche-native-effect.md",
+    "machineRules": "avalanche-native-effect.json",
+    "scope": "T059/T162 native Web acceptance, target, timing, packet and control interfaces now specified; not matched-client verification"
+  }
+}

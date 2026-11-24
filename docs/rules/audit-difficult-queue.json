@@ -1,0 +1,684 @@
+{
+  "schemaVersion": 1,
+  "policy": "Unresolved projects remain required; resolve this queue before declaring the entire audit complete. Known external shared modules are references, not repeated investigations.",
+  "items": [
+    {
+      "id": "A058",
+      "status": "resolved",
+      "required": true,
+      "owner": "/root/batch_native_targeted",
+      "openedByBatch": "native-targeted-01",
+      "scope": "A060多重与A059/兜帽共享状态",
+      "sourceRefs": [
+        {
+          "function": "main/f52",
+          "startLine": 69284,
+          "endLine": 69300
+        },
+        {
+          "function": "main/f52/f0",
+          "startLine": 69301,
+          "endLine": 69330
+        },
+        {
+          "function": "main/f53",
+          "startLine": 69331,
+          "endLine": 69369
+        },
+        {
+          "function": "main/f53/f0",
+          "startLine": 69370,
+          "endLine": 69444
+        },
+        {
+          "function": "main/f53/f1",
+          "startLine": 69445,
+          "endLine": 69713
+        },
+        {
+          "function": "main/f53/f2",
+          "startLine": 69714,
+          "endLine": 69782
+        },
+        {
+          "function": "main/f53/f3",
+          "startLine": 69783,
+          "endLine": 69821
+        }
+      ],
+      "resolution": "Q51独立多重计数，保留0.6秒及源参数",
+      "ruleSection": "ogre-multicast.md"
+    },
+    {
+      "id": "A089",
+      "status": "resolved",
+      "required": true,
+      "owner": "/root/batch_dragon_breath_blood",
+      "openedByBatch": "native-targeted-01",
+      "scope": "A090辅助与A091标记生命周期",
+      "sourceRefs": [
+        {
+          "function": "main/f78",
+          "startLine": 77575,
+          "endLine": 77599
+        },
+        {
+          "function": "main/f78/f0",
+          "startLine": 77600,
+          "endLine": 77663
+        },
+        {
+          "function": "main/f78/f1",
+          "startLine": 77664,
+          "endLine": 77881
+        }
+      ],
+      "resolution": "Q52每次投掷独立6次额外跳数",
+      "ruleSection": "bounty-hunter-tracking.md"
+    },
+    {
+      "id": "A207",
+      "status": "resolved",
+      "required": true,
+      "owner": "/root/batch_dragon_breath_blood",
+      "openedByBatch": "native-targeted-01",
+      "scope": "T231拦盾/失手/重施后的共享槽续跳",
+      "sourceRefs": [
+        {
+          "function": "main/f152",
+          "startLine": 105168,
+          "endLine": 105194
+        },
+        {
+          "function": "main/f152/f0",
+          "startLine": 105195,
+          "endLine": 105241
+        },
+        {
+          "function": "main/f152/f1",
+          "startLine": 105242,
+          "endLine": 105272
+        },
+        {
+          "function": "main/f152/f2",
+          "startLine": 105273,
+          "endLine": 105288
+        },
+        {
+          "function": "main/f152/f3",
+          "startLine": 105289,
+          "endLine": 105496
+        }
+      ],
+      "resolution": "Q54独立每次施法计数，逐撞击读取当前等级/神杖上限与伤害，保留局部快照和子包顺序",
+      "ruleSection": "paralyzing-cask.md"
+    },
+    {
+      "id": "A196",
+      "status": "resolved",
+      "required": true,
+      "owner": "/root/batch_dragon_breath_blood",
+      "openedByBatch": "self-buff-01",
+      "scope": "T217法球、ATTACKED预扣/自动首开、取消发射/晚弹/最后次数、每次攻击对Cool2",
+      "ruleSection": "flak-cannon.md",
+      "resolution": "专项规则已明确，可实现；原客户端未实测另列。"
+    },
+    {
+      "id": "A125",
+      "status": "resolved",
+      "required": true,
+      "ruleSection": "spirit-bear.md",
+      "resolution": "专项规则已明确，可实现；原客户端未实测另列。"
+    },
+    {
+      "id": "A214",
+      "status": "resolved",
+      "required": true,
+      "ruleSection": "wild-axes.md",
+      "resolution": "专项规则已明确，可实现；原客户端未实测另列。"
+    },
+    {
+      "id": "A066",
+      "status": "resolved",
+      "required": true,
+      "ruleSection": "exorcism.md",
+      "resolution": "专项规则已明确，可实现；原客户端未实测另列。"
+    },
+    {
+      "id": "A103",
+      "status": "resolved",
+      "required": true,
+      "ruleSection": "life-drain.md",
+      "resolution": "专项规则已明确，可实现；原客户端未实测另列。"
+    },
+    {
+      "id": "A166",
+      "status": "resolved",
+      "required": true,
+      "ruleSection": "doom.md",
+      "resolution": "专项规则已明确，可实现；原客户端未实测另列。"
+    },
+    {
+      "id": "A079",
+      "status": "resolved",
+      "required": true,
+      "ruleSection": "monkey-formation.md",
+      "resolution": "专项规则已明确，可实现；原客户端未实测另列。"
+    },
+    {
+      "id": "A082",
+      "status": "resolved",
+      "required": true,
+      "scope": "舰队跨施法访问集合，Q69等待用户",
+      "ruleSection": "ghost-fleet.md",
+      "resolution": "Q69每次施法访问集合独立；共享攻速保留"
+    },
+    {
+      "id": "tyr-bear-drop",
+      "status": "resolved",
+      "required": true,
+      "scope": "同色攻速按Q64叠加；熊灵仅撤实际已应用贡献的生命周期待确认",
+      "ruleSection": "item-summon-contracts-batch-01.md",
+      "resolution": "Q70具体熊灵按实际物品实例记录并撤销已获贡献，Q64每物品攻速叠加和真实红契护甲忽略"
+    },
+    {
+      "id": "item-silence",
+      "status": "resolved",
+      "required": true,
+      "scope": "i224/I219、i226/I220共享累伤、重施、驱散及延迟结算",
+      "ruleSection": "item-spell-control-batch-01.md",
+      "resolution": "保留显式同目标替换；按图鉴所有类型B03最终金额累积，5秒结算；不误套Q54独立窗口。"
+    },
+    {
+      "id": "N142-N147-reachability",
+      "status": "resolved",
+      "required": true,
+      "scope": "25%已按Q61定值；n261-n266当前获取/生成链仍须核",
+      "ruleSection": "legacy-skill-flaming-fists.md",
+      "resolution": "A175→T189→n261–266→N142–147完整可达，准确25%已按Q61；N152由A175专项闭合。"
+    },
+    {
+      "id": "A016",
+      "status": "resolved",
+      "required": true,
+      "owner": "/root/batch_dragon_breath_blood",
+      "openedByBatch": "hero-spells-03",
+      "ruleSection": "freezing-field.md",
+      "scope": "极寒随机/载体结束专项",
+      "resolution": "原AHbz整圈周期与视觉随机补缺，Q74神杖伤害依A016等级，7秒结束与载体清理明确。"
+    },
+    {
+      "id": "A110",
+      "status": "resolved",
+      "required": true,
+      "owner": "/root/batch_dragon_breath_blood",
+      "openedByBatch": "hero-spells-03",
+      "ruleSection": "alchemist-wolf-transforms.md",
+      "scope": "同实体主动变身完整回退与模板差额",
+      "resolution": "完整同实体AEme属性、武器、到期/回退、生命周期规格已明确。"
+    },
+    {
+      "id": "A169",
+      "status": "resolved",
+      "required": true,
+      "owner": "/root/batch_dragon_breath_blood",
+      "openedByBatch": "hero-spells-03",
+      "ruleSection": "alchemist-wolf-transforms.md",
+      "scope": "同实体主动变身完整回退与模板差额",
+      "resolution": "完整同实体AEme属性、武器、到期/回退、生命周期规格已明确。"
+    },
+    {
+      "id": "A122",
+      "status": "resolved",
+      "required": true,
+      "owner": "/root/batch_native_targeted",
+      "openedByBatch": "hero-targeted-batch-02",
+      "scope": "神杖弹射与T132幻象、A123/A124生成及数量生命周期",
+      "ruleSection": "phantom-lancer-illusions.md",
+      "resolution": "专项已明确，用户裁决及必要状态/数值验证通过。"
+    },
+    {
+      "id": "A164",
+      "status": "resolved",
+      "required": true,
+      "owner": "/root/batch_native_targeted",
+      "openedByBatch": "hero-targeted-batch-02",
+      "scope": "T329偷技与借入T300–T328全族、消化中提交和到期奖励",
+      "ruleSection": "doom-devour-borrowed-skills.md",
+      "resolution": "完整消化、偷技、25借用技能与Q79实际偷取返还规则已明确并通过限定验证。"
+    },
+    {
+      "id": "i310-A217-A218",
+      "status": "resolved",
+      "required": true,
+      "owner": "/root/batch_dragon_breath_blood",
+      "scope": "神杖整件最后未闭合下游：巨浪A217/A218",
+      "ruleSection": "tide-and-morphling.md",
+      "resolution": "A217/A218完整规则与物品限定交叉检查完成；物品覆盖243/243。"
+    },
+    {
+      "id": "A173",
+      "status": "resolved",
+      "required": true,
+      "owner": "/root/batch_dragon_breath_blood",
+      "openedByBatch": "hero-spells-04",
+      "ruleSection": "linked-damage.md",
+      "resolution": "每组以同父事件快照25%，独立6秒/标记引用，源q039与伤害归属门槛补缺保留。"
+    },
+    {
+      "id": "A174",
+      "status": "resolved",
+      "required": true,
+      "owner": "/root/batch_dragon_breath_blood",
+      "openedByBatch": "hero-spells-04",
+      "ruleSection": "upheaval.md"
+    },
+    {
+      "id": "A189",
+      "status": "resolved",
+      "required": true,
+      "owner": "/root/batch_dragon_breath_blood",
+      "openedByBatch": "hero-spells-04",
+      "ruleSection": "illuminate-and-spirit.md",
+      "resolution": "专项已明确，用户裁决及必要状态/数值验证通过。"
+    },
+    {
+      "id": "A191",
+      "status": "resolved",
+      "required": true,
+      "owner": "/root/batch_dragon_breath_blood",
+      "openedByBatch": "hero-spells-04",
+      "ruleSection": "illuminate-and-spirit.md",
+      "resolution": "专项已明确，用户裁决及必要状态/数值验证通过。"
+    },
+    {
+      "id": "A007",
+      "status": "resolved",
+      "required": true,
+      "owner": "/root",
+      "scope": "旧规格最后的原生适配与共享规则接口收口",
+      "ruleSection": "legacy-control-and-cast-closure.md",
+      "resolution": "限定规则明确，已通过来源及关键边界验证。"
+    },
+    {
+      "id": "A057",
+      "status": "resolved",
+      "required": true,
+      "owner": "/root",
+      "scope": "旧规格最后的原生适配与共享规则接口收口",
+      "ruleSection": "legacy-control-and-cast-closure.md",
+      "resolution": "限定规则明确，已通过来源及关键边界验证。"
+    },
+    {
+      "id": "A180",
+      "status": "resolved",
+      "required": true,
+      "owner": "/root",
+      "scope": "旧规格最后的原生适配与共享规则接口收口",
+      "ruleSection": "legacy-control-and-cast-closure.md",
+      "resolution": "限定规则明确，已通过来源及关键边界验证。"
+    },
+    {
+      "id": "enemy-mainline-first",
+      "status": "resolved",
+      "required": true,
+      "scope": [
+        "N508",
+        "N511",
+        "N512",
+        "N513",
+        "N514",
+        "N515",
+        "N516",
+        "N517",
+        "N518",
+        "N519",
+        "N520",
+        "N521",
+        "N522"
+      ],
+      "ruleSection": "npc-mainline-abilities-01.md",
+      "resolution": "限定规则明确，已通过来源及关键边界验证。"
+    },
+    {
+      "id": "enemy-mainline-later",
+      "status": "resolved",
+      "required": true,
+      "scope": [
+        "N525",
+        "N526",
+        "N527",
+        "N528",
+        "N530",
+        "N531",
+        "N532",
+        "N533",
+        "N571",
+        "N573",
+        "N574",
+        "N575",
+        "N576",
+        "N579",
+        "N581"
+      ],
+      "ruleSection": "late-enemy-effects.md",
+      "resolution": "限定规则明确并通过来源及关键边界验证；N576另见supernova-egg.md。"
+    },
+    {
+      "id": "enemy-endless-responses",
+      "status": "resolved",
+      "required": true,
+      "scope": [
+        "N537",
+        "N538",
+        "N539",
+        "N550",
+        "N551",
+        "N552",
+        "N540",
+        "N542",
+        "N559",
+        "N543",
+        "N554",
+        "N557",
+        "N558"
+      ],
+      "ruleSection": "npc-abyss-abilities.md",
+      "resolution": "限定规则明确，已通过来源及关键边界验证。"
+    },
+    {
+      "id": "enemy-abyss-responses",
+      "status": "resolved",
+      "required": true,
+      "scope": [
+        "N560",
+        "N561",
+        "N562",
+        "N563",
+        "N564",
+        "N565",
+        "N566",
+        "N567",
+        "N568"
+      ],
+      "ruleSection": "npc-abyss-dragon-abilities.md",
+      "resolution": "已核定规则并通过专项检查。原客户端未实测。"
+    },
+    {
+      "id": "enemy-summon-auras",
+      "status": "resolved",
+      "required": true,
+      "scope": [
+        "N541",
+        "N553",
+        "N544",
+        "N545",
+        "N546",
+        "N547",
+        "N556"
+      ],
+      "ruleSection": "enemy-auras-and-utility.md",
+      "resolution": "已核定规则并通过专项检查。原客户端未实测。"
+    },
+    {
+      "id": "enemy-native-utility",
+      "status": "resolved",
+      "required": true,
+      "scope": [
+        "T044",
+        "T045"
+      ],
+      "ruleSection": "enemy-auras-and-utility.md",
+      "resolution": "已核定规则并通过专项检查。原客户端未实测。"
+    },
+    {
+      "id": "world-object-damage",
+      "status": "resolved",
+      "required": true,
+      "owner": "/root/batch_item_resources",
+      "scope": "N020–N022及龙溅射的可达树/地面物品承伤、死亡撤占用接口",
+      "ruleSection": "world-object-damage.md",
+      "resolution": "已核定规则并通过专项检查。原客户端未实测。"
+    },
+    {
+      "id": "worker-talents",
+      "status": "resolved",
+      "required": true,
+      "scope": "8个工人天赋及选择/升级完整流程",
+      "ruleSection": "worker-talents.md",
+      "resolution": "已核定规则并通过专项检查。原客户端未实测。"
+    },
+    {
+      "id": "modes-readiness",
+      "status": "resolved",
+      "required": true,
+      "scope": "主线末批、同刻胜败与深渊自动选英雄流程",
+      "ruleSection": "modes-readiness-closure.md",
+      "resolution": "已核定规则并通过专项检查。原客户端未实测。"
+    },
+    {
+      "id": "platform-session",
+      "status": "resolved",
+      "required": true,
+      "scope": "开局原生缺省、18任务/5波奖励、本机平台状态",
+      "ruleSection": "session-and-task-state.md",
+      "resolution": "18项任务、5个领奖槽、档案提交及恢复均已明确并通过专项检查。"
+    },
+    {
+      "id": "i235-shop-unlock",
+      "status": "resolved",
+      "required": true,
+      "scope": "Q81：装备与道具第145行的神秘商店奖池条件，地图只定义追加函数未发现调用。",
+      "ruleSection": "economy-and-progression.md",
+      "resolution": "Q81 已裁决，首次开店时在随机组添加一次。"
+    }
+  ],
+  "closedDecisions": [
+    {
+      "id": "Q48",
+      "scope": "A052 shared technology",
+      "resolution": "per-tower current rank",
+      "rules": "hero-attack-extensions.md"
+    },
+    {
+      "id": "Q49",
+      "scope": "A106 shared cloud counter",
+      "resolution": "per cloud instance ten pulses",
+      "rules": "zeus-skills.md"
+    },
+    {
+      "id": "Q50",
+      "scope": "A059 multicast extra target selection",
+      "resolution": "600内合法友方均匀不重复随机，排除主目标，不足不补次数",
+      "rules": "../web-port-design.md"
+    },
+    {
+      "id": "Q51",
+      "scope": "A058 multicast shared counter",
+      "resolution": "each cast independent extra count,0.6sec interval; A059/newA058 cannot alter old",
+      "rules": "ogre-multicast.md"
+    },
+    {
+      "id": "Q52",
+      "scope": "A089 shared bounce counter",
+      "resolution": "each cast independent six extra bounces; marks/range/target order preserved",
+      "rules": "bounty-hunter-tracking.md"
+    },
+    {
+      "id": "Q53",
+      "scope": "i318/i319/i320 ash consumption",
+      "resolution": "add per rules; consume5 per successful effect, retain remainder; no target retains for next cast check",
+      "rules": "../web-port-design.md"
+    },
+    {
+      "id": "Q54",
+      "scope": "A207 and subsequently verified cross-cast counter interference",
+      "resolution": "Per-cast instance when workbook states per-cast count/duration and source probes demonstrate cross-cast interference; preserve live rank/scepter/target rules; deliberately shared stacks/resources excluded",
+      "rules": "../web-port-design.md"
+    },
+    {
+      "id": "Q55",
+      "scope": "绿/蓝契约远程召唤物",
+      "resolution": "不增加远程伤害与概率削弱，按图鉴完整系数与15%；红契远程无效、绿必中仅近战、原模式倍率保留",
+      "rules": "ward-summons.md"
+    },
+    {
+      "id": "Q56",
+      "scope": "A088永久被动与主动",
+      "resolution": "每级20永久基础力量，加原主动/自动临时力量护甲及原自身承伤效果均保留",
+      "rules": "self-buff-batch-01.md"
+    },
+    {
+      "id": "Q57",
+      "scope": "野性呼唤豪猪T263–268毒刺",
+      "resolution": "仅本组按说明降低移速10/20/30/40/50/60%持续3秒，不额外减攻速或毒伤",
+      "rules": "../web-port-design.md"
+    },
+    {
+      "id": "Q58",
+      "scope": "熊灵属性补正",
+      "resolution": "按具体熊灵隔离补正记录，旧熊/空熊回调不写新熊；保留主人属性与装备的实时读取",
+      "rules": "spirit-bear.md"
+    },
+    {
+      "id": "Q59",
+      "scope": "熊灵野蛮咆哮",
+      "resolution": "仅禁止移动，允许攻击/施法；N140/N141分别1.5/3秒，英雄同长",
+      "rules": "spirit-bear.md"
+    },
+    {
+      "id": "Q60",
+      "scope": "满星神能宝石",
+      "resolution": "10星拒绝升级，保留全部原星级/加成，沿原失败补偿helper退回一件新宝石",
+      "rules": "divine-books.md"
+    },
+    {
+      "id": "Q61",
+      "scope": "无图鉴详值时的数值优先级",
+      "resolution": "确认相同对象、等级和效果后，原地图提示数值优先于执行代码；图鉴与此前明确逐项裁决仍优先，真正机制冲突另核",
+      "rules": "q61-reconciliation.md"
+    },
+    {
+      "id": "Q62",
+      "scope": "暗影萨满苍穹震击A092",
+      "resolution": "按原地图实现手动和自动主动施法，保留图鉴数值，修正Web被动标签；提问中的英雄名已纠正",
+      "rules": "area-active-batch-01.md"
+    },
+    {
+      "id": "Q63",
+      "scope": "野性飞斧命中身份",
+      "resolution": "每柄斧完整往返对同一目标最多一次，两柄合计最多两次；不在折返处清空各斧访表",
+      "rules": "wild-axes.md"
+    },
+    {
+      "id": "Q64",
+      "scope": "图鉴明确机制的统一处理",
+      "resolution": "图鉴机制明确且内部不矛盾时，脚本相反/遗漏直接按图鉴修正留证，不再逐项问；缺漏/内部矛盾/新增设计才询问。恢复神符包括拾取英雄",
+      "rules": "item-restoration-batch-01.md"
+    },
+    {
+      "id": "Q65",
+      "scope": "战意A183原生闪避",
+      "resolution": "只保留图鉴刺针叠层与特殊效果，不额外添加闪避；本能力AEev闪避贡献为0，原字段保留证据",
+      "rules": "../web-port-design.md"
+    },
+    {
+      "id": "Q66",
+      "scope": "秘法天球付费攻击",
+      "resolution": "仅本次成功支付费用的天球攻击触发附伤与临时智力，其他毒标记不能免费触发；保留已核取值和精气光环顺序。",
+      "rules": "orb-and-channel-batch-01.md"
+    },
+    {
+      "id": "Q67",
+      "scope": "末日无尽减伤",
+      "resolution": "按提示将当时无尽减伤率减半，承伤因子为1−(1−r)/2；类型系数和既有旁路保持。",
+      "rules": "doom.md"
+    },
+    {
+      "id": "Q68",
+      "scope": "猴子对英雄伤害",
+      "resolution": "对原生HERO额外乘1.25，护甲类型等其他倍率保持；地图Boss称谓或N534/SAPPER本身不视为原生HERO。",
+      "rules": "monkey-formation.md"
+    },
+    {
+      "id": "Q69",
+      "scope": "幽灵船访问集合",
+      "resolution": "每次施法的舰队独立记录目标，同舰队同目标只贡献一次攻速；同英雄的攻速层共享，保留持杖重施撤销旧未发波的条件。",
+      "rules": "ghost-fleet.md"
+    },
+    {
+      "id": "Q70",
+      "scope": "熊灵提尔攻速退包",
+      "resolution": "仅撤销当前熊灵实际获得的对应物品实例攻速贡献；出生后拾取再移出未加过的装备不倒扣，普通召唤出生快照不变。",
+      "rules": "item-summon-contracts-batch-01.md"
+    },
+    {
+      "id": "Q71",
+      "scope": "原地图明确提示机制优先",
+      "resolution": "图鉴缺失时，经确认相同对象、等级和效果且原地图专属提示明确、内部不矛盾，机制亦优先提示；图鉴及先前明确裁决更高，通用陈旧模板不算，提示歧义另问。",
+      "rules": "../adr/0001-rule-source-priority.md",
+      "appliedRules": "hero-targeted-batch-02.md"
+    },
+    {
+      "id": "Q72",
+      "scope": "决斗失败冷却",
+      "resolution": "失败只结束决斗状态、不获得攻击成长，不重写剩余冷却；按原本倒计时继续。",
+      "rules": "../web-port-design.md",
+      "appliedRules": "hero-targeted-batch-02.md"
+    },
+    {
+      "id": "Q73",
+      "scope": "雪落法杖蓄力范围",
+      "resolution": "四档半径明确采用300/400/500/600，保持原各档伤害和控制时长；图鉴没具体半径的新增设计由用户确认。",
+      "rules": "../web-port-design.md"
+    },
+    {
+      "id": "Q74",
+      "scope": "极寒领域神杖冰封等级",
+      "resolution": "按本次极寒领域等级取图鉴冰封禁制同档伤害×2，即使未学习冰封禁制也触发；保留原概率、目标及控制规则。",
+      "rules": "freezing-field.md"
+    },
+    {
+      "id": "Q75",
+      "scope": "穿刺重叠去重",
+      "resolution": "同次施法对每个敌人只结算一次伤害，金额按图鉴技能等级×300；保留原直线覆盖范围与控制规则。",
+      "rules": "hero-mixed-batch-02.md"
+    },
+    {
+      "id": "Q76",
+      "scope": "启明蓄力计算",
+      "resolution": "按实际蓄力时长连续计算并限制本次蓄力上限，不做整秒和千伤档取整，神杖倍率保持。",
+      "rules": "illuminate-and-spirit.md"
+    },
+    {
+      "id": "Q77",
+      "scope": "并列幻象无尽附伤",
+      "resolution": "每次攻击按实际攻击幻象自身有效敏捷计算，普通敏捷×0.5，无尽敏捷×1；本体每次召唤临时+20敏捷为独立规则。",
+      "rules": "phantom-lancer-illusions.md"
+    },
+    {
+      "id": "Q78",
+      "scope": "九模板最小攻击距离",
+      "resolution": "仅H032、E010–E015、G032/G033九模板的异常最小攻击距离改为0，最大射程800及其他攻击规则保持；其余有效最小射程不改。",
+      "rules": "shared-attack-resolution.md"
+    },
+    {
+      "id": "Q79",
+      "scope": "秘术异蛇偷蓝与返还",
+      "resolution": "每次命中最多扣取100×当时技能等级的目标当前魔法；按实际扣量累计，返程抵达时返还实际累计，不额外赠送一份。",
+      "rules": "doom-devour-borrowed-skills.md"
+    },
+    {
+      "id": "Q80",
+      "scope": "任务进度达到目标即完成",
+      "resolution": "春节任务进度按显示目标达到即完成；13次、1680点、888万与23次的对应目标不额外加1。Web统一写达到，单次事件的前置触发条件保持原样。",
+      "rules": "session-and-task-state.md"
+    },
+    {
+      "id": "Q81",
+      "scope": "侦查守卫的神秘商店入口",
+      "resolution": "每局神秘商店首次开放（第21波）后、首轮刷新前向神杖制作书所在50权重组加入侦查守卫一次。沿用组权重、随机刷新和库存，固定表按原列表。",
+      "rules": "economy-and-progression.md"
+    }
+  ]
+}

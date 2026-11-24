@@ -1,0 +1,3016 @@
+{
+  "schema_version": 1,
+  "baseline_id": "mana-auras-v1",
+  "status": "source audit and Q24 scoped Web baseline complete; no client runtime measurement",
+  "scope": [
+    "A018/B022 on G039/H004 and actual later holders",
+    "I230/B054 on n245 and actual later holders"
+  ],
+  "pending_decisions": [],
+  "workbook": [
+    {
+      "sheet": "塔技能",
+      "row": 182,
+      "unit": "G039",
+      "name": "冰晶少女<SR>",
+      "ability": "A018",
+      "description": "H182",
+      "levels": "I182"
+    },
+    {
+      "sheet": "塔技能",
+      "row": 403,
+      "unit": "H004",
+      "name": "水晶室女<SR>",
+      "ability": "A018",
+      "description": "H403",
+      "levels": "I403"
+    },
+    {
+      "sheet": "塔技能",
+      "row": 809,
+      "unit": "n245",
+      "name": "巨虾Max<N>",
+      "ability": "I230",
+      "description": "H809",
+      "levels": null
+    }
+  ],
+  "source_hashes": {
+    "units_abilitydata.slk": "ba7657fe7942696310502e51ab349cc77ccd70016915dc26d92ffbcead7bb53d",
+    "units_abilitydata.json": "b772de42ebcfc1d3818298b35dbe81a35826892848c7cbfef70bf5097e481861",
+    "war3map.w3a.json": "d2875f064b389bca471db97121ff7c810d46fbc962ae640ad128d1daa85931bb",
+    "units_unitabilities.json": "ebd8a6fd8410f593c5ecadf6bf7c4f6bbc5b4bb7183c5e986a4d2d77e1747133",
+    "units_unitbalance.json": "096bad329e3b86f3ed4cad3e4ca7c8c4d8efcea2f25a366eef4eac8367eb70e3",
+    "units_abilitybuffdata.json": "c49954cfe19012e1b66cd2f24d8c0e3b3f483c02fd22c8f31057330968d6042a",
+    "units_campaignabilitystrings.txt": "5240c99230cd441b4c376371a31a7987e65470feed736177473a206c55fbe8cc",
+    "units_commonabilitystrings.txt": "07e87948660b7ec5beea095716ddd66faa340bfacc38a7c8d9bc09b59df2c205",
+    "units_campaignunitstrings.txt": "c247a137399eee98afe1c0ed276f045f1d6dfa63080d3fefbf6f4d05f7d61b53",
+    "main.readable.lua": "d868f14d946f0780313468f5dd783fa4a6cbe39f5c7851d8e4094ef80aa618b9",
+    "main.disasm": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+    "war3map.j": "67d4ebedc82fc39d687689b593efe0d21319ef6fcee44591058812d1baf1c3f8",
+    "war3mapMisc.txt": "f13e268c2da3ad776b39f230cb55a8eb5721df2bcf1e62c78202236b3f5d3743",
+    "war3map.w3u.json": "4d599edcf9784748cb7d8f07d873331de37393c9dec20d55b8551a924e6946c1"
+  },
+  "objects": {
+    "units_abilitydata.json": [
+      {
+        "line": 14024,
+        "record": {
+          "alias": "A018",
+          "code": "AHab",
+          "Area1": 1200.0,
+          "Area2": 1200.0,
+          "Area3": 1200.0,
+          "Area4": 1200.0,
+          "BuffID1": "B022",
+          "BuffID2": "B022",
+          "BuffID3": "B022",
+          "BuffID4": "B022",
+          "checkDep": 1,
+          "DataA1": 2.0,
+          "DataA2": 3.0,
+          "DataA3": 4.0,
+          "DataA4": 5.0,
+          "levels": 6,
+          "reqLevel": 1,
+          "targs1": "nonancient,invulnerable,self,friend",
+          "targs2": "nonancient,invulnerable,self,friend",
+          "targs3": "nonancient,invulnerable,self,friend",
+          "targs4": "nonancient,invulnerable,self,friend"
+        },
+        "raw_slk": {
+          "row": 818,
+          "fields": {
+            "alias": "A018",
+            "code": "AHab",
+            "Area1": 1200.0,
+            "Area2": 1200.0,
+            "Area3": 1200.0,
+            "Area4": 1200.0,
+            "BuffID1": "B022",
+            "BuffID2": "B022",
+            "BuffID3": "B022",
+            "BuffID4": "B022",
+            "checkDep": 1,
+            "DataA1": 2.0,
+            "DataA2": 3.0,
+            "DataA3": 4.0,
+            "DataA4": 5.0,
+            "levels": 6,
+            "reqLevel": 1,
+            "targs1": "nonancient,invulnerable,self,friend",
+            "targs2": "nonancient,invulnerable,self,friend",
+            "targs3": "nonancient,invulnerable,self,friend",
+            "targs4": "nonancient,invulnerable,self,friend"
+          },
+          "lines": {
+            "alias": 12479,
+            "code": 12480,
+            "Area1": 12481,
+            "Area2": 12482,
+            "Area3": 12483,
+            "Area4": 12484,
+            "BuffID1": 12485,
+            "BuffID2": 12486,
+            "BuffID3": 12487,
+            "BuffID4": 12488,
+            "checkDep": 12489,
+            "DataA1": 12490,
+            "DataA2": 12491,
+            "DataA3": 12492,
+            "DataA4": 12493,
+            "levels": 12494,
+            "reqLevel": 12495,
+            "targs1": 12496,
+            "targs2": 12497,
+            "targs3": 12498,
+            "targs4": 12499
+          }
+        }
+      },
+      {
+        "line": 22099,
+        "record": {
+          "alias": "I230",
+          "code": "AHab",
+          "Area1": 800.0,
+          "BuffID1": "B054",
+          "DataA1": 3.0,
+          "levels": 1,
+          "targs1": "nonancient,invulnerable,self,friend",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        },
+        "raw_slk": {
+          "row": 1155,
+          "fields": {
+            "alias": "I230",
+            "code": "AHab",
+            "Area1": 800.0,
+            "BuffID1": "B054",
+            "DataA1": 3.0,
+            "levels": 1,
+            "targs1": "nonancient,invulnerable,self,friend",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          },
+          "lines": {
+            "alias": 19880,
+            "code": 19881,
+            "Area1": 19882,
+            "BuffID1": 19883,
+            "DataA1": 19884,
+            "levels": 19885,
+            "targs1": 19886,
+            "targs2": 19887,
+            "targs3": 19888,
+            "targs4": 19889
+          }
+        }
+      },
+      {
+        "line": 30552,
+        "record": {
+          "alias": "S081",
+          "code": "Aspb",
+          "DataA1": "S082",
+          "DataC1": 11,
+          "DataD1": 11,
+          "DataE1": "spellbook",
+          "levels": 1,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        },
+        "raw_slk": {
+          "row": 1758,
+          "fields": {
+            "alias": "S081",
+            "code": "Aspb",
+            "DataA1": "S082",
+            "DataC1": 11,
+            "DataD1": 11,
+            "DataE1": "spellbook",
+            "levels": 1,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          },
+          "lines": {
+            "alias": 27127,
+            "code": 27128,
+            "DataA1": 27129,
+            "DataC1": 27130,
+            "DataD1": 27131,
+            "DataE1": 27132,
+            "levels": 27133,
+            "targs1": 27134,
+            "targs2": 27135,
+            "targs3": 27136,
+            "targs4": 27137
+          }
+        }
+      },
+      {
+        "line": 30565,
+        "record": {
+          "alias": "S082",
+          "code": "ANcl",
+          "checkDep": 1,
+          "Cool1": 1.0,
+          "DataC1": 1,
+          "DataF1": "mindrot",
+          "levels": 1,
+          "reqLevel": 1,
+          "Rng1": 500.0,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        },
+        "raw_slk": {
+          "row": 1759,
+          "fields": {
+            "alias": "S082",
+            "code": "ANcl",
+            "checkDep": 1,
+            "Cool1": 1.0,
+            "DataC1": 1,
+            "DataF1": "mindrot",
+            "levels": 1,
+            "reqLevel": 1,
+            "Rng1": 500.0,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          },
+          "lines": {
+            "alias": 27138,
+            "code": 27139,
+            "checkDep": 27140,
+            "Cool1": 27141,
+            "DataC1": 27142,
+            "DataF1": 27143,
+            "levels": 27144,
+            "reqLevel": 27145,
+            "Rng1": 27146,
+            "targs1": 27147,
+            "targs2": 27148,
+            "targs3": 27149,
+            "targs4": 27150
+          }
+        }
+      },
+      {
+        "line": 29055,
+        "record": {
+          "alias": "R082",
+          "code": "Acha",
+          "checkDep": 1,
+          "levels": 1,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_",
+          "UnitID1": "G039"
+        },
+        "raw_slk": {
+          "row": 1637,
+          "fields": {
+            "alias": "R082",
+            "code": "Acha",
+            "checkDep": 1,
+            "levels": 1,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_",
+            "UnitID1": "G039"
+          },
+          "lines": {
+            "alias": 25872,
+            "code": 25873,
+            "checkDep": 25874,
+            "levels": 25875,
+            "targs1": 25876,
+            "targs2": 25877,
+            "targs3": 25878,
+            "targs4": 25879,
+            "UnitID1": 25880
+          }
+        }
+      },
+      {
+        "line": 23107,
+        "record": {
+          "alias": "I553",
+          "code": "AIbl",
+          "levels": 1,
+          "Rng1": 100.0,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_",
+          "UnitID1": "H004,H004,H004,H004"
+        },
+        "raw_slk": {
+          "row": 1224,
+          "fields": {
+            "alias": "I553",
+            "code": "AIbl",
+            "levels": 1,
+            "Rng1": 100.0,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_",
+            "UnitID1": "H004,H004,H004,H004"
+          },
+          "lines": {
+            "alias": 20750,
+            "code": 20751,
+            "levels": 20752,
+            "Rng1": 20753,
+            "targs1": 20754,
+            "targs2": 20755,
+            "targs3": 20756,
+            "targs4": 20757,
+            "UnitID1": 20758
+          }
+        }
+      }
+    ],
+    "units_unitabilities.json": [
+      {
+        "line": 4216,
+        "record": {
+          "unitAbilID": "G039",
+          "abilList": "Avul,AInv,T033",
+          "auto": "_",
+          "heroAbilList": "A016,A017,A018,T000,P000"
+        }
+      },
+      {
+        "line": 4486,
+        "record": {
+          "unitAbilID": "H004",
+          "abilList": "Avul,AInv,T033,S081",
+          "auto": "_",
+          "heroAbilList": "A016,A017,A018,T000,P000"
+        }
+      },
+      {
+        "line": 6440,
+        "record": {
+          "unitAbilID": "n244",
+          "abilList": "Avul,T033,N109",
+          "auto": "_"
+        }
+      },
+      {
+        "line": 6445,
+        "record": {
+          "unitAbilID": "n245",
+          "abilList": "Avul,I230,T033,N110",
+          "auto": "_"
+        }
+      }
+    ],
+    "units_unitbalance.json": [
+      {
+        "line": 24720,
+        "record": {
+          "unitBalanceID": "G039",
+          "AGI": 6,
+          "AGIplus": 2.0,
+          "bldtm": 1,
+          "bountydice": 8,
+          "bountyplus": 30,
+          "bountysides": 3,
+          "collision": 72.0,
+          "defType": "hero",
+          "fused": 20,
+          "goldcost": 3000,
+          "HP": 100,
+          "INT": 38,
+          "INTplus": 5.0,
+          "level": 5,
+          "mana0": 200,
+          "nsight": -150,
+          "preventPlace": "_",
+          "Primary": "INT",
+          "regenHP": 0.25,
+          "regenMana": 0.01,
+          "regenType": "always",
+          "reptm": 5,
+          "requirePlace": "_",
+          "sight": -150,
+          "spd": 280,
+          "stockMax": 3,
+          "stockRegen": 30,
+          "STR": 8,
+          "STRplus": 2.0,
+          "tilesets": "*"
+        }
+      },
+      {
+        "line": 26236,
+        "record": {
+          "unitBalanceID": "H004",
+          "AGI": 6,
+          "AGIplus": 2.0,
+          "bldtm": 1,
+          "bountydice": 8,
+          "bountyplus": 30,
+          "bountysides": 3,
+          "collision": 72.0,
+          "defType": "hero",
+          "fused": 20,
+          "goldcost": 3000,
+          "HP": 100,
+          "INT": 38,
+          "INTplus": 5.0,
+          "level": 5,
+          "mana0": 200,
+          "nsight": 800,
+          "preventPlace": "_",
+          "Primary": "INT",
+          "regenHP": 0.25,
+          "regenMana": 0.01,
+          "regenType": "always",
+          "reptm": 5,
+          "requirePlace": "_",
+          "sight": 900,
+          "spd": 280,
+          "stockMax": 3,
+          "stockRegen": 30,
+          "STR": 8,
+          "STRplus": 2.0,
+          "tilesets": "*"
+        }
+      },
+      {
+        "line": 36960,
+        "record": {
+          "unitBalanceID": "n245",
+          "bldtm": 1,
+          "bountydice": 3,
+          "bountyplus": 17,
+          "bountysides": 3,
+          "collision": 72.0,
+          "def": 6.0,
+          "defType": "medium",
+          "defUp": 2.0,
+          "fused": 5,
+          "goldcost": 450,
+          "HP": 1050,
+          "level": 3,
+          "mana0": 300,
+          "manaN": 200,
+          "nsight": 800,
+          "preventPlace": "_",
+          "Primary": "_",
+          "regenHP": 0.5,
+          "regenMana": 1.0,
+          "regenType": "always",
+          "reptm": 2,
+          "requirePlace": "_",
+          "sight": 1400,
+          "stockMax": 1,
+          "stockRegen": 260,
+          "stockStart": 440,
+          "tilesets": "Z"
+        }
+      }
+    ],
+    "units_abilitybuffdata.json": [
+      {
+        "line": 801,
+        "record": {
+          "alias": "B022"
+        }
+      },
+      {
+        "line": 897,
+        "record": {
+          "alias": "B054"
+        }
+      }
+    ]
+  },
+  "w3a": [
+    {
+      "old": "A018",
+      "new": "\u0000\u0000\u0000\u0000",
+      "mods": [
+        {
+          "key": "Hab1",
+          "type": 2,
+          "level": 5,
+          "data": 1,
+          "value": 6.0
+        },
+        {
+          "key": "Hab1",
+          "type": 2,
+          "level": 6,
+          "data": 1,
+          "value": 8.0
+        }
+      ]
+    }
+  ],
+  "w3a_line": 241,
+  "resolved": {
+    "A018": {
+      "code": "AHab",
+      "levels": 6,
+      "flat_mana_per_second": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        8
+      ],
+      "self_mana_per_second": [
+        4,
+        6,
+        8,
+        10,
+        12,
+        16
+      ],
+      "area": 1200,
+      "buff": "B022",
+      "percent_bonus": false,
+      "self_double_provenance": "workbook H182/H403 and actual Name/Researchubertip; not a demonstrated native self multiplier",
+      "higher_level_area_buff_targets": "Q24 tail fill of last explicit SLK value for levels5/6, corroborated by tooltip/workbook and w3x2lni import practice",
+      "DataA_level5to6": "explicit Hab1 overrides6 and8, not guessed tail fill"
+    },
+    "I230": {
+      "code": "AHab",
+      "levels": 1,
+      "flat_mana_per_second": [
+        3
+      ],
+      "self_mana_per_second": [
+        3
+      ],
+      "area": 800,
+      "buff": "B054",
+      "percent_bonus": false
+    },
+    "shared": {
+      "targets_literal": "nonancient,invulnerable,self,friend",
+      "DataB": "absent in map SLK and relevant w3a overrides; false selected using explicit flat text; not claimed literal0 field",
+      "cost_cooldown": "passive, no command/mana cost/local proc cooldown",
+      "buff_object_data": "B022/B054 alias only; no duration/pulse fields"
+    }
+  },
+  "script_audit": {
+    "exact_id_refs": {
+      "main.readable.lua": 0,
+      "main.disasm": 0,
+      "war3map.j": 0,
+      "searched": [
+        "A018",
+        "I230",
+        "B022",
+        "B054",
+        "1093677368",
+        "1228026672",
+        "1110454834",
+        "1110455604"
+      ]
+    },
+    "not_inference": "absence of exact names alone is not proof against dynamic application; follow generic paths below",
+    "learn": {
+      "lua": [
+        116207,
+        116455
+      ],
+      "function": "main/f291/f10",
+      "result": "learn A018 falls through; no script self bonus or rewrite; native learned rank still applies"
+    },
+    "build": {
+      "lua": [
+        115286,
+        115424
+      ],
+      "function": "main/f291/f7",
+      "result": "register Tower_ALL, full mana, T033 toggle, remove N032, random P001..P013 on hero/n208; no generic aura rewrite"
+    },
+    "morph": {
+      "mapping_lua": [
+        104319,
+        104329
+      ],
+      "entry_lua": [
+        118658,
+        118662
+      ],
+      "body_lua": [
+        106613,
+        107049
+      ],
+      "function": "main/f289/f7",
+      "path": "H004 S081 spellbook ->S082 ->Model_Check ->R082 ->UnitAddAbility ->Acha UnitID1 G039; both forms share A018 in heroAbilList",
+      "selected_web": "preserve actual learned A018 rank across H004->G039, same logical sourceId; do not add a second emitter; do not double INT-derived regen with A018 self bonus"
+    },
+    "a_scepter": {
+      "lua": [
+        30202,
+        30416
+      ],
+      "functions": [
+        "main/f7/f11",
+        "main/f7/f12"
+      ],
+      "dynamic_pairs": [
+        [
+          "A105",
+          "A106"
+        ],
+        [
+          "A153",
+          "A154"
+        ]
+      ],
+      "result": "no A018/I230 gain/loss/level override; separate A016 effects not audited"
+    },
+    "upgrade": {
+      "unit_string_lines": [
+        7242,
+        7244
+      ],
+      "path": "n244 Upgrade=n245; only n245 has I230",
+      "selected_web": "create one level1 I230 emitter on completed n244->n245; no inherited extra I230 emitter"
+    },
+    "ability_data_write": {
+      "lua": [
+        68371,
+        68392
+      ],
+      "result": "only two EXSetAbilityDataReal occurrences in main are A224 dummy T286 fields102/103, no mana aura data mutation"
+    },
+    "jass_ui": {
+      "lines": [
+        2076,
+        2104
+      ],
+      "result": "dynamic heroAbilList read renders skill icons/tooltips; no UnitAddAbility/SetUnitAbilityLevel/regen write"
+    },
+    "limits": "bounded source audit of these carriers, learning/build, A-item generic add/remove and skin conversion; not a proof of all future external Lua injection/native transformations"
+  },
+  "bytecode_audits": [
+    {
+      "function": "main/f291/f10",
+      "lines": [
+        168967,
+        169293
+      ],
+      "instruction_count": 237,
+      "condition_count": 25,
+      "sha256": "fff82b44f0fa86c9271f70e1a4c489c5f6224929e6dec55e8060d31aeb90d545",
+      "all_string_constants": [
+        "GetLearnedSkill",
+        "GetLearningUnit",
+        "IsUnitIllusion",
+        "GetId",
+        "P000",
+        "UnitAddAbility",
+        "P200",
+        "UnitMakeAbilityPermanent",
+        "SetUnitAbilityLevel",
+        "A006",
+        "A006_Action",
+        "A072",
+        "A072_Action",
+        "A084",
+        "A084_Study",
+        "A081",
+        "A081_Study",
+        "A025",
+        "A025_Action",
+        "A030",
+        "A030_study",
+        "A040",
+        "A040_Study",
+        "A047",
+        "A047_Study",
+        "A052",
+        "A052_Study",
+        "A069",
+        "A069_Study",
+        "A088",
+        "A088_Study",
+        "A109",
+        "A109_Study",
+        "A116",
+        "A116_Study",
+        "A123",
+        "A123_Study",
+        "A112",
+        "A142",
+        "A143",
+        "A112_Study",
+        "A127",
+        "A127_Study",
+        "A193",
+        "A193_Action",
+        "A216",
+        "A216_study",
+        "A225",
+        "A225_study",
+        "A164",
+        "A164_study"
+      ]
+    },
+    {
+      "function": "main/f291/f7",
+      "lines": [
+        167771,
+        167956
+      ],
+      "instruction_count": 130,
+      "condition_count": 9,
+      "sha256": "55c2d1adac2250339a125367a19b997d230865be89e4652e0d7effb02df21059",
+      "all_string_constants": [
+        "AddArrAny",
+        "Tower_ALL",
+        "SetUnitUserData",
+        "GetUnitAbilityLevel",
+        "GetId",
+        "T033",
+        "IssueImmediateOrder",
+        "manashieldon",
+        "N032",
+        "UnitRemoveAbility",
+        "IsUnitType",
+        "UNIT_TYPE_HERO",
+        "EXSetUnitMoveType",
+        "stop",
+        "SetUnitState",
+        "UNIT_STATE_MANA",
+        "GetUnitState",
+        "UNIT_STATE_MAX_MANA",
+        "GetUnitTypeId",
+        "n208",
+        "tostring",
+        "GetRandomInt",
+        "P",
+        "00",
+        "0",
+        "UnitAddAbility",
+        "SetUnitAbilityLevel",
+        "UnitMakeAbilityPermanent"
+      ]
+    },
+    {
+      "function": "main/f289/f7",
+      "lines": [
+        156530,
+        157079
+      ],
+      "instruction_count": 436,
+      "condition_count": 35,
+      "sha256": "d6fd7d332a4c98bf3f98e22687367955737403ce1139853ad5382bc3c9a8976e",
+      "all_string_constants": [
+        "Model_Check",
+        "",
+        "IsUnitType",
+        "UNIT_TYPE_HERO",
+        "GetId",
+        "A_ITEM_ID",
+        "GetItemTypeId",
+        "UnitItemInSlot",
+        "i304",
+        "UnitRemoveItemFromSlot",
+        "GetHeroStr",
+        "GetHeroAgi",
+        "GetHeroInt",
+        "CheckPlayerHasShopItem",
+        "GetPlayerId",
+        "GetOwningPlayer",
+        "SHOPITEM08",
+        "SHOPITEM01",
+        "SetHeroStr",
+        "SetHeroAgi",
+        "SetHeroInt",
+        "IsInTable",
+        "J003_Hero",
+        "Skill_BS_Still",
+        "S043",
+        "S042",
+        "S013",
+        "UnitAddAbility",
+        "A120",
+        "UnitRemoveAbility",
+        "S014",
+        "A129",
+        "S172",
+        "A131",
+        "S192",
+        "A140",
+        "S193",
+        "A144",
+        "S212",
+        "A150",
+        "S222",
+        "A177",
+        "S272",
+        "A185",
+        "S273",
+        "A212",
+        "S372",
+        "A240",
+        "R705",
+        "zado1991",
+        "GetPlayerName",
+        "R714",
+        "IsWorker",
+        "IsBOX",
+        "Model_Check_type",
+        "UnitMakeAbilityPermanent"
+      ]
+    },
+    {
+      "function": "main/f7/f11",
+      "lines": [
+        50925,
+        51089
+      ],
+      "instruction_count": 124,
+      "condition_count": 4,
+      "sha256": "75ac6ec09fb1bd9af1cf1a81ab8dfa66a86f409066f6cbd59b5bff255359be74",
+      "all_string_constants": [
+        "UnitAddAbility",
+        "GetId",
+        "T252",
+        "UnitMakeAbilityPermanent",
+        "GetUnitTypeId",
+        "H057",
+        "A220",
+        "UnitRemoveAbility",
+        "GetUnitAbilityLevel",
+        "A094",
+        "A096",
+        "A033",
+        "I269",
+        "pairs",
+        "EXGetAbilityDataReal",
+        "EXGetUnitAbility",
+        "EXSetAbilityState"
+      ]
+    },
+    {
+      "function": "main/f7/f12",
+      "lines": [
+        51090,
+        51204
+      ],
+      "instruction_count": 81,
+      "condition_count": 4,
+      "sha256": "7fa8c49d2d27585b0e3b43079c3931593936d6050a5a576e2dfa1c505bba3024",
+      "all_string_constants": [
+        "UnitRemoveAbility",
+        "GetId",
+        "T252",
+        "GetUnitTypeId",
+        "H057",
+        "UnitAddAbility",
+        "A219",
+        "GetUnitAbilityLevel",
+        "A095",
+        "A114",
+        "A033",
+        "I269",
+        "pairs"
+      ]
+    }
+  ],
+  "web_rules": {
+    "authorization": "Q24; parent explicitly confirmed group stacking and self-candidate rule in this batch",
+    "scope_guard": "do not infer other AHab clones or all Warcraft auras use this profile",
+    "rank": "actual effective ability rank; absent/rank0 disables emitter; out-of-domain rank is invalid content error, not clamped silently",
+    "source_eligible": {
+      "require": [
+        "exists",
+        "alive",
+        "not hidden",
+        "ability enabled at supported rank"
+      ],
+      "exclude": [
+        "illusion",
+        "invisible including shadowmeld",
+        "polymorphed/hexed",
+        "burrowed",
+        "animated corpse",
+        "native HERO currently flying"
+      ],
+      "native_default_basis": "YDWE MiscGame flags are comparison data, not proven client defaults; adopting them here is Q24",
+      "continue_during": [
+        "stun",
+        "silence",
+        "unit pause"
+      ],
+      "global_pause": "simulation time stops so no mana accumulation"
+    },
+    "recipient_eligible": {
+      "require": [
+        "exists",
+        "alive",
+        "not hidden",
+        "not ancient",
+        "same owner or source owner has ally relationship toward recipient owner"
+      ],
+      "allow": [
+        "self",
+        "ground",
+        "air",
+        "building",
+        "mechanical",
+        "undead",
+        "summoned",
+        "illusion",
+        "invulnerable",
+        "vulnerable",
+        "magic immune",
+        "ethereal",
+        "invisible"
+      ],
+      "no_mana": "can carry informational aura buff; positive gain is0 if maxMana0, never creates mana pool",
+      "blocked_by_spell_shield": false,
+      "resistant_skin_scaling": false
+    },
+    "geometry": {
+      "shape": "inclusive2Dcenter_disk",
+      "predicate": "(sx-tx)^2+(sy-ty)^2<=radius^2",
+      "collision_radius_used": false,
+      "line_of_sight_or_pathing_required": false,
+      "self_distance": 0
+    },
+    "aggregation": {
+      "candidate": "A018: rate[rank] * (sourceId==recipientId ?2:1); I230:3",
+      "within_group": "max candidate, not sum; ties smallest stable sourceId for provenance only",
+      "between_groups": "max(A018 candidates,0)+max(I230 candidates,0)",
+      "self_multiplier": "only candidate emitted by recipient itself; does not multiply allied aura candidates, I230, INT regeneration, items or instant mana gains",
+      "explicit_examples": {
+        "A018_level1_self_plus_level6_ally": 8,
+        "A018_level6_self_plus_I230": 19,
+        "A018_level6_ally_plus_two_I230_sources": 11
+      }
+    },
+    "lifecycle": {
+      "mode": "event reactive, no aura pulse and no linger (Q24)",
+      "refresh_on": [
+        "spawn/build/upgrade complete",
+        "learn/rank change",
+        "ability add/remove/disable/enable",
+        "position change/range crossing",
+        "owner/alliance change",
+        "source eligibility change",
+        "recipient eligibility change",
+        "death/removal/revival",
+        "form transition"
+      ],
+      "event_order": "integrate previous resolved rate over elapsed simulation time first, then mutate state, recompute candidates before next observable operation at that timestamp; B05 same-time queue order preserved",
+      "movement_boundary": "evaluate at authoritative movement position update; no retroactive payout for movement intervals before an entry update",
+      "source_lost": "remove that candidate immediately; fall back to next eligible same-group source in same operation",
+      "recipient_lost": "remove both group buff records immediately; no death carryover",
+      "buffs": "one informational B022 iff A018 group>0, one B054 iff I230 group>0; no hidden duplicate bonus on repeated scans",
+      "dispel": "ordinary dispel does not clear universal aura eligibility; explicit rawcode removal clears record then synchronous reconciliation reapplies if source eligible",
+      "revival": "re-evaluate live sources, no persisted old buff expiry",
+      "form_preservation": "same entity H004->G039 keeps learned rank but recomputes once; if a transform truly removes capability its aura ends; never infer enable solely from original unit type"
+    },
+    "mana_interface": {
+      "output": "flatAuraRegenPerSecond (real-valued additive channel)",
+      "order": "compute other resolved mana regeneration separately, then add this channel; this scoped flat channel is not multiplied by generic percent-regeneration modifiers",
+      "integration": "mana=clamp(mana+(otherRegenPerSecond+flatAuraRegenPerSecond)*elapsedSimulationSeconds,0,maxMana)",
+      "rounding": "no integer truncation per tick; retain fractions; no banked overflow at maxMana",
+      "instant_events": "skill mana costs/gains preserve existing queue/call order; aura tick is not a spell cast/damage event; no damage pipeline/equipment proc callback"
+    },
+    "save": "persist actual ability ranks/enabled flags, identity, transform state, positions, owners/alliance, eligibility flags, fractional mana and simulation time; reconstruct aura candidates without payouts; optional cached rates must agree, no duplicate accumulation"
+  },
+  "primary_sources": [
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/Units/AbilityMetaData.slk#L1536",
+      "supports": "Hab1 DataA real; Hab2 DataB boolean for AHab"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/UI/WorldEditStrings.txt#L5880",
+      "supports": "Mana Regeneration Increase; percent toggle at L8117"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/plugin/w3x2lni/script/core/slk/frontend_merge.lua#L18",
+      "supports": "parser fills absent trailing level entries; not engine proof"
+    },
+    {
+      "url": "https://classic.battle.net/war3/human/units/archmage.shtml",
+      "supports": "vanilla Brilliance adds flat mana/sec to friendly units incl self; not custom values or double"
+    },
+    {
+      "url": "https://classic.battle.net/war3/basics/spellbasics.shtml",
+      "supports": "same aura nonstacking, pulses, self benefit, universal/friendly magic immune; invisible source inactive; no exact custom grouping/pulse interval"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/Units/MiscGame.txt#L26",
+      "supports": "comparison defaults suppress several source classes; map has no these overrides; version unmatched"
+    },
+    {
+      "url": "https://github.com/Retera/WarsmashModEngine/blob/f9e0aeed4be372d6016519d0e97b384aa873f374/core/src/com/etheller/warsmash/viewer5/handlers/w3x/simulation/abilities/skills/human/archmage/CAbilityBrilliance.java#L20",
+      "supports": "independent engine reads DataA/B; flat branch no self factor; not original runtime"
+    },
+    {
+      "url": "https://github.com/Retera/WarsmashModEngine/blob/f9e0aeed4be372d6016519d0e97b384aa873f374/core/src/com/etheller/warsmash/viewer5/handlers/w3x/simulation/abilities/skills/human/archmage/CBuffBrilliance.java#L18",
+      "supports": "independent additive regen bonus channel"
+    },
+    {
+      "url": "https://github.com/Retera/WarsmashModEngine/blob/f9e0aeed4be372d6016519d0e97b384aa873f374/core/src/com/etheller/warsmash/viewer5/handlers/w3x/simulation/abilities/skills/util/CAbilityAuraBase.java#L16",
+      "supports": "Java2sec scan, BuffID/rank grouping; not selected pulse"
+    },
+    {
+      "url": "https://github.com/Retera/WarsmashModEngine/blob/f9e0aeed4be372d6016519d0e97b384aa873f374/core/src/com/etheller/warsmash/viewer5/handlers/w3x/simulation/abilities/skills/util/CBuffAuraBase.java#L18",
+      "supports": "Java2sec out-of-range check, onDeath remove; insufficient original source-death semantics"
+    },
+    {
+      "url": "https://github.com/Retera/WarsmashModEngine/blob/f9e0aeed4be372d6016519d0e97b384aa873f374/resources/Scripts/Abilities/Human/Archmage/Brilliance.j#L6",
+      "supports": "same independent repo JASS uses fixed BHab nonstackingstat key even with alias; cannot infer custom-group runtime from Java alone"
+    }
+  ],
+  "source_limits": [
+    "No matching Warcraft client/runtime measurement. Native cadence, center/collision boundary, cross-custom-aura stacking, source-death lag, and full regeneration modifier order are not proven original behavior; resolved explicitly as Q24 choices above.",
+    "A018 selfdouble is a required text behavior whose native compensation path was not proven, not a newly demonstrated contradiction.",
+    "No generalization to other auras, no changes to other skill/upgrade/skin acquisition costs or triggers."
+  ],
+  "validation_cases": [
+    {
+      "id": "rank_1_self",
+      "recipient": {
+        "id": 1,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {
+          "A018": 1
+        }
+      },
+      "sources": [
+        {
+          "id": 1,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 1
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 4,
+        "I230": 0,
+        "total": 4
+      }
+    },
+    {
+      "id": "rank_1_ally",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {}
+      },
+      "sources": [
+        {
+          "id": 1,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 1
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 2,
+        "I230": 0,
+        "total": 2
+      }
+    },
+    {
+      "id": "rank_2_self",
+      "recipient": {
+        "id": 1,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {
+          "A018": 2
+        }
+      },
+      "sources": [
+        {
+          "id": 1,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 2
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 6,
+        "I230": 0,
+        "total": 6
+      }
+    },
+    {
+      "id": "rank_2_ally",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {}
+      },
+      "sources": [
+        {
+          "id": 1,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 2
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 3,
+        "I230": 0,
+        "total": 3
+      }
+    },
+    {
+      "id": "rank_3_self",
+      "recipient": {
+        "id": 1,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {
+          "A018": 3
+        }
+      },
+      "sources": [
+        {
+          "id": 1,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 3
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 8,
+        "I230": 0,
+        "total": 8
+      }
+    },
+    {
+      "id": "rank_3_ally",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {}
+      },
+      "sources": [
+        {
+          "id": 1,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 3
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 4,
+        "I230": 0,
+        "total": 4
+      }
+    },
+    {
+      "id": "rank_4_self",
+      "recipient": {
+        "id": 1,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {
+          "A018": 4
+        }
+      },
+      "sources": [
+        {
+          "id": 1,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 4
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 10,
+        "I230": 0,
+        "total": 10
+      }
+    },
+    {
+      "id": "rank_4_ally",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {}
+      },
+      "sources": [
+        {
+          "id": 1,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 4
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 5,
+        "I230": 0,
+        "total": 5
+      }
+    },
+    {
+      "id": "rank_5_self",
+      "recipient": {
+        "id": 1,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {
+          "A018": 5
+        }
+      },
+      "sources": [
+        {
+          "id": 1,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 5
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 12,
+        "I230": 0,
+        "total": 12
+      }
+    },
+    {
+      "id": "rank_5_ally",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {}
+      },
+      "sources": [
+        {
+          "id": 1,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 5
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 6,
+        "I230": 0,
+        "total": 6
+      }
+    },
+    {
+      "id": "rank_6_self",
+      "recipient": {
+        "id": 1,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {
+          "A018": 6
+        }
+      },
+      "sources": [
+        {
+          "id": 1,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 16,
+        "I230": 0,
+        "total": 16
+      }
+    },
+    {
+      "id": "rank_6_ally",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {}
+      },
+      "sources": [
+        {
+          "id": 1,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 8,
+        "I230": 0,
+        "total": 8
+      }
+    },
+    {
+      "id": "own_l1_ally_l6",
+      "recipient": {
+        "id": 1,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {
+          "A018": 1
+        }
+      },
+      "sources": [
+        {
+          "id": 1,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 1
+          }
+        },
+        {
+          "id": 3,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 8,
+        "I230": 0,
+        "total": 8
+      }
+    },
+    {
+      "id": "own_l6_with_shrimp",
+      "recipient": {
+        "id": 3,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {
+          "A018": 6
+        }
+      },
+      "sources": [
+        {
+          "id": 3,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          }
+        },
+        {
+          "id": 4,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "I230": 1
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 16,
+        "I230": 3,
+        "total": 19
+      }
+    },
+    {
+      "id": "distinct_groups_duplicate_shrimp",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {}
+      },
+      "sources": [
+        {
+          "id": 3,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          }
+        },
+        {
+          "id": 4,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "I230": 1
+          }
+        },
+        {
+          "id": 5,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "I230": 1
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 8,
+        "I230": 3,
+        "total": 11
+      }
+    },
+    {
+      "id": "self_shrimp",
+      "recipient": {
+        "id": 4,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {
+          "I230": 1
+        }
+      },
+      "sources": [
+        {
+          "id": 4,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "I230": 1
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 0,
+        "I230": 3,
+        "total": 3
+      }
+    },
+    {
+      "id": "A018_radius_0",
+      "recipient": {
+        "id": 2,
+        "x": 1200,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {},
+        "collision": 72
+      },
+      "sources": [
+        {
+          "id": 1,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 8,
+        "I230": 0,
+        "total": 8
+      }
+    },
+    {
+      "id": "A018_radius_0.0001",
+      "recipient": {
+        "id": 2,
+        "x": 1200.0001,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {},
+        "collision": 72
+      },
+      "sources": [
+        {
+          "id": 1,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 0,
+        "I230": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "I230_radius_0",
+      "recipient": {
+        "id": 2,
+        "x": 800,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {},
+        "collision": 72
+      },
+      "sources": [
+        {
+          "id": 1,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "I230": 1
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 0,
+        "I230": 3,
+        "total": 3
+      }
+    },
+    {
+      "id": "I230_radius_0.0001",
+      "recipient": {
+        "id": 2,
+        "x": 800.0001,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {},
+        "collision": 72
+      },
+      "sources": [
+        {
+          "id": 1,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "I230": 1
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 0,
+        "I230": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "source_animated",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {}
+      },
+      "sources": [
+        {
+          "id": 1,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          },
+          "animated": true
+        }
+      ],
+      "expected_rates": {
+        "A018": 0,
+        "I230": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "source_burrowed",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {}
+      },
+      "sources": [
+        {
+          "id": 1,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          },
+          "burrowed": true
+        }
+      ],
+      "expected_rates": {
+        "A018": 0,
+        "I230": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "source_flying_hero",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {}
+      },
+      "sources": [
+        {
+          "id": 1,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          },
+          "flying_hero": true
+        }
+      ],
+      "expected_rates": {
+        "A018": 0,
+        "I230": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "source_illusion",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {}
+      },
+      "sources": [
+        {
+          "id": 1,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          },
+          "illusion": true
+        }
+      ],
+      "expected_rates": {
+        "A018": 0,
+        "I230": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "source_invisible",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {}
+      },
+      "sources": [
+        {
+          "id": 1,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          },
+          "invisible": true
+        }
+      ],
+      "expected_rates": {
+        "A018": 0,
+        "I230": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "source_polymorphed",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {}
+      },
+      "sources": [
+        {
+          "id": 1,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          },
+          "polymorphed": true
+        }
+      ],
+      "expected_rates": {
+        "A018": 0,
+        "I230": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "source_continues_stun",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {}
+      },
+      "sources": [
+        {
+          "id": 1,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          },
+          "stun": true
+        }
+      ],
+      "expected_rates": {
+        "A018": 8,
+        "I230": 0,
+        "total": 8
+      }
+    },
+    {
+      "id": "source_continues_silence",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {}
+      },
+      "sources": [
+        {
+          "id": 1,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          },
+          "silence": true
+        }
+      ],
+      "expected_rates": {
+        "A018": 8,
+        "I230": 0,
+        "total": 8
+      }
+    },
+    {
+      "id": "source_continues_paused",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {}
+      },
+      "sources": [
+        {
+          "id": 1,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          },
+          "paused": true
+        }
+      ],
+      "expected_rates": {
+        "A018": 8,
+        "I230": 0,
+        "total": 8
+      }
+    },
+    {
+      "id": "recipient_magic_immune",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {},
+        "magic_immune": true
+      },
+      "sources": [
+        {
+          "id": 3,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 8,
+        "I230": 0,
+        "total": 8
+      }
+    },
+    {
+      "id": "recipient_invulnerable",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {},
+        "invulnerable": true
+      },
+      "sources": [
+        {
+          "id": 3,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 8,
+        "I230": 0,
+        "total": 8
+      }
+    },
+    {
+      "id": "recipient_ethereal",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {},
+        "ethereal": true
+      },
+      "sources": [
+        {
+          "id": 3,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 8,
+        "I230": 0,
+        "total": 8
+      }
+    },
+    {
+      "id": "recipient_air",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {},
+        "air": true
+      },
+      "sources": [
+        {
+          "id": 3,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 8,
+        "I230": 0,
+        "total": 8
+      }
+    },
+    {
+      "id": "recipient_building",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {},
+        "building": true
+      },
+      "sources": [
+        {
+          "id": 3,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 8,
+        "I230": 0,
+        "total": 8
+      }
+    },
+    {
+      "id": "recipient_mechanical",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {},
+        "mechanical": true
+      },
+      "sources": [
+        {
+          "id": 3,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 8,
+        "I230": 0,
+        "total": 8
+      }
+    },
+    {
+      "id": "recipient_undead",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {},
+        "undead": true
+      },
+      "sources": [
+        {
+          "id": 3,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 8,
+        "I230": 0,
+        "total": 8
+      }
+    },
+    {
+      "id": "recipient_summoned",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {},
+        "summoned": true
+      },
+      "sources": [
+        {
+          "id": 3,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 8,
+        "I230": 0,
+        "total": 8
+      }
+    },
+    {
+      "id": "recipient_illusion",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {},
+        "illusion": true
+      },
+      "sources": [
+        {
+          "id": 3,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 8,
+        "I230": 0,
+        "total": 8
+      }
+    },
+    {
+      "id": "recipient_invisible",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {},
+        "invisible": true
+      },
+      "sources": [
+        {
+          "id": 3,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 8,
+        "I230": 0,
+        "total": 8
+      }
+    },
+    {
+      "id": "recipient_spell_shield",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {},
+        "spell_shield": true
+      },
+      "sources": [
+        {
+          "id": 3,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 8,
+        "I230": 0,
+        "total": 8
+      }
+    },
+    {
+      "id": "recipient_resistant_skin",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {},
+        "resistant_skin": true
+      },
+      "sources": [
+        {
+          "id": 3,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 8,
+        "I230": 0,
+        "total": 8
+      }
+    },
+    {
+      "id": "recipient_reject_ancient",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": true,
+        "abilities": {}
+      },
+      "sources": [
+        {
+          "id": 3,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 0,
+        "I230": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "recipient_reject_hidden",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": true,
+        "ancient": false,
+        "abilities": {}
+      },
+      "sources": [
+        {
+          "id": 3,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 0,
+        "I230": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "enemy_reject",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 11,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {}
+      },
+      "sources": [
+        {
+          "id": 3,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 0,
+        "I230": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "directional_ally",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 1,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {}
+      },
+      "sources": [
+        {
+          "id": 3,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          },
+          "allies": [
+            1
+          ]
+        }
+      ],
+      "expected_rates": {
+        "A018": 8,
+        "I230": 0,
+        "total": 8
+      }
+    },
+    {
+      "id": "strong_source_dies",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {}
+      },
+      "sources": [
+        {
+          "id": 3,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": false,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          }
+        },
+        {
+          "id": 1,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 1
+          }
+        },
+        {
+          "id": 4,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "I230": 1
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 2,
+        "I230": 3,
+        "total": 5
+      }
+    },
+    {
+      "id": "source_removed",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {}
+      },
+      "sources": [
+        {
+          "id": 3,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": false,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 0,
+        "I230": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "ability_removed",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {}
+      },
+      "sources": [
+        {
+          "id": 3,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {}
+        }
+      ],
+      "expected_rates": {
+        "A018": 0,
+        "I230": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "ability_disabled",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {}
+      },
+      "sources": [
+        {
+          "id": 3,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          },
+          "disabled": true
+        }
+      ],
+      "expected_rates": {
+        "A018": 0,
+        "I230": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "recipient_dies",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": false,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {}
+      },
+      "sources": [
+        {
+          "id": 3,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          }
+        },
+        {
+          "id": 4,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "I230": 1
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 0,
+        "I230": 0,
+        "total": 0
+      }
+    },
+    {
+      "id": "recipient_no_mana_pool",
+      "recipient": {
+        "id": 2,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {},
+        "maxMana": 0
+      },
+      "sources": [
+        {
+          "id": 3,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          }
+        }
+      ],
+      "expected_rates": {
+        "A018": 8,
+        "I230": 0,
+        "total": 8
+      }
+    },
+    {
+      "id": "morph_same_entity_one_source",
+      "recipient": {
+        "id": 3,
+        "x": 0,
+        "y": 0,
+        "owner": 0,
+        "alive": true,
+        "exists": true,
+        "hidden": false,
+        "ancient": false,
+        "abilities": {
+          "A018": 6
+        },
+        "form": "G039"
+      },
+      "sources": [
+        {
+          "id": 3,
+          "x": 0,
+          "y": 0,
+          "owner": 0,
+          "alive": true,
+          "exists": true,
+          "hidden": false,
+          "ancient": false,
+          "abilities": {
+            "A018": 6
+          },
+          "form": "G039"
+        }
+      ],
+      "expected_rates": {
+        "A018": 16,
+        "I230": 0,
+        "total": 16
+      }
+    },
+    {
+      "id": "fractional_gain",
+      "start": 0,
+      "rate": 11,
+      "seconds": 0.125,
+      "max": 100,
+      "expected": 1.375
+    },
+    {
+      "id": "cap_no_overflow",
+      "start": 99,
+      "rate": 11,
+      "seconds": 1,
+      "max": 100,
+      "expected": 100
+    },
+    {
+      "id": "no_mana_pool_gain",
+      "start": 0,
+      "rate": 11,
+      "seconds": 1,
+      "max": 0,
+      "expected": 0
+    },
+    {
+      "id": "immediate_fallback_timing",
+      "segments": [
+        {
+          "rate": 8,
+          "seconds": 0.25
+        },
+        {
+          "rate": 2,
+          "seconds": 0.75
+        }
+      ],
+      "expected_gain": 3.5
+    }
+  ],
+  "validation_summary": {
+    "raw_slk_records_equal_json": 6,
+    "source_instruction_identity_checks": 1008,
+    "learn_fallthrough_probe_states": 8,
+    "model_S082_probe": "adds only R082; +30 INT chosen supplied entitlement state; no aura mutation",
+    "build_probe_states": 2,
+    "web_rule_cases": 56,
+    "method": "Lua bytecode tiny interpreter with native stubs for selected paths; separate Web rule oracle; no Warcraft client execution",
+    "workbook_coordinates_verified": [
+      "塔技能!H182:I182",
+      "塔技能!H403:I403",
+      "塔技能!H809"
+    ]
+  }
+}

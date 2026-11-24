@@ -1,0 +1,105 @@
+{
+  "baselineId": "item-armor-batch-01",
+  "status": "bounded_source_audit_and_Q24_Web_selection",
+  "coverage": {
+    "workbookItemRowsCompared": 243,
+    "armorAliases": 0,
+    "armorItems": 0,
+    "movementAliases": 2,
+    "movementItems": 2,
+    "recipeBooks": 1
+  },
+  "armor": {
+    "objectFamilies": [
+      "AIde",
+      "AId1",
+      "AId2",
+      "AId3",
+      "AId4",
+      "AId5",
+      "AIda",
+      "AIdb"
+    ],
+    "sourceObjectsOutsideThisMountScope": [
+      "AId0",
+      "AId1",
+      "AId2",
+      "AId3",
+      "AId4",
+      "AId5",
+      "AId7",
+      "AId8",
+      "AIda",
+      "AIdb",
+      "T124",
+      "T203"
+    ],
+    "mounted": []
+  },
+  "movement": {
+    "items": [
+      {
+        "id": "i230",
+        "name": "远行鞋",
+        "workbookCell": "装备与道具!H140",
+        "objectJsonIndex": 433,
+        "objectAbilList": "I233,I157,I239",
+        "workbookAndTooltipMovement": 50,
+        "requiredGameMode": 2,
+        "alias": "I239",
+        "abilityJsonIndex": 1162,
+        "DataA1": 50,
+        "webMovement": 50
+      },
+      {
+        "id": "i236",
+        "name": "限定版-闪烁匕首",
+        "workbookCell": "装备与道具!H146",
+        "objectJsonIndex": 439,
+        "objectAbilList": "I237,I238",
+        "workbookAndTooltipMovement": 20,
+        "requiredGameMode": null,
+        "alias": "I238",
+        "abilityJsonIndex": 1161,
+        "DataA1": 20,
+        "webMovement": 20
+      }
+    ],
+    "recipeBooks": [
+      {
+        "id": "i231",
+        "name": "制作书-远行鞋",
+        "workbookCell": "装备与道具!H141",
+        "objectJsonIndex": 434,
+        "objectAbilList": null,
+        "workbookAndTooltipMovement": 50,
+        "requiredGameMode": 2,
+        "webMovement": 0,
+        "product": "i230",
+        "recipeSourceLines": [
+          141691,
+          141704
+        ],
+        "webFinishedItemPreviewMovement": 50
+      }
+    ],
+    "webRule": "Filter eligible mounts by Game_Mode and take the maximum positive AIms value. Add to the existing movement basis before percentage factors and final mobile clamp. Mount changes are visible before PICKUP/DROP. Do not grant movement to blocked or immobile entities."
+  },
+  "dependencies": [
+    "item-lifecycle-v1",
+    "pathing-and-placement",
+    "native-armor-and-xp",
+    "hero-attribute-interface-v1"
+  ],
+  "pendingMechanism": [],
+  "originalClientTested": false,
+  "verification": {
+    "scenario": "mode gate, same-family duplicate and fallback on final boots removal",
+    "contributions": [
+      20,
+      50,
+      20,
+      0
+    ]
+  }
+}

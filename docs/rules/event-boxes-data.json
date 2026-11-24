@@ -1,0 +1,841 @@
+{
+  "scope": "Only y005_Action/y007_Action/y009_Action and directly necessary purchase/use/ownership/reward/counter callbacks; source archaeology, not a game runtime.",
+  "sourcePolicy": "Disassembly controls ambiguous decompiled branches. Integer probability counts assume inclusive uniform GetRandomInt; original RNG algorithm was not recovered.",
+  "webDecisions": {
+    "permanentRewards": "All eleven already owned under Q19/Q20/Q21; selecting or applying a skin is separate. Retain paid box exchange and currency fallback.",
+    "nativeBaselineAuthorization": "Q24; only explicit webBaseline entries are Web choices."
+  },
+  "purchase": {
+    "callback": "Item_Actshop_Buy",
+    "currency": "ActScore",
+    "cost": 100,
+    "minimumBalanceInclusive": 100,
+    "requiresWorker": true,
+    "order": [
+      "remove_transient_sold_menu_item",
+      "check_buyer_and_worker",
+      "check_ActScore_at_least_100",
+      "ActScore_minus_100",
+      "create_usable_item_at_buyer",
+      "UnitAddItem_without_checking_return"
+    ],
+    "insufficientFunds": "return without debit or usable box",
+    "nativeInventoryFailure": "No script refund or explicit success check after UnitAddItem.",
+    "sources": [
+      {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 102074,
+        "endLine": 102218
+      },
+      {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 151316,
+        "endLine": 151509
+      },
+      {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 34031,
+        "endLine": 34060
+      },
+      {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 35420,
+        "endLine": 35499
+      }
+    ]
+  },
+  "boxes": [
+    {
+      "name": "圣诞袜",
+      "shopItem": "y005",
+      "usableItem": "y006",
+      "callback": "y005_Action",
+      "rareBands": "winter",
+      "rarePoolTiers": [
+        [
+          "哥布林杀手"
+        ]
+      ],
+      "poolSelection": "first_nonempty_tier_of_not_owned",
+      "weightPerEligibleCandidate": 1,
+      "currencyFallback": {
+        "skinPiece": {
+          "branchRollInclusive": [
+            1,
+            49
+          ],
+          "amountInclusive": [
+            2,
+            4
+          ]
+        },
+        "score": {
+          "branchRollInclusive": [
+            50,
+            100
+          ],
+          "amountInclusive": [
+            8,
+            16
+          ]
+        }
+      },
+      "sources": [
+        {
+          "file": "reference/map-6.25/main.readable.lua",
+          "line": 85993,
+          "endLine": 86115
+        },
+        {
+          "file": "reference/map-6.25/main.disasm",
+          "line": 135375,
+          "endLine": 135574
+        }
+      ]
+    },
+    {
+      "name": "元旦礼盒",
+      "shopItem": "y007",
+      "usableItem": "y008",
+      "callback": "y007_Action",
+      "rareBands": "winter",
+      "rarePoolTiers": [
+        [
+          "无双魅影"
+        ]
+      ],
+      "poolSelection": "first_nonempty_tier_of_not_owned",
+      "weightPerEligibleCandidate": 1,
+      "currencyFallback": {
+        "skinPiece": {
+          "branchRollInclusive": [
+            1,
+            49
+          ],
+          "amountInclusive": [
+            2,
+            4
+          ]
+        },
+        "score": {
+          "branchRollInclusive": [
+            50,
+            100
+          ],
+          "amountInclusive": [
+            8,
+            16
+          ]
+        }
+      },
+      "sources": [
+        {
+          "file": "reference/map-6.25/main.readable.lua",
+          "line": 86127,
+          "endLine": 86249
+        },
+        {
+          "file": "reference/map-6.25/main.disasm",
+          "line": 135593,
+          "endLine": 135792
+        }
+      ]
+    },
+    {
+      "name": "十一礼盒",
+      "shopItem": "y009",
+      "usableItem": "y010",
+      "callback": "y009_Action",
+      "rareBands": "october",
+      "rarePoolTiers": [
+        [
+          "火焰领主",
+          "黑曜御灵者",
+          "十一光环",
+          "赛季光环1",
+          "工人5",
+          "矮人轰炸机"
+        ],
+        [
+          "十一称号",
+          "炼狱魔王",
+          "星光点点"
+        ]
+      ],
+      "poolSelection": "first_nonempty_tier_of_not_owned",
+      "weightPerEligibleCandidate": 1,
+      "currencyFallback": {
+        "skinPiece": {
+          "branchRollInclusive": [
+            1,
+            49
+          ],
+          "amountInclusive": [
+            1,
+            4
+          ]
+        },
+        "score": {
+          "branchRollInclusive": [
+            50,
+            100
+          ],
+          "amountInclusive": [
+            4,
+            13
+          ]
+        }
+      },
+      "sources": [
+        {
+          "file": "reference/map-6.25/main.readable.lua",
+          "line": 86261,
+          "endLine": 86596
+        },
+        {
+          "file": "reference/map-6.25/main.disasm",
+          "line": 135811,
+          "endLine": 136251
+        }
+      ]
+    }
+  ],
+  "rareThresholdBands": {
+    "winter": [
+      {
+        "oldCounterMin": 0,
+        "oldCounterMax": 9,
+        "threshold": 2,
+        "rarePercent": 1
+      },
+      {
+        "oldCounterMin": 10,
+        "oldCounterMax": 19,
+        "threshold": 4,
+        "rarePercent": 3
+      },
+      {
+        "oldCounterMin": 20,
+        "oldCounterMax": 29,
+        "threshold": 6,
+        "rarePercent": 5
+      },
+      {
+        "oldCounterMin": 30,
+        "oldCounterMax": 39,
+        "threshold": 8,
+        "rarePercent": 7
+      },
+      {
+        "oldCounterMin": 40,
+        "oldCounterMax": 49,
+        "threshold": 12,
+        "rarePercent": 11
+      },
+      {
+        "oldCounterMin": 50,
+        "oldCounterMax": 59,
+        "threshold": 14,
+        "rarePercent": 13
+      },
+      {
+        "oldCounterMin": 60,
+        "oldCounterMax": 69,
+        "threshold": 15,
+        "rarePercent": 14
+      },
+      {
+        "oldCounterMin": 70,
+        "oldCounterMax": 79,
+        "threshold": 16,
+        "rarePercent": 15
+      },
+      {
+        "oldCounterMin": 80,
+        "oldCounterMax": null,
+        "threshold": 50,
+        "rarePercent": 49
+      }
+    ],
+    "october": [
+      {
+        "oldCounterMin": 0,
+        "oldCounterMax": 1,
+        "threshold": 1,
+        "rarePercent": 0
+      },
+      {
+        "oldCounterMin": 2,
+        "oldCounterMax": 2,
+        "threshold": 2,
+        "rarePercent": 1
+      },
+      {
+        "oldCounterMin": 3,
+        "oldCounterMax": 3,
+        "threshold": 3,
+        "rarePercent": 2
+      },
+      {
+        "oldCounterMin": 4,
+        "oldCounterMax": 4,
+        "threshold": 4,
+        "rarePercent": 3
+      },
+      {
+        "oldCounterMin": 5,
+        "oldCounterMax": 5,
+        "threshold": 5,
+        "rarePercent": 4
+      },
+      {
+        "oldCounterMin": 6,
+        "oldCounterMax": 6,
+        "threshold": 6,
+        "rarePercent": 5
+      },
+      {
+        "oldCounterMin": 7,
+        "oldCounterMax": 7,
+        "threshold": 7,
+        "rarePercent": 6
+      },
+      {
+        "oldCounterMin": 8,
+        "oldCounterMax": 8,
+        "threshold": 8,
+        "rarePercent": 7
+      },
+      {
+        "oldCounterMin": 9,
+        "oldCounterMax": 9,
+        "threshold": 9,
+        "rarePercent": 8
+      },
+      {
+        "oldCounterMin": 10,
+        "oldCounterMax": 10,
+        "threshold": 10,
+        "rarePercent": 9
+      },
+      {
+        "oldCounterMin": 11,
+        "oldCounterMax": 11,
+        "threshold": 11,
+        "rarePercent": 10
+      },
+      {
+        "oldCounterMin": 12,
+        "oldCounterMax": 12,
+        "threshold": 12,
+        "rarePercent": 11
+      },
+      {
+        "oldCounterMin": 13,
+        "oldCounterMax": 13,
+        "threshold": 13,
+        "rarePercent": 12
+      },
+      {
+        "oldCounterMin": 14,
+        "oldCounterMax": null,
+        "threshold": 50,
+        "rarePercent": 49
+      }
+    ]
+  },
+  "permanentRewards": [
+    {
+      "name": "哥布林杀手",
+      "skinAbility": "S142",
+      "unlockTech": "k150",
+      "saveIndex": 21,
+      "sources": [
+        {
+          "file": "reference/map-6.25/main.readable.lua",
+          "line": 104396
+        },
+        {
+          "file": "reference/map-6.25/main.readable.lua",
+          "line": 105422
+        }
+      ],
+      "webDisposition": "direct_unlock_Q21"
+    },
+    {
+      "name": "无双魅影",
+      "skinAbility": "S152",
+      "unlockTech": "k151",
+      "saveIndex": 22,
+      "sources": [
+        {
+          "file": "reference/map-6.25/main.readable.lua",
+          "line": 104418
+        },
+        {
+          "file": "reference/map-6.25/main.readable.lua",
+          "line": 105427
+        }
+      ],
+      "webDisposition": "direct_unlock_Q19"
+    },
+    {
+      "name": "火焰领主",
+      "skinAbility": "S212",
+      "unlockTech": "k157",
+      "saveIndex": 26,
+      "sources": [
+        {
+          "file": "reference/map-6.25/main.readable.lua",
+          "line": 104473
+        },
+        {
+          "file": "reference/map-6.25/main.readable.lua",
+          "line": 105447
+        }
+      ],
+      "webDisposition": "direct_unlock_Q20"
+    },
+    {
+      "name": "黑曜御灵者",
+      "skinAbility": "S292",
+      "unlockTech": "k168",
+      "saveIndex": 34,
+      "sources": [
+        {
+          "file": "reference/map-6.25/main.readable.lua",
+          "line": 105018
+        },
+        {
+          "file": "reference/map-6.25/main.readable.lua",
+          "line": 105487
+        }
+      ],
+      "webDisposition": "direct_unlock_Q21"
+    },
+    {
+      "name": "十一光环",
+      "skinAbility": "S535",
+      "unlockTech": "k535",
+      "saveIndex": 9,
+      "sources": [
+        {
+          "file": "reference/map-6.25/main.readable.lua",
+          "line": 104209
+        },
+        {
+          "file": "reference/map-6.25/main.readable.lua",
+          "line": 105362
+        }
+      ],
+      "webDisposition": "direct_unlock_Q21"
+    },
+    {
+      "name": "赛季光环1",
+      "skinAbility": "S537",
+      "unlockTech": "k537",
+      "saveIndex": 14,
+      "sources": [
+        {
+          "file": "reference/map-6.25/main.readable.lua",
+          "line": 104253
+        },
+        {
+          "file": "reference/map-6.25/main.readable.lua",
+          "line": 105387
+        }
+      ],
+      "webDisposition": "direct_unlock_Q20"
+    },
+    {
+      "name": "工人5",
+      "skinAbility": "S008",
+      "unlockTech": "k107",
+      "saveIndex": 8,
+      "sources": [
+        {
+          "file": "reference/map-6.25/main.readable.lua",
+          "line": 104055
+        },
+        {
+          "file": "reference/map-6.25/main.readable.lua",
+          "line": 105357
+        }
+      ],
+      "webDisposition": "direct_unlock_Q21"
+    },
+    {
+      "name": "矮人轰炸机",
+      "skinAbility": "S402",
+      "unlockTech": "k182",
+      "saveIndex": 47,
+      "sources": [
+        {
+          "file": "reference/map-6.25/main.readable.lua",
+          "line": 105299
+        },
+        {
+          "file": "reference/map-6.25/main.readable.lua",
+          "line": 105552
+        }
+      ],
+      "webDisposition": "direct_unlock_Q21"
+    },
+    {
+      "name": "十一称号",
+      "skinAbility": "S719",
+      "unlockTech": "k719",
+      "saveIndex": 44,
+      "sources": [
+        {
+          "file": "reference/map-6.25/main.readable.lua",
+          "line": 105095
+        },
+        {
+          "file": "reference/map-6.25/main.readable.lua",
+          "line": 105537
+        }
+      ],
+      "webDisposition": "direct_unlock_Q21"
+    },
+    {
+      "name": "炼狱魔王",
+      "skinAbility": "S382",
+      "unlockTech": "k178",
+      "saveIndex": 45,
+      "sources": [
+        {
+          "file": "reference/map-6.25/main.readable.lua",
+          "line": 105222
+        },
+        {
+          "file": "reference/map-6.25/main.readable.lua",
+          "line": 105542
+        }
+      ],
+      "webDisposition": "direct_unlock_Q21"
+    },
+    {
+      "name": "星光点点",
+      "skinAbility": "S901",
+      "unlockTech": "k181",
+      "saveIndex": 46,
+      "sources": [
+        {
+          "file": "reference/map-6.25/main.readable.lua",
+          "line": 105266
+        },
+        {
+          "file": "reference/map-6.25/main.readable.lua",
+          "line": 105547
+        }
+      ],
+      "webDisposition": "direct_unlock_Q21"
+    }
+  ],
+  "sharedCounter": {
+    "runtimeField": "OpenGiftNum[playerIndex]",
+    "platformKey": "OpenGiftNum",
+    "sharedAcross": [
+      "y006",
+      "y008",
+      "y010"
+    ],
+    "readBeforeIncrement": true,
+    "increment": "only when selected box has a missing permanent reward / nonempty candidate pool",
+    "rarePredicate": "uniformInteger(1,100) < threshold",
+    "reset": "to 0 before rare grant helper; helper success not checked",
+    "fullyOwnedBehavior": {
+      "threshold": 0,
+      "increment": false,
+      "reset": false,
+      "currencyFallback": true
+    },
+    "hardPity": false,
+    "sources": [
+      {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 34214,
+        "endLine": 34252
+      },
+      {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 35501,
+        "endLine": 35641
+      },
+      {
+        "file": "reference/map-6.25/war3map.j",
+        "line": 733,
+        "endLine": 736
+      },
+      {
+        "file": "reference/map-6.25/war3map.j",
+        "line": 1183,
+        "endLine": 1225
+      }
+    ]
+  },
+  "randomCallOrder": {
+    "winterRare": [
+      "rare_roll_1_100"
+    ],
+    "octoberRare": [
+      "rare_roll_1_100",
+      "candidate_index_1_N"
+    ],
+    "currencyIncludingFullyOwned": [
+      "rare_roll_1_100_even_if_threshold_0",
+      "currency_kind_roll_1_100",
+      "uniform_amount_in_inclusive_range"
+    ]
+  },
+  "ownership": {
+    "predicate": "Model_Upgrade_Check(skinAbility) exists and GetPlayerTechCount(player, unlockTech, true)>0",
+    "notOwnedReturn": false,
+    "sources": [
+      {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 34404,
+        "endLine": 34427
+      },
+      {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 55954,
+        "endLine": 55992
+      }
+    ],
+    "decompilerCorrection": "The readable else indentation suggests nil for a mapped but unowned skin. Bytecode routes both missing mapping and tech count <=0 to l18 false."
+  },
+  "grantAndPersistence": {
+    "rareGrantCostInOrdinaryScore": 0,
+    "rareGrantOrder": [
+      "reset_shared_counter",
+      "append_saveIndex_to_first_ScoreSkin_segment_whose_new_string_length_le_50",
+      "if_append_succeeds_debit_ordinary_score_0_and_add_unlockTech_1",
+      "caller_always_announces_rare_success"
+    ],
+    "rareGrantFailure": "No suitable segment -> no unlock; counter is already reset; no fallback currency, no ActScore refund. Remote save acknowledgement is not checked.",
+    "skinPiece": "DZAPI_Update_Skin_Piece adds SkinPiece and signals immediate save callback.",
+    "score": "DZAPI_SCROE_UPDATE adds score, not ActScore or scoreNew; no save signal in this callback.",
+    "sources": [
+      {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 34430,
+        "endLine": 34469
+      },
+      {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 34538,
+        "endLine": 34607
+      },
+      {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 55994,
+        "endLine": 56051
+      },
+      {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 56168,
+        "endLine": 56278
+      },
+      {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 33411,
+        "endLine": 33484
+      },
+      {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 35643,
+        "endLine": 35690
+      },
+      {
+        "file": "reference/map-6.25/war3map.j",
+        "line": 1133,
+        "endLine": 1148
+      },
+      {
+        "file": "reference/map-6.25/war3map.j",
+        "line": 1228,
+        "endLine": 1270
+      },
+      {
+        "file": "reference/map-6.25/war3map.j",
+        "line": 1362,
+        "endLine": 1382
+      }
+    ]
+  },
+  "inventoryAndNative": {
+    "stackSameType": true,
+    "stacking": "add charges of new item to existing same itemID, excluding manipulated instance; remove incoming item",
+    "itemUses": 1,
+    "perishable": true,
+    "cooldownSeconds": 1,
+    "cooldownGroups": {
+      "y006": "I007",
+      "y008": "I007",
+      "y010": "I009"
+    },
+    "nativeAbilities": {
+      "y006": "I007",
+      "y008": "I008",
+      "y010": "I009"
+    },
+    "sources": [
+      {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 95442,
+        "endLine": 95465
+      },
+      {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 96431,
+        "endLine": 96459
+      },
+      {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 97106,
+        "endLine": 97135
+      },
+      {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 145278,
+        "endLine": 145308
+      },
+      {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 98557,
+        "endLine": 98593
+      },
+      {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 147053,
+        "endLine": 147095
+      },
+      {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 103312,
+        "endLine": 103346
+      },
+      {
+        "file": "reference/map-6.25/units_itemdata.json",
+        "line": 15479,
+        "endLine": 15597
+      },
+      {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 20692,
+        "endLine": 20738
+      }
+    ]
+  },
+  "webBaseline": {
+    "id": "event-boxes-v1",
+    "status": "explicit_Web_choice_under_Q24_not_original_client_measurement",
+    "activation": "one successful activation consumes exactly one charge and emits exactly one result; delete instance when charges reach zero",
+    "cooldown": "1 second per carrier per cooldownID; y006/y008 share I007, y010 uses I009; blocked activation consumes nothing and draws no random number",
+    "persistence": "purchase debits and item delivery commit together; opening consumes charge, awards currency, changes counter/cooldown and RNG state together; local persistence failure commits none and produces no success message",
+    "remainingNativeEffects": "unresolved_AIfs_summon_parameter_default_semantics; no deletion or new summon rule authorized by this file"
+  },
+  "remainingBoundaries": [
+    {
+      "id": "native_summon",
+      "facts": "I007/I008/I009 code=AIfs; DataC1=nsce, DataD1=nsca, Area1=200, BuffID1=BFig, Dur1=120, HeroDur1=60. DataA1/DataB1/UnitID1 absent; no w3a overrides for these IDs. AIfs base row has DataA1=4 and DataB1=4. Strings label the gift abilities 无用, which does not establish engine behavior.",
+      "unresolved": "Whether absent custom SLK counts are zero or inherit native defaults, and thus whether native use also summons nsce/nsca; do not silently infer no summon or 4+4.",
+      "sources": [
+        {
+          "file": "reference/map-6.25/units_abilitydata.json",
+          "line": 3604,
+          "endLine": 3621
+        },
+        {
+          "file": "reference/map-6.25/units_abilitydata.json",
+          "line": 20692,
+          "endLine": 20738
+        },
+        {
+          "file": "reference/map-6.25/units_abilitydata.slk",
+          "line": 18707,
+          "endLine": 18748
+        },
+        {
+          "file": "reference/map-6.25/units_campaignabilitystrings.txt",
+          "line": 11318,
+          "endLine": 11331
+        }
+      ]
+    },
+    {
+      "id": "native_shop_fields",
+      "facts": "The six item rows have no explicit goldcost/lumbercost fields; native engine default cost and inventory-full delivery failure timing not measured. No script gold/lumber debit or refund in the shop callback.",
+      "unresolved": "Do not infer an extra gold/lumber charge or declare client-native defaults proven; shared baseline may set explicit defaults after source review.",
+      "sources": [
+        {
+          "file": "reference/map-6.25/units_itemdata.json",
+          "line": 15479,
+          "endLine": 15597
+        }
+      ]
+    },
+    {
+      "id": "activity_currency_earning",
+      "facts": "Retain ActScore earning sources already documented elsewhere; this batch audits spending/rewards only. Permanent access does not grant infinite ActScore or remove the 100 cost."
+    }
+  ],
+  "bytecodeChecks": [
+    {
+      "function": "main/f275/f0",
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 135375,
+        "endLine": 135574
+      },
+      "checked": "strict threshold; pre-increment bands; rare/currency exclusivity; 49/51 fallback"
+    },
+    {
+      "function": "main/f276/f0",
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 135593,
+        "endLine": 135792
+      },
+      "checked": "same winter bands and currency ranges; unique rare reward"
+    },
+    {
+      "function": "main/f277/f0",
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 135811,
+        "endLine": 136251
+      },
+      "checked": "two-tier pool; omitted owned entries; uniform candidate index; old count bands; both rare miss and empty pool jump l292 fallback"
+    },
+    {
+      "function": "main/f285/f34",
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 151316,
+        "endLine": 151509
+      },
+      "checked": "worker, balance <100, debit before create/add, failed check returns"
+    },
+    {
+      "function": "main/f8/f34",
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 55954,
+        "endLine": 55992
+      },
+      "checked": "unowned returns literal false"
+    },
+    {
+      "function": "main/f8/f35 and f37",
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 55994,
+        "endLine": 56278
+      },
+      "checked": "segment size <=50 and grant only if append succeeds"
+    }
+  ]
+}

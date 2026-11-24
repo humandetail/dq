@@ -1,0 +1,3036 @@
+{
+  "schemaVersion": 1,
+  "scope": "N061/N062/N063 Frenzy: complete object fields and native self buff contract plus exact autocast fragment. N159: complete shared gold-score/display fragment and exact native wrapper field boundary. Three common helpers fully checked. Existing full autocast/damage and attack timing reused; no recursion into other tower/equipment effects.",
+  "source": {
+    "path": "reference/map-6.25/main.disasm",
+    "sha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+    "workbookPath": "图鉴.xlsx",
+    "workbookSha256": "457c8f7e37e19412a0dd072ce941e95604b0b8910860b9e1eb9883e6b82bb6af",
+    "units_campaignabilitystrings.txt": {
+      "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+      "sha256": "5240c99230cd441b4c376371a31a7987e65470feed736177473a206c55fbe8cc"
+    },
+    "units_commonabilitystrings.txt": {
+      "path": "reference/map-6.25/units_commonabilitystrings.txt",
+      "sha256": "07e87948660b7ec5beea095716ddd66faa340bfacc38a7c8d9bc09b59df2c205"
+    }
+  },
+  "fullFunctions": [
+    {
+      "name": "Unit_Ability_Has_Cool_Down",
+      "function": "main/f7/f39",
+      "sourceLines": [
+        52213,
+        52272
+      ],
+      "counts": {
+        "instructions": 36,
+        "conditions": 3,
+        "calls": 6,
+        "returnInstructions": 4
+      },
+      "conditions": [
+        {
+          "pc": 5,
+          "line": 52239,
+          "raw": "le 0 r2 k1",
+          "trueNextPC": 7,
+          "falseNextPC": 9,
+          "meaning": "ability level<=0 returns false before reading cost/cooldown/mana"
+        },
+        {
+          "pc": 24,
+          "line": 52259,
+          "raw": "eq 0 k1 r4",
+          "trueNextPC": 26,
+          "falseNextPC": 34,
+          "meaning": "cooldown state1==0 permits mana query; any other value returns false"
+        },
+        {
+          "pc": 30,
+          "line": 52265,
+          "raw": "le 0 r3 r5",
+          "trueNextPC": 32,
+          "falseNextPC": 34,
+          "meaning": "cost<=current mana returns true; otherwise false"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 8,
+          "line": 52242,
+          "raw": "return r3 2"
+        },
+        {
+          "pc": 33,
+          "line": 52268,
+          "raw": "return r5 2"
+        },
+        {
+          "pc": 35,
+          "line": 52271,
+          "raw": "return r5 2"
+        },
+        {
+          "pc": 36,
+          "line": 52272,
+          "raw": "return r0 1"
+        }
+      ]
+    },
+    {
+      "name": "isMagicDamage",
+      "function": "main/f7/f36",
+      "sourceLines": [
+        52118,
+        52149
+      ],
+      "counts": {
+        "instructions": 15,
+        "conditions": 2,
+        "calls": 1,
+        "returnInstructions": 3
+      },
+      "conditions": [
+        {
+          "pc": 5,
+          "line": 52137,
+          "raw": "eq 0 r2 r1",
+          "trueNextPC": 7,
+          "falseNextPC": 9,
+          "meaning": "DIVINE returns false"
+        },
+        {
+          "pc": 10,
+          "line": 52143,
+          "raw": "eq 0 r2 r1",
+          "trueNextPC": 12,
+          "falseNextPC": 13,
+          "meaning": "NORMAL returns false; other damage types true"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 8,
+          "line": 52140,
+          "raw": "return r2 2"
+        },
+        {
+          "pc": 14,
+          "line": 52148,
+          "raw": "return r2 2"
+        },
+        {
+          "pc": 15,
+          "line": 52149,
+          "raw": "return r0 1"
+        }
+      ]
+    },
+    {
+      "name": "isPhyDamage",
+      "function": "main/f7/f37",
+      "sourceLines": [
+        52151,
+        52182
+      ],
+      "counts": {
+        "instructions": 15,
+        "conditions": 2,
+        "calls": 1,
+        "returnInstructions": 3
+      },
+      "conditions": [
+        {
+          "pc": 5,
+          "line": 52170,
+          "raw": "eq 0 r2 r1",
+          "trueNextPC": 7,
+          "falseNextPC": 9,
+          "meaning": "DIVINE returns false"
+        },
+        {
+          "pc": 10,
+          "line": 52176,
+          "raw": "eq 1 r2 r1",
+          "trueNextPC": 13,
+          "falseNextPC": 12,
+          "meaning": "NORMAL returns true; other damage types false"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 8,
+          "line": 52173,
+          "raw": "return r2 2"
+        },
+        {
+          "pc": 14,
+          "line": 52181,
+          "raw": "return r2 2"
+        },
+        {
+          "pc": 15,
+          "line": 52182,
+          "raw": "return r0 1"
+        }
+      ]
+    }
+  ],
+  "fragments": [
+    {
+      "name": "N063/N062/N061 automatic berserk entry",
+      "function": "main/f291/f27",
+      "pcs": [
+        4596,
+        4624
+      ],
+      "lines": [
+        178985,
+        179014
+      ],
+      "counts": {
+        "instructions": 29,
+        "conditions": 3,
+        "calls": 7,
+        "returnInstructions": 0
+      },
+      "conditions": [
+        {
+          "pc": 4602,
+          "line": 178991,
+          "raw": "test r11 1",
+          "trueNextPC": 4620,
+          "falseNextPC": 4604,
+          "meaning": "N063 ready =>PC4620 issue order; else query N062"
+        },
+        {
+          "pc": 4610,
+          "line": 178999,
+          "raw": "test r11 1",
+          "trueNextPC": 4620,
+          "falseNextPC": 4612,
+          "meaning": "N062 ready =>PC4620 issue order; else query N061"
+        },
+        {
+          "pc": 4618,
+          "line": 179007,
+          "raw": "test r11 0",
+          "trueNextPC": 4620,
+          "falseNextPC": 4625,
+          "meaning": "N061 ready =>PC4620; else continue skill scan PC4625"
+        }
+      ],
+      "returns": [],
+      "jumps": [
+        {
+          "pc": 4603,
+          "line": 178992,
+          "instruction": "jmp            0 l4620"
+        },
+        {
+          "pc": 4611,
+          "line": 179000,
+          "instruction": "jmp            0 l4620"
+        },
+        {
+          "pc": 4619,
+          "line": 179008,
+          "instruction": "jmp            0 l4625"
+        },
+        {
+          "pc": 4624,
+          "line": 179014,
+          "instruction": "jmp            0 l4833"
+        }
+      ]
+    },
+    {
+      "name": "gold target score and display branch",
+      "function": "main/f291/f1",
+      "pcs": [
+        3976,
+        4166
+      ],
+      "lines": [
+        166696,
+        166897
+      ],
+      "counts": {
+        "instructions": 191,
+        "conditions": 12,
+        "calls": 33,
+        "returnInstructions": 2
+      },
+      "conditions": [
+        {
+          "pc": 3986,
+          "line": 166706,
+          "raw": "eq 1 r4 r5",
+          "trueNextPC": 3996,
+          "falseNextPC": 3988,
+          "meaning": "target type m999 enters gold branch"
+        },
+        {
+          "pc": 3994,
+          "line": 166714,
+          "raw": "eq 0 r4 r5",
+          "trueNextPC": 3996,
+          "falseNextPC": 4167,
+          "meaning": "target type m998 enters gold branch; otherwise exit fragment to PC4167"
+        },
+        {
+          "pc": 3999,
+          "line": 166720,
+          "raw": "test r4 0",
+          "trueNextPC": 4001,
+          "falseNextPC": 4003,
+          "meaning": "actual S illusion =>score*=.8"
+        },
+        {
+          "pc": 4009,
+          "line": 166731,
+          "raw": "lt 0 k6 r4",
+          "trueNextPC": 4011,
+          "falseNextPC": 4013,
+          "meaning": "attributed O ability N159 level>0 =>score*=.2"
+        },
+        {
+          "pc": 4013,
+          "line": 166736,
+          "raw": "lt 0 r3 k6",
+          "trueNextPC": 4015,
+          "falseNextPC": 4016,
+          "meaning": "score<0 returns before accumulation and eventzero"
+        },
+        {
+          "pc": 4021,
+          "line": 166745,
+          "raw": "test r4 0",
+          "trueNextPC": 4023,
+          "falseNextPC": 4026,
+          "meaning": "isPhyDamage =>score*=.58; skip magic query"
+        },
+        {
+          "pc": 4031,
+          "line": 166756,
+          "raw": "test r4 0",
+          "trueNextPC": 4033,
+          "falseNextPC": 4034,
+          "meaning": "isMagicDamage =>score*=1.4"
+        },
+        {
+          "pc": 4063,
+          "line": 166789,
+          "raw": "eq 0 r7 r6",
+          "trueNextPC": 4065,
+          "falseNextPC": 4066,
+          "meaning": "tostring(floor(score))==\"0\" returns after accumulation and eventzero"
+        },
+        {
+          "pc": 4070,
+          "line": 166797,
+          "raw": "lt 0 r10 r7",
+          "trueNextPC": 4072,
+          "falseNextPC": 4075,
+          "meaning": "display length>5 =>size.05 life1"
+        },
+        {
+          "pc": 4075,
+          "line": 166803,
+          "raw": "lt 0 k60 r7",
+          "trueNextPC": 4077,
+          "falseNextPC": 4080,
+          "meaning": "length>4 =>size.045 life.9"
+        },
+        {
+          "pc": 4081,
+          "line": 166810,
+          "raw": "lt 0 r10 r7",
+          "trueNextPC": 4083,
+          "falseNextPC": 4086,
+          "meaning": "length>3 =>size.04 life.8"
+        },
+        {
+          "pc": 4086,
+          "line": 166816,
+          "raw": "lt 0 k32 r7",
+          "trueNextPC": 4088,
+          "falseNextPC": 4090,
+          "meaning": "length>2 =>size.035 life.7; otherwise default.03/.6"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 4015,
+          "line": 166738,
+          "raw": "return r0 1"
+        },
+        {
+          "pc": 4065,
+          "line": 166791,
+          "raw": "return r0 1"
+        }
+      ],
+      "jumps": [
+        {
+          "pc": 3987,
+          "line": 166707,
+          "instruction": "jmp            0 l3996"
+        },
+        {
+          "pc": 3995,
+          "line": 166715,
+          "instruction": "jmp            0 l4167"
+        },
+        {
+          "pc": 4000,
+          "line": 166721,
+          "instruction": "jmp            0 l4003"
+        },
+        {
+          "pc": 4010,
+          "line": 166732,
+          "instruction": "jmp            0 l4013"
+        },
+        {
+          "pc": 4014,
+          "line": 166737,
+          "instruction": "jmp            0 l4016"
+        },
+        {
+          "pc": 4022,
+          "line": 166746,
+          "instruction": "jmp            0 l4026"
+        },
+        {
+          "pc": 4025,
+          "line": 166749,
+          "instruction": "jmp            0 l4034"
+        },
+        {
+          "pc": 4032,
+          "line": 166757,
+          "instruction": "jmp            0 l4034"
+        },
+        {
+          "pc": 4064,
+          "line": 166790,
+          "instruction": "jmp            0 l4066"
+        },
+        {
+          "pc": 4071,
+          "line": 166798,
+          "instruction": "jmp            0 l4075"
+        },
+        {
+          "pc": 4074,
+          "line": 166801,
+          "instruction": "jmp            0 l4090"
+        },
+        {
+          "pc": 4076,
+          "line": 166804,
+          "instruction": "jmp            0 l4080"
+        },
+        {
+          "pc": 4079,
+          "line": 166807,
+          "instruction": "jmp            0 l4090"
+        },
+        {
+          "pc": 4082,
+          "line": 166811,
+          "instruction": "jmp            0 l4086"
+        },
+        {
+          "pc": 4085,
+          "line": 166814,
+          "instruction": "jmp            0 l4090"
+        },
+        {
+          "pc": 4087,
+          "line": 166817,
+          "instruction": "jmp            0 l4090"
+        },
+        {
+          "pc": 4166,
+          "line": 166897,
+          "instruction": "jmp            0 l4229"
+        }
+      ]
+    }
+  ],
+  "coveredCounts": {
+    "instructions": 286,
+    "conditions": 22,
+    "calls": 48,
+    "returnInstructions": 12
+  },
+  "workbook": [
+    {
+      "row": 766,
+      "towerId": "n183",
+      "towerName": "雷霆蜥蜴Lv1<R>",
+      "abilityId": "N061",
+      "idCell": "塔技能!F766",
+      "level": 1,
+      "descriptionCell": "塔技能!H766",
+      "description": "释放后增加20%攻击速度。"
+    },
+    {
+      "row": 769,
+      "towerId": "n184",
+      "towerName": "雷霆蜥蜴Lv2<R>",
+      "abilityId": "N062",
+      "idCell": "塔技能!F769",
+      "level": 1,
+      "descriptionCell": "塔技能!H769",
+      "description": "释放后增加40%攻击速度。"
+    },
+    {
+      "row": 772,
+      "towerId": "n185",
+      "towerName": "雷霆蜥蜴Max<R>",
+      "abilityId": "N063",
+      "idCell": "塔技能!F772",
+      "level": 1,
+      "descriptionCell": "塔技能!H772",
+      "description": "释放后增加60%攻击速度。"
+    },
+    {
+      "row": 691,
+      "towerId": "n168",
+      "towerName": "丛林捕食者Lv1<R>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F691",
+      "level": 1,
+      "descriptionCell": "塔技能!H691",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 693,
+      "towerId": "n169",
+      "towerName": "丛林捕食者Lv2<R>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F693",
+      "level": 1,
+      "descriptionCell": "塔技能!H693",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 696,
+      "towerId": "n170",
+      "towerName": "丛林捕食者Lv3<R>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F696",
+      "level": 1,
+      "descriptionCell": "塔技能!H696",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 699,
+      "towerId": "n171",
+      "towerName": "丛林捕食者Lv4<R>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F699",
+      "level": 1,
+      "descriptionCell": "塔技能!H699",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 702,
+      "towerId": "n172",
+      "towerName": "丛林捕食者Max<R>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F702",
+      "level": 1,
+      "descriptionCell": "塔技能!H702",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 705,
+      "towerId": "n146",
+      "towerName": "半人马战士Max<R>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F705",
+      "level": 1,
+      "descriptionCell": "塔技能!H705",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 707,
+      "towerId": "n156",
+      "towerName": "天灾投石车Lv1<R>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F707",
+      "level": 1,
+      "descriptionCell": "塔技能!H707",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 709,
+      "towerId": "n157",
+      "towerName": "天灾投石车Lv2<R>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F709",
+      "level": 1,
+      "descriptionCell": "塔技能!H709",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 711,
+      "towerId": "n158",
+      "towerName": "天灾投石车Max<R>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F711",
+      "level": 1,
+      "descriptionCell": "塔技能!H711",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 720,
+      "towerId": "n194",
+      "towerName": "恐怖之狼Max<R>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F720",
+      "level": 1,
+      "descriptionCell": "塔技能!H720",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 722,
+      "towerId": "n177",
+      "towerName": "树魔狂战士Lv1<R>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F722",
+      "level": 1,
+      "descriptionCell": "塔技能!H722",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 724,
+      "towerId": "n178",
+      "towerName": "树魔狂战士Lv2<R>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F724",
+      "level": 1,
+      "descriptionCell": "塔技能!H724",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 727,
+      "towerId": "n179",
+      "towerName": "树魔狂战士Lv3<R>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F727",
+      "level": 1,
+      "descriptionCell": "塔技能!H727",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 730,
+      "towerId": "n180",
+      "towerName": "树魔狂战士Lv4<R>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F730",
+      "level": 1,
+      "descriptionCell": "塔技能!H730",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 733,
+      "towerId": "n181",
+      "towerName": "树魔狂战士Lv5<R>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F733",
+      "level": 1,
+      "descriptionCell": "塔技能!H733",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 736,
+      "towerId": "n182",
+      "towerName": "树魔狂战士Max<R>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F736",
+      "level": 1,
+      "descriptionCell": "塔技能!H736",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 739,
+      "towerId": "n152",
+      "towerName": "熊怪Max<R>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F739",
+      "level": 1,
+      "descriptionCell": "塔技能!H739",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 741,
+      "towerId": "n173",
+      "towerName": "狂暴洗劫者Lv1<R>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F741",
+      "level": 1,
+      "descriptionCell": "塔技能!H741",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 744,
+      "towerId": "n174",
+      "towerName": "狂暴洗劫者Lv2<R>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F744",
+      "level": 1,
+      "descriptionCell": "塔技能!H744",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 747,
+      "towerId": "n175",
+      "towerName": "狂暴洗劫者Lv3<R>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F747",
+      "level": 1,
+      "descriptionCell": "塔技能!H747",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 750,
+      "towerId": "n176",
+      "towerName": "狂暴洗劫者Max<R>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F750",
+      "level": 1,
+      "descriptionCell": "塔技能!H750",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 753,
+      "towerId": "n254",
+      "towerName": "萨特Max<R>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F753",
+      "level": 1,
+      "descriptionCell": "塔技能!H753",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 768,
+      "towerId": "n183",
+      "towerName": "雷霆蜥蜴Lv1<R>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F768",
+      "level": 1,
+      "descriptionCell": "塔技能!H768",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 771,
+      "towerId": "n184",
+      "towerName": "雷霆蜥蜴Lv2<R>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F771",
+      "level": 1,
+      "descriptionCell": "塔技能!H771",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 774,
+      "towerId": "n185",
+      "towerName": "雷霆蜥蜴Max<R>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F774",
+      "level": 1,
+      "descriptionCell": "塔技能!H774",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 777,
+      "towerId": "n186",
+      "towerName": "龙卵领主Lv1<R>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F777",
+      "level": 1,
+      "descriptionCell": "塔技能!H777",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 780,
+      "towerId": "n187",
+      "towerName": "龙卵领主Lv2<R>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F780",
+      "level": 1,
+      "descriptionCell": "塔技能!H780",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 783,
+      "towerId": "n188",
+      "towerName": "龙卵领主Lv3<R>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F783",
+      "level": 1,
+      "descriptionCell": "塔技能!H783",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 786,
+      "towerId": "n189",
+      "towerName": "龙卵领主Max<R>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F786",
+      "level": 1,
+      "descriptionCell": "塔技能!H786",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 787,
+      "towerId": "n141",
+      "towerName": "半人马战士Lv1<N>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F787",
+      "level": 1,
+      "descriptionCell": "塔技能!H787",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 789,
+      "towerId": "n142",
+      "towerName": "半人马战士Lv2<N>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F789",
+      "level": 1,
+      "descriptionCell": "塔技能!H789",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 791,
+      "towerId": "n143",
+      "towerName": "半人马战士Lv3<N>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F791",
+      "level": 1,
+      "descriptionCell": "塔技能!H791",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 793,
+      "towerId": "n144",
+      "towerName": "半人马战士Lv4<N>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F793",
+      "level": 1,
+      "descriptionCell": "塔技能!H793",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 795,
+      "towerId": "n145",
+      "towerName": "半人马战士Lv5<N>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F795",
+      "level": 1,
+      "descriptionCell": "塔技能!H795",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 811,
+      "towerId": "n190",
+      "towerName": "恐怖之狼Lv1<N>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F811",
+      "level": 1,
+      "descriptionCell": "塔技能!H811",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 813,
+      "towerId": "n191",
+      "towerName": "恐怖之狼Lv2<N>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F813",
+      "level": 1,
+      "descriptionCell": "塔技能!H813",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 815,
+      "towerId": "n192",
+      "towerName": "恐怖之狼Lv3<N>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F815",
+      "level": 1,
+      "descriptionCell": "塔技能!H815",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 817,
+      "towerId": "n193",
+      "towerName": "恐怖之狼Lv4<N>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F817",
+      "level": 1,
+      "descriptionCell": "塔技能!H817",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 826,
+      "towerId": "n147",
+      "towerName": "熊怪Lv1<N>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F826",
+      "level": 1,
+      "descriptionCell": "塔技能!H826",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 827,
+      "towerId": "n148",
+      "towerName": "熊怪Lv2<N>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F827",
+      "level": 1,
+      "descriptionCell": "塔技能!H827",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 829,
+      "towerId": "n149",
+      "towerName": "熊怪Lv3<N>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F829",
+      "level": 1,
+      "descriptionCell": "塔技能!H829",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 831,
+      "towerId": "n150",
+      "towerName": "熊怪Lv4<N>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F831",
+      "level": 1,
+      "descriptionCell": "塔技能!H831",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 833,
+      "towerId": "n151",
+      "towerName": "熊怪Lv5<N>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F833",
+      "level": 1,
+      "descriptionCell": "塔技能!H833",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 848,
+      "towerId": "n249",
+      "towerName": "萨特Lv1<N>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F848",
+      "level": 1,
+      "descriptionCell": "塔技能!H848",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 850,
+      "towerId": "n250",
+      "towerName": "萨特Lv2<N>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F850",
+      "level": 1,
+      "descriptionCell": "塔技能!H850",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 852,
+      "towerId": "n251",
+      "towerName": "萨特Lv3<N>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F852",
+      "level": 1,
+      "descriptionCell": "塔技能!H852",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 854,
+      "towerId": "n252",
+      "towerName": "萨特Lv4<N>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F854",
+      "level": 1,
+      "descriptionCell": "塔技能!H854",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    },
+    {
+      "row": 856,
+      "towerId": "n253",
+      "towerName": "萨特Lv5<N>",
+      "abilityId": "N159",
+      "idCell": "塔技能!F856",
+      "level": 1,
+      "descriptionCell": "塔技能!H856",
+      "description": "让拥有这个技能的单位打金时的伤害降低。"
+    }
+  ],
+  "N159Carriers": [
+    {
+      "unitId": "b103",
+      "abilities": [
+        "Avul",
+        "N120",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "b104",
+      "abilities": [
+        "Avul",
+        "N121",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "b105",
+      "abilities": [
+        "Avul",
+        "N122",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "b106",
+      "abilities": [
+        "Avul",
+        "N122",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n141",
+      "abilities": [
+        "Avul",
+        "T033",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n142",
+      "abilities": [
+        "Avul",
+        "N001",
+        "T033",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n143",
+      "abilities": [
+        "Avul",
+        "N002",
+        "T033",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n144",
+      "abilities": [
+        "Avul",
+        "N003",
+        "T033",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n145",
+      "abilities": [
+        "Avul",
+        "N004",
+        "T033",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n146",
+      "abilities": [
+        "Avul",
+        "T035",
+        "N005",
+        "N006",
+        "T033",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n147",
+      "abilities": [
+        "Avul",
+        "T033",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n148",
+      "abilities": [
+        "Avul",
+        "T033",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n149",
+      "abilities": [
+        "Avul",
+        "T033",
+        "N012",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n150",
+      "abilities": [
+        "Avul",
+        "T033",
+        "N013",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n151",
+      "abilities": [
+        "Avul",
+        "T033",
+        "N014",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n152",
+      "abilities": [
+        "Avul",
+        "T033",
+        "T035",
+        "N015",
+        "N088",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n156",
+      "abilities": [
+        "Avul",
+        "T033",
+        "N020",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n157",
+      "abilities": [
+        "Avul",
+        "T033",
+        "N021",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n158",
+      "abilities": [
+        "Avul",
+        "T033",
+        "N022",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n168",
+      "abilities": [
+        "Avul",
+        "T033",
+        "T035",
+        "N033",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n169",
+      "abilities": [
+        "Avul",
+        "T033",
+        "T035",
+        "N034",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n170",
+      "abilities": [
+        "Avul",
+        "T033",
+        "T035",
+        "N035",
+        "N038",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n171",
+      "abilities": [
+        "Avul",
+        "T033",
+        "T035",
+        "N036",
+        "N039",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n172",
+      "abilities": [
+        "Avul",
+        "T033",
+        "T036",
+        "N037",
+        "N040",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n173",
+      "abilities": [
+        "Avul",
+        "T033",
+        "T035",
+        "N041",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n174",
+      "abilities": [
+        "Avul",
+        "T033",
+        "T035",
+        "N042",
+        "N045",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n175",
+      "abilities": [
+        "Avul",
+        "T033",
+        "T035",
+        "N043",
+        "N046",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n176",
+      "abilities": [
+        "Avul",
+        "T033",
+        "T035",
+        "N044",
+        "N047",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n177",
+      "abilities": [
+        "Avul",
+        "T033",
+        "T035",
+        "N048",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n178",
+      "abilities": [
+        "Avul",
+        "T033",
+        "T035",
+        "N049",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n179",
+      "abilities": [
+        "Avul",
+        "T033",
+        "T035",
+        "N050",
+        "N054",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n180",
+      "abilities": [
+        "Avul",
+        "T033",
+        "T035",
+        "N051",
+        "N055",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n181",
+      "abilities": [
+        "Avul",
+        "T033",
+        "T035",
+        "N052",
+        "N056",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n182",
+      "abilities": [
+        "Avul",
+        "T033",
+        "T035",
+        "N053",
+        "N057",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n183",
+      "abilities": [
+        "Avul",
+        "Alit",
+        "T033",
+        "T035",
+        "N061",
+        "N058",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n184",
+      "abilities": [
+        "Avul",
+        "Alit",
+        "T033",
+        "T035",
+        "N062",
+        "N059",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n185",
+      "abilities": [
+        "Avul",
+        "Alit",
+        "T033",
+        "T036",
+        "N063",
+        "N060",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n186",
+      "abilities": [
+        "Avul",
+        "T033",
+        "T035",
+        "N064",
+        "N068",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n187",
+      "abilities": [
+        "Avul",
+        "T033",
+        "T035",
+        "N065",
+        "N069",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n188",
+      "abilities": [
+        "Avul",
+        "T033",
+        "T035",
+        "N066",
+        "N070",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n189",
+      "abilities": [
+        "Avul",
+        "T033",
+        "T036",
+        "N067",
+        "N071",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n190",
+      "abilities": [
+        "Avul",
+        "T033",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n191",
+      "abilities": [
+        "Avul",
+        "T033",
+        "N027",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n192",
+      "abilities": [
+        "Avul",
+        "T033",
+        "N028",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n193",
+      "abilities": [
+        "Avul",
+        "T033",
+        "N029",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n194",
+      "abilities": [
+        "Avul",
+        "T033",
+        "T036",
+        "N072",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n249",
+      "abilities": [
+        "Avul",
+        "T033",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n250",
+      "abilities": [
+        "Avul",
+        "T033",
+        "N111",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n251",
+      "abilities": [
+        "Avul",
+        "T033",
+        "N112",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n252",
+      "abilities": [
+        "Avul",
+        "T033",
+        "N113",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n253",
+      "abilities": [
+        "Avul",
+        "T033",
+        "N114",
+        "N159"
+      ]
+    },
+    {
+      "unitId": "n254",
+      "abilities": [
+        "Avul",
+        "T033",
+        "T036",
+        "N116",
+        "N115",
+        "N159"
+      ]
+    }
+  ],
+  "objectData": {
+    "units_abilitydata.json:Absk": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 9546,
+      "fields": {
+        "alias": "Absk",
+        "code": "Absk",
+        "BuffID1": "Bbsk",
+        "checkDep": 1,
+        "Cool1": 30.0,
+        "DataA1": 0.2,
+        "DataB1": 0.5,
+        "DataC1": 0.5,
+        "Dur1": 12.0,
+        "HeroDur1": 12.0,
+        "levels": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "units_abilitydata.json:N061": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 24987,
+      "fields": {
+        "alias": "N061",
+        "code": "Absk",
+        "BuffID1": "B014",
+        "checkDep": 1,
+        "Cool1": 10.0,
+        "Cost1": 30,
+        "DataB1": 0.2,
+        "Dur1": 5.0,
+        "HeroDur1": 5.0,
+        "levels": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "units_abilitydata.json:N062": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 25003,
+      "fields": {
+        "alias": "N062",
+        "code": "Absk",
+        "BuffID1": "B014",
+        "checkDep": 1,
+        "Cool1": 10.0,
+        "Cost1": 40,
+        "DataB1": 0.4,
+        "Dur1": 5.0,
+        "HeroDur1": 5.0,
+        "levels": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "units_abilitydata.json:N063": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 25019,
+      "fields": {
+        "alias": "N063",
+        "code": "Absk",
+        "BuffID1": "B014",
+        "checkDep": 1,
+        "Cool1": 10.0,
+        "Cost1": 50,
+        "DataB1": 0.6,
+        "Dur1": 5.0,
+        "HeroDur1": 5.0,
+        "levels": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "units_abilitydata.json:N159": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 26464,
+      "fields": {
+        "alias": "N159",
+        "code": "AOcr",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "air,ground,enemy,neutral",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "units_abilitybuffdata.json:B014": {
+      "path": "reference/map-6.25/units_abilitybuffdata.json",
+      "line": 777,
+      "fields": {
+        "alias": "B014"
+      }
+    },
+    "units_unitabilities.json:n183": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 6135,
+      "fields": {
+        "unitAbilID": "n183",
+        "abilList": "Avul,Alit,T033,T035,N061,N058,N159",
+        "auto": "_"
+      }
+    },
+    "units_unitabilities.json:n184": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 6140,
+      "fields": {
+        "unitAbilID": "n184",
+        "abilList": "Avul,Alit,T033,T035,N062,N059,N159",
+        "auto": "_"
+      }
+    },
+    "units_unitabilities.json:n185": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 6145,
+      "fields": {
+        "unitAbilID": "n185",
+        "abilList": "Avul,Alit,T033,T036,N063,N060,N159",
+        "auto": "_"
+      }
+    },
+    "units_unitweapons.json:n183": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 31881,
+      "fields": {
+        "unitWeapID": "n183",
+        "acquire": 2000.0,
+        "atkType1": "magic",
+        "atkType2": "normal",
+        "backSw1": 0.56,
+        "castbsw": 0.5,
+        "castpt": 0.5,
+        "cool1": 1.2,
+        "dice1": 2,
+        "dmgplus1": 202,
+        "dmgpt1": 0.5,
+        "Farea1": 75,
+        "Harea1": 150,
+        "Hfact1": 0.5,
+        "impactZ": 100.0,
+        "launchY": 100.0,
+        "launchZ": 20.0,
+        "Qarea1": 225,
+        "Qfact1": 0.25,
+        "rangeN1": 1000,
+        "RngBuff1": 3500.0,
+        "showUI1": 1,
+        "showUI2": 1,
+        "sides1": 36,
+        "splashTargs1": "ground,air,enemy,neutral",
+        "targCount1": 1,
+        "targCount2": 1,
+        "targs1": "ground,structure,debris,air,item,ward",
+        "weapsOn": 1,
+        "weapTp1": "missile"
+      }
+    },
+    "units_unitweapons.json:n184": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 31913,
+      "fields": {
+        "unitWeapID": "n184",
+        "acquire": 2000.0,
+        "atkType1": "magic",
+        "atkType2": "normal",
+        "backSw1": 0.56,
+        "castbsw": 0.5,
+        "castpt": 0.5,
+        "cool1": 1.1,
+        "dice1": 2,
+        "dmgplus1": 389,
+        "dmgpt1": 0.5,
+        "Farea1": 75,
+        "Harea1": 150,
+        "Hfact1": 0.5,
+        "impactZ": 120.0,
+        "launchY": 120.0,
+        "launchZ": 20.0,
+        "Qarea1": 225,
+        "Qfact1": 0.25,
+        "rangeN1": 1000,
+        "RngBuff1": 3500.0,
+        "showUI1": 1,
+        "showUI2": 1,
+        "sides1": 39,
+        "splashTargs1": "ground,air,enemy,neutral",
+        "targCount1": 1,
+        "targCount2": 1,
+        "targs1": "ground,structure,debris,air,item,ward",
+        "weapsOn": 1,
+        "weapTp1": "missile"
+      }
+    },
+    "units_unitweapons.json:n185": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 31945,
+      "fields": {
+        "unitWeapID": "n185",
+        "acquire": 2000.0,
+        "atkType1": "magic",
+        "atkType2": "normal",
+        "backSw1": 0.56,
+        "castbsw": 0.5,
+        "castpt": 0.5,
+        "cool1": 1.0,
+        "dice1": 2,
+        "dmgplus1": 495,
+        "dmgpt1": 0.5,
+        "Farea1": 75,
+        "Harea1": 150,
+        "Hfact1": 0.5,
+        "impactZ": 140.0,
+        "launchY": 150.0,
+        "launchZ": 20.0,
+        "Qarea1": 225,
+        "Qfact1": 0.25,
+        "rangeN1": 1000,
+        "RngBuff1": 3500.0,
+        "showUI1": 1,
+        "showUI2": 1,
+        "sides1": 39,
+        "splashTargs1": "ground,air,enemy,neutral",
+        "targCount1": 1,
+        "targCount2": 1,
+        "targs1": "ground,structure,debris,air,item,ward",
+        "weapsOn": 1,
+        "weapTp1": "missile"
+      }
+    }
+  },
+  "profiles": {
+    "N061": {
+      "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+      "lines": [
+        13704,
+        13712
+      ],
+      "fields": {
+        "Art": "ReplaceableTextures\\CommandButtons\\BTNUnholyFrenzy.blp",
+        "Buttonpos": "2,2",
+        "Hotkey": "B",
+        "Name": "邪恶狂热",
+        "Order": "berserk",
+        "Tip": "邪恶狂热 - [|cffffcc00等级 1|r]",
+        "Ubertip": "释放后增加20%攻击速度。"
+      }
+    },
+    "N062": {
+      "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+      "lines": [
+        13713,
+        13721
+      ],
+      "fields": {
+        "Art": "ReplaceableTextures\\CommandButtons\\BTNUnholyFrenzy.blp",
+        "Buttonpos": "2,2",
+        "Hotkey": "B",
+        "Name": "邪恶狂热",
+        "Order": "berserk",
+        "Tip": "邪恶狂热 - [|cffffcc00等级 2|r]",
+        "Ubertip": "释放后增加40%攻击速度。"
+      }
+    },
+    "N063": {
+      "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+      "lines": [
+        13722,
+        13730
+      ],
+      "fields": {
+        "Art": "ReplaceableTextures\\CommandButtons\\BTNUnholyFrenzy.blp",
+        "Buttonpos": "2,2",
+        "Hotkey": "B",
+        "Name": "邪恶狂热",
+        "Order": "berserk",
+        "Tip": "邪恶狂热 - [|cffffcc00等级 3|r]",
+        "Ubertip": "释放后增加60%攻击速度。"
+      }
+    },
+    "N159": {
+      "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+      "lines": [
+        14742,
+        14753
+      ],
+      "fields": {
+        "Art": ",",
+        "Buttonpos": ",-11",
+        "Name": "减金",
+        "ResearchArt": "ReplaceableTextures\\CommandButtons\\BTNCriticalStrike.blp",
+        "Researchbuttonpos": "2",
+        "Researchhotkey": "C",
+        "Researchtip": "学习致命一击(|cffffcc00C|r) - [|cffffcc00等级 %d|r]",
+        "Researchubertip": "给予一定的概率使得攻击力能大大增强。|n|n|cffffcc00等级 1|r -15%的概率，2倍于一般攻击的伤害值。|n|cffffcc00等级 2|r -15%的概率，3倍于一般攻击的伤害值。|n|cffffcc00等级 3|r -15%的概率，4倍于一般攻击的伤害值。",
+        "Tip": "减金 - [|cffffcc00等级 1|r]",
+        "Ubertip": "让拥有这个技能的单位打金时的伤害降低。"
+      }
+    },
+    "B014": {
+      "path": "reference/map-6.25/units_commonabilitystrings.txt",
+      "lines": [
+        109,
+        115
+      ],
+      "fields": {
+        "Buffart": "ReplaceableTextures\\CommandButtons\\BTNUnholyFrenzy.blp",
+        "Bufftip": "邪恶狂热",
+        "Buffubertip": "该单位攻击速度增加。",
+        "TargetArt": "Abilities\\Spells\\Undead\\UnholyFrenzy\\UnholyFrenzyTarget.mdl",
+        "Targetattach": "overhead"
+      }
+    }
+  },
+  "objectOverrides": {
+    "w3aIds": [
+      "N061",
+      "N062",
+      "N063",
+      "N159"
+    ],
+    "w3aMatches": [],
+    "w3uIds": [
+      "n183",
+      "n184",
+      "n185"
+    ],
+    "w3uMatches": [],
+    "w3h": "absent from original map hash table; not merely absent from snapshot"
+  },
+  "mpqBuffOverrideCheck": {
+    "mapPath": "/Users/laihanbin/Downloads/maps/刀圈TD 正式版.w3x",
+    "mapSha256": "835745bd1d65bfff759a715deb59fee8bed3eff341de66403e8ddb44ff0f438a",
+    "archiveOffset": 512,
+    "formatVersion": 0,
+    "hashEntries": 2048,
+    "blockEntries": 1887,
+    "hashTableDecodedSha256": "c97acbd007ec83720a59dfbda0cb8660e81b0b14acc2b8e50bf9d981ec19e599",
+    "checks": [
+      {
+        "filename": "war3map.w3h",
+        "hashA": "0xb23bce12",
+        "hashB": "0x69b22b5d",
+        "matches": []
+      },
+      {
+        "filename": "war3map.w3a",
+        "hashA": "0xbca5fd89",
+        "hashB": "0xbd993277",
+        "matches": [
+          {
+            "hashIndex": 1593,
+            "locale": 0,
+            "platform": 65280,
+            "blockIndex": 91,
+            "blockOffset": 6149217,
+            "compressedBytes": 6552,
+            "uncompressedBytes": 36738,
+            "flags": "0x80000200",
+            "exists": true
+          }
+        ]
+      },
+      {
+        "filename": "Units\\AbilityBuffData.slk",
+        "hashA": "0x82198bcf",
+        "hashB": "0xf00e8103",
+        "matches": [
+          {
+            "hashIndex": 300,
+            "locale": 0,
+            "platform": 65280,
+            "blockIndex": 720,
+            "blockOffset": 37548257,
+            "compressedBytes": 2130,
+            "uncompressedBytes": 6772,
+            "flags": "0x80000200",
+            "exists": true
+          }
+        ]
+      },
+      {
+        "filename": "Units\\CommonAbilityStrings.txt",
+        "hashA": "0xdcc6a63e",
+        "hashB": "0x62c78d64",
+        "matches": [
+          {
+            "hashIndex": 647,
+            "locale": 0,
+            "platform": 65280,
+            "blockIndex": 733,
+            "blockOffset": 38407038,
+            "compressedBytes": 15689,
+            "uncompressedBytes": 87377,
+            "flags": "0x80000200",
+            "exists": true
+          }
+        ]
+      }
+    ],
+    "result": "war3map.w3h absent from decoded MPQ hash table; positive controls match snapshot lengths",
+    "method": "read-only hash/block table decrypt and all-entry name hash comparison; no archive modification or game execution",
+    "algorithmReference": "https://github.com/ladislav-zezula/StormLib/blob/master/src/SBaseCommon.cpp"
+  },
+  "referenceScan": {
+    "N061_N063": "only literal skill-specific script uses are main/f291/f27 autocast OR block; no dedicated Action/timer module",
+    "N159": "single literal skill-specific script use is main/f291/f1 PC4003-4012",
+    "B014": "no literal references in main Lua/disassembly; only these three abilitydata BuffID records",
+    "B014AbilityUsers": [
+      "N061",
+      "N062",
+      "N063"
+    ]
+  },
+  "originalRules": {
+    "frenzy": {
+      "names": [
+        "邪恶狂热",
+        "邪恶狂热",
+        "邪恶狂热"
+      ],
+      "ids": [
+        "N061",
+        "N062",
+        "N063"
+      ],
+      "levelsPerId": 1,
+      "template": "Absk",
+      "order": "berserk",
+      "buff": "B014",
+      "bonus": [
+        0.2,
+        0.4,
+        0.6
+      ],
+      "cost": [
+        30,
+        40,
+        50
+      ],
+      "cooldown": [
+        10,
+        10,
+        10
+      ],
+      "durations": [
+        5,
+        5,
+        5
+      ],
+      "heroDurations": [
+        5,
+        5,
+        5
+      ],
+      "missingFields": [
+        "DataA1",
+        "DataC1"
+      ],
+      "autoPriority": [
+        "N063",
+        "N062",
+        "N061"
+      ],
+      "autoReady": "level>0 then read cost104 then cooldownState1==0 then mana>=cost",
+      "extraLocalProbability": false,
+      "extraLocalModeGate": false,
+      "extraLocalBuffAlreadyPresentGate": false,
+      "autoOrderDirect": true,
+      "autoReturnIgnored": true,
+      "autoAfterOrderPC": 4833,
+      "autoWhenNoneReadyPC": 4625,
+      "autoOuter": "Player11 attacked event; attacker nonillusion; B012; earlier branch order preserved",
+      "luaBuffTimers": 0,
+      "generalSpellEffect": "ordinary caster continues Item_Skill_Action with its original filters; this skill is not a T033/A040/A070/A210 early exception"
+    },
+    "gold": {
+      "snapshot": "GetEventDamage(0) after Activity_Damage_Event; existing earlier callbacks/returns retained",
+      "targets": [
+        "m999",
+        "m998"
+      ],
+      "readRegisters": {
+        "actualSource": "r0 S",
+        "target": "r1 T",
+        "attributedUnit": "r2 O",
+        "score": "r3"
+      },
+      "sequence": [
+        "actual S illusion:score*=.8",
+        "O N159 level>0:score*=.2",
+        "negative score:return without score/zero write",
+        "damageType NORMAL:score*=.58; else damageType!=DIVINE:score*=1.4",
+        "Money_Damage_Sum[owner(S).playerId+1]+=score",
+        "EXSetEventDamage(0)",
+        "text=tostring(floor(score)); text0:return",
+        "floating text with five ordered GetRandomInt calls",
+        "jump PC4229 skip nongold shop-boss branch"
+      ],
+      "N159Factor": 0.2,
+      "positiveLevelMultipliesOnce": true,
+      "attackFlagRequired": false,
+      "modeCheckInThisBlock": false,
+      "newChanceRollForMarker": false,
+      "attributionRepaired": false,
+      "scoreFloorBeforeAccumulation": false,
+      "goldCurrencyDirectWrite": false,
+      "nongoldTargetsUnaffectedByMarker": [
+        "ordinary wave units",
+        "shop boss",
+        "ma01 abyss chicken"
+      ],
+      "earlyReturns": [
+        {
+          "pc": 4015,
+          "beforeScoreAndZeroWrite": true
+        },
+        {
+          "pc": 4065,
+          "afterScoreAndZeroWrite": true
+        }
+      ],
+      "classification": {
+        "NORMAL": 0.58,
+        "DIVINE": 1,
+        "others": 1.4
+      },
+      "display": {
+        "defaultSize": 0.03,
+        "defaultLife": 0.6,
+        "lengthGreaterThan": [
+          [
+            2,
+            0.035,
+            0.7
+          ],
+          [
+            3,
+            0.04,
+            0.8
+          ],
+          [
+            4,
+            0.045,
+            0.9
+          ],
+          [
+            5,
+            0.05,
+            1
+          ]
+        ],
+        "permanent": false,
+        "target": "T",
+        "z": -50,
+        "velocity": [
+          "(3+roll(1,60))/1000",
+          "(20+roll(1,35))/1000"
+        ],
+        "rgb": [
+          "PercentTo255(roll(1,100))",
+          "PercentTo255(roll(1,100))",
+          "PercentTo255(roll(1,100))"
+        ],
+        "alpha": "PercentTo255(100)",
+        "rngCalls": 5
+      }
+    }
+  },
+  "primaryEvidence": [
+    {
+      "url": "https://classic.battle.net/war3/orc/units/trollberserker.shtml",
+      "supports": "Absk is personal self buff, stock attack speed and damage taken increase; stock values do not override custom map fields"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/Units/AbilityMetaData.slk#L12130",
+      "metadata": [
+        {
+          "id": "bsk1",
+          "data": 1,
+          "field": "Data",
+          "label": "Movement Speed Increase",
+          "labelLine": 6335
+        },
+        {
+          "id": "bsk2",
+          "data": 2,
+          "field": "Data",
+          "label": "Attack Speed Increase",
+          "labelLine": 6336
+        },
+        {
+          "id": "bsk3",
+          "data": 3,
+          "field": "Data",
+          "label": "Damage Taken Increase",
+          "labelLine": 6337
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/UI/WorldEditStrings.txt#L6335",
+      "supports": "movement speed, attack speed, damage taken DataA/B/C labels"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/plugin/w3x2lni/script/core/slk/frontend_slk.lua#L19",
+      "supports": "tool numeric missing-value zero and custom row loading; not Warcraft runtime proof"
+    },
+    {
+      "url": "https://github.com/ladislav-zezula/StormLib/blob/master/src/SBaseCommon.cpp",
+      "supports": "MPQ crypt/hash algorithm used for read-only w3h existence check; not gameplay semantics"
+    }
+  ],
+  "webDecisions": {
+    "Q24": {
+      "version": "lizard-frenzy-native-v1",
+      "status": "authorized scoped native definition; not client verified",
+      "acceptance": {
+        "instant": true,
+        "windupSeconds": 0,
+        "casterMust": [
+          "exists",
+          "alive",
+          "abilityLevel1",
+          "cooldown0",
+          "manaEnough",
+          "not under active spell prohibition lock"
+        ],
+        "activeLocksInclude": [
+          "stun",
+          "pause",
+          "silence",
+          "hex"
+        ],
+        "selfInvulnerableOrMagicImmuneAllowed": true,
+        "enemyTargetOrVisionRequired": false,
+        "interruptsAttackMoveChannel": false,
+        "sharedOrderResolutionWithinThisGroup": [
+          "N063",
+          "N062",
+          "N061"
+        ],
+        "invalidLevel": "reject and record data error",
+        "successOrder": [
+          "deduct cost",
+          "set this ability cooldown10s",
+          "apply B014",
+          "dispatch SPELL_EFFECT targetUnit=nil"
+        ],
+        "failure": "no cost/cooldown/buff/SPELL_EFFECT; auto scan remains ended if order was issued"
+      },
+      "buff": {
+        "onePerLogicalUnit": true,
+        "contribution": [
+          0.2,
+          0.4,
+          0.6
+        ],
+        "durationSeconds": 5,
+        "stack": "latest successful cast replaces contribution and expiry=now+5; new token invalidates old callback",
+        "removeOn": [
+          "expiry",
+          "positive magic dispel",
+          "explicit B014 removal",
+          "death",
+          "unit removal"
+        ],
+        "notRemoveOn": [
+          "active ability removal alone",
+          "loss of casting eligibility",
+          "new magic immunity alone"
+        ],
+        "unitTypeChange": "retain if logical identity retained; no automatic transfer to a new entity",
+        "movementBonus": 0,
+        "damageTakenBonus": 0,
+        "damageOverTime": 0,
+        "attackTiming": "existing attack-timing-v1 additive R/K and progress-preserving update",
+        "timer": "B05 and save token/expiry; no duplicate contribution after reload"
+      },
+      "N159NativeWrapper": {
+        "extraCritRolls": 0,
+        "extraDamageMultiplier": 1,
+        "extraFlatDamage": 0,
+        "extraEvasion": 0,
+        "extraNeverMiss": false,
+        "zeroMultiplierDoesNotZeroOrdinaryAttack": true
+      },
+      "N159InvalidAttributedUnit": "only this branch: nil/removed O ability query treated as0; no repair and no retrospective score changes",
+      "N159ScriptFormula": "unchanged source .2 factor; Q24 not used to replace script",
+      "displayRendering": "may hide visuals but retain original five RNG calls when nonzero display branch runs"
+    },
+    "reuse": [
+      "B03 damage pipeline",
+      "B05 battle timer ordering",
+      "attack-timing-v1",
+      "full autocast branch ordering",
+      "existing welfare reward formula including confirmed Q18"
+    ],
+    "conflicts": []
+  },
+  "validation": {
+    "sourceVectors": [
+      {
+        "id": "N061_fields",
+        "input": {
+          "ability": "N061"
+        },
+        "expected": {
+          "level": 1,
+          "cost": 30,
+          "cooldown": 10,
+          "duration": 5,
+          "heroDuration": 5,
+          "attackSpeedContribution": 0.2,
+          "BuffID": "B014",
+          "DataAExplicit": false,
+          "DataCExplicit": false
+        }
+      },
+      {
+        "id": "N062_fields",
+        "input": {
+          "ability": "N062"
+        },
+        "expected": {
+          "level": 1,
+          "cost": 40,
+          "cooldown": 10,
+          "duration": 5,
+          "heroDuration": 5,
+          "attackSpeedContribution": 0.4,
+          "BuffID": "B014",
+          "DataAExplicit": false,
+          "DataCExplicit": false
+        }
+      },
+      {
+        "id": "N063_fields",
+        "input": {
+          "ability": "N063"
+        },
+        "expected": {
+          "level": 1,
+          "cost": 50,
+          "cooldown": 10,
+          "duration": 5,
+          "heroDuration": 5,
+          "attackSpeedContribution": 0.6,
+          "BuffID": "B014",
+          "DataAExplicit": false,
+          "DataCExplicit": false
+        }
+      },
+      {
+        "id": "ready_exact_mana",
+        "input": {
+          "level": 1,
+          "cooldown": 0,
+          "mana": 30,
+          "cost": 30
+        },
+        "expected": {
+          "ready": true
+        }
+      },
+      {
+        "id": "ready_below_mana",
+        "input": {
+          "level": 1,
+          "cooldown": 0,
+          "mana": 29,
+          "cost": 30
+        },
+        "expected": {
+          "ready": false
+        }
+      },
+      {
+        "id": "ready_positive_cool",
+        "input": {
+          "level": 1,
+          "cooldown": 1e-06,
+          "mana": 100,
+          "cost": 30
+        },
+        "expected": {
+          "ready": false
+        }
+      },
+      {
+        "id": "ready_negative_cool",
+        "input": {
+          "level": 1,
+          "cooldown": -1,
+          "mana": 100,
+          "cost": 30
+        },
+        "expected": {
+          "ready": false
+        }
+      },
+      {
+        "id": "ready_no_ability",
+        "input": {
+          "level": 0,
+          "cooldown": 0,
+          "mana": 100,
+          "cost": 30
+        },
+        "expected": {
+          "ready": false
+        }
+      },
+      {
+        "id": "auto_or_priority",
+        "input": {
+          "ready": {
+            "N063": true,
+            "N062": true,
+            "N061": true
+          }
+        },
+        "expected": {
+          "queries": [
+            "N063"
+          ],
+          "orders": 1,
+          "order": "berserk",
+          "endPC": 4833
+        }
+      },
+      {
+        "id": "native_order_failure",
+        "input": {
+          "N061Ready": true,
+          "nativeOrderReturn": false
+        },
+        "expected": {
+          "orders": 1,
+          "retryNextSkill": false,
+          "endPC": 4833
+        }
+      },
+      {
+        "id": "gold_False_NORMAL",
+        "input": {
+          "target": "m999",
+          "eventDamageSnapshot": 1000,
+          "actualSourceIllusion": false,
+          "ownerN159Level": 1,
+          "damageType": "NORMAL"
+        },
+        "expected": {
+          "score": 115.99999999999999,
+          "eventDamageWritten": 0,
+          "floatRandomDraws": 5
+        }
+      },
+      {
+        "id": "gold_False_MAGIC",
+        "input": {
+          "target": "m999",
+          "eventDamageSnapshot": 1000,
+          "actualSourceIllusion": false,
+          "ownerN159Level": 1,
+          "damageType": "MAGIC"
+        },
+        "expected": {
+          "score": 280.0,
+          "eventDamageWritten": 0,
+          "floatRandomDraws": 5
+        }
+      },
+      {
+        "id": "gold_False_FIRE",
+        "input": {
+          "target": "m999",
+          "eventDamageSnapshot": 1000,
+          "actualSourceIllusion": false,
+          "ownerN159Level": 1,
+          "damageType": "FIRE"
+        },
+        "expected": {
+          "score": 280.0,
+          "eventDamageWritten": 0,
+          "floatRandomDraws": 5
+        }
+      },
+      {
+        "id": "gold_False_DIVINE",
+        "input": {
+          "target": "m999",
+          "eventDamageSnapshot": 1000,
+          "actualSourceIllusion": false,
+          "ownerN159Level": 1,
+          "damageType": "DIVINE"
+        },
+        "expected": {
+          "score": 200.0,
+          "eventDamageWritten": 0,
+          "floatRandomDraws": 5
+        }
+      },
+      {
+        "id": "gold_True_NORMAL",
+        "input": {
+          "target": "m999",
+          "eventDamageSnapshot": 1000,
+          "actualSourceIllusion": true,
+          "ownerN159Level": 1,
+          "damageType": "NORMAL"
+        },
+        "expected": {
+          "score": 92.8,
+          "eventDamageWritten": 0,
+          "floatRandomDraws": 5
+        }
+      },
+      {
+        "id": "gold_True_MAGIC",
+        "input": {
+          "target": "m999",
+          "eventDamageSnapshot": 1000,
+          "actualSourceIllusion": true,
+          "ownerN159Level": 1,
+          "damageType": "MAGIC"
+        },
+        "expected": {
+          "score": 224.0,
+          "eventDamageWritten": 0,
+          "floatRandomDraws": 5
+        }
+      },
+      {
+        "id": "gold_True_FIRE",
+        "input": {
+          "target": "m999",
+          "eventDamageSnapshot": 1000,
+          "actualSourceIllusion": true,
+          "ownerN159Level": 1,
+          "damageType": "FIRE"
+        },
+        "expected": {
+          "score": 224.0,
+          "eventDamageWritten": 0,
+          "floatRandomDraws": 5
+        }
+      },
+      {
+        "id": "gold_True_DIVINE",
+        "input": {
+          "target": "m999",
+          "eventDamageSnapshot": 1000,
+          "actualSourceIllusion": true,
+          "ownerN159Level": 1,
+          "damageType": "DIVINE"
+        },
+        "expected": {
+          "score": 160.0,
+          "eventDamageWritten": 0,
+          "floatRandomDraws": 5
+        }
+      },
+      {
+        "id": "gold_marker_level_not_scale",
+        "input": {
+          "eventDamageSnapshot": 1000,
+          "ownerN159Level": 7,
+          "damageType": "DIVINE"
+        },
+        "expected": {
+          "score": 200
+        }
+      },
+      {
+        "id": "nongold",
+        "input": {
+          "target": "ma01",
+          "eventDamageSnapshot": 1000,
+          "ownerN159Level": 1
+        },
+        "expected": {
+          "scoreAdded": 0,
+          "eventDamageWritten": null,
+          "endPC": 4167
+        }
+      },
+      {
+        "id": "negative_score",
+        "input": {
+          "target": "m998",
+          "eventDamageSnapshot": -10,
+          "ownerN159Level": 1
+        },
+        "expected": {
+          "scoreAdded": 0,
+          "eventDamageWritten": null,
+          "floatRandomDraws": 0,
+          "returnPC": 4015
+        }
+      },
+      {
+        "id": "fractional_score",
+        "input": {
+          "target": "m998",
+          "eventDamageSnapshot": 2.5,
+          "ownerN159Level": 1,
+          "damageType": "DIVINE"
+        },
+        "expected": {
+          "scoreAdded": 0.5,
+          "eventDamageWritten": 0,
+          "floatRandomDraws": 0,
+          "returnPC": 4065
+        }
+      },
+      {
+        "id": "dummy_not_illusion",
+        "input": {
+          "actualSource": "q001",
+          "actualSourceIllusion": false,
+          "attributedOwnerIllusion": true,
+          "ownerN159Level": 1,
+          "eventDamageSnapshot": 400,
+          "damageType": "MAGIC"
+        },
+        "expected": {
+          "score": 112,
+          "playerForScore": "owner(q001)",
+          "noCopiedIllusionFactor": true
+        }
+      },
+      {
+        "id": "actual_player_not_owner_tower_player",
+        "input": {
+          "sourcePlayer": 0,
+          "ownerTowerPlayer": 2,
+          "eventDamageSnapshot": 1000,
+          "ownerN159Level": 1,
+          "damageType": "DIVINE"
+        },
+        "expected": {
+          "Money_Damage_SumIndex": 1,
+          "score": 200
+        }
+      },
+      {
+        "id": "text_99",
+        "input": {
+          "score": 99
+        },
+        "expected": {
+          "text": "99",
+          "size": 0.03,
+          "lifetime": 0.6,
+          "rngRanges": [
+            [
+              1,
+              60
+            ],
+            [
+              1,
+              35
+            ],
+            [
+              1,
+              100
+            ],
+            [
+              1,
+              100
+            ],
+            [
+              1,
+              100
+            ]
+          ]
+        }
+      },
+      {
+        "id": "text_100",
+        "input": {
+          "score": 100
+        },
+        "expected": {
+          "text": "100",
+          "size": 0.035,
+          "lifetime": 0.7,
+          "rngRanges": [
+            [
+              1,
+              60
+            ],
+            [
+              1,
+              35
+            ],
+            [
+              1,
+              100
+            ],
+            [
+              1,
+              100
+            ],
+            [
+              1,
+              100
+            ]
+          ]
+        }
+      },
+      {
+        "id": "text_1000",
+        "input": {
+          "score": 1000
+        },
+        "expected": {
+          "text": "1000",
+          "size": 0.04,
+          "lifetime": 0.8,
+          "rngRanges": [
+            [
+              1,
+              60
+            ],
+            [
+              1,
+              35
+            ],
+            [
+              1,
+              100
+            ],
+            [
+              1,
+              100
+            ],
+            [
+              1,
+              100
+            ]
+          ]
+        }
+      },
+      {
+        "id": "text_10000",
+        "input": {
+          "score": 10000
+        },
+        "expected": {
+          "text": "10000",
+          "size": 0.045,
+          "lifetime": 0.9,
+          "rngRanges": [
+            [
+              1,
+              60
+            ],
+            [
+              1,
+              35
+            ],
+            [
+              1,
+              100
+            ],
+            [
+              1,
+              100
+            ],
+            [
+              1,
+              100
+            ]
+          ]
+        }
+      },
+      {
+        "id": "text_100000",
+        "input": {
+          "score": 100000
+        },
+        "expected": {
+          "text": "100000",
+          "size": 0.05,
+          "lifetime": 1,
+          "rngRanges": [
+            [
+              1,
+              60
+            ],
+            [
+              1,
+              35
+            ],
+            [
+              1,
+              100
+            ],
+            [
+              1,
+              100
+            ],
+            [
+              1,
+              100
+            ]
+          ]
+        }
+      }
+    ],
+    "webVectors": [
+      {
+        "id": "instant_success",
+        "input": {
+          "ability": "N061",
+          "time": 1,
+          "mana": 30,
+          "ready": true,
+          "unitInvulnerable": true
+        },
+        "expected": {
+          "manaAfter": 0,
+          "cooldownUntil": 11,
+          "buffUntil": 6,
+          "bonus": 0.2,
+          "windup": 0,
+          "interruptAttack": false,
+          "spellEffects": 1,
+          "targetUnit": null
+        }
+      },
+      {
+        "id": "failure",
+        "input": {
+          "ability": "N062",
+          "mana": 39,
+          "time": 1
+        },
+        "expected": {
+          "manaAfter": 39,
+          "buffApplied": false,
+          "cooldownChanged": false,
+          "spellEffects": 0
+        }
+      },
+      {
+        "id": "active_lock",
+        "input": {
+          "ability": "N063",
+          "mana": 100,
+          "silenced": true
+        },
+        "expected": {
+          "accepted": false,
+          "deductedMana": 0,
+          "spellEffects": 0
+        }
+      },
+      {
+        "id": "bonus_add_0.2",
+        "input": {
+          "RBefore": 2,
+          "bonus": 0.2
+        },
+        "expected": {
+          "RAfter": 2.2,
+          "afterExpiry": 2,
+          "movementBonus": 0,
+          "damageTakenBonus": 0,
+          "damageOverTime": 0
+        }
+      },
+      {
+        "id": "bonus_add_0.4",
+        "input": {
+          "RBefore": 2,
+          "bonus": 0.4
+        },
+        "expected": {
+          "RAfter": 2.4,
+          "afterExpiry": 2,
+          "movementBonus": 0,
+          "damageTakenBonus": 0,
+          "damageOverTime": 0
+        }
+      },
+      {
+        "id": "bonus_add_0.6",
+        "input": {
+          "RBefore": 2,
+          "bonus": 0.6
+        },
+        "expected": {
+          "RAfter": 2.6,
+          "afterExpiry": 2,
+          "movementBonus": 0,
+          "damageTakenBonus": 0,
+          "damageOverTime": 0
+        }
+      },
+      {
+        "id": "refresh_lower_replaces",
+        "input": {
+          "casts": [
+            {
+              "time": 0,
+              "bonus": 0.6
+            },
+            {
+              "time": 2,
+              "bonus": 0.2
+            }
+          ],
+          "cooldownExternallyReset": true
+        },
+        "expected": {
+          "activeBonus": 0.2,
+          "expiry": 7,
+          "oldCallbackAt5Noop": true
+        }
+      },
+      {
+        "id": "refresh_same_not_stack",
+        "input": {
+          "casts": [
+            {
+              "time": 0,
+              "bonus": 0.4
+            },
+            {
+              "time": 2,
+              "bonus": 0.4
+            }
+          ],
+          "cooldownExternallyReset": true
+        },
+        "expected": {
+          "activeBonus": 0.4,
+          "expiry": 7
+        }
+      },
+      {
+        "id": "remove_expiry",
+        "input": {
+          "bonus": 0.4,
+          "otherR": 2,
+          "reason": "expiry"
+        },
+        "expected": {
+          "RAfter": 2,
+          "oldTimerInvalidated": true
+        }
+      },
+      {
+        "id": "remove_dispel_positive_magic",
+        "input": {
+          "bonus": 0.4,
+          "otherR": 2,
+          "reason": "dispel_positive_magic"
+        },
+        "expected": {
+          "RAfter": 2,
+          "oldTimerInvalidated": true
+        }
+      },
+      {
+        "id": "remove_explicit_B014_remove",
+        "input": {
+          "bonus": 0.4,
+          "otherR": 2,
+          "reason": "explicit_B014_remove"
+        },
+        "expected": {
+          "RAfter": 2,
+          "oldTimerInvalidated": true
+        }
+      },
+      {
+        "id": "remove_death",
+        "input": {
+          "bonus": 0.4,
+          "otherR": 2,
+          "reason": "death"
+        },
+        "expected": {
+          "RAfter": 2,
+          "oldTimerInvalidated": true
+        }
+      },
+      {
+        "id": "remove_unit_removal",
+        "input": {
+          "bonus": 0.4,
+          "otherR": 2,
+          "reason": "unit_removal"
+        },
+        "expected": {
+          "RAfter": 2,
+          "oldTimerInvalidated": true
+        }
+      },
+      {
+        "id": "remove_only_cast_ability",
+        "input": {
+          "bonus": 0.4,
+          "expires": 5,
+          "removeN062At": 1
+        },
+        "expected": {
+          "bonusAt2": 0.4,
+          "expires": 5
+        }
+      },
+      {
+        "id": "already_buffed_eligible",
+        "input": {
+          "buffActive": true,
+          "manaEnough": true,
+          "cooldown": 0,
+          "manualOrAuto": "either"
+        },
+        "expected": {
+          "accepted": true,
+          "refreshesNotStacks": true
+        }
+      },
+      {
+        "id": "no_native_extra_crit",
+        "input": {
+          "N159": true,
+          "ordinaryRaw": 100
+        },
+        "expected": {
+          "nativeCritRolls": 0,
+          "ordinaryRawAfter": 100,
+          "nativeEvasionBonus": 0,
+          "nativeNeverMiss": false
+        }
+      },
+      {
+        "id": "missing_owner",
+        "input": {
+          "goldSnapshot": 1000,
+          "O": null,
+          "damageType": "DIVINE"
+        },
+        "expected": {
+          "N159QueryLevel": 0,
+          "score": 1000,
+          "repairOwner": false
+        }
+      },
+      {
+        "id": "attack_timing_n183",
+        "input": {
+          "C": 1.2,
+          "P": 0.5,
+          "B": 0.56,
+          "RBefore": 1,
+          "bonus": 0.2
+        },
+        "expected": {
+          "R": 1.2,
+          "interval": 1.0,
+          "windup": 0.4166666666666667,
+          "backswing": 0.46666666666666673
+        }
+      },
+      {
+        "id": "attack_timing_n184",
+        "input": {
+          "C": 1.1,
+          "P": 0.5,
+          "B": 0.56,
+          "RBefore": 1,
+          "bonus": 0.4
+        },
+        "expected": {
+          "R": 1.4,
+          "interval": 0.7857142857142858,
+          "windup": 0.35714285714285715,
+          "backswing": 0.4000000000000001
+        }
+      },
+      {
+        "id": "attack_timing_n185",
+        "input": {
+          "C": 1,
+          "P": 0.5,
+          "B": 0.56,
+          "RBefore": 1,
+          "bonus": 0.6
+        },
+        "expected": {
+          "R": 1.6,
+          "interval": 0.625,
+          "windup": 0.3125,
+          "backswing": 0.35000000000000003
+        }
+      }
+    ],
+    "method": "static bytecode/field/MPQ comparison, native-stub probes and local buff/timing arithmetic; not game/client execution",
+    "results": {
+      "status": "passed",
+      "fullHelperFunctions": 3,
+      "boundedCallerFragments": 2,
+      "instructionsChecked": 286,
+      "conditionsChecked": 22,
+      "callsChecked": 48,
+      "returnsChecked": 12,
+      "readyBytecodeProbes": 27,
+      "classifierBytecodeProbes": 10,
+      "autocastBytecodeProbes": 16,
+      "goldBytecodeProbes": 295,
+      "sourceCases": 29,
+      "webCases": 20,
+      "objects": 12,
+      "workbookRows": 51,
+      "N159WorkbookRows": 48,
+      "N159CarrierRows": 52,
+      "profiles": 5,
+      "localLinks": 20,
+      "mpqW3hCheck": "absent; three positive controls pass",
+      "sourceHashes": "match",
+      "limit": "local native stubs/transition model, not game or Warcraft execution"
+    }
+  },
+  "completionBoundary": [
+    "Full readiness and two damage classifiers; only indicated Skill_Auto and anyUnitDamaged fragments rechecked, not a claim to re-audit entire callers",
+    "Native instant acceptance/refresh/dispel and missing fields are local Q24 choices",
+    "N159 shared marker/carrier index does not audit other skills of all carriers",
+    "No changes to Q37/T039 rules, parent docs or source snapshots"
+  ]
+}

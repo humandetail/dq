@@ -1,0 +1,1066 @@
+[
+  {
+    "id": "A195",
+    "status": "ready",
+    "rules": {
+      "range": 800,
+      "period": 0.1,
+      "launches": 30,
+      "missileSpeed": 900,
+      "damage": [
+        200,
+        300,
+        400,
+        500,
+        600,
+        700
+      ],
+      "mana": [
+        25,
+        30,
+        35,
+        40,
+        45,
+        50
+      ],
+      "cooldown": 8,
+      "pick": "uniform, with replacement, eligible each launch"
+    },
+    "sourceRefs": {
+      "workbookRowsOnBoth": [
+        517,
+        522
+      ],
+      "units": [
+        "G080",
+        "H051"
+      ],
+      "objectIndex": 984,
+      "tipLine": 2837,
+      "auxiliary": [
+        "T216"
+      ],
+      "auxiliaryTipLines": {
+        "T216": 21989
+      },
+      "modules": [
+        [
+          "main/f140",
+          101115,
+          101135
+        ],
+        [
+          "main/f140/f0",
+          101136,
+          101176
+        ],
+        [
+          "main/f140/f1",
+          101177,
+          101243
+        ]
+      ],
+      "entryPoints": [
+        [
+          "main/f291/f14",
+          1229,
+          171346
+        ],
+        [
+          "main/f291/f27",
+          3054,
+          177341
+        ]
+      ],
+      "disasmSha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+    },
+    "differences": [
+      "T216 remains mounted in source for 3.1; guide commits 30 emissions over 3 seconds."
+    ],
+    "unresolved": [],
+    "validation": {
+      "sourceVM": {
+        "sourceMarkerStillPresentAt3ThenRemovedAt31Tenth": true
+      },
+      "webVector": {
+        "launches": 30,
+        "lastLaunch": 3
+      },
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A198",
+    "status": "ready",
+    "rules": {
+      "range": 1000,
+      "cooldown": 15,
+      "mana": 0,
+      "factors": [
+        0.04,
+        0.06,
+        0.08,
+        0.1,
+        0.12,
+        0.14
+      ],
+      "minimumRequest": 200,
+      "maximumRequest": 3000,
+      "denominator": "target max life before q025 kill request"
+    },
+    "sourceRefs": {
+      "workbookRowsOnBoth": [
+        265,
+        280
+      ],
+      "units": [
+        "G076",
+        "H052"
+      ],
+      "objectIndex": 987,
+      "tipLine": 2887,
+      "auxiliary": [
+        "q025"
+      ],
+      "auxiliaryTipLines": {},
+      "modules": [
+        [
+          "main/f143",
+          102135,
+          102151
+        ],
+        [
+          "main/f143/f0",
+          102152,
+          102272
+        ]
+      ],
+      "entryPoints": [
+        [
+          "main/f291/f14",
+          1260,
+          171380
+        ],
+        [
+          "main/f291/f27",
+          3114,
+          177405
+        ]
+      ],
+      "disasmSha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+    },
+    "differences": [],
+    "unresolved": [],
+    "validation": {
+      "sourceVM": {
+        "sourceKillThenManaGainFor10000L2": 600
+      },
+      "webVector": null,
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A199",
+    "status": "ready",
+    "rules": {
+      "range": 1000,
+      "cooldown": 10,
+      "mana": [
+        90,
+        120,
+        150,
+        180,
+        210,
+        240
+      ],
+      "pulses": [
+        0,
+        1.5,
+        3,
+        4.5,
+        6
+      ],
+      "radius": 800,
+      "damageDelay": 0.2,
+      "intFactors": [
+        2,
+        4
+      ],
+      "baseDamage": [
+        300,
+        500,
+        900,
+        1200,
+        1500,
+        1800
+      ],
+      "slow": [
+        0.2,
+        2
+      ],
+      "q045Amount": "max(500,current event damage-current target move speed)"
+    },
+    "sourceRefs": {
+      "workbookRowsOnBoth": [
+        266,
+        281
+      ],
+      "units": [
+        "G076",
+        "H052"
+      ],
+      "objectIndex": 988,
+      "tipLine": 2905,
+      "auxiliary": [
+        "q045",
+        "T223",
+        "T224",
+        "B173"
+      ],
+      "auxiliaryTipLines": {
+        "T223": 22092,
+        "T224": 22109
+      },
+      "modules": [
+        [
+          "main/f144",
+          102273,
+          102298
+        ],
+        [
+          "main/f144/f0",
+          102299,
+          102528
+        ],
+        [
+          "main/f144/f1",
+          102529,
+          102558
+        ],
+        [
+          "main/f144/f2",
+          102559,
+          102605
+        ],
+        [
+          "main/f144/f3",
+          102606,
+          102681
+        ]
+      ],
+      "entryPoints": [
+        [
+          "main/f291/f14",
+          1270,
+          171391
+        ],
+        [
+          "main/f291/f27",
+          3144,
+          177437
+        ]
+      ],
+      "disasmSha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+    },
+    "differences": [
+      "Guide rank 2 fixed 500 instead of 600 from source and tooltip. The first immediate pulse is explicit source."
+    ],
+    "unresolved": [],
+    "validation": {
+      "sourceVM": {
+        "sourceFivePulsesAndGrade2Int100": 800
+      },
+      "webVector": null,
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A200",
+    "status": "ready",
+    "rules": {
+      "range": 750,
+      "cooldown": [
+        20,
+        19,
+        18,
+        17,
+        16,
+        15
+      ],
+      "mana": [
+        75,
+        120,
+        165,
+        210,
+        255,
+        300
+      ],
+      "maxImpacts": 10,
+      "nextRadius": 600,
+      "missileSpeed": 800,
+      "stunFirstOnly": 0.1,
+      "slow": [
+        0.3,
+        0.25,
+        2
+      ],
+      "damage": "rank*(INT+100), scepter x2 in 300 radius",
+      "revisit": "allowed except current target",
+      "overlap": "per cast identity"
+    },
+    "sourceRefs": {
+      "workbookRowsOnBoth": [
+        267,
+        282
+      ],
+      "units": [
+        "G076",
+        "H052"
+      ],
+      "objectIndex": 989,
+      "tipLine": 2921,
+      "auxiliary": [
+        "q046",
+        "T225",
+        "T226",
+        "B174"
+      ],
+      "auxiliaryTipLines": {
+        "T225": 22126,
+        "T226": 22143
+      },
+      "modules": [
+        [
+          "main/f145",
+          102682,
+          102707
+        ],
+        [
+          "main/f145/f0",
+          102708,
+          102760
+        ],
+        [
+          "main/f145/f1",
+          102761,
+          102776
+        ],
+        [
+          "main/f145/f2",
+          102777,
+          103037
+        ]
+      ],
+      "entryPoints": [
+        [
+          "main/f291/f1",
+          2374,
+          164997
+        ],
+        [
+          "main/f291/f14",
+          1281,
+          171403
+        ],
+        [
+          "main/f291/f27",
+          3173,
+          177469
+        ]
+      ],
+      "disasmSha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+    },
+    "differences": [
+      "Source T225 stuns every hop; guide preserves first only. Source UserData cursor is shared by cast."
+    ],
+    "unresolved": [],
+    "validation": {
+      "sourceVM": {
+        "sourceTenBoltTargets": [
+          500,
+          1000,
+          500,
+          1000,
+          500,
+          1000,
+          500,
+          1000,
+          500,
+          1000
+        ],
+        "sourceAmountWithoutStaffAtRank4Int100": 800
+      },
+      "webVector": {
+        "bouncePath": [
+          "A",
+          "B",
+          "A",
+          "B",
+          "A",
+          "B",
+          "A",
+          "B",
+          "A",
+          "B"
+        ],
+        "stunOccurrences": [
+          1
+        ]
+      },
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A201",
+    "status": "ready",
+    "rules": {
+      "range": 800,
+      "cooldown": [
+        15,
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "mana": [
+        50,
+        80,
+        110,
+        140,
+        170,
+        200
+      ],
+      "radii": [
+        400,
+        410,
+        420,
+        430,
+        440,
+        450
+      ],
+      "pullTicks": 25,
+      "period": 0.02,
+      "impact": 0.52,
+      "pullFormula": "p + (centre-p)*tick/60",
+      "damage": [
+        600,
+        800,
+        1000,
+        1200,
+        1400,
+        1600
+      ],
+      "auxStun": 0.5
+    },
+    "sourceRefs": {
+      "workbookRowsOnBoth": [
+        615
+      ],
+      "units": [
+        "H053"
+      ],
+      "objectIndex": 990,
+      "tipLine": 2935,
+      "auxiliary": [
+        "T228"
+      ],
+      "auxiliaryTipLines": {
+        "T228": 22160
+      },
+      "modules": [
+        [
+          "main/f146",
+          103038,
+          103061
+        ],
+        [
+          "main/f146/f0",
+          103062,
+          103092
+        ],
+        [
+          "main/f146/f1",
+          103093,
+          103158
+        ],
+        [
+          "main/f146/f2",
+          103159,
+          103241
+        ],
+        [
+          "main/f146/f3",
+          103242,
+          103439
+        ]
+      ],
+      "entryPoints": [
+        [
+          "main/f291/f14",
+          1292,
+          171415
+        ],
+        [
+          "main/f291/f27",
+          3203,
+          177501
+        ]
+      ],
+      "disasmSha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+    },
+    "differences": [],
+    "unresolved": [],
+    "validation": {
+      "sourceVM": {
+        "sourceFinalX": 0.6609030053259992,
+        "sourceFinalSpellAt19_62": 600
+      },
+      "webVector": {
+        "initial400FinalAfter25": 0.6609030053259991,
+        "damageAt": 0.52
+      },
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A202",
+    "status": "ready",
+    "rules": {
+      "range": 1000,
+      "cooldown": 10,
+      "mana": [
+        70,
+        90,
+        110,
+        130,
+        150,
+        170
+      ],
+      "radius": 600,
+      "duration": 10,
+      "period": 0.2,
+      "pulses": 50,
+      "stackKey": "target",
+      "dps": [
+        400,
+        600,
+        800,
+        1000,
+        1200,
+        1400
+      ],
+      "scepter": "add INT at effect commit"
+    },
+    "sourceRefs": {
+      "workbookRowsOnBoth": [
+        616
+      ],
+      "units": [
+        "H053"
+      ],
+      "objectIndex": 991,
+      "tipLine": 2954,
+      "auxiliary": [],
+      "auxiliaryTipLines": {},
+      "modules": [
+        [
+          "main/f147",
+          103440,
+          103468
+        ],
+        [
+          "main/f147/f0",
+          103469,
+          103521
+        ],
+        [
+          "main/f147/f1",
+          103522,
+          103548
+        ],
+        [
+          "main/f147/f2",
+          103549,
+          103608
+        ],
+        [
+          "main/f147/f3",
+          103609,
+          103759
+        ]
+      ],
+      "entryPoints": [
+        [
+          "main/f291/f14",
+          1303,
+          171427
+        ],
+        [
+          "main/f291/f27",
+          3830,
+          178170
+        ]
+      ],
+      "disasmSha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+    },
+    "differences": [
+      "Source ranks begin at 30 mana and a simultaneous early expiration drops the last of 50 periodic packets."
+    ],
+    "unresolved": [],
+    "validation": {
+      "sourceVM": {
+        "sourceB05StylePulseCount": 49
+      },
+      "webVector": {
+        "pulses": 50,
+        "lastPulse": 10
+      },
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A203",
+    "status": "ready",
+    "rules": {
+      "range": 800,
+      "mana": [
+        20,
+        50,
+        70,
+        90,
+        110,
+        130
+      ],
+      "cooldown": [
+        18,
+        16,
+        14,
+        12,
+        10,
+        8
+      ],
+      "radii": [
+        420,
+        440,
+        460,
+        480,
+        500,
+        520
+      ],
+      "cloneCap": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "cloneLifetime": 10,
+      "cloneOverdraftFreeMaxLifeFactor": 0.5,
+      "wavePopulationPortal": -1,
+      "nonMainlineSlow": [
+        0.4,
+        3,
+        2.5
+      ]
+    },
+    "sourceRefs": {
+      "workbookRowsOnBoth": [
+        617
+      ],
+      "units": [
+        "H053"
+      ],
+      "objectIndex": 992,
+      "tipLine": 2971,
+      "auxiliary": [
+        "BHwe",
+        "T259",
+        "B183"
+      ],
+      "auxiliaryTipLines": {
+        "T259": 22419
+      },
+      "modules": [
+        [
+          "main/f148",
+          103760,
+          103778
+        ],
+        [
+          "main/f148/f0",
+          103779,
+          103950
+        ],
+        [
+          "main/f148/f1",
+          103951,
+          104034
+        ],
+        [
+          "main/f148/f2",
+          104035,
+          104155
+        ]
+      ],
+      "entryPoints": [
+        [
+          "main/f291/f14",
+          1314,
+          171439
+        ],
+        [
+          "main/f291/f27",
+          3233,
+          177533
+        ]
+      ],
+      "disasmSha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+    },
+    "differences": [
+      "Source uses max life including overdraft divided by 3; guide uses half without the overdraft contribution."
+    ],
+    "unresolved": [],
+    "validation": {
+      "sourceVM": {
+        "sourceCloneFrom9000MaxLife": 3000,
+        "sourcePortalRegistration": -1
+      },
+      "webVector": {
+        "given1000Base200Overdraft100OtherIncreaseCloneLife": 550
+      },
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A204",
+    "status": "ready",
+    "rules": {
+      "cooldown": 10,
+      "mana": [
+        20,
+        30,
+        40,
+        50,
+        60,
+        70
+      ],
+      "period": 0.05,
+      "cycles": 2,
+      "ticksPerCycle": 46,
+      "maximumRadius": 1120,
+      "perTargetLegHits": 1,
+      "damageMultiplier": [
+        1,
+        1.4,
+        1.8,
+        2.2,
+        2.6,
+        3
+      ],
+      "scepterMultiplier": 5,
+      "conditionalItemAttack": [
+        "B210",
+        "T217"
+      ]
+    },
+    "sourceRefs": {
+      "workbookRowsOnBoth": [
+        575
+      ],
+      "units": [
+        "H054"
+      ],
+      "objectIndex": 993,
+      "tipLine": 2988,
+      "auxiliary": [
+        "B210",
+        "T217"
+      ],
+      "auxiliaryTipLines": {
+        "T217": 21999
+      },
+      "modules": [
+        [
+          "main/f149",
+          104156,
+          104190
+        ],
+        [
+          "main/f149/f0",
+          104191,
+          104222
+        ],
+        [
+          "main/f149/f1",
+          104223,
+          104442
+        ],
+        [
+          "main/f149/f2",
+          104443,
+          104580
+        ]
+      ],
+      "entryPoints": [
+        [
+          "main/f291/f14",
+          1325,
+          171451
+        ],
+        [
+          "main/f291/f27",
+          3263,
+          177565
+        ]
+      ],
+      "disasmSha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+    },
+    "differences": [
+      "Fixed four legs use one hit per actual target on each leg and a distinct runner per cast."
+    ],
+    "unresolved": [],
+    "validation": {
+      "sourceVM": {
+        "sourceTwoEligibleTargetsAcrossFourLegs": 8
+      },
+      "webVector": {
+        "hitsAt0_500_1120_1121": [
+          4,
+          4,
+          4,
+          0
+        ]
+      },
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A205",
+    "status": "ready",
+    "rules": {
+      "range": 850,
+      "cooldown": 12,
+      "mana": [
+        30,
+        40,
+        50,
+        60,
+        70,
+        80
+      ],
+      "area": 400,
+      "channel": 5,
+      "period": 1,
+      "channelTargetRanges": [
+        2000,
+        1000
+      ],
+      "appliedAttackLifetime": 13,
+      "attack": [
+        15,
+        18,
+        21,
+        24,
+        27,
+        30
+      ],
+      "endlessMultiplier": 2
+    },
+    "sourceRefs": {
+      "workbookRowsOnBoth": [
+        576
+      ],
+      "units": [
+        "H054"
+      ],
+      "objectIndex": 994,
+      "tipLine": 3004,
+      "auxiliary": [
+        "q050",
+        "T229"
+      ],
+      "auxiliaryTipLines": {
+        "T229": 22176
+      },
+      "modules": [
+        [
+          "main/f150",
+          104581,
+          104608
+        ],
+        [
+          "main/f150/f0",
+          104609,
+          104661
+        ],
+        [
+          "main/f150/f1",
+          104662,
+          104688
+        ],
+        [
+          "main/f150/f2",
+          104689,
+          104834
+        ],
+        [
+          "main/f150/f3",
+          104835,
+          104943
+        ]
+      ],
+      "entryPoints": [
+        [
+          "main/f291/f14",
+          1335,
+          171462
+        ],
+        [
+          "main/f291/f27",
+          3276,
+          177579
+        ]
+      ],
+      "disasmSha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+    },
+    "differences": [],
+    "unresolved": [],
+    "validation": {
+      "sourceVM": {
+        "sourceParentZeroesBothModes": [
+          0,
+          0
+        ],
+        "sourceAttackAfterTwoHitsAndExpiry": [
+          145,
+          100
+        ]
+      },
+      "webVector": {
+        "twoTargetsL1FivePulses": [
+          150,
+          300
+        ],
+        "expiration": 13
+      },
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A206",
+    "status": "ready",
+    "rules": {
+      "cooldown": 20,
+      "mana": [
+        40,
+        50,
+        60,
+        70,
+        80,
+        90
+      ],
+      "lifetime": 15,
+      "period": [
+        0.5,
+        0.3
+      ],
+      "weaponRange": 1000,
+      "projectileSpeed": 2000,
+      "radius": 250,
+      "damage": "S18+S19+300+100*rank",
+      "selectedTargetArmorDelta": -1,
+      "parentImpactEntryDamage": 11,
+      "parentFinalAppliedDamage": 0,
+      "conditionalMinimumFinishCooldown": 16
+    },
+    "sourceRefs": {
+      "workbookRowsOnBoth": [
+        577
+      ],
+      "units": [
+        "H054"
+      ],
+      "objectIndex": 995,
+      "tipLine": 3021,
+      "auxiliary": [
+        "q051",
+        "T044",
+        "B210"
+      ],
+      "auxiliaryTipLines": {
+        "T044": 19845
+      },
+      "modules": [
+        [
+          "main/f151",
+          104944,
+          104963
+        ],
+        [
+          "main/f151/f0",
+          104964,
+          105104
+        ],
+        [
+          "main/f151/f1",
+          105105,
+          105167
+        ]
+      ],
+      "entryPoints": [
+        [
+          "main/f291/f14",
+          1346,
+          171474
+        ],
+        [
+          "main/f291/f17",
+          98,
+          172638
+        ],
+        [
+          "main/f291/f17",
+          227,
+          172784
+        ],
+        [
+          "main/f291/f27",
+          3310,
+          177615
+        ]
+      ],
+      "disasmSha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+    },
+    "differences": [
+      "Source mother basic weapon raw damage is 11 and source armor reduction checks current armor>0; guide local rules omit both."
+    ],
+    "unresolved": [],
+    "validation": {
+      "sourceVM": {
+        "sourceTwoHitSelectedTarget1Ends0": true,
+        "sourceAreaAndItemOrder": [
+          [
+            250,
+            525
+          ],
+          "itemAction",
+          [
+            250,
+            525
+          ],
+          "itemAction"
+        ]
+      },
+      "webVector": {
+        "strikeOpportunityCounts": [
+          30,
+          50
+        ],
+        "armorAfterTwoHitsFrom1": -1
+      },
+      "originalClientTested": false
+    }
+  }
+]

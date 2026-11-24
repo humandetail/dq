@@ -12,6 +12,7 @@ export type PlayerAction =
   | { type: "buy"; item: keyof typeof shop }
   | { type: "craft"; recipe: keyof typeof recipes; materialIds: InstanceId[] }
   | { type: "equip"; itemId: InstanceId; towerId: InstanceId }
+  | { type: "overcharge"; towerId: InstanceId }
   | { type: "attack"; towerId: InstanceId; targetId: InstanceId }
   | { type: "enter-endless" }
   | { type: "restart" };

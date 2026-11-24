@@ -1,0 +1,255 @@
+{
+  "baselineId": "item-growth-batch-01",
+  "coverage": {
+    "itemsReady": 9,
+    "mountedAliases": 1,
+    "itemDescriptionsReconciled": 5,
+    "itemsRemainingInBatch": 0
+  },
+  "items": {
+    "i145": {
+      "workbookCell": "装备与道具!H55",
+      "name": "恐鳌之心",
+      "componentReady": true,
+      "alias": null,
+      "callbacks": [
+        "ItemUnitDeadAction"
+      ],
+      "state": "life",
+      "chargesPerKill": 2,
+      "maximumPerCharge": 4
+    },
+    "i147": {
+      "workbookCell": "装备与道具!H57",
+      "name": "掠夺者之斧",
+      "componentReady": true,
+      "alias": null,
+      "callbacks": [
+        "ItemUnitDeadAction"
+      ],
+      "state": "life",
+      "chargesPerKill": 1,
+      "maximumPerCharge": 4
+    },
+    "i218": {
+      "workbookCell": "装备与道具!H128",
+      "name": "振魂石",
+      "componentReady": true,
+      "alias": null,
+      "callbacks": [
+        "ItemUnitDeadAction"
+      ],
+      "state": "mana",
+      "chargesPerKill": 1,
+      "maximumPerCharge": 3
+    },
+    "i220": {
+      "workbookCell": "装备与道具!H130",
+      "name": "血精石",
+      "componentReady": true,
+      "alias": null,
+      "callbacks": [
+        "ItemUnitDeadAction"
+      ],
+      "state": "mana",
+      "chargesPerKill": 2,
+      "maximumPerCharge": 3
+    },
+    "i327": {
+      "workbookCell": "装备与道具!H220",
+      "name": "玲珑心",
+      "componentReady": true,
+      "alias": null,
+      "callbacks": [
+        "ItemUnitDeadAction"
+      ],
+      "state": "mana",
+      "chargesPerKill": 1,
+      "maximumPerCharge": 3,
+      "endcastCooldownFactor": 0.8
+    },
+    "i131": {
+      "workbookCell": "装备与道具!H41",
+      "name": "破损的妖刀村正",
+      "componentReady": true,
+      "alias": null,
+      "callbacks": [
+        "Item_Get",
+        "ItemUnitDeadAction"
+      ],
+      "upgradesTo": "i132",
+      "normalSouls": 1,
+      "mapBossSouls": 5,
+      "threshold": 1400,
+      "handler": "main/f237/f0"
+    },
+    "i133": {
+      "workbookCell": "装备与道具!H43",
+      "name": "破损的妖刀竹光",
+      "componentReady": true,
+      "alias": null,
+      "callbacks": [
+        "Item_Get",
+        "ItemUnitDeadAction"
+      ],
+      "upgradesTo": "i134",
+      "normalSouls": 1,
+      "mapBossSouls": 5,
+      "threshold": 1400,
+      "handler": "main/f239/f0"
+    },
+    "i262": {
+      "workbookCell": "装备与道具!H172",
+      "name": "破损的妖刀鬼切",
+      "componentReady": true,
+      "alias": null,
+      "callbacks": [
+        "Item_Get",
+        "ItemUnitDeadAction"
+      ],
+      "upgradesTo": "i263",
+      "normalSouls": 1,
+      "mapBossSouls": 5,
+      "threshold": 1400,
+      "handler": "main/f259/f0"
+    },
+    "i329": {
+      "workbookCell": "装备与道具!H222",
+      "name": "无尽魔石",
+      "componentReady": true,
+      "alias": "I259",
+      "callbacks": [
+        "Item_Get"
+      ],
+      "appliedSouls": 100,
+      "target": [
+        "i131",
+        "i133",
+        "i262"
+      ]
+    }
+  },
+  "verification": {
+    "normalKillBelowThreshold": [
+      [
+        "charge",
+        "old",
+        1399
+      ]
+    ],
+    "mapBossCompletesBlade": [
+      [
+        "remove",
+        "old"
+      ],
+      [
+        "create",
+        "i134",
+        10,
+        20
+      ],
+      [
+        "deliver",
+        "circle",
+        "perfect"
+      ],
+      [
+        "progress",
+        "player",
+        4,
+        1
+      ]
+    ],
+    "normalKillAtThreshold": [
+      [
+        "remove",
+        "old"
+      ],
+      [
+        "create",
+        "i263",
+        10,
+        20
+      ],
+      [
+        "deliver",
+        "circle",
+        "perfect"
+      ],
+      [
+        "progress",
+        "player",
+        4,
+        1
+      ]
+    ],
+    "stoneOnGroundBlade": [
+      [
+        "charge",
+        "old",
+        1400
+      ],
+      [
+        "remove",
+        "old"
+      ],
+      [
+        "create",
+        "i263",
+        30,
+        40
+      ],
+      [
+        "progress",
+        "player",
+        4,
+        1
+      ]
+    ],
+    "stoneOnOwnCarriedBlade": [
+      [
+        "charge",
+        "old",
+        1400
+      ],
+      [
+        "remove",
+        "old"
+      ],
+      [
+        "create",
+        "i132",
+        30,
+        40
+      ],
+      [
+        "deliver",
+        "worker",
+        "perfect"
+      ],
+      [
+        "progress",
+        "player",
+        4,
+        1
+      ]
+    ]
+  },
+  "sourceLines": {
+    "growthDispatch": 146001,
+    "stoneDispatch": 144220,
+    "stoneEffect": 134711,
+    "sourceKillDispatch": 168947,
+    "cdr": [
+      172578,
+      172695
+    ],
+    "mapBossPredicate": 52444
+  },
+  "reuse": [
+    "item-attributes",
+    "item-lifecycle",
+    "dragon-transformation",
+    "item-regeneration-batch-01"
+  ]
+}

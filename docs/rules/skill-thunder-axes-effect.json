@@ -1,0 +1,1423 @@
+{
+  "schemaVersion": 1,
+  "scope": "Complete N054_57_Action plus CreateEffAtLoc/Eff_time_end/AddArrAny/IsInTable helper bodies; bounded AOcr source fields and native fallback; existing Q36 entry and area-damage-v1/B03/B05 reused, no expansion to other tree-troll abilities or downstream damage callees.",
+  "source": {
+    "path": "reference/map-6.25/main.disasm",
+    "sha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+    "workbookPath": "图鉴.xlsx",
+    "workbookSha256": "457c8f7e37e19412a0dd072ce941e95604b0b8910860b9e1eb9883e6b82bb6af",
+    "stringsPath": "reference/map-6.25/units_campaignabilitystrings.txt",
+    "stringsSha256": "5240c99230cd441b4c376371a31a7987e65470feed736177473a206c55fbe8cc"
+  },
+  "coreFunction": {
+    "name": "N054_57_Action",
+    "function": "main/f176/f0",
+    "sourceLines": [
+      113162,
+      113290
+    ],
+    "counts": {
+      "instructions": 80,
+      "conditions": 7,
+      "calls": 13,
+      "returnInstructions": 2
+    },
+    "conditions": [
+      {
+        "pc": 12,
+        "line": 113213,
+        "raw": "lt 0 k3 r3",
+        "trueNextPC": 14,
+        "falseNextPC": 16,
+        "meaning": "N055 level>0: tier2; skip N056/N057 queries"
+      },
+      {
+        "pc": 22,
+        "line": 113224,
+        "raw": "lt 0 k3 r3",
+        "trueNextPC": 24,
+        "falseNextPC": 26,
+        "meaning": "N056 level>0: tier3; skip N057 query"
+      },
+      {
+        "pc": 32,
+        "line": 113235,
+        "raw": "lt 0 k3 r3",
+        "trueNextPC": 34,
+        "falseNextPC": 36,
+        "meaning": "N057 level>0: tier4; otherwise tier1"
+      },
+      {
+        "pc": 38,
+        "line": 113243,
+        "raw": "eq 0 k2 r2",
+        "trueNextPC": 40,
+        "falseNextPC": 42,
+        "meaning": "tier1 =>800"
+      },
+      {
+        "pc": 42,
+        "line": 113248,
+        "raw": "eq 0 k7 r2",
+        "trueNextPC": 44,
+        "falseNextPC": 46,
+        "meaning": "tier2 =>1200"
+      },
+      {
+        "pc": 46,
+        "line": 113253,
+        "raw": "eq 0 k9 r2",
+        "trueNextPC": 48,
+        "falseNextPC": 50,
+        "meaning": "tier3 =>1800"
+      },
+      {
+        "pc": 50,
+        "line": 113258,
+        "raw": "eq 0 k11 r2",
+        "trueNextPC": 52,
+        "falseNextPC": 54,
+        "meaning": "tier4 =>4000; otherwise return (unreachable with local tier assignment)"
+      }
+    ],
+    "returns": [
+      {
+        "pc": 54,
+        "line": 113263,
+        "raw": "return r0 1"
+      },
+      {
+        "pc": 80,
+        "line": 113290,
+        "raw": "return r0 1"
+      }
+    ]
+  },
+  "helperFunctions": [
+    {
+      "name": "CreateEffAtLoc",
+      "function": "main/f7/f25",
+      "sourceLines": [
+        51661,
+        51710
+      ],
+      "counts": {
+        "instructions": 27,
+        "conditions": 1,
+        "calls": 5,
+        "returnInstructions": 2
+      },
+      "conditions": [
+        {
+          "pc": 1,
+          "line": 51683,
+          "raw": "test r3 1",
+          "trueNextPC": 4,
+          "falseNextPC": 3,
+          "meaning": "scale argument truthy: preserve; otherwise default1"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 26,
+          "line": 51709,
+          "raw": "return r4 2"
+        },
+        {
+          "pc": 27,
+          "line": 51710,
+          "raw": "return r0 1"
+        }
+      ]
+    },
+    {
+      "name": "Eff_time_end",
+      "function": "main/f7/f26",
+      "sourceLines": [
+        51712,
+        51752
+      ],
+      "counts": {
+        "instructions": 21,
+        "conditions": 1,
+        "calls": 4,
+        "returnInstructions": 1
+      },
+      "conditions": [
+        {
+          "pc": 9,
+          "line": 51739,
+          "raw": "eq 1 k4 r2",
+          "trueNextPC": 14,
+          "falseNextPC": 11,
+          "meaning": "stored effect nil: skip DestroyEffect, still destroy timer and clear both slots"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 21,
+          "line": 51752,
+          "raw": "return r0 1"
+        }
+      ]
+    },
+    {
+      "name": "AddArrAny",
+      "function": "main/f7/f22",
+      "sourceLines": [
+        51546,
+        51568
+      ],
+      "counts": {
+        "instructions": 9,
+        "conditions": 1,
+        "calls": 0,
+        "returnInstructions": 2
+      },
+      "conditions": [
+        {
+          "pc": 3,
+          "line": 51561,
+          "raw": "eq 1 k1 r3",
+          "trueNextPC": 7,
+          "falseNextPC": 5,
+          "meaning": "current positive integer slot nil: insert and return; otherwise increment and repeat"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 8,
+          "line": 51567,
+          "raw": "return r2 2"
+        },
+        {
+          "pc": 9,
+          "line": 51568,
+          "raw": "return r0 1"
+        }
+      ]
+    },
+    {
+      "name": "IsInTable",
+      "function": "main/f7/f7",
+      "sourceLines": [
+        50776,
+        50810
+      ],
+      "counts": {
+        "instructions": 17,
+        "conditions": 2,
+        "calls": 1,
+        "returnInstructions": 4
+      },
+      "conditions": [
+        {
+          "pc": 1,
+          "line": 50791,
+          "raw": "eq 0 k0 r0",
+          "trueNextPC": 3,
+          "falseNextPC": 5,
+          "meaning": "search object nil: return-1"
+        },
+        {
+          "pc": 10,
+          "line": 50802,
+          "raw": "eq 0 r7 r0",
+          "trueNextPC": 12,
+          "falseNextPC": 13,
+          "meaning": "value at current pairs index equals search object: return index"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 4,
+          "line": 50794,
+          "raw": "return r2 2"
+        },
+        {
+          "pc": 12,
+          "line": 50804,
+          "raw": "return r5 2"
+        },
+        {
+          "pc": 16,
+          "line": 50809,
+          "raw": "return r2 2"
+        },
+        {
+          "pc": 17,
+          "line": 50810,
+          "raw": "return r0 1"
+        }
+      ]
+    }
+  ],
+  "helperCounts": {
+    "instructions": 74,
+    "conditions": 5,
+    "calls": 10,
+    "returnInstructions": 9
+  },
+  "workbook": [
+    {
+      "row": 726,
+      "towerName": "树魔狂战士Lv3<R>",
+      "towerId": "n179",
+      "abilityIdCell": "塔技能!F726",
+      "abilityId": "N054",
+      "abilityLevelCell": "塔技能!G726",
+      "abilityLevel": 1,
+      "descriptionCell": "塔技能!H726",
+      "description": "树魔狂战士攻击敌人时有15%概率产生重击对500范围的敌人造成800点物理伤害。"
+    },
+    {
+      "row": 729,
+      "towerName": "树魔狂战士Lv4<R>",
+      "towerId": "n180",
+      "abilityIdCell": "塔技能!F729",
+      "abilityId": "N055",
+      "abilityLevelCell": "塔技能!G729",
+      "abilityLevel": 1,
+      "descriptionCell": "塔技能!H729",
+      "description": "树魔狂战士攻击敌人时有15%概率产生重击对500范围的敌人造成1200点物理伤害。"
+    },
+    {
+      "row": 732,
+      "towerName": "树魔狂战士Lv5<R>",
+      "towerId": "n181",
+      "abilityIdCell": "塔技能!F732",
+      "abilityId": "N056",
+      "abilityLevelCell": "塔技能!G732",
+      "abilityLevel": 1,
+      "descriptionCell": "塔技能!H732",
+      "description": "树魔狂战士攻击敌人时有15%概率产生重击对500范围的敌人造成1800点物理伤害。"
+    },
+    {
+      "row": 735,
+      "towerName": "树魔狂战士Max<R>",
+      "towerId": "n182",
+      "abilityIdCell": "塔技能!F735",
+      "abilityId": "N057",
+      "abilityLevelCell": "塔技能!G735",
+      "abilityLevel": 1,
+      "descriptionCell": "塔技能!H735",
+      "description": "树魔狂战士攻击敌人时有15%概率产生重击对500范围的敌人造成4000点物理伤害。"
+    }
+  ],
+  "actualTooltips": [
+    {
+      "abilityId": "N054",
+      "line": 13630,
+      "text": "Ubertip=树魔狂战士攻击敌人时有15%概率产生重击对500范围的敌人造成800点物理伤害。"
+    },
+    {
+      "abilityId": "N055",
+      "line": 13642,
+      "text": "Ubertip=树魔狂战士攻击敌人时有15%概率产生重击对500范围的敌人造成1200点物理伤害。"
+    },
+    {
+      "abilityId": "N056",
+      "line": 13654,
+      "text": "Ubertip=树魔狂战士攻击敌人时有15%概率产生重击对500范围的敌人造成1800点物理伤害。"
+    },
+    {
+      "abilityId": "N057",
+      "line": 13666,
+      "text": "Ubertip=树魔狂战士攻击敌人时有15%概率产生重击对500范围的敌人造成4000点物理伤害。"
+    }
+  ],
+  "objectData": {
+    "AOcr": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 7885,
+      "fields": {
+        "alias": "AOcr",
+        "code": "AOcr",
+        "checkDep": 1,
+        "DataA1": 15.0,
+        "DataA2": 15.0,
+        "DataA3": 15.0,
+        "DataB1": 2.0,
+        "DataB2": 3.0,
+        "DataB3": 4.0,
+        "levels": 3,
+        "reqLevel": 1,
+        "targs1": "air,ground,enemy,neutral",
+        "targs2": "air,ground,enemy,neutral",
+        "targs3": "air,ground,enemy,neutral",
+        "targs4": "_"
+      }
+    },
+    "N054": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 24910,
+      "fields": {
+        "alias": "N054",
+        "code": "AOcr",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "air,ground,enemy,neutral",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "N055": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 24921,
+      "fields": {
+        "alias": "N055",
+        "code": "AOcr",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "air,ground,enemy,neutral",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "N056": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 24932,
+      "fields": {
+        "alias": "N056",
+        "code": "AOcr",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "air,ground,enemy,neutral",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "N057": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 24943,
+      "fields": {
+        "alias": "N057",
+        "code": "AOcr",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "air,ground,enemy,neutral",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "n179": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 6115,
+      "fields": {
+        "unitAbilID": "n179",
+        "abilList": "Avul,T033,T035,N050,N054,N159",
+        "auto": "_"
+      }
+    },
+    "n180": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 6120,
+      "fields": {
+        "unitAbilID": "n180",
+        "abilList": "Avul,T033,T035,N051,N055,N159",
+        "auto": "_"
+      }
+    },
+    "n181": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 6125,
+      "fields": {
+        "unitAbilID": "n181",
+        "abilList": "Avul,T033,T035,N052,N056,N159",
+        "auto": "_"
+      }
+    },
+    "n182": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 6130,
+      "fields": {
+        "unitAbilID": "n182",
+        "abilList": "Avul,T033,T035,N053,N057,N159",
+        "auto": "_"
+      }
+    }
+  },
+  "rawSlkRows": [
+    {
+      "abilityId": "N054",
+      "row": 1364,
+      "lines": [
+        22273,
+        22281
+      ],
+      "missingFields": [
+        "DataA1",
+        "DataB1",
+        "DataC1",
+        "DataD1",
+        "DataE1"
+      ]
+    },
+    {
+      "abilityId": "N055",
+      "row": 1365,
+      "lines": [
+        22282,
+        22290
+      ],
+      "missingFields": [
+        "DataA1",
+        "DataB1",
+        "DataC1",
+        "DataD1",
+        "DataE1"
+      ]
+    },
+    {
+      "abilityId": "N056",
+      "row": 1366,
+      "lines": [
+        22291,
+        22299
+      ],
+      "missingFields": [
+        "DataA1",
+        "DataB1",
+        "DataC1",
+        "DataD1",
+        "DataE1"
+      ]
+    },
+    {
+      "abilityId": "N057",
+      "row": 1367,
+      "lines": [
+        22300,
+        22308
+      ],
+      "missingFields": [
+        "DataA1",
+        "DataB1",
+        "DataC1",
+        "DataD1",
+        "DataE1"
+      ]
+    }
+  ],
+  "objectOverrides": {
+    "w3aEntriesForTheseFourIds": [],
+    "w3uEntriesForTheseFourTowers": [],
+    "searched": [
+      "reference/map-6.25/war3map.w3a.json",
+      "reference/map-6.25/war3map.w3u.json"
+    ],
+    "qualification": "missing SLK field is not automatically a proven nativezero"
+  },
+  "entryReference": {
+    "path": "docs/rules/skill-thunder-axes-proc.md",
+    "bytecodeFunction": "main/f291/f1",
+    "pcs": [
+      1761,
+      1803
+    ],
+    "lines": [
+      164351,
+      164394
+    ],
+    "Q36": {
+      "status": "confirmed",
+      "probability": 0.15,
+      "scope": "single script probability only; original entry timing and filters retained"
+    },
+    "source": "actual damage source S, not attributed owner O",
+    "parentResumePC": 1804
+  },
+  "originalRules": {
+    "inputs": [
+      "S=GetEventDamageSource()",
+      "T=GetTriggerUnit()"
+    ],
+    "tier": {
+      "queries": [
+        "N055",
+        "N056",
+        "N057"
+      ],
+      "condition": "first ability with level>0 wins",
+      "mapping": {
+        "N055": 2,
+        "N056": 3,
+        "N057": 4
+      },
+      "default": 1,
+      "N054CheckInsideHelper": false,
+      "rawByTier": [
+        800,
+        1200,
+        1800,
+        4000
+      ],
+      "skillLevelMultipliesDamage": false,
+      "invalidTierReturnPC": 54,
+      "invalidTierReachableFromLocalAssignments": false
+    },
+    "area": {
+      "source": "S actual source",
+      "center": "T current x/y read immediately before native call",
+      "radius": 500,
+      "delay": 0,
+      "raw": "amount selected once from tier",
+      "attack": false,
+      "ranged": false,
+      "attackType": "MELEE",
+      "damageType": "NORMAL",
+      "weapon": "WHOKNOWS",
+      "callPC": 71,
+      "callLine": 113281,
+      "returnValueUsed": false,
+      "doesNotExcludePrimary": true,
+      "localEnemyEnumeration": false
+    },
+    "parentDamage": {
+      "readByThisFunction": false,
+      "writtenByThisFunction": false,
+      "originalAttackCancelled": false,
+      "originalAttackMultipliedByThisFunction": false,
+      "qualification": "this helper preserves parent event value; other main-pipeline callbacks can still modify final result"
+    },
+    "noLocalChecksOrModifiers": [
+      "mode",
+      "A-scepter",
+      "hero/unit identity",
+      "strength/agility/intelligence",
+      "attack damage",
+      "target life",
+      "target enemy relation",
+      "TxShow",
+      "extra chance roll",
+      "own cooldown",
+      "mana",
+      "elapsed time"
+    ],
+    "visual": {
+      "after": "UnitDamagePoint returns",
+      "model": "Abilities\\Spells\\Human\\Thunderclap\\ThunderClapCaster.mdl",
+      "location": "GetUnitLoc(T) reread after area children; may differ from area center",
+      "lifetimeSeconds": 0.8,
+      "scale": 1.4,
+      "TxShowGate": false,
+      "nativeSpellCast": false,
+      "controlApplications": 0,
+      "damageTimer": false,
+      "createSequence": [
+        "AddSpecialEffectLoc",
+        "CreateTimer",
+        "TimerStart(timer,.8,false,Eff_time_end)",
+        "first free positive slot in Timer_Eff_All stores timer",
+        "Eff_ALL[same index]=effect",
+        "EXSetEffectSize(effect,1.4)"
+      ],
+      "cleanup": [
+        "expired=GetExpiredTimer()",
+        "i=IsInTable(expired,Timer_Eff_All)",
+        "effect=Eff_ALL[i]",
+        "if effect!=nil:DestroyEffect(effect)",
+        "DestroyTimer(expired)",
+        "Timer_Eff_All[i]=nil",
+        "Eff_ALL[i]=nil"
+      ],
+      "cleanupMissingIndex": "i=-1 not separately guarded; still clear index-1 slots",
+      "statOrControlRestoration": null
+    },
+    "controlConclusion": "no stun, slow, knockback, pause, buff or native Thunderclap cast in effect or its visual helpers; names/model alone do not create control",
+    "recursion": "area child attack=false; same anyUnitDamaged branch fails attack gate before Q36 draw, while other eligible downstream branches still operate"
+  },
+  "primaryEvidence": [
+    {
+      "url": "https://classic.battle.net/war3/orc/units/blademaster.shtml",
+      "supports": "stock Critical Strike is passive attack damage amplification; cannot transfer stock values to custom alias or establish omitted-field behavior"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/Units/AbilityMetaData.slk#L1730",
+      "fields": [
+        {
+          "id": "Ocr1",
+          "field": "Data",
+          "data": 1,
+          "type": "unreal",
+          "display": "Chance to Critical Strike",
+          "labelLine": 5889
+        },
+        {
+          "id": "Ocr2",
+          "field": "Data",
+          "data": 2,
+          "type": "unreal",
+          "display": "Damage Multiplier",
+          "labelLine": 5890
+        },
+        {
+          "id": "Ocr3",
+          "field": "Data",
+          "data": 3,
+          "type": "unreal",
+          "display": "Damage Bonus",
+          "labelLine": 5891
+        },
+        {
+          "id": "Ocr4",
+          "field": "Data",
+          "data": 4,
+          "type": "unreal",
+          "display": "Chance to Evade",
+          "labelLine": 5892
+        },
+        {
+          "id": "Ocr5",
+          "field": "Data",
+          "data": 5,
+          "type": "bool",
+          "display": "Never Miss",
+          "labelLine": 8118
+        }
+      ],
+      "supports": "Ocr1..Ocr5 map to critical chance/multiplier/bonus/evasion/never miss"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/UI/WorldEditStrings.txt#L5889",
+      "supports": "display label mapping; Ocr5 at8118"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/plugin/w3x2lni/script/core/slk/frontend_slk.lua#L19",
+      "supports": "numeric nil ->0/0.0; code metadata lookup reads custom slk[name] row, not an explicit merge of the stock AOcr row",
+      "lines": [
+        19,
+        32,
+        47,
+        70
+      ],
+      "limit": "editor converter, not actual Warcraft client execution"
+    }
+  ],
+  "nativeTemplateAudit": {
+    "sameMapAOcr": {
+      "chanceByLevel": [
+        15,
+        15,
+        15
+      ],
+      "multiplierByLevel": [
+        2,
+        3,
+        4
+      ]
+    },
+    "customFourIds": {
+      "levels": 1,
+      "DataAtoE": "all absent; explicit codeAOcr and targetstring only relevant native data",
+      "w3aOverrides": false
+    },
+    "learningTooltip": "stock critical15%,2/3/4 text remains; actual Ubertip and workbook describe500radius800/1200/1800/4000",
+    "runtimeDataInheritanceProven": false
+  },
+  "decisions": {
+    "Q36": {
+      "status": "confirmed",
+      "probability": 0.15,
+      "managedBy": "skill-thunder-axes-proc.md/json; unchanged here"
+    },
+    "Q24": {
+      "version": "thunder-axes-native-v1",
+      "scope": "only N054/N055/N056/N057 native template behavior",
+      "nativeCriticalChance": 0,
+      "nativeBonusDamage": 0,
+      "nativeEvasionChance": 0,
+      "nativeNeverMiss": false,
+      "nativeCriticalRolls": 0,
+      "nativeDamageMultiplierRule": "no additional multiplier; missing/normalized0 does not zero ordinary damage",
+      "nativeBashOrSlow": false,
+      "sameAttackOtherAbilities": "preserve their own rules; this is not whole-unit immunity to crit/other procs",
+      "reason": "tool numeric normalization plus custom explicit row omission and accurate description; chosen Web behavior, not verified client behavior"
+    },
+    "range": "reuse area-damage-v1 unchanged for this additional call; MELEE/NORMAL preserved",
+    "timing": "area delay0 synchronous under area-damage-v1/B03; only visual expiry uses B05 timer",
+    "conflicts": "no new proven workbook conflict beyond already decided Q36"
+  },
+  "completionBoundary": [
+    "All local effect branches and required visual callback checked, including unreachable defensive tier return",
+    "Actual Warcraft AOcr absent-field resolution still unverified; Q24 local decision closes Web behavior",
+    "Other abilities on n179..n182, all equipment/monster descendants, native general critical stacking and global identity lifecycle outside scope",
+    "No game/client runtime execution; vector checks and stubbed bytecode probes only"
+  ],
+  "validation": {
+    "sourceVectors": [
+      {
+        "id": "ability_mask_0",
+        "input": {
+          "abilities": [],
+          "directHelperCall": true
+        },
+        "expected": {
+          "rawAreaDamage": 800,
+          "qualification": "mask0 probes direct helper only; outer entry would not call it",
+          "damageCalls": 1,
+          "radius": 500,
+          "delay": 0,
+          "parentEventWrites": 0
+        }
+      },
+      {
+        "id": "ability_mask_1",
+        "input": {
+          "abilities": [
+            "N054"
+          ],
+          "directHelperCall": true
+        },
+        "expected": {
+          "rawAreaDamage": 800,
+          "qualification": "mask0 probes direct helper only; outer entry would not call it",
+          "damageCalls": 1,
+          "radius": 500,
+          "delay": 0,
+          "parentEventWrites": 0
+        }
+      },
+      {
+        "id": "ability_mask_2",
+        "input": {
+          "abilities": [
+            "N055"
+          ],
+          "directHelperCall": true
+        },
+        "expected": {
+          "rawAreaDamage": 1200,
+          "qualification": "mask0 probes direct helper only; outer entry would not call it",
+          "damageCalls": 1,
+          "radius": 500,
+          "delay": 0,
+          "parentEventWrites": 0
+        }
+      },
+      {
+        "id": "ability_mask_3",
+        "input": {
+          "abilities": [
+            "N054",
+            "N055"
+          ],
+          "directHelperCall": true
+        },
+        "expected": {
+          "rawAreaDamage": 1200,
+          "qualification": "mask0 probes direct helper only; outer entry would not call it",
+          "damageCalls": 1,
+          "radius": 500,
+          "delay": 0,
+          "parentEventWrites": 0
+        }
+      },
+      {
+        "id": "ability_mask_4",
+        "input": {
+          "abilities": [
+            "N056"
+          ],
+          "directHelperCall": true
+        },
+        "expected": {
+          "rawAreaDamage": 1800,
+          "qualification": "mask0 probes direct helper only; outer entry would not call it",
+          "damageCalls": 1,
+          "radius": 500,
+          "delay": 0,
+          "parentEventWrites": 0
+        }
+      },
+      {
+        "id": "ability_mask_5",
+        "input": {
+          "abilities": [
+            "N054",
+            "N056"
+          ],
+          "directHelperCall": true
+        },
+        "expected": {
+          "rawAreaDamage": 1800,
+          "qualification": "mask0 probes direct helper only; outer entry would not call it",
+          "damageCalls": 1,
+          "radius": 500,
+          "delay": 0,
+          "parentEventWrites": 0
+        }
+      },
+      {
+        "id": "ability_mask_6",
+        "input": {
+          "abilities": [
+            "N055",
+            "N056"
+          ],
+          "directHelperCall": true
+        },
+        "expected": {
+          "rawAreaDamage": 1200,
+          "qualification": "mask0 probes direct helper only; outer entry would not call it",
+          "damageCalls": 1,
+          "radius": 500,
+          "delay": 0,
+          "parentEventWrites": 0
+        }
+      },
+      {
+        "id": "ability_mask_7",
+        "input": {
+          "abilities": [
+            "N054",
+            "N055",
+            "N056"
+          ],
+          "directHelperCall": true
+        },
+        "expected": {
+          "rawAreaDamage": 1200,
+          "qualification": "mask0 probes direct helper only; outer entry would not call it",
+          "damageCalls": 1,
+          "radius": 500,
+          "delay": 0,
+          "parentEventWrites": 0
+        }
+      },
+      {
+        "id": "ability_mask_8",
+        "input": {
+          "abilities": [
+            "N057"
+          ],
+          "directHelperCall": true
+        },
+        "expected": {
+          "rawAreaDamage": 4000,
+          "qualification": "mask0 probes direct helper only; outer entry would not call it",
+          "damageCalls": 1,
+          "radius": 500,
+          "delay": 0,
+          "parentEventWrites": 0
+        }
+      },
+      {
+        "id": "ability_mask_9",
+        "input": {
+          "abilities": [
+            "N054",
+            "N057"
+          ],
+          "directHelperCall": true
+        },
+        "expected": {
+          "rawAreaDamage": 4000,
+          "qualification": "mask0 probes direct helper only; outer entry would not call it",
+          "damageCalls": 1,
+          "radius": 500,
+          "delay": 0,
+          "parentEventWrites": 0
+        }
+      },
+      {
+        "id": "ability_mask_10",
+        "input": {
+          "abilities": [
+            "N055",
+            "N057"
+          ],
+          "directHelperCall": true
+        },
+        "expected": {
+          "rawAreaDamage": 1200,
+          "qualification": "mask0 probes direct helper only; outer entry would not call it",
+          "damageCalls": 1,
+          "radius": 500,
+          "delay": 0,
+          "parentEventWrites": 0
+        }
+      },
+      {
+        "id": "ability_mask_11",
+        "input": {
+          "abilities": [
+            "N054",
+            "N055",
+            "N057"
+          ],
+          "directHelperCall": true
+        },
+        "expected": {
+          "rawAreaDamage": 1200,
+          "qualification": "mask0 probes direct helper only; outer entry would not call it",
+          "damageCalls": 1,
+          "radius": 500,
+          "delay": 0,
+          "parentEventWrites": 0
+        }
+      },
+      {
+        "id": "ability_mask_12",
+        "input": {
+          "abilities": [
+            "N056",
+            "N057"
+          ],
+          "directHelperCall": true
+        },
+        "expected": {
+          "rawAreaDamage": 1800,
+          "qualification": "mask0 probes direct helper only; outer entry would not call it",
+          "damageCalls": 1,
+          "radius": 500,
+          "delay": 0,
+          "parentEventWrites": 0
+        }
+      },
+      {
+        "id": "ability_mask_13",
+        "input": {
+          "abilities": [
+            "N054",
+            "N056",
+            "N057"
+          ],
+          "directHelperCall": true
+        },
+        "expected": {
+          "rawAreaDamage": 1800,
+          "qualification": "mask0 probes direct helper only; outer entry would not call it",
+          "damageCalls": 1,
+          "radius": 500,
+          "delay": 0,
+          "parentEventWrites": 0
+        }
+      },
+      {
+        "id": "ability_mask_14",
+        "input": {
+          "abilities": [
+            "N055",
+            "N056",
+            "N057"
+          ],
+          "directHelperCall": true
+        },
+        "expected": {
+          "rawAreaDamage": 1200,
+          "qualification": "mask0 probes direct helper only; outer entry would not call it",
+          "damageCalls": 1,
+          "radius": 500,
+          "delay": 0,
+          "parentEventWrites": 0
+        }
+      },
+      {
+        "id": "ability_mask_15",
+        "input": {
+          "abilities": [
+            "N054",
+            "N055",
+            "N056",
+            "N057"
+          ],
+          "directHelperCall": true
+        },
+        "expected": {
+          "rawAreaDamage": 1200,
+          "qualification": "mask0 probes direct helper only; outer entry would not call it",
+          "damageCalls": 1,
+          "radius": 500,
+          "delay": 0,
+          "parentEventWrites": 0
+        }
+      },
+      {
+        "id": "ability_level_not_multiplier",
+        "input": {
+          "abilities": {
+            "N054": 6,
+            "N057": 7
+          }
+        },
+        "expected": {
+          "tier": 4,
+          "rawAreaDamage": 4000
+        }
+      },
+      {
+        "id": "center_target",
+        "input": {
+          "sourcePosition": [
+            1000,
+            1000
+          ],
+          "targetPosition": [
+            10,
+            20
+          ]
+        },
+        "expected": {
+          "areaCenter": [
+            10,
+            20
+          ],
+          "effectInitialCenter": [
+            10,
+            20
+          ]
+        }
+      },
+      {
+        "id": "target_moves_in_child",
+        "input": {
+          "targetPositionAtAreaCall": [
+            10,
+            20
+          ],
+          "targetPositionAfterAreaChildren": [
+            30,
+            40
+          ]
+        },
+        "expected": {
+          "areaCenter": [
+            10,
+            20
+          ],
+          "effectCenter": [
+            30,
+            40
+          ],
+          "reason": "GetUnitLoc(target) evaluated after synchronous range call returns under area-damage-v1"
+        }
+      },
+      {
+        "id": "no_local_mode_scepter_attack_scaling",
+        "input": {
+          "mode": 2,
+          "Has_A_Item": true,
+          "attackMean": 99999,
+          "abilities": [
+            "N056"
+          ]
+        },
+        "expected": {
+          "rawAreaDamage": 1800,
+          "extraModeOrScepterQueries": 0
+        }
+      },
+      {
+        "id": "visual_off_flag",
+        "input": {
+          "TxShow": false,
+          "abilities": [
+            "N054"
+          ]
+        },
+        "expected": {
+          "damageCalls": 1,
+          "visualRequests": 1,
+          "TxShowRead": false
+        }
+      },
+      {
+        "id": "native_area_return_ignored",
+        "input": {
+          "UnitDamagePointReturn": false
+        },
+        "expected": {
+          "visualRequests": 1,
+          "extraEarlyReturn": false
+        }
+      },
+      {
+        "id": "no_control_calls",
+        "input": {
+          "triggered": true
+        },
+        "expected": {
+          "nativeControlCalls": 0,
+          "buffApplications": 0,
+          "timedControlCallbacks": 0,
+          "visualLifetimeSeconds": 0.8,
+          "visualScale": 1.4
+        }
+      },
+      {
+        "id": "cleanup_effect_present",
+        "input": {
+          "expiredTimerFoundIndex": 3,
+          "effectAtIndex": "E"
+        },
+        "expected": {
+          "destroyEffect": "E",
+          "destroyExpiredTimer": true,
+          "clearBothSlotsAt": 3
+        }
+      },
+      {
+        "id": "cleanup_effect_nil",
+        "input": {
+          "expiredTimerFoundIndex": 3,
+          "effectAtIndex": null
+        },
+        "expected": {
+          "destroyEffect": null,
+          "destroyExpiredTimer": true,
+          "clearBothSlotsAt": 3
+        }
+      },
+      {
+        "id": "cleanup_timer_missing",
+        "input": {
+          "expiredTimerFoundIndex": -1,
+          "effectAtIndexMinus1": null
+        },
+        "expected": {
+          "destroyEffect": null,
+          "destroyExpiredTimer": true,
+          "clearBothSlotsAt": -1,
+          "qualification": "no index!=-1 guard in callback"
+        }
+      },
+      {
+        "id": "first_free_slot",
+        "input": {
+          "Timer_Eff_All": {
+            "1": "T1",
+            "3": "T3"
+          }
+        },
+        "expected": {
+          "newTimerIndex": 2,
+          "newEffectIndex": 2
+        }
+      }
+    ],
+    "webVectors": [
+      {
+        "id": "physical_child_no_self_proc",
+        "input": {
+          "childAttackFlag": 0,
+          "otherwiseEligible": true
+        },
+        "expected": {
+          "Q36DrawsFromChildAtThisBranch": 0,
+          "recursiveThunderAxesCalls": 0
+        }
+      },
+      {
+        "id": "parent_retained",
+        "input": {
+          "parentEventCurrentDamage": 100,
+          "areaRawDamage": 800,
+          "allMitigationMultipliers": 1,
+          "targetLife": 10000,
+          "noOtherEffects": true
+        },
+        "expected": {
+          "parentAfterHelper": 100,
+          "areaChildDamage": 800,
+          "sumAppliedIfParentLaterUnchanged": 900,
+          "directParentSetDamageCalls": 0
+        }
+      },
+      {
+        "id": "boundary500",
+        "input": {
+          "targetCenter": [
+            0,
+            0
+          ],
+          "candidate": [
+            300,
+            400
+          ]
+        },
+        "expected": {
+          "inArea": true
+        }
+      },
+      {
+        "id": "outside500",
+        "input": {
+          "targetCenter": [
+            0,
+            0
+          ],
+          "candidate": [
+            500.001,
+            0
+          ],
+          "collisionRadius": 128
+        },
+        "expected": {
+          "inArea": false
+        }
+      },
+      {
+        "id": "primary_included",
+        "input": {
+          "primaryAlive": true,
+          "enemy": true,
+          "immune": false,
+          "primaryAtCircleCenter": true
+        },
+        "expected": {
+          "areaIncludesPrimary": true
+        }
+      },
+      {
+        "id": "primary_already_dead",
+        "input": {
+          "primaryAlive": false,
+          "nearbyEligibleEnemies": 2
+        },
+        "expected": {
+          "areaCanStillSubmitToNeighbors": 2,
+          "primaryExcluded": true,
+          "functionOwnDeadTargetEarlyReturn": false
+        }
+      },
+      {
+        "id": "magic_immune_normal",
+        "input": {
+          "candidateMagicImmune": true,
+          "candidateInvulnerable": false,
+          "otherwiseEligible": true
+        },
+        "expected": {
+          "childSubmitted": true,
+          "damageType": "NORMAL"
+        }
+      },
+      {
+        "id": "invulnerable",
+        "input": {
+          "candidateInvulnerable": true,
+          "otherwiseEligible": true
+        },
+        "expected": {
+          "childSubmitted": false
+        }
+      },
+      {
+        "id": "ground_air_building",
+        "input": {
+          "eligibleEnemyCategories": [
+            "ground",
+            "air",
+            "structure"
+          ]
+        },
+        "expected": {
+          "allowedCategories": [
+            "ground",
+            "air",
+            "structure"
+          ],
+          "qualification": "area-damage-v1, no extra filter in effect function"
+        }
+      },
+      {
+        "id": "target_snapshot",
+        "input": {
+          "initialIds": [
+            4,
+            9,
+            12
+          ],
+          "child4Moves9Outside": true,
+          "child4Kills12": true,
+          "child4Creates13Inside": true
+        },
+        "expected": {
+          "processedIds": [
+            4,
+            9
+          ],
+          "skippedDeadIds": [
+            12
+          ],
+          "newIdsExcluded": [
+            13
+          ]
+        }
+      },
+      {
+        "id": "timer_not_damage_delay",
+        "input": {
+          "procBattleTime": 5
+        },
+        "expected": {
+          "areaStartsAt": 5,
+          "effectExpiryAt": 5.8,
+          "areaUsesZeroTimer": false
+        }
+      },
+      {
+        "id": "no_native_crit",
+        "input": {
+          "onlyTheseIds": [
+            "N054",
+            "N055",
+            "N056",
+            "N057"
+          ],
+          "ordinaryAttackRaw": 100
+        },
+        "expected": {
+          "nativeCriticalRollsFromTheseIds": 0,
+          "ordinaryAttackRawAfterTheseIds": 100,
+          "extraFlatDamageFromTheseIds": 0,
+          "evasionGranted": 0,
+          "neverMissGranted": false
+        }
+      },
+      {
+        "id": "no_zero_multiplier",
+        "input": {
+          "ability": "N054",
+          "missingDataBNormalizedTo": 0,
+          "ordinaryAttackRaw": 100
+        },
+        "expected": {
+          "ordinaryAttackRawAfterThisAbility": 100
+        }
+      },
+      {
+        "id": "no_native_bash",
+        "input": {
+          "workbookUsesWord": "重击",
+          "effectModel": "ThunderClapCaster.mdl"
+        },
+        "expected": {
+          "stunSeconds": 0,
+          "slowPercent": 0,
+          "nativeThunderclapCast": false
+        }
+      }
+    ],
+    "method": "source identity, field/hash checks, arithmetic and scoped Lua bytecode interpreter with native stubs; not a Warcraft or Web runtime test",
+    "results": {
+      "status": "passed",
+      "bytecodeInstructionsChecked": 154,
+      "conditionsChecked": 12,
+      "coreBytecodeProbeStates": 82,
+      "visualHelperScenarios": 4,
+      "objectRecords": 9,
+      "localLinks": 14,
+      "sourceHashes": "match"
+    }
+  }
+}

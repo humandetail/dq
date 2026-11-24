@@ -1,0 +1,7317 @@
+{
+  "schemaVersion": 1,
+  "baselineId": "hero-attribute-interface-v1",
+  "scope": "native HERO Get/SetHero* true interface, natural/T000/T101 attribute changes, direct maximum resource writes, full W019; not all item/skill effects",
+  "sourceFiles": [
+    {
+      "path": "reference/map-6.25/main.disasm",
+      "sha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+    },
+    {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "sha256": "b772de42ebcfc1d3818298b35dbe81a35826892848c7cbfef70bf5097e481861"
+    },
+    {
+      "path": "reference/map-6.25/war3map.w3a.json",
+      "sha256": "d2875f064b389bca471db97121ff7c810d46fbc962ae640ad128d1daa85931bb"
+    },
+    {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "sha256": "096bad329e3b86f3ed4cad3e4ca7c8c4d8efcea2f25a366eef4eac8367eb70e3"
+    },
+    {
+      "path": "reference/map-6.25/war3map.w3u.json",
+      "sha256": "4d599edcf9784748cb7d8f07d873331de37393c9dec20d55b8551a924e6946c1"
+    },
+    {
+      "path": "reference/map-6.25/war3mapMisc.txt",
+      "sha256": "f13e268c2da3ad776b39f230cb55a8eb5721df2bcf1e62c78202236b3f5d3743"
+    }
+  ],
+  "setterInventory": [
+    {
+      "function": "main/f6/f262",
+      "native": "SetHeroStr",
+      "loadLine": 24647,
+      "callLine": 24651,
+      "booleanProducerLine": 24650,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f6/f262",
+      "native": "SetHeroAgi",
+      "loadLine": 24657,
+      "callLine": 24661,
+      "booleanProducerLine": 24660,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f6/f262",
+      "native": "SetHeroInt",
+      "loadLine": 24667,
+      "callLine": 24671,
+      "booleanProducerLine": 24670,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f36/f0",
+      "native": "SetHeroStr",
+      "loadLine": 64985,
+      "callLine": 64989,
+      "booleanProducerLine": 64988,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f36/f0",
+      "native": "SetHeroAgi",
+      "loadLine": 64990,
+      "callLine": 64994,
+      "booleanProducerLine": 64993,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f36/f0",
+      "native": "SetHeroInt",
+      "loadLine": 64995,
+      "callLine": 64999,
+      "booleanProducerLine": 64998,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f36/f1",
+      "native": "SetHeroStr",
+      "loadLine": 65124,
+      "callLine": 65128,
+      "booleanProducerLine": 65127,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f36/f1",
+      "native": "SetHeroAgi",
+      "loadLine": 65129,
+      "callLine": 65133,
+      "booleanProducerLine": 65132,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f36/f1",
+      "native": "SetHeroInt",
+      "loadLine": 65134,
+      "callLine": 65138,
+      "booleanProducerLine": 65137,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f44/f0",
+      "native": "SetHeroInt",
+      "loadLine": 67182,
+      "callLine": 67190,
+      "booleanProducerLine": 67189,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f57/f0",
+      "native": "SetHeroInt",
+      "loadLine": 70531,
+      "callLine": 70535,
+      "booleanProducerLine": 70534,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f57/f3",
+      "native": "SetHeroInt",
+      "loadLine": 70833,
+      "callLine": 70837,
+      "booleanProducerLine": 70836,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f60/f3",
+      "native": "SetHeroStr",
+      "loadLine": 72349,
+      "callLine": 72357,
+      "booleanProducerLine": 72356,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f60/f4",
+      "native": "SetHeroStr",
+      "loadLine": 72519,
+      "callLine": 72527,
+      "booleanProducerLine": 72526,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f63/f0",
+      "native": "SetHeroAgi",
+      "loadLine": 73130,
+      "callLine": 73134,
+      "booleanProducerLine": 73133,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f72/f0",
+      "native": "SetHeroInt",
+      "loadLine": 76163,
+      "callLine": 76167,
+      "booleanProducerLine": 76166,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f72/f2",
+      "native": "SetHeroInt",
+      "loadLine": 76341,
+      "callLine": 76345,
+      "booleanProducerLine": 76344,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f74/f0",
+      "native": "SetHeroInt",
+      "loadLine": 76736,
+      "callLine": 76740,
+      "booleanProducerLine": 76739,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f74/f1",
+      "native": "SetHeroInt",
+      "loadLine": 76912,
+      "callLine": 76916,
+      "booleanProducerLine": 76915,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f77/f0",
+      "native": "SetHeroStr",
+      "loadLine": 77279,
+      "callLine": 77283,
+      "booleanProducerLine": 77282,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f90/f6",
+      "native": "SetHeroInt",
+      "loadLine": 81216,
+      "callLine": 81228,
+      "booleanProducerLine": 81227,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f90/f9",
+      "native": "SetHeroInt",
+      "loadLine": 81684,
+      "callLine": 81696,
+      "booleanProducerLine": 81695,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f90/f9",
+      "native": "SetHeroInt",
+      "loadLine": 81817,
+      "callLine": 81829,
+      "booleanProducerLine": 81828,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f96/f1",
+      "native": "SetHeroAgi",
+      "loadLine": 83485,
+      "callLine": 83493,
+      "booleanProducerLine": 83492,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f96/f2",
+      "native": "SetHeroAgi",
+      "loadLine": 83511,
+      "callLine": 83519,
+      "booleanProducerLine": 83518,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f110/f0",
+      "native": "SetHeroAgi",
+      "loadLine": 87439,
+      "callLine": 87447,
+      "booleanProducerLine": 87446,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f110/f1",
+      "native": "SetHeroAgi",
+      "loadLine": 87538,
+      "callLine": 87546,
+      "booleanProducerLine": 87545,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f115/f35",
+      "native": "SetHeroInt",
+      "loadLine": 91946,
+      "callLine": 91950,
+      "booleanProducerLine": 91949,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f115/f38",
+      "native": "SetHeroInt",
+      "loadLine": 92216,
+      "callLine": 92220,
+      "booleanProducerLine": 92219,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f162/f0",
+      "native": "SetHeroStr",
+      "loadLine": 108521,
+      "callLine": 108525,
+      "booleanProducerLine": 108524,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f162/f0",
+      "native": "SetHeroAgi",
+      "loadLine": 108526,
+      "callLine": 108530,
+      "booleanProducerLine": 108529,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f162/f2",
+      "native": "SetHeroStr",
+      "loadLine": 108735,
+      "callLine": 108739,
+      "booleanProducerLine": 108738,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f162/f2",
+      "native": "SetHeroAgi",
+      "loadLine": 108740,
+      "callLine": 108744,
+      "booleanProducerLine": 108743,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f162/f5",
+      "native": "SetHeroStr",
+      "loadLine": 109086,
+      "callLine": 109090,
+      "booleanProducerLine": 109089,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f162/f5",
+      "native": "SetHeroAgi",
+      "loadLine": 109091,
+      "callLine": 109095,
+      "booleanProducerLine": 109094,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f257/f0",
+      "native": "SetHeroStr",
+      "loadLine": 129555,
+      "callLine": 129559,
+      "booleanProducerLine": 129558,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f257/f0",
+      "native": "SetHeroAgi",
+      "loadLine": 129583,
+      "callLine": 129587,
+      "booleanProducerLine": 129586,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f257/f0",
+      "native": "SetHeroInt",
+      "loadLine": 129611,
+      "callLine": 129615,
+      "booleanProducerLine": 129614,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f289/f7",
+      "native": "SetHeroStr",
+      "loadLine": 156693,
+      "callLine": 156697,
+      "booleanProducerLine": 156696,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f289/f7",
+      "native": "SetHeroAgi",
+      "loadLine": 156698,
+      "callLine": 156702,
+      "booleanProducerLine": 156701,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f289/f7",
+      "native": "SetHeroInt",
+      "loadLine": 156703,
+      "callLine": 156707,
+      "booleanProducerLine": 156706,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f296/f21",
+      "native": "SetHeroStr",
+      "loadLine": 190351,
+      "callLine": 190359,
+      "booleanProducerLine": 190358,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f296/f21",
+      "native": "SetHeroAgi",
+      "loadLine": 190360,
+      "callLine": 190368,
+      "booleanProducerLine": 190367,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f296/f21",
+      "native": "SetHeroInt",
+      "loadLine": 190369,
+      "callLine": 190377,
+      "booleanProducerLine": 190376,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f296/f21",
+      "native": "SetHeroStr",
+      "loadLine": 190379,
+      "callLine": 190387,
+      "booleanProducerLine": 190386,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f296/f21",
+      "native": "SetHeroAgi",
+      "loadLine": 190388,
+      "callLine": 190396,
+      "booleanProducerLine": 190395,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    },
+    {
+      "function": "main/f296/f21",
+      "native": "SetHeroInt",
+      "loadLine": 190397,
+      "callLine": 190405,
+      "booleanProducerLine": 190404,
+      "permanent": true,
+      "scope": "literal call and boolean only; surrounding skill not automatically audited"
+    }
+  ],
+  "W019": {
+    "function": "main/f296/f21",
+    "startLine": 190265,
+    "constants": {
+      "k0": null,
+      "k1": 0,
+      "k2": false,
+      "k3": "IsUnitType",
+      "k4": "UNIT_TYPE_HERO",
+      "k5": "GetPlayerId",
+      "k6": "GetOwningPlayer",
+      "k7": "Player_Build_Unit",
+      "k8": 1,
+      "k9": "GetUnitAbilityLevel",
+      "k10": "GetId",
+      "k11": "W019",
+      "k12": "IsInTable",
+      "k13": "Tower_ALL",
+      "k14": "math",
+      "k15": "floor",
+      "k16": 0.5,
+      "k17": "SetHeroStr",
+      "k18": "GetHeroStr",
+      "k19": "SetHeroAgi",
+      "k20": "GetHeroAgi",
+      "k21": "SetHeroInt",
+      "k22": "GetHeroInt"
+    },
+    "instructions": [
+      {
+        "pc": 1,
+        "line": 190301,
+        "op": "eq",
+        "args": [
+          "1",
+          "k0",
+          "r0"
+        ]
+      },
+      {
+        "pc": 2,
+        "line": 190302,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l11"
+        ]
+      },
+      {
+        "pc": 3,
+        "line": 190303,
+        "op": "eq",
+        "args": [
+          "1",
+          "k1",
+          "r1"
+        ]
+      },
+      {
+        "pc": 4,
+        "line": 190304,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l11"
+        ]
+      },
+      {
+        "pc": 5,
+        "line": 190305,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k3"
+        ]
+      },
+      {
+        "pc": 6,
+        "line": 190306,
+        "op": "move",
+        "args": [
+          "r3",
+          "r0"
+        ]
+      },
+      {
+        "pc": 7,
+        "line": 190307,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k4"
+        ]
+      },
+      {
+        "pc": 8,
+        "line": 190308,
+        "op": "call",
+        "args": [
+          "r2",
+          "3",
+          "2"
+        ]
+      },
+      {
+        "pc": 9,
+        "line": 190309,
+        "op": "eq",
+        "args": [
+          "0",
+          "k2",
+          "r2"
+        ]
+      },
+      {
+        "pc": 10,
+        "line": 190310,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l12"
+        ]
+      },
+      {
+        "pc": 11,
+        "line": 190312,
+        "op": "return",
+        "args": [
+          "r0",
+          "1"
+        ]
+      },
+      {
+        "pc": 12,
+        "line": 190314,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k5"
+        ]
+      },
+      {
+        "pc": 13,
+        "line": 190315,
+        "op": "gettabup",
+        "args": [
+          "r3",
+          "u0",
+          "k6"
+        ]
+      },
+      {
+        "pc": 14,
+        "line": 190316,
+        "op": "move",
+        "args": [
+          "r4",
+          "r0"
+        ]
+      },
+      {
+        "pc": 15,
+        "line": 190317,
+        "op": "call",
+        "args": [
+          "r3",
+          "2",
+          "0"
+        ]
+      },
+      {
+        "pc": 16,
+        "line": 190318,
+        "op": "call",
+        "args": [
+          "r2",
+          "0",
+          "2"
+        ]
+      },
+      {
+        "pc": 17,
+        "line": 190319,
+        "op": "gettabup",
+        "args": [
+          "r3",
+          "u0",
+          "k7"
+        ]
+      },
+      {
+        "pc": 18,
+        "line": 190320,
+        "op": "add",
+        "args": [
+          "r4",
+          "r2",
+          "k8"
+        ]
+      },
+      {
+        "pc": 19,
+        "line": 190321,
+        "op": "gettable",
+        "args": [
+          "r3",
+          "r3",
+          "r4"
+        ]
+      },
+      {
+        "pc": 20,
+        "line": 190322,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k9"
+        ]
+      },
+      {
+        "pc": 21,
+        "line": 190323,
+        "op": "move",
+        "args": [
+          "r5",
+          "r3"
+        ]
+      },
+      {
+        "pc": 22,
+        "line": 190324,
+        "op": "gettabup",
+        "args": [
+          "r6",
+          "u0",
+          "k10"
+        ]
+      },
+      {
+        "pc": 23,
+        "line": 190325,
+        "op": "loadk",
+        "args": [
+          "r7",
+          "k11"
+        ]
+      },
+      {
+        "pc": 24,
+        "line": 190326,
+        "op": "call",
+        "args": [
+          "r6",
+          "2",
+          "0"
+        ]
+      },
+      {
+        "pc": 25,
+        "line": 190327,
+        "op": "call",
+        "args": [
+          "r4",
+          "0",
+          "2"
+        ]
+      },
+      {
+        "pc": 26,
+        "line": 190328,
+        "op": "le",
+        "args": [
+          "0",
+          "r4",
+          "k1"
+        ]
+      },
+      {
+        "pc": 27,
+        "line": 190329,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l29"
+        ]
+      },
+      {
+        "pc": 28,
+        "line": 190330,
+        "op": "return",
+        "args": [
+          "r0",
+          "1"
+        ]
+      },
+      {
+        "pc": 29,
+        "line": 190332,
+        "op": "gettabup",
+        "args": [
+          "r5",
+          "u0",
+          "k12"
+        ]
+      },
+      {
+        "pc": 30,
+        "line": 190333,
+        "op": "move",
+        "args": [
+          "r6",
+          "r0"
+        ]
+      },
+      {
+        "pc": 31,
+        "line": 190334,
+        "op": "gettabup",
+        "args": [
+          "r7",
+          "u0",
+          "k13"
+        ]
+      },
+      {
+        "pc": 32,
+        "line": 190335,
+        "op": "call",
+        "args": [
+          "r5",
+          "3",
+          "2"
+        ]
+      },
+      {
+        "pc": 33,
+        "line": 190336,
+        "op": "gettabup",
+        "args": [
+          "r6",
+          "u1",
+          "r5"
+        ]
+      },
+      {
+        "pc": 34,
+        "line": 190337,
+        "op": "gettabup",
+        "args": [
+          "r7",
+          "u0",
+          "k14"
+        ]
+      },
+      {
+        "pc": 35,
+        "line": 190338,
+        "op": "gettable",
+        "args": [
+          "r7",
+          "r7",
+          "k15"
+        ]
+      },
+      {
+        "pc": 36,
+        "line": 190339,
+        "op": "mul",
+        "args": [
+          "r8",
+          "r4",
+          "k16"
+        ]
+      },
+      {
+        "pc": 37,
+        "line": 190340,
+        "op": "add",
+        "args": [
+          "r8",
+          "r8",
+          "k16"
+        ]
+      },
+      {
+        "pc": 38,
+        "line": 190341,
+        "op": "mul",
+        "args": [
+          "r8",
+          "r8",
+          "r1"
+        ]
+      },
+      {
+        "pc": 39,
+        "line": 190342,
+        "op": "call",
+        "args": [
+          "r7",
+          "2",
+          "2"
+        ]
+      },
+      {
+        "pc": 40,
+        "line": 190343,
+        "op": "eq",
+        "args": [
+          "0",
+          "r6",
+          "r7"
+        ]
+      },
+      {
+        "pc": 41,
+        "line": 190344,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l43"
+        ]
+      },
+      {
+        "pc": 42,
+        "line": 190345,
+        "op": "return",
+        "args": [
+          "r0",
+          "1"
+        ]
+      },
+      {
+        "pc": 43,
+        "line": 190347,
+        "op": "eq",
+        "args": [
+          "1",
+          "r6",
+          "k0"
+        ]
+      },
+      {
+        "pc": 44,
+        "line": 190348,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l74"
+        ]
+      },
+      {
+        "pc": 45,
+        "line": 190349,
+        "op": "eq",
+        "args": [
+          "1",
+          "r6",
+          "k1"
+        ]
+      },
+      {
+        "pc": 46,
+        "line": 190350,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l74"
+        ]
+      },
+      {
+        "pc": 47,
+        "line": 190351,
+        "op": "gettabup",
+        "args": [
+          "r8",
+          "u0",
+          "k17"
+        ]
+      },
+      {
+        "pc": 48,
+        "line": 190352,
+        "op": "move",
+        "args": [
+          "r9",
+          "r0"
+        ]
+      },
+      {
+        "pc": 49,
+        "line": 190353,
+        "op": "gettabup",
+        "args": [
+          "r10",
+          "u0",
+          "k18"
+        ]
+      },
+      {
+        "pc": 50,
+        "line": 190354,
+        "op": "move",
+        "args": [
+          "r11",
+          "r0"
+        ]
+      },
+      {
+        "pc": 51,
+        "line": 190355,
+        "op": "loadbool",
+        "args": [
+          "r12",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "pc": 52,
+        "line": 190356,
+        "op": "call",
+        "args": [
+          "r10",
+          "3",
+          "2"
+        ]
+      },
+      {
+        "pc": 53,
+        "line": 190357,
+        "op": "sub",
+        "args": [
+          "r10",
+          "r10",
+          "r6"
+        ]
+      },
+      {
+        "pc": 54,
+        "line": 190358,
+        "op": "loadbool",
+        "args": [
+          "r11",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "pc": 55,
+        "line": 190359,
+        "op": "call",
+        "args": [
+          "r8",
+          "4",
+          "1"
+        ]
+      },
+      {
+        "pc": 56,
+        "line": 190360,
+        "op": "gettabup",
+        "args": [
+          "r8",
+          "u0",
+          "k19"
+        ]
+      },
+      {
+        "pc": 57,
+        "line": 190361,
+        "op": "move",
+        "args": [
+          "r9",
+          "r0"
+        ]
+      },
+      {
+        "pc": 58,
+        "line": 190362,
+        "op": "gettabup",
+        "args": [
+          "r10",
+          "u0",
+          "k20"
+        ]
+      },
+      {
+        "pc": 59,
+        "line": 190363,
+        "op": "move",
+        "args": [
+          "r11",
+          "r0"
+        ]
+      },
+      {
+        "pc": 60,
+        "line": 190364,
+        "op": "loadbool",
+        "args": [
+          "r12",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "pc": 61,
+        "line": 190365,
+        "op": "call",
+        "args": [
+          "r10",
+          "3",
+          "2"
+        ]
+      },
+      {
+        "pc": 62,
+        "line": 190366,
+        "op": "sub",
+        "args": [
+          "r10",
+          "r10",
+          "r6"
+        ]
+      },
+      {
+        "pc": 63,
+        "line": 190367,
+        "op": "loadbool",
+        "args": [
+          "r11",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "pc": 64,
+        "line": 190368,
+        "op": "call",
+        "args": [
+          "r8",
+          "4",
+          "1"
+        ]
+      },
+      {
+        "pc": 65,
+        "line": 190369,
+        "op": "gettabup",
+        "args": [
+          "r8",
+          "u0",
+          "k21"
+        ]
+      },
+      {
+        "pc": 66,
+        "line": 190370,
+        "op": "move",
+        "args": [
+          "r9",
+          "r0"
+        ]
+      },
+      {
+        "pc": 67,
+        "line": 190371,
+        "op": "gettabup",
+        "args": [
+          "r10",
+          "u0",
+          "k22"
+        ]
+      },
+      {
+        "pc": 68,
+        "line": 190372,
+        "op": "move",
+        "args": [
+          "r11",
+          "r0"
+        ]
+      },
+      {
+        "pc": 69,
+        "line": 190373,
+        "op": "loadbool",
+        "args": [
+          "r12",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "pc": 70,
+        "line": 190374,
+        "op": "call",
+        "args": [
+          "r10",
+          "3",
+          "2"
+        ]
+      },
+      {
+        "pc": 71,
+        "line": 190375,
+        "op": "sub",
+        "args": [
+          "r10",
+          "r10",
+          "r6"
+        ]
+      },
+      {
+        "pc": 72,
+        "line": 190376,
+        "op": "loadbool",
+        "args": [
+          "r11",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "pc": 73,
+        "line": 190377,
+        "op": "call",
+        "args": [
+          "r8",
+          "4",
+          "1"
+        ]
+      },
+      {
+        "pc": 74,
+        "line": 190379,
+        "op": "gettabup",
+        "args": [
+          "r8",
+          "u0",
+          "k17"
+        ]
+      },
+      {
+        "pc": 75,
+        "line": 190380,
+        "op": "move",
+        "args": [
+          "r9",
+          "r0"
+        ]
+      },
+      {
+        "pc": 76,
+        "line": 190381,
+        "op": "gettabup",
+        "args": [
+          "r10",
+          "u0",
+          "k18"
+        ]
+      },
+      {
+        "pc": 77,
+        "line": 190382,
+        "op": "move",
+        "args": [
+          "r11",
+          "r0"
+        ]
+      },
+      {
+        "pc": 78,
+        "line": 190383,
+        "op": "loadbool",
+        "args": [
+          "r12",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "pc": 79,
+        "line": 190384,
+        "op": "call",
+        "args": [
+          "r10",
+          "3",
+          "2"
+        ]
+      },
+      {
+        "pc": 80,
+        "line": 190385,
+        "op": "add",
+        "args": [
+          "r10",
+          "r10",
+          "r7"
+        ]
+      },
+      {
+        "pc": 81,
+        "line": 190386,
+        "op": "loadbool",
+        "args": [
+          "r11",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "pc": 82,
+        "line": 190387,
+        "op": "call",
+        "args": [
+          "r8",
+          "4",
+          "1"
+        ]
+      },
+      {
+        "pc": 83,
+        "line": 190388,
+        "op": "gettabup",
+        "args": [
+          "r8",
+          "u0",
+          "k19"
+        ]
+      },
+      {
+        "pc": 84,
+        "line": 190389,
+        "op": "move",
+        "args": [
+          "r9",
+          "r0"
+        ]
+      },
+      {
+        "pc": 85,
+        "line": 190390,
+        "op": "gettabup",
+        "args": [
+          "r10",
+          "u0",
+          "k20"
+        ]
+      },
+      {
+        "pc": 86,
+        "line": 190391,
+        "op": "move",
+        "args": [
+          "r11",
+          "r0"
+        ]
+      },
+      {
+        "pc": 87,
+        "line": 190392,
+        "op": "loadbool",
+        "args": [
+          "r12",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "pc": 88,
+        "line": 190393,
+        "op": "call",
+        "args": [
+          "r10",
+          "3",
+          "2"
+        ]
+      },
+      {
+        "pc": 89,
+        "line": 190394,
+        "op": "add",
+        "args": [
+          "r10",
+          "r10",
+          "r7"
+        ]
+      },
+      {
+        "pc": 90,
+        "line": 190395,
+        "op": "loadbool",
+        "args": [
+          "r11",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "pc": 91,
+        "line": 190396,
+        "op": "call",
+        "args": [
+          "r8",
+          "4",
+          "1"
+        ]
+      },
+      {
+        "pc": 92,
+        "line": 190397,
+        "op": "gettabup",
+        "args": [
+          "r8",
+          "u0",
+          "k21"
+        ]
+      },
+      {
+        "pc": 93,
+        "line": 190398,
+        "op": "move",
+        "args": [
+          "r9",
+          "r0"
+        ]
+      },
+      {
+        "pc": 94,
+        "line": 190399,
+        "op": "gettabup",
+        "args": [
+          "r10",
+          "u0",
+          "k22"
+        ]
+      },
+      {
+        "pc": 95,
+        "line": 190400,
+        "op": "move",
+        "args": [
+          "r11",
+          "r0"
+        ]
+      },
+      {
+        "pc": 96,
+        "line": 190401,
+        "op": "loadbool",
+        "args": [
+          "r12",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "pc": 97,
+        "line": 190402,
+        "op": "call",
+        "args": [
+          "r10",
+          "3",
+          "2"
+        ]
+      },
+      {
+        "pc": 98,
+        "line": 190403,
+        "op": "add",
+        "args": [
+          "r10",
+          "r10",
+          "r7"
+        ]
+      },
+      {
+        "pc": 99,
+        "line": 190404,
+        "op": "loadbool",
+        "args": [
+          "r11",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "pc": 100,
+        "line": 190405,
+        "op": "call",
+        "args": [
+          "r8",
+          "4",
+          "1"
+        ]
+      },
+      {
+        "pc": 101,
+        "line": 190406,
+        "op": "settabup",
+        "args": [
+          "u1",
+          "r5",
+          "r7"
+        ]
+      },
+      {
+        "pc": 102,
+        "line": 190407,
+        "op": "return",
+        "args": [
+          "r0",
+          "1"
+        ]
+      }
+    ],
+    "labels": {
+      "l11": 11,
+      "l12": 12,
+      "l29": 29,
+      "l43": 43,
+      "l74": 74
+    }
+  },
+  "T000": {
+    "sourceAbility": {
+      "alias": "T000",
+      "code": "Aamk",
+      "checkDep": 1,
+      "DataA1": 10,
+      "DataA2": 20,
+      "DataA3": 30,
+      "DataA4": 40,
+      "DataB1": 10,
+      "DataB2": 20,
+      "DataB3": 30,
+      "DataB4": 40,
+      "DataC1": 10,
+      "DataC2": 20,
+      "DataC3": 30,
+      "DataC4": 40,
+      "levels": 6,
+      "reqLevel": 1,
+      "targs1": "_",
+      "targs2": "_",
+      "targs3": "_",
+      "targs4": "_"
+    },
+    "overrides": [
+      {
+        "old": "T000",
+        "new": "\u0000\u0000\u0000\u0000",
+        "mods": [
+          {
+            "key": "Iagi",
+            "type": 0,
+            "level": 5,
+            "data": 1,
+            "value": 50
+          },
+          {
+            "key": "Iagi",
+            "type": 0,
+            "level": 6,
+            "data": 1,
+            "value": 60
+          },
+          {
+            "key": "Iint",
+            "type": 0,
+            "level": 5,
+            "data": 2,
+            "value": 50
+          },
+          {
+            "key": "Iint",
+            "type": 0,
+            "level": 6,
+            "data": 2,
+            "value": 60
+          },
+          {
+            "key": "Istr",
+            "type": 0,
+            "level": 5,
+            "data": 3,
+            "value": 50
+          },
+          {
+            "key": "Istr",
+            "type": 0,
+            "level": 6,
+            "data": 3,
+            "value": 60
+          }
+        ]
+      }
+    ],
+    "selectedLevels": [
+      {
+        "level": 1,
+        "bonuses": {
+          "AGI": 10,
+          "INT": 10,
+          "STR": 10
+        }
+      },
+      {
+        "level": 2,
+        "bonuses": {
+          "AGI": 20,
+          "INT": 20,
+          "STR": 20
+        }
+      },
+      {
+        "level": 3,
+        "bonuses": {
+          "AGI": 30,
+          "INT": 30,
+          "STR": 30
+        }
+      },
+      {
+        "level": 4,
+        "bonuses": {
+          "AGI": 40,
+          "INT": 40,
+          "STR": 40
+        }
+      },
+      {
+        "level": 5,
+        "bonuses": {
+          "AGI": 50,
+          "INT": 50,
+          "STR": 50
+        }
+      },
+      {
+        "level": 6,
+        "bonuses": {
+          "AGI": 60,
+          "INT": 60,
+          "STR": 60
+        }
+      }
+    ],
+    "workbook": "Both books:129 identical occurrences; F13 through F688, G=6, H each learn+10 all attributes, I10/20/30/40/50/60"
+  },
+  "templates": [
+    {
+      "unitId": "E001",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 1.0,
+        "regenMana": 0.01,
+        "regenType": "night"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "E002",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 1.0,
+        "regenMana": 0.01,
+        "regenType": "night"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "E003",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 1.0,
+        "regenMana": 0.01,
+        "regenType": "night"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "E004",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 1.0,
+        "regenMana": 0.01,
+        "regenType": "night"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "E005",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 1.0,
+        "regenMana": 0.01,
+        "regenType": "night"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "E006",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 1.0,
+        "regenMana": 0.01,
+        "regenType": "night"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "E010",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 3.0,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "E011",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 6.0,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "E012",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 9.0,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "E013",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 12.0,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "E014",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 15.0,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "E015",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 18.0,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "E016",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "AGI",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "E017",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "Str",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "E018",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "Str",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "E019",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "Str",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "E020",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "Str",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "E021",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "Str",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "E022",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "Str",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "E023",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 1.0,
+        "regenMana": 0.01,
+        "regenType": "night"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "E024",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 1.0,
+        "regenMana": 0.01,
+        "regenType": "night"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "E025",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 1.0,
+        "regenMana": 0.01,
+        "regenType": "night"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "E026",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 1.0,
+        "regenMana": 0.01,
+        "regenType": "night"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "E027",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 1.0,
+        "regenMana": 0.01,
+        "regenType": "night"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "E028",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 1.0,
+        "regenMana": 0.01,
+        "regenType": "night"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G012",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G022",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "INT",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G032",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G033",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G035",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "AGI",
+        "regenHP": 0.5,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G036",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "AGI",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G037",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "AGI",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G038",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "INT",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G039",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "INT",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G040",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "AGI",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G041",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "AGI",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G042",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G043",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "AGI",
+        "regenHP": 0.5,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G044",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G045",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G046",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G047",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "INT",
+        "regenHP": 0.5,
+        "regenMana": 0.01,
+        "regenType": "night"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G048",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "INT",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G049",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G050",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "INT",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G051",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "AGI",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G052",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "AGI",
+        "regenHP": 0.5,
+        "regenMana": 0.01,
+        "regenType": "night"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G053",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "AGI",
+        "regenHP": 0.5,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G054",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G055",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "INT",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G056",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "AGI",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G057",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G058",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G059",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "STR",
+        "regenHP": 0.5,
+        "regenMana": 0.01,
+        "regenType": "night"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G060",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "INT",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G061",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 0.5,
+        "regenMana": 0.01,
+        "regenType": "night"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G062",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G063",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "AGI",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G064",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "INT",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G065",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "Agi",
+        "regenHP": 0.5,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G066",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "AGI",
+        "regenHP": 2.0,
+        "regenMana": 0.01,
+        "regenType": "blight"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G067",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G068",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "Agi",
+        "regenHP": 0.5,
+        "regenMana": 0.01,
+        "regenType": "night"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G069",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "INT",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G070",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "INT",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G071",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 2.0,
+        "regenMana": 0.01,
+        "regenType": "blight"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G072",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "INT",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G073",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "AGI",
+        "regenHP": 2.0,
+        "regenMana": 0.01,
+        "regenType": "blight"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G074",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "AGI",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G075",
+      "source": {
+        "HP": 1300,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "AGI",
+        "regenHP": 2.0,
+        "regenMana": 0.01,
+        "regenType": "blight"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G076",
+      "source": {
+        "HP": 150,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "INT",
+        "regenHP": 1.0,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G077",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G078",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "STR",
+        "regenHP": 0.5,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G079",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "AGI",
+        "regenHP": 0.5,
+        "regenMana": 0.01,
+        "regenType": "night"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "G080",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "Agi",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H001",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "AGI",
+        "regenHP": 0.5,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H002",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "AGI",
+        "regenHP": 0.5,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H003",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H004",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "INT",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H005",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "INT",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H006",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "AGI",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H007",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "AGI",
+        "regenHP": 0.5,
+        "regenMana": 0.01,
+        "regenType": "night"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H008",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "INT",
+        "regenHP": 0.5,
+        "regenMana": 0.01,
+        "regenType": "night"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H009",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H010",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H011",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "AGI",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H012",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "AGI",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H013",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "AGI",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H014",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "INT",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H015",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "INT",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H016",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "AGI",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H017",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H018",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "INT",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H019",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H020",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "INT",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H021",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "STR",
+        "regenHP": 0.5,
+        "regenMana": 0.01,
+        "regenType": "night"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H022",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "AGI",
+        "regenHP": 2.0,
+        "regenMana": 0.01,
+        "regenType": "blight"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H023",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "INT",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H024",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "AGI",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H025",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H026",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "INT",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H027",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H028",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "AGI",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H029",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "INT",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H030",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "INT",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H031",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "INT",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H032",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H033",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H034",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H035",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "AGI",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H036",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "AGI",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H037",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H038",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "AGI",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H039",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "INT",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H040",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "Agi",
+        "regenHP": 0.5,
+        "regenMana": 0.01,
+        "regenType": "night"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H041",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "INT",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H042",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "STR",
+        "regenHP": 1.0,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H043",
+      "source": {
+        "HP": 25,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 2.0,
+        "regenMana": 0.01,
+        "regenType": "blight"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H044",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "INT",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H045",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "INT",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H046",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "Agi",
+        "regenHP": 0.5,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H047",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H048",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H049",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "INT",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H050",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 2.0,
+        "regenMana": 0.01,
+        "regenType": "blight"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H051",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "Agi",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H052",
+      "source": {
+        "HP": 150,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "INT",
+        "regenHP": 1.0,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H053",
+      "source": {
+        "HP": 150,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "INT",
+        "regenHP": 1.0,
+        "regenMana": 0.01,
+        "regenType": "blight"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H054",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "AGI",
+        "regenHP": 2.0,
+        "regenMana": 0.01,
+        "regenType": "blight"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H055",
+      "source": {
+        "HP": 150,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "INT",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H056",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "STR",
+        "regenHP": 0.5,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H057",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "STR",
+        "regenHP": 0.5,
+        "regenMana": 0.01,
+        "regenType": "night"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H058",
+      "source": {
+        "HP": 1300,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "AGI",
+        "regenHP": 2.0,
+        "regenMana": 0.01,
+        "regenType": "blight"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H059",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "AGI",
+        "regenHP": 0.5,
+        "regenMana": 0.01,
+        "regenType": "night"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H060",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 200,
+        "Primary": "STR",
+        "regenHP": 0.5,
+        "regenMana": 0.01,
+        "regenType": "always"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    },
+    {
+      "unitId": "H061",
+      "source": {
+        "HP": 100,
+        "manaN": null,
+        "mana0": 100,
+        "Primary": "INT",
+        "regenHP": 2.0,
+        "regenMana": 0.01,
+        "regenType": "blight"
+      },
+      "selectedBaseMaxMana": 0,
+      "missingManaBasis": "Q24 explicit 0 base plus INT contribution; not claiming source contains manaN=0"
+    }
+  ],
+  "T101": {
+    "sourceAbility": {
+      "alias": "T101",
+      "code": "Aamk",
+      "checkDep": 1,
+      "DataA1": 10,
+      "DataA2": 20,
+      "DataA3": 30,
+      "DataA4": 40,
+      "DataB1": 10,
+      "DataB2": 20,
+      "DataB3": 30,
+      "DataB4": 40,
+      "DataC1": 10,
+      "DataC2": 20,
+      "DataC3": 30,
+      "DataC4": 40,
+      "DataD1": 1,
+      "DataD2": 1,
+      "DataD3": 1,
+      "DataD4": 1,
+      "levels": 6,
+      "reqLevel": 1,
+      "targs1": "_",
+      "targs2": "_",
+      "targs3": "_",
+      "targs4": "_"
+    },
+    "overrides": [
+      {
+        "old": "T101",
+        "new": "\u0000\u0000\u0000\u0000",
+        "mods": [
+          {
+            "key": "Iagi",
+            "type": 0,
+            "level": 5,
+            "data": 1,
+            "value": 50
+          },
+          {
+            "key": "Iagi",
+            "type": 0,
+            "level": 6,
+            "data": 1,
+            "value": 60
+          },
+          {
+            "key": "Iint",
+            "type": 0,
+            "level": 5,
+            "data": 2,
+            "value": 50
+          },
+          {
+            "key": "Iint",
+            "type": 0,
+            "level": 6,
+            "data": 2,
+            "value": 60
+          },
+          {
+            "key": "Istr",
+            "type": 0,
+            "level": 5,
+            "data": 3,
+            "value": 50
+          },
+          {
+            "key": "Istr",
+            "type": 0,
+            "level": 6,
+            "data": 3,
+            "value": 60
+          }
+        ]
+      }
+    ],
+    "selectedLevels": [
+      {
+        "level": 1,
+        "bonuses": {
+          "AGI": 10,
+          "INT": 10,
+          "STR": 10
+        }
+      },
+      {
+        "level": 2,
+        "bonuses": {
+          "AGI": 20,
+          "INT": 20,
+          "STR": 20
+        }
+      },
+      {
+        "level": 3,
+        "bonuses": {
+          "AGI": 30,
+          "INT": 30,
+          "STR": 30
+        }
+      },
+      {
+        "level": 4,
+        "bonuses": {
+          "AGI": 40,
+          "INT": 40,
+          "STR": 40
+        }
+      },
+      {
+        "level": 5,
+        "bonuses": {
+          "AGI": 50,
+          "INT": 50,
+          "STR": 50
+        }
+      },
+      {
+        "level": 6,
+        "bonuses": {
+          "AGI": 60,
+          "INT": 60,
+          "STR": 60
+        }
+      }
+    ],
+    "workbooks": [
+      {
+        "path": "/Volumes/personal/www/td3/图鉴.xlsx",
+        "sha256": "457c8f7e37e19412a0dd072ce941e95604b0b8910860b9e1eb9883e6b82bb6af",
+        "rows": [
+          {
+            "row": 8,
+            "cells": {
+              "A8": "众神之王<SSR>",
+              "B8": "G048",
+              "C8": 4,
+              "D8": "学习技能",
+              "E8": "属性成长",
+              "F8": "T101",
+              "G8": 6,
+              "H8": "每次学习增加10点全属性。",
+              "I8": "1级 全属性增加10点\n2级 全属性增加20点\n3级 全属性增加30点\n4级 全属性增加40点\n5级 全属性增加50点\n6级 全属性增加60点。",
+              "J8": null
+            }
+          },
+          {
+            "row": 28,
+            "cells": {
+              "A28": "宙斯<SSR>",
+              "B28": "H031",
+              "C28": 4,
+              "D28": "学习技能",
+              "E28": "属性成长",
+              "F28": "T101",
+              "G28": 6,
+              "H28": "每次学习增加10点全属性。",
+              "I28": "1级 全属性增加10点\n2级 全属性增加20点\n3级 全属性增加30点\n4级 全属性增加40点\n5级 全属性增加50点\n6级 全属性增加60点。",
+              "J28": null
+            }
+          },
+          {
+            "row": 63,
+            "cells": {
+              "A63": "末日使者<SSR>",
+              "B63": "H042",
+              "C63": 4,
+              "D63": "学习技能",
+              "E63": "属性成长",
+              "F63": "T101",
+              "G63": 6,
+              "H63": "每次学习增加10点全属性。",
+              "I63": "1级 全属性增加10点\n2级 全属性增加20点\n3级 全属性增加30点\n4级 全属性增加40点\n5级 全属性增加50点\n6级 全属性增加60点。",
+              "J63": null
+            }
+          },
+          {
+            "row": 68,
+            "cells": {
+              "A68": "末日机甲<SSR>",
+              "B68": "G061",
+              "C68": 4,
+              "D68": "学习技能",
+              "E68": "属性成长",
+              "F68": "T101",
+              "G68": 6,
+              "H68": "每次学习增加10点全属性。",
+              "I68": "1级 全属性增加10点\n2级 全属性增加20点\n3级 全属性增加30点\n4级 全属性增加40点\n5级 全属性增加50点\n6级 全属性增加60点。",
+              "J68": null
+            }
+          },
+          {
+            "row": 223,
+            "cells": {
+              "A223": "变体漩涡<SR>",
+              "B223": "G075",
+              "C223": 4,
+              "D223": "学习技能",
+              "E223": "属性成长",
+              "F223": "T101",
+              "G223": 6,
+              "H223": "每次学习增加10点全属性。",
+              "I223": "1级 全属性增加10点\n2级 全属性增加20点\n3级 全属性增加30点\n4级 全属性增加40点\n5级 全属性增加50点\n6级 全属性增加60点。",
+              "J223": null
+            }
+          },
+          {
+            "row": 228,
+            "cells": {
+              "A228": "变体精灵<SR>",
+              "B228": "H058",
+              "C228": 4,
+              "D228": "学习技能",
+              "E228": "属性成长",
+              "F228": "T101",
+              "G228": 6,
+              "H228": "每次学习增加10点全属性。",
+              "I228": "1级 全属性增加10点\n2级 全属性增加20点\n3级 全属性增加30点\n4级 全属性增加40点\n5级 全属性增加50点\n6级 全属性增加60点。",
+              "J228": null
+            }
+          },
+          {
+            "row": 248,
+            "cells": {
+              "A248": "复仇之魂<SR>",
+              "B248": "H038",
+              "C248": 4,
+              "D248": "学习技能",
+              "E248": "属性成长",
+              "F248": "T101",
+              "G248": 6,
+              "H248": "每次学习增加10点全属性。",
+              "I248": "1级 全属性增加10点\n2级 全属性增加20点\n3级 全属性增加30点\n4级 全属性增加40点\n5级 全属性增加50点\n6级 全属性增加60点。",
+              "J248": null
+            }
+          }
+        ]
+      },
+      {
+        "path": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+        "sha256": "47af226c7d16f240975d148e4b8f20bbcbf43c6141987cffc67435c1e0f437a1",
+        "rows": [
+          {
+            "row": 8,
+            "cells": {
+              "A8": "众神之王<SSR>",
+              "B8": "G048",
+              "C8": 4,
+              "D8": "学习技能",
+              "E8": "属性成长",
+              "F8": "T101",
+              "G8": 6,
+              "H8": "每次学习增加10点全属性。",
+              "I8": "1级 全属性增加10点\n2级 全属性增加20点\n3级 全属性增加30点\n4级 全属性增加40点\n5级 全属性增加50点\n6级 全属性增加60点。",
+              "J8": null
+            }
+          },
+          {
+            "row": 28,
+            "cells": {
+              "A28": "宙斯<SSR>",
+              "B28": "H031",
+              "C28": 4,
+              "D28": "学习技能",
+              "E28": "属性成长",
+              "F28": "T101",
+              "G28": 6,
+              "H28": "每次学习增加10点全属性。",
+              "I28": "1级 全属性增加10点\n2级 全属性增加20点\n3级 全属性增加30点\n4级 全属性增加40点\n5级 全属性增加50点\n6级 全属性增加60点。",
+              "J28": null
+            }
+          },
+          {
+            "row": 63,
+            "cells": {
+              "A63": "末日使者<SSR>",
+              "B63": "H042",
+              "C63": 4,
+              "D63": "学习技能",
+              "E63": "属性成长",
+              "F63": "T101",
+              "G63": 6,
+              "H63": "每次学习增加10点全属性。",
+              "I63": "1级 全属性增加10点\n2级 全属性增加20点\n3级 全属性增加30点\n4级 全属性增加40点\n5级 全属性增加50点\n6级 全属性增加60点。",
+              "J63": null
+            }
+          },
+          {
+            "row": 68,
+            "cells": {
+              "A68": "末日机甲<SSR>",
+              "B68": "G061",
+              "C68": 4,
+              "D68": "学习技能",
+              "E68": "属性成长",
+              "F68": "T101",
+              "G68": 6,
+              "H68": "每次学习增加10点全属性。",
+              "I68": "1级 全属性增加10点\n2级 全属性增加20点\n3级 全属性增加30点\n4级 全属性增加40点\n5级 全属性增加50点\n6级 全属性增加60点。",
+              "J68": null
+            }
+          },
+          {
+            "row": 223,
+            "cells": {
+              "A223": "变体漩涡<SR>",
+              "B223": "G075",
+              "C223": 4,
+              "D223": "学习技能",
+              "E223": "属性成长",
+              "F223": "T101",
+              "G223": 6,
+              "H223": "每次学习增加10点全属性。",
+              "I223": "1级 全属性增加10点\n2级 全属性增加20点\n3级 全属性增加30点\n4级 全属性增加40点\n5级 全属性增加50点\n6级 全属性增加60点。",
+              "J223": null
+            }
+          },
+          {
+            "row": 228,
+            "cells": {
+              "A228": "变体精灵<SR>",
+              "B228": "H058",
+              "C228": 4,
+              "D228": "学习技能",
+              "E228": "属性成长",
+              "F228": "T101",
+              "G228": 6,
+              "H228": "每次学习增加10点全属性。",
+              "I228": "1级 全属性增加10点\n2级 全属性增加20点\n3级 全属性增加30点\n4级 全属性增加40点\n5级 全属性增加50点\n6级 全属性增加60点。",
+              "J228": null
+            }
+          },
+          {
+            "row": 248,
+            "cells": {
+              "A248": "复仇之魂<SR>",
+              "B248": "H038",
+              "C248": 4,
+              "D248": "学习技能",
+              "E248": "属性成长",
+              "F248": "T101",
+              "G248": 6,
+              "H248": "每次学习增加10点全属性。",
+              "I248": "1级 全属性增加10点\n2级 全属性增加20点\n3级 全属性增加30点\n4级 全属性增加40点\n5级 全属性增加50点\n6级 全属性增加60点。",
+              "J248": null
+            }
+          }
+        ]
+      }
+    ],
+    "sourceInstructionLiteralReferences": [],
+    "status": "same explicitly verified Aamk attribute table and local contribution contract as T000; distinct learned ID",
+    "difference": {
+      "DataD": "Ihid Hide Button, explicitly1 at levels1-4; source null5-6 retained",
+      "selectedUI": "hide learned command-card button at all six ranks; preserve learn/upgrade entry and inspection of effective contribution",
+      "authority": "Q24 local choice extends explicit hidden state to missing levels5-6; not removing ability or treating learning as unavailable",
+      "metadata": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/Units/AbilityMetaData.slk#L8808",
+      "label": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/UI/WorldEditStrings.txt#L6187"
+    }
+  },
+  "mapCoefficients": {
+    "primaryAttack": 1.4,
+    "strengthMaxLife": 15,
+    "strengthLifeRegen": 0.1,
+    "intelligenceMaxMana": 12,
+    "intelligenceManaRegen": 0.03,
+    "agilityAttackRate": 0.002,
+    "agilityArmor": 0,
+    "agilityArmorBase": 0
+  },
+  "webSelections": {
+    "getter": "native HERO only; false returns integer base (natural + explicit base adjustment), true adds active integer attribute contributions including T000/T101/items; nonhero/nil/removed returns0",
+    "setterTrue": "absolute base assignment max(0,trunc(value)); preserve active bonus contributions and natural-growth ledger by changing explicit base adjustment; no skill/level event; all44 business calls use true",
+    "derivedDelta": "Each native HERO effective STR delta changes maxLife by15*delta, INT changes maxMana by12*delta; base template HP + attribute and separately owned contributions, maxLife>=1,maxMana>=0; Primary case-insensitive only STR/AGI/INT",
+    "currentAfterAttributeDelta": "For SetHero*(true), natural level changes and T000 rank changes, add actual corresponding maximum-resource delta to current; alive life clamp[1,newMax], dead life stays0; mana clamp[0,newMax]. Do not batch source subtract/add sequences; no revive/death/damage callbacks generated",
+    "T000": "actual learned rank1..6 adds10*rank to each bonus channel, not cumulative10+20; add/remove/disable/re-enable recomputes once. No standalone random/attack proc or learning script. Native HERO only. Illusion copying follows separately selected creation policy, not universal auto-copy here",
+    "T101": "same independently verified six-rank attribute contribution as T000; preserve distinct learned ID/paid history, hide learned command-card icon while keeping learning entry. No automatic granting T000 or double natural-growth write. Abnormal simultaneous T000+T101 acquisition is not invented by this adapter",
+    "directMaximumWrite": "SetUnitState MAX_LIFE/MAX_MANA changes corresponding direct offset so getter equals clipped requested total, retains offset on later stat changes; preserve absolute current with immediate clamp, do not add attribute-style delta; matches existing essence-aura local max-mana choice",
+    "currentWrite": "preserve fractions and clamp to resource bounds; mana cannot kill; life death/explicit resurrection event ordering is outside this attribute-only interface",
+    "attackAndRegenContribution": "effective primary*1.4 enters native base weapon amount once, effective AGI*.002 feeds attack-timing-v1, armor AGI contribution0; STR*.1 and INT*.03 feed native regen inputs, with unit regenType and other ability multipliers resolved by regen subsystem",
+    "order": "settle previously selected continuous regen to event time, then each native setter is observable in source order; W019 subtraction and addition are six separate calls when old nonzero; never replace with one net delta",
+    "save": "save base adjustment, natural baseline, explicit native contributions/direct max offsets, current resources, W019 old amount per tower slot; do not replay setter or learning callbacks",
+    "falseSetter": "No false call in47 literal source sites; not guessed as temporary attribute ownership. If later dynamic caller found, resolve separately before use"
+  },
+  "verification": {
+    "W019SourceCases": 180,
+    "W019Instructions": 102,
+    "cases": [
+      {
+        "kind": "nil",
+        "level": 0,
+        "talent": 0,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 0,
+        "talent": 0,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 0,
+        "talent": 0,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 0,
+        "talent": 0,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 0,
+        "talent": 1,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 0,
+        "talent": 1,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 0,
+        "talent": 1,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 0,
+        "talent": 1,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 0,
+        "talent": 5,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 0,
+        "talent": 5,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 0,
+        "talent": 5,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 0,
+        "talent": 5,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 1,
+        "talent": 0,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 1,
+        "talent": 0,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 1,
+        "talent": 0,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 1,
+        "talent": 0,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 1,
+        "talent": 1,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 1,
+        "talent": 1,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 1,
+        "talent": 1,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 1,
+        "talent": 1,
+        "previous": 1,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 1
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 1,
+        "talent": 5,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 1,
+        "talent": 5,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 1,
+        "talent": 5,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 1,
+        "talent": 5,
+        "previous": 3,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 3
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 20,
+        "talent": 0,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 20,
+        "talent": 0,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 20,
+        "talent": 0,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 20,
+        "talent": 0,
+        "previous": 10,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 10
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 20,
+        "talent": 1,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 20,
+        "talent": 1,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 20,
+        "talent": 1,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 20,
+        "talent": 1,
+        "previous": 20,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 20
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 20,
+        "talent": 5,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 20,
+        "talent": 5,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 20,
+        "talent": 5,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 20,
+        "talent": 5,
+        "previous": 60,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 60
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 21,
+        "talent": 0,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 21,
+        "talent": 0,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 21,
+        "talent": 0,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 21,
+        "talent": 0,
+        "previous": 10,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 10
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 21,
+        "talent": 1,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 21,
+        "talent": 1,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 21,
+        "talent": 1,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 21,
+        "talent": 1,
+        "previous": 21,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 21
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 21,
+        "talent": 5,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 21,
+        "talent": 5,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 21,
+        "talent": 5,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 21,
+        "talent": 5,
+        "previous": 63,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 63
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 30,
+        "talent": 0,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 30,
+        "talent": 0,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 30,
+        "talent": 0,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 30,
+        "talent": 0,
+        "previous": 15,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 15
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 30,
+        "talent": 1,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 30,
+        "talent": 1,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 30,
+        "talent": 1,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 30,
+        "talent": 1,
+        "previous": 30,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 30
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 30,
+        "talent": 5,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 30,
+        "talent": 5,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 30,
+        "talent": 5,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "nil",
+        "level": 30,
+        "talent": 5,
+        "previous": 90,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 90
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 0,
+        "talent": 0,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 0,
+        "talent": 0,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 0,
+        "talent": 0,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 0,
+        "talent": 0,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 0,
+        "talent": 1,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 0,
+        "talent": 1,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 0,
+        "talent": 1,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 0,
+        "talent": 1,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 0,
+        "talent": 5,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 0,
+        "talent": 5,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 0,
+        "talent": 5,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 0,
+        "talent": 5,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 1,
+        "talent": 0,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 1,
+        "talent": 0,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 1,
+        "talent": 0,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 1,
+        "talent": 0,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 1,
+        "talent": 1,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 1,
+        "talent": 1,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 1,
+        "talent": 1,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 1,
+        "talent": 1,
+        "previous": 1,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 1
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 1,
+        "talent": 5,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 1,
+        "talent": 5,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 1,
+        "talent": 5,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 1,
+        "talent": 5,
+        "previous": 3,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 3
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 20,
+        "talent": 0,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 20,
+        "talent": 0,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 20,
+        "talent": 0,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 20,
+        "talent": 0,
+        "previous": 10,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 10
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 20,
+        "talent": 1,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 20,
+        "talent": 1,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 20,
+        "talent": 1,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 20,
+        "talent": 1,
+        "previous": 20,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 20
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 20,
+        "talent": 5,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 20,
+        "talent": 5,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 20,
+        "talent": 5,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 20,
+        "talent": 5,
+        "previous": 60,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 60
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 21,
+        "talent": 0,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 21,
+        "talent": 0,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 21,
+        "talent": 0,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 21,
+        "talent": 0,
+        "previous": 10,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 10
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 21,
+        "talent": 1,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 21,
+        "talent": 1,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 21,
+        "talent": 1,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 21,
+        "talent": 1,
+        "previous": 21,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 21
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 21,
+        "talent": 5,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 21,
+        "talent": 5,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 21,
+        "talent": 5,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 21,
+        "talent": 5,
+        "previous": 63,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 63
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 30,
+        "talent": 0,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 30,
+        "talent": 0,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 30,
+        "talent": 0,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 30,
+        "talent": 0,
+        "previous": 15,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 15
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 30,
+        "talent": 1,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 30,
+        "talent": 1,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 30,
+        "talent": 1,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 30,
+        "talent": 1,
+        "previous": 30,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 30
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 30,
+        "talent": 5,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 30,
+        "talent": 5,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 30,
+        "talent": 5,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "nonhero",
+        "level": 30,
+        "talent": 5,
+        "previous": 90,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 90
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 0,
+        "talent": 0,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 0,
+        "talent": 0,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 0,
+        "talent": 0,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 0,
+        "talent": 0,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 0,
+        "talent": 1,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 0,
+        "talent": 1,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 0,
+        "talent": 1,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 0,
+        "talent": 1,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 0,
+        "talent": 5,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 0,
+        "talent": 5,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 0,
+        "talent": 5,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 0,
+        "talent": 5,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 1,
+        "talent": 0,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 1,
+        "talent": 0,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 1,
+        "talent": 0,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 1,
+        "talent": 0,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 1,
+        "talent": 1,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 101,
+            "Agi": 201,
+            "Int": 301
+          },
+          "trace": [
+            [
+              "Str",
+              101
+            ],
+            [
+              "Agi",
+              201
+            ],
+            [
+              "Int",
+              301
+            ]
+          ],
+          "stored": {
+            "1": 1
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 1,
+        "talent": 1,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 101,
+            "Agi": 201,
+            "Int": 301
+          },
+          "trace": [
+            [
+              "Str",
+              101
+            ],
+            [
+              "Agi",
+              201
+            ],
+            [
+              "Int",
+              301
+            ]
+          ],
+          "stored": {
+            "1": 1
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 1,
+        "talent": 1,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 94,
+            "Agi": 194,
+            "Int": 294
+          },
+          "trace": [
+            [
+              "Str",
+              93
+            ],
+            [
+              "Agi",
+              193
+            ],
+            [
+              "Int",
+              293
+            ],
+            [
+              "Str",
+              94
+            ],
+            [
+              "Agi",
+              194
+            ],
+            [
+              "Int",
+              294
+            ]
+          ],
+          "stored": {
+            "1": 1
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 1,
+        "talent": 1,
+        "previous": 1,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 1
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 1,
+        "talent": 5,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 103,
+            "Agi": 203,
+            "Int": 303
+          },
+          "trace": [
+            [
+              "Str",
+              103
+            ],
+            [
+              "Agi",
+              203
+            ],
+            [
+              "Int",
+              303
+            ]
+          ],
+          "stored": {
+            "1": 3
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 1,
+        "talent": 5,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 103,
+            "Agi": 203,
+            "Int": 303
+          },
+          "trace": [
+            [
+              "Str",
+              103
+            ],
+            [
+              "Agi",
+              203
+            ],
+            [
+              "Int",
+              303
+            ]
+          ],
+          "stored": {
+            "1": 3
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 1,
+        "talent": 5,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 96,
+            "Agi": 196,
+            "Int": 296
+          },
+          "trace": [
+            [
+              "Str",
+              93
+            ],
+            [
+              "Agi",
+              193
+            ],
+            [
+              "Int",
+              293
+            ],
+            [
+              "Str",
+              96
+            ],
+            [
+              "Agi",
+              196
+            ],
+            [
+              "Int",
+              296
+            ]
+          ],
+          "stored": {
+            "1": 3
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 1,
+        "talent": 5,
+        "previous": 3,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 3
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 20,
+        "talent": 0,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 20,
+        "talent": 0,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 20,
+        "talent": 0,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 20,
+        "talent": 0,
+        "previous": 10,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 10
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 20,
+        "talent": 1,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 120,
+            "Agi": 220,
+            "Int": 320
+          },
+          "trace": [
+            [
+              "Str",
+              120
+            ],
+            [
+              "Agi",
+              220
+            ],
+            [
+              "Int",
+              320
+            ]
+          ],
+          "stored": {
+            "1": 20
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 20,
+        "talent": 1,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 120,
+            "Agi": 220,
+            "Int": 320
+          },
+          "trace": [
+            [
+              "Str",
+              120
+            ],
+            [
+              "Agi",
+              220
+            ],
+            [
+              "Int",
+              320
+            ]
+          ],
+          "stored": {
+            "1": 20
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 20,
+        "talent": 1,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 113,
+            "Agi": 213,
+            "Int": 313
+          },
+          "trace": [
+            [
+              "Str",
+              93
+            ],
+            [
+              "Agi",
+              193
+            ],
+            [
+              "Int",
+              293
+            ],
+            [
+              "Str",
+              113
+            ],
+            [
+              "Agi",
+              213
+            ],
+            [
+              "Int",
+              313
+            ]
+          ],
+          "stored": {
+            "1": 20
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 20,
+        "talent": 1,
+        "previous": 20,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 20
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 20,
+        "talent": 5,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 160,
+            "Agi": 260,
+            "Int": 360
+          },
+          "trace": [
+            [
+              "Str",
+              160
+            ],
+            [
+              "Agi",
+              260
+            ],
+            [
+              "Int",
+              360
+            ]
+          ],
+          "stored": {
+            "1": 60
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 20,
+        "talent": 5,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 160,
+            "Agi": 260,
+            "Int": 360
+          },
+          "trace": [
+            [
+              "Str",
+              160
+            ],
+            [
+              "Agi",
+              260
+            ],
+            [
+              "Int",
+              360
+            ]
+          ],
+          "stored": {
+            "1": 60
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 20,
+        "talent": 5,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 153,
+            "Agi": 253,
+            "Int": 353
+          },
+          "trace": [
+            [
+              "Str",
+              93
+            ],
+            [
+              "Agi",
+              193
+            ],
+            [
+              "Int",
+              293
+            ],
+            [
+              "Str",
+              153
+            ],
+            [
+              "Agi",
+              253
+            ],
+            [
+              "Int",
+              353
+            ]
+          ],
+          "stored": {
+            "1": 60
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 20,
+        "talent": 5,
+        "previous": 60,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 60
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 21,
+        "talent": 0,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 21,
+        "talent": 0,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 21,
+        "talent": 0,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 21,
+        "talent": 0,
+        "previous": 10,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 10
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 21,
+        "talent": 1,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 121,
+            "Agi": 221,
+            "Int": 321
+          },
+          "trace": [
+            [
+              "Str",
+              121
+            ],
+            [
+              "Agi",
+              221
+            ],
+            [
+              "Int",
+              321
+            ]
+          ],
+          "stored": {
+            "1": 21
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 21,
+        "talent": 1,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 121,
+            "Agi": 221,
+            "Int": 321
+          },
+          "trace": [
+            [
+              "Str",
+              121
+            ],
+            [
+              "Agi",
+              221
+            ],
+            [
+              "Int",
+              321
+            ]
+          ],
+          "stored": {
+            "1": 21
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 21,
+        "talent": 1,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 114,
+            "Agi": 214,
+            "Int": 314
+          },
+          "trace": [
+            [
+              "Str",
+              93
+            ],
+            [
+              "Agi",
+              193
+            ],
+            [
+              "Int",
+              293
+            ],
+            [
+              "Str",
+              114
+            ],
+            [
+              "Agi",
+              214
+            ],
+            [
+              "Int",
+              314
+            ]
+          ],
+          "stored": {
+            "1": 21
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 21,
+        "talent": 1,
+        "previous": 21,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 21
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 21,
+        "talent": 5,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 163,
+            "Agi": 263,
+            "Int": 363
+          },
+          "trace": [
+            [
+              "Str",
+              163
+            ],
+            [
+              "Agi",
+              263
+            ],
+            [
+              "Int",
+              363
+            ]
+          ],
+          "stored": {
+            "1": 63
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 21,
+        "talent": 5,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 163,
+            "Agi": 263,
+            "Int": 363
+          },
+          "trace": [
+            [
+              "Str",
+              163
+            ],
+            [
+              "Agi",
+              263
+            ],
+            [
+              "Int",
+              363
+            ]
+          ],
+          "stored": {
+            "1": 63
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 21,
+        "talent": 5,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 156,
+            "Agi": 256,
+            "Int": 356
+          },
+          "trace": [
+            [
+              "Str",
+              93
+            ],
+            [
+              "Agi",
+              193
+            ],
+            [
+              "Int",
+              293
+            ],
+            [
+              "Str",
+              156
+            ],
+            [
+              "Agi",
+              256
+            ],
+            [
+              "Int",
+              356
+            ]
+          ],
+          "stored": {
+            "1": 63
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 21,
+        "talent": 5,
+        "previous": 63,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 63
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 30,
+        "talent": 0,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {}
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 30,
+        "talent": 0,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 30,
+        "talent": 0,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 30,
+        "talent": 0,
+        "previous": 15,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 15
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 30,
+        "talent": 1,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 130,
+            "Agi": 230,
+            "Int": 330
+          },
+          "trace": [
+            [
+              "Str",
+              130
+            ],
+            [
+              "Agi",
+              230
+            ],
+            [
+              "Int",
+              330
+            ]
+          ],
+          "stored": {
+            "1": 30
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 30,
+        "talent": 1,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 130,
+            "Agi": 230,
+            "Int": 330
+          },
+          "trace": [
+            [
+              "Str",
+              130
+            ],
+            [
+              "Agi",
+              230
+            ],
+            [
+              "Int",
+              330
+            ]
+          ],
+          "stored": {
+            "1": 30
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 30,
+        "talent": 1,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 123,
+            "Agi": 223,
+            "Int": 323
+          },
+          "trace": [
+            [
+              "Str",
+              93
+            ],
+            [
+              "Agi",
+              193
+            ],
+            [
+              "Int",
+              293
+            ],
+            [
+              "Str",
+              123
+            ],
+            [
+              "Agi",
+              223
+            ],
+            [
+              "Int",
+              323
+            ]
+          ],
+          "stored": {
+            "1": 30
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 30,
+        "talent": 1,
+        "previous": 30,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 30
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 30,
+        "talent": 5,
+        "previous": null,
+        "result": {
+          "stats": {
+            "Str": 190,
+            "Agi": 290,
+            "Int": 390
+          },
+          "trace": [
+            [
+              "Str",
+              190
+            ],
+            [
+              "Agi",
+              290
+            ],
+            [
+              "Int",
+              390
+            ]
+          ],
+          "stored": {
+            "1": 90
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 30,
+        "talent": 5,
+        "previous": 0,
+        "result": {
+          "stats": {
+            "Str": 190,
+            "Agi": 290,
+            "Int": 390
+          },
+          "trace": [
+            [
+              "Str",
+              190
+            ],
+            [
+              "Agi",
+              290
+            ],
+            [
+              "Int",
+              390
+            ]
+          ],
+          "stored": {
+            "1": 90
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 30,
+        "talent": 5,
+        "previous": 7,
+        "result": {
+          "stats": {
+            "Str": 183,
+            "Agi": 283,
+            "Int": 383
+          },
+          "trace": [
+            [
+              "Str",
+              93
+            ],
+            [
+              "Agi",
+              193
+            ],
+            [
+              "Int",
+              293
+            ],
+            [
+              "Str",
+              183
+            ],
+            [
+              "Agi",
+              283
+            ],
+            [
+              "Int",
+              383
+            ]
+          ],
+          "stored": {
+            "1": 90
+          }
+        }
+      },
+      {
+        "kind": "hero",
+        "level": 30,
+        "talent": 5,
+        "previous": 90,
+        "result": {
+          "stats": {
+            "Str": 100,
+            "Agi": 200,
+            "Int": 300
+          },
+          "trace": [],
+          "stored": {
+            "1": 90
+          }
+        }
+      }
+    ],
+    "setterBooleanSites": 47,
+    "businessSetterSites": 44,
+    "T000Levels": 6,
+    "T101Levels": 6,
+    "T101ReadOnlyWorkbookCells": 140,
+    "clientRun": false,
+    "gameRuntimeRun": false
+  },
+  "remaining": [
+    "all skill/item-specific acquisition/reversal predicates around other setters",
+    "full Acha/ANeg and illusion attribute transfer",
+    "native regeneration eligibility/day/night/blight and percentage providers",
+    "general death/resurrection transaction and non-attribute current-life writes"
+  ]
+}

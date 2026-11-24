@@ -1,0 +1,2078 @@
+{
+  "records": [
+    {
+      "id": "N560",
+      "status": "ready",
+      "rules": {
+        "activation": "new ma99 receives Acha immediately after old dragon death",
+        "targetTemplate": "mb99",
+        "phase": "new same entity stage; hidden health bar, Avul",
+        "presentationT": 2
+      },
+      "sourceRefs": {
+        "object": {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 1524,
+          "id": "N560",
+          "fields": {
+            "alias": "N560",
+            "code": "Acha",
+            "checkDep": 1,
+            "levels": 1,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_",
+            "UnitID1": "mb99"
+          }
+        },
+        "overrides": [],
+        "router": [
+          [
+            "main/f290/f17",
+            70,
+            159205
+          ]
+        ],
+        "modules": [
+          "main/f290/f17"
+        ],
+        "profileHeaderLine": 15489
+      },
+      "differences": [
+        "Separate death/create transaction followed by same-entity appearance transition."
+      ],
+      "unresolved": [],
+      "validation": "source fields, dispatch, and source VM probes"
+    },
+    {
+      "id": "N561",
+      "status": "ready",
+      "rules": {
+        "templateAt7_5": "ma99",
+        "activeAt": 9.5,
+        "activeState": "restore resources and actual rank, drop Avul, register battle listener",
+        "retainsNewEntityId": true,
+        "inheritedFromDeadParentOnly": [
+          "x",
+          "y",
+          "facing",
+          "pathUserData"
+        ]
+      },
+      "sourceRefs": {
+        "object": {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 1525,
+          "id": "N561",
+          "fields": {
+            "alias": "N561",
+            "code": "Acha",
+            "checkDep": 1,
+            "levels": 1,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_",
+            "UnitID1": "ma99"
+          }
+        },
+        "overrides": [],
+        "router": [
+          [
+            "main/f290/f15",
+            4,
+            159034
+          ]
+        ],
+        "modules": [
+          "main/f290/f14",
+          "main/f290/f15",
+          "main/f290/f16"
+        ],
+        "profileHeaderLine": 15493
+      },
+      "differences": [
+        "Native null effective rank keeps an innate level one on rank0, rather than disabling a shipped ability."
+      ],
+      "unresolved": [],
+      "validation": "source fields, dispatch, and source VM probes"
+    },
+    {
+      "id": "N562",
+      "status": "ready",
+      "rules": {
+        "autoStrictRankThreshold": 3,
+        "writtenRank": "min(20,rank-3)",
+        "radiusFromMapCenter": 999999,
+        "candidates": "owner P0-P3, alive, visible, no B111",
+        "perCandidatePoints": 3,
+        "perAxisRandomOffset": [
+          -199,
+          200
+        ],
+        "delayedImpact": "1.9-.06*rank",
+        "telegraphSpeed": ".8+.05*(rank-1)",
+        "payload": "T111",
+        "mana": 500,
+        "castPt": 0.47,
+        "backSwing": 0.1,
+        "cooldownByRank": [
+          25.0,
+          24.5,
+          24.0,
+          23.5,
+          23.0,
+          22.5,
+          22.0,
+          21.5,
+          21.0,
+          20.5,
+          20.0,
+          19.5,
+          19.0,
+          18.5,
+          18.0,
+          17.5,
+          17.0,
+          16.5,
+          16.0,
+          15.5
+        ]
+      },
+      "sourceRefs": {
+        "object": {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 1526,
+          "id": "N562",
+          "fields": {
+            "alias": "N562",
+            "code": "ANcl",
+            "checkDep": 1,
+            "Cool1": 25.0,
+            "Cool2": 24.5,
+            "Cool3": 24.0,
+            "Cool4": 23.5,
+            "Cost1": 500,
+            "Cost2": 500,
+            "Cost3": 500,
+            "Cost4": 500,
+            "DataA1": 1.0,
+            "DataA2": 1.0,
+            "DataA3": 1.0,
+            "DataA4": 1.0,
+            "DataC1": 1,
+            "DataC2": 1,
+            "DataC3": 1,
+            "DataC4": 1,
+            "DataF1": "harvest",
+            "DataF2": "harvest",
+            "DataF3": "harvest",
+            "DataF4": "harvest",
+            "levels": 20,
+            "reqLevel": 1,
+            "Rng1": 500.0,
+            "Rng2": 500.0,
+            "Rng3": 500.0,
+            "Rng4": 500.0,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        "overrides": [
+          {
+            "sourcePath": "reference/map-6.25/war3map.w3a.json",
+            "jsonIndex": 156,
+            "id": "N562",
+            "fields": {
+              "old": "N562",
+              "new": "\u0000\u0000\u0000\u0000",
+              "mods": [
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 5,
+                  "data": 0,
+                  "value": 23.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 6,
+                  "data": 0,
+                  "value": 22.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 7,
+                  "data": 0,
+                  "value": 22.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 8,
+                  "data": 0,
+                  "value": 21.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 9,
+                  "data": 0,
+                  "value": 21.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 10,
+                  "data": 0,
+                  "value": 20.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 11,
+                  "data": 0,
+                  "value": 20.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 12,
+                  "data": 0,
+                  "value": 19.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 13,
+                  "data": 0,
+                  "value": 19.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 14,
+                  "data": 0,
+                  "value": 18.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 15,
+                  "data": 0,
+                  "value": 18.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 16,
+                  "data": 0,
+                  "value": 17.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 17,
+                  "data": 0,
+                  "value": 17.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 18,
+                  "data": 0,
+                  "value": 16.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 19,
+                  "data": 0,
+                  "value": 16.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 20,
+                  "data": 0,
+                  "value": 15.5
+                }
+              ]
+            }
+          }
+        ],
+        "router": [
+          [
+            "main/f206/f1",
+            63,
+            118639
+          ],
+          [
+            "main/f290/f13",
+            25,
+            158830
+          ],
+          [
+            "main/f291/f1",
+            3604,
+            166299
+          ],
+          [
+            "main/f291/f14",
+            1871,
+            172050
+          ]
+        ],
+        "modules": [
+          "main/f206"
+        ],
+        "profileHeaderLine": 15497
+      },
+      "differences": [],
+      "unresolved": [],
+      "validation": "source fields, dispatch, and source VM probes"
+    },
+    {
+      "id": "N563",
+      "status": "ready",
+      "rules": {
+        "autoStrictRankThreshold": 5,
+        "writtenRank": "min(20,rank-5)",
+        "warning": "position on effect",
+        "complete": "FINISH removes marker before T112 at then-current caster location",
+        "ENDCAST": "erase marker only",
+        "mana": 500,
+        "castPt": 0.47,
+        "backSwing": 0.1,
+        "cooldownByRank": [
+          30.0,
+          29.5,
+          29.0,
+          28.5,
+          28.0,
+          27.5,
+          27.0,
+          26.5,
+          26.0,
+          25.5,
+          25.0,
+          24.5,
+          24.0,
+          23.5,
+          23.0,
+          22.5,
+          22.0,
+          21.5,
+          21.0,
+          20
+        ],
+        "followByRank": [
+          3.4,
+          3.3,
+          3.2,
+          3.1,
+          3.0,
+          2.9,
+          2.8,
+          2.7,
+          2.6,
+          2.5,
+          2.4,
+          2.3,
+          2.2,
+          2.1,
+          2.0,
+          1.9,
+          1.8,
+          1.7,
+          1.6,
+          1.5
+        ]
+      },
+      "sourceRefs": {
+        "object": {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 1527,
+          "id": "N563",
+          "fields": {
+            "alias": "N563",
+            "code": "ANcl",
+            "checkDep": 1,
+            "Cool1": 30.0,
+            "Cool2": 29.5,
+            "Cool3": 29.0,
+            "Cool4": 28.5,
+            "Cost1": 500,
+            "Cost2": 500,
+            "Cost3": 500,
+            "Cost4": 500,
+            "DataA1": 3.4,
+            "DataA2": 3.3,
+            "DataA3": 3.2,
+            "DataA4": 3.1,
+            "DataC1": 1,
+            "DataC2": 1,
+            "DataC3": 1,
+            "DataC4": 1,
+            "DataF1": "ambush",
+            "DataF2": "ambush",
+            "DataF3": "ambush",
+            "DataF4": "ambush",
+            "levels": 20,
+            "reqLevel": 1,
+            "Rng1": 500.0,
+            "Rng2": 500.0,
+            "Rng3": 500.0,
+            "Rng4": 500.0,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        "overrides": [
+          {
+            "sourcePath": "reference/map-6.25/war3map.w3a.json",
+            "jsonIndex": 157,
+            "id": "N563",
+            "fields": {
+              "old": "N563",
+              "new": "\u0000\u0000\u0000\u0000",
+              "mods": [
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 5,
+                  "data": 0,
+                  "value": 28.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 6,
+                  "data": 0,
+                  "value": 27.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 7,
+                  "data": 0,
+                  "value": 27.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 8,
+                  "data": 0,
+                  "value": 26.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 9,
+                  "data": 0,
+                  "value": 26.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 10,
+                  "data": 0,
+                  "value": 25.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 11,
+                  "data": 0,
+                  "value": 25.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 12,
+                  "data": 0,
+                  "value": 24.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 13,
+                  "data": 0,
+                  "value": 24.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 14,
+                  "data": 0,
+                  "value": 23.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 15,
+                  "data": 0,
+                  "value": 23.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 16,
+                  "data": 0,
+                  "value": 22.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 17,
+                  "data": 0,
+                  "value": 22.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 18,
+                  "data": 0,
+                  "value": 21.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 19,
+                  "data": 0,
+                  "value": 21.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 20,
+                  "data": 0,
+                  "value": 20.0
+                },
+                {
+                  "key": "Ncl1",
+                  "type": 2,
+                  "level": 5,
+                  "data": 1,
+                  "value": 3.0
+                },
+                {
+                  "key": "Ncl1",
+                  "type": 2,
+                  "level": 6,
+                  "data": 1,
+                  "value": 2.9000000953674316
+                },
+                {
+                  "key": "Ncl1",
+                  "type": 2,
+                  "level": 7,
+                  "data": 1,
+                  "value": 2.799999952316284
+                },
+                {
+                  "key": "Ncl1",
+                  "type": 2,
+                  "level": 8,
+                  "data": 1,
+                  "value": 2.700000047683716
+                },
+                {
+                  "key": "Ncl1",
+                  "type": 2,
+                  "level": 9,
+                  "data": 1,
+                  "value": 2.5999999046325684
+                },
+                {
+                  "key": "Ncl1",
+                  "type": 2,
+                  "level": 10,
+                  "data": 1,
+                  "value": 2.5
+                },
+                {
+                  "key": "Ncl1",
+                  "type": 2,
+                  "level": 11,
+                  "data": 1,
+                  "value": 2.4000000953674316
+                },
+                {
+                  "key": "Ncl1",
+                  "type": 2,
+                  "level": 12,
+                  "data": 1,
+                  "value": 2.299999952316284
+                },
+                {
+                  "key": "Ncl1",
+                  "type": 2,
+                  "level": 13,
+                  "data": 1,
+                  "value": 2.200000047683716
+                },
+                {
+                  "key": "Ncl1",
+                  "type": 2,
+                  "level": 14,
+                  "data": 1,
+                  "value": 2.0999999046325684
+                },
+                {
+                  "key": "Ncl1",
+                  "type": 2,
+                  "level": 15,
+                  "data": 1,
+                  "value": 2.0
+                },
+                {
+                  "key": "Ncl1",
+                  "type": 2,
+                  "level": 16,
+                  "data": 1,
+                  "value": 1.899999976158142
+                },
+                {
+                  "key": "Ncl1",
+                  "type": 2,
+                  "level": 17,
+                  "data": 1,
+                  "value": 1.7999999523162842
+                },
+                {
+                  "key": "Ncl1",
+                  "type": 2,
+                  "level": 18,
+                  "data": 1,
+                  "value": 1.7000000476837158
+                },
+                {
+                  "key": "Ncl1",
+                  "type": 2,
+                  "level": 19,
+                  "data": 1,
+                  "value": 1.600000023841858
+                },
+                {
+                  "key": "Ncl1",
+                  "type": 2,
+                  "level": 20,
+                  "data": 1,
+                  "value": 1.5
+                }
+              ]
+            }
+          }
+        ],
+        "router": [
+          [
+            "main/f290/f13",
+            38,
+            158844
+          ],
+          [
+            "main/f291/f1",
+            3624,
+            166320
+          ],
+          [
+            "main/f291/f14",
+            1881,
+            172061
+          ],
+          [
+            "main/f291/f16",
+            144,
+            172431
+          ],
+          [
+            "main/f291/f17",
+            32,
+            172569
+          ]
+        ],
+        "modules": [
+          "main/f207"
+        ],
+        "profileHeaderLine": 15509
+      },
+      "differences": [],
+      "unresolved": [],
+      "validation": "source fields, dispatch, and source VM probes"
+    },
+    {
+      "id": "N564",
+      "status": "ready",
+      "rules": {
+        "autoStrictRankThreshold": 15,
+        "writtenRank": "min(20,rank-15)",
+        "producerStep": 0.1,
+        "producerElapsedLimit": 8,
+        "firstThreshold": 1,
+        "nextThresholdDelta": -0.2,
+        "minimumThreshold": 0.1,
+        "binary64Accumulation": true,
+        "perAxisRandomOffset": [
+          -1199,
+          1200
+        ],
+        "impactQueue": "1.9-.06*currentSpellRank delay, original FIFO in active sequence",
+        "resetAt": 10,
+        "payload": "T111",
+        "mana": 500,
+        "castPt": 0.47,
+        "backSwing": 0.1,
+        "cooldownByRank": [
+          42,
+          41.0,
+          40.5,
+          40.0,
+          39.5,
+          39.0,
+          38.5,
+          38.0,
+          37.5,
+          37.0,
+          36.5,
+          36.0,
+          35.5,
+          35.0,
+          34.5,
+          34.0,
+          33.5,
+          33.0,
+          32.5,
+          30
+        ]
+      },
+      "sourceRefs": {
+        "object": {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 1528,
+          "id": "N564",
+          "fields": {
+            "alias": "N564",
+            "code": "ANcl",
+            "checkDep": 1,
+            "Cool1": 42.0,
+            "Cool2": 41.0,
+            "Cool3": 40.5,
+            "Cool4": 40.0,
+            "Cost1": 500,
+            "Cost2": 500,
+            "Cost3": 500,
+            "Cost4": 500,
+            "DataA1": 1.0,
+            "DataA2": 1.0,
+            "DataA3": 1.0,
+            "DataA4": 1.0,
+            "DataC1": 1,
+            "DataC2": 1,
+            "DataC3": 1,
+            "DataC4": 1,
+            "DataF1": "cannibalize",
+            "DataF2": "cannibalize",
+            "DataF3": "cannibalize",
+            "DataF4": "cannibalize",
+            "levels": 20,
+            "reqLevel": 1,
+            "Rng1": 500.0,
+            "Rng2": 500.0,
+            "Rng3": 500.0,
+            "Rng4": 500.0,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        "overrides": [
+          {
+            "sourcePath": "reference/map-6.25/war3map.w3a.json",
+            "jsonIndex": 158,
+            "id": "N564",
+            "fields": {
+              "old": "N564",
+              "new": "\u0000\u0000\u0000\u0000",
+              "mods": [
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 5,
+                  "data": 0,
+                  "value": 39.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 6,
+                  "data": 0,
+                  "value": 39.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 7,
+                  "data": 0,
+                  "value": 38.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 8,
+                  "data": 0,
+                  "value": 38.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 9,
+                  "data": 0,
+                  "value": 37.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 10,
+                  "data": 0,
+                  "value": 37.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 11,
+                  "data": 0,
+                  "value": 36.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 12,
+                  "data": 0,
+                  "value": 36.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 13,
+                  "data": 0,
+                  "value": 35.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 14,
+                  "data": 0,
+                  "value": 35.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 15,
+                  "data": 0,
+                  "value": 34.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 16,
+                  "data": 0,
+                  "value": 34.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 17,
+                  "data": 0,
+                  "value": 33.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 18,
+                  "data": 0,
+                  "value": 33.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 19,
+                  "data": 0,
+                  "value": 32.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 20,
+                  "data": 0,
+                  "value": 30.0
+                }
+              ]
+            }
+          }
+        ],
+        "router": [
+          [
+            "main/f208/f2",
+            61,
+            119129
+          ],
+          [
+            "main/f209/f6",
+            5,
+            119691
+          ],
+          [
+            "main/f290/f13",
+            64,
+            158872
+          ],
+          [
+            "main/f291/f1",
+            3644,
+            166341
+          ],
+          [
+            "main/f291/f14",
+            1891,
+            172072
+          ]
+        ],
+        "modules": [
+          "main/f208"
+        ],
+        "profileHeaderLine": 15521
+      },
+      "differences": [],
+      "unresolved": [],
+      "validation": "source fields, dispatch, and source VM probes"
+    },
+    {
+      "id": "N565",
+      "status": "ready",
+      "rules": {
+        "autoStrictRankThreshold": 10,
+        "writtenRank": "min(20,rank-10)",
+        "initialNumber": "10+actual N564 rank",
+        "spawnInterval": 0.1,
+        "child": "P11 mb01 with Awan",
+        "childTimedLife": 20,
+        "childMaxAndCurrentHP": "live parent MAX HP*.1 on birth",
+        "registration": {
+          "pool": -1,
+          "points": 1,
+          "once": true
+        },
+        "aimToParentIfDistanceAbove": 900,
+        "recenterPoll": 1,
+        "idleWander": {
+          "decision": "Q24 via provisional published Awan implementation",
+          "delaySeconds": [
+            8,
+            10
+          ],
+          "radialDistance": [
+            64,
+            256
+          ],
+          "combatFleeAdded": false
+        },
+        "recallAt": 16,
+        "recallSpeed": 700,
+        "deleteAt": 17,
+        "onCleanupBossHeal": 0,
+        "persistentReduction": "for actual ma99, repeatedly subtract .01 from multiplier=1 for each live child in current global list; clamp >=0",
+        "mana": 500,
+        "castPt": 0.47,
+        "backSwing": 0.1,
+        "cooldownByRank": [
+          47.5,
+          47.0,
+          46.5,
+          46.0,
+          45.5,
+          45.0,
+          44.5,
+          44.0,
+          43.5,
+          43.0,
+          42.5,
+          42.0,
+          41.5,
+          41.0,
+          40.5,
+          40.5,
+          40,
+          39.5,
+          38.5,
+          35
+        ]
+      },
+      "sourceRefs": {
+        "object": {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 1529,
+          "id": "N565",
+          "fields": {
+            "alias": "N565",
+            "code": "ANcl",
+            "checkDep": 1,
+            "Cool1": 47.5,
+            "Cool2": 47.0,
+            "Cool3": 46.5,
+            "Cool4": 46.0,
+            "Cost1": 500,
+            "Cost2": 500,
+            "Cost3": 500,
+            "Cost4": 500,
+            "DataA1": 1.0,
+            "DataA2": 1.0,
+            "DataA3": 1.0,
+            "DataA4": 1.0,
+            "DataC1": 1,
+            "DataC2": 1,
+            "DataC3": 1,
+            "DataC4": 1,
+            "DataF1": "Locustswarm",
+            "DataF2": "Locustswarm",
+            "DataF3": "Locustswarm",
+            "DataF4": "Locustswarm",
+            "levels": 20,
+            "reqLevel": 1,
+            "Rng1": 500.0,
+            "Rng2": 500.0,
+            "Rng3": 500.0,
+            "Rng4": 500.0,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        "overrides": [
+          {
+            "sourcePath": "reference/map-6.25/war3map.w3a.json",
+            "jsonIndex": 159,
+            "id": "N565",
+            "fields": {
+              "old": "N565",
+              "new": "\u0000\u0000\u0000\u0000",
+              "mods": [
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 5,
+                  "data": 0,
+                  "value": 45.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 6,
+                  "data": 0,
+                  "value": 45.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 7,
+                  "data": 0,
+                  "value": 44.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 8,
+                  "data": 0,
+                  "value": 44.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 9,
+                  "data": 0,
+                  "value": 43.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 10,
+                  "data": 0,
+                  "value": 43.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 11,
+                  "data": 0,
+                  "value": 42.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 12,
+                  "data": 0,
+                  "value": 42.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 13,
+                  "data": 0,
+                  "value": 41.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 14,
+                  "data": 0,
+                  "value": 41.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 15,
+                  "data": 0,
+                  "value": 40.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 16,
+                  "data": 0,
+                  "value": 40.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 17,
+                  "data": 0,
+                  "value": 40.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 18,
+                  "data": 0,
+                  "value": 39.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 19,
+                  "data": 0,
+                  "value": 38.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 20,
+                  "data": 0,
+                  "value": 35.0
+                }
+              ]
+            }
+          }
+        ],
+        "router": [
+          [
+            "main/f290/f13",
+            51,
+            158858
+          ],
+          [
+            "main/f291/f1",
+            3664,
+            166362
+          ],
+          [
+            "main/f291/f14",
+            1901,
+            172083
+          ]
+        ],
+        "modules": [
+          "main/f209"
+        ],
+        "profileHeaderLine": 15533
+      },
+      "differences": [
+        "Source clears the child with RemoveUnit before querying life for a hypothetical maximum-health 1% parent heal; invalid handle reads zero."
+      ],
+      "unresolved": [],
+      "validation": "source fields, dispatch, and source VM probes"
+    },
+    {
+      "id": "N566",
+      "status": "ready",
+      "rules": {
+        "writtenRank": "max(1,min(20,rank))",
+        "radius": 2000,
+        "curse": "B112 12 seconds",
+        "damageReduction": 0.5,
+        "damageSource": "actual S with B112",
+        "damageTarget": "actual ma99",
+        "mana": 500,
+        "castPt": 0.47,
+        "backSwing": 0.1,
+        "cooldownByRank": [
+          25.0,
+          24.5,
+          24.0,
+          23.5,
+          23.0,
+          22.5,
+          22.0,
+          21.5,
+          21.0,
+          20.5,
+          20.0,
+          19.5,
+          19.0,
+          18.5,
+          18.0,
+          17.5,
+          17.0,
+          16.5,
+          16.0,
+          15
+        ]
+      },
+      "sourceRefs": {
+        "object": {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 1530,
+          "id": "N566",
+          "fields": {
+            "alias": "N566",
+            "code": "ANht",
+            "Area1": 2000.0,
+            "Area2": 2000.0,
+            "Area3": 2000.0,
+            "Area4": 2000.0,
+            "BuffID1": "B112",
+            "BuffID2": "B112",
+            "BuffID3": "B112",
+            "BuffID4": "B112",
+            "checkDep": 1,
+            "Cool1": 25.0,
+            "Cool2": 24.5,
+            "Cool3": 24.0,
+            "Cool4": 23.5,
+            "Cost1": 500,
+            "Cost2": 500,
+            "Cost3": 500,
+            "Cost4": 500,
+            "Dur1": 12.0,
+            "Dur2": 12.0,
+            "Dur3": 12.0,
+            "Dur4": 12.0,
+            "HeroDur1": 12.0,
+            "HeroDur2": 12.0,
+            "HeroDur3": 12.0,
+            "HeroDur4": 12.0,
+            "levels": 20,
+            "targs1": "enemies,invulnerable",
+            "targs2": "enemies,invulnerable",
+            "targs3": "enemies,invulnerable",
+            "targs4": "enemies,invulnerable"
+          }
+        },
+        "overrides": [
+          {
+            "sourcePath": "reference/map-6.25/war3map.w3a.json",
+            "jsonIndex": 160,
+            "id": "N566",
+            "fields": {
+              "old": "N566",
+              "new": "\u0000\u0000\u0000\u0000",
+              "mods": [
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 5,
+                  "data": 0,
+                  "value": 23.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 6,
+                  "data": 0,
+                  "value": 22.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 7,
+                  "data": 0,
+                  "value": 22.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 8,
+                  "data": 0,
+                  "value": 21.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 9,
+                  "data": 0,
+                  "value": 21.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 10,
+                  "data": 0,
+                  "value": 20.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 11,
+                  "data": 0,
+                  "value": 20.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 12,
+                  "data": 0,
+                  "value": 19.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 13,
+                  "data": 0,
+                  "value": 19.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 14,
+                  "data": 0,
+                  "value": 18.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 15,
+                  "data": 0,
+                  "value": 18.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 16,
+                  "data": 0,
+                  "value": 17.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 17,
+                  "data": 0,
+                  "value": 17.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 18,
+                  "data": 0,
+                  "value": 16.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 19,
+                  "data": 0,
+                  "value": 16.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 20,
+                  "data": 0,
+                  "value": 15.0
+                }
+              ]
+            }
+          }
+        ],
+        "router": [
+          [
+            "main/f290/f13",
+            4,
+            158809
+          ],
+          [
+            "main/f291/f1",
+            3584,
+            166278
+          ]
+        ],
+        "modules": [
+          "main/f291/f1:2466–2479",
+          "main/f224/f0"
+        ],
+        "profileHeaderLine": 15545
+      },
+      "differences": [
+        "B112 specifies damage to the Abyss Dragon only. Source halves current damage from actual S regardless of receiver. Web confines it to ma99."
+      ],
+      "unresolved": [],
+      "validation": "source fields, dispatch, and source VM probes"
+    },
+    {
+      "id": "N567",
+      "status": "ready",
+      "rules": {
+        "writtenRank": "max(1,min(20,rank))",
+        "candidates": "within 2000, live native HERO, outside P11",
+        "candidateSelection": "once random, lock point",
+        "delayToMeteorFx": "1-.05*rank",
+        "delayFromFxToStomp": 0.8,
+        "payload": "T113",
+        "mana": 500,
+        "castPt": 0.47,
+        "backSwing": 0.1,
+        "cooldownByRank": [
+          20.0,
+          19.5,
+          19.0,
+          18.5,
+          18.0,
+          17.5,
+          17.0,
+          16.5,
+          16.0,
+          15.5,
+          15.0,
+          14.5,
+          14.0,
+          13.5,
+          13.0,
+          12.5,
+          12.0,
+          11,
+          10.5,
+          10
+        ]
+      },
+      "sourceRefs": {
+        "object": {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 1531,
+          "id": "N567",
+          "fields": {
+            "alias": "N567",
+            "code": "ANcl",
+            "checkDep": 1,
+            "Cool1": 20.0,
+            "Cool2": 19.5,
+            "Cool3": 19.0,
+            "Cool4": 18.5,
+            "Cost1": 500,
+            "Cost2": 500,
+            "Cost3": 500,
+            "Cost4": 500,
+            "DataA1": 1.0,
+            "DataA2": 1.0,
+            "DataA3": 1.0,
+            "DataA4": 1.0,
+            "DataC1": 1,
+            "DataC2": 1,
+            "DataC3": 1,
+            "DataC4": 1,
+            "DataF1": "monsoon",
+            "DataF2": "monsoon",
+            "DataF3": "monsoon",
+            "DataF4": "monsoon",
+            "levels": 20,
+            "reqLevel": 1,
+            "Rng1": 500.0,
+            "Rng2": 500.0,
+            "Rng3": 500.0,
+            "Rng4": 500.0,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        "overrides": [
+          {
+            "sourcePath": "reference/map-6.25/war3map.w3a.json",
+            "jsonIndex": 161,
+            "id": "N567",
+            "fields": {
+              "old": "N567",
+              "new": "\u0000\u0000\u0000\u0000",
+              "mods": [
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 5,
+                  "data": 0,
+                  "value": 18.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 6,
+                  "data": 0,
+                  "value": 17.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 7,
+                  "data": 0,
+                  "value": 17.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 8,
+                  "data": 0,
+                  "value": 16.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 9,
+                  "data": 0,
+                  "value": 16.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 10,
+                  "data": 0,
+                  "value": 15.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 11,
+                  "data": 0,
+                  "value": 15.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 12,
+                  "data": 0,
+                  "value": 14.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 13,
+                  "data": 0,
+                  "value": 14.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 14,
+                  "data": 0,
+                  "value": 13.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 15,
+                  "data": 0,
+                  "value": 13.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 16,
+                  "data": 0,
+                  "value": 12.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 17,
+                  "data": 0,
+                  "value": 12.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 18,
+                  "data": 0,
+                  "value": 11.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 19,
+                  "data": 0,
+                  "value": 10.5
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 20,
+                  "data": 0,
+                  "value": 10.0
+                }
+              ]
+            }
+          }
+        ],
+        "router": [
+          [
+            "main/f210/f2",
+            4,
+            119893
+          ],
+          [
+            "main/f290/f13",
+            13,
+            158818
+          ],
+          [
+            "main/f291/f1",
+            3569,
+            166262
+          ],
+          [
+            "main/f291/f14",
+            1922,
+            172106
+          ]
+        ],
+        "modules": [
+          "main/f210"
+        ],
+        "profileHeaderLine": 15556
+      },
+      "differences": [],
+      "unresolved": [],
+      "validation": "source fields, dispatch, and source VM probes"
+    },
+    {
+      "id": "N568",
+      "status": "ready",
+      "rules": {
+        "minimumActiveLayer": 0,
+        "rankChangeOnlyWhenLayerAbove": 20,
+        "initialCounter": "50+2*actualRank",
+        "scriptLifetime": 25,
+        "nativeDisplayLifetime": 12,
+        "trigger": "all events entering original B03 point; ask berserk if absent",
+        "consume": "decrement first; at >=0 cancel current damage; below 0 clear marker then leave damage",
+        "nativeAttackSpeedAdd": 0,
+        "nativeMoveSpeedAdd": 0,
+        "nativeIncomingDamageAdd": 0,
+        "mana": 500,
+        "castPt": 0.47,
+        "backSwing": 0.1,
+        "cooldownByRank": [
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30,
+          30
+        ]
+      },
+      "sourceRefs": {
+        "object": {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 1532,
+          "id": "N568",
+          "fields": {
+            "alias": "N568",
+            "code": "Absk",
+            "BuffID1": "B114",
+            "BuffID2": "B114",
+            "BuffID3": "B114",
+            "BuffID4": "B114",
+            "checkDep": 1,
+            "Cool1": 30.0,
+            "Cool2": 30.0,
+            "Cool3": 30.0,
+            "Cool4": 30.0,
+            "Cost1": 500,
+            "Cost2": 500,
+            "Cost3": 500,
+            "Cost4": 500,
+            "Dur1": 12.0,
+            "HeroDur1": 12.0,
+            "levels": 20,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        "overrides": [],
+        "router": [
+          [
+            "main/f211/f2",
+            8,
+            120146
+          ],
+          [
+            "main/f290/f13",
+            77,
+            158886
+          ],
+          [
+            "main/f291/f1",
+            2959,
+            165616
+          ],
+          [
+            "main/f291/f14",
+            1861,
+            172039
+          ]
+        ],
+        "modules": [
+          "main/f211"
+        ],
+        "profileHeaderLine": 15568
+      },
+      "differences": [
+        "The condition rank>20 precedes only the setter; damage route checks actual ability level, with no rank gate.",
+        "Stock Berserk tooltip fields are absent from actual object. B114 actual hint describes a count of ignored hits."
+      ],
+      "unresolved": [],
+      "validation": "source fields, dispatch, and source VM probes"
+    }
+  ],
+  "sourceHash": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+  "auxiliarySources": {
+    "ma99": [
+      {
+        "sourcePath": "reference/map-6.25/units_unitabilities.json",
+        "jsonIndex": 1155,
+        "id": "ma99"
+      },
+      {
+        "sourcePath": "reference/map-6.25/units_unitbalance.json",
+        "jsonIndex": 1155,
+        "id": "ma99"
+      },
+      {
+        "sourcePath": "reference/map-6.25/units_unitdata.json",
+        "jsonIndex": 1155,
+        "id": "ma99"
+      },
+      {
+        "sourcePath": "reference/map-6.25/units_unitui.json",
+        "jsonIndex": 1155,
+        "id": "ma99"
+      },
+      {
+        "sourcePath": "reference/map-6.25/units_unitweapons.json",
+        "jsonIndex": 1155,
+        "id": "ma99"
+      }
+    ],
+    "mb99": [
+      {
+        "sourcePath": "reference/map-6.25/units_unitabilities.json",
+        "jsonIndex": 1157,
+        "id": "mb99"
+      },
+      {
+        "sourcePath": "reference/map-6.25/units_unitbalance.json",
+        "jsonIndex": 1157,
+        "id": "mb99"
+      },
+      {
+        "sourcePath": "reference/map-6.25/units_unitdata.json",
+        "jsonIndex": 1157,
+        "id": "mb99"
+      },
+      {
+        "sourcePath": "reference/map-6.25/units_unitui.json",
+        "jsonIndex": 1157,
+        "id": "mb99"
+      },
+      {
+        "sourcePath": "reference/map-6.25/units_unitweapons.json",
+        "jsonIndex": 1157,
+        "id": "mb99"
+      }
+    ],
+    "mb01": [
+      {
+        "sourcePath": "reference/map-6.25/units_unitabilities.json",
+        "jsonIndex": 1156,
+        "id": "mb01"
+      },
+      {
+        "sourcePath": "reference/map-6.25/units_unitbalance.json",
+        "jsonIndex": 1156,
+        "id": "mb01"
+      },
+      {
+        "sourcePath": "reference/map-6.25/units_unitdata.json",
+        "jsonIndex": 1156,
+        "id": "mb01"
+      },
+      {
+        "sourcePath": "reference/map-6.25/units_unitui.json",
+        "jsonIndex": 1156,
+        "id": "mb01"
+      },
+      {
+        "sourcePath": "reference/map-6.25/units_unitweapons.json",
+        "jsonIndex": 1156,
+        "id": "mb01"
+      }
+    ],
+    "T057": [
+      {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1934,
+        "id": "T057"
+      }
+    ],
+    "T111": [
+      {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1988,
+        "id": "T111"
+      }
+    ],
+    "T112": [
+      {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1989,
+        "id": "T112"
+      }
+    ],
+    "T113": [
+      {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1990,
+        "id": "T113"
+      }
+    ],
+    "Awan": [
+      {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 762,
+        "id": "Awan"
+      }
+    ],
+    "B111": [
+      {
+        "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+        "jsonIndex": 338,
+        "id": "B111"
+      }
+    ],
+    "B112": [
+      {
+        "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+        "jsonIndex": 339,
+        "id": "B112"
+      }
+    ],
+    "B114": [
+      {
+        "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+        "jsonIndex": 341,
+        "id": "B114"
+      }
+    ],
+    "P100": [
+      {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1589,
+        "id": "P100"
+      }
+    ]
+  },
+  "totals": {
+    "npcScope": 9,
+    "ready": 9,
+    "pending": 0,
+    "workbookCountIncrement": 0
+  },
+  "validation": {
+    "rawVM": {
+      "rankSetterRaw": {
+        "0": {
+          "N566": 0,
+          "N567": 0
+        },
+        "3": {
+          "N566": 3,
+          "N567": 3
+        },
+        "4": {
+          "N566": 4,
+          "N567": 4,
+          "N562": 1
+        },
+        "5": {
+          "N566": 5,
+          "N567": 5,
+          "N562": 2
+        },
+        "6": {
+          "N566": 6,
+          "N567": 6,
+          "N562": 3,
+          "N563": 1
+        },
+        "10": {
+          "N566": 10,
+          "N567": 10,
+          "N562": 7,
+          "N563": 5
+        },
+        "11": {
+          "N566": 11,
+          "N567": 11,
+          "N562": 8,
+          "N563": 6,
+          "N565": 1
+        },
+        "15": {
+          "N566": 15,
+          "N567": 15,
+          "N562": 12,
+          "N563": 10,
+          "N565": 5
+        },
+        "16": {
+          "N566": 16,
+          "N567": 16,
+          "N562": 13,
+          "N563": 11,
+          "N565": 6,
+          "N564": 1
+        },
+        "20": {
+          "N566": 20,
+          "N567": 20,
+          "N562": 17,
+          "N563": 15,
+          "N565": 10,
+          "N564": 5
+        },
+        "21": {
+          "N566": 20,
+          "N567": 20,
+          "N562": 18,
+          "N563": 16,
+          "N565": 11,
+          "N564": 6,
+          "N568": 1
+        },
+        "45": {
+          "N566": 20,
+          "N567": 20,
+          "N562": 20,
+          "N563": 20,
+          "N565": 20,
+          "N564": 20,
+          "N568": 20
+        }
+      },
+      "respawnVisualWrites": [
+        [
+          7.5,
+          "N561"
+        ],
+        [
+          9.5,
+          "active"
+        ]
+      ],
+      "N562": {
+        "points": 3,
+        "executionT": 1.84,
+        "snapshot": [
+          600,
+          300
+        ]
+      },
+      "N563": {
+        "interruptedCreatesNoPayload": true,
+        "completedReadsThenCurrentPoint": [
+          50,
+          0
+        ]
+      },
+      "N564": {
+        "first": 2.82,
+        "last": 9.72,
+        "count": 50
+      },
+      "N565": {
+        "rank3N564ChildCount": 13,
+        "rawRegisteredOrder": 13,
+        "firstTwoMaxHP": [
+          100,
+          200
+        ],
+        "12LiveReduced100To": 88.0,
+        "recallSpeed700At": 16,
+        "removedAt": 17,
+        "removedThenHeal": 0
+      },
+      "N566": {
+        "rawSameAmountAgainstDragonAndOther": [
+          50,
+          50
+        ],
+        "webTargets": [
+          50,
+          100
+        ]
+      },
+      "N567": {
+        "rank20Elapsed": 0.8,
+        "pointAfterCandidateMoves": [
+          500,
+          100
+        ]
+      },
+      "N568": {
+        "rank1Allows52Zeroes": true,
+        "nextPacketNoCancellation": true
+      }
+    },
+    "originalClient": "untested"
+  }
+}

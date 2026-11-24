@@ -1,0 +1,384 @@
+{
+  "baseline": "world-object-damage-v1",
+  "objects": {
+    "sourceFiles": [
+      "reference/map-6.25/units_itemdata.json",
+      "reference/map-6.25/war3map.w3t.json"
+    ],
+    "material": "Wood",
+    "baseCount": 743,
+    "baseHealthDistribution": {
+      "5": 39,
+      "20": 111,
+      "75": 593
+    },
+    "workbookHealthDistribution": {
+      "75": 243
+    },
+    "hpOrMaterialOverrides": 0,
+    "examples": {
+      "i421": {
+        "sourcePath": "reference/map-6.25/units_itemdata.json",
+        "jsonIndex": 529,
+        "id": "i421",
+        "fields": {
+          "HP": 75,
+          "armor": "Wood"
+        }
+      },
+      "i422": {
+        "sourcePath": "reference/map-6.25/units_itemdata.json",
+        "jsonIndex": 530,
+        "id": "i422",
+        "fields": {
+          "HP": 75,
+          "armor": "Wood"
+        }
+      },
+      "i310": {
+        "sourcePath": "reference/map-6.25/units_itemdata.json",
+        "jsonIndex": 496,
+        "id": "i310",
+        "fields": {
+          "HP": 75,
+          "armor": "Wood"
+        }
+      },
+      "i723": {
+        "sourcePath": "reference/map-6.25/units_itemdata.json",
+        "jsonIndex": 626,
+        "id": "i723",
+        "fields": {
+          "HP": 75,
+          "armor": "Wood"
+        }
+      }
+    }
+  },
+  "terrain": {
+    "decorationCount": 302,
+    "decorations": {
+      "D002": 90,
+      "D005": 69,
+      "D006": 56,
+      "D007": 87
+    },
+    "decorationPathing": {
+      "D002": "",
+      "D005": "",
+      "D006": "",
+      "D007": ""
+    },
+    "terrainOrCustomDestructiblePlacements": 0,
+    "tree": {
+      "id": "LTlt",
+      "targetClass": "tree",
+      "maxHealth": 50,
+      "material": "Wood",
+      "alivePathingWidth": 4,
+      "alivePathingHeight": 4,
+      "deathPathTexture": null,
+      "rawSource": "reference/map-6.25-pathing/units_destructabledata.slk",
+      "startLine": 2505
+    }
+  },
+  "weaponMasks": {
+    "n156": {
+      "sourcePath": "reference/map-6.25/units_unitweapons.json",
+      "jsonIndex": 1204,
+      "id": "n156",
+      "fields": {
+        "weapsOn": 1,
+        "weapTp1": "artillery",
+        "targs1": "ground,debris,tree,wall,item,ward",
+        "splashTargs1": "ground,structure,debris,tree,wall",
+        "atkType1": "pierce",
+        "Farea1": 150,
+        "Harea1": 300,
+        "Qarea1": 400
+      }
+    },
+    "n157": {
+      "sourcePath": "reference/map-6.25/units_unitweapons.json",
+      "jsonIndex": 1205,
+      "id": "n157",
+      "fields": {
+        "weapsOn": 1,
+        "weapTp1": "artillery",
+        "targs1": "ground,debris,tree,wall,item,ward",
+        "splashTargs1": "ground,structure,debris,tree,wall",
+        "atkType1": "pierce",
+        "Farea1": 150,
+        "Harea1": 300,
+        "Qarea1": 450
+      }
+    },
+    "n158": {
+      "sourcePath": "reference/map-6.25/units_unitweapons.json",
+      "jsonIndex": 1206,
+      "id": "n158",
+      "fields": {
+        "weapsOn": 1,
+        "weapTp1": "artillery",
+        "targs1": "ground,debris,tree,wall,item,ward",
+        "splashTargs1": "ground,structure,debris,tree,wall",
+        "atkType1": "pierce",
+        "Farea1": 150,
+        "Harea1": 300,
+        "Qarea1": 500
+      }
+    },
+    "E001": {
+      "sourcePath": "reference/map-6.25/units_unitweapons.json",
+      "jsonIndex": 836,
+      "id": "E001",
+      "fields": {
+        "weapsOn": 1,
+        "weapTp1": "missile",
+        "targs1": "ground,structure,debris,air,item,ward",
+        "splashTargs1": "ground,structure,debris,air,enemy",
+        "atkType1": "hero",
+        "Farea1": 50,
+        "Harea1": 150,
+        "Qarea1": 250
+      }
+    },
+    "E002": {
+      "sourcePath": "reference/map-6.25/units_unitweapons.json",
+      "jsonIndex": 837,
+      "id": "E002",
+      "fields": {
+        "weapsOn": 1,
+        "weapTp1": "missile",
+        "targs1": "ground,structure,debris,air,item,ward",
+        "splashTargs1": "ground,structure,debris,air,enemy",
+        "atkType1": "hero",
+        "Farea1": 50,
+        "Harea1": 150,
+        "Qarea1": 250
+      }
+    },
+    "E003": {
+      "sourcePath": "reference/map-6.25/units_unitweapons.json",
+      "jsonIndex": 838,
+      "id": "E003",
+      "fields": {
+        "weapsOn": 1,
+        "weapTp1": "msplash",
+        "targs1": "ground,structure,debris,air,item,ward",
+        "splashTargs1": "ground,structure,debris,air,enemy",
+        "atkType1": "hero",
+        "Farea1": 50,
+        "Harea1": 150,
+        "Qarea1": 240
+      }
+    },
+    "E004": {
+      "sourcePath": "reference/map-6.25/units_unitweapons.json",
+      "jsonIndex": 839,
+      "id": "E004",
+      "fields": {
+        "weapsOn": 1,
+        "weapTp1": "msplash",
+        "targs1": "ground,structure,debris,air,item,ward",
+        "splashTargs1": "ground,structure,debris,air,enemy",
+        "atkType1": "hero",
+        "Farea1": 70,
+        "Harea1": 200,
+        "Qarea1": 320
+      }
+    },
+    "E005": {
+      "sourcePath": "reference/map-6.25/units_unitweapons.json",
+      "jsonIndex": 840,
+      "id": "E005",
+      "fields": {
+        "weapsOn": 1,
+        "weapTp1": "msplash",
+        "targs1": "ground,structure,debris,air,item,ward",
+        "splashTargs1": "ground,structure,debris,air,enemy",
+        "atkType1": "hero",
+        "Farea1": 70,
+        "Harea1": 200,
+        "Qarea1": 320
+      }
+    },
+    "E006": {
+      "sourcePath": "reference/map-6.25/units_unitweapons.json",
+      "jsonIndex": 841,
+      "id": "E006",
+      "fields": {
+        "weapsOn": 1,
+        "weapTp1": "msplash",
+        "targs1": "ground,structure,debris,air,item,ward",
+        "splashTargs1": "ground,structure,debris,air,enemy",
+        "atkType1": "hero",
+        "Farea1": 70,
+        "Harea1": 200,
+        "Qarea1": 320
+      }
+    },
+    "E023": {
+      "sourcePath": "reference/map-6.25/units_unitweapons.json",
+      "jsonIndex": 855,
+      "id": "E023",
+      "fields": {
+        "weapsOn": 1,
+        "weapTp1": "missile",
+        "targs1": "ground,structure,debris,air,item,ward",
+        "splashTargs1": "ground,structure,debris,air,enemy",
+        "atkType1": "hero",
+        "Farea1": 50,
+        "Harea1": 150,
+        "Qarea1": 250
+      }
+    },
+    "E024": {
+      "sourcePath": "reference/map-6.25/units_unitweapons.json",
+      "jsonIndex": 856,
+      "id": "E024",
+      "fields": {
+        "weapsOn": 1,
+        "weapTp1": "missile",
+        "targs1": "ground,structure,debris,air,item,ward",
+        "splashTargs1": "ground,structure,debris,air,enemy",
+        "atkType1": "hero",
+        "Farea1": 50,
+        "Harea1": 150,
+        "Qarea1": 250
+      }
+    },
+    "E025": {
+      "sourcePath": "reference/map-6.25/units_unitweapons.json",
+      "jsonIndex": 857,
+      "id": "E025",
+      "fields": {
+        "weapsOn": 1,
+        "weapTp1": "msplash",
+        "targs1": "ground,structure,debris,air,item,ward",
+        "splashTargs1": "ground,structure,debris,air,enemy",
+        "atkType1": "hero",
+        "Farea1": 50,
+        "Harea1": 150,
+        "Qarea1": 240
+      }
+    },
+    "E026": {
+      "sourcePath": "reference/map-6.25/units_unitweapons.json",
+      "jsonIndex": 858,
+      "id": "E026",
+      "fields": {
+        "weapsOn": 1,
+        "weapTp1": "msplash",
+        "targs1": "ground,structure,debris,air,item,ward",
+        "splashTargs1": "ground,structure,debris,air,enemy",
+        "atkType1": "hero",
+        "Farea1": 70,
+        "Harea1": 200,
+        "Qarea1": 320
+      }
+    },
+    "E027": {
+      "sourcePath": "reference/map-6.25/units_unitweapons.json",
+      "jsonIndex": 859,
+      "id": "E027",
+      "fields": {
+        "weapsOn": 1,
+        "weapTp1": "msplash",
+        "targs1": "ground,structure,debris,air,item,ward",
+        "splashTargs1": "ground,structure,debris,air,enemy",
+        "atkType1": "hero",
+        "Farea1": 70,
+        "Harea1": 200,
+        "Qarea1": 320
+      }
+    },
+    "E028": {
+      "sourcePath": "reference/map-6.25/units_unitweapons.json",
+      "jsonIndex": 860,
+      "id": "E028",
+      "fields": {
+        "weapsOn": 1,
+        "weapTp1": "msplash",
+        "targs1": "ground,structure,debris,air,item,ward",
+        "splashTargs1": "ground,structure,debris,air,enemy",
+        "atkType1": "hero",
+        "Farea1": 70,
+        "Harea1": 200,
+        "Qarea1": 320
+      }
+    }
+  },
+  "source": {
+    "CreateDestructable": [
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f197/f2",
+        "key": "k11",
+        "constantLine": 117097,
+        "pc": 32,
+        "sourceLine": 117139,
+        "instruction": "gettabup r12 u0 k11"
+      }
+    ],
+    "RemoveDestructable": [
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f197/f1",
+        "key": "k4",
+        "constantLine": 117042,
+        "pc": 15,
+        "sourceLine": 117060,
+        "instruction": "gettabup r8 u0 k4"
+      }
+    ],
+    "SetItemInvulnerable": [
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f285/f10",
+        "key": "k48",
+        "constantLine": 144600,
+        "pc": 220,
+        "sourceLine": 144883,
+        "instruction": "gettabup r3 u0 k48"
+      }
+    ],
+    "SetWidgetLife": [
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f290/f3",
+        "key": "k6",
+        "constantLine": 157815,
+        "pc": 16,
+        "sourceLine": 157834,
+        "instruction": "gettabup r0 u0 k6"
+      }
+    ],
+    "SetDestructableLife": [],
+    "SetDestructableInvulnerable": [],
+    "KillDestructable": [],
+    "DestructableRestoreLife": [],
+    "itemGetEarlyCheck": [
+      144877,
+      144889
+    ]
+  },
+  "probes": [
+    "partial ground hit retains HP through pickup and drop",
+    "inventory and preserved invulnerable flag each reject attack",
+    "exact lethal hit removes a ground item before any later pickup",
+    "unselected ground item does not match artillery splash",
+    "dragon debris or item target masks do not hit tree",
+    "tree dies at exactly 0, and releases only its own occupancy",
+    "death and later scheduled removal cannot release the overlapping tree occupancy",
+    "decoration cannot enter combat"
+  ],
+  "web": {
+    "worldObjectDamageMultiplier": 1,
+    "requiresPositiveDamage": true,
+    "usesUnitArmorOrMR": false,
+    "dispatchesUnitDamageOrDeath": false,
+    "releasedAtZeroHp": true,
+    "pickupInvulnerabilityPersistsThroughDrop": true
+  }
+}

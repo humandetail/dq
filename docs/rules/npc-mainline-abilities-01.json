@@ -1,0 +1,1939 @@
+{
+  "baseline": "npc-mainline-abilities-v1",
+  "ready": 13,
+  "pending": [],
+  "mainlineHosts": 12,
+  "auxiliary": [
+    "T032",
+    "T045"
+  ],
+  "rules": "docs/rules/npc-mainline-abilities-01.md",
+  "abilities": {
+    "N508": {
+      "status": "ready",
+      "object": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1474,
+        "id": "N508",
+        "fields": {
+          "alias": "N508",
+          "code": "AOae",
+          "Area1": 1500.0,
+          "BuffID1": "B025",
+          "checkDep": 1,
+          "DataA1": 0.3,
+          "levels": 1,
+          "reqLevel": 1,
+          "targs1": "friend,self",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      "missing": [
+        "DataB1"
+      ],
+      "profile": {
+        "line": 14859,
+        "Name": "耐久",
+        "Researchubertip": "能增加周围单位的移动速度和攻击速度。|n|n|cffffcc00等级 1|r - 提高10%的移动速度和5%的攻击速度。|n|cffffcc00等级 2|r - 提高20%的移动速度和10%的攻击速度。|n|cffffcc00等级 3|r - 提高30%的移动速度和15%的攻击速度。",
+        "Tip": "耐久光环 - [|cffffcc00等级 1|r]",
+        "Ubertip": "增加周围单位10%的移动速度和5%的攻击速度。"
+      },
+      "stockProfile": {
+        "line": 7747,
+        "Name": "耐久光环",
+        "Researchubertip": "能增加周围单位的移动速度和攻击速度。|n|n|cffffcc00等级 1|r - 提高10%的移动速度和5%的攻击速度。|n|cffffcc00等级 2|r - 提高20%的移动速度和10%的攻击速度。|n|cffffcc00等级 3|r - 提高30%的移动速度和15%的攻击速度。",
+        "Tip": "耐久光环 - [|cffffcc00等级 1|r],耐久光环 - [|cffffcc00等级 2|r],耐久光环 - [|cffffcc00等级 3|r]",
+        "Ubertip": "增加周围单位10%的移动速度和5%的攻击速度。,增加周围单位20%的移动速度和10%的攻击速度。,增加周围单位30%的移动速度和15%的攻击速度。"
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f294/f18",
+          "key": "k59",
+          "constantLine": 184541,
+          "pc": 164,
+          "sourceLine": 184747,
+          "instruction": "loadk r9 k59"
+        }
+      ],
+      "web": {
+        "range": 1500,
+        "moveRatio": 0.3,
+        "attackSpeed": 0,
+        "buff": "B025",
+        "grant": {
+          "mode": 1,
+          "predicate": "N534>0 && SAPPER",
+          "individual": 8,
+          "teamUniform": [
+            7,
+            8
+          ]
+        }
+      }
+    },
+    "N511": {
+      "status": "ready",
+      "object": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1475,
+        "id": "N511",
+        "fields": {
+          "alias": "N511",
+          "code": "Atau",
+          "checkDep": 1,
+          "Cool1": 30.0,
+          "Cost1": 100,
+          "levels": 1,
+          "targs1": "enemies,invulnerable",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      "missing": [
+        "Area1",
+        "DataA1"
+      ],
+      "profile": {
+        "line": 14873,
+        "Name": "嘲讽",
+        "Order": "taunt",
+        "Tip": "嘲讽(|cffffcc00T|r)",
+        "Ubertip": "最近的10个单位会强迫攻击这个单位。"
+      },
+      "stockProfile": {
+        "line": 11060,
+        "Name": "嘲讽",
+        "Order": "taunt",
+        "Tip": "嘲讽(|cffffcc00T|r)",
+        "Ubertip": "最近的10个单位会强迫攻击这个单位。"
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f1",
+          "key": "k330",
+          "constantLine": 162322,
+          "pc": 2666,
+          "sourceLine": 165304,
+          "instruction": "loadk r7 k330"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k355",
+          "constantLine": 169944,
+          "pc": 1721,
+          "sourceLine": 171885,
+          "instruction": "loadk r5 k355"
+        }
+      ],
+      "web": {
+        "range": 450,
+        "cap": 10,
+        "cost": 100,
+        "cooldown": 30,
+        "castPoint": 0.5,
+        "T032": {
+          "rank": 1,
+          "lifetime": 1,
+          "armor": 9999,
+          "duration": 2.5,
+          "buff": "B011"
+        }
+      },
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "主线波次",
+          "row": 14,
+          "columns": [
+            3
+          ],
+          "cells": [
+            10,
+            "斧王",
+            "m010",
+            "Boss",
+            3500,
+            35,
+            230,
+            5,
+            40,
+            18,
+            "8–9",
+            "金币爸爸＋金币妈妈",
+            "抗性皮肤、嘲讽",
+            "狂战士的怒吼",
+            "嘲讽附近至多10个单位，能用塔提前引出。"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "主线波次",
+          "row": 14,
+          "columns": [
+            3
+          ],
+          "cells": [
+            10,
+            "斧王",
+            "m010",
+            "Boss",
+            3500,
+            35,
+            230,
+            5,
+            40,
+            18,
+            "8–9",
+            "金币爸爸＋金币妈妈",
+            "抗性皮肤、嘲讽",
+            "狂战士的怒吼",
+            "嘲讽附近至多10个单位，能用塔提前引出。"
+          ]
+        }
+      ],
+      "mount": {
+        "sourcePath": "reference/map-6.25/units_unitabilities.json",
+        "jsonIndex": 1076,
+        "id": "m010",
+        "fields": {
+          "unitAbilID": "m010",
+          "abilList": "N534,N511",
+          "auto": "_"
+        }
+      },
+      "cast": {
+        "sourcePath": "reference/map-6.25/units_unitweapons.json",
+        "jsonIndex": 1076,
+        "id": "m010",
+        "fields": {
+          "castpt": 0.5,
+          "castbsw": 0.1
+        }
+      },
+      "dispatch": {
+        "function": "main/f291/f1",
+        "callPC": 2675,
+        "lines": [
+          165298,
+          165313
+        ]
+      }
+    },
+    "N512": {
+      "status": "ready",
+      "object": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1476,
+        "id": "N512",
+        "fields": {
+          "alias": "N512",
+          "code": "ANms",
+          "BuffID1": "BNms",
+          "checkDep": 1,
+          "Cost1": 10,
+          "DataA1": 2.0,
+          "DataB1": 0.9,
+          "levels": 1,
+          "Rng1": 128.0,
+          "targs1": "ground,friend,vuln,invu",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      "missing": [
+        "Cool1"
+      ],
+      "profile": {
+        "line": 14883,
+        "Name": "魔法护盾",
+        "Order": "manashield",
+        "Tip": "魔法护盾(|cffffcc00N|r)",
+        "Ubertip": "激活可以每点魔力可以吸收2伤害力的护盾。"
+      },
+      "stockProfile": {
+        "line": 7257,
+        "Name": "魔法护盾",
+        "Researchubertip": "建立一个护盾，用女海巫的魔法能量来吸收伤害。|n|n|cffffcc00等级 1|r - 每一点魔法能量能吸收1点的伤害。|n|cffffcc00等级 2|r -每一点魔法能量能吸收1.5点的伤害。|n|cffffcc00等级 3|r - 每一点魔法能量能吸收2点的伤害。",
+        "Tip": "激活魔法护盾(|cffffcc00N|r) - [|cffffcc00等级 1|r],激活魔法护盾(|cffffcc00N|r) - [|cffffcc00等级 2|r],激活魔法护盾(|cffffcc00N|r) - [|cffffcc00等级 3|r]",
+        "Ubertip": "激活一个护盾，护盾会使用女海巫的魔法能量来吸收伤害，每一点魔法能量吸收1点伤害。,激活一个护盾，护盾会使用女海巫的魔法能量来吸收伤害，每一点魔法能量吸收1.5点伤害。,激活一个护盾，护盾会使用女海巫的魔法能量来吸收伤害，每一点魔法能量吸收2点伤害。"
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f294/f35",
+          "key": "k3",
+          "constantLine": 186221,
+          "pc": 4,
+          "sourceLine": 186228,
+          "instruction": "loadk r4 k3"
+        }
+      ],
+      "web": {
+        "onCost": 10,
+        "cooldown": 0,
+        "maxFraction": 0.9,
+        "absorbedPerMana": 2,
+        "buff": "BNms",
+        "application": "after typing and resistance, before mutable B03",
+        "keepToggleAtZero": true
+      },
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "主线波次",
+          "row": 19,
+          "columns": [
+            3
+          ],
+          "cells": [
+            15,
+            "美杜莎",
+            "m015",
+            "Boss",
+            2700,
+            60,
+            230,
+            7,
+            40,
+            18,
+            "6",
+            "金币爸爸＋金币妈妈",
+            "魔法护盾、抗性皮肤",
+            "秘术异蛇",
+            null
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "主线波次",
+          "row": 19,
+          "columns": [
+            3
+          ],
+          "cells": [
+            15,
+            "美杜莎",
+            "m015",
+            "Boss",
+            2700,
+            60,
+            230,
+            7,
+            40,
+            18,
+            "6",
+            "金币爸爸＋金币妈妈",
+            "魔法护盾、抗性皮肤",
+            "秘术异蛇",
+            null
+          ]
+        }
+      ],
+      "mount": {
+        "sourcePath": "reference/map-6.25/units_unitabilities.json",
+        "jsonIndex": 1081,
+        "id": "m015",
+        "fields": {
+          "unitAbilID": "m015",
+          "abilList": "N512,N534",
+          "auto": "_"
+        }
+      },
+      "cast": {
+        "sourcePath": "reference/map-6.25/units_unitweapons.json",
+        "jsonIndex": 1081,
+        "id": "m015",
+        "fields": {
+          "castpt": 0.5,
+          "castbsw": 0.1
+        }
+      }
+    },
+    "N513": {
+      "status": "ready",
+      "object": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1477,
+        "id": "N513",
+        "fields": {
+          "alias": "N513",
+          "code": "Absk",
+          "BuffID1": "B020",
+          "checkDep": 1,
+          "Cool1": 10.0,
+          "DataA1": 0.8,
+          "DataC1": 0.3,
+          "Dur1": 6.0,
+          "HeroDur1": 6.0,
+          "levels": 1,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      "missing": [
+        "Cost1",
+        "DataB1"
+      ],
+      "profile": {
+        "line": 14898,
+        "Name": "鱼人冲刺",
+        "Order": "berserk",
+        "Tip": "狂战士(|cffffcc00B|r)",
+        "Ubertip": "让该单位增加50%的攻击速度，但是同时会受到额外50%的伤害。"
+      },
+      "stockProfile": {
+        "line": 8692,
+        "Name": "狂战士",
+        "Order": "berserk",
+        "Tip": "狂战士(|cffffcc00B|r)",
+        "Ubertip": "让该单位增加50%的攻击速度，但是同时会受到额外50%的伤害。"
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f1",
+          "key": "k333",
+          "constantLine": 162325,
+          "pc": 2680,
+          "sourceLine": 165319,
+          "instruction": "loadk r7 k333"
+        }
+      ],
+      "web": {
+        "cost": 0,
+        "cooldown": 10,
+        "duration": 6,
+        "moveRatio": 0.8,
+        "attackSpeed": 0,
+        "incomingMultiplier": 1.3,
+        "buff": "B020"
+      },
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "主线波次",
+          "row": 21,
+          "columns": [
+            3
+          ],
+          "cells": [
+            17,
+            "鱼人守卫",
+            "m017",
+            "普通波",
+            2400,
+            45,
+            170,
+            0.7,
+            40,
+            18,
+            "58",
+            null,
+            "鱼人冲刺",
+            "鱼人碎击",
+            null
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "主线波次",
+          "row": 21,
+          "columns": [
+            3
+          ],
+          "cells": [
+            17,
+            "鱼人守卫",
+            "m017",
+            "普通波",
+            2400,
+            45,
+            170,
+            0.7,
+            40,
+            18,
+            "58",
+            null,
+            "鱼人冲刺",
+            "鱼人碎击",
+            null
+          ]
+        }
+      ],
+      "mount": {
+        "sourcePath": "reference/map-6.25/units_unitabilities.json",
+        "jsonIndex": 1083,
+        "id": "m017",
+        "fields": {
+          "unitAbilID": "m017",
+          "abilList": "N513",
+          "auto": "_"
+        }
+      },
+      "cast": {
+        "sourcePath": "reference/map-6.25/units_unitweapons.json",
+        "jsonIndex": 1083,
+        "id": "m017",
+        "fields": {
+          "castpt": 0.3,
+          "castbsw": 0.51
+        }
+      },
+      "dispatch": {
+        "function": "main/f291/f1",
+        "callPC": 2689,
+        "lines": [
+          165313,
+          165328
+        ]
+      }
+    },
+    "N514": {
+      "status": "ready",
+      "object": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1478,
+        "id": "N514",
+        "fields": {
+          "alias": "N514",
+          "code": "AOws",
+          "Area1": 1000.0,
+          "BuffID1": "BPSE",
+          "Cool1": 20.0,
+          "Cost1": 100,
+          "Dur1": 1.8,
+          "HeroDur1": 1.2,
+          "levels": 1,
+          "targs1": "enemies,invulnerable",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      "missing": [
+        "DataA1"
+      ],
+      "profile": {
+        "line": 14907,
+        "Name": "战争践踏",
+        "Order": "stomp",
+        "Tip": "战争践踏(|cffffcc00T|r)",
+        "Ubertip": "重击地面，对周围的地面单位造成25点的伤害并使其在3秒内保持眩晕状态。"
+      },
+      "stockProfile": {
+        "line": 8036,
+        "Name": "战争践踏",
+        "Order": "stomp",
+        "Researchubertip": "重击地面，对周围的地面单位造成一定的伤害。|n|n|cffffcc00等级 1|r - 25点伤害，3秒眩晕效果。|n|cffffcc00等级 2|r - 50点伤害，4秒眩晕效果。|n|cffffcc00等级 3|r - 75点伤害，5秒眩晕效果。",
+        "Tip": "战争践踏(|cffffcc00T|r) - [|cffffcc00等级 1|r],战争践踏(|cffffcc00T|r) - [|cffffcc00等级 2|r],战争践踏(|cffffcc00T|r) - [|cffffcc00等级 3|r]",
+        "Ubertip": "重击地面，对周围的地面单位造成25点的伤害并在3秒内使其处于昏晕状态。,重击地面，对周围的地面单位造成50点的伤害并在4秒内使其处于昏晕状态。,重击地面，对周围的地面单位造成75点的伤害并在5秒内使其处于昏晕状态。"
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f1",
+          "key": "k335",
+          "constantLine": 162327,
+          "pc": 2694,
+          "sourceLine": 165334,
+          "instruction": "loadk r7 k335"
+        }
+      ],
+      "web": {
+        "cost": 100,
+        "cooldown": 20,
+        "castPoint": 0.5,
+        "healthRatioLt": 0.4,
+        "range": 1000,
+        "directDamage": 0,
+        "control": [
+          1.8,
+          1.2
+        ],
+        "buff": "BPSE",
+        "includeInvulnerable": true
+      },
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "主线波次",
+          "row": 24,
+          "columns": [
+            3
+          ],
+          "cells": [
+            20,
+            "半人马",
+            "m020",
+            "Boss",
+            14500,
+            95,
+            230,
+            7,
+            40,
+            18,
+            "6",
+            "金币爸爸＋金币妈妈",
+            "战争践踏、抗性皮肤",
+            "战争践踏",
+            null
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "主线波次",
+          "row": 24,
+          "columns": [
+            3
+          ],
+          "cells": [
+            20,
+            "半人马",
+            "m020",
+            "Boss",
+            14500,
+            95,
+            230,
+            7,
+            40,
+            18,
+            "6",
+            "金币爸爸＋金币妈妈",
+            "战争践踏、抗性皮肤",
+            "战争践踏",
+            null
+          ]
+        }
+      ],
+      "mount": {
+        "sourcePath": "reference/map-6.25/units_unitabilities.json",
+        "jsonIndex": 1086,
+        "id": "m020",
+        "fields": {
+          "unitAbilID": "m020",
+          "abilList": "N514,N534",
+          "auto": "_"
+        }
+      },
+      "cast": {
+        "sourcePath": "reference/map-6.25/units_unitweapons.json",
+        "jsonIndex": 1086,
+        "id": "m020",
+        "fields": {
+          "castpt": 0.5,
+          "castbsw": 0.1
+        }
+      },
+      "dispatch": {
+        "function": "main/f291/f1",
+        "callPC": 2710,
+        "lines": [
+          165336,
+          165350
+        ]
+      }
+    },
+    "N515": {
+      "status": "ready",
+      "object": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1479,
+        "id": "N515",
+        "fields": {
+          "alias": "N515",
+          "code": "Apsh",
+          "BuffID1": "Bpsh",
+          "checkDep": 1,
+          "Cool1": 20.0,
+          "Cost1": 100,
+          "Dur1": 0.5,
+          "HeroDur1": 0.5,
+          "levels": 1,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      "missing": [],
+      "profile": {
+        "line": 14918,
+        "Name": "变相移动",
+        "Order": "phaseshift",
+        "Tip": "变相移动(|cffffcc00E|r)",
+        "Ubertip": "让该单位一旦遭到攻击就处于消失的状态之中。在短时间内不再受到任何的伤害。|n持续1秒。"
+      },
+      "stockProfile": {
+        "line": 10258,
+        "Name": "变相移动",
+        "Order": "phaseshift",
+        "Tip": "变相移动(|cffffcc00E|r)",
+        "Ubertip": "让该单位一旦遭到攻击就处于消失的状态之中。在短时间内不再受到任何的伤害。|n持续1秒。"
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f1",
+          "key": "k346",
+          "constantLine": 162338,
+          "pc": 2796,
+          "sourceLine": 165441,
+          "instruction": "loadk r7 k346"
+        }
+      ],
+      "web": {
+        "cost": 100,
+        "cooldown": 20,
+        "duration": 0.5,
+        "castPoint": 0,
+        "buff": "Bpsh",
+        "interruptNewEventsOnly": true,
+        "breakIncomingTargetLock": true
+      },
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "主线波次",
+          "row": 26,
+          "columns": [
+            3
+          ],
+          "cells": [
+            22,
+            "仙女龙",
+            "m022",
+            "普通波",
+            2800,
+            80,
+            270,
+            0.8,
+            40,
+            18,
+            "50–51",
+            null,
+            "变相移动",
+            null,
+            null
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "主线波次",
+          "row": 26,
+          "columns": [
+            3
+          ],
+          "cells": [
+            22,
+            "仙女龙",
+            "m022",
+            "普通波",
+            2800,
+            80,
+            270,
+            0.8,
+            40,
+            18,
+            "50–51",
+            null,
+            "变相移动",
+            null,
+            null
+          ]
+        }
+      ],
+      "mount": {
+        "sourcePath": "reference/map-6.25/units_unitabilities.json",
+        "jsonIndex": 1088,
+        "id": "m022",
+        "fields": {
+          "unitAbilID": "m022",
+          "abilList": "N515",
+          "auto": "_"
+        }
+      },
+      "cast": {
+        "sourcePath": "reference/map-6.25/units_unitweapons.json",
+        "jsonIndex": 1088,
+        "id": "m022",
+        "fields": {
+          "castpt": 0.3,
+          "castbsw": 0.51
+        }
+      },
+      "dispatch": {
+        "function": "main/f291/f1",
+        "callPC": 2805,
+        "lines": [
+          165435,
+          165450
+        ]
+      }
+    },
+    "N516": {
+      "status": "ready",
+      "object": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1480,
+        "id": "N516",
+        "fields": {
+          "alias": "N516",
+          "code": "AOcr",
+          "levels": 1,
+          "targs1": "air,ground,enemy,neutral",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      "missing": [
+        "DataA1",
+        "DataB1"
+      ],
+      "profile": {
+        "line": 14936,
+        "Name": "嗜血渴望（无用）",
+        "Tip": "致命一击",
+        "Ubertip": "给予20%的概率使得该单位能施放出常规攻击2倍的伤害值。"
+      },
+      "stockProfile": {
+        "line": 7785,
+        "Name": "致命一击",
+        "Researchubertip": "给予一定的概率使得攻击力能大大增强。|n|n|cffffcc00等级 1|r -15%的概率，2倍于一般攻击的伤害值。|n|cffffcc00等级 2|r -15%的概率，3倍于一般攻击的伤害值。|n|cffffcc00等级 3|r -15%的概率，4倍于一般攻击的伤害值。",
+        "Tip": "致命一击 - [|cffffcc00等级 1|r],致命一击 - [|cffffcc00等级 2|r],致命一击 - [|cffffcc00等级 3|r]",
+        "Ubertip": "给予15%的概率使得剑圣的攻击能造成2倍于一般攻击的伤害值。,给予15%的概率使得剑圣的攻击能造成3倍于一般攻击的伤害值。,给予15%的概率使得剑圣的攻击能造成4倍于一般攻击的伤害值。"
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f1",
+          "key": "k348",
+          "constantLine": 162340,
+          "pc": 2809,
+          "sourceLine": 165455,
+          "instruction": "loadk r7 k348"
+        }
+      ],
+      "web": {
+        "factor": 300,
+        "writeIfAtMost": 600,
+        "damageStage": "live B03 at original PC2816"
+      },
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "主线波次",
+          "row": 29,
+          "columns": [
+            3
+          ],
+          "cells": [
+            25,
+            "血魔",
+            "m025",
+            "Boss",
+            17000,
+            130,
+            180,
+            8,
+            40,
+            18,
+            "5–6",
+            "金币爸爸＋金币妈妈",
+            "嗜血渴望（无用）、抗性皮肤",
+            "嗜血渴望",
+            null
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "主线波次",
+          "row": 29,
+          "columns": [
+            3
+          ],
+          "cells": [
+            25,
+            "血魔",
+            "m025",
+            "Boss",
+            17000,
+            130,
+            180,
+            8,
+            40,
+            18,
+            "5–6",
+            "金币爸爸＋金币妈妈",
+            "嗜血渴望（无用）、抗性皮肤",
+            "嗜血渴望",
+            null
+          ]
+        }
+      ],
+      "mount": {
+        "sourcePath": "reference/map-6.25/units_unitabilities.json",
+        "jsonIndex": 1091,
+        "id": "m025",
+        "fields": {
+          "unitAbilID": "m025",
+          "abilList": "N516,N534",
+          "auto": "_"
+        }
+      },
+      "cast": {
+        "sourcePath": "reference/map-6.25/units_unitweapons.json",
+        "jsonIndex": 1091,
+        "id": "m025",
+        "fields": {
+          "castpt": 0.5,
+          "castbsw": 0.1
+        }
+      },
+      "dispatch": {
+        "function": "main/f291/f1",
+        "callPC": 2816,
+        "lines": [
+          165447,
+          165462
+        ]
+      }
+    },
+    "N517": {
+      "status": "ready",
+      "object": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1481,
+        "id": "N517",
+        "fields": {
+          "alias": "N517",
+          "code": "AUfa",
+          "BuffID1": "BUfa",
+          "checkDep": 1,
+          "Cool1": 12.0,
+          "Cost1": 200,
+          "DataA1": 10.0,
+          "DataB1": 40.0,
+          "Dur1": 1.0,
+          "HeroDur1": 1.0,
+          "levels": 1,
+          "reqLevel": 1,
+          "Rng1": 800.0,
+          "targs1": "air,ground,friend,self,neutral",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      "missing": [],
+      "profile": {
+        "line": 14943,
+        "Name": "霜冻护甲",
+        "Order": "frostarmor",
+        "Researchubertip": "使目标身上具有一层霜冻保护。这保护层能增加一定的护甲并使近战攻击该目标的敌人在一定时间内减速。|n|n|cffffcc00等级 1|r - 增加3点护甲。|n|cffffcc00等级 2|r - 增加5点护甲。|n|cffffcc00等级 3|r - 增加7点护甲。",
+        "Tip": "霜冻护甲(|cffffcc00F|r) - [|cffffcc00等级 1|r]",
+        "Ubertip": "使目标身上具有一层霜冻保护。这保护层能增加3点的护甲并使近战攻击该目标的敌人在5秒内减速。|n持续45秒。"
+      },
+      "stockProfile": {
+        "line": 8317,
+        "Name": "霜冻护甲",
+        "Order": "frostarmor",
+        "Researchubertip": "使目标身上具有一层霜冻保护。这保护层能增加一定的护甲并使近战攻击该目标的敌人在一定时间内减速。|n|n|cffffcc00等级 1|r - 增加3点护甲。|n|cffffcc00等级 2|r - 增加5点护甲。|n|cffffcc00等级 3|r - 增加7点护甲。",
+        "Tip": "霜冻护甲(|cffffcc00F|r) - [|cffffcc00等级 1|r],霜冻护甲(|cffffcc00F|r)- [|cffffcc00等级 2|r],霜冻护甲(|cffffcc00F|r) - [|cffffcc00等级 3|r]",
+        "Ubertip": "使目标身上具有一层霜冻保护。这保护层能增加3点的护甲并使近战攻击该目标的敌人在5秒内减速。|n持续45秒。,使目标身上具有一层霜冻保护。这保护层能增加5点的护甲并使近战攻击该目标的敌人在5秒内减速。|n持续45秒。,使目标身上具有一层霜冻保护。这保护层能增加7点的护甲并使近战攻击该目标的敌人在5秒内减速。|n持续45秒。"
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f1",
+          "key": "k350",
+          "constantLine": 162342,
+          "pc": 2821,
+          "sourceLine": 165468,
+          "instruction": "loadk r7 k350"
+        }
+      ],
+      "web": {
+        "cost": 200,
+        "cooldown": 12,
+        "range": 800,
+        "castPoint": 0.3,
+        "armor": 40,
+        "duration": 10,
+        "counterHitDuration": 1,
+        "counterHitMoveMultiplier": 0.5,
+        "counterHitAttackSpeed": -0.25,
+        "buff": "BUfa"
+      },
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "主线波次",
+          "row": 30,
+          "columns": [
+            3
+          ],
+          "cells": [
+            26,
+            "巫妖",
+            "m026",
+            "普通波",
+            4000,
+            100,
+            270,
+            0.7,
+            40,
+            72,
+            "58",
+            null,
+            "霜冻护甲",
+            "邪恶祭祀/冰霜魔盾",
+            null
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "主线波次",
+          "row": 30,
+          "columns": [
+            3
+          ],
+          "cells": [
+            26,
+            "巫妖",
+            "m026",
+            "普通波",
+            4000,
+            100,
+            270,
+            0.7,
+            40,
+            72,
+            "58",
+            null,
+            "霜冻护甲",
+            "邪恶祭祀/冰霜魔盾",
+            null
+          ]
+        }
+      ],
+      "mount": {
+        "sourcePath": "reference/map-6.25/units_unitabilities.json",
+        "jsonIndex": 1092,
+        "id": "m026",
+        "fields": {
+          "unitAbilID": "m026",
+          "abilList": "N517",
+          "auto": "_"
+        }
+      },
+      "cast": {
+        "sourcePath": "reference/map-6.25/units_unitweapons.json",
+        "jsonIndex": 1092,
+        "id": "m026",
+        "fields": {
+          "castpt": 0.3,
+          "castbsw": 0.1
+        }
+      },
+      "dispatch": {
+        "function": "main/f291/f1",
+        "callPC": 2831,
+        "lines": [
+          165464,
+          165478
+        ]
+      }
+    },
+    "N518": {
+      "status": "ready",
+      "object": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1482,
+        "id": "N518",
+        "fields": {
+          "alias": "N518",
+          "code": "AOwk",
+          "BuffID1": "BOwk",
+          "checkDep": 1,
+          "Cool1": 10.0,
+          "Cost1": 200,
+          "DataA1": 0.8,
+          "DataB1": 0.1,
+          "Dur1": 20.0,
+          "HeroDur1": 20.0,
+          "levels": 1,
+          "reqLevel": 1,
+          "targs1": "air,ground,enemy,neutral",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      "missing": [
+        "DataC1"
+      ],
+      "profile": {
+        "line": 14957,
+        "Name": "疾风步",
+        "Order": "windwalk",
+        "Researchubertip": "使得剑圣在一定时间内隐形并加快移动速度，如果此时进行攻击的话，那么就不再隐形但会造成更多的伤害。|n|n|cffffcc00等级 1|r -消耗75点魔法，加快10%的移动速度，增加40点的伤害，持续20秒。|n|cffffcc00等级 2|r -消耗75点魔法，加快40%的移动速度，增加70点的伤害，持续40秒。|n|cffffcc00等级 3|r -消耗75点魔法，加快70%的移动速度，增加100点的伤害，持续60秒。",
+        "Tip": "疾步风(|cffffcc00W|r) - [|cffffcc00等级 1|r]",
+        "Ubertip": "使得剑圣在20秒内隐形并增加10%的移动速度。如果此时剑圣进行攻击的话，那么就不再隐形，但是攻击力会增加40点。"
+      },
+      "stockProfile": {
+        "line": 8022,
+        "Name": "疾步风",
+        "Order": "windwalk",
+        "Researchubertip": "使得剑圣在一定时间内隐形并加快移动速度，如果此时进行攻击的话，那么就不再隐形但会造成更多的伤害。|n|n|cffffcc00等级 1|r -消耗75点魔法，加快10%的移动速度，增加40点的伤害，持续20秒。|n|cffffcc00等级 2|r -消耗75点魔法，加快40%的移动速度，增加70点的伤害，持续40秒。|n|cffffcc00等级 3|r -消耗75点魔法，加快70%的移动速度，增加100点的伤害，持续60秒。",
+        "Tip": "疾步风(|cffffcc00W|r) - [|cffffcc00等级 1|r],疾步风(|cffffcc00W|r) - [|cffffcc00等级 2|r],疾步风(|cffffcc00W|r) - [|cffffcc00等级 3|r]",
+        "Ubertip": "使得剑圣在20秒内隐形并增加10%的移动速度。如果此时剑圣进行攻击的话，那么就不再隐形，但是攻击力会增加40点。,使得剑圣在40秒内隐形并增加40%的移动速度。如果此时剑圣进行攻击的话，那么就不再隐形，但是攻击力会增加70点。,使得剑圣在60秒内隐形并增加70%的移动速度。如果此时剑圣进行攻击的话，那么就不再隐形，但是攻击力会增加100点。"
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f1",
+          "key": "k352",
+          "constantLine": 162344,
+          "pc": 2836,
+          "sourceLine": 165484,
+          "instruction": "loadk r7 k352"
+        }
+      ],
+      "web": {
+        "cost": 200,
+        "cooldown": 10,
+        "castPoint": 0,
+        "fade": 0.8,
+        "duration": 20,
+        "moveRatio": 0.1,
+        "breakDamage": 0,
+        "buff": "BOwk"
+      },
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "主线波次",
+          "row": 32,
+          "columns": [
+            3
+          ],
+          "cells": [
+            28,
+            "赏金猎人",
+            "m028",
+            "普通波",
+            5200,
+            115,
+            250,
+            0.7,
+            40,
+            18,
+            "58",
+            null,
+            "疾风步",
+            "追踪术",
+            "疾风步隐身。"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "主线波次",
+          "row": 32,
+          "columns": [
+            3
+          ],
+          "cells": [
+            28,
+            "赏金猎人",
+            "m028",
+            "普通波",
+            5200,
+            115,
+            250,
+            0.7,
+            40,
+            18,
+            "58",
+            null,
+            "疾风步",
+            "追踪术",
+            "疾风步隐身。"
+          ]
+        }
+      ],
+      "mount": {
+        "sourcePath": "reference/map-6.25/units_unitabilities.json",
+        "jsonIndex": 1094,
+        "id": "m028",
+        "fields": {
+          "unitAbilID": "m028",
+          "abilList": "N518",
+          "auto": "_"
+        }
+      },
+      "cast": {
+        "sourcePath": "reference/map-6.25/units_unitweapons.json",
+        "jsonIndex": 1094,
+        "id": "m028",
+        "fields": {
+          "castpt": 0.3,
+          "castbsw": 0.1
+        }
+      },
+      "dispatch": {
+        "function": "main/f291/f1",
+        "callPC": 2854,
+        "lines": [
+          165488,
+          165503
+        ]
+      }
+    },
+    "N519": {
+      "status": "ready",
+      "object": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1483,
+        "id": "N519",
+        "fields": {
+          "alias": "N519",
+          "code": "Ainf",
+          "BuffID1": "B023",
+          "Cool1": 10.0,
+          "Cost1": 200,
+          "DataA1": -0.5,
+          "Dur1": 8.0,
+          "HeroDur1": 8.0,
+          "levels": 1,
+          "priority": 10,
+          "Rng1": 800.0,
+          "targs1": "enemies,invulnerable",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      "missing": [
+        "DataB1"
+      ],
+      "profile": {
+        "line": 14971,
+        "Name": "虚弱",
+        "Order": "innerfire",
+        "Tip": "心灵之火(|cffffcc00F|r)",
+        "Ubertip": "增加目标友军单位10%的攻击力和5的防御力。|n持续60秒。"
+      },
+      "stockProfile": {
+        "line": 9705,
+        "Name": "心灵之火",
+        "Order": "innerfire",
+        "Tip": "心灵之火(|cffffcc00F|r)",
+        "Ubertip": "增加目标友军单位10%的攻击力和5的防御力。|n持续60秒。"
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f1",
+          "key": "k355",
+          "constantLine": 162347,
+          "pc": 2858,
+          "sourceLine": 165508,
+          "instruction": "loadk r7 k355"
+        }
+      ],
+      "web": {
+        "cost": 200,
+        "cooldown": 10,
+        "castPoint": 0.3,
+        "range": 800,
+        "duration": 8,
+        "attackRatio": -0.5,
+        "armor": 0,
+        "buff": "B023",
+        "maxAttemptsPerDamageEvent": 1
+      },
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "主线波次",
+          "row": 36,
+          "columns": [
+            3
+          ],
+          "cells": [
+            32,
+            "祸乱之源",
+            "m032",
+            "普通波",
+            8300,
+            125,
+            260,
+            0.8,
+            40,
+            18,
+            "50–51",
+            null,
+            "虚弱",
+            null,
+            null
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "主线波次",
+          "row": 36,
+          "columns": [
+            3
+          ],
+          "cells": [
+            32,
+            "祸乱之源",
+            "m032",
+            "普通波",
+            8300,
+            125,
+            260,
+            0.8,
+            40,
+            18,
+            "50–51",
+            null,
+            "虚弱",
+            null,
+            null
+          ]
+        }
+      ],
+      "mount": {
+        "sourcePath": "reference/map-6.25/units_unitabilities.json",
+        "jsonIndex": 1098,
+        "id": "m032",
+        "fields": {
+          "unitAbilID": "m032",
+          "abilList": "N519",
+          "auto": "_"
+        }
+      },
+      "cast": {
+        "sourcePath": "reference/map-6.25/units_unitweapons.json",
+        "jsonIndex": 1098,
+        "id": "m032",
+        "fields": {
+          "castpt": 0.3,
+          "castbsw": 0.1
+        }
+      },
+      "dispatch": {
+        "function": "main/f291/f1",
+        "callPC": 2865,
+        "lines": [
+          165500,
+          165515
+        ]
+      }
+    },
+    "N520": {
+      "status": "ready",
+      "object": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1484,
+        "id": "N520",
+        "fields": {
+          "alias": "N520",
+          "code": "Ablo",
+          "BuffID1": "Bblo",
+          "Cool1": 10.0,
+          "Cost1": 200,
+          "DataB1": 0.5,
+          "DataC1": 0.2,
+          "Dur1": 8.0,
+          "HeroDur1": 8.0,
+          "levels": 1,
+          "priority": 11,
+          "Rng1": 800.0,
+          "targs1": "air,ground,friend,organic,self,neutral",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      "missing": [
+        "DataA1"
+      ],
+      "profile": {
+        "line": 14988,
+        "Name": "嗜血术",
+        "Order": "bloodlust",
+        "Tip": "嗜血术(|cffffcc00L|r)",
+        "Ubertip": "在40秒内增加目标单位40%的攻击速度和25%的移动速度。"
+      },
+      "stockProfile": {
+        "line": 8642,
+        "Name": "嗜血术",
+        "Order": "bloodlust",
+        "Tip": "嗜血术(|cffffcc00B|r)",
+        "Ubertip": "增加一个友军单位40%的攻击速度和25%的移动速度。|n持续60秒。"
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f1",
+          "key": "k358",
+          "constantLine": 162350,
+          "pc": 2884,
+          "sourceLine": 165536,
+          "instruction": "loadk r7 k358"
+        }
+      ],
+      "web": {
+        "cost": 200,
+        "cooldown": 10,
+        "castPoint": 0.3,
+        "range": 800,
+        "duration": 8,
+        "attackSpeed": 0,
+        "moveRatio": 0.5,
+        "modelMultiplier": 1.2,
+        "buff": "Bblo"
+      },
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "主线波次",
+          "row": 37,
+          "columns": [
+            3
+          ],
+          "cells": [
+            33,
+            "食人魔魔法师",
+            "m033",
+            "普通波",
+            8600,
+            135,
+            190,
+            0.7,
+            40,
+            18,
+            "58",
+            null,
+            "嗜血术",
+            "嗜血术",
+            null
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "主线波次",
+          "row": 37,
+          "columns": [
+            3
+          ],
+          "cells": [
+            33,
+            "食人魔魔法师",
+            "m033",
+            "普通波",
+            8600,
+            135,
+            190,
+            0.7,
+            40,
+            18,
+            "58",
+            null,
+            "嗜血术",
+            "嗜血术",
+            null
+          ]
+        }
+      ],
+      "mount": {
+        "sourcePath": "reference/map-6.25/units_unitabilities.json",
+        "jsonIndex": 1099,
+        "id": "m033",
+        "fields": {
+          "unitAbilID": "m033",
+          "abilList": "N520",
+          "auto": "_"
+        }
+      },
+      "cast": {
+        "sourcePath": "reference/map-6.25/units_unitweapons.json",
+        "jsonIndex": 1099,
+        "id": "m033",
+        "fields": {
+          "castpt": 0.3,
+          "castbsw": 0.1
+        }
+      },
+      "dispatch": {
+        "function": "main/f291/f1",
+        "callPC": 2894,
+        "lines": [
+          165532,
+          165546
+        ]
+      }
+    },
+    "N521": {
+      "status": "ready",
+      "object": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1485,
+        "id": "N521",
+        "fields": {
+          "alias": "N521",
+          "code": "AOcr",
+          "levels": 1,
+          "targs1": "air,ground,enemy,neutral",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      "missing": [
+        "DataA1",
+        "DataB1"
+      ],
+      "profile": {
+        "line": 15004,
+        "Name": "薄葬",
+        "Tip": "致命一击",
+        "Ubertip": "给予20%的概率使得该单位能施放出常规攻击2倍的伤害值。"
+      },
+      "stockProfile": {
+        "line": 7785,
+        "Name": "致命一击",
+        "Researchubertip": "给予一定的概率使得攻击力能大大增强。|n|n|cffffcc00等级 1|r -15%的概率，2倍于一般攻击的伤害值。|n|cffffcc00等级 2|r -15%的概率，3倍于一般攻击的伤害值。|n|cffffcc00等级 3|r -15%的概率，4倍于一般攻击的伤害值。",
+        "Tip": "致命一击 - [|cffffcc00等级 1|r],致命一击 - [|cffffcc00等级 2|r],致命一击 - [|cffffcc00等级 3|r]",
+        "Ubertip": "给予15%的概率使得剑圣的攻击能造成2倍于一般攻击的伤害值。,给予15%的概率使得剑圣的攻击能造成3倍于一般攻击的伤害值。,给予15%的概率使得剑圣的攻击能造成4倍于一般攻击的伤害值。"
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f187/f0",
+          "key": "k14",
+          "constantLine": 114803,
+          "pc": 34,
+          "sourceLine": 114849,
+          "instruction": "loadk r6 k14"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f1",
+          "key": "k460",
+          "constantLine": 162452,
+          "pc": 3872,
+          "sourceLine": 166587,
+          "instruction": "loadk r7 k460"
+        }
+      ],
+      "web": {
+        "damageStrictlyAboveLife": true,
+        "firstSetsLife": false,
+        "activeSetsLife": 1,
+        "causeBypass": "q025",
+        "duration": 6,
+        "tick": 1,
+        "T045MaxTargets": 0
+      },
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "主线波次",
+          "row": 39,
+          "columns": [
+            3
+          ],
+          "cells": [
+            35,
+            "暗影牧师",
+            "m035",
+            "Boss",
+            25000,
+            250,
+            230,
+            8,
+            40,
+            18,
+            "5–6",
+            "金币爸爸＋金币妈妈",
+            "薄葬、薄葬动作（无用）、魔抗40%、抗性皮肤",
+            "编织",
+            null
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "主线波次",
+          "row": 39,
+          "columns": [
+            3
+          ],
+          "cells": [
+            35,
+            "暗影牧师",
+            "m035",
+            "Boss",
+            25000,
+            250,
+            230,
+            8,
+            40,
+            18,
+            "5–6",
+            "金币爸爸＋金币妈妈",
+            "薄葬、薄葬动作（无用）、魔抗40%、抗性皮肤",
+            "编织",
+            null
+          ]
+        }
+      ],
+      "mount": {
+        "sourcePath": "reference/map-6.25/units_unitabilities.json",
+        "jsonIndex": 1101,
+        "id": "m035",
+        "fields": {
+          "unitAbilID": "m035",
+          "abilList": "N521,T045,T014,N534",
+          "auto": "_"
+        }
+      },
+      "cast": {
+        "sourcePath": "reference/map-6.25/units_unitweapons.json",
+        "jsonIndex": 1101,
+        "id": "m035",
+        "fields": {
+          "castpt": 0.5,
+          "castbsw": 0.1
+        }
+      },
+      "dispatch": {
+        "function": "main/f291/f1",
+        "callPC": 3890,
+        "lines": [
+          166591,
+          166605
+        ]
+      }
+    },
+    "N522": {
+      "status": "ready",
+      "object": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1486,
+        "id": "N522",
+        "fields": {
+          "alias": "N522",
+          "code": "ANcs",
+          "Area1": 20.0,
+          "BuffID1": "BNcs",
+          "checkDep": 1,
+          "Cool1": 5.0,
+          "Cost1": 300,
+          "DataC1": 1,
+          "DataF1": 0.1,
+          "Dur1": 1.0,
+          "HeroDur1": 0.5,
+          "levels": 1,
+          "reqLevel": 1,
+          "Rng1": 900.0,
+          "targs1": "enemies,invulnerable",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      "missing": [
+        "DataA1"
+      ],
+      "profile": {
+        "line": 15011,
+        "Missilespeed": "700",
+        "Name": "混乱之箭",
+        "Order": "clusterrockets",
+        "Researchubertip": "对某个区域用火箭进行攻击，使目标在1 秒内处于昏晕状态，并对其造成一定程度的伤害。|n|n|cffffcc00等级 1|r - 35 攻击力。|n|cffffcc00等级 2|r - 65 攻击力。|n|cffffcc00等级 3|r - 100 攻击力。",
+        "Tip": "(|cffffcc00R|r)火箭群 - [|cffffcc00等级 1|r]",
+        "Ubertip": "对某个区域用火箭进行攻击，对周围的地面单位造成35点的伤害，并在1 秒内让其处于昏晕状态。"
+      },
+      "stockProfile": {
+        "line": 6753,
+        "Missilespeed": "700",
+        "Name": "火箭群",
+        "Order": "clusterrockets",
+        "Researchubertip": "对某个区域用火箭进行攻击，使目标在1 秒内处于昏晕状态，并对其造成一定程度的伤害。|n|n|cffffcc00等级 1|r - 35 攻击力。|n|cffffcc00等级 2|r - 65 攻击力。|n|cffffcc00等级 3|r - 100 攻击力。",
+        "Tip": "(|cffffcc00R|r)火箭群 - [|cffffcc00等级 1|r],(|cffffcc00R|r)火箭群 - [|cffffcc00等级 2|r],(|cffffcc00R|r)火箭群 - [|cffffcc00等级 3|r]",
+        "Ubertip": "对某个区域用火箭进行攻击，对周围的地面单位造成35点的伤害，并在1 秒内让其处于昏晕状态。,对某个区域用火箭进行攻击，对周围的地面单位造成65点的伤害，并在1 秒内让其处于昏晕状态。,对某个区域用火箭进行攻击，对周围的地面单位造成100点的伤害，并在1 秒内让其处于昏晕状态。"
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f1",
+          "key": "k362",
+          "constantLine": 162354,
+          "pc": 2912,
+          "sourceLine": 165566,
+          "instruction": "loadk r7 k362"
+        }
+      ],
+      "web": {
+        "cost": 300,
+        "cooldown": 5,
+        "castPoint": 0.3,
+        "dispatchRangeExclusive": 800,
+        "range": 900,
+        "radius": 20,
+        "damage": 0,
+        "visualMissiles": 1,
+        "visualEffectDuration": 0.1,
+        "visualMissileSpeed": 700,
+        "control": [
+          1,
+          0.5
+        ],
+        "includeInvulnerable": true,
+        "buff": "BNcs"
+      },
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "主线波次",
+          "row": 41,
+          "columns": [
+            3
+          ],
+          "cells": [
+            37,
+            "混沌骑士",
+            "m037",
+            "普通波",
+            13500,
+            160,
+            270,
+            0.8,
+            40,
+            18,
+            "50–51",
+            null,
+            "混乱之箭、魔抗40%",
+            "混乱之箭",
+            null
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "主线波次",
+          "row": 41,
+          "columns": [
+            3
+          ],
+          "cells": [
+            37,
+            "混沌骑士",
+            "m037",
+            "普通波",
+            13500,
+            160,
+            270,
+            0.8,
+            40,
+            18,
+            "50–51",
+            null,
+            "混乱之箭、魔抗40%",
+            "混乱之箭",
+            null
+          ]
+        }
+      ],
+      "mount": {
+        "sourcePath": "reference/map-6.25/units_unitabilities.json",
+        "jsonIndex": 1103,
+        "id": "m037",
+        "fields": {
+          "unitAbilID": "m037",
+          "abilList": "N522,T014",
+          "auto": "_"
+        }
+      },
+      "cast": {
+        "sourcePath": "reference/map-6.25/units_unitweapons.json",
+        "jsonIndex": 1103,
+        "id": "m037",
+        "fields": {
+          "castpt": 0.3,
+          "castbsw": 0.1
+        }
+      },
+      "dispatch": {
+        "function": "main/f291/f1",
+        "callPC": 2933,
+        "lines": [
+          165573,
+          165587
+        ]
+      }
+    },
+    "T032": {
+      "status": "ready",
+      "object": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1909,
+        "id": "T032",
+        "fields": {
+          "alias": "T032",
+          "code": "Ainf",
+          "BuffID1": "B011",
+          "checkDep": 1,
+          "Cool1": 100.0,
+          "DataB1": 9999,
+          "DataC1": 50.0,
+          "Dur1": 2.5,
+          "HeroDur1": 2.5,
+          "levels": 1,
+          "priority": 10,
+          "Rng1": 1000.0,
+          "targs1": "air,ground,friend,neutral,self",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      "missing": [
+        "Cost1",
+        "DataA1"
+      ],
+      "profile": {
+        "line": 19714,
+        "Name": "马甲-战争咆哮加护甲",
+        "Order": "innerfire",
+        "Tip": "心灵之火(|cffffcc00F|r)",
+        "Ubertip": "增加目标友军单位10%的攻击力和5的防御力。|n持续60秒。"
+      },
+      "stockProfile": {
+        "line": 9705,
+        "Name": "心灵之火",
+        "Order": "innerfire",
+        "Tip": "心灵之火(|cffffcc00F|r)",
+        "Ubertip": "增加目标友军单位10%的攻击力和5的防御力。|n持续60秒。"
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f172/f0",
+          "key": "k5",
+          "constantLine": 112902,
+          "pc": 12,
+          "sourceLine": 112920,
+          "instruction": "loadk r6 k5"
+        }
+      ]
+    },
+    "T045": {
+      "status": "ready",
+      "object": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1922,
+        "id": "T045",
+        "fields": {
+          "alias": "T045",
+          "code": "Atau",
+          "Area1": 450.0,
+          "checkDep": 1,
+          "Cool1": 1.0,
+          "levels": 1,
+          "targs1": "air,ground,enemy,vuln,invu",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      "missing": [
+        "DataA1"
+      ],
+      "profile": {
+        "line": 19852,
+        "Name": "薄葬动作（无用）",
+        "Order": "taunt",
+        "Tip": "嘲讽(|cffffcc00T|r)",
+        "Ubertip": "最近的10个单位会强迫攻击这个单位。"
+      },
+      "stockProfile": {
+        "line": 11060,
+        "Name": "嘲讽",
+        "Order": "taunt",
+        "Tip": "嘲讽(|cffffcc00T|r)",
+        "Ubertip": "最近的10个单位会强迫攻击这个单位。"
+      },
+      "references": []
+    }
+  },
+  "instructionRanges": {
+    "N50 mainline pool 1–4": [
+      184670,
+      184708
+    ],
+    "N508 grant": [
+      184722,
+      184770
+    ],
+    "N511 effect": [
+      171881,
+      171894
+    ],
+    "N521 first and active strict health gates": [
+      166584,
+      166639
+    ]
+  },
+  "N512Spawn": [
+    {
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "function": "main/f290/f9",
+      "key": "k24",
+      "constantLine": 158110,
+      "pc": 113,
+      "sourceLine": 158238,
+      "instruction": "gettabup r4 u0 k24"
+    },
+    {
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "function": "main/f294",
+      "key": "k93",
+      "constantLine": 181474,
+      "pc": 378,
+      "sourceLine": 181870,
+      "instruction": "settabup u0 k93 r23"
+    },
+    {
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "function": "main/f294/f18",
+      "key": "k83",
+      "constantLine": 184565,
+      "pc": 428,
+      "sourceLine": 185020,
+      "instruction": "gettabup r5 u0 k83"
+    }
+  ],
+  "checks": [
+    "N511 creates level-one dummy and sends ordered commands",
+    "N512 spawn command requires the actual ability",
+    "N516 exact 600 commits, further increment rejects whole write",
+    "N519 skips own/dead/already-weak, does not retry on command rejection",
+    "N521 q025 removes no ability, changes no damage and creates no timer",
+    "N521 first protection preserves taunt, alpha, remove, start order",
+    "N521 final periodic tick restores alpha and releases both handles",
+    "N512 insufficient mana spends only the absorption achieved"
+  ]
+}

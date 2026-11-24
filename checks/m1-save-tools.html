@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TD3 存档备份与恢复</title>
+<style>
+  body { font: 1rem/1.6 system-ui, sans-serif; margin: 3rem auto; padding: 0 1rem; max-width: 42rem; }
+  button, input { font: inherit; }
+  output { display: block; margin-top: 1rem; overflow-wrap: anywhere; }
+</style>
+<h1>TD3 存档备份与恢复</h1>
+<p>当前地址 <output id="origin" style="display:inline"></output></p>
+<p>先在游戏中暂停，等到出现「已保存到此浏览器」，再关闭同一地址的所有游戏标签页。此工具只操作当前 Chrome 配置文件、当前地址的最近一次已提交快照。</p>
+<button id="export" disabled>下载当前存档</button>
+<p><label>选择此前下载的存档 <input id="file" type="file" accept=".json,application/json" disabled></label></p>
+<button id="import" disabled>恢复选中的存档</button>
+<output id="status" role="status" aria-live="polite"></output>
+
+<script type="module">
+const status = document.querySelector("#status");
+const download = document.querySelector("#export");
+const upload = document.querySelector("#file");
+const restore = document.querySelector("#import");
+document.querySelector("#origin").textContent = location.origin;
+const isLocal = ["127.0.0.1", "localhost", "[::1]"].includes(location.hostname) && location.protocol === "http:";
+let candidate;
+
+function currentSnapshot(replacement) {
+  return new Promise((resolve, reject) => {
+    const open = indexedDB.open("td3", 1);
+    open.onupgradeneeded = () => open.result.createObjectStore("runs");
+    open.onerror = () => reject(open.error);
+    open.onblocked = () => reject(new Error("存档库仍被其他页面占用。"));
+    open.onsuccess = () => {
+      const db = open.result;
+      const tx = db.transaction("runs", replacement === undefined ? "readonly" : "readwrite");
+      const store = tx.objectStore("runs");
+      const request = replacement === undefined ? store.get("current") : store.put(replacement, "current");
+      tx.onabort = () => { db.close(); reject(tx.error ?? request.error); };
+      tx.oncomplete = () => { db.close(); resolve(request.result); };
+    };
+  });
+}
+
+function summary(snapshot) {
+  if (!snapshot || snapshot.formatVersion !== 1 || !["m1-1", "m1-2"].includes(snapshot.contentVersion) ||
+      !Number.isSafeInteger(snapshot.revision) || typeof snapshot.state?.matchId !== "string" ||
+      !Number.isSafeInteger(snapshot.state?.frame) || !snapshot.clock ||
+      !Array.isArray(snapshot.state.towers) || !Array.isArray(snapshot.state.events)) {
+    throw new Error("无法识别 TD3 M1 存档。");
+  }
+  return `${snapshot.contentVersion} · 第 ${snapshot.state.frame} 帧 · 修订号 ${snapshot.revision} · 对局 ${snapshot.state.matchId}`;
+}
+
+async function checksum(snapshot) {
+  const hash = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(JSON.stringify(snapshot)));
+  return Array.from(new Uint8Array(hash), byte => byte.toString(16).padStart(2, "0")).join("");
+}
+
+async function run(action) {
+  download.disabled = upload.disabled = restore.disabled = true;
+  try { await action(); }
+  catch (error) { status.textContent = error?.message || "无法操作浏览器存档。"; }
+  finally {
+    download.disabled = upload.disabled = false;
+    restore.disabled = !candidate;
+  }
+}
+
+if (isLocal) {
+  download.disabled = upload.disabled = false;
+  void run(async () => {
+    const saved = await currentSnapshot();
+    status.textContent = saved ? "当前存档 " + summary(saved) : "当前地址没有已提交的存档。";
+  });
+} else {
+  status.textContent = "请通过本机 HTTP 启动游戏后打开此工具。";
+}
+
+download.onclick = () => run(async () => {
+  const snapshot = await currentSnapshot();
+  if (!snapshot) throw new Error("当前地址没有已提交的存档。");
+  const label = summary(snapshot);
+  const backup = { tool: "td3-m1-backup", origin: location.origin, exportedAt: new Date().toISOString(),
+    checksum: await checksum(snapshot), snapshot };
+  const url = URL.createObjectURL(new Blob([JSON.stringify(backup, null, 2)], { type: "application/json" }));
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = `TD3-${snapshot.contentVersion}-r${snapshot.revision}-${Date.now()}.json`;
+  link.click();
+  setTimeout(() => URL.revokeObjectURL(url), 30000);
+  status.textContent = "已导出 " + label;
+});
+
+upload.onchange = () => run(async () => {
+  candidate = undefined;
+  const file = upload.files[0];
+  if (!file) { status.textContent = "请选择此前由本工具下载的存档。"; return; }
+  const backup = JSON.parse(await file.text());
+  const label = summary(backup.snapshot);
+  if (backup.tool !== "td3-m1-backup" || backup.checksum !== await checksum(backup.snapshot)) {
+    throw new Error("备份校验失败，请选择本工具完整导出的文件。");
+  }
+  candidate = backup;
+  status.textContent = `待恢复 ${label}，来源 ${backup.origin}。`;
+});
+
+restore.onclick = () => run(async () => {
+  const { snapshot, origin } = candidate;
+  const current = await currentSnapshot();
+  const oldInfo = current ? "已有存档将被覆盖，若需保留，请先取消并下载备份。" : "当前地址暂无存档。";
+  if (!confirm(`将 ${origin} 的存档恢复到 ${location.origin}。\n${summary(snapshot)}\n${oldInfo}\n请确认同地址的游戏标签页均已关闭。`)) {
+    status.textContent = "已取消，存档未改变。";
+    return;
+  }
+  await currentSnapshot(snapshot);
+  status.textContent = "已提交恢复 " + summary(snapshot);
+  candidate = undefined;
+  upload.value = "";
+});
+</script>
+</html>

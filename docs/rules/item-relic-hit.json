@@ -1,0 +1,536 @@
+{
+  "scope": "i322 accuracy passive I251/AOcr and relationship to already-audited tenth-hit wave; T077 field semantics/profile speed only, not full native wave collision implementation.",
+  "workbookEvidence": [
+    {
+      "file": "图鉴.xlsx",
+      "sheet": "装备与道具",
+      "range": "H215",
+      "text": "克敌机先：攻击有70%的概率不会丢失。",
+      "waveText": "每攻击10次将会对前方直线敌人造成神圣伤害，攻速越快，伤害越高。近战并且敏捷最高时有效。"
+    },
+    {
+      "file": "图鉴.xlsx",
+      "sheet": "装备与道具",
+      "range": "H216",
+      "sameAccuracyAndWaveText": true
+    },
+    {
+      "file": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+      "sheet": "装备与道具",
+      "range": "H215:H216",
+      "matchesRepositoryCells": true
+    }
+  ],
+  "rawFacts": {
+    "item": {
+      "itemID": "i322",
+      "abilList": "I252,I126,I251",
+      "armor": "Wood",
+      "class": "Permanent",
+      "colorB": 255,
+      "colorG": 255,
+      "colorR": 255,
+      "cooldownID": "AIrm",
+      "droppable": 1,
+      "file": "Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl",
+      "goldcost": 20900,
+      "HP": 75,
+      "Level": 5,
+      "oldLevel": 4,
+      "pawnable": 1,
+      "pickRandom": 1,
+      "prio": 64,
+      "scale": 1.0,
+      "sellable": 1,
+      "stockMax": 1,
+      "stockRegen": 1
+    },
+    "abilities": {
+      "I252": {
+        "alias": "I252",
+        "code": "AIat",
+        "DataA1": 180,
+        "levels": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "I126": {
+        "alias": "I126",
+        "code": "AIas",
+        "DataA1": 0.9,
+        "levels": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "I251": {
+        "alias": "I251",
+        "code": "AOcr",
+        "checkDep": 1,
+        "DataA1": 70.0,
+        "DataA2": 15.0,
+        "DataA3": 15.0,
+        "DataB2": 3.0,
+        "DataB3": 4.0,
+        "DataC1": 1.0,
+        "DataE1": 1,
+        "levels": 3,
+        "reqLevel": 1,
+        "targs1": "air,ground,enemy,neutral",
+        "targs2": "air,ground,enemy,neutral",
+        "targs3": "air,ground,enemy,neutral",
+        "targs4": "_"
+      },
+      "AOcr": {
+        "alias": "AOcr",
+        "code": "AOcr",
+        "checkDep": 1,
+        "DataA1": 15.0,
+        "DataA2": 15.0,
+        "DataA3": 15.0,
+        "DataB1": 2.0,
+        "DataB2": 3.0,
+        "DataB3": 4.0,
+        "levels": 3,
+        "reqLevel": 1,
+        "targs1": "air,ground,enemy,neutral",
+        "targs2": "air,ground,enemy,neutral",
+        "targs3": "air,ground,enemy,neutral",
+        "targs4": "_"
+      },
+      "T077": {
+        "alias": "T077",
+        "code": "AUcs",
+        "Area1": 300.0,
+        "BuffID1": "BUcs",
+        "checkDep": 1,
+        "DataA1": 10.0,
+        "DataB1": 9999999.0,
+        "DataC1": 900.0,
+        "DataD1": 300.0,
+        "levels": 1,
+        "reqLevel": 1,
+        "Rng1": 5000.0,
+        "targs1": "enemies",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "sources": [
+      {
+        "file": "reference/map-6.25/units_itemdata.json",
+        "line": 11238,
+        "endLine": 11258
+      },
+      {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 20960,
+        "endLine": 20968
+      },
+      {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 22465,
+        "endLine": 22491
+      },
+      {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 7885,
+        "endLine": 7901
+      },
+      {
+        "file": "reference/map-6.25/units_abilitydata.slk",
+        "line": 20204,
+        "endLine": 20219
+      },
+      {
+        "file": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "line": 12153,
+        "endLine": 12167
+      }
+    ],
+    "overridesChecked": {
+      "war3map.w3a.json": [],
+      "war3map.w3t.json": []
+    },
+    "missingI251Level1Fields": [
+      "DataB1",
+      "DataD1"
+    ],
+    "normalizedToolValues": {
+      "DataB1": 0.0,
+      "DataD1": 0.0
+    },
+    "normalizationConfidence": "verified tool behavior, not matched-client measurement",
+    "runtimeMutationSearch": "No literal I251/I252/I126/AOcr in main.readable.lua or war3map.j; native item ability attachment is the evidence, not a Lua accuracy roll."
+  },
+  "fieldSemantics": [
+    {
+      "fieldID": "amsp",
+      "dataColumn": "Missilespeed",
+      "meaning": "Missile Speed",
+      "metadataLine": 452,
+      "labelLine": 5823
+    },
+    {
+      "fieldID": "aare",
+      "dataColumn": "Area",
+      "meaning": "Area of Effect",
+      "metadataLine": 1324,
+      "labelLine": 5842
+    },
+    {
+      "fieldID": "aran",
+      "dataColumn": "Rng",
+      "meaning": "Cast Range",
+      "metadataLine": 1345,
+      "labelLine": 5843
+    },
+    {
+      "fieldID": "Ocr1",
+      "dataColumn": "A",
+      "meaning": "Chance to Critical Strike",
+      "metadataLine": 1730,
+      "labelLine": 5889
+    },
+    {
+      "fieldID": "Ocr2",
+      "dataColumn": "B",
+      "meaning": "Damage Multiplier",
+      "metadataLine": 1752,
+      "labelLine": 5890
+    },
+    {
+      "fieldID": "Ocr3",
+      "dataColumn": "C",
+      "meaning": "Damage Bonus",
+      "metadataLine": 1774,
+      "labelLine": 5891
+    },
+    {
+      "fieldID": "Ocr4",
+      "dataColumn": "D",
+      "meaning": "Chance to Evade",
+      "metadataLine": 1796,
+      "labelLine": 5892
+    },
+    {
+      "fieldID": "Ocr5",
+      "dataColumn": "E",
+      "meaning": "Never Miss",
+      "metadataLine": 1818,
+      "labelLine": 8118
+    },
+    {
+      "fieldID": "Ucs1",
+      "dataColumn": "A",
+      "meaning": "Damage",
+      "metadataLine": 2688,
+      "labelLine": 5925
+    },
+    {
+      "fieldID": "Ucs2",
+      "dataColumn": "B",
+      "meaning": "Max Damage",
+      "metadataLine": 2710,
+      "labelLine": 5926
+    },
+    {
+      "fieldID": "Ucs3",
+      "dataColumn": "C",
+      "meaning": "Distance",
+      "metadataLine": 2732,
+      "labelLine": 5927
+    },
+    {
+      "fieldID": "Ucs4",
+      "dataColumn": "D",
+      "meaning": "Final Area",
+      "metadataLine": 2754,
+      "labelLine": 5928
+    }
+  ],
+  "externalSources": [
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/Units/AbilityMetaData.slk",
+      "commit": "a69c315ebf2886ec54d66200707ab6e38bd3484d",
+      "rawSha256": "891109928d7f34fc5f4e33eb53b807513ae54107b13dea0dde5ce75bbe063246",
+      "lines": [
+        1730,
+        1752,
+        1774,
+        1796,
+        1818,
+        2688,
+        2710,
+        2732,
+        2754,
+        452,
+        1324,
+        1345
+      ],
+      "establishes": "Ability data letters and numeric/bool types; not native runtime implementation"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/UI/WorldEditStrings.txt",
+      "commit": "a69c315ebf2886ec54d66200707ab6e38bd3484d",
+      "rawSha256": "b0e9a709df79c7b1190f43e621c95ad3babc469d1ecf96e2aa576e74c17e2aa0",
+      "lines": [
+        5889,
+        5890,
+        5891,
+        5892,
+        8118,
+        5925,
+        5926,
+        5927,
+        5928,
+        5823,
+        5842,
+        5843
+      ],
+      "establishes": "Editor field labels"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/plugin/w3x2lni/script/core/slk/frontend_slk.lua",
+      "commit": "a69c315ebf2886ec54d66200707ab6e38bd3484d",
+      "rawSha256": "2ccad3e95875910c9de17f6d5a18762f5c9c8da55f8f019bd566b8ee575e5067",
+      "lines": [
+        19,
+        47,
+        67
+      ],
+      "establishes": "Authoritative conversion-tool implementation: absent numeric SLK cells normalize to zero; does not prove actual client runtime"
+    }
+  ],
+  "sourceTextDiscrepancy": {
+    "type": "inherited ability tooltip differs from authored first-level data and workbook",
+    "I251Tooltip": "15% at x2/x3/x4",
+    "I251Level1DataChance": 70,
+    "workbookChance": 70,
+    "source": {
+      "file": "reference/map-6.25/units_campaignabilitystrings.txt",
+      "line": 12161,
+      "endLine": 12163
+    },
+    "disposition": "use established workbook 70%; no new user decision required; do not implement stale ability tooltip as item behavior"
+  },
+  "tenthHitRelationship": {
+    "accuracyEligibility": "The explicit melee/nonillusion/agility-max gates belong to i322_Action and its dispatcher, not to an I251 Lua roll. Do not import these gates into accuracy by association.",
+    "incrementEntry": "qualifying attack damage event, not every attack start or every I251 proc",
+    "missWebOutcome": "no attack damage event -> no i322 counter increment",
+    "normalHitWithoutAccuracyProc": "may still increment if action/dispatcher conditions hold",
+    "wave": "q018/T077 enters i322_Damage, then q019 submits SetRealDamage. Neither dummy carries I251; no second 70% roll or +1 from I251.",
+    "alreadyAuditedSpec": "docs/rules/item-damage-effects.md",
+    "sources": [
+      {
+        "file": "reference/map-6.25/main.readable.lua",
+        "line": 97371,
+        "endLine": 97404
+      },
+      {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 145582,
+        "endLine": 145621
+      },
+      {
+        "file": "reference/map-6.25/units_unitabilities.json",
+        "line": 6640,
+        "endLine": 6648
+      },
+      {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 133200,
+        "endLine": 133435
+      }
+    ]
+  },
+  "webBaseline": {
+    "id": "relic-hit-v1",
+    "authority": "Q24; explicit Web choices after local source and primary reference review, not original-client measurements",
+    "activeRank": 1,
+    "proc": {
+      "distribution": "independent Bernoulli",
+      "probability": 0.7,
+      "integerEquivalent": "uniformInteger(1,100)<=70",
+      "when": "once for each legal ordinary primary-target attack entering its hit-resolution stage while i322 is active",
+      "successfulProc": "bypass ordinary hit/miss/evasion rolls, retaining target legality/invulnerability and ordinary damage reductions",
+      "unsuccessfulProc": "resolve the ordinary hit model without I251 assistance; no +1"
+    },
+    "damageBonus": {
+      "onProcOnly": true,
+      "amount": 1,
+      "operation": "rawOrdinaryAttackDamage += 1",
+      "timing": "after this ordinary attack raw damage has been assembled, before attack-type/defense-type and armor/native reductions, then map Before",
+      "sameDamagePacket": true,
+      "noNewMagicOrHolyPacket": true,
+      "noMultiplierAppliedByI251": true,
+      "missingMultiplierZeroDoesNotZeroAttack": true,
+      "stackingWithOtherNativeCriticalAbilities": "A027 and the five named item-native profiles: coup-de-grace-native-v1 selects the maximum successful multiplier, then adds fixed bonuses including I251 +1, before native reduction. Other native critical abilities remain outside this scoped choice."
+    },
+    "waveAccuracyRoll": false,
+    "waveExtraOneDamage": false,
+    "hitProbabilityGivenOrdinaryHitH": "0.7 + 0.3*h",
+    "legalTargetGate": "true strike does not make illegal targets attackable or bypass invulnerability/damage immunity; the underlying ordinary-target model remains separate",
+    "prngState": "persist through local save/resume using the simulation RNG; no attempt to duplicate Warcraft AOcr PRD distribution"
+  },
+  "acceptanceCases": [
+    {
+      "ordinaryHitProbability": 1,
+      "finalHitProbability": 1,
+      "procFraction": 0.7,
+      "extraRawDamageWhenProc": 1
+    },
+    {
+      "ordinaryHitProbability": 0.5,
+      "finalHitProbability": 0.85
+    },
+    {
+      "ordinaryHitProbability": 0,
+      "finalHitProbability": 0.7
+    },
+    {
+      "ordinaryHitProbability": 0.8,
+      "finalHitProbability": 0.94
+    },
+    {
+      "case": "proc at raw damage100 with native multiplier0.5",
+      "beforeMapDamage": 50.5,
+      "otherEffects": "none"
+    },
+    {
+      "case": "no proc but normal hit at raw damage100 with native multiplier0.5",
+      "beforeMapDamage": 50,
+      "otherEffects": "none"
+    },
+    {
+      "case": "counter9, no proc and normal miss",
+      "counterAfter": 9,
+      "wave": false
+    },
+    {
+      "case": "counter9, no proc but normal hit; all wave gates met",
+      "counterAfter": 0,
+      "wave": true
+    },
+    {
+      "case": "counter9, proc; all wave gates met",
+      "counterAfter": 0,
+      "wave": true,
+      "accuracyRollCountForWave": 0
+    },
+    {
+      "case": "q018 hits a target",
+      "I251RandomDraws": 0,
+      "I251DamageBonus": 0
+    }
+  ],
+  "T077Followup": {
+    "ability": {
+      "alias": "T077",
+      "code": "AUcs",
+      "Area1": 300.0,
+      "BuffID1": "BUcs",
+      "checkDep": 1,
+      "DataA1": 10.0,
+      "DataB1": 9999999.0,
+      "DataC1": 900.0,
+      "DataD1": 300.0,
+      "levels": 1,
+      "reqLevel": 1,
+      "Rng1": 5000.0,
+      "targs1": "enemies",
+      "targs2": "_",
+      "targs3": "_",
+      "targs4": "_"
+    },
+    "profile": {
+      "Missileart": "AZ_FelgaurdBluePF_T.MDX",
+      "Missilespeed": 2500,
+      "Order": "carrionswarm"
+    },
+    "mappedFields": {
+      "Area1": {
+        "value": 300,
+        "meaning": "Area of Effect"
+      },
+      "DataA1": {
+        "value": 10,
+        "meaning": "Damage, overwritten by i322_Damage before submitting its separate holy damage"
+      },
+      "DataB1": {
+        "value": 9999999,
+        "meaning": "Max Damage, native delivery budget field, not the holy damage formula cap"
+      },
+      "DataC1": {
+        "value": 900,
+        "meaning": "Distance"
+      },
+      "DataD1": {
+        "value": 300,
+        "meaning": "Final Area"
+      },
+      "Rng1": {
+        "value": 5000,
+        "meaning": "Cast Range"
+      },
+      "Missilespeed": {
+        "value": 2500,
+        "meaning": "Missile Speed"
+      }
+    },
+    "derivedConstantSpeedTime": {
+      "distance": 900,
+      "speed": 2500,
+      "seconds": 0.36,
+      "status": "conditional arithmetic only, not observed native delay or a fully adopted collision rule"
+    },
+    "sources": [
+      {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 33894,
+        "endLine": 33910
+      },
+      {
+        "file": "reference/map-6.25/units_abilitydata.slk",
+        "line": 30073,
+        "endLine": 30088
+      },
+      {
+        "file": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "line": 20296,
+        "endLine": 20309
+      }
+    ],
+    "explicitlyNotClosed": [
+      "initial/final area radius-versus-diameter and native collision convention",
+      "collision of unit edge versus center and moving-unit crossing",
+      "whether missile profile speed exactly controls damage wave",
+      "same-wave per-target hit multiplicity/order",
+      "native spell acceptance and launch timing",
+      "caster timed-life or deletion versus travelling wave"
+    ],
+    "webGeometryChosen": false
+  },
+  "nativeEvidenceLimits": {
+    "officialBlizzardPage": "https://classic.battle.net/war3/orc/units/blademaster.shtml",
+    "officialPageScope": "describes stock critical strike; does not document I251 chance distribution, DataC bonus path or custom map engine version",
+    "firsthandTests": "https://github.com/Cokemonkey11/wc3-ability-doc/blob/main/sources/screwthetrees-wc3-editor-ability-insight-document/2023-11-14.md",
+    "firsthandTestScope": "author documents version1.36 and reports uncertain small Damage Bonus behavior; not a matched-client oracle. Supports preserving normal damage at multiplier0 but cannot settle this map native bonus timing.",
+    "otherNativeReverseEngineeringInspected": "https://www.bilibili.com/opus/1221430326096560144",
+    "whyNotUsedForExactRule": "64-bit binary unspecified compatible version; DataC path absent and prose contains unsupported claims. Not evidence for omitting DataC or reproducing a specific PRD table.",
+    "primaryReimplementationInspected": "https://corepunch.github.io/open-realm/games/warcraft-3/attack-damage/",
+    "whyNotUsedForExactRule2": "project itself lists native pre-damage listeners as incomplete; its behavior is not Warcraft client evidence."
+  },
+  "remainingScope": "Full ordinary hit/evasion/terrain rules, AOcr profiles outside coup-de-grace-native-v1 and full T077 native geometry remain separate; A027/five named item interactions are now specified in skill-coup-de-grace.md.",
+  "relatedBaselines": [
+    {
+      "id": "coup-de-grace-native-v1",
+      "specification": "skill-coup-de-grace.md",
+      "machineRules": "skill-coup-de-grace.json"
+    }
+  ]
+}

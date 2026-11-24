@@ -1,0 +1,1249 @@
+{
+  "schemaVersion": 1,
+  "scope": "Complete A057_Action and its refund callback; complete UnitKillUnit/SetRealDamage, queued target order pair, Abyss_Damage_Event checked. Existing main damage pipeline and autocast audits reused. Not all monster/hero/item callees or native ability implementation recursively verified.",
+  "source": {
+    "path": "reference/map-6.25/main.disasm",
+    "sha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+    "workbookPath": "图鉴.xlsx",
+    "workbookSha256": "457c8f7e37e19412a0dd072ce941e95604b0b8910860b9e1eb9883e6b82bb6af"
+  },
+  "coreCounts": {
+    "instructions": 241,
+    "conditions": 15,
+    "calls": 42,
+    "returnInstructions": 2
+  },
+  "coreFunctions": [
+    {
+      "name": "A057 cooldown/buff timer",
+      "function": "main/f51/f0",
+      "sourceLines": [
+        68932,
+        69016
+      ],
+      "counts": {
+        "instructions": 51,
+        "conditions": 1,
+        "calls": 13,
+        "returnInstructions": 1
+      },
+      "conditions": [
+        {
+          "pc": 9,
+          "line": 68973,
+          "raw": "eq 1 k3 r2",
+          "trueNextPC": 47,
+          "falseNextPC": 11,
+          "meaning": "current Tower_ALL[index] == nil: skip cooldown and T220; still destroy timer/clear slot"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 51,
+          "line": 69016,
+          "raw": "return r0 1"
+        }
+      ]
+    },
+    {
+      "name": "A057_Action",
+      "function": "main/f51/f1",
+      "sourceLines": [
+        69018,
+        69282
+      ],
+      "counts": {
+        "instructions": 190,
+        "conditions": 14,
+        "calls": 29,
+        "returnInstructions": 1
+      },
+      "conditions": [
+        {
+          "pc": 25,
+          "line": 69109,
+          "raw": "eq 1 k11 r8",
+          "trueNextPC": 35,
+          "falseNextPC": 27,
+          "meaning": "A057_Count[index] == nil: skip multiplier"
+        },
+        {
+          "pc": 29,
+          "line": 69113,
+          "raw": "lt 0 k13 r8",
+          "trueNextPC": 31,
+          "falseNextPC": 35,
+          "meaning": "count > 0: multiply r by count+1"
+        },
+        {
+          "pc": 36,
+          "line": 69121,
+          "raw": "lt 0 r2 r8",
+          "trueNextPC": 38,
+          "falseNextPC": 140,
+          "meaning": "target current life < caster max life * adjusted r: then test gold IDs"
+        },
+        {
+          "pc": 44,
+          "line": 69129,
+          "raw": "eq 1 r8 r9",
+          "trueNextPC": 140,
+          "falseNextPC": 46,
+          "meaning": "target type == m999: failure branch"
+        },
+        {
+          "pc": 52,
+          "line": 69137,
+          "raw": "eq 1 r8 r9",
+          "trueNextPC": 140,
+          "falseNextPC": 54,
+          "meaning": "target type == m998: failure branch"
+        },
+        {
+          "pc": 69,
+          "line": 69154,
+          "raw": "lt 0 k7 r5",
+          "trueNextPC": 71,
+          "falseNextPC": 79,
+          "meaning": "adjusted r > 1: show threshold floating text"
+        },
+        {
+          "pc": 81,
+          "line": 69167,
+          "raw": "eq 0 k26 r12",
+          "trueNextPC": 83,
+          "falseNextPC": 92,
+          "meaning": "TxShow == true: inspect G067 model override"
+        },
+        {
+          "pc": 89,
+          "line": 69175,
+          "raw": "eq 0 r12 r13",
+          "trueNextPC": 91,
+          "falseNextPC": 92,
+          "meaning": "caster type == G067: use Eff_FW_4.MDX"
+        },
+        {
+          "pc": 114,
+          "line": 69201,
+          "raw": "eq 1 k11 r12",
+          "trueNextPC": 119,
+          "falseNextPC": 116,
+          "meaning": "previous timer == nil: skip destroy"
+        },
+        {
+          "pc": 131,
+          "line": 69219,
+          "raw": "eq 1 k11 r13",
+          "trueNextPC": 175,
+          "falseNextPC": 133,
+          "meaning": "count == nil: skip reset"
+        },
+        {
+          "pc": 135,
+          "line": 69223,
+          "raw": "lt 0 k13 r13",
+          "trueNextPC": 137,
+          "falseNextPC": 175,
+          "meaning": "count > 0: reset to zero"
+        },
+        {
+          "pc": 151,
+          "line": 69240,
+          "raw": "eq 0 k26 r8",
+          "trueNextPC": 153,
+          "falseNextPC": 159,
+          "meaning": "TxShow == true: create failure visual"
+        },
+        {
+          "pc": 162,
+          "line": 69252,
+          "raw": "test r8 0",
+          "trueNextPC": 164,
+          "falseNextPC": 175,
+          "meaning": "Has_A_Item(caster) truthy: initialize/increment failure count"
+        },
+        {
+          "pc": 166,
+          "line": 69256,
+          "raw": "eq 0 k11 r8",
+          "trueNextPC": 168,
+          "falseNextPC": 170,
+          "meaning": "count == nil: initialize zero before increment"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 190,
+          "line": 69282,
+          "raw": "return r0 1"
+        }
+      ]
+    }
+  ],
+  "directFunctions": [
+    {
+      "name": "UnitKillUnit",
+      "function": "main/f7/f44",
+      "sourceLines": [
+        52387,
+        52442
+      ],
+      "counts": {
+        "instructions": 31,
+        "conditions": 0,
+        "calls": 9,
+        "returnInstructions": 1
+      },
+      "conditions": [],
+      "returns": [
+        {
+          "pc": 31,
+          "line": 52442,
+          "raw": "return r0 1"
+        }
+      ]
+    },
+    {
+      "name": "SetRealDamage",
+      "function": "main/f7/f35",
+      "sourceLines": [
+        52090,
+        52116
+      ],
+      "counts": {
+        "instructions": 11,
+        "conditions": 0,
+        "calls": 1,
+        "returnInstructions": 1
+      },
+      "conditions": [],
+      "returns": [
+        {
+          "pc": 11,
+          "line": 52116,
+          "raw": "return r0 1"
+        }
+      ]
+    },
+    {
+      "name": "Abyss_Damage_Event",
+      "function": "main/f290/f2",
+      "sourceLines": [
+        157615,
+        157796
+      ],
+      "counts": {
+        "instructions": 126,
+        "conditions": 9,
+        "calls": 27,
+        "returnInstructions": 2
+      },
+      "conditions": [
+        {
+          "pc": 3,
+          "line": 157665,
+          "raw": "eq 0 k1 r0",
+          "trueNextPC": 5,
+          "falseNextPC": 6,
+          "meaning": "actual source == nil: return"
+        },
+        {
+          "pc": 12,
+          "line": 157675,
+          "raw": "test r3 0",
+          "trueNextPC": 14,
+          "falseNextPC": 19,
+          "meaning": "IsTemp(source): resolve owner from Tower_ALL[userData]"
+        },
+        {
+          "pc": 48,
+          "line": 157712,
+          "raw": "eq 0 r3 r4",
+          "trueNextPC": 50,
+          "falseNextPC": 92,
+          "meaning": "target type == ma01: enter immune/drop branch"
+        },
+        {
+          "pc": 57,
+          "line": 157721,
+          "raw": "lt 0 r4 k19",
+          "trueNextPC": 59,
+          "falseNextPC": 88,
+          "meaning": "random integer 1..100 < 12: then test damage > 50"
+        },
+        {
+          "pc": 59,
+          "line": 157723,
+          "raw": "lt 0 k20 r3",
+          "trueNextPC": 61,
+          "falseNextPC": 88,
+          "meaning": "damage > 50: spawn i421"
+        },
+        {
+          "pc": 98,
+          "line": 157764,
+          "raw": "eq 0 r3 r4",
+          "trueNextPC": 100,
+          "falseNextPC": 126,
+          "meaning": "target type == ma99: inspect N565_Temps"
+        },
+        {
+          "pc": 101,
+          "line": 157767,
+          "raw": "eq 1 k1 r3",
+          "trueNextPC": 126,
+          "falseNextPC": 103,
+          "meaning": "N565_Temps == nil: return without rewriting damage"
+        },
+        {
+          "pc": 112,
+          "line": 157779,
+          "raw": "lt 0 k13 r9",
+          "trueNextPC": 114,
+          "falseNextPC": 115,
+          "meaning": "dragon temp life > 0: subtract 0.01"
+        },
+        {
+          "pc": 117,
+          "line": 157785,
+          "raw": "lt 0 r3 k13",
+          "trueNextPC": 119,
+          "falseNextPC": 120,
+          "meaning": "factor < 0: clamp to zero"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 5,
+          "line": 157667,
+          "raw": "return r0 1"
+        },
+        {
+          "pc": 126,
+          "line": 157796,
+          "raw": "return r0 1"
+        }
+      ]
+    },
+    {
+      "name": "queued target order callback",
+      "function": "main/f291/f23",
+      "sourceLines": [
+        173599,
+        173639
+      ],
+      "counts": {
+        "instructions": 20,
+        "conditions": 0,
+        "calls": 4,
+        "returnInstructions": 1
+      },
+      "conditions": [],
+      "returns": [
+        {
+          "pc": 20,
+          "line": 173639,
+          "raw": "return r0 1"
+        }
+      ]
+    },
+    {
+      "name": "queue target order",
+      "function": "main/f291/f25",
+      "sourceLines": [
+        173683,
+        173719
+      ],
+      "counts": {
+        "instructions": 16,
+        "conditions": 0,
+        "calls": 3,
+        "returnInstructions": 1
+      },
+      "conditions": [],
+      "returns": [
+        {
+          "pc": 16,
+          "line": 173719,
+          "raw": "return r0 1"
+        }
+      ]
+    }
+  ],
+  "workbook": [
+    {
+      "towerId": "H017",
+      "towerName": "斧王<SSR>",
+      "cells": [
+        "塔技能!H52",
+        "塔技能!I52"
+      ],
+      "description": "斧王抡起大斧劈向单位，如果目标单位当前血量小于斧王血量的随机1~5倍，则直接斩杀目标，对目标周围500范围敌人造成（目标最大血量）点物理伤害并且返还50%的冷却时间，否则就对目标造成（斧王血量x80%）点物理伤害。斩杀会使斧王进入增加90%攻速的嗜血状态，斩杀成功此状态持续3秒，失败则持续6秒。",
+      "levelsText": "等级 1｜冷却20秒。 耗蓝 10点。\n等级 2｜冷却18秒。 耗蓝 20点。\n等级 3｜冷却16秒。 耗蓝 30点。\n等级 4｜冷却14秒。 耗蓝 40点。\n等级 5｜冷却12秒。 耗蓝 50点。\n等级 6｜冷却10秒。 耗蓝 60点。\n伤害类型 物理伤害"
+    },
+    {
+      "towerId": "G067",
+      "towerName": "武圣<SSR>",
+      "cells": [
+        "塔技能!H72",
+        "塔技能!I72"
+      ],
+      "description": "斧王抡起大斧劈向单位，如果目标单位当前血量小于斧王血量的随机1~5倍，则直接斩杀目标，对目标周围500范围敌人造成（目标最大血量）点物理伤害并且返还50%的冷却时间，否则就对目标造成（斧王血量x80%）点物理伤害。斩杀会使斧王进入增加90%攻速的嗜血状态，斩杀成功此状态持续3秒，失败则持续6秒。",
+      "levelsText": "等级 1｜冷却20秒。 耗蓝 10点。\n等级 2｜冷却18秒。 耗蓝 20点。\n等级 3｜冷却16秒。 耗蓝 30点。\n等级 4｜冷却14秒。 耗蓝 40点。\n等级 5｜冷却12秒。 耗蓝 50点。\n等级 6｜冷却10秒。 耗蓝 60点。\n伤害类型 物理伤害"
+    },
+    {
+      "towerId": "G032",
+      "towerName": "赤色大将<SSR>",
+      "cells": [
+        "塔技能!H122",
+        "塔技能!I122"
+      ],
+      "description": "斧王抡起大斧劈向单位，如果目标单位当前血量小于斧王血量的随机1~5倍，则直接斩杀目标，对目标周围500范围敌人造成（目标最大血量）点物理伤害并且返还50%的冷却时间，否则就对目标造成（斧王血量x80%）点物理伤害。斩杀会使斧王进入增加90%攻速的嗜血状态，斩杀成功此状态持续3秒，失败则持续6秒。",
+      "levelsText": "等级 1｜冷却20秒。 耗蓝 10点。\n等级 2｜冷却18秒。 耗蓝 20点。\n等级 3｜冷却16秒。 耗蓝 30点。\n等级 4｜冷却14秒。 耗蓝 40点。\n等级 5｜冷却12秒。 耗蓝 50点。\n等级 6｜冷却10秒。 耗蓝 60点。\n伤害类型 物理伤害"
+    },
+    {
+      "towerId": "G033",
+      "towerName": "黑兽战傀<SSR>",
+      "cells": [
+        "塔技能!H137",
+        "塔技能!I137"
+      ],
+      "description": "斧王抡起大斧劈向单位，如果目标单位当前血量小于斧王血量的随机1~5倍，则直接斩杀目标，对目标周围500范围敌人造成（目标最大血量）点物理伤害并且返还50%的冷却时间，否则就对目标造成（斧王血量x80%）点物理伤害。斩杀会使斧王进入增加90%攻速的嗜血状态，斩杀成功此状态持续3秒，失败则持续6秒。",
+      "levelsText": "等级 1｜冷却20秒。 耗蓝 10点。\n等级 2｜冷却18秒。 耗蓝 20点。\n等级 3｜冷却16秒。 耗蓝 30点。\n等级 4｜冷却14秒。 耗蓝 40点。\n等级 5｜冷却12秒。 耗蓝 50点。\n等级 6｜冷却10秒。 耗蓝 60点。\n伤害类型 物理伤害"
+    }
+  ],
+  "levels": [
+    {
+      "level": 1,
+      "cooldownSeconds": 20,
+      "manaCost": 10
+    },
+    {
+      "level": 2,
+      "cooldownSeconds": 18,
+      "manaCost": 20
+    },
+    {
+      "level": 3,
+      "cooldownSeconds": 16,
+      "manaCost": 30
+    },
+    {
+      "level": 4,
+      "cooldownSeconds": 14,
+      "manaCost": 40
+    },
+    {
+      "level": 5,
+      "cooldownSeconds": 12,
+      "manaCost": 50
+    },
+    {
+      "level": 6,
+      "cooldownSeconds": 10,
+      "manaCost": 60
+    }
+  ],
+  "objectData": {
+    "units_abilitydata.json:A057": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 15058,
+      "data": {
+        "alias": "A057",
+        "code": "ANcl",
+        "checkDep": 1,
+        "Cool1": 20.0,
+        "Cool2": 18.0,
+        "Cool3": 16.0,
+        "Cool4": 14.0,
+        "Cost1": 10,
+        "Cost2": 20,
+        "Cost3": 30,
+        "Cost4": 40,
+        "DataA1": 0.8,
+        "DataA2": 0.8,
+        "DataA3": 0.8,
+        "DataA4": 0.8,
+        "DataB1": 1,
+        "DataB2": 1,
+        "DataB3": 1,
+        "DataB4": 1,
+        "DataC1": 1,
+        "DataC2": 1,
+        "DataC3": 1,
+        "DataC4": 1,
+        "DataF1": "militia",
+        "DataF2": "militia",
+        "DataF3": "militia",
+        "DataF4": "militia",
+        "levels": 6,
+        "reqLevel": 1,
+        "Rng1": 600.0,
+        "Rng2": 600.0,
+        "Rng3": 600.0,
+        "Rng4": 600.0,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "units_abilitydata.json:T220": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 36916,
+      "data": {
+        "alias": "T220",
+        "code": "Ainf",
+        "BuffID1": "B171",
+        "checkDep": 1,
+        "Cool1": 1.0,
+        "Dur1": 20.0,
+        "HeroDur1": 20.0,
+        "levels": 1,
+        "priority": 10,
+        "Rng1": 500.0,
+        "targs1": "invulnerable,friend",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "units_abilitydata.json:T410": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 39327,
+      "data": {
+        "alias": "T410",
+        "code": "Ablo",
+        "BuffID1": "B220",
+        "BuffID2": "B220",
+        "checkDep": 1,
+        "Cool1": 1.0,
+        "DataA1": 0.9,
+        "DataA2": 0.9,
+        "Dur1": 60.0,
+        "HeroDur1": 3.0,
+        "HeroDur2": 6.0,
+        "levels": 2,
+        "priority": 11,
+        "Rng1": 600.0,
+        "targs1": "friend,invulnerable",
+        "targs2": "friend,invulnerable",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "units_unitabilities.json:H017": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 4564,
+      "data": {
+        "unitAbilID": "H017",
+        "abilList": "Avul,AInv,T033,S031",
+        "auto": "_",
+        "heroAbilList": "A055,A056,A057,T000,P000"
+      }
+    },
+    "units_unitabilities.json:G067": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 4384,
+      "data": {
+        "unitAbilID": "G067",
+        "abilList": "Avul,AInv,T033",
+        "auto": "_",
+        "heroAbilList": "A055,A056,A057,T000,P000"
+      }
+    },
+    "units_unitabilities.json:G032": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 4180,
+      "data": {
+        "unitAbilID": "G032",
+        "abilList": "Avul,AInv,T033",
+        "auto": "_",
+        "heroAbilList": "A055,A056,A057,T000,P000"
+      }
+    },
+    "units_unitabilities.json:G033": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 4186,
+      "data": {
+        "unitAbilID": "G033",
+        "abilList": "Avul,AInv,T033",
+        "auto": "_",
+        "heroAbilList": "A055,A056,A057,T000,P000"
+      }
+    },
+    "units_unitabilities.json:q025": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 6675,
+      "data": {
+        "unitAbilID": "q025",
+        "abilList": "Avul,Aloc",
+        "auto": "_"
+      }
+    },
+    "units_unitabilities.json:ma01": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 5725,
+      "data": {
+        "unitAbilID": "ma01",
+        "abilList": "N534",
+        "auto": "_"
+      }
+    },
+    "units_unitbalance.json:H017": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 26674,
+      "data": {
+        "unitBalanceID": "H017",
+        "AGI": 17,
+        "AGIplus": 4.0,
+        "bldtm": 1,
+        "bountydice": 8,
+        "bountyplus": 30,
+        "bountysides": 3,
+        "collision": 72.0,
+        "defType": "hero",
+        "fused": 20,
+        "goldcost": 3000,
+        "HP": 100,
+        "INT": 13,
+        "INTplus": 4.0,
+        "level": 5,
+        "mana0": 200,
+        "nsight": 700,
+        "preventPlace": "_",
+        "Primary": "STR",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always",
+        "reptm": 5,
+        "requirePlace": "_",
+        "sight": 900,
+        "spd": 320,
+        "stockMax": 3,
+        "stockRegen": 30,
+        "STR": 30,
+        "STRplus": 11.0,
+        "tilesets": "*"
+      }
+    },
+    "units_unitbalance.json:ma01": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 33095,
+      "data": {
+        "unitBalanceID": "ma01",
+        "bldtm": 90,
+        "bountyplus": 1,
+        "defType": "none",
+        "defUp": 2.0,
+        "fused": 8,
+        "goldcost": 435,
+        "goldRep": 435,
+        "HP": 5000,
+        "level": 1,
+        "lumbercost": 150,
+        "lumberRep": 150,
+        "mana0": 600,
+        "minSpd": 450,
+        "nsight": 800,
+        "preventPlace": "_",
+        "Primary": "_",
+        "regenType": "always",
+        "reptm": 90,
+        "requirePlace": "_",
+        "sight": 1400,
+        "spd": 480,
+        "stockMax": 1,
+        "stockRegen": 460,
+        "stockStart": 440,
+        "tilesets": "L,F,W,V,Q,Y,X,D,J",
+        "type": "sapper"
+      }
+    }
+  },
+  "level5And6Overrides": {
+    "path": "reference/map-6.25/war3map.w3a.json",
+    "lines": [
+      1008,
+      1040
+    ],
+    "fields": {
+      "acdn": {
+        "5": 12,
+        "6": 10
+      },
+      "amcs": {
+        "5": 50,
+        "6": 60
+      }
+    },
+    "qualification": "Other omitted level fields are not zero; native inheritance not established by omission."
+  },
+  "rules": {
+    "caster": "GetTriggerUnit()",
+    "target": "A057_Action argument",
+    "index": "IsInTable(caster,Tower_ALL)",
+    "readOrder": [
+      "target current life",
+      "caster max life",
+      "GetRandomInt(1,5)",
+      "caster location",
+      "optional counter multiplier"
+    ],
+    "threshold": "targetLife < casterMaxLife * r * (counter>0 ? counter+1 : 1)",
+    "originalRandom": {
+      "inclusiveRange": [
+        1,
+        5
+      ],
+      "eachProbability": 0.2
+    },
+    "excludedSuccessTargets": [
+      "m999",
+      "m998"
+    ],
+    "successSequence": [
+      "snapshot target x/y and max life",
+      "set T410 level 1",
+      "UnitKillUnit(caster,target): q025 finite 10000000 divine packet",
+      "optional floating text and unconditional success visual",
+      "physical area packet radius 500 using target max-life snapshot",
+      "destroy old refund timer if present",
+      "schedule one-shot 0.1 second refund timer",
+      "reset positive A057_Count[index] to zero",
+      "request T410 bloodlust on caster"
+    ],
+    "failureSequence": [
+      "physical single-target packet casterMaxLife*0.8",
+      "optional TxShow failure visual",
+      "if Has_A_Item(caster), initialize nil count to zero then increment",
+      "request T410 level 2 on caster"
+    ],
+    "packets": {
+      "execute": {
+        "actualSource": "q025",
+        "owner": "owner(caster)",
+        "userData": "GetUnitUserData(caster)",
+        "timedLife": 0.5,
+        "rawDamage": 10000000,
+        "attack": false,
+        "ranged": false,
+        "attackType": "CHAOS",
+        "damageType": "DIVINE",
+        "weapon": "WHOKNOWS"
+      },
+      "area": {
+        "actualSource": "caster",
+        "delay": 0,
+        "radius": 500,
+        "center": "target position snapshotted before q025 packet",
+        "rawDamage": "target maxLife snapshotted before q025 packet",
+        "attack": false,
+        "ranged": false,
+        "attackType": "HERO",
+        "damageType": "NORMAL",
+        "weapon": "WHOKNOWS"
+      },
+      "failure": {
+        "actualSource": "caster",
+        "rawDamage": "casterMaxLifeSnapshot*0.8",
+        "attack": false,
+        "ranged": false,
+        "attackType": "HERO",
+        "damageType": "NORMAL",
+        "weapon": "WHOKNOWS"
+      }
+    },
+    "successMeans": "threshold-and-ID branch, no post-damage death recheck",
+    "counter": {
+      "storage": "A057_Count[Tower_ALL index]",
+      "initial": null,
+      "incrementGate": "failure AND Has_A_Item(caster)",
+      "applyGate": "existing count>0, independent of current Has_A_Item",
+      "resetGate": "success AND count>0",
+      "capInModule": null,
+      "otherLifecycle": "not established"
+    },
+    "refund": {
+      "delaySeconds": 0.1,
+      "read": "Tower_ALL[IsInTable(expiredTimer,privateTimerTable)]",
+      "guard": "caster != nil only",
+      "formula": "current EXGetAbilityState(A057,1) * 0.5",
+      "then": "request T220 level1 innerfire from 1-second q001",
+      "alwaysCleanup": true
+    },
+    "bloodlust": {
+      "ability": "T410",
+      "buff": "B220",
+      "dataA": 0.9,
+      "successLevel": 1,
+      "failureLevel": 2,
+      "heroDurationSeconds": [
+        3,
+        6
+      ],
+      "normalDurationLevel1Seconds": 60,
+      "dummyLifetimeSeconds": 0.5,
+      "qualification": "requested native cast and payload; native buff refresh/stack/execution not established"
+    },
+    "counterHelixLink": {
+      "ability": "T220",
+      "buff": "B171",
+      "durationSeconds": 20,
+      "A056Multiplier": 1.5,
+      "scope": "only B171 check in A056 audited, not full A056"
+    },
+    "abyss": {
+      "ma01": "all damage overwritten to 0; successful branch still rewards",
+      "ma99": "event damage *= max(0,1 - 0.01 per living N565_Temps entry), implemented iterative subtraction",
+      "q025ExcludedFromAbyss": false
+    },
+    "autocast": {
+      "requiredBuff": "B012",
+      "range": 550,
+      "selection": "first enumerated Player(11) unit with life>0",
+      "order": "militia",
+      "queueDelay": 0,
+      "recheckInCallback": false,
+      "endsSkillScan": true,
+      "earlierAxePriorities": [
+        "A055",
+        "A056"
+      ],
+      "deepAbyssCaveat": "selected hero has T033 removed by mode; manual cast path still exists"
+    }
+  },
+  "evidence": [
+    {
+      "name": "A057 dispatch",
+      "function": "main/f291/f14",
+      "lines": [
+        170428,
+        170436
+      ],
+      "pcs": [
+        393,
+        401
+      ]
+    },
+    {
+      "name": "A057 auto branch",
+      "function": "main/f291/f27",
+      "lines": [
+        174881,
+        174911
+      ],
+      "pcs": [
+        744,
+        773
+      ]
+    },
+    {
+      "name": "ready helper",
+      "function": "main/f7/f39",
+      "lines": [
+        52213,
+        52272
+      ]
+    },
+    {
+      "name": "hasMon",
+      "function": "main/f291/f28",
+      "lines": [
+        179252,
+        179311
+      ]
+    },
+    {
+      "name": "A056 B171 linkage",
+      "function": "main/f50/f1",
+      "lines": [
+        68599,
+        68607
+      ],
+      "pcs": [
+        57,
+        65
+      ]
+    },
+    {
+      "name": "Abyss mode dispatch",
+      "function": "main/f291/f1",
+      "lines": [
+        166518,
+        166523
+      ],
+      "pcs": [
+        3807,
+        3812
+      ]
+    },
+    {
+      "name": "ma01 creation/HP/registration",
+      "function": "main/f290/f9",
+      "lines": [
+        158130,
+        158252
+      ]
+    },
+    {
+      "name": "N582-N584 lethal interception",
+      "function": "main/f291/f1",
+      "lines": [
+        166641,
+        166681
+      ],
+      "pcs": [
+        3924,
+        3963
+      ]
+    },
+    {
+      "name": "N582-N584 callback only supporting finite-packet boundary",
+      "function": "main/f180/f0",
+      "lines": [
+        113859,
+        113968
+      ],
+      "qualification": "sets life to maximum, requests T254, removes N582/N583/N584; not a proof target survives later A057 area packet"
+    }
+  ],
+  "reusedDocs": [
+    "docs/rules/damage-pipeline.md",
+    "docs/rules/autocast.md",
+    "docs/rules/item-damage-dispatch.md",
+    "docs/rules/web-baseline.md",
+    "docs/rules/waves-and-modes.md"
+  ],
+  "decisions": {
+    "A057": "No numeric or ordinary-target behavior conflict proven in this batch; keep supplemental source rules. ma01 immunity is a mode-specific interaction, not a newly chosen global Boss exclusion.",
+    "webBaseline": "Existing B03 event submission and B04/B05 ordering apply; no new A057 formula/probability override.",
+    "A027": "shared UnitKillUnit helper does not authorize changing A027"
+  },
+  "unclosed": [
+    "Native A057 cast acceptance/target validation/channel/cost timing, native fields not explicitly supplied for levels5/6",
+    "T410/T220 buff refresh/stacking, spell execution and native area target filtering",
+    "Full downstream called monster/item/hero effects; finite raw execute packet is not a universal final damage or forced KillUnit",
+    "A057_Count and pending timers on tower-index replacement/cleanup beyond this module",
+    "A057 success physical area interaction with already dead target, dependent on selected/native event/area semantics"
+  ],
+  "validation": {
+    "kind": "static bytecode, workbook/object extraction and arithmetic/boundary vectors; no game execution",
+    "cases": [
+      {
+        "id": "threshold_ratio_0.9",
+        "input": {
+          "targetLife": 900.0,
+          "casterMaxLife": 1000,
+          "counter": 0
+        },
+        "expected": {
+          "successfulRolls": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "probability": 1.0
+        }
+      },
+      {
+        "id": "threshold_ratio_1",
+        "input": {
+          "targetLife": 1000,
+          "casterMaxLife": 1000,
+          "counter": 0
+        },
+        "expected": {
+          "successfulRolls": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "probability": 0.8
+        }
+      },
+      {
+        "id": "threshold_ratio_2",
+        "input": {
+          "targetLife": 2000,
+          "casterMaxLife": 1000,
+          "counter": 0
+        },
+        "expected": {
+          "successfulRolls": [
+            3,
+            4,
+            5
+          ],
+          "probability": 0.6
+        }
+      },
+      {
+        "id": "threshold_ratio_5",
+        "input": {
+          "targetLife": 5000,
+          "casterMaxLife": 1000,
+          "counter": 0
+        },
+        "expected": {
+          "successfulRolls": [],
+          "probability": 0.0
+        }
+      },
+      {
+        "id": "counter_doubles_threshold",
+        "input": {
+          "targetLife": 5000,
+          "casterMaxLife": 1000,
+          "counter": 1
+        },
+        "expected": {
+          "successfulRolls": [
+            3,
+            4,
+            5
+          ]
+        }
+      },
+      {
+        "id": "current_caster_life_not_used",
+        "input": {
+          "targetLife": 1500,
+          "casterMaxLife": 1000,
+          "casterCurrentLife": 1,
+          "roll": 2,
+          "counter": 0
+        },
+        "expected": {
+          "successBranch": true
+        }
+      },
+      {
+        "id": "gold_m999",
+        "input": {
+          "targetLife": 1,
+          "casterMaxLife": 1000,
+          "roll": 5,
+          "targetType": "m999",
+          "counter": 0,
+          "Has_A_Item": true
+        },
+        "expected": {
+          "successBranch": false,
+          "rawPhysicalDamage": 800,
+          "counterAfter": 1,
+          "T410Level": 2
+        }
+      },
+      {
+        "id": "gold_m998",
+        "input": {
+          "targetLife": 1,
+          "casterMaxLife": 1000,
+          "roll": 5,
+          "targetType": "m998",
+          "counter": 0,
+          "Has_A_Item": false
+        },
+        "expected": {
+          "successBranch": false,
+          "rawPhysicalDamage": 800,
+          "counterAfter": 0,
+          "T410Level": 2
+        }
+      },
+      {
+        "id": "success_not_death",
+        "input": {
+          "successBranch": true,
+          "targetSurvivesQ025": true,
+          "counter": 2
+        },
+        "expected": {
+          "areaRawDamage": "snapshotted target max life",
+          "scheduleRefund": true,
+          "counterAfter": 0,
+          "T410Level": 1
+        }
+      },
+      {
+        "id": "failure_damage_kills",
+        "input": {
+          "successBranch": false,
+          "targetDiesFromFailurePhysicalDamage": true,
+          "counter": null,
+          "Has_A_Item": true
+        },
+        "expected": {
+          "scheduleRefund": false,
+          "counterAfter": 1,
+          "T410Level": 2
+        }
+      },
+      {
+        "id": "counter_persists_without_current_item",
+        "input": {
+          "targetLife": 9000,
+          "casterMaxLife": 1000,
+          "roll": 5,
+          "counter": 1,
+          "Has_A_Item": false
+        },
+        "expected": {
+          "successBranch": true,
+          "counterAfter": 0
+        }
+      },
+      {
+        "id": "timer_halves_current",
+        "input": {
+          "remainingCooldownAtCallback": 8
+        },
+        "expected": {
+          "writtenCooldown": 4,
+          "T220Level": 1
+        }
+      },
+      {
+        "id": "timer_nil_owner",
+        "input": {
+          "Tower_ALL_atSlot": null
+        },
+        "expected": {
+          "cooldownWrites": 0,
+          "T220Casts": 0,
+          "timerDestroyed": true,
+          "timerSlotCleared": true
+        }
+      },
+      {
+        "id": "success_replaces_pending",
+        "input": {
+          "successBranch": true,
+          "oldTimerPresent": true
+        },
+        "expected": {
+          "oldTimerDestroyed": true,
+          "newDelaySeconds": 0.1
+        }
+      },
+      {
+        "id": "failure_keeps_pending",
+        "input": {
+          "successBranch": false,
+          "oldTimerPresent": true
+        },
+        "expected": {
+          "oldTimerDestroyed": false
+        }
+      },
+      {
+        "id": "ma01_success_branch_survives",
+        "input": {
+          "mode": 2,
+          "targetType": "ma01",
+          "targetLife": 2000,
+          "casterMaxLife": 550,
+          "roll": 5,
+          "counter": 0
+        },
+        "expected": {
+          "successBranch": true,
+          "q025DamageAfterAbyss": 0,
+          "areaDamageToMa01AfterAbyss": 0,
+          "targetLifeAfter": 2000,
+          "scheduleRefund": true,
+          "T410Level": 1
+        }
+      },
+      {
+        "id": "dragon_temps_0",
+        "input": {
+          "damageEnteringAbyss": 10000000,
+          "livingTemps": 0
+        },
+        "expected": {
+          "factor": 1.0,
+          "damage": 10000000.0,
+          "qualification": "real code subtracts 0.01 iteratively; compare using floating tolerance"
+        }
+      },
+      {
+        "id": "dragon_temps_3",
+        "input": {
+          "damageEnteringAbyss": 10000000,
+          "livingTemps": 3
+        },
+        "expected": {
+          "factor": 0.97,
+          "damage": 9700000.0,
+          "qualification": "real code subtracts 0.01 iteratively; compare using floating tolerance"
+        }
+      },
+      {
+        "id": "dragon_temps_100",
+        "input": {
+          "damageEnteringAbyss": 10000000,
+          "livingTemps": 100
+        },
+        "expected": {
+          "factor": 0,
+          "damage": 0,
+          "qualification": "real code subtracts 0.01 iteratively; compare using floating tolerance"
+        }
+      },
+      {
+        "id": "dragon_temps_101",
+        "input": {
+          "damageEnteringAbyss": 10000000,
+          "livingTemps": 101
+        },
+        "expected": {
+          "factor": 0,
+          "damage": 0,
+          "qualification": "real code subtracts 0.01 iteratively; compare using floating tolerance"
+        }
+      },
+      {
+        "id": "visual_off_success",
+        "input": {
+          "successBranch": true,
+          "TxShow": false,
+          "casterType": "G067"
+        },
+        "expected": {
+          "successVisualCreated": true,
+          "model": "Eff_FW_3.MDX"
+        }
+      },
+      {
+        "id": "visual_on_skin",
+        "input": {
+          "successBranch": true,
+          "TxShow": true,
+          "casterType": "G067"
+        },
+        "expected": {
+          "successVisualCreated": true,
+          "model": "Eff_FW_4.MDX"
+        }
+      },
+      {
+        "id": "zero_delay_target_queue",
+        "input": {
+          "chosenTarget": "T",
+          "targetMovesBeforeCallback": true
+        },
+        "expected": {
+          "targetHandle": "T",
+          "reselect": false,
+          "recheck": false
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,2336 @@
+{
+  "version": "experience-sharing-v1",
+  "status": "bounded source investigation plus explicit Q24 Web choices; no original-client or Web runtime tests",
+  "scope": [
+    "map XP API call coverage",
+    "direct XP items",
+    "native hero versus custom Boss predicate",
+    "kill source and local death reward remapping",
+    "range/recipients/factors/rounding",
+    "level-up gate and stripping",
+    "UnitStripHeroLevel XP/level landing only; full learned-skill/attribute rollback outside scope"
+  ],
+  "notChanged": "B02 recurrence/table rounding and other rule documents",
+  "mapMisc": {
+    "Misc.BuildingKillsGiveExp": {
+      "value": 1,
+      "source": {
+        "file": "reference/map-6.25/war3mapMisc.txt",
+        "line": 11
+      }
+    },
+    "Misc.GlobalExperience": {
+      "value": 0,
+      "source": {
+        "file": "reference/map-6.25/war3mapMisc.txt",
+        "line": 29
+      }
+    },
+    "Misc.GrantHeroXP": {
+      "value": 30,
+      "source": {
+        "file": "reference/map-6.25/war3mapMisc.txt",
+        "line": 30
+      }
+    },
+    "Misc.GrantHeroXPFormulaA": {
+      "value": 1.4,
+      "source": {
+        "file": "reference/map-6.25/war3mapMisc.txt",
+        "line": 31
+      }
+    },
+    "Misc.GrantHeroXPFormulaB": {
+      "value": 30,
+      "source": {
+        "file": "reference/map-6.25/war3mapMisc.txt",
+        "line": 32
+      }
+    },
+    "Misc.GrantHeroXPFormulaC": {
+      "value": 0,
+      "source": {
+        "file": "reference/map-6.25/war3mapMisc.txt",
+        "line": 33
+      }
+    },
+    "Misc.GrantNormalXP": {
+      "value": 2,
+      "source": {
+        "file": "reference/map-6.25/war3mapMisc.txt",
+        "line": 34
+      }
+    },
+    "Misc.GrantNormalXPFormulaA": {
+      "value": 1.4,
+      "source": {
+        "file": "reference/map-6.25/war3mapMisc.txt",
+        "line": 35
+      }
+    },
+    "Misc.GrantNormalXPFormulaB": {
+      "value": 2,
+      "source": {
+        "file": "reference/map-6.25/war3mapMisc.txt",
+        "line": 36
+      }
+    },
+    "Misc.GrantNormalXPFormulaC": {
+      "value": 0,
+      "source": {
+        "file": "reference/map-6.25/war3mapMisc.txt",
+        "line": 37
+      }
+    },
+    "Misc.HeroExpRange": {
+      "value": 1600.0,
+      "source": {
+        "file": "reference/map-6.25/war3mapMisc.txt",
+        "line": 39
+      }
+    },
+    "Misc.MaxHeroLevel": {
+      "value": 30,
+      "source": {
+        "file": "reference/map-6.25/war3mapMisc.txt",
+        "line": 44
+      }
+    },
+    "Misc.NeedHeroXP": {
+      "value": 20,
+      "source": {
+        "file": "reference/map-6.25/war3mapMisc.txt",
+        "line": 47
+      }
+    },
+    "Misc.NeedHeroXPFormulaA": {
+      "value": 1.4,
+      "source": {
+        "file": "reference/map-6.25/war3mapMisc.txt",
+        "line": 48
+      }
+    },
+    "Misc.NeedHeroXPFormulaB": {
+      "value": 20,
+      "source": {
+        "file": "reference/map-6.25/war3mapMisc.txt",
+        "line": 49
+      }
+    },
+    "TWN1.XPFactor": {
+      "value": 0,
+      "source": {
+        "file": "reference/map-6.25/war3mapMisc.txt",
+        "line": 67
+      }
+    },
+    "TWN2.XPFactor": {
+      "value": 0,
+      "source": {
+        "file": "reference/map-6.25/war3mapMisc.txt",
+        "line": 71
+      }
+    },
+    "TWN3.XPFactor": {
+      "value": 0,
+      "source": {
+        "file": "reference/map-6.25/war3mapMisc.txt",
+        "line": 75
+      }
+    }
+  },
+  "defaultDataEvidence": [
+    {
+      "kind": "base",
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/Units/MiscGame.txt",
+      "commit": "a69c315ebf2886ec54d66200707ab6e38bd3484d",
+      "fields": {
+        "MaxLevelHeroesDrainExp": {
+          "rawValue": "1",
+          "line": 69
+        },
+        "HeroFactorXP": {
+          "rawValue": "80,70,60,50,0",
+          "line": 133
+        },
+        "SummonedKillFactor": {
+          "rawValue": "0.5",
+          "line": 134
+        }
+      },
+      "status": "version-pinned distributed game data, not this map runtime client extraction"
+    },
+    {
+      "kind": "custom",
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/Custom_V1/Units/MiscGame.txt",
+      "commit": "a69c315ebf2886ec54d66200707ab6e38bd3484d",
+      "fields": {
+        "MaxLevelHeroesDrainExp": {
+          "rawValue": "1",
+          "line": 69
+        },
+        "HeroFactorXP": {
+          "rawValue": "80,70,60,50,0",
+          "line": 133
+        },
+        "SummonedKillFactor": {
+          "rawValue": "0.5",
+          "line": 134
+        }
+      },
+      "status": "version-pinned distributed game data, not this map runtime client extraction"
+    }
+  ],
+  "officialEvidence": [
+    {
+      "url": "https://classic.battle.net/war3/basics/heroes.shtml",
+      "supports": "Hostile kill XP, friendly nearby sharing, hero vs normal victim tables, recipient-level neutral creep reduction, final fractional reward floor example. Default values subject to map overrides.",
+      "currentOfficialCreepPercent": [
+        80,
+        70,
+        62,
+        55,
+        0
+      ],
+      "versionConflict": "Different from pinned distributed original table60/50 at levels3/4; chosen table explicitly Q24, not a workbook conflict."
+    },
+    {
+      "url": "https://classic.battle.net/war3/basics/unitstats.shtml",
+      "supports": "Victim unit level determines base XP; it is not wave number."
+    }
+  ],
+  "bytecodeSources": {
+    "main/f235/f0": {
+      "file": "reference/map-6.25/main.disasm",
+      "lines": [
+        126472,
+        126521
+      ]
+    },
+    "main/f236/f0": {
+      "file": "reference/map-6.25/main.disasm",
+      "lines": [
+        126539,
+        126621
+      ]
+    },
+    "main/f250/f0": {
+      "file": "reference/map-6.25/main.disasm",
+      "lines": [
+        128815,
+        128864
+      ]
+    },
+    "main/f251/f0": {
+      "file": "reference/map-6.25/main.disasm",
+      "lines": [
+        128882,
+        128931
+      ]
+    },
+    "main/f252/f0": {
+      "file": "reference/map-6.25/main.disasm",
+      "lines": [
+        128949,
+        129031
+      ]
+    },
+    "main/f291/f9": {
+      "file": "reference/map-6.25/main.disasm",
+      "lines": [
+        168279,
+        168966
+      ]
+    },
+    "main/f291/f18": {
+      "file": "reference/map-6.25/main.disasm",
+      "lines": [
+        172901,
+        172979
+      ]
+    },
+    "main/f291/f38": {
+      "file": "reference/map-6.25/main.disasm",
+      "lines": [
+        179949,
+        180014
+      ]
+    },
+    "main/f296/f21": {
+      "file": "reference/map-6.25/main.disasm",
+      "lines": [
+        190265,
+        190408
+      ]
+    },
+    "main/f7/f45": {
+      "file": "reference/map-6.25/main.disasm",
+      "lines": [
+        52444,
+        52481
+      ]
+    },
+    "main/f294/f18": {
+      "file": "reference/map-6.25/main.disasm",
+      "lines": [
+        184470,
+        185040
+      ]
+    }
+  },
+  "apiAudit": {
+    "calls": [
+      {
+        "api": "AddHeroXP",
+        "function": "main/f6/f239",
+        "loadLine": 24087,
+        "scope": "generic-library"
+      },
+      {
+        "api": "SetHeroLevel",
+        "function": "main/f6/f240",
+        "loadLine": 24114,
+        "scope": "generic-library"
+      },
+      {
+        "api": "UnitStripHeroLevel",
+        "function": "main/f6/f240",
+        "loadLine": 24123,
+        "scope": "generic-library"
+      },
+      {
+        "api": "SuspendHeroXP",
+        "function": "main/f6/f256",
+        "loadLine": 24479,
+        "scope": "generic-library"
+      },
+      {
+        "api": "SetPlayerHandicapXP",
+        "function": "main/f6/f257",
+        "loadLine": 24499,
+        "scope": "generic-library"
+      },
+      {
+        "api": "SetHeroXP",
+        "function": "main/f6/f388",
+        "loadLine": 28444,
+        "scope": "generic-library"
+      },
+      {
+        "api": "AddHeroXP",
+        "function": "main/f235/f0",
+        "loadLine": 126515,
+        "scope": "map-gameplay"
+      },
+      {
+        "api": "AddHeroXP",
+        "function": "main/f236/f0",
+        "loadLine": 126612,
+        "scope": "map-gameplay"
+      },
+      {
+        "api": "AddHeroXP",
+        "function": "main/f250/f0",
+        "loadLine": 128858,
+        "scope": "map-gameplay"
+      },
+      {
+        "api": "AddHeroXP",
+        "function": "main/f251/f0",
+        "loadLine": 128925,
+        "scope": "map-gameplay"
+      },
+      {
+        "api": "AddHeroXP",
+        "function": "main/f252/f0",
+        "loadLine": 129022,
+        "scope": "map-gameplay"
+      },
+      {
+        "api": "UnitStripHeroLevel",
+        "function": "main/f291/f18",
+        "loadLine": 172967,
+        "scope": "map-gameplay"
+      }
+    ],
+    "gameplayAddHeroXpSites": 5,
+    "gameplayStripSites": 1,
+    "noGameplayCalls": [
+      "SuspendHeroXP",
+      "SetPlayerHandicapXP",
+      "SetHeroLevel",
+      "SetHeroXP"
+    ],
+    "genericWrappersCalledByMap": false,
+    "boundary": "Literal bindings/global references in provided Lua/JASS/bytecode; no closed-source engine internals."
+  },
+  "scriptRewards": [
+    {
+      "itemId": "i127",
+      "name": "经验书",
+      "abilityId": "I167",
+      "function": "I167_Acition",
+      "amount": 1400,
+      "target": "GetSpellTargetUnit",
+      "guard": "GetUnitLevel(target)==30: message then return",
+      "showEyeCandy": true,
+      "luaLines": [
+        80201,
+        80230
+      ],
+      "bytecodeFunction": "main/f235/f0",
+      "bytecodeLines": [
+        126472,
+        126521
+      ],
+      "workbookCell": "装备与道具!H37",
+      "ability": {
+        "id": "I167",
+        "fields": {
+          "alias": "I167",
+          "code": "AOcl",
+          "Area1": 500.0,
+          "levels": 1,
+          "Rng1": 999999.0,
+          "targs1": "invulnerable,hero,friend",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        },
+        "source": {
+          "file": "reference/map-6.25/units_abilitydata.json",
+          "recordLine": 21353,
+          "fieldLines": {
+            "alias": 21353,
+            "code": 21354,
+            "Area1": 21355,
+            "levels": 21356,
+            "Rng1": 21357,
+            "targs1": 21358,
+            "targs2": 21359,
+            "targs3": 21360,
+            "targs4": 21361
+          }
+        }
+      },
+      "item": {
+        "id": "i127",
+        "fields": {
+          "itemID": "i127",
+          "abilList": "I167",
+          "armor": "Wood",
+          "class": "Purchasable",
+          "colorB": 255,
+          "colorG": 255,
+          "colorR": 255,
+          "cooldownID": "I167",
+          "droppable": 1,
+          "file": "Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl",
+          "goldcost": 800,
+          "HP": 75,
+          "Level": 4,
+          "pawnable": 1,
+          "perishable": 1,
+          "prio": 57,
+          "scale": 1.0,
+          "sellable": 1,
+          "stockMax": 20,
+          "stockRegen": 1,
+          "usable": 1,
+          "uses": 1
+        },
+        "source": {
+          "file": "reference/map-6.25/units_itemdata.json",
+          "recordLine": 7191,
+          "fieldLines": {
+            "itemID": 7191,
+            "abilList": 7192,
+            "armor": 7193,
+            "class": 7194,
+            "colorB": 7195,
+            "colorG": 7196,
+            "colorR": 7197,
+            "cooldownID": 7198,
+            "droppable": 7199,
+            "file": 7200,
+            "goldcost": 7201,
+            "HP": 7202,
+            "Level": 7203,
+            "pawnable": 7204,
+            "perishable": 7205,
+            "prio": 7206,
+            "scale": 7207,
+            "sellable": 7208,
+            "stockMax": 7209,
+            "stockRegen": 7210,
+            "usable": 7211,
+            "uses": 7212
+          }
+        }
+      },
+      "relevantW3aOverrides": []
+    },
+    {
+      "itemId": "i128",
+      "name": "能量书",
+      "abilityId": "I168",
+      "function": "I168_Acition",
+      "amount": "D(L)",
+      "target": "GetSpellTargetUnit",
+      "guard": "GetUnitLevel(target)==30: message then return",
+      "showEyeCandy": true,
+      "luaLines": [
+        80240,
+        80293
+      ],
+      "bytecodeFunction": "main/f236/f0",
+      "bytecodeLines": [
+        126539,
+        126621
+      ],
+      "workbookCell": "装备与道具!H38",
+      "ability": {
+        "id": "I168",
+        "fields": {
+          "alias": "I168",
+          "code": "AOcl",
+          "Area1": 500.0,
+          "levels": 1,
+          "Rng1": 999999.0,
+          "targs1": "invulnerable,hero,friend",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        },
+        "source": {
+          "file": "reference/map-6.25/units_abilitydata.json",
+          "recordLine": 21364,
+          "fieldLines": {
+            "alias": 21364,
+            "code": 21365,
+            "Area1": 21366,
+            "levels": 21367,
+            "Rng1": 21368,
+            "targs1": 21369,
+            "targs2": 21370,
+            "targs3": 21371,
+            "targs4": 21372
+          }
+        }
+      },
+      "item": {
+        "id": "i128",
+        "fields": {
+          "itemID": "i128",
+          "abilList": "I168",
+          "armor": "Wood",
+          "class": "Purchasable",
+          "colorB": 255,
+          "colorG": 255,
+          "colorR": 255,
+          "cooldownID": "I168",
+          "droppable": 1,
+          "file": "Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl",
+          "goldcost": 2500,
+          "HP": 75,
+          "Level": 4,
+          "pawnable": 1,
+          "perishable": 1,
+          "prio": 57,
+          "scale": 1.0,
+          "sellable": 1,
+          "stockMax": 20,
+          "stockRegen": 1,
+          "usable": 1,
+          "uses": 1
+        },
+        "source": {
+          "file": "reference/map-6.25/units_itemdata.json",
+          "recordLine": 7215,
+          "fieldLines": {
+            "itemID": 7215,
+            "abilList": 7216,
+            "armor": 7217,
+            "class": 7218,
+            "colorB": 7219,
+            "colorG": 7220,
+            "colorR": 7221,
+            "cooldownID": 7222,
+            "droppable": 7223,
+            "file": 7224,
+            "goldcost": 7225,
+            "HP": 7226,
+            "Level": 7227,
+            "pawnable": 7228,
+            "perishable": 7229,
+            "prio": 7230,
+            "scale": 7231,
+            "sellable": 7232,
+            "stockMax": 7233,
+            "stockRegen": 7234,
+            "usable": 7235,
+            "uses": 7236
+          }
+        }
+      },
+      "relevantW3aOverrides": []
+    },
+    {
+      "itemId": "i312",
+      "name": "知识之书Lv1",
+      "abilityId": "I226",
+      "function": "I226_Acition",
+      "amount": 2000,
+      "target": "GetSpellTargetUnit",
+      "guard": "GetUnitLevel(target)==30: message then return",
+      "showEyeCandy": true,
+      "luaLines": [
+        81649,
+        81678
+      ],
+      "bytecodeFunction": "main/f250/f0",
+      "bytecodeLines": [
+        128815,
+        128864
+      ],
+      "workbookCell": "装备与道具!H205",
+      "ability": {
+        "id": "I226",
+        "fields": {
+          "alias": "I226",
+          "code": "AOcl",
+          "Area1": 500.0,
+          "Cool1": 180.0,
+          "levels": 1,
+          "Rng1": 999999.0,
+          "targs1": "invulnerable,hero,friend",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        },
+        "source": {
+          "file": "reference/map-6.25/units_abilitydata.json",
+          "recordLine": 22053,
+          "fieldLines": {
+            "alias": 22053,
+            "code": 22054,
+            "Area1": 22055,
+            "Cool1": 22056,
+            "levels": 22057,
+            "Rng1": 22058,
+            "targs1": 22059,
+            "targs2": 22060,
+            "targs3": 22061,
+            "targs4": 22062
+          }
+        }
+      },
+      "item": {
+        "id": "i312",
+        "fields": {
+          "itemID": "i312",
+          "abilList": "I226",
+          "armor": "Wood",
+          "class": "Permanent",
+          "colorB": 255,
+          "colorG": 255,
+          "colorR": 255,
+          "cooldownID": "I226",
+          "droppable": 1,
+          "file": "Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl",
+          "goldcost": 6300,
+          "HP": 75,
+          "Level": 21,
+          "oldLevel": 4,
+          "pawnable": 1,
+          "pickRandom": 1,
+          "prio": 64,
+          "scale": 1.0,
+          "sellable": 1,
+          "stockMax": 1,
+          "stockRegen": 1,
+          "usable": 1
+        },
+        "source": {
+          "file": "reference/map-6.25/units_itemdata.json",
+          "recordLine": 11011,
+          "fieldLines": {
+            "itemID": 11011,
+            "abilList": 11012,
+            "armor": 11013,
+            "class": 11014,
+            "colorB": 11015,
+            "colorG": 11016,
+            "colorR": 11017,
+            "cooldownID": 11018,
+            "droppable": 11019,
+            "file": 11020,
+            "goldcost": 11021,
+            "HP": 11022,
+            "Level": 11023,
+            "oldLevel": 11024,
+            "pawnable": 11025,
+            "pickRandom": 11026,
+            "prio": 11027,
+            "scale": 11028,
+            "sellable": 11029,
+            "stockMax": 11030,
+            "stockRegen": 11031,
+            "usable": 11032
+          }
+        }
+      },
+      "relevantW3aOverrides": []
+    },
+    {
+      "itemId": "i313",
+      "name": "知识之书Lv2",
+      "abilityId": "I227",
+      "function": "I227_Acition",
+      "amount": 20000,
+      "target": "GetSpellTargetUnit",
+      "guard": "GetUnitLevel(target)==30: message then return",
+      "showEyeCandy": true,
+      "luaLines": [
+        81689,
+        81718
+      ],
+      "bytecodeFunction": "main/f251/f0",
+      "bytecodeLines": [
+        128882,
+        128931
+      ],
+      "workbookCell": "装备与道具!H206",
+      "ability": {
+        "id": "I227",
+        "fields": {
+          "alias": "I227",
+          "code": "AOcl",
+          "Area1": 500.0,
+          "Cool1": 180.0,
+          "levels": 1,
+          "Rng1": 999999.0,
+          "targs1": "invulnerable,hero,friend",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        },
+        "source": {
+          "file": "reference/map-6.25/units_abilitydata.json",
+          "recordLine": 22065,
+          "fieldLines": {
+            "alias": 22065,
+            "code": 22066,
+            "Area1": 22067,
+            "Cool1": 22068,
+            "levels": 22069,
+            "Rng1": 22070,
+            "targs1": 22071,
+            "targs2": 22072,
+            "targs3": 22073,
+            "targs4": 22074
+          }
+        }
+      },
+      "item": {
+        "id": "i313",
+        "fields": {
+          "itemID": "i313",
+          "abilList": "I227",
+          "armor": "Wood",
+          "class": "Permanent",
+          "colorB": 255,
+          "colorG": 255,
+          "colorR": 255,
+          "cooldownID": "I227",
+          "droppable": 1,
+          "file": "Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl",
+          "goldcost": 9300,
+          "HP": 75,
+          "Level": 21,
+          "oldLevel": 4,
+          "pawnable": 1,
+          "pickRandom": 1,
+          "prio": 64,
+          "scale": 1.0,
+          "sellable": 1,
+          "stockMax": 1,
+          "stockRegen": 1,
+          "usable": 1
+        },
+        "source": {
+          "file": "reference/map-6.25/units_itemdata.json",
+          "recordLine": 11035,
+          "fieldLines": {
+            "itemID": 11035,
+            "abilList": 11036,
+            "armor": 11037,
+            "class": 11038,
+            "colorB": 11039,
+            "colorG": 11040,
+            "colorR": 11041,
+            "cooldownID": 11042,
+            "droppable": 11043,
+            "file": 11044,
+            "goldcost": 11045,
+            "HP": 11046,
+            "Level": 11047,
+            "oldLevel": 11048,
+            "pawnable": 11049,
+            "pickRandom": 11050,
+            "prio": 11051,
+            "scale": 11052,
+            "sellable": 11053,
+            "stockMax": 11054,
+            "stockRegen": 11055,
+            "usable": 11056
+          }
+        }
+      },
+      "relevantW3aOverrides": []
+    },
+    {
+      "itemId": "i314",
+      "name": "知识之书Max",
+      "abilityId": "I228",
+      "function": "I228_Acition",
+      "amount": "D(L)",
+      "target": "GetSpellTargetUnit",
+      "guard": "GetUnitLevel(target)==30: message then return",
+      "showEyeCandy": true,
+      "luaLines": [
+        81728,
+        81781
+      ],
+      "bytecodeFunction": "main/f252/f0",
+      "bytecodeLines": [
+        128949,
+        129031
+      ],
+      "workbookCell": "装备与道具!H207",
+      "ability": {
+        "id": "I228",
+        "fields": {
+          "alias": "I228",
+          "code": "AOcl",
+          "Area1": 500.0,
+          "Cool1": 180.0,
+          "levels": 1,
+          "Rng1": 999999.0,
+          "targs1": "invulnerable,hero,friend",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        },
+        "source": {
+          "file": "reference/map-6.25/units_abilitydata.json",
+          "recordLine": 22077,
+          "fieldLines": {
+            "alias": 22077,
+            "code": 22078,
+            "Area1": 22079,
+            "Cool1": 22080,
+            "levels": 22081,
+            "Rng1": 22082,
+            "targs1": 22083,
+            "targs2": 22084,
+            "targs3": 22085,
+            "targs4": 22086
+          }
+        }
+      },
+      "item": {
+        "id": "i314",
+        "fields": {
+          "itemID": "i314",
+          "abilList": "I228",
+          "armor": "Wood",
+          "class": "Permanent",
+          "colorB": 255,
+          "colorG": 255,
+          "colorR": 255,
+          "cooldownID": "I228",
+          "droppable": 1,
+          "file": "Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl",
+          "goldcost": 12300,
+          "HP": 75,
+          "Level": 21,
+          "oldLevel": 4,
+          "pawnable": 1,
+          "pickRandom": 1,
+          "prio": 64,
+          "scale": 1.0,
+          "sellable": 1,
+          "stockMax": 1,
+          "stockRegen": 1,
+          "usable": 1
+        },
+        "source": {
+          "file": "reference/map-6.25/units_itemdata.json",
+          "recordLine": 11059,
+          "fieldLines": {
+            "itemID": 11059,
+            "abilList": 11060,
+            "armor": 11061,
+            "class": 11062,
+            "colorB": 11063,
+            "colorG": 11064,
+            "colorR": 11065,
+            "cooldownID": 11066,
+            "droppable": 11067,
+            "file": 11068,
+            "goldcost": 11069,
+            "HP": 11070,
+            "Level": 11071,
+            "oldLevel": 11072,
+            "pawnable": 11073,
+            "pickRandom": 11074,
+            "prio": 11075,
+            "scale": 11076,
+            "sellable": 11077,
+            "stockMax": 11078,
+            "stockRegen": 11079,
+            "usable": 11080
+          }
+        }
+      },
+      "relevantW3aOverrides": []
+    }
+  ],
+  "variableBookAward": {
+    "algorithm": "s=0; for j=1..L: if s==0 then s=20 elseif j==L then s=(s*1.4+20*(j+1))-s else s=s*1.4+20*(j+1); return floor(s)",
+    "arithmetic": "Original binary64 evaluation order; only final floor; independent of B02 intermediate-floor table generation",
+    "levels1To29": [
+      {
+        "targetLevel": 1,
+        "scriptAmount": 20,
+        "b02ThresholdDelta": 20,
+        "difference": 0,
+        "unrestrictedResultExactlyOneLevelForEveryXPInCurrentLevel": true
+      },
+      {
+        "targetLevel": 2,
+        "scriptAmount": 68,
+        "b02ThresholdDelta": 68,
+        "difference": 0,
+        "unrestrictedResultExactlyOneLevelForEveryXPInCurrentLevel": true
+      },
+      {
+        "targetLevel": 3,
+        "scriptAmount": 115,
+        "b02ThresholdDelta": 115,
+        "difference": 0,
+        "unrestrictedResultExactlyOneLevelForEveryXPInCurrentLevel": true
+      },
+      {
+        "targetLevel": 4,
+        "scriptAmount": 181,
+        "b02ThresholdDelta": 181,
+        "difference": 0,
+        "unrestrictedResultExactlyOneLevelForEveryXPInCurrentLevel": true
+      },
+      {
+        "targetLevel": 5,
+        "scriptAmount": 273,
+        "b02ThresholdDelta": 273,
+        "difference": 0,
+        "unrestrictedResultExactlyOneLevelForEveryXPInCurrentLevel": true
+      },
+      {
+        "targetLevel": 6,
+        "scriptAmount": 403,
+        "b02ThresholdDelta": 402,
+        "difference": 1,
+        "unrestrictedResultExactlyOneLevelForEveryXPInCurrentLevel": true
+      },
+      {
+        "targetLevel": 7,
+        "scriptAmount": 584,
+        "b02ThresholdDelta": 583,
+        "difference": 1,
+        "unrestrictedResultExactlyOneLevelForEveryXPInCurrentLevel": true
+      },
+      {
+        "targetLevel": 8,
+        "scriptAmount": 838,
+        "b02ThresholdDelta": 836,
+        "difference": 2,
+        "unrestrictedResultExactlyOneLevelForEveryXPInCurrentLevel": true
+      },
+      {
+        "targetLevel": 9,
+        "scriptAmount": 1193,
+        "b02ThresholdDelta": 1191,
+        "difference": 2,
+        "unrestrictedResultExactlyOneLevelForEveryXPInCurrentLevel": true
+      },
+      {
+        "targetLevel": 10,
+        "scriptAmount": 1691,
+        "b02ThresholdDelta": 1687,
+        "difference": 4,
+        "unrestrictedResultExactlyOneLevelForEveryXPInCurrentLevel": true
+      },
+      {
+        "targetLevel": 11,
+        "scriptAmount": 2388,
+        "b02ThresholdDelta": 2382,
+        "difference": 6,
+        "unrestrictedResultExactlyOneLevelForEveryXPInCurrentLevel": true
+      },
+      {
+        "targetLevel": 12,
+        "scriptAmount": 3363,
+        "b02ThresholdDelta": 3355,
+        "difference": 8,
+        "unrestrictedResultExactlyOneLevelForEveryXPInCurrentLevel": true
+      },
+      {
+        "targetLevel": 13,
+        "scriptAmount": 4728,
+        "b02ThresholdDelta": 4717,
+        "difference": 11,
+        "unrestrictedResultExactlyOneLevelForEveryXPInCurrentLevel": true
+      },
+      {
+        "targetLevel": 14,
+        "scriptAmount": 6639,
+        "b02ThresholdDelta": 6624,
+        "difference": 15,
+        "unrestrictedResultExactlyOneLevelForEveryXPInCurrentLevel": true
+      },
+      {
+        "targetLevel": 15,
+        "scriptAmount": 9315,
+        "b02ThresholdDelta": 9293,
+        "difference": 22,
+        "unrestrictedResultExactlyOneLevelForEveryXPInCurrentLevel": true
+      },
+      {
+        "targetLevel": 16,
+        "scriptAmount": 13062,
+        "b02ThresholdDelta": 13030,
+        "difference": 32,
+        "unrestrictedResultExactlyOneLevelForEveryXPInCurrentLevel": true
+      },
+      {
+        "targetLevel": 17,
+        "scriptAmount": 18307,
+        "b02ThresholdDelta": 18262,
+        "difference": 45,
+        "unrestrictedResultExactlyOneLevelForEveryXPInCurrentLevel": true
+      },
+      {
+        "targetLevel": 18,
+        "scriptAmount": 25649,
+        "b02ThresholdDelta": 25587,
+        "difference": 62,
+        "unrestrictedResultExactlyOneLevelForEveryXPInCurrentLevel": true
+      },
+      {
+        "targetLevel": 19,
+        "scriptAmount": 35929,
+        "b02ThresholdDelta": 35842,
+        "difference": 87,
+        "unrestrictedResultExactlyOneLevelForEveryXPInCurrentLevel": true
+      },
+      {
+        "targetLevel": 20,
+        "scriptAmount": 50321,
+        "b02ThresholdDelta": 50199,
+        "difference": 122,
+        "unrestrictedResultExactlyOneLevelForEveryXPInCurrentLevel": true
+      },
+      {
+        "targetLevel": 21,
+        "scriptAmount": 70470,
+        "b02ThresholdDelta": 70298,
+        "difference": 172,
+        "unrestrictedResultExactlyOneLevelForEveryXPInCurrentLevel": true
+      },
+      {
+        "targetLevel": 22,
+        "scriptAmount": 98678,
+        "b02ThresholdDelta": 98438,
+        "difference": 240,
+        "unrestrictedResultExactlyOneLevelForEveryXPInCurrentLevel": true
+      },
+      {
+        "targetLevel": 23,
+        "scriptAmount": 138169,
+        "b02ThresholdDelta": 137833,
+        "difference": 336,
+        "unrestrictedResultExactlyOneLevelForEveryXPInCurrentLevel": true
+      },
+      {
+        "targetLevel": 24,
+        "scriptAmount": 193457,
+        "b02ThresholdDelta": 192986,
+        "difference": 471,
+        "unrestrictedResultExactlyOneLevelForEveryXPInCurrentLevel": true
+      },
+      {
+        "targetLevel": 25,
+        "scriptAmount": 270861,
+        "b02ThresholdDelta": 270200,
+        "difference": 661,
+        "unrestrictedResultExactlyOneLevelForEveryXPInCurrentLevel": true
+      },
+      {
+        "targetLevel": 26,
+        "scriptAmount": 379225,
+        "b02ThresholdDelta": 378300,
+        "difference": 925,
+        "unrestrictedResultExactlyOneLevelForEveryXPInCurrentLevel": true
+      },
+      {
+        "targetLevel": 27,
+        "scriptAmount": 530935,
+        "b02ThresholdDelta": 529640,
+        "difference": 1295,
+        "unrestrictedResultExactlyOneLevelForEveryXPInCurrentLevel": true
+      },
+      {
+        "targetLevel": 28,
+        "scriptAmount": 743330,
+        "b02ThresholdDelta": 741516,
+        "difference": 1814,
+        "unrestrictedResultExactlyOneLevelForEveryXPInCurrentLevel": true
+      },
+      {
+        "targetLevel": 29,
+        "scriptAmount": 1040682,
+        "b02ThresholdDelta": 1038143,
+        "difference": 2539,
+        "unrestrictedResultExactlyOneLevelForEveryXPInCurrentLevel": true
+      }
+    ]
+  },
+  "nativeItemObjects": [
+    {
+      "item": {
+        "id": "texp",
+        "fields": {
+          "itemID": "texp",
+          "abilList": "AIem",
+          "armor": "Wood",
+          "class": "PowerUp",
+          "colorB": 255,
+          "colorG": 255,
+          "colorR": 255,
+          "cooldownID": "AIem",
+          "droppable": 1,
+          "file": "Objects\\InventoryItems\\tomeBrown\\tomeBrown.mdl",
+          "goldcost": 500,
+          "HP": 75,
+          "Level": 2,
+          "oldLevel": 5,
+          "pawnable": 1,
+          "perishable": 1,
+          "pickRandom": 1,
+          "powerup": 1,
+          "prio": 200,
+          "scale": 1.0,
+          "stockMax": 1,
+          "stockRegen": 120,
+          "usable": 1,
+          "uses": 1
+        },
+        "source": {
+          "file": "reference/map-6.25/units_itemdata.json",
+          "recordLine": 5129,
+          "fieldLines": {
+            "itemID": 5129,
+            "abilList": 5130,
+            "armor": 5131,
+            "class": 5132,
+            "colorB": 5133,
+            "colorG": 5134,
+            "colorR": 5135,
+            "cooldownID": 5136,
+            "droppable": 5137,
+            "file": 5138,
+            "goldcost": 5139,
+            "HP": 5140,
+            "Level": 5141,
+            "oldLevel": 5142,
+            "pawnable": 5143,
+            "perishable": 5144,
+            "pickRandom": 5145,
+            "powerup": 5146,
+            "prio": 5147,
+            "scale": 5148,
+            "stockMax": 5149,
+            "stockRegen": 5150,
+            "usable": 5151,
+            "uses": 5152
+          }
+        }
+      },
+      "ability": {
+        "id": "AIem",
+        "fields": {
+          "alias": "AIem",
+          "code": "AIem",
+          "DataA1": 150,
+          "levels": 1,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        },
+        "source": {
+          "file": "reference/map-6.25/units_abilitydata.json",
+          "recordLine": 3434,
+          "fieldLines": {
+            "alias": 3434,
+            "code": 3435,
+            "DataA1": 3436,
+            "levels": 3437,
+            "targs1": 3438,
+            "targs2": 3439,
+            "targs3": 3440,
+            "targs4": 3441
+          }
+        }
+      },
+      "acquisitionStatus": "not established by this object link"
+    },
+    {
+      "item": {
+        "id": "tgxp",
+        "fields": {
+          "itemID": "tgxp",
+          "abilList": "AIe2",
+          "armor": "Wood",
+          "class": "Miscellaneous",
+          "colorB": 255,
+          "colorG": 255,
+          "colorR": 255,
+          "cooldownID": "AIe2",
+          "droppable": 1,
+          "file": "Objects\\InventoryItems\\tomeBrown\\tomeBrown.mdl",
+          "goldcost": 1000,
+          "HP": 75,
+          "pawnable": 1,
+          "perishable": 1,
+          "powerup": 1,
+          "prio": 200,
+          "scale": 1.0,
+          "stockMax": 1,
+          "stockRegen": 120,
+          "usable": 1,
+          "uses": 1
+        },
+        "source": {
+          "file": "reference/map-6.25/units_itemdata.json",
+          "recordLine": 5202,
+          "fieldLines": {
+            "itemID": 5202,
+            "abilList": 5203,
+            "armor": 5204,
+            "class": 5205,
+            "colorB": 5206,
+            "colorG": 5207,
+            "colorR": 5208,
+            "cooldownID": 5209,
+            "droppable": 5210,
+            "file": 5211,
+            "goldcost": 5212,
+            "HP": 5213,
+            "pawnable": 5214,
+            "perishable": 5215,
+            "powerup": 5216,
+            "prio": 5217,
+            "scale": 5218,
+            "stockMax": 5219,
+            "stockRegen": 5220,
+            "usable": 5221,
+            "uses": 5222
+          }
+        }
+      },
+      "ability": {
+        "id": "AIe2",
+        "fields": {
+          "alias": "AIe2",
+          "code": "AIem",
+          "DataA1": 500,
+          "levels": 1,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        },
+        "source": {
+          "file": "reference/map-6.25/units_abilitydata.json",
+          "recordLine": 3424,
+          "fieldLines": {
+            "alias": 3424,
+            "code": 3425,
+            "DataA1": 3426,
+            "levels": 3427,
+            "targs1": 3428,
+            "targs2": 3429,
+            "targs3": 3430,
+            "targs4": 3431
+          }
+        }
+      },
+      "acquisitionStatus": "not established by this object link"
+    },
+    {
+      "item": {
+        "id": "tkno",
+        "fields": {
+          "itemID": "tkno",
+          "abilList": "AIlm",
+          "armor": "Wood",
+          "class": "Artifact",
+          "colorB": 255,
+          "colorG": 255,
+          "colorR": 255,
+          "cooldownID": "AIlm",
+          "droppable": 1,
+          "file": "Objects\\InventoryItems\\tomeBrown\\tomeBrown.mdl",
+          "goldcost": 1250,
+          "HP": 75,
+          "Level": 8,
+          "oldLevel": 9,
+          "pawnable": 1,
+          "perishable": 1,
+          "pickRandom": 1,
+          "powerup": 1,
+          "prio": 200,
+          "scale": 1.0,
+          "stockMax": 1,
+          "stockRegen": 120,
+          "usable": 1,
+          "uses": 1
+        },
+        "source": {
+          "file": "reference/map-6.25/units_itemdata.json",
+          "recordLine": 5314,
+          "fieldLines": {
+            "itemID": 5314,
+            "abilList": 5315,
+            "armor": 5316,
+            "class": 5317,
+            "colorB": 5318,
+            "colorG": 5319,
+            "colorR": 5320,
+            "cooldownID": 5321,
+            "droppable": 5322,
+            "file": 5323,
+            "goldcost": 5324,
+            "HP": 5325,
+            "Level": 5326,
+            "oldLevel": 5327,
+            "pawnable": 5328,
+            "perishable": 5329,
+            "pickRandom": 5330,
+            "powerup": 5331,
+            "prio": 5332,
+            "scale": 5333,
+            "stockMax": 5334,
+            "stockRegen": 5335,
+            "usable": 5336,
+            "uses": 5337
+          }
+        }
+      },
+      "ability": {
+        "id": "AIlm",
+        "fields": {
+          "alias": "AIlm",
+          "code": "AIlm",
+          "DataA1": 1,
+          "levels": 1,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        },
+        "source": {
+          "file": "reference/map-6.25/units_abilitydata.json",
+          "recordLine": 4007,
+          "fieldLines": {
+            "alias": 4007,
+            "code": 4008,
+            "DataA1": 4009,
+            "levels": 4010,
+            "targs1": 4011,
+            "targs2": 4012,
+            "targs3": 4013,
+            "targs4": 4014
+          }
+        }
+      },
+      "acquisitionStatus": "not established by this object link"
+    }
+  ],
+  "levelRefreshAbility": {
+    "id": "T299",
+    "fields": {
+      "alias": "T299",
+      "code": "AIml",
+      "DataA1": 1000,
+      "levels": 1,
+      "targs1": "_",
+      "targs2": "_",
+      "targs3": "_",
+      "targs4": "_"
+    },
+    "source": {
+      "file": "reference/map-6.25/units_abilitydata.json",
+      "recordLine": 38190,
+      "fieldLines": {
+        "alias": 38190,
+        "code": 38191,
+        "DataA1": 38192,
+        "levels": 38193,
+        "targs1": 38194,
+        "targs2": 38195,
+        "targs3": 38196,
+        "targs4": 38197
+      }
+    }
+  },
+  "classification": {
+    "nativeHero": "IsUnitType(unit,UNIT_TYPE_HERO)",
+    "customUnitIsHero": "GetUnitAbilityLevel(unit,N534)>0 AND IsUnitType(unit,UNIT_TYPE_SAPPER)",
+    "customPredicateBytecode": [
+      52444,
+      52481
+    ],
+    "waveOwner": 11,
+    "waveOwnerLuaLines": [
+      128509,
+      128518
+    ],
+    "waveOwnerBytecodeLines": [
+      184648,
+      184657
+    ],
+    "neutralAggressiveOwner": 12,
+    "neutralAggressiveDefinitionLuaLine": 614,
+    "deathRewardRemapping": {
+      "luaLines": [
+        115968,
+        115995
+      ],
+      "bytecodeLines": [
+        168707,
+        168744
+      ],
+      "rule": "if IsTemp(killer) OR summoned OR illusion, local reward source=Tower_ALL[userData]; no XP call or native killer reassignment."
+    }
+  },
+  "mainWaveUnitLevels": [
+    {
+      "unitId": "m001",
+      "wave": 1,
+      "objectLevel": 1,
+      "normalBaseXPIfNotNativeHero": 2,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 30489
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m002",
+      "wave": 2,
+      "objectLevel": 1,
+      "normalBaseXPIfNotNativeHero": 2,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 30518
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m003",
+      "wave": 3,
+      "objectLevel": 2,
+      "normalBaseXPIfNotNativeHero": 6,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 30548
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m004",
+      "wave": 4,
+      "objectLevel": 2,
+      "normalBaseXPIfNotNativeHero": 6,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 30578
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m005",
+      "wave": 5,
+      "objectLevel": 5,
+      "normalBaseXPIfNotNativeHero": 47,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 30608
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m006",
+      "wave": 6,
+      "objectLevel": 2,
+      "normalBaseXPIfNotNativeHero": 6,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 30640
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m007",
+      "wave": 7,
+      "objectLevel": 2,
+      "normalBaseXPIfNotNativeHero": 6,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 30670
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m008",
+      "wave": 8,
+      "objectLevel": 3,
+      "normalBaseXPIfNotNativeHero": 14,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 30700
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m009",
+      "wave": 9,
+      "objectLevel": 3,
+      "normalBaseXPIfNotNativeHero": 14,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 30730
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m010",
+      "wave": 10,
+      "objectLevel": 7,
+      "normalBaseXPIfNotNativeHero": 121,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 30760
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m011",
+      "wave": 11,
+      "objectLevel": 4,
+      "normalBaseXPIfNotNativeHero": 27,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 30793
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m012",
+      "wave": 12,
+      "objectLevel": 4,
+      "normalBaseXPIfNotNativeHero": 27,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 30823
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m013",
+      "wave": 13,
+      "objectLevel": 4,
+      "normalBaseXPIfNotNativeHero": 27,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 30853
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m014",
+      "wave": 14,
+      "objectLevel": 4,
+      "normalBaseXPIfNotNativeHero": 27,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 30885
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m015",
+      "wave": 15,
+      "objectLevel": 10,
+      "normalBaseXPIfNotNativeHero": 407,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 30916
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m016",
+      "wave": 16,
+      "objectLevel": 5,
+      "normalBaseXPIfNotNativeHero": 47,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 30949
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m017",
+      "wave": 17,
+      "objectLevel": 5,
+      "normalBaseXPIfNotNativeHero": 47,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 30979
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m018",
+      "wave": 18,
+      "objectLevel": 5,
+      "normalBaseXPIfNotNativeHero": 47,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31009
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m019",
+      "wave": 19,
+      "objectLevel": 6,
+      "normalBaseXPIfNotNativeHero": 77,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31039
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m020",
+      "wave": 20,
+      "objectLevel": 14,
+      "normalBaseXPIfNotNativeHero": 1731,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31069
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m021",
+      "wave": 21,
+      "objectLevel": 6,
+      "normalBaseXPIfNotNativeHero": 77,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31102
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m022",
+      "wave": 22,
+      "objectLevel": 6,
+      "normalBaseXPIfNotNativeHero": 77,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31132
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m023",
+      "wave": 23,
+      "objectLevel": 6,
+      "normalBaseXPIfNotNativeHero": 77,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31162
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m024",
+      "wave": 24,
+      "objectLevel": 6,
+      "normalBaseXPIfNotNativeHero": 77,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31192
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m025",
+      "wave": 25,
+      "objectLevel": 16,
+      "normalBaseXPIfNotNativeHero": 3466,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31223
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m026",
+      "wave": 26,
+      "objectLevel": 7,
+      "normalBaseXPIfNotNativeHero": 121,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31255
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m027",
+      "wave": 27,
+      "objectLevel": 7,
+      "normalBaseXPIfNotNativeHero": 121,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31285
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m028",
+      "wave": 28,
+      "objectLevel": 8,
+      "normalBaseXPIfNotNativeHero": 185,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31315
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m029",
+      "wave": 29,
+      "objectLevel": 8,
+      "normalBaseXPIfNotNativeHero": 185,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31345
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m030",
+      "wave": 30,
+      "objectLevel": 20,
+      "normalBaseXPIfNotNativeHero": 13569,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31375
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m031",
+      "wave": 31,
+      "objectLevel": 12,
+      "normalBaseXPIfNotNativeHero": 851,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31408
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m032",
+      "wave": 32,
+      "objectLevel": 12,
+      "normalBaseXPIfNotNativeHero": 851,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31439
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m033",
+      "wave": 33,
+      "objectLevel": 12,
+      "normalBaseXPIfNotNativeHero": 851,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31470
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m034",
+      "wave": 34,
+      "objectLevel": 12,
+      "normalBaseXPIfNotNativeHero": 851,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31501
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m035",
+      "wave": 35,
+      "objectLevel": 24,
+      "normalBaseXPIfNotNativeHero": 52437,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31531
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m036",
+      "wave": 36,
+      "objectLevel": 14,
+      "normalBaseXPIfNotNativeHero": 1731,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31563
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m037",
+      "wave": 37,
+      "objectLevel": 14,
+      "normalBaseXPIfNotNativeHero": 1731,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31593
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m038",
+      "wave": 38,
+      "objectLevel": 14,
+      "normalBaseXPIfNotNativeHero": 1731,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31623
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m039",
+      "wave": 39,
+      "objectLevel": 15,
+      "normalBaseXPIfNotNativeHero": 2453,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31653
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m040",
+      "wave": 40,
+      "objectLevel": 26,
+      "normalBaseXPIfNotNativeHero": 102897,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31683
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m041",
+      "wave": 41,
+      "objectLevel": 16,
+      "normalBaseXPIfNotNativeHero": 3466,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31715
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m042",
+      "wave": 42,
+      "objectLevel": 17,
+      "normalBaseXPIfNotNativeHero": 4886,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31745
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m043",
+      "wave": 43,
+      "objectLevel": 18,
+      "normalBaseXPIfNotNativeHero": 6876,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31775
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m044",
+      "wave": 44,
+      "objectLevel": 19,
+      "normalBaseXPIfNotNativeHero": 9664,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31805
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m045",
+      "wave": 45,
+      "objectLevel": 30,
+      "normalBaseXPIfNotNativeHero": 395684,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31835
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m046",
+      "wave": 46,
+      "objectLevel": 20,
+      "normalBaseXPIfNotNativeHero": 13569,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31868
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m047",
+      "wave": 47,
+      "objectLevel": 21,
+      "normalBaseXPIfNotNativeHero": 19038,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31898
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m048",
+      "wave": 48,
+      "objectLevel": 22,
+      "normalBaseXPIfNotNativeHero": 26697,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31928
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m049",
+      "wave": 49,
+      "objectLevel": 23,
+      "normalBaseXPIfNotNativeHero": 37421,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31959
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m050",
+      "wave": 50,
+      "objectLevel": 35,
+      "normalBaseXPIfNotNativeHero": 2128786,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 31989
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m051",
+      "wave": 51,
+      "objectLevel": 24,
+      "normalBaseXPIfNotNativeHero": 52437,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 32022
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m052",
+      "wave": 52,
+      "objectLevel": 25,
+      "normalBaseXPIfNotNativeHero": 73461,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 32052
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m053",
+      "wave": 53,
+      "objectLevel": 26,
+      "normalBaseXPIfNotNativeHero": 102897,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 32082
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "m054",
+      "wave": 54,
+      "objectLevel": 27,
+      "normalBaseXPIfNotNativeHero": 144109,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 32113
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    },
+    {
+      "unitId": "mBOS",
+      "wave": 55,
+      "objectLevel": 10,
+      "normalBaseXPIfNotNativeHero": 407,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 33072
+      },
+      "note": "Native hero victim instead uses actual hero level and H; this row does not infer native hero status from rawcode or name."
+    }
+  ],
+  "webRules": {
+    "X01": {
+      "classification": "explicit Q24 Web replacement where native order/eligibility unverified",
+      "trigger": "One attributed hostile death, exactly once. At fatal commit snapshot victim XY/owner/nativeHero/level/summoned/illusion plus actual fatal damage source and owner.",
+      "excludedDeaths": [
+        "friendly or self kill",
+        "no-attribution KillUnit",
+        "timed life expiry without damage source",
+        "RemoveUnit",
+        "recycle",
+        "illusion victim",
+        "non-hero structure with no object-enabled attack channel"
+      ],
+      "killer": "Use actual fatal packet source owner, not last ordinary attacker or the local Tower_ALL reward mapping in anyUnitDEAT. Summoned/dummy/illusion source does not by itself halve XP.",
+      "buildingKillerAllowed": true,
+      "deathCallbackOrder": "Resolve XP transaction and synchronous level events before original anyUnitDEAT; preserve its internal order. Snapshot before immediate revival/removal.",
+      "replay": "One death transaction identity; persist committed status so load/repeated delivery cannot reaward."
+    },
+    "X02": {
+      "classification": "source range/global switches plus explicit Q24 candidate/rounding/default choices",
+      "range": 1600,
+      "geometry": "2D center squared distance <=2560000 from dying unit",
+      "candidates": [
+        "native hero",
+        "alive and on map",
+        "ready (not constructing)",
+        "not illusion",
+        "not kill-XP-suspended",
+        "owner is killer owner or friendly to killer owner",
+        "owner hostile to victim owner",
+        "inside closed radius"
+      ],
+      "initialKillXpSuspended": false,
+      "otherDisables": "PauseUnit/stun/transform does not implicitly suspend XP. No map SuspendHeroXP call was found.",
+      "denominator": "All candidate heroes, including level30 and creep-factor0; excludes dead/out-of-range/constructing/XP-suspended heroes.",
+      "maxLevelHeroesDrainExp": 1,
+      "globalFallback": false,
+      "base": "B02.H(actual hero level) for native hero victims, otherwise B02.N(victim unit level); no wave-index substitute or level30 clamp for ordinary victims.",
+      "summonedVictimFactor": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "neutralCreepFactorPercentByRecipientLevel": [
+        80,
+        70,
+        60,
+        50,
+        0
+      ],
+      "neutralCreepFactorOwnerId": 12,
+      "neutralFactorAfterLevel5": 0,
+      "player11WaveFactor": 1,
+      "townTierBonusPercent": {
+        "TWN1": 0,
+        "TWN2": 0,
+        "TWN3": 0
+      },
+      "playerHandicapFactor": 1,
+      "rounding": "For nonmax recipient floor(base * summonFactor * recipientCreepFactor / candidateCount) once using exact rational arithmetic; max recipient receives0. No remainder redistribution.",
+      "recipientSnapshot": "Snapshot candidate set and each recipient level/factor/award once per death; commit in creation order. Later deaths take fresh snapshot.",
+      "zeroCandidates": "No award and no global fallback."
+    },
+    "X03": {
+      "classification": "preserve five verified script amounts; explicit native-integration rules",
+      "directAwardsDoNotShare": true,
+      "bypassedKillModifiers": [
+        "range",
+        "candidateCount",
+        "summoned factor",
+        "creep factor",
+        "town tier bonus",
+        "handicap",
+        "kill-XP suspension"
+      ],
+      "target": "Valid alive native hero; preserve ability target eligibility. Script level==30 guard returns before AddHeroXP.",
+      "scriptVariableAward": "D(L): execute original binary64 order, no intermediate floor, final math.floor; not B02 threshold delta.",
+      "nativeFixedItems": {
+        "texp": 150,
+        "tgxp": 500
+      },
+      "nativeLevelItem": {
+        "item": "tkno",
+        "levels": 1,
+        "chosenXP": "T(min(30,L+1))-T(L)",
+        "reason": "Explicit Q24 native AIlm progress retention choice, not original-client measurement."
+      },
+      "acquisition": "Object presence does not establish an acquisition/shop path. texp/tgxp/tkno remain acquisition-unconfirmed.",
+      "chargeRefund": "Not decided here; no inference from the handler level30 return."
+    },
+    "X04": {
+      "classification": "preserve script gate and order; explicit Q24 native level-transition/strip semantics",
+      "initialHeroLevel": 1,
+      "initialHeroXP": 0,
+      "maximumLevel": 30,
+      "maximumXP": 3632001,
+      "positiveAward": "newXP=min(oldXP+award,T30); cross levels ascending, add corresponding natural level growth and unspent skill point, synchronously run original HeroLevelUpEvent once per crossed level.",
+      "originalHandlerOrder": [
+        "A225 present: add/remove T299",
+        "if Game_Mode!=2 AND currentLevel>20 AND B015<=0: UnitStripHeroLevel(level-20), localLevel=20",
+        "WAbility_W019(unit,localLevel)"
+      ],
+      "strip": "Reduce k levels and reset XP=T(resultLevel); no extra level-up event. Typically cross21 then strip1, but a previously qualified level25 that lost B015 crosses26 then strips6. This file fixes XP/level/event behavior, not unrelated learned-skill or attribute rollback semantics.",
+      "afterStrip": "Abort this award level-loop and discard remaining overflow to prevent 20->21->20 repetition. Preserve original post-strip W019 call.",
+      "noContinuousGate": "B015 loss alone does not lower an existing level. No new level event at30; direct book level30 guard returns.",
+      "xpBelow21": "Unqualified level20 may accumulate belowT21; on crossing21 reset toT20. Acquiring B015 later does not restore lostXP.",
+      "level30": "No further XP accumulation or level event."
+    }
+  },
+  "examples": [
+    {
+      "case": "m001-1-2-3-heroes",
+      "base": 2,
+      "awardsByCount": {
+        "1": [
+          2
+        ],
+        "2": [
+          1,
+          1
+        ],
+        "3": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "case": "normal7-two",
+      "base": 121,
+      "awards": [
+        60,
+        60
+      ]
+    },
+    {
+      "case": "summoned-victim7-two",
+      "base": 121,
+      "summonedVictim": true,
+      "awards": [
+        30,
+        30
+      ]
+    },
+    {
+      "case": "summoned-killer-normal7-two",
+      "base": 121,
+      "summonedKiller": true,
+      "awards": [
+        60,
+        60
+      ]
+    },
+    {
+      "case": "native-hero-vs-custom-boss-level3",
+      "nativeHeroAwards": [
+        116,
+        116
+      ],
+      "normalUnitAwards": [
+        7,
+        7
+      ]
+    },
+    {
+      "case": "level30-drain",
+      "base": 121,
+      "recipientLevels": [
+        30,
+        10
+      ],
+      "awards": [
+        0,
+        60
+      ]
+    },
+    {
+      "case": "player11-receiver-level10",
+      "base": 121,
+      "awards": [
+        121
+      ]
+    },
+    {
+      "case": "player12-receiver-level1-and2",
+      "base": 121,
+      "awards": [
+        48,
+        42
+      ]
+    },
+    {
+      "case": "range-inclusive",
+      "distance": 1600,
+      "included": true
+    },
+    {
+      "case": "range-outside",
+      "distance": 1600.001,
+      "included": false
+    },
+    {
+      "case": "direct-i127",
+      "oldXP": 0,
+      "amount": 1400,
+      "newXP": 1400,
+      "newLevel": 7,
+      "otherHeroCount": 10,
+      "otherHeroAwards": 0
+    },
+    {
+      "case": "direct-i128-level10",
+      "oldXP": 3669,
+      "amount": 1691,
+      "newXP": 5360,
+      "newLevel": 11,
+      "progressAboveT11": 4
+    },
+    {
+      "case": "unqualified-cross21",
+      "oldXP": 174646,
+      "amount": 2,
+      "gameMode": 0,
+      "hasB015": false,
+      "newXP": 124448,
+      "newLevel": 20,
+      "abortedPendingAward": true
+    },
+    {
+      "case": "qualified-cross21",
+      "oldXP": 174646,
+      "amount": 2,
+      "hasB015": true,
+      "newXP": 174648,
+      "newLevel": 21
+    },
+    {
+      "case": "abyss-cross21",
+      "oldXP": 174646,
+      "amount": 2,
+      "gameMode": 2,
+      "hasB015": false,
+      "newXP": 174648,
+      "newLevel": 21
+    },
+    {
+      "case": "replay-same-death-transaction",
+      "additionalXP": 0,
+      "replayedLevelEvents": 0
+    }
+  ],
+  "conflicts": {
+    "newWorkbookConflicts": [],
+    "notes": "Fixed values1400/2000/20000 match workbook; variable books still grant exactly one level for unrestricted levels1..29, with possible extra progress. Level gate retained. Official-vs-distributed creep factor difference is version evidence, handled byQ24."
+  },
+  "remainingNativeEvidenceGaps": [
+    "Exact native candidate treatment for max/suspended/special-state heroes",
+    "Order of division/scaling/rounding and precise range edge",
+    "XP transaction versus map death callbacks",
+    "UnitStripHeroLevel XP landing and multi-level event dispatch",
+    "Native AIlm progress retention"
+  ],
+  "nativeVerificationPlan": {
+    "executed": false,
+    "tests": [
+      "one victim and1/2/3 heroes",
+      "include level30 hero",
+      "1600 boundary inside/outside",
+      "summoned victim versus summoned killer",
+      "Player11 versus Player12 victim",
+      "unqualified cross21 with full before/after XP+level event log"
+    ],
+    "webBlocked": false,
+    "resolution": "X01-X04 define concrete reproducible outcomes pending any future matching-client evidence"
+  },
+  "verification": {
+    "scriptRewardCount": 5,
+    "nativeXpOrLevelObjectCount": 3,
+    "bookRewardRows": 29,
+    "mainWaveLevelRows": 55,
+    "sourceHashes": {
+      "main.readable.lua": "d868f14d946f0780313468f5dd783fa4a6cbe39f5c7851d8e4094ef80aa618b9",
+      "main.disasm": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+      "war3map.j": "67d4ebedc82fc39d687689b593efe0d21319ef6fcee44591058812d1baf1c3f8",
+      "war3mapMisc.txt": "f13e268c2da3ad776b39f230cb55a8eb5721df2bcf1e62c78202236b3f5d3743",
+      "units_abilitydata.json": "b772de42ebcfc1d3818298b35dbe81a35826892848c7cbfef70bf5097e481861",
+      "units_itemdata.json": "569b41f4be3caf8844a0ac7184fef0076f75118faf60fdb3e14b157aa992e113",
+      "units_unitbalance.json": "096bad329e3b86f3ed4cad3e4ca7c8c4d8efcea2f25a366eef4eac8367eb70e3",
+      "war3map.w3a.json": "d2875f064b389bca471db97121ff7c810d46fbc962ae640ad128d1daa85931bb"
+    },
+    "workbookSha256": "457c8f7e37e19412a0dd072ce941e95604b0b8910860b9e1eb9883e6b82bb6af",
+    "baselineSha256": "a9038e093d80a555ae7f1ae9e7299c3a2413e0f7b8d0ec57c836806afc960e20",
+    "baselineConcurrentEditNote": "Whole baseline file changed concurrently by parent; all B02 formulas and30-entry tables revalidated semantically, not treated as an edit by this task.",
+    "b02SemanticSha256": "401506626763387cd885cc8055ac81850d82db200f84e80c55e83a3650a7e7d1",
+    "fieldAndFunctionSourceChecks": 343,
+    "localLinksChecked": 27,
+    "variableBookAll29RowsChecked": true,
+    "sharingCapAndReplayExamplesChecked": true,
+    "validationKind": "Static source/numeric models only; not game execution"
+  }
+}

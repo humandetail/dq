@@ -1,0 +1,1003 @@
+[
+  {
+    "id": "A019",
+    "status": "ready",
+    "rules": "**A019 龙破斩。** 前摇 0.3，地点射程 900，固定瞄准点，自生效位置按该方向扫掠 1500、速度 2000。沿 N111–115 的 AOsh 约定采用移动圆盘，按字段标签从各级 `Area=200/250/300/350/400/450` 线性收缩到 `DataD=200`，起终点均纳入。零方向沿提交时施法者朝向。按连续接触和 B04 同刻顺序，每单位一次。敌方地面/建筑含机械，排除空中、Aloc、无敌和魔免。各级原始伤害 500/1000/1500/2000/2500/3000，预算 9,999,999，末个目标可接剩余预算。CD3，蓝20/40/80/120/170/200，二级对象50仅保留来源。无眩晕、无 N535，源死仍扫掠，删除取消。",
+    "sourceRefs": {
+      "workbooks": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 115
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 115
+        }
+      ],
+      "objects": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 817,
+          "id": "A019"
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 8,
+          "id": "A019"
+        }
+      ],
+      "functions": [],
+      "scriptReferences": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k32",
+          "constantLine": 173804,
+          "pc": 224,
+          "sourceLine": 174326,
+          "instruction": "loadk r14 k32"
+        }
+      ]
+    },
+    "differences": "二级蓝50→40；其他费用与伤害一致",
+    "unresolved": [],
+    "validation": {
+      "sources": "双图鉴与对象数据定位，原反汇编精确引用",
+      "probe": null,
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A029",
+    "status": "ready",
+    "rules": "**A029 闪电风暴。** 前摇 0.7、射程800，六级每击500/1000/1500/2000/2500/3000，蓝30/60/90/130/180/240，CD10/9/8/7/6/4。套用 T039 的同步逐包、前一击快照、B04 重查、睡眠和免疫约定，跳距500。明文“跳跃5–10次”按首目标后额外 5/6/7/8/9/10 跳，整链最多6–11个不同单位，无衰减。一级7名连续可达目标最多打6人，明文六级3000覆盖对象和普通提示3500。首目标 N535 拦整个链，后续目标不耗盾。源在子事件中死亡或删除时停止后续跳击。",
+    "sourceRefs": {
+      "workbooks": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 146
+        },
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 216
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 146
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 216
+        }
+      ],
+      "objects": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 827,
+          "id": "A029"
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 13,
+          "id": "A029"
+        }
+      ],
+      "functions": [],
+      "scriptReferences": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k43",
+          "constantLine": 173815,
+          "pc": 363,
+          "sourceLine": 174473,
+          "instruction": "loadk r14 k43"
+        }
+      ]
+    },
+    "differences": "六级3500→3000；5–10次为首击后的跳跃次数",
+    "unresolved": [],
+    "validation": {
+      "sources": "双图鉴与对象数据定位，原反汇编精确引用",
+      "probe": null,
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A020",
+    "status": "ready",
+    "rules": "**A020 神灭斩。** 前摇0.3、射程1500；蓝150/200/250/300/350/450，CD18/16/14/12/10/8；外层 AOcl 无伤害。生效以施法处和同一所有者创建2秒 q010、T056 同级、写 `IsInTable(caster,Tower_ALL)`，立即向指定单位下单。T056 零前摇零蓝、CD2、射程1500，掩码 enemies，单击 3000×等级。当前命中事件已进入 q010 溢出分支、当前归属 O 存在且 B03 当前伤害 D 严格大于目标当前生命时，以目标中心、归属塔为源同步发600半径、金额 D−生命的完整法术范围包。圆内原目标也可承受；原 q010 包仍照常继续，不能要求先见死亡事件或钳掉父包。D=生命时不发。原调用结算后取特效位置。神杖在第一次发令返回后读状态，以塔当前坐标 900 组内的 `hasMon` 首目标另造同级同寿命的 q010，原目标仍可再被选。找不到、命令被拒或护盾拦截不补发。",
+    "sourceRefs": {
+      "workbooks": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 116
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 116
+        }
+      ],
+      "objects": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 818,
+          "id": "A020"
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 9,
+          "id": "A020"
+        },
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 1933,
+          "id": "T056"
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 188,
+          "id": "T056"
+        }
+      ],
+      "functions": [
+        {
+          "function": "main/f22",
+          "startLine": 62162,
+          "endLine": 62181
+        },
+        {
+          "function": "main/f22/f0",
+          "startLine": 62182,
+          "endLine": 62319
+        },
+        {
+          "function": "main/f22/f1",
+          "startLine": 62320,
+          "endLine": 62379
+        }
+      ],
+      "scriptReferences": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f7",
+          "key": "k48",
+          "constantLine": 49242,
+          "pc": 137,
+          "sourceLine": 49622,
+          "instruction": "loadk r17 k48"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f22/f0",
+          "key": "k10",
+          "constantLine": 62203,
+          "pc": 20,
+          "sourceLine": 62241,
+          "instruction": "loadk r12 k10"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f22/f0",
+          "key": "k10",
+          "constantLine": 62203,
+          "pc": 70,
+          "sourceLine": 62291,
+          "instruction": "loadk r17 k10"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k97",
+          "constantLine": 169686,
+          "pc": 403,
+          "sourceLine": 170439,
+          "instruction": "loadk r5 k97"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k34",
+          "constantLine": 173806,
+          "pc": 258,
+          "sourceLine": 174362,
+          "instruction": "loadk r14 k34"
+        }
+      ]
+    },
+    "differences": "空壳对象由马甲及溢出脚本兑现",
+    "unresolved": [],
+    "validation": {
+      "sources": "双图鉴与对象数据定位，原反汇编精确引用",
+      "probe": "原模块普通一发、神杖可同目标两发、600范围传参与零延迟",
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A160",
+    "status": "ready",
+    "rules": "**A160 法力虚空。** 前摇0.3、射程800；蓝50/60/70/80/90/100、CD20/18/16/14/12/10。外层追踪弹20000、仅给指定合法目标 1 秒 BPSE，零固定伤害。先在生效分派播放效果并快照缺蓝，若 >0，记录目标位置、将目标当前蓝回满，然后以施法者同步发半径300的法术范围包，金额为已快照缺蓝，持有有效神杖翻倍。缺蓝≤0不回蓝、不发包，仍可发外层控制弹。脚本范围包和回蓝发生在外层载荷盾检查之前，N535只挡外层控制。自动只尝试当前攻击目标，严格低于50%且最大蓝>0，50%和无蓝池都不尝试。手动没有这条阈值。",
+    "sourceRefs": {
+      "workbooks": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 332
+        },
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 592
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 332
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 592
+        }
+      ],
+      "objects": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 949,
+          "id": "A160"
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 91,
+          "id": "A160"
+        }
+      ],
+      "functions": [
+        {
+          "function": "main/f111",
+          "startLine": 87557,
+          "endLine": 87573
+        },
+        {
+          "function": "main/f111/f0",
+          "startLine": 87574,
+          "endLine": 87679
+        }
+      ],
+      "scriptReferences": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f7",
+          "key": "k84",
+          "constantLine": 49278,
+          "pc": 251,
+          "sourceLine": 49736,
+          "instruction": "loadk r55 k84"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k219",
+          "constantLine": 169808,
+          "pc": 1024,
+          "sourceLine": 171120,
+          "instruction": "loadk r5 k219"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k165",
+          "constantLine": 173937,
+          "pc": 2442,
+          "sourceLine": 176690,
+          "instruction": "loadk r14 k165"
+        }
+      ]
+    },
+    "differences": "自动原无零蓝池保护；Web零蓝池不发令",
+    "unresolved": [],
+    "validation": {
+      "sources": "双图鉴与对象数据定位，原反汇编精确引用",
+      "probe": "原模块缺蓝700先回满、神杖范围1400；满蓝不发包",
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A151",
+    "status": "ready",
+    "rules": "**A151 魔法箭。** 前摇0.3、射程1000、追踪1250，CD15，六级蓝20/20/40/40/60/70，伤害500/1000/1500/2000/2500/3000，普通与英雄均眩晕2/2.2/2.4/2.6/2.8/3。持有效神杖且主目标类型非 m998/m999 时，先从塔位置用同所有者 q032/T105 向同目标发独立追踪弹；q032 寿命1、前摇0、蓝1、CD1、射程1200、弹速1250，仍有0.1秒原生控制。两个弹在同速同距时，先发的 q032 在同刻优先结算。独立检查 N535，q032 可以先耗盾使主弹通过。命中 q032 归属 O 存在时，将该伤害事件置零，直接减目标当前生命50%，`Game_Mode==2` 一律20%，随后按塔表槽位登记金额、目标和6秒计时器；这一步是直接生命写入。计时到时活目标回补已扣量×0.7（走通用生命写入上限），死/删除不回补。后次命中同槽覆盖三表，旧计时器仍到时销毁但因失去映射无回补。主弹独立走正常伤害和 BPSE。",
+    "sourceRefs": {
+      "workbooks": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 245
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 245
+        }
+      ],
+      "objects": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 940,
+          "id": "A151"
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 85,
+          "id": "A151"
+        },
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 1982,
+          "id": "T105"
+        }
+      ],
+      "functions": [
+        {
+          "function": "main/f103",
+          "startLine": 85834,
+          "endLine": 85859
+        },
+        {
+          "function": "main/f103/f0",
+          "startLine": 85860,
+          "endLine": 85912
+        },
+        {
+          "function": "main/f103/f1",
+          "startLine": 85913,
+          "endLine": 85987
+        },
+        {
+          "function": "main/f103/f2",
+          "startLine": 85988,
+          "endLine": 86046
+        }
+      ],
+      "scriptReferences": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f7",
+          "key": "k80",
+          "constantLine": 49274,
+          "pc": 236,
+          "sourceLine": 49721,
+          "instruction": "loadk r50 k80"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k203",
+          "constantLine": 169792,
+          "pc": 909,
+          "sourceLine": 170997,
+          "instruction": "loadk r5 k203"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k158",
+          "constantLine": 173930,
+          "pc": 2200,
+          "sourceLine": 176434,
+          "instruction": "loadk r14 k158"
+        }
+      ]
+    },
+    "differences": "神杖实际全深渊模式20%；对象未写BPSE条目",
+    "unresolved": [],
+    "validation": {
+      "sources": "双图鉴与对象数据定位，原反汇编精确引用",
+      "probe": "原模块马甲、50/20%、覆盖同槽、6秒旧回调失效与新回补70%",
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A073",
+    "status": "ready",
+    "rules": "**A073 激光。** H023 前摇0.53、射程800，蓝100/110/120/130/140/150，CD15/14/13/12/11/10。主 AOcl 为空壳；每次生效清本塔序号的计数，普通用塔当前位置发 q016/T067。持神杖先以塔为数组起点，加入指定目标，然后在最新目标 400 圆内按 B04 找首个未访问、存活 Player(11)，计数满50或无候选停止。路径获取完全先于各次发令；每一段从前一成员当时位置创建独立1秒 q016，高度取前一成员高度+200，写塔表索引，逐段同步发令。T067 一级射程1300、蓝30、CD10、零前摇、单击有机敌对地空/非同盟中立，命中按每个马甲独立检查 N535；中段发令失败不回溯路径，后段仍按原阵列逐段尝试。q016 事件写零，再由实时归属塔按当前有效智力×(6+2×当前等级)发新法术包；未取得归属时仍将 q016 事件置零，无归属者属性按无效句柄返回0，无有效施伤源不另发包。A075 完成时原分派清 A073 冷却；不扩展 A075 的其他功能。",
+    "sourceRefs": {
+      "workbooks": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 15
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 15
+        }
+      ],
+      "objects": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 871,
+          "id": "A073"
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 41,
+          "id": "A073"
+        },
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 1944,
+          "id": "T067"
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 192,
+          "id": "T067"
+        }
+      ],
+      "functions": [
+        {
+          "function": "main/f64",
+          "startLine": 73261,
+          "endLine": 73293
+        },
+        {
+          "function": "main/f64/f0",
+          "startLine": 73294,
+          "endLine": 73372
+        },
+        {
+          "function": "main/f64/f1",
+          "startLine": 73373,
+          "endLine": 73509
+        },
+        {
+          "function": "main/f64/f2",
+          "startLine": 73510,
+          "endLine": 73589
+        },
+        {
+          "function": "main/f64/f3",
+          "startLine": 73590,
+          "endLine": 73642
+        }
+      ],
+      "scriptReferences": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f7",
+          "key": "k63",
+          "constantLine": 49257,
+          "pc": 182,
+          "sourceLine": 49667,
+          "instruction": "loadk r32 k63"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f64/f3",
+          "key": "k5",
+          "constantLine": 73607,
+          "pc": 11,
+          "sourceLine": 73625,
+          "instruction": "loadk r6 k5"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k58",
+          "constantLine": 169647,
+          "pc": 227,
+          "sourceLine": 170244,
+          "instruction": "loadk r5 k58"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f16",
+          "key": "k12",
+          "constantLine": 172258,
+          "pc": 62,
+          "sourceLine": 172343,
+          "instruction": "loadk r6 k12"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k101",
+          "constantLine": 173873,
+          "pc": 1101,
+          "sourceLine": 175262,
+          "instruction": "loadk r14 k101"
+        }
+      ]
+    },
+    "differences": "表内法术倍率与原公式一致；马甲100触发值被清零",
+    "unresolved": [],
+    "validation": {
+      "sources": "双图鉴与对象数据定位，原反汇编精确引用",
+      "probe": "原模块普通一发、神杖双段路径、六档清零及智力公式",
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A058",
+    "status": "difficult",
+    "rules": "**A058 火焰爆轰。** H018，射程800、前摇0.3、追踪3000。六级 1500/1800/2100/2400/2700/3000，蓝50/60/70/80/90/100，CD按图鉴12/11/10/9/8/7（原14/13/12/11/10/9）。普通晕1/1.2/1.4/1.6/1.8/2，原生英雄字段首四级0.6。A058_Action 仅 TxShow 特效，但 H018 同时有 A060，多重分支按本次 A060 掷骰并对原目标安排0.6秒重复马甲 T053。余项集中在 main/f53/f0–f3 的 T053 生效、计数及旧计时器替换，和 i318/i319/i320 的计数联动。这些追加命中改变 A058 的实际总输出。",
+    "sourceRefs": {
+      "workbooks": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 585
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 585
+        }
+      ],
+      "objects": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 856,
+          "id": "A058"
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 32,
+          "id": "A058"
+        },
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 1930,
+          "id": "T053"
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 185,
+          "id": "T053"
+        }
+      ],
+      "functions": [
+        {
+          "function": "main/f52",
+          "startLine": 69284,
+          "endLine": 69300
+        },
+        {
+          "function": "main/f52/f0",
+          "startLine": 69301,
+          "endLine": 69330
+        },
+        {
+          "function": "main/f53",
+          "startLine": 69331,
+          "endLine": 69369
+        },
+        {
+          "function": "main/f53/f0",
+          "startLine": 69370,
+          "endLine": 69444
+        },
+        {
+          "function": "main/f53/f1",
+          "startLine": 69445,
+          "endLine": 69713
+        },
+        {
+          "function": "main/f53/f2",
+          "startLine": 69714,
+          "endLine": 69782
+        },
+        {
+          "function": "main/f53/f3",
+          "startLine": 69783,
+          "endLine": 69821
+        }
+      ],
+      "scriptReferences": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f53/f0",
+          "key": "k9",
+          "constantLine": 69390,
+          "pc": 18,
+          "sourceLine": 69419,
+          "instruction": "loadk r12 k9"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f53/f1",
+          "key": "k24",
+          "constantLine": 69480,
+          "pc": 71,
+          "sourceLine": 69586,
+          "instruction": "loadk r8 k24"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k109",
+          "constantLine": 169698,
+          "pc": 459,
+          "sourceLine": 170501,
+          "instruction": "loadk r5 k109"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k78",
+          "constantLine": 173850,
+          "pc": 777,
+          "sourceLine": 174916,
+          "instruction": "loadk r14 k78"
+        }
+      ]
+    },
+    "differences": "CD全档按图鉴减2秒",
+    "unresolved": [
+      "main/f53/f0–f3：T053、重施计时器及i318/i319/i320联动改变A058实际总输出"
+    ],
+    "validation": {
+      "sources": "双图鉴与对象数据定位，原反汇编精确引用",
+      "probe": null,
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A089",
+    "status": "difficult",
+    "rules": "**A089 投掷飞镖。** H028/G056，射程900、前摇0.3，蓝50/60/70/80/90/100、CD12/11/10/9/8/7，1000/1200/1400/1600/1800/2000。首次 q024/T090 同级，回调仅在归属塔有 A090 时触发，后者先尝试 T091 战争践踏及 T092 光环，再从600内按 Player(11)、存活、A091_DefUnits 成员且异于当前目标找下一个，允许回到过去命中过的目标。仍需核 main/f79/f0–f3 的 A091_DefUnits 归属、刷新、死亡与计时器清理，以及 T091/AOws、T092/AUau 的独立效果；六次弹跳的首击口径按图鉴字面保留。",
+    "sourceRefs": {
+      "workbooks": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 325
+        },
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 560
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 325
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 560
+        }
+      ],
+      "objects": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 887,
+          "id": "A089"
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 54,
+          "id": "A089"
+        },
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 1967,
+          "id": "T090"
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 198,
+          "id": "T090"
+        },
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 1968,
+          "id": "T091"
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 199,
+          "id": "T091"
+        },
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 1969,
+          "id": "T092"
+        }
+      ],
+      "functions": [
+        {
+          "function": "main/f78",
+          "startLine": 77575,
+          "endLine": 77599
+        },
+        {
+          "function": "main/f78/f0",
+          "startLine": 77600,
+          "endLine": 77663
+        },
+        {
+          "function": "main/f78/f1",
+          "startLine": 77664,
+          "endLine": 77881
+        }
+      ],
+      "scriptReferences": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f7",
+          "key": "k71",
+          "constantLine": 49265,
+          "pc": 206,
+          "sourceLine": 49691,
+          "instruction": "loadk r40 k71"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f78/f0",
+          "key": "k11",
+          "constantLine": 77622,
+          "pc": 20,
+          "sourceLine": 77647,
+          "instruction": "loadk r12 k11"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f78/f1",
+          "key": "k40",
+          "constantLine": 77716,
+          "pc": 128,
+          "sourceLine": 77854,
+          "instruction": "loadk r22 k40"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k141",
+          "constantLine": 169730,
+          "pc": 610,
+          "sourceLine": 170668,
+          "instruction": "loadk r5 k141"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k123",
+          "constantLine": 173895,
+          "pc": 1562,
+          "sourceLine": 175753,
+          "instruction": "loadk r14 k123"
+        }
+      ]
+    },
+    "differences": "图鉴额外6跳；源计数从1起",
+    "unresolved": [
+      "main/f79/f0–f3：A091_DefUnits生命周期决定合法跳转；T091/AOws、T092/AUau每跳触发"
+    ],
+    "validation": {
+      "sources": "双图鉴与对象数据定位，原反汇编精确引用",
+      "probe": null,
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A161",
+    "status": "ready",
+    "rules": "**A161 束缚击。** H041/G072，射程900、前摇0.3、蓝0，CD12/11/10/9/8/7。外层追踪3000，合法主目标只承受0.1秒 BPSE、无固定伤害。生效分派用施法者到主目标的实际角度，以主目标起始，每从当前节点300闭圆内取 B04 首个活着、比当前节点离施法者严格更远且相对初始方向的原始角差绝对值<15度的单位，再以选中者为新节点继续，直到无合格候选。保留原选择不筛阵营及角差不环绕。按列表插入顺序，各自在目标位置造同主塔所有者的1秒 q001，复制施法者 UserData，前摇0、2蓝、CD2、射程200000，G072 发 T261，其余发 T173。两辅助是追踪速度900的 AHtb，本次同位立即命中。选中友军、无效或被 N535 拦时，该辅助不能生效，原列表不重选；主目标若无后方候选，仍发首个辅助。原辅助普通2.2秒/英雄1.6秒由图鉴3秒覆盖，两者原始法术伤害10保留。T261原显示 BuffID 是 BOwk，字符串是疾步风，但地图脚本无此 ID 的直接引用。Q24 两辅助统一施加 BPSE，不产生疾步风隐形、移动或破隐增伤。相邻节点间保留原2秒 MFPB 视觉，辅助发令失败也不改变显示。所有定向载荷各自按共用盾处理，前发成功或耗盾改变后发所读状态。",
+    "sourceRefs": {
+      "workbooks": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 496
+        },
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 580
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 496
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 580
+        }
+      ],
+      "objects": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 950,
+          "id": "A161"
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 92,
+          "id": "A161"
+        },
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 2046,
+          "id": "T173"
+        },
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 2131,
+          "id": "T261"
+        }
+      ],
+      "functions": [
+        {
+          "function": "main/f112",
+          "startLine": 87680,
+          "endLine": 87701
+        },
+        {
+          "function": "main/f112/f0",
+          "startLine": 87702,
+          "endLine": 87740
+        },
+        {
+          "function": "main/f112/f1",
+          "startLine": 87741,
+          "endLine": 87855
+        },
+        {
+          "function": "main/f112/f2",
+          "startLine": 87856,
+          "endLine": 88025
+        }
+      ],
+      "scriptReferences": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k60",
+          "constantLine": 169649,
+          "pc": 237,
+          "sourceLine": 170255,
+          "instruction": "loadk r5 k60"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k153",
+          "constantLine": 173925,
+          "pc": 2060,
+          "sourceLine": 176285,
+          "instruction": "loadk r14 k153"
+        }
+      ]
+    },
+    "differences": "图鉴辅助晕3秒，原辅助2.2/1.6；T261的BOwk在Web按AHtb控制使用BPSE",
+    "unresolved": [],
+    "validation": {
+      "sources": "双图鉴与对象数据定位，原反汇编精确引用",
+      "probe": "原模块角限制、友军优先候选、皮肤T261及2秒视效清理",
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A207",
+    "status": "difficult",
+    "rules": "**A207 麻痹药剂。** H055，射程700、前摇0.3、蓝40/60/80/100/120/140、CD8。q052/T231 原弹追踪1000，从施法位置、后续从前次碰撞位置出生，归属读 UserData。q052 分派读取当前 A207 等级，事件清零、送归属塔的独立定向法术包，再更新槽位共享计数。范围600，排除刚命中者，选择首个活着 Player(11) 并发令，可能在两单位之间反复。图鉴六档200/600/1000/1400/1800/2200，控制1.5秒（原普通1.5、英雄0.6），最多额外跳4/6/8/10/12/14，神杖+2。原首击前计数为1，首击后用 cap 比较，充足候选只有 cap−1 次总命中。图鉴数值优先。余项集中在 main/f152/f0–f3：若 T231 被拦、目标中途失效或同槽重施，旧马甲是否会读写新链，直接影响后续命中与终止。",
+    "sourceRefs": {
+      "workbooks": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 275
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 275
+        }
+      ],
+      "objects": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 996,
+          "id": "A207"
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 132,
+          "id": "A207"
+        },
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 2101,
+          "id": "T231"
+        }
+      ],
+      "functions": [
+        {
+          "function": "main/f152",
+          "startLine": 105168,
+          "endLine": 105194
+        },
+        {
+          "function": "main/f152/f0",
+          "startLine": 105195,
+          "endLine": 105241
+        },
+        {
+          "function": "main/f152/f1",
+          "startLine": 105242,
+          "endLine": 105272
+        },
+        {
+          "function": "main/f152/f2",
+          "startLine": 105273,
+          "endLine": 105288
+        },
+        {
+          "function": "main/f152/f3",
+          "startLine": 105289,
+          "endLine": 105496
+        }
+      ],
+      "scriptReferences": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f152/f3",
+          "key": "k4",
+          "constantLine": 105308,
+          "pc": 7,
+          "sourceLine": 105352,
+          "instruction": "loadk r5 k4"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f1",
+          "key": "k301",
+          "constantLine": 162293,
+          "pc": 2395,
+          "sourceLine": 165019,
+          "instruction": "loadk r7 k301"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k285",
+          "constantLine": 169874,
+          "pc": 1356,
+          "sourceLine": 171485,
+          "instruction": "loadk r5 k285"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k219",
+          "constantLine": 173991,
+          "pc": 3323,
+          "sourceLine": 177629,
+          "instruction": "loadk r14 k219"
+        }
+      ]
+    },
+    "differences": "图鉴额外4–14跳且晕1.5秒；原计数仅cap-1次总命中，原英雄0.6秒",
+    "unresolved": [
+      "main/f152/f0–f3：T231拦盾、失手与塔槽共享计数重入决定实际续跳"
+    ],
+    "validation": {
+      "sources": "双图鉴与对象数据定位，原反汇编精确引用",
+      "probe": null,
+      "originalClientTested": false
+    }
+  }
+]

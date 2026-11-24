@@ -1,0 +1,864 @@
+{
+  "version": "web-baseline-v1",
+  "authority": "Q24 authorizes explicit Web choices for researched but unverified engine behavior",
+  "status": "specification-only; no original-client or game-runtime tests",
+  "rules": {
+    "B01": {
+      "positiveArmorCoefficient": 0.018,
+      "negativeArmorExponentialBase": 0.94,
+      "negativeArmorFormula": "2 - 0.94 ** (-armor)",
+      "retainOriginalGCorrection": true,
+      "unverifiedChoice": "negative base remains 0.94 despite positive coefficient override"
+    },
+    "B02": {
+      "recurrenceA": {
+        "numerator": 7,
+        "denominator": 5
+      },
+      "rounding": "floor every generated table entry; use rounded previous entry",
+      "tables1To30": {
+        "cumulativeHeroLevelThresholds": [
+          0,
+          20,
+          88,
+          203,
+          384,
+          657,
+          1059,
+          1642,
+          2478,
+          3669,
+          5356,
+          7738,
+          11093,
+          15810,
+          22434,
+          31727,
+          44757,
+          63019,
+          88606,
+          124448,
+          174647,
+          244945,
+          343383,
+          481216,
+          674202,
+          944402,
+          1322702,
+          1852342,
+          2593858,
+          3632001
+        ],
+        "normalUnitBaseKillXP": [
+          2,
+          6,
+          14,
+          27,
+          47,
+          77,
+          121,
+          185,
+          277,
+          407,
+          591,
+          851,
+          1217,
+          1731,
+          2453,
+          3466,
+          4886,
+          6876,
+          9664,
+          13569,
+          19038,
+          26697,
+          37421,
+          52437,
+          73461,
+          102897,
+          144109,
+          201808,
+          282589,
+          395684
+        ],
+        "nativeHeroBaseKillXP": [
+          30,
+          102,
+          232,
+          444,
+          771,
+          1259,
+          1972,
+          3000,
+          4470,
+          6558,
+          9511,
+          13675,
+          19535,
+          27769,
+          39326,
+          55536,
+          78260,
+          110104,
+          154715,
+          217201,
+          304711,
+          427255,
+          598847,
+          839105,
+          1175497,
+          1646475,
+          2305875,
+          3229065,
+          4521561,
+          6331085
+        ]
+      },
+      "extendKillTablesBeyond30": true,
+      "unverifiedChoice": "per-entry flooring, not only final rounding"
+    },
+    "B03": {
+      "eventInput": "after native mitigation applicable to that damage entry",
+      "eventWrite": "replace current event amount; do not apply mitigation again at commit",
+      "nestedEvents": "synchronous independent context stack; restore parent context only",
+      "unverifiedChoice": "mitigation precedes event dispatcher; source damage-type classification remains required"
+    },
+    "B04": {
+      "groupOrder": "ascending persistent unit creation sequence",
+      "reuseRemovedSequence": false,
+      "preserveQueryPredicates": true,
+      "unverifiedChoice": "stable creation sequence substitutes unknown native enumeration order"
+    },
+    "B05": {
+      "battleTimeUnit": "microsecond",
+      "secondsToBattleTime": "nearest integer after multiplying by 1000000; halves round up",
+      "eventSort": [
+        "dueBattleTime",
+        "enqueueSequence"
+      ],
+      "zeroDelay": "enqueue at current battle time; never inline",
+      "periodicNextDue": "previous planned due + period, with new enqueue sequence",
+      "cancel": "invalidate pending occurrence",
+      "unverifiedChoice": "stable FIFO for same-time native timer events"
+    }
+  },
+  "examples": {
+    "armor": [
+      {
+        "armor": 100,
+        "input": 280,
+        "entry": 100,
+        "rewritten": 150,
+        "commit": 150
+      },
+      {
+        "armor": -10,
+        "armorMultiplier": 1.4613848859051004,
+        "G": 1.46,
+        "combinedMultiplier": 1.0009485519897947
+      }
+    ],
+    "xp": [
+      {
+        "totalXP": 1641,
+        "belowLevel": 8
+      },
+      {
+        "totalXP": 1642,
+        "reachesLevel": 8
+      }
+    ],
+    "group": [
+      {
+        "creationIds": [
+          12,
+          4,
+          9
+        ],
+        "qualifyingIds": [
+          9,
+          12
+        ],
+        "selectedId": 9
+      }
+    ],
+    "events": [
+      {
+        "initial": [
+          "A@10",
+          "B@11"
+        ],
+        "AEnqueues": "C@12",
+        "order": [
+          "A",
+          "B",
+          "C"
+        ]
+      },
+      {
+        "initial": [
+          "A@10",
+          "B@11"
+        ],
+        "AEnqueues": "C@12",
+        "ACancels": "B",
+        "order": [
+          "A",
+          "C"
+        ]
+      }
+    ]
+  },
+  "limits": [
+    "Only the explicitly listed domains are specified; remaining skill/item bodies and transformations still require audit",
+    "Native client parity is not claimed; Q24 Web definitions are implementable without matched-client proof",
+    "End-to-end game validation follows implementation; source and bounded specifications are separate coverage dimensions"
+  ],
+  "domainBaselines": [
+    {
+      "id": "relic-hit-v1",
+      "specification": "item-relic-hit.md",
+      "machineRules": "item-relic-hit.json"
+    },
+    {
+      "id": "summon-and-delivery-v2",
+      "specification": "summon-and-delivery.md",
+      "machineRules": "summon-and-delivery.json"
+    },
+    {
+      "id": "area-damage-v1",
+      "specification": "native-area-damage.md",
+      "machineRules": "native-area-damage.json"
+    },
+    {
+      "id": "item-hex-effect-v1",
+      "specification": "item-hex-effect.md",
+      "machineRules": "item-hex-effect.json"
+    },
+    {
+      "id": "experience-sharing-v1",
+      "specification": "experience-sharing.md",
+      "machineRules": "experience-sharing.json"
+    },
+    {
+      "id": "attack-timing-v1",
+      "specification": "attack-timing.md",
+      "machineRules": "attack-timing.json"
+    },
+    {
+      "id": "overpower-effect-v1",
+      "specification": "skill-overpower.md",
+      "machineRules": "skill-overpower.json"
+    },
+    {
+      "id": "mana-auras-v1",
+      "specification": "mana-auras.md",
+      "machineRules": "mana-auras.json"
+    },
+    {
+      "id": "requiem-native-v1",
+      "specification": "skill-requiem.md",
+      "machineRules": "skill-requiem.json"
+    },
+    {
+      "id": "thunder-axes-native-v1",
+      "specification": "skill-thunder-axes-effect.md",
+      "machineRules": "skill-thunder-axes-effect.json"
+    },
+    {
+      "id": "focus-fire-native-v1",
+      "specification": "focus-fire-native.md",
+      "machineRules": "focus-fire-native.json"
+    },
+    {
+      "id": "lightning-attack-native-v1",
+      "specification": "skill-lightning-attack-effect.md",
+      "machineRules": "skill-lightning-attack-effect.json"
+    },
+    {
+      "id": "power-suppression-effect-v1",
+      "specification": "skill-power-suppression-effect.md",
+      "machineRules": "skill-power-suppression-effect.json"
+    },
+    {
+      "id": "avalanche-rank-profile-v1",
+      "specification": "skill-avalanche-effect.md",
+      "machineRules": "skill-avalanche-effect.json"
+    },
+    {
+      "id": "coup-de-grace-native-v1",
+      "specification": "skill-coup-de-grace.md",
+      "machineRules": "skill-coup-de-grace.json"
+    },
+    {
+      "id": "lizard-frenzy-native-v1",
+      "specification": "skill-lizard-frenzy-and-gold.md",
+      "machineRules": "skill-lizard-frenzy-and-gold.json"
+    },
+    {
+      "id": "essence-aura-effect-v1",
+      "specification": "skill-essence-aura-effect.md",
+      "machineRules": "skill-essence-aura-effect.json"
+    },
+    {
+      "id": "avalanche-native-v1",
+      "specification": "avalanche-native-effect.md",
+      "machineRules": "avalanche-native-effect.json"
+    },
+    {
+      "id": "qualification-lifecycle-v1",
+      "specification": "qualification-lifecycle.md",
+      "machineRules": "qualification-lifecycle.json"
+    },
+    {
+      "id": "native-critical-family-v1",
+      "specification": "native-critical-family.md",
+      "machineRules": "native-critical-family.json"
+    },
+    {
+      "id": "aocr-marker-contribution-v1",
+      "specification": "native-critical-family.md",
+      "machineRules": "native-critical-family.json"
+    },
+    {
+      "id": "hero-progression-v1",
+      "specification": "hero-progression.md",
+      "machineRules": "hero-progression.json"
+    },
+    {
+      "id": "creep-native-001-053-v1",
+      "specification": "creep-skill-family-001-053.md",
+      "machineRules": "creep-skill-family-001-053.json"
+    },
+    {
+      "id": "pathing-and-placement-v1",
+      "specification": "pathing-and-placement.md",
+      "machineRules": "pathing-and-placement.json"
+    },
+    {
+      "id": "hero-attribute-interface-v1",
+      "specification": "hero-attribute-interface.md",
+      "machineRules": "hero-attribute-interface.json"
+    },
+    {
+      "id": "jingu-mastery-v1",
+      "specification": "skill-jingu-and-tidebringer.md",
+      "machineRules": "skill-jingu-and-tidebringer.json"
+    },
+    {
+      "id": "tidebringer-v1",
+      "specification": "skill-jingu-and-tidebringer.md",
+      "machineRules": "skill-jingu-and-tidebringer.json"
+    },
+    {
+      "id": "creep-native-next-v2",
+      "specification": "creep-skill-family-next.md",
+      "machineRules": "creep-skill-family-next.json"
+    },
+    {
+      "id": "world-clock-and-base-regen-v1",
+      "specification": "night-state-and-regeneration.md",
+      "machineRules": "night-state-and-regeneration.json"
+    },
+    {
+      "id": "night-hunter-v1",
+      "specification": "night-state-and-regeneration.md",
+      "machineRules": "night-state-and-regeneration.json"
+    },
+    {
+      "id": "void-effect-v1",
+      "specification": "skill-void.md",
+      "machineRules": "skill-void.json"
+    },
+    {
+      "id": "hero-aura-family-v1",
+      "specification": "hero-aura-family.md",
+      "machineRules": "hero-aura-family.json"
+    },
+    {
+      "id": "hero-aura-markers-v1",
+      "specification": "hero-aura-family.md",
+      "machineRules": "hero-aura-family.json"
+    },
+    {
+      "id": "item-lifecycle-v1",
+      "specification": "item-lifecycle.md",
+      "machineRules": "item-lifecycle.json"
+    },
+    {
+      "id": "creep-buffs-orbs-v1",
+      "specification": "creep-buffs-orbs-and-immolation.md",
+      "machineRules": "creep-buffs-orbs-and-immolation.json"
+    },
+    {
+      "id": "scepter-lifecycle-v1",
+      "specification": "scepter-lifecycle.md",
+      "machineRules": "scepter-lifecycle.json"
+    },
+    {
+      "id": "hero-aura-family-next-v1",
+      "specification": "hero-aura-family-next.md",
+      "machineRules": "hero-aura-family-next.json"
+    },
+    {
+      "id": "slardar-bash-v1",
+      "specification": "skill-slardar-bash.md",
+      "machineRules": "skill-slardar-bash.json"
+    },
+    {
+      "id": "creep-line-v1",
+      "specification": "creep-line-and-artillery.md",
+      "machineRules": "creep-line-and-artillery.json"
+    },
+    {
+      "id": "creep-artillery-v1",
+      "specification": "creep-line-and-artillery.md",
+      "machineRules": "creep-line-and-artillery.json"
+    },
+    {
+      "id": "skin-and-transformation-v1",
+      "specification": "skin-and-transformation.md",
+      "machineRules": "skin-and-transformation.json"
+    },
+    {
+      "id": "creep-damage-auras-v1",
+      "specification": "creep-damage-auras.md",
+      "machineRules": "creep-damage-auras.json"
+    },
+    {
+      "id": "weapon-attribute-interface-v1",
+      "specification": "weapon-field-source-notes.md",
+      "machineRules": "weapon-field-source-notes.json"
+    },
+    {
+      "id": "dragon-attack-passives-v1",
+      "specification": "dragon-attack-passives.md",
+      "machineRules": "dragon-attack-passives.json"
+    },
+    {
+      "id": "wisp-link-overcharge-relocate-v1",
+      "specification": "wisp-link-overcharge-relocate.md",
+      "machineRules": "wisp-link-overcharge-relocate.json"
+    },
+    {
+      "id": "item-flat-attack-v1",
+      "specification": "item-flat-attack.md",
+      "machineRules": "item-flat-attack.json"
+    },
+    {
+      "id": "hero-attack-extensions-v1",
+      "specification": "hero-attack-extensions.md",
+      "machineRules": "hero-attack-extensions.json"
+    },
+    {
+      "id": "dragon-transformation-v1",
+      "specification": "dragon-transformation.md",
+      "machineRules": "dragon-transformation.json"
+    },
+    {
+      "id": "zeus-skills-v1",
+      "specification": "zeus-skills.md",
+      "machineRules": "zeus-skills.json"
+    },
+    {
+      "id": "item-attributes-v1",
+      "specification": "item-attributes.md",
+      "machineRules": "item-attributes.json"
+    },
+    {
+      "id": "item-resources-batch-01",
+      "specification": "item-resources-batch-01.md",
+      "machineRules": "item-resources-batch-01.json"
+    },
+    {
+      "id": "dragon-breath-and-blood-v1",
+      "specification": "dragon-breath-and-blood.md",
+      "machineRules": "dragon-breath-and-blood.json"
+    },
+    {
+      "id": "native-targeted-batch-01-v1",
+      "specification": "native-targeted-batch-01.md",
+      "machineRules": "native-targeted-batch-01.json"
+    },
+    {
+      "id": "item-regeneration-batch-01",
+      "specification": "item-regeneration-batch-01.md",
+      "machineRules": "item-regeneration-batch-01.json"
+    },
+    {
+      "id": "ogre-multicast-v1",
+      "specification": "ogre-multicast.md",
+      "machineRules": "ogre-multicast.json"
+    },
+    {
+      "id": "bounty-hunter-tracking-v1",
+      "specification": "bounty-hunter-tracking.md",
+      "machineRules": "bounty-hunter-tracking.json"
+    },
+    {
+      "id": "item-attack-speed-batch-01",
+      "specification": "item-attack-speed-batch-01.md",
+      "machineRules": "item-attack-speed-batch-01.json"
+    },
+    {
+      "id": "item-armor-batch-01",
+      "specification": "item-armor-batch-01.md",
+      "machineRules": "item-armor-batch-01.json"
+    },
+    {
+      "id": "paralyzing-cask-v1",
+      "specification": "paralyzing-cask.md",
+      "machineRules": "paralyzing-cask.json"
+    },
+    {
+      "id": "ogre-hood-items-v1",
+      "specification": "ogre-hood-items.md",
+      "machineRules": "ogre-hood-items.json"
+    },
+    {
+      "id": "item-auras-batch-01",
+      "specification": "item-auras-batch-01.md",
+      "machineRules": "item-auras-batch-01.json"
+    },
+    {
+      "id": "item-defense-batch-01",
+      "specification": "item-defense-batch-01.md",
+      "machineRules": "item-defense-batch-01.json"
+    },
+    {
+      "id": "ward-summons-v1",
+      "specification": "ward-summons.md",
+      "machineRules": "ward-summons.json"
+    },
+    {
+      "id": "self-buff-batch-01-v1",
+      "specification": "self-buff-batch-01.md",
+      "machineRules": "self-buff-batch-01.json"
+    },
+    {
+      "id": "summon-family-batch-01-v1",
+      "specification": "summon-family-batch-01.md",
+      "machineRules": "summon-family-batch-01.json"
+    },
+    {
+      "id": "flak-cannon-v1",
+      "specification": "flak-cannon.md",
+      "machineRules": "flak-cannon.json"
+    },
+    {
+      "id": "spirit-bear-v1",
+      "specification": "spirit-bear.md",
+      "machineRules": "spirit-bear.json"
+    },
+    {
+      "id": "q61-reconciliation-v1",
+      "specification": "q61-reconciliation.md",
+      "machineRules": "q61-reconciliation.json"
+    },
+    {
+      "id": "item-targeted-books-batch-01",
+      "specification": "item-targeted-books-batch-01.md",
+      "machineRules": "item-targeted-books-batch-01.json"
+    },
+    {
+      "id": "area-active-batch-01-v1",
+      "specification": "area-active-batch-01.md",
+      "machineRules": "area-active-batch-01.json"
+    },
+    {
+      "id": "wild-axes-v1",
+      "specification": "wild-axes.md",
+      "machineRules": "wild-axes.json"
+    },
+    {
+      "id": "divine-books-v1",
+      "specification": "divine-books.md",
+      "machineRules": "divine-books.json"
+    },
+    {
+      "id": "item-restoration-batch-01",
+      "specification": "item-restoration-batch-01.md",
+      "machineRules": "item-restoration-batch-01.json"
+    },
+    {
+      "id": "hero-spells-batch-01-v1",
+      "specification": "hero-spells-batch-01.md",
+      "machineRules": "hero-spells-batch-01.json"
+    },
+    {
+      "id": "exorcism-v1",
+      "specification": "exorcism.md",
+      "machineRules": "exorcism.json"
+    },
+    {
+      "id": "hero-spells-batch-02-v1",
+      "specification": "hero-spells-batch-02.md",
+      "machineRules": "hero-spells-batch-02.json"
+    },
+    {
+      "id": "passive-growth-batch-01-v1",
+      "specification": "passive-growth-batch-01.md",
+      "machineRules": "passive-growth-batch-01.json"
+    },
+    {
+      "id": "quill-spray-and-warpath-v1",
+      "specification": "quill-spray-and-warpath.md",
+      "machineRules": "quill-spray-and-warpath.json"
+    },
+    {
+      "id": "orb-and-channel-batch-01-v1",
+      "specification": "orb-and-channel-batch-01.md",
+      "machineRules": "orb-and-channel-batch-01.json"
+    },
+    {
+      "id": "life-drain-v1",
+      "specification": "life-drain.md",
+      "machineRules": "life-drain.json"
+    },
+    {
+      "id": "doom-v1",
+      "specification": "doom.md",
+      "machineRules": "doom.json"
+    },
+    {
+      "id": "monkey-formation-v1",
+      "specification": "monkey-formation.md",
+      "machineRules": "monkey-formation.json"
+    },
+    {
+      "id": "item-weapon-effects-batch-01",
+      "specification": "item-weapon-effects-batch-01.md",
+      "machineRules": "item-weapon-effects-batch-01.json"
+    },
+    {
+      "id": "item-utility-batch-01",
+      "specification": "item-utility-batch-01.md",
+      "machineRules": "item-utility-batch-01.json"
+    },
+    {
+      "id": "item-reward-packs-batch-01",
+      "specification": "item-reward-packs-batch-01.md",
+      "machineRules": "item-reward-packs-batch-01.json"
+    },
+    {
+      "id": "item-runes-batch-01",
+      "specification": "item-runes-batch-01.md",
+      "machineRules": "item-runes-batch-01.json"
+    },
+    {
+      "id": "item-immolation-batch-01",
+      "specification": "item-immolation-batch-01.md",
+      "machineRules": "item-immolation-batch-01.json"
+    },
+    {
+      "id": "item-summons-batch-01",
+      "specification": "item-summons-batch-01.md",
+      "machineRules": "item-summons-batch-01.json"
+    },
+    {
+      "id": "item-economy-batch-01",
+      "specification": "item-economy-batch-01.md",
+      "machineRules": "item-economy-batch-01.json"
+    },
+    {
+      "id": "item-coverage-reconciliation-batch-01",
+      "specification": "item-coverage-reconciliation-batch-01.md",
+      "machineRules": "item-coverage-reconciliation-batch-01.json"
+    },
+    {
+      "id": "item-spell-output-batch-01",
+      "specification": "item-spell-output-batch-01.md",
+      "machineRules": "item-spell-output-batch-01.json"
+    },
+    {
+      "id": "ghost-fleet-v1",
+      "specification": "ghost-fleet.md",
+      "machineRules": "ghost-fleet.json"
+    },
+    {
+      "id": "item-summon-contracts-batch-01",
+      "specification": "item-summon-contracts-batch-01.md",
+      "machineRules": "item-summon-contracts-batch-01.json"
+    },
+    {
+      "id": "item-growth-batch-01",
+      "specification": "item-growth-batch-01.md",
+      "machineRules": "item-growth-batch-01.json"
+    },
+    {
+      "id": "hero-spells-batch-03-v1",
+      "specification": "hero-spells-batch-03.md",
+      "machineRules": "hero-spells-batch-03.json"
+    },
+    {
+      "id": "item-attack-procs-batch-01",
+      "specification": "item-attack-procs-batch-01.md",
+      "machineRules": "item-attack-procs-batch-01.json"
+    },
+    {
+      "id": "hero-targeted-batch-02-v1",
+      "specification": "hero-targeted-batch-02.md",
+      "machineRules": "hero-targeted-batch-02.json"
+    },
+    {
+      "id": "alchemist-wolf-transforms-v1",
+      "specification": "alchemist-wolf-transforms.md",
+      "machineRules": "alchemist-wolf-transforms.json"
+    },
+    {
+      "id": "item-spell-control-batch-01",
+      "specification": "item-spell-control-batch-01.md",
+      "machineRules": "item-spell-control-batch-01.json"
+    },
+    {
+      "id": "freezing-field-v1",
+      "specification": "freezing-field.md",
+      "machineRules": "freezing-field.json"
+    },
+    {
+      "id": "hero-mixed-batch-01-v1",
+      "specification": "hero-mixed-batch-01.md",
+      "machineRules": "hero-mixed-batch-01.json"
+    },
+    {
+      "id": "item-final-batch-01-v1",
+      "specification": "item-final-batch-01.md",
+      "machineRules": "item-final-batch-01.json"
+    },
+    {
+      "id": "hero-spells-batch-04-v1",
+      "specification": "hero-spells-batch-04.md",
+      "machineRules": "hero-spells-batch-04.json"
+    },
+    {
+      "id": "upheaval-v1",
+      "specification": "upheaval.md",
+      "machineRules": "upheaval.json"
+    },
+    {
+      "id": "legacy-skill-flaming-fists-v1",
+      "specification": "legacy-skill-flaming-fists.md",
+      "machineRules": "legacy-skill-flaming-fists.json"
+    },
+    {
+      "id": "hero-mixed-batch-02-v1",
+      "specification": "hero-mixed-batch-02.md",
+      "machineRules": "hero-mixed-batch-02.json"
+    },
+    {
+      "id": "linked-damage-v1",
+      "specification": "linked-damage.md",
+      "machineRules": "linked-damage.json"
+    },
+    {
+      "id": "illuminate-and-spirit-v1",
+      "specification": "illuminate-and-spirit.md",
+      "machineRules": "illuminate-and-spirit.json"
+    },
+    {
+      "id": "phantom-lancer-illusions-v1",
+      "specification": "phantom-lancer-illusions.md",
+      "machineRules": "phantom-lancer-illusions.json"
+    },
+    {
+      "id": "legacy-skill-attack-batch-01-v1",
+      "specification": "legacy-skill-attack-batch-01.md",
+      "machineRules": "legacy-skill-attack-batch-01.json"
+    },
+    {
+      "id": "tide-and-morphling-v1",
+      "specification": "tide-and-morphling.md",
+      "machineRules": "tide-and-morphling.json"
+    },
+    {
+      "id": "shared-attack-resolution-v1",
+      "specification": "shared-attack-resolution.md",
+      "machineRules": "shared-attack-resolution.json"
+    },
+    {
+      "id": "doom-devour-borrowed-skills-v1",
+      "specification": "doom-devour-borrowed-skills.md",
+      "machineRules": "doom-devour-borrowed-skills.json"
+    },
+    {
+      "id": "tower-lifecycle-v1",
+      "specification": "tower-lifecycle.md",
+      "machineRules": "tower-lifecycle.json"
+    },
+    {
+      "id": "sprout-v1",
+      "specification": "sprout.md",
+      "machineRules": "sprout.json"
+    },
+    {
+      "id": "challenge-spawns-v1",
+      "specification": "challenge-spawns.md",
+      "machineRules": "challenge-spawns.json"
+    },
+    {
+      "id": "challenge-enemy-effects-v1",
+      "specification": "challenge-enemy-effects.md",
+      "machineRules": "challenge-enemy-effects.json"
+    },
+    {
+      "id": "npc-abyss-abilities-v1",
+      "specification": "npc-abyss-abilities.md",
+      "machineRules": "npc-abyss-abilities.json"
+    },
+    {
+      "id": "npc-mainline-abilities-v1",
+      "specification": "npc-mainline-abilities-01.md",
+      "machineRules": "npc-mainline-abilities-01.json"
+    },
+    {
+      "id": "late-enemy-effects-v1",
+      "specification": "late-enemy-effects.md",
+      "machineRules": "late-enemy-effects.json"
+    },
+    {
+      "id": "supernova-egg-v1",
+      "specification": "supernova-egg.md",
+      "machineRules": "supernova-egg.json"
+    },
+    {
+      "id": "legacy-control-and-cast-closure-v1",
+      "specification": "legacy-control-and-cast-closure.md",
+      "machineRules": "legacy-control-and-cast-closure.json"
+    },
+    {
+      "id": "enemy-auras-and-utility-v1",
+      "specification": "enemy-auras-and-utility.md",
+      "machineRules": "enemy-auras-and-utility.json"
+    },
+    {
+      "id": "npc-abyss-dragon-abilities-v1",
+      "specification": "npc-abyss-dragon-abilities.md",
+      "machineRules": "npc-abyss-dragon-abilities.json"
+    },
+    {
+      "id": "world-object-damage-v1",
+      "specification": "world-object-damage.md",
+      "machineRules": "world-object-damage.json"
+    },
+    {
+      "id": "worker-talents-v1",
+      "specification": "worker-talents.md",
+      "machineRules": "worker-talents.json"
+    },
+    {
+      "id": "modes-readiness-closure-v1",
+      "specification": "modes-readiness-closure.md",
+      "machineRules": "modes-readiness-closure.json"
+    },
+    {
+      "id": "session-and-task-state-v1",
+      "specification": "session-and-task-state.md",
+      "machineRules": "session-and-task-state.json"
+    },
+    {
+      "id": "workbook-coverage-readiness-v1",
+      "specification": "workbook-coverage-readiness.md",
+      "machineRules": "workbook-coverage-readiness.json"
+    }
+  ]
+}

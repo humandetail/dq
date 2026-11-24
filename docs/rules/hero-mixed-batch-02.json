@@ -1,0 +1,890 @@
+[
+  {
+    "id": "A230",
+    "status": "ready",
+    "rules": {
+      "intrinsicCooldown": 0.5,
+      "cooldownKey": "actual source entity",
+      "isolationRadius": 150,
+      "basePerRank": 120,
+      "agiFactor": [
+        0,
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "RoshanFactor": 0.01,
+      "containedTargets": "other living P11",
+      "damageTypes": [
+        "physical",
+        "divine"
+      ]
+    },
+    "sourceRefs": {
+      "guideRowsOnBoth": [
+        35,
+        40
+      ],
+      "units": [
+        "G079",
+        "H059"
+      ],
+      "objectIndex": 1019,
+      "hint": 3376,
+      "auxiliary": [],
+      "auxiliaryHintLines": {},
+      "functions": [
+        [
+          "main/f163",
+          109345,
+          109373
+        ],
+        [
+          "main/f163/f0",
+          109374,
+          109575
+        ],
+        [
+          "main/f163/f1",
+          109576,
+          109604
+        ],
+        [
+          "main/f163/f2",
+          109605,
+          109633
+        ],
+        [
+          "main/f163/f3",
+          109634,
+          109730
+        ],
+        [
+          "main/f163/f4",
+          109731,
+          109759
+        ],
+        [
+          "main/f163/f5",
+          109760,
+          109785
+        ]
+      ],
+      "mainRefs": [
+        [
+          "main/f291/f1",
+          188,
+          162691
+        ],
+        [
+          "main/f291/f9",
+          340,
+          168761
+        ],
+        [
+          "main/f291/f20",
+          66,
+          173268
+        ]
+      ],
+      "sourceSha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+    },
+    "differences": [
+      "Source cooldown .6 self/1 illusion; guide .5 both."
+    ],
+    "unresolved": [],
+    "validation": {
+      "sourceVM": {
+        "sourceSecondAtHalfSecondRejectedForBoth": true
+      },
+      "webVector": null,
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A231",
+    "status": "ready",
+    "rules": {
+      "duration": 4,
+      "mana": [
+        20,
+        30,
+        40,
+        50,
+        60,
+        70
+      ],
+      "cooldown": 8,
+      "radius": 900,
+      "contributionPC": 3839,
+      "ratioPerRank": 0.15,
+      "falloff": "(1000-distance)/1000",
+      "eligibleActualSources": [
+        "self",
+        "attributed BIil illusion"
+      ]
+    },
+    "sourceRefs": {
+      "guideRowsOnBoth": [
+        36,
+        41
+      ],
+      "units": [
+        "G079",
+        "H059"
+      ],
+      "objectIndex": 1020,
+      "hint": 3388,
+      "auxiliary": [],
+      "auxiliaryHintLines": {},
+      "functions": [
+        [
+          "main/f164",
+          109786,
+          109812
+        ],
+        [
+          "main/f164/f0",
+          109813,
+          109841
+        ],
+        [
+          "main/f164/f1",
+          109842,
+          109866
+        ],
+        [
+          "main/f164/f2",
+          109867,
+          110020
+        ],
+        [
+          "main/f164/f3",
+          110021,
+          110072
+        ],
+        [
+          "main/f164/f4",
+          110073,
+          110165
+        ],
+        [
+          "main/f164/f5",
+          110166,
+          110197
+        ]
+      ],
+      "mainRefs": [
+        [
+          "main/f291/f1",
+          3828,
+          166541
+        ],
+        [
+          "main/f291/f14",
+          1483,
+          171624
+        ],
+        [
+          "main/f291/f27",
+          3578,
+          177901
+        ]
+      ],
+      "sourceSha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+    },
+    "differences": [
+      "Source ratio .12 per rank, guide .15. Source global defUnit exclusion has no relevant origin."
+    ],
+    "unresolved": [],
+    "validation": {
+      "sourceVM": {
+        "sourceGlobalDefUnitSkips500Leaves600With288": true
+      },
+      "webVector": {
+        "damageFor1000L6At0_600_900": [
+          900,
+          360,
+          90
+        ]
+      },
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A232",
+    "status": "ready",
+    "rules": {
+      "duration": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "mana": [
+        25,
+        50,
+        75,
+        100,
+        125,
+        150
+      ],
+      "cooldown": [
+        18,
+        17,
+        16,
+        15,
+        14,
+        13
+      ],
+      "clonesPerLiveBoss": 1,
+      "endlessExtra": 3,
+      "illusionDamageAndTakenFactors": [
+        1,
+        1
+      ],
+      "goldMainModeWavesUpTo35Numerator": 1.6,
+      "goldMainModeWavesAfter35Numerator": 1.8,
+      "antiPoachingRadii": [
+        1200,
+        1200
+      ]
+    },
+    "sourceRefs": {
+      "guideRowsOnBoth": [
+        37,
+        42
+      ],
+      "units": [
+        "G079",
+        "H059"
+      ],
+      "objectIndex": 1021,
+      "hint": 3405,
+      "auxiliary": [
+        "T400",
+        "BIil"
+      ],
+      "auxiliaryHintLines": {
+        "T400": 23293
+      },
+      "functions": [
+        [
+          "main/f165",
+          110198,
+          110217
+        ],
+        [
+          "main/f165/f0",
+          110218,
+          110379
+        ],
+        [
+          "main/f165/f1",
+          110380,
+          110565
+        ]
+      ],
+      "mainRefs": [
+        [
+          "main/f291/f1",
+          2642,
+          165279
+        ],
+        [
+          "main/f291/f14",
+          1493,
+          171635
+        ],
+        [
+          "main/f291/f27",
+          3607,
+          177932
+        ]
+      ],
+      "sourceSha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+    },
+    "differences": [
+      "Source requests the Boss position; use explicit behind from workbook at eligible placement."
+    ],
+    "unresolved": [],
+    "validation": {
+      "sourceVM": {
+        "sourceGoldRatiosFor2AtW35And36": [
+          0.8,
+          0.9
+        ],
+        "sourceEndlessOneBossPlusThree": 4
+      },
+      "webVector": null,
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A233",
+    "status": "ready",
+    "rules": {
+      "range": 750,
+      "radius": 600,
+      "mana": [
+        25,
+        50,
+        75,
+        100,
+        125,
+        150
+      ],
+      "cooldown": [
+        20,
+        18,
+        16,
+        14,
+        12,
+        10
+      ],
+      "waves": 6,
+      "registration": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "impact": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "basePerRank": 200,
+      "attackFactorPerRank": 0.5,
+      "burnPerRank": 100,
+      "burnDuration": 2,
+      "burnMissileSpeed": 1400,
+      "burnStack": "one B215 per target; refresh"
+    },
+    "sourceRefs": {
+      "guideRowsOnBoth": [
+        416,
+        436
+      ],
+      "units": [
+        "G078",
+        "H060"
+      ],
+      "objectIndex": 1022,
+      "hint": 3420,
+      "auxiliary": [
+        "T403",
+        "B215"
+      ],
+      "auxiliaryHintLines": {
+        "T403": 23316
+      },
+      "functions": [
+        [
+          "main/f166",
+          110566,
+          110588
+        ],
+        [
+          "main/f166/f0",
+          110589,
+          110785
+        ],
+        [
+          "main/f166/f1",
+          110786,
+          110815
+        ],
+        [
+          "main/f166/f2",
+          110816,
+          110862
+        ],
+        [
+          "main/f166/f3",
+          110863,
+          110915
+        ]
+      ],
+      "mainRefs": [
+        [
+          "main/f291/f14",
+          1503,
+          171646
+        ],
+        [
+          "main/f291/f27",
+          3644,
+          177973
+        ]
+      ],
+      "sourceSha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+    },
+    "differences": [
+      "Source T403 forced level 1; guide burn is per rank. Native ANrf 1 shell amount is not an extra damage packet."
+    ],
+    "unresolved": [],
+    "validation": {
+      "sourceVM": {
+        "sourceSixAreasAllBurnDummiesRank1": true
+      },
+      "webVector": {
+        "normalSixWaveTimes": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A234",
+    "status": "ready",
+    "rules": {
+      "range": 900,
+      "radius": 600,
+      "mana": [
+        100,
+        120,
+        140,
+        160,
+        180,
+        200
+      ],
+      "cooldown": 13,
+      "pulses": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "damagePerRank": 200,
+      "rootDuration": 0.3,
+      "missileSpeed": 2000
+    },
+    "sourceRefs": {
+      "guideRowsOnBoth": [
+        417,
+        437
+      ],
+      "units": [
+        "G078",
+        "H060"
+      ],
+      "objectIndex": 1023,
+      "hint": 3435,
+      "auxiliary": [
+        "T404",
+        "B216"
+      ],
+      "auxiliaryHintLines": {
+        "T404": 23334
+      },
+      "functions": [
+        [
+          "main/f167",
+          110916,
+          110938
+        ],
+        [
+          "main/f167/f0",
+          110939,
+          111113
+        ],
+        [
+          "main/f167/f1",
+          111114,
+          111143
+        ],
+        [
+          "main/f167/f2",
+          111144,
+          111190
+        ],
+        [
+          "main/f167/f3",
+          111191,
+          111302
+        ]
+      ],
+      "mainRefs": [
+        [
+          "main/f291/f14",
+          1514,
+          171658
+        ],
+        [
+          "main/f291/f27",
+          3678,
+          178009
+        ]
+      ],
+      "sourceSha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+    },
+    "differences": [
+      "Source T404 hero duration .2, guide .3. Initial source pulse plus seven periodic pulses."
+    ],
+    "unresolved": [],
+    "validation": {
+      "sourceVM": {
+        "sourceImmediatePlusSeven": 8
+      },
+      "webVector": null,
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A236",
+    "status": "ready",
+    "rules": {
+      "range": 800,
+      "mana": [
+        50,
+        60,
+        70,
+        80,
+        90,
+        100
+      ],
+      "cooldown": [
+        15,
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "sixCircleCentres": [
+        200,
+        400,
+        600,
+        800,
+        1000,
+        1200
+      ],
+      "radius": 200,
+      "damagePerRank": 300,
+      "maxDamageHitsPerCastAndTarget": 1,
+      "controlGlobalPerTarget": true,
+      "heightPeriod": 0.02,
+      "upTicks": 40,
+      "downTicks": 39,
+      "perTickHeight": 20,
+      "controlDuration": 1.6,
+      "decision": "Q75"
+    },
+    "sourceRefs": {
+      "guideRowsOnBoth": [
+        320
+      ],
+      "units": [
+        "H061"
+      ],
+      "objectIndex": 1025,
+      "hint": 3466,
+      "auxiliary": [
+        "T212"
+      ],
+      "auxiliaryHintLines": {
+        "T212": 21924
+      },
+      "functions": [
+        [
+          "main/f169",
+          111613,
+          111635
+        ],
+        [
+          "main/f169/f0",
+          111636,
+          111768
+        ],
+        [
+          "main/f169/f1",
+          111769,
+          111933
+        ],
+        [
+          "main/f169/f2",
+          111934,
+          112028
+        ]
+      ],
+      "mainRefs": [
+        [
+          "main/f291/f14",
+          1525,
+          171670
+        ],
+        [
+          "main/f291/f27",
+          3712,
+          178045
+        ]
+      ],
+      "sourceSha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+    },
+    "differences": [
+      "Q75 removes duplicate damage from overlapping source circles and keeps the distinct lift lock."
+    ],
+    "unresolved": [],
+    "validation": {
+      "sourceVM": {
+        "sourceX400CircleOverlapCount": 3,
+        "sourceUnpausedAt1_6": true
+      },
+      "webVector": {
+        "overlapSameCastAndNewCast": [
+          [
+            300,
+            0,
+            0
+          ],
+          300
+        ]
+      },
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A237",
+    "status": "ready",
+    "rules": {
+      "range": 800,
+      "radius": 600,
+      "mana": [
+        100,
+        120,
+        140,
+        160,
+        180,
+        200
+      ],
+      "cooldown": [
+        15,
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "hexAllEligibleDuration": 3,
+      "delayedPhysical": {
+        "delay": 0.2,
+        "damage": 1
+      }
+    },
+    "sourceRefs": {
+      "guideRowsOnBoth": [
+        321
+      ],
+      "units": [
+        "H061"
+      ],
+      "objectIndex": 1026,
+      "hint": 3482,
+      "auxiliary": [
+        "T406",
+        "BOhx"
+      ],
+      "auxiliaryHintLines": {
+        "T406": 23363
+      },
+      "functions": [
+        [
+          "main/f170",
+          112029,
+          112045
+        ],
+        [
+          "main/f170/f0",
+          112046,
+          112172
+        ]
+      ],
+      "mainRefs": [
+        [
+          "main/f291/f14",
+          1536,
+          171682
+        ],
+        [
+          "main/f291/f27",
+          3746,
+          178081
+        ]
+      ],
+      "sourceSha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+    },
+    "differences": [
+      "Source T406 native hero duration 2.5, guide 3. The separate 1-point helper stays."
+    ],
+    "unresolved": [],
+    "validation": {
+      "sourceVM": {
+        "sourceTwoHexOrdersThenOnePhysicalArea": true
+      },
+      "webVector": null,
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A238",
+    "status": "ready",
+    "rules": {
+      "range": 800,
+      "scepterRadius": 390,
+      "mana": [
+        50,
+        100,
+        150,
+        200,
+        250,
+        300
+      ],
+      "cooldown": [
+        20,
+        18,
+        16,
+        14,
+        12,
+        10
+      ],
+      "flatDamage": [
+        1500,
+        2000,
+        2500,
+        3000,
+        3500,
+        4000
+      ],
+      "lifeRead": [
+        "max",
+        "current",
+        "current",
+        "current",
+        "current",
+        "current"
+      ],
+      "standardLifeFactor": 0.1,
+      "specialLifeFactor": 0.01,
+      "stackPerRealKill": [
+        1,
+        5
+      ],
+      "stackDamageByMode": [
+        150,
+        300,
+        250
+      ],
+      "cap": 800,
+      "nativePacketOverwritten": true
+    },
+    "sourceRefs": {
+      "guideRowsOnBoth": [
+        322
+      ],
+      "units": [
+        "H061"
+      ],
+      "objectIndex": 1027,
+      "hint": 3499,
+      "auxiliary": [
+        "q059",
+        "T405",
+        "q061"
+      ],
+      "auxiliaryHintLines": {
+        "T405": 23346
+      },
+      "functions": [
+        [
+          "main/f171",
+          112173,
+          112214
+        ],
+        [
+          "main/f171/f0",
+          112215,
+          112274
+        ],
+        [
+          "main/f171/f1",
+          112275,
+          112301
+        ],
+        [
+          "main/f171/f2",
+          112302,
+          112455
+        ],
+        [
+          "main/f171/f3",
+          112456,
+          112549
+        ],
+        [
+          "main/f171/f4",
+          112550,
+          112803
+        ],
+        [
+          "main/f171/f5",
+          112804,
+          112868
+        ]
+      ],
+      "mainRefs": [
+        [
+          "main/f291/f14",
+          1547,
+          171694
+        ],
+        [
+          "main/f291/f27",
+          3780,
+          178117
+        ]
+      ],
+      "sourceSha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+    },
+    "differences": [
+      "Source current life all ranks at .06 ordinary; guide .10, maximum only rank 1. Source special .01 remains."
+    ],
+    "unresolved": [],
+    "validation": {
+      "sourceVM": {
+        "sourceRank1With10000CurrentRegularAndRoshan": [
+          2100.0,
+          1600.0
+        ]
+      },
+      "webVector": {
+        "rank1MaxRank2CurrentAndSpecial": [
+          3800.0,
+          3600.0,
+          2200.0
+        ],
+        "bossCapFrom798": 800
+      },
+      "originalClientTested": false
+    }
+  }
+]

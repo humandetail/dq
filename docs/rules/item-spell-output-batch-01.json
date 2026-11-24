@@ -1,0 +1,171 @@
+{
+  "baselineId": "item-spell-output-batch-01",
+  "coverage": {
+    "items": 10,
+    "newEffects": 3,
+    "priorEffectReconciliations": 7
+  },
+  "items": {
+    "i200": {
+      "name": "纷争面纱",
+      "workbookCell": "装备与道具!H110",
+      "componentReady": true,
+      "newEffectAudit": true,
+      "sourceLine": 145852,
+      "itemJsonIndex": 403,
+      "description": "属性：\n增加500点魔法值。\n增加15点智力。\n魔法虚弱：\n使自身的法术伤害无视10%的魔法抗性。",
+      "sourcePostMitigationMultiplier": 1.1,
+      "resistanceIgnoredPct": 10,
+      "callback": "ItemDamageActionAfter"
+    },
+    "i265": {
+      "name": "邪念法杖",
+      "workbookCell": "装备与道具!H175",
+      "componentReady": true,
+      "newEffectAudit": true,
+      "sourceLine": 145882,
+      "itemJsonIndex": 468,
+      "description": "属性：\n增加2000点魔法值。\n增加100点智力。\n魔法虚弱：\n使自身的法术伤害无视35%的魔法抗性。\n一位古代邪神的武器，可以腐蚀敌人的精神。",
+      "sourcePostMitigationMultiplier": 1.3,
+      "resistanceIgnoredPct": 35,
+      "callback": "ItemDamageActionAfter"
+    },
+    "i308": {
+      "name": "怨念魔杖",
+      "workbookCell": "装备与道具!H201",
+      "componentReady": true,
+      "newEffectAudit": true,
+      "sourceLine": 145898,
+      "itemJsonIndex": 494,
+      "description": "属性：\n增加1150点魔法值。\n增加80点智力。\n魔法虚弱：\n使自身的法术伤害无视25%的魔法抗性。\n一些无人问津之物的怨念集合体。",
+      "sourcePostMitigationMultiplier": 1.2,
+      "resistanceIgnoredPct": 25,
+      "callback": "ItemDamageActionAfter"
+    },
+    "i179": {
+      "name": "达贡之神力Lv1",
+      "workbookCell": "装备与道具!H89",
+      "componentReady": true,
+      "newEffectAudit": false,
+      "sourceLine": 145832,
+      "itemJsonIndex": 382,
+      "description": "属性：\n增加5点力量。\n增加5点敏捷。\n增加20点智力。\n法术强化（唯一被动）：\n增加7%的法术伤害。\n该版在法术伤害结算时应用倍乘；各级倍率为1.07／1.12／1.17／1.22／1.27／1.35。",
+      "multiplier": 1.07,
+      "existingRule": "item-damage-effects"
+    },
+    "i180": {
+      "name": "达贡之神力Lv2",
+      "workbookCell": "装备与道具!H90",
+      "componentReady": true,
+      "newEffectAudit": false,
+      "sourceLine": 145824,
+      "itemJsonIndex": 383,
+      "description": "属性：\n增加5点力量。\n增加5点敏捷。\n增加25点智力。\n法术强化（唯一被动）：\n增加12%的法术伤害。\n该版在法术伤害结算时应用倍乘；各级倍率为1.07／1.12／1.17／1.22／1.27／1.35。",
+      "multiplier": 1.12,
+      "existingRule": "item-damage-effects"
+    },
+    "i181": {
+      "name": "达贡之神力Lv3",
+      "workbookCell": "装备与道具!H91",
+      "componentReady": true,
+      "newEffectAudit": false,
+      "sourceLine": 145816,
+      "itemJsonIndex": 384,
+      "description": "属性：\n增加5点力量。\n增加5点敏捷。\n增加30点智力。\n法术强化（唯一被动）：\n增加17%的法术伤害。\n该版在法术伤害结算时应用倍乘；各级倍率为1.07／1.12／1.17／1.22／1.27／1.35。",
+      "multiplier": 1.17,
+      "existingRule": "item-damage-effects"
+    },
+    "i182": {
+      "name": "达贡之神力Lv4",
+      "workbookCell": "装备与道具!H92",
+      "componentReady": true,
+      "newEffectAudit": false,
+      "sourceLine": 145808,
+      "itemJsonIndex": 385,
+      "description": "属性：\n增加5点力量。\n增加5点敏捷。\n增加35点智力。\n法术强化（唯一被动）：\n增加22%的法术伤害。\n该版在法术伤害结算时应用倍乘；各级倍率为1.07／1.12／1.17／1.22／1.27／1.35。",
+      "multiplier": 1.22,
+      "existingRule": "item-damage-effects"
+    },
+    "i183": {
+      "name": "达贡之神力Lv5",
+      "workbookCell": "装备与道具!H93",
+      "componentReady": true,
+      "newEffectAudit": false,
+      "sourceLine": 145800,
+      "itemJsonIndex": 386,
+      "description": "属性：\n增加5点力量。\n增加5点敏捷。\n增加40点智力。\n法术强化（唯一被动）：\n增加27%的法术伤害。\n该版在法术伤害结算时应用倍乘；各级倍率为1.07／1.12／1.17／1.22／1.27／1.35。",
+      "multiplier": 1.27,
+      "existingRule": "item-damage-effects"
+    },
+    "i184": {
+      "name": "达贡之神力Max",
+      "workbookCell": "装备与道具!H94",
+      "componentReady": true,
+      "newEffectAudit": false,
+      "sourceLine": 145792,
+      "itemJsonIndex": 387,
+      "description": "属性：\n增加5点力量。\n增加5点敏捷。\n增加50点智力。\n法术强化（唯一被动）：\n增加35%的法术伤害。\n该版在法术伤害结算时应用倍乘；各级倍率为1.07／1.12／1.17／1.22／1.27／1.35。",
+      "multiplier": 1.35,
+      "existingRule": "item-damage-effects"
+    },
+    "i119": {
+      "name": "EUL的神圣法杖",
+      "workbookCell": "装备与道具!H29",
+      "componentReady": true,
+      "newEffectAudit": false,
+      "sourceLine": 145764,
+      "itemJsonIndex": 322,
+      "description": "属性：\n增加16点智力。\n增加70%魔法回复速度。\n大法师的祈祷（唯一被动）：\n法术伤害有10%的概率造成1.4倍的暴击。",
+      "criticalChancePct": 10,
+      "multiplier": 1.4,
+      "existingRule": "item-damage-dispatch"
+    }
+  },
+  "semantics": {
+    "i200": 0.1,
+    "preferred": [
+      "i265",
+      "i308"
+    ],
+    "exclusiveAlternativeFractions": [
+      0.35,
+      0.25
+    ],
+    "remainder": "r2=r1*(1-penetration)",
+    "eventWrite": "D*(1-r2)/(1-r1) for positive 0<r1<1",
+    "maintainsCategoryAndImmunity": true
+  },
+  "sourceLines": {
+    "sourceOwnership": 145677,
+    "implementation": [
+      145852,
+      145910
+    ]
+  },
+  "checks": {
+    "sourceBody": {
+      "i200+i265+i308:magic:True": [
+        110.0,
+        143.0
+      ],
+      "i308:magic:False": [
+        120.0
+      ],
+      "i200+i265+i308:physical:False": []
+    },
+    "webContract": {
+      "cases": [
+        "zero resistance",
+        "50% resistance",
+        "50% resistance after 20% preceding amplification",
+        "already cancelled or blocked fully"
+      ],
+      "finalDamage": [
+        100.0,
+        70.75,
+        84.9,
+        0.0
+      ]
+    }
+  }
+}

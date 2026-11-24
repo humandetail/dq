@@ -1,0 +1,1369 @@
+
+; source main.disasm sha256 090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1
+; original starting line 52444
+052444: .function	main/f7/f45
+052445: 
+052446: .source	null
+052447: .linedefined	13340
+052448: .lastlinedefined	13342
+052449: .numparams	1
+052450: .is_vararg	0
+052451: .maxstacksize	5
+052452: 
+052453: .upvalue	null	0	false
+052454: 
+052455: .constant	k0	0
+052456: .constant	k1	"GetUnitAbilityLevel"
+052457: .constant	k2	"GetId"
+052458: .constant	k3	"N534"
+052459: .constant	k4	"IsUnitType"
+052460: .constant	k5	"UNIT_TYPE_SAPPER"
+052461: 
+052462: gettabup      r1    u0    k1 ; k1 = "GetUnitAbilityLevel"
+052463: move          r2    r0
+052464: gettabup      r3    u0    k2 ; k2 = "GetId"
+052465: loadk         r4    k3 ; k3 = "N534"
+052466: call          r3     2     0
+052467: call          r1     0     2
+052468: lt             0    k0    r1 ; k0 = 0
+052469: jmp            0   l14
+052470: gettabup      r1    u0    k4 ; k4 = "IsUnitType"
+052471: move          r2    r0
+052472: gettabup      r3    u0    k5 ; k5 = "UNIT_TYPE_SAPPER"
+052473: call          r1     3     2
+052474: jmp            0   l16
+052475: .label	l14
+052476: loadbool      r1     0     1
+052477: loadbool      r1     1     0
+052478: .label	l16
+052479: return        r1     2
+052480: return        r0     1
+052481: 
+
+; source main.disasm sha256 090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1
+; original starting line 158440
+158440: .function	main/f290/f11
+158441: 
+158442: .source	null
+158443: .linedefined	39250
+158444: .lastlinedefined	39348
+158445: .numparams	0
+158446: .is_vararg	0
+158447: .maxstacksize	10
+158448: 
+158449: .upvalue	null	0	false
+158450: .upvalue	null	12	true
+158451: .upvalue	null	13	true
+158452: .upvalue	null	14	true
+158453: .upvalue	null	1	true
+158454: .upvalue	null	10	true
+158455: .upvalue	null	9	true
+158456: .upvalue	null	7	true
+158457: .upvalue	null	2	true
+158458: .upvalue	null	4	true
+158459: .upvalue	null	27	true
+158460: 
+158461: .constant	k0	"StopMusic"
+158462: .constant	k1	nil
+158463: .constant	k2	"Abyss_dur_timer"
+158464: .constant	k3	"DestroyTimer"
+158465: .constant	k4	"Abyss_timer_dialog_dur"
+158466: .constant	k5	"DestroyTimerDialog"
+158467: .constant	k6	"Abyss_damage_timer"
+158468: .constant	k7	"pairs"
+158469: .constant	k8	"Abyss_All_unit_Loc"
+158470: .constant	k9	"ShowUnit"
+158471: .constant	k10	1
+158472: .constant	k11	"SetUnitPositionLoc"
+158473: .constant	k12	2
+158474: .constant	k13	"SetUnitOwner"
+158475: .constant	k14	"Player"
+158476: .constant	k15	3
+158477: .constant	k16	-1
+158478: .constant	k17	"IsInTable"
+158479: .constant	k18	"Player_Build_Unit"
+158480: .constant	k19	"EXSetUnitMoveType"
+158481: .constant	k20	"Abyss_All_item_Loc"
+158482: .constant	k21	"SetItemVisible"
+158483: .constant	k22	"J003_Hero"
+158484: .constant	k23	"UnitAddAbility"
+158485: .constant	k24	"GetId"
+158486: .constant	k25	"T033"
+158487: .constant	k26	"UnitRemoveAbility"
+158488: .constant	k27	"P100"
+158489: .constant	k28	"UnitMakeAbilityPermanent"
+158490: .constant	k29	"J003_Temp"
+158491: .constant	k30	"Abyss_Cur_Lv"
+158492: .constant	k31	"RemoveItem"
+158493: .constant	k32	"RemoveUnit"
+158494: .constant	k33	"Abyss_BOSS"
+158495: .constant	k34	0
+158496: .constant	k35	"GetUnitState"
+158497: .constant	k36	"UNIT_STATE_LIFE"
+158498: .constant	k37	"DisplayTextToAll"
+158499: .constant	k38	"|cffffcc00\xe6\x8c\x91\xe6\x88\x98\xe5\xa4\xb1\xe8\xb4\xa5\xef\xbc\x8c\xe4\xbd\xa0\xe4\xbb\xac\xe8\xbf\x98\xe6\x9c\x89"
+158500: .constant	k39	"\xe6\xac\xa1\xe6\x9c\xba\xe4\xbc\x9a\xe3\x80\x82|r"
+158501: .constant	k40	6
+158502: .constant	k41	"ClearAllMon"
+158503: .constant	k42	"delayTimeRunFunc"
+158504: .constant	k43	"Abyss_Start_New_Turn"
+158505: .constant	k44	8
+158506: .constant	k45	"DefeatOfEveryOne"
+158507: .constant	k46	"Abyss_Desc"
+158508: .constant	k47	"VictoryOfEveryOne"
+158509: .constant	k48	L"|cffffcc00\xe6\x88\x90\xe5\x8a\x9f\xe5\x87\xbb\xe6\x9d\x80BOSS\xef\xbc\x8c\xe5\x8d\xb3\xe5\xb0\x86\xe8\xbf\x9b\xe5\x85\xa5\xe4\xb8\x8b\xe4\xb8\x80\xe5\x85\xb3\xe3\x80\x82|r"
+158510: .constant	k49	L"|cffffcc00\xe7\xa6\x8f\xe5\x88\xa9\xe5\x85\xb3\xe7\xbb\x93\xe6\x9d\x9f\xef\xbc\x8c\xe5\x87\x86\xe5\xa4\x87\xe8\xbf\x8e\xe6\x8e\xa5\xe7\x9c\x9f\xe6\xad\xa3\xe7\x9a\x84\xe6\x8c\x91\xe6\x88\x98\xe5\x90\xa7\xe3\x80\x82|r"
+158511: 
+158512: gettabup      r0    u0    k0 ; k0 = "StopMusic"
+158513: loadbool      r1     1     0
+158514: call          r0     2     1
+158515: gettabup      r0    u0    k2 ; k2 = "Abyss_dur_timer"
+158516: eq             1    k1    r0 ; k1 = nil
+158517: jmp            0   l10
+158518: gettabup      r0    u0    k3 ; k3 = "DestroyTimer"
+158519: gettabup      r1    u0    k2 ; k2 = "Abyss_dur_timer"
+158520: call          r0     2     1
+158521: .label	l10
+158522: gettabup      r0    u0    k4 ; k4 = "Abyss_timer_dialog_d" (truncated)
+158523: eq             1    k1    r0 ; k1 = nil
+158524: jmp            0   l16
+158525: gettabup      r0    u0    k5 ; k5 = "DestroyTimerDialog"
+158526: gettabup      r1    u0    k4 ; k4 = "Abyss_timer_dialog_d" (truncated)
+158527: call          r0     2     1
+158528: .label	l16
+158529: gettabup      r0    u0    k6 ; k6 = "Abyss_damage_timer"
+158530: eq             1    k1    r0 ; k1 = nil
+158531: jmp            0   l22
+158532: gettabup      r0    u0    k3 ; k3 = "DestroyTimer"
+158533: gettabup      r1    u0    k6 ; k6 = "Abyss_damage_timer"
+158534: call          r0     2     1
+158535: .label	l22
+158536: getupval      r0    u1
+158537: eq             1    k1    r0 ; k1 = nil
+158538: jmp            0   l28
+158539: gettabup      r0    u0    k3 ; k3 = "DestroyTimer"
+158540: getupval      r1    u1
+158541: call          r0     2     1
+158542: .label	l28
+158543: getupval      r0    u2
+158544: eq             1    k1    r0 ; k1 = nil
+158545: jmp            0   l34
+158546: gettabup      r0    u0    k3 ; k3 = "DestroyTimer"
+158547: getupval      r1    u2
+158548: call          r0     2     1
+158549: .label	l34
+158550: getupval      r0    u3
+158551: eq             1    k1    r0 ; k1 = nil
+158552: jmp            0   l40
+158553: gettabup      r0    u0    k3 ; k3 = "DestroyTimer"
+158554: getupval      r1    u3
+158555: call          r0     2     1
+158556: .label	l40
+158557: settabup      u0    k2    k1 ; k1 = nil
+158558: settabup      u0    k4    k1 ; k1 = nil
+158559: settabup      u0    k6    k1 ; k1 = nil
+158560: loadnil       r0     0
+158561: setupval      r0    u1
+158562: loadnil       r0     0
+158563: setupval      r0    u2
+158564: loadnil       r0     0
+158565: setupval      r0    u3
+158566: gettabup      r0    u0    k7 ; k7 = "pairs"
+158567: gettabup      r1    u0    k8 ; k8 = "Abyss_All_unit_Loc"
+158568: call          r0     2     4
+158569: jmp            0   l78
+158570: .label	l53
+158571: gettabup      r5    u0    k9 ; k9 = "ShowUnit"
+158572: gettable      r6    r4   k10 ; k10 = 1
+158573: loadbool      r7     1     0
+158574: call          r5     3     1
+158575: gettabup      r5    u0   k11 ; k11 = "SetUnitPositionLoc"
+158576: gettable      r6    r4   k10 ; k10 = 1
+158577: gettable      r7    r4   k12 ; k12 = 2
+158578: call          r5     3     1
+158579: gettabup      r5    u0   k13 ; k13 = "SetUnitOwner"
+158580: gettable      r6    r4   k10 ; k10 = 1
+158581: gettabup      r7    u0   k14 ; k14 = "Player"
+158582: gettable      r8    r4   k15 ; k15 = 3
+158583: call          r7     2     2
+158584: loadbool      r8     1     0
+158585: call          r5     4     1
+158586: gettabup      r5    u0   k17 ; k17 = "IsInTable"
+158587: gettable      r6    r4   k10 ; k10 = 1
+158588: gettabup      r7    u0   k18 ; k18 = "Player_Build_Unit"
+158589: call          r5     3     2
+158590: eq             0   k16    r5 ; k16 = -1
+158591: jmp            0   l78
+158592: gettabup      r5    u4   k19 ; k19 = "EXSetUnitMoveType"
+158593: gettable      r6    r4   k10 ; k10 = 1
+158594: loadk         r7   k10 ; k10 = 1
+158595: call          r5     3     1
+158596: .label	l78
+158597: tforcall      r0     2
+158598: tforloop      r2   l53
+158599: gettabup      r0    u0    k7 ; k7 = "pairs"
+158600: gettabup      r1    u0   k20 ; k20 = "Abyss_All_item_Loc"
+158601: call          r0     2     4
+158602: jmp            0   l88
+158603: .label	l84
+158604: gettabup      r5    u0   k21 ; k21 = "SetItemVisible"
+158605: gettable      r6    r4   k10 ; k10 = 1
+158606: loadbool      r7     1     0
+158607: call          r5     3     1
+158608: .label	l88
+158609: tforcall      r0     2
+158610: tforloop      r2   l84
+158611: newtable      r0     0     0
+158612: settabup      u0   k20    r0 ; k20 = "Abyss_All_item_Loc"
+158613: newtable      r0     0     0
+158614: settabup      u0    k8    r0 ; k8 = "Abyss_All_unit_Loc"
+158615: gettabup      r0    u0    k7 ; k7 = "pairs"
+158616: gettabup      r1    u0   k22 ; k22 = "J003_Hero"
+158617: call          r0     2     4
+158618: jmp            0  l125
+158619: .label	l98
+158620: gettabup      r5    u0   k23 ; k23 = "UnitAddAbility"
+158621: move          r6    r4
+158622: gettabup      r7    u0   k24 ; k24 = "GetId"
+158623: loadk         r8   k25 ; k25 = "T033"
+158624: call          r7     2     0
+158625: call          r5     0     1
+158626: gettabup      r5    u0   k26 ; k26 = "UnitRemoveAbility"
+158627: move          r6    r4
+158628: gettabup      r7    u0   k24 ; k24 = "GetId"
+158629: loadk         r8   k27 ; k27 = "P100"
+158630: call          r7     2     0
+158631: call          r5     0     1
+158632: gettabup      r5    u0   k28 ; k28 = "UnitMakeAbilityPerma" (truncated)
+158633: move          r6    r4
+158634: loadbool      r7     1     0
+158635: gettabup      r8    u0   k24 ; k24 = "GetId"
+158636: loadk         r9   k25 ; k25 = "T033"
+158637: call          r8     2     0
+158638: call          r5     0     1
+158639: gettabup      r5    u0   k11 ; k11 = "SetUnitPositionLoc"
+158640: move          r6    r4
+158641: gettabup      r7    u5    r3
+158642: call          r5     3     1
+158643: gettabup      r5    u4   k19 ; k19 = "EXSetUnitMoveType"
+158644: move          r6    r4
+158645: loadk         r7   k10 ; k10 = 1
+158646: call          r5     3     1
+158647: .label	l125
+158648: tforcall      r0     2
+158649: tforloop      r2   l98
+158650: newtable      r0     0     0
+158651: setupval      r0    u5
+158652: newtable      r0     0     0
+158653: settabup      u0   k22    r0 ; k22 = "J003_Hero"
+158654: newtable      r0     0     0
+158655: settabup      u0   k29    r0 ; k29 = "J003_Temp"
+158656: gettabup      r0    u0   k30 ; k30 = "Abyss_Cur_Lv"
+158657: eq             0   k10    r0 ; k10 = 1
+158658: jmp            0  l156
+158659: gettabup      r0    u0    k3 ; k3 = "DestroyTimer"
+158660: getupval      r1    u6
+158661: call          r0     2     1
+158662: gettabup      r0    u0    k7 ; k7 = "pairs"
+158663: getupval      r1    u7
+158664: call          r0     2     4
+158665: jmp            0  l148
+158666: .label	l143
+158667: eq             1    k1    r4 ; k1 = nil
+158668: jmp            0  l148
+158669: gettabup      r5    u0   k31 ; k31 = "RemoveItem"
+158670: move          r6    r4
+158671: call          r5     2     1
+158672: .label	l148
+158673: tforcall      r0     2
+158674: tforloop      r2  l143
+158675: newtable      r0     0     0
+158676: setupval      r0    u7
+158677: gettabup      r0    u0   k32 ; k32 = "RemoveUnit"
+158678: gettabup      r1    u0   k33 ; k33 = "Abyss_BOSS"
+158679: call          r0     2     1
+158680: jmp            0  l196
+158681: .label	l156
+158682: gettabup      r0    u0   k33 ; k33 = "Abyss_BOSS"
+158683: eq             1    k1    r0 ; k1 = nil
+158684: jmp            0  l196
+158685: gettabup      r0    u0   k35 ; k35 = "GetUnitState"
+158686: gettabup      r1    u0   k33 ; k33 = "Abyss_BOSS"
+158687: gettabup      r2    u0   k36 ; k36 = "UNIT_STATE_LIFE"
+158688: call          r0     3     2
+158689: lt             0   k34    r0 ; k34 = 0
+158690: jmp            0  l196
+158691: getupval      r0    u8
+158692: lt             0   k34    r0 ; k34 = 0
+158693: jmp            0  l193
+158694: gettabup      r0    u0   k37 ; k37 = "DisplayTextToAll"
+158695: loadk         r1   k38 ; k38 = "|cffffcc00\xe6\x8c\x91\xe6\x88\x98\xe5\xa4\xb1\xe8" (truncated)
+158696: getupval      r2    u8
+158697: loadk         r3   k39 ; k39 = "\xe6\xac\xa1\xe6\x9c\xba\xe4\xbc\x9a\xe3\x80\x82|r"
+158698: concat        r1    r1    r3
+158699: loadk         r2   k40 ; k40 = 6
+158700: call          r0     3     1
+158701: getupval      r0    u8
+158702: sub           r0    r0   k10 ; k10 = 1
+158703: setupval      r0    u8
+158704: gettabup      r0    u0   k30 ; k30 = "Abyss_Cur_Lv"
+158705: sub           r0    r0   k10 ; k10 = 1
+158706: settabup      u0   k30    r0 ; k30 = "Abyss_Cur_Lv"
+158707: gettabup      r0    u0   k35 ; k35 = "GetUnitState"
+158708: gettabup      r1    u0   k33 ; k33 = "Abyss_BOSS"
+158709: gettabup      r2    u0   k36 ; k36 = "UNIT_STATE_LIFE"
+158710: call          r0     3     2
+158711: setupval      r0    u9
+158712: gettabup      r0    u0   k41 ; k41 = "ClearAllMon"
+158713: call          r0     1     1
+158714: gettabup      r0    u0   k42 ; k42 = "delayTimeRunFunc"
+158715: gettabup      r1    u0   k43 ; k43 = "Abyss_Start_New_Turn"
+158716: loadk         r2   k44 ; k44 = 8
+158717: call          r0     3     1
+158718: jmp            0  l195
+158719: .label	l193
+158720: gettabup      r0    u0   k45 ; k45 = "DefeatOfEveryOne"
+158721: call          r0     1     1
+158722: .label	l195
+158723: return        r0     1
+158724: .label	l196
+158725: gettabup      r0    u0   k41 ; k41 = "ClearAllMon"
+158726: call          r0     1     1
+158727: gettabup      r0    u0   k30 ; k30 = "Abyss_Cur_Lv"
+158728: gettabup      r1    u0   k46 ; k46 = "Abyss_Desc"
+158729: len           r1    r1
+158730: le             0    r1    r0
+158731: jmp            0  l206
+158732: gettabup      r0    u0   k47 ; k47 = "VictoryOfEveryOne"
+158733: call          r0     1     1
+158734: return        r0     1
+158735: .label	l206
+158736: loadk         r0   k48 ; k48 = L"|cffffcc00\xe6\x88\x90\xe5\x8a\x9f\xe5\x87\xbb\xe6" (truncated)
+158737: gettabup      r1    u0   k30 ; k30 = "Abyss_Cur_Lv"
+158738: eq             0   k10    r1 ; k10 = 1
+158739: jmp            0  l211
+158740: loadk         r0   k49 ; k49 = L"|cffffcc00\xe7\xa6\x8f\xe5\x88\xa9\xe5\x85\xb3\xe7" (truncated)
+158741: .label	l211
+158742: loadk         r1   k34 ; k34 = 0
+158743: setupval      r1    u9
+158744: gettabup      r1    u0   k37 ; k37 = "DisplayTextToAll"
+158745: move          r2    r0
+158746: loadk         r3   k40 ; k40 = 6
+158747: call          r1     3     1
+158748: getupval      r1   u10
+158749: call          r1     1     1
+158750: gettabup      r1    u0   k42 ; k42 = "delayTimeRunFunc"
+158751: gettabup      r2    u0   k43 ; k43 = "Abyss_Start_New_Turn"
+158752: loadk         r3   k44 ; k44 = 8
+158753: call          r1     3     1
+158754: return        r0     1
+158755: 
+
+; source main.disasm sha256 090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1
+; original starting line 159077
+159077: .function	main/f290/f17
+159078: 
+159079: .source	null
+159080: .linedefined	39409
+159081: .lastlinedefined	39441
+159082: .numparams	2
+159083: .is_vararg	0
+159084: .maxstacksize	9
+159085: 
+159086: .upvalue	null	0	false
+159087: .upvalue	null	19	true
+159088: .upvalue	null	32	true
+159089: .upvalue	null	5	true
+159090: .upvalue	null	28	true
+159091: 
+159092: .constant	k0	"Abyss_BOSS"
+159093: .constant	k1	"Abyss_Desc"
+159094: .constant	k2	"Abyss_Cur_Lv"
+159095: .constant	k3	4
+159096: .constant	k4	nil
+159097: .constant	k5	""
+159098: .constant	k6	"CreateItem"
+159099: .constant	k7	"GetId"
+159100: .constant	k8	"GetUnitX"
+159101: .constant	k9	"GetUnitY"
+159102: .constant	k10	"Abyss_Save_Player_Data"
+159103: .constant	k11	"Abyss_Cur_Rank_Lv"
+159104: .constant	k12	1
+159105: .constant	k13	"CreateUnitAtLoc"
+159106: .constant	k14	"Player"
+159107: .constant	k15	11
+159108: .constant	k16	"ma99"
+159109: .constant	k17	"GetUnitLoc"
+159110: .constant	k18	"GetUnitFacing"
+159111: .constant	k19	"ShowUnit"
+159112: .constant	k20	"RemoveGuardPosition"
+159113: .constant	k21	"SetUnitUserData"
+159114: .constant	k22	"GetUnitUserData"
+159115: .constant	k23	"UnitAddAbility"
+159116: .constant	k24	"N560"
+159117: .constant	k25	"IssueImmediateOrder"
+159118: .constant	k26	"holdposition"
+159119: .constant	k27	"delayTimeRunFunc"
+159120: .constant	k28	2
+159121: .constant	k29	"DestroyTimerDialog"
+159122: .constant	k30	"Abyss_timer_dialog_dur"
+159123: .constant	k31	"DisplayTextToAll"
+159124: .constant	k32	"|cffffcc00\xe6\x88\x90\xe5\x8a\x9f\xe5\x87\xbb\xe6\x9d\x80\xe7\xac\xac"
+159125: .constant	k33	L"\xe5\xb1\x82\xe5\xb7\xa8\xe9\xbe\x99\xef\xbc\x81\xe9\xa2\x9d\xe5\xa4\x96\xe5\xa5\x96\xe5\x8a\xb130\xe7\xa7\x92\xe6\x97\xb6\xe9\x97\xb4\xef\xbc\x8c\xe5\xb7\xa8\xe9\xbe\x99\xe6\xad\xa3\xe5\x9c\xa8\xe9\x87\x8d\xe7\x94\x9f.....|r"
+159126: .constant	k34	5
+159127: .constant	k35	"TimerGetRemaining"
+159128: .constant	k36	"Abyss_dur_timer"
+159129: .constant	k37	30
+159130: .constant	k38	300
+159131: .constant	k39	"DestroyTimer"
+159132: 
+159133: gettabup      r2    u0    k0 ; k0 = "Abyss_BOSS"
+159134: eq             0    r2    r1
+159135: jmp            0    l7
+159136: getupval      r2    u1
+159137: test          r2     0
+159138: jmp            0    l8
+159139: .label	l7
+159140: return        r0     1
+159141: .label	l8
+159142: gettabup      r2    u0    k1 ; k1 = "Abyss_Desc"
+159143: gettabup      r3    u0    k2 ; k2 = "Abyss_Cur_Lv"
+159144: gettable      r2    r2    r3
+159145: gettable      r2    r2    k3 ; k3 = 4
+159146: eq             1    k4    r2 ; k4 = nil
+159147: jmp            0   l27
+159148: eq             1    k5    r2 ; k5 = ""
+159149: jmp            0   l27
+159150: gettabup      r3    u0    k6 ; k6 = "CreateItem"
+159151: gettabup      r4    u0    k7 ; k7 = "GetId"
+159152: move          r5    r2
+159153: call          r4     2     2
+159154: gettabup      r5    u0    k8 ; k8 = "GetUnitX"
+159155: move          r6    r1
+159156: call          r5     2     2
+159157: gettabup      r6    u0    k9 ; k9 = "GetUnitY"
+159158: move          r7    r1
+159159: call          r6     2     0
+159160: call          r3     0     1
+159161: .label	l27
+159162: gettabup      r3    u0    k2 ; k2 = "Abyss_Cur_Lv"
+159163: gettabup      r4    u0    k1 ; k1 = "Abyss_Desc"
+159164: len           r4    r4
+159165: eq             0    r3    r4
+159166: jmp            0  l106
+159167: loadbool      r3     1     0
+159168: setupval      r3    u1
+159169: gettabup      r3    u0   k10 ; k10 = "Abyss_Save_Player_Da" (truncated)
+159170: call          r3     1     1
+159171: gettabup      r3    u0   k11 ; k11 = "Abyss_Cur_Rank_Lv"
+159172: add           r3    r3   k12 ; k12 = 1
+159173: settabup      u0   k11    r3 ; k11 = "Abyss_Cur_Rank_Lv"
+159174: gettabup      r3    u0   k13 ; k13 = "CreateUnitAtLoc"
+159175: gettabup      r4    u0   k14 ; k14 = "Player"
+159176: loadk         r5   k15 ; k15 = 11
+159177: call          r4     2     2
+159178: gettabup      r5    u0    k7 ; k7 = "GetId"
+159179: loadk         r6   k16 ; k16 = "ma99"
+159180: call          r5     2     2
+159181: gettabup      r6    u0   k17 ; k17 = "GetUnitLoc"
+159182: move          r7    r1
+159183: call          r6     2     2
+159184: gettabup      r7    u0   k18 ; k18 = "GetUnitFacing"
+159185: move          r8    r1
+159186: call          r7     2     0
+159187: call          r3     0     2
+159188: settabup      u0    k0    r3 ; k0 = "Abyss_BOSS"
+159189: gettabup      r3    u0   k19 ; k19 = "ShowUnit"
+159190: move          r4    r1
+159191: loadbool      r5     0     0
+159192: call          r3     3     1
+159193: gettabup      r3    u0   k20 ; k20 = "RemoveGuardPosition"
+159194: gettabup      r4    u0    k0 ; k0 = "Abyss_BOSS"
+159195: call          r3     2     1
+159196: gettabup      r3    u0   k21 ; k21 = "SetUnitUserData"
+159197: gettabup      r4    u0    k0 ; k0 = "Abyss_BOSS"
+159198: gettabup      r5    u0   k22 ; k22 = "GetUnitUserData"
+159199: move          r6    r1
+159200: call          r5     2     0
+159201: call          r3     0     1
+159202: gettabup      r3    u0   k23 ; k23 = "UnitAddAbility"
+159203: gettabup      r4    u0    k0 ; k0 = "Abyss_BOSS"
+159204: gettabup      r5    u0    k7 ; k7 = "GetId"
+159205: loadk         r6   k24 ; k24 = "N560"
+159206: call          r5     2     0
+159207: call          r3     0     1
+159208: gettabup      r3    u0   k25 ; k25 = "IssueImmediateOrder"
+159209: gettabup      r4    u0    k0 ; k0 = "Abyss_BOSS"
+159210: loadk         r5   k26 ; k26 = "holdposition"
+159211: call          r3     3     1
+159212: gettabup      r3    u0   k27 ; k27 = "delayTimeRunFunc"
+159213: getupval      r4    u2
+159214: loadk         r5   k28 ; k28 = 2
+159215: call          r3     3     1
+159216: gettabup      r3    u0   k29 ; k29 = "DestroyTimerDialog"
+159217: gettabup      r4    u0   k30 ; k30 = "Abyss_timer_dialog_d" (truncated)
+159218: call          r3     2     1
+159219: gettabup      r3    u0   k31 ; k31 = "DisplayTextToAll"
+159220: loadk         r4   k32 ; k32 = "|cffffcc00\xe6\x88\x90\xe5\x8a\x9f\xe5\x87\xbb\xe6" (truncated)
+159221: gettabup      r5    u0   k11 ; k11 = "Abyss_Cur_Rank_Lv"
+159222: sub           r5    r5   k12 ; k12 = 1
+159223: loadk         r6   k33 ; k33 = L"\xe5\xb1\x82\xe5\xb7\xa8\xe9\xbe\x99\xef\xbc\x81\xe9\xa2\x9d\xe5\xa4\x96\xe5\xa5" (truncated)
+159224: concat        r4    r4    r6
+159225: loadk         r5   k34 ; k34 = 5
+159226: call          r3     3     1
+159227: gettabup      r3    u0   k35 ; k35 = "TimerGetRemaining"
+159228: gettabup      r4    u0   k36 ; k36 = "Abyss_dur_timer"
+159229: call          r3     2     2
+159230: add           r3    r3   k37 ; k37 = 30
+159231: setupval      r3    u3
+159232: getupval      r3    u3
+159233: lt             0   k38    r3 ; k38 = 300
+159234: jmp            0  l102
+159235: loadk         r3   k38 ; k38 = 300
+159236: setupval      r3    u3
+159237: .label	l102
+159238: gettabup      r3    u0   k39 ; k39 = "DestroyTimer"
+159239: gettabup      r4    u0   k36 ; k36 = "Abyss_dur_timer"
+159240: call          r3     2     1
+159241: return        r0     1
+159242: .label	l106
+159243: getupval      r3    u4
+159244: call          r3     1     1
+159245: return        r0     1
+159246: 
+
+; source main.disasm sha256 090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1
+; original starting line 183946
+183946: .function	main/f294/f16
+183947: 
+183948: .source	null
+183949: .linedefined	46486
+183950: .lastlinedefined	46497
+183951: .numparams	0
+183952: .is_vararg	0
+183953: .maxstacksize	8
+183954: 
+183955: .upvalue	null	0	false
+183956: 
+183957: .constant	k0	1
+183958: .constant	k1	"Game_Mode"
+183959: .constant	k2	2
+183960: .constant	k3	"GAME_ENDLESS_TYPE"
+183961: .constant	k4	"pairs"
+183962: .constant	k5	"Player_Index_Arr_Lock"
+183963: .constant	k6	"Create_Unit_By_start_to_end"
+183964: .constant	k7	"pos_arr_monster_start"
+183965: .constant	k8	"Player_Index_Arr"
+183966: 
+183967: gettabup      r0    u0    k1 ; k1 = "Game_Mode"
+183968: eq             0    k0    r0 ; k0 = 1
+183969: jmp            0   l22
+183970: gettabup      r0    u0    k3 ; k3 = "GAME_ENDLESS_TYPE"
+183971: eq             0    k2    r0 ; k2 = 2
+183972: jmp            0   l22
+183973: gettabup      r0    u0    k4 ; k4 = "pairs"
+183974: gettabup      r1    u0    k5 ; k5 = "Player_Index_Arr_Loc" (truncated)
+183975: call          r0     2     4
+183976: jmp            0   l19
+183977: .label	l11
+183978: gettabup      r5    u0    k6 ; k6 = "Create_Unit_By_start" (truncated)
+183979: gettabup      r6    u0    k7 ; k7 = "pos_arr_monster_star" (truncated)
+183980: gettabup      r7    u0    k5 ; k5 = "Player_Index_Arr_Loc" (truncated)
+183981: gettable      r7    r7    r3
+183982: gettable      r6    r6    r7
+183983: gettabup      r7    u0    k5 ; k5 = "Player_Index_Arr_Loc" (truncated)
+183984: gettable      r7    r7    r3
+183985: call          r5     3     1
+183986: .label	l19
+183987: tforcall      r0     2
+183988: tforloop      r2   l11
+183989: jmp            0   l36
+183990: .label	l22
+183991: gettabup      r0    u0    k4 ; k4 = "pairs"
+183992: gettabup      r1    u0    k8 ; k8 = "Player_Index_Arr"
+183993: call          r0     2     4
+183994: jmp            0   l34
+183995: .label	l26
+183996: gettabup      r5    u0    k6 ; k6 = "Create_Unit_By_start" (truncated)
+183997: gettabup      r6    u0    k7 ; k7 = "pos_arr_monster_star" (truncated)
+183998: gettabup      r7    u0    k8 ; k8 = "Player_Index_Arr"
+183999: gettable      r7    r7    r3
+184000: gettable      r6    r6    r7
+184001: gettabup      r7    u0    k8 ; k8 = "Player_Index_Arr"
+184002: gettable      r7    r7    r3
+184003: call          r5     3     1
+184004: .label	l34
+184005: tforcall      r0     2
+184006: tforloop      r2   l26
+184007: .label	l36
+184008: return        r0     1
+184009: 
+
+; source main.disasm sha256 090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1
+; original starting line 184010
+184010: .function	main/f294/f17
+184011: 
+184012: .source	null
+184013: .linedefined	46498
+184014: .lastlinedefined	46606
+184015: .numparams	0
+184016: .is_vararg	0
+184017: .maxstacksize	18
+184018: 
+184019: .upvalue	null	0	false
+184020: 
+184021: .constant	k0	"RuneRefresh"
+184022: .constant	k1	"_mon_rate_trig"
+184023: .constant	k2	"CreateTrigger"
+184024: .constant	k3	"time_of_show_rate"
+184025: .constant	k4	"cur_monLv"
+184026: .constant	k5	1
+184027: .constant	k6	"Game_Mode"
+184028: .constant	k7	"IsEndLessBos"
+184029: .constant	k8	"Trig_monsterShow_Act"
+184030: .constant	k9	"endlessRate"
+184031: .constant	k10	"TriggerRegisterTimerEventPeriodic"
+184032: .constant	k11	"TriggerAddAction"
+184033: .constant	k12	10
+184034: .constant	k13	20
+184035: .constant	k14	30
+184036: .constant	k15	40
+184037: .constant	k16	"WAbility_Up_Lv"
+184038: .constant	k17	"Players_HasItem"
+184039: .constant	k18	"SHOPITEM01"
+184040: .constant	k19	"pairs"
+184041: .constant	k20	"GetPlayerId"
+184042: .constant	k21	"i003"
+184043: .constant	k22	"|cffCD2626\xe7\xba\xa2\xe8\x89\xb2\xe5\x8d\xa1\xe7\x89\x87|r"
+184044: .constant	k23	"Player_Build_Unit"
+184045: .constant	k24	"CheckPlayerHasShopItem"
+184046: .constant	k25	"SHOPITEM08"
+184047: .constant	k26	"i005"
+184048: .constant	k27	0
+184049: .constant	k28	"GetUnitAbilityLevel"
+184050: .constant	k29	"GetId"
+184051: .constant	k30	"B081"
+184052: .constant	k31	"|cff696969\xe9\xbb\x91\xe8\x89\xb2\xe5\x8d\xa1\xe7\x89\x87|r"
+184053: .constant	k32	nil
+184054: .constant	k33	"UnitAddItem"
+184055: .constant	k34	"CreateItem"
+184056: .constant	k35	"GetUnitX"
+184057: .constant	k36	"GetUnitY"
+184058: .constant	k37	"DisplayTextToAll"
+184059: .constant	k38	"|cffffcc00\xe8\xb5\x9e\xe5\x8a\xa9\xe7\x89\xb9\xe6\x9d\x83\xe5\x8f\x91\xe6\x94\xbe|r"
+184060: .constant	k39	"|cffffcc00\xe7\xbb\x99\xe7\x8e\xa9\xe5\xae\xb6|r"
+184061: .constant	k40	"GetPlayerNameStr"
+184062: .constant	k41	5
+184063: .constant	k42	11
+184064: .constant	k43	21
+184065: .constant	k44	31
+184066: .constant	k45	41
+184067: .constant	k46	"Add_Player_Food"
+184068: .constant	k47	L"|cFF66CD00\xe6\x8c\x91\xe6\x88\x98\xe5\x95\x86\xe5\xba\x97\xef\xbc\x88\xe5\x9c\xb0\xe5\x9b\xbe\xe4\xb8\xad\xe9\x97\xb4\xef\xbc\x89\xe5\xb7\xb2\xe7\xbb\x8f\xe5\xbc\x80\xe6\x94\xbe\xef\xbc\x8c\xe6\x8c\x91\xe6\x88\x98BOSS\xe5\x8f\xaf\xe4\xbb\xa5\xe8\x8e\xb7\xe5\xbe\x97\xe4\xb8\xb0\xe5\x8e\x9a\xe5\xa5\x96\xe5\x8a\xb1\xef\xbc\x81|r"
+184069: .constant	k48	"ShowBossshop"
+184070: .constant	k49	54
+184071: .constant	k50	"ShopBOSS_Clear"
+184072: .constant	k51	"GAME_ENDLESS_TYPE"
+184073: .constant	k52	25
+184074: .constant	k53	"PingMinimap"
+184075: .constant	k54	-4400
+184076: .constant	k55	L"|cFF66CD00\xe5\x8f\x98\xe5\xbc\xba\xe8\xb5\x84\xe6\xa0\xbc\xe5\x95\x86\xe5\xba\x97\xe5\xb7\xb2\xe7\xbb\x8f\xe5\xbc\x80\xe5\x90\xaf\xef\xbc\x88\xe5\x9c\xb0\xe5\x9b\xbe\xe6\x9c\x80\xe4\xb8\x8b\xe6\x96\xb9\xef\xbc\x89\xef\xbc\x81\xe8\xbf\x98\xe6\xb2\xa1\xe8\xa7\xa3\xe9\x94\x81\xe6\x8a\x80\xe8\x83\xbd\xe2\x80\x9c\xe5\x8f\x98\xe5\xbc\xba\xe8\xb5\x84\xe6\xa0\xbc\xe2\x80\x9d\xe7\x9a\x84\xe7\x8e\xa9\xe5\xae\xb6\xe5\x8f\xaf\xe4\xbb\xa5\xe5\x89\x8d\xe5\x8e\xbb\xe5\x85\x91\xe6\x8d\xa2\xef\xbc\x81|r"
+184077: .constant	k56	"ShowRshop"
+184078: .constant	k57	L"|cFF66CD00\xe7\xa5\x9e\xe7\xa7\x98\xe5\x95\x86\xe5\xba\x97\xe5\xb7\xb2\xe7\xbb\x8f\xe5\xbc\x80\xe5\x90\xaf\xef\xbc\x88\xe5\x9c\xb0\xe5\x9b\xbe\xe6\x9c\x80\xe4\xb8\x8a\xe6\x96\xb9\xef\xbc\x89\xef\xbc\x81\xe9\x9c\x80\xe8\xa6\x81\xe9\xab\x98\xe7\xba\xa7\xe8\xa3\x85\xe5\xa4\x87\xe7\x9a\x84\xe7\x8e\xa9\xe5\xae\xb6\xe5\x8f\xaf\xe4\xbb\xa5\xe5\x89\x8d\xe5\x8e\xbb\xe9\x80\x89\xe8\xb4\xad\xef\xbc\x81|r"
+184079: .constant	k58	"ShowFshop"
+184080: .constant	k59	"Reset_Fshop"
+184081: .constant	k60	22
+184082: .constant	k61	2
+184083: .constant	k62	"DIAPI_CSCORE_ALREADY"
+184084: .constant	k63	true
+184085: .constant	k64	"Player_Index_Arr"
+184086: .constant	k65	"Player_Index_Arr_Lock"
+184087: .constant	k66	"DZAPI_CSCORE_SET1"
+184088: .constant	k67	"GAME_MODE_CHOOSE"
+184089: .constant	k68	L"|cffffcc00\xe7\xb3\xbb\xe7\xbb\x9f\xef\xbc\x9a\xe6\x97\xa0\xe5\xb0\xbd\xe7\x8e\xa9\xe5\xae\xb6\xe6\x95\xb0\xe5\xb7\xb2\xe8\xa2\xab\xe9\x94\x81\xe5\xae\x9a\xef\xbc\x8c\xe6\x8f\x90\xe5\x89\x8d\xe9\x80\x80\xe5\x87\xba\xe7\x9a\x84\xe7\x8e\xa9\xe5\xae\xb6\xe6\x97\xa0\xe5\xb0\xbd\xe4\xb8\xad\xe5\x87\xba\xe6\x80\xaa\xe5\x8f\xa3\xe4\xbe\x9d\xe6\x97\xa7\xe5\x87\xba\xe6\x80\xaa\xef\xbc\x88\xe5\x9b\xa2\xe9\x98\x9f\xe6\xa8\xa1\xe5\xbc\x8f\xef\xbc\x89\xef\xbc\x81|r"
+184090: .constant	k69	26
+184091: .constant	k70	36
+184092: .constant	k71	46
+184093: .constant	k72	51
+184094: .constant	k73	52
+184095: .constant	k74	53
+184096: .constant	k75	L"|cFF66CD00\xe7\xa5\x9e\xe7\xa7\x98\xe5\x95\x86\xe5\xba\x97\xe5\xb7\xb2\xe7\xbb\x8f\xe4\xb8\x8a\xe6\x9e\xb6\xe4\xba\x86\xe6\x96\xb0\xe8\xb4\xa7\xe7\x89\xa9\xef\xbc\x88\xe5\x9c\xb0\xe5\x9b\xbe\xe6\x9c\x80\xe4\xb8\x8a\xe6\x96\xb9\xef\xbc\x89\xef\xbc\x81\xe9\x9c\x80\xe8\xa6\x81\xe9\xab\x98\xe7\xba\xa7\xe8\xa3\x85\xe5\xa4\x87\xe7\x9a\x84\xe7\x8e\xa9\xe5\xae\xb6\xe5\x8f\xaf\xe4\xbb\xa5\xe5\x89\x8d\xe5\x8e\xbb\xe9\x80\x89\xe8\xb4\xad\xef\xbc\x81|r"
+184097: .constant	k76	16
+184098: .constant	k77	"J100_Add"
+184099: .constant	k78	12
+184100: .constant	k79	17
+184101: .constant	k80	27
+184102: .constant	k81	32
+184103: .constant	k82	37
+184104: .constant	k83	42
+184105: .constant	k84	47
+184106: .constant	k85	"J100_Remove"
+184107: .constant	k86	"SHOP_SSR_LIMIT"
+184108: .constant	k87	"TaskReward_Item_Show"
+184109: .constant	k88	"TaskReward_Item_Get"
+184110: .constant	k89	"J100_TouZhiDian_Arr"
+184111: .constant	k90	"Player"
+184112: .constant	k91	"Mall_ActivityTask_Update_Summer"
+184113: 
+184114: gettabup      r0    u0    k0 ; k0 = "RuneRefresh"
+184115: call          r0     1     1
+184116: gettabup      r0    u0    k2 ; k2 = "CreateTrigger"
+184117: call          r0     1     2
+184118: settabup      u0    k1    r0 ; k1 = "_mon_rate_trig"
+184119: gettabup      r0    u0    k3 ; k3 = "time_of_show_rate"
+184120: gettabup      r1    u0    k4 ; k4 = "cur_monLv"
+184121: gettable      r0    r0    r1
+184122: gettabup      r1    u0    k6 ; k6 = "Game_Mode"
+184123: eq             0    k5    r1 ; k5 = 1
+184124: jmp            0   l20
+184125: gettabup      r1    u0    k7 ; k7 = "IsEndLessBos"
+184126: call          r1     1     2
+184127: test          r1     0
+184128: jmp            0   l20
+184129: gettabup      r1    u0    k8 ; k8 = "Trig_monsterShow_Act"
+184130: call          r1     1     1
+184131: return        r0     1
+184132: jmp            0   l24
+184133: .label	l20
+184134: gettabup      r1    u0    k6 ; k6 = "Game_Mode"
+184135: eq             0    k5    r1 ; k5 = 1
+184136: jmp            0   l24
+184137: gettabup      r0    u0    k9 ; k9 = "endlessRate"
+184138: .label	l24
+184139: gettabup      r1    u0   k10 ; k10 = "TriggerRegisterTimer" (truncated)
+184140: gettabup      r2    u0    k1 ; k1 = "_mon_rate_trig"
+184141: move          r3    r0
+184142: call          r1     3     1
+184143: gettabup      r1    u0   k11 ; k11 = "TriggerAddAction"
+184144: gettabup      r2    u0    k1 ; k1 = "_mon_rate_trig"
+184145: gettabup      r3    u0    k8 ; k8 = "Trig_monsterShow_Act"
+184146: call          r1     3     1
+184147: gettabup      r1    u0    k4 ; k4 = "cur_monLv"
+184148: eq             1   k12    r1 ; k12 = 10
+184149: jmp            0   l44
+184150: gettabup      r1    u0    k4 ; k4 = "cur_monLv"
+184151: eq             1   k13    r1 ; k13 = 20
+184152: jmp            0   l44
+184153: gettabup      r1    u0    k4 ; k4 = "cur_monLv"
+184154: eq             1   k14    r1 ; k14 = 30
+184155: jmp            0   l44
+184156: gettabup      r1    u0    k4 ; k4 = "cur_monLv"
+184157: eq             0   k15    r1 ; k15 = 40
+184158: jmp            0  l113
+184159: .label	l44
+184160: gettabup      r1    u0   k16 ; k16 = "WAbility_Up_Lv"
+184161: call          r1     1     1
+184162: gettabup      r1    u0   k17 ; k17 = "Players_HasItem"
+184163: loadk         r2   k18 ; k18 = "SHOPITEM01"
+184164: call          r1     2     2
+184165: loadnil       r2     3
+184166: gettabup      r6    u0   k19 ; k19 = "pairs"
+184167: move          r7    r1
+184168: call          r6     2     4
+184169: jmp            0  l111
+184170: .label	l54
+184171: gettabup     r11    u0   k20 ; k20 = "GetPlayerId"
+184172: move         r12   r10
+184173: call         r11     2     2
+184174: move          r3   r11
+184175: loadk         r4   k21 ; k21 = "i003"
+184176: loadk         r5   k22 ; k22 = "|cffCD2626\xe7\xba\xa2\xe8\x89\xb2\xe5\x8d\xa1\xe7" (truncated)
+184177: gettabup     r11    u0   k23 ; k23 = "Player_Build_Unit"
+184178: add          r12    r3    k5 ; k5 = 1
+184179: gettable      r2   r11   r12
+184180: gettabup     r11    u0    k4 ; k4 = "cur_monLv"
+184181: eq             1   k14   r11 ; k14 = 30
+184182: jmp            0   l69
+184183: gettabup     r11    u0    k4 ; k4 = "cur_monLv"
+184184: eq             0   k15   r11 ; k15 = 40
+184185: jmp            0   l85
+184186: .label	l69
+184187: gettabup     r11    u0   k24 ; k24 = "CheckPlayerHasShopIt" (truncated)
+184188: move         r12    r3
+184189: loadk        r13   k25 ; k25 = "SHOPITEM08"
+184190: call         r11     3     2
+184191: test         r11     0
+184192: jmp            0   l85
+184193: loadk         r4   k26 ; k26 = "i005"
+184194: gettabup     r11    u0   k28 ; k28 = "GetUnitAbilityLevel"
+184195: move         r12    r2
+184196: gettabup     r13    u0   k29 ; k29 = "GetId"
+184197: loadk        r14   k30 ; k30 = "B081"
+184198: call         r13     2     0
+184199: call         r11     0     2
+184200: lt             0   k27   r11 ; k27 = 0
+184201: jmp            0   l85
+184202: loadk         r5   k31 ; k31 = "|cff696969\xe9\xbb\x91\xe8\x89\xb2\xe5\x8d\xa1\xe7" (truncated)
+184203: .label	l85
+184204: eq             1   k32    r2 ; k32 = nil
+184205: jmp            0  l111
+184206: gettabup     r11    u0   k33 ; k33 = "UnitAddItem"
+184207: move         r12    r2
+184208: gettabup     r13    u0   k34 ; k34 = "CreateItem"
+184209: gettabup     r14    u0   k29 ; k29 = "GetId"
+184210: move         r15    r4
+184211: call         r14     2     2
+184212: gettabup     r15    u0   k35 ; k35 = "GetUnitX"
+184213: move         r16    r2
+184214: call         r15     2     2
+184215: gettabup     r16    u0   k36 ; k36 = "GetUnitY"
+184216: move         r17    r2
+184217: call         r16     2     0
+184218: call         r13     0     0
+184219: call         r11     0     1
+184220: gettabup     r11    u0   k37 ; k37 = "DisplayTextToAll"
+184221: loadk        r12   k38 ; k38 = "|cffffcc00\xe8\xb5\x9e\xe5\x8a\xa9\xe7\x89\xb9\xe6" (truncated)
+184222: move         r13    r5
+184223: loadk        r14   k39 ; k39 = "|cffffcc00\xe7\xbb\x99\xe7\x8e\xa9\xe5\xae\xb6|" (truncated)
+184224: gettabup     r15    u0   k40 ; k40 = "GetPlayerNameStr"
+184225: move         r16   r10
+184226: call         r15     2     2
+184227: concat       r12   r12   r15
+184228: loadk        r13   k41 ; k41 = 5
+184229: call         r11     3     1
+184230: .label	l111
+184231: tforcall      r6     2
+184232: tforloop      r8   l54
+184233: .label	l113
+184234: gettabup      r1    u0    k4 ; k4 = "cur_monLv"
+184235: eq             1   k42    r1 ; k42 = 11
+184236: jmp            0  l125
+184237: gettabup      r1    u0    k4 ; k4 = "cur_monLv"
+184238: eq             1   k43    r1 ; k43 = 21
+184239: jmp            0  l125
+184240: gettabup      r1    u0    k4 ; k4 = "cur_monLv"
+184241: eq             1   k44    r1 ; k44 = 31
+184242: jmp            0  l125
+184243: gettabup      r1    u0    k4 ; k4 = "cur_monLv"
+184244: eq             0   k45    r1 ; k45 = 41
+184245: jmp            0  l132
+184246: .label	l125
+184247: gettabup      r1    u0   k46 ; k46 = "Add_Player_Food"
+184248: gettabup      r2    u0    k4 ; k4 = "cur_monLv"
+184249: sub           r2    r2    k5 ; k5 = 1
+184250: div           r2    r2   k12 ; k12 = 10
+184251: mul           r2    r2   k13 ; k13 = 20
+184252: add           r2   k14    r2 ; k14 = 30
+184253: call          r1     2     1
+184254: .label	l132
+184255: gettabup      r1    u0    k4 ; k4 = "cur_monLv"
+184256: eq             0   k42    r1 ; k42 = 11
+184257: jmp            0  l142
+184258: gettabup      r1    u0   k37 ; k37 = "DisplayTextToAll"
+184259: loadk         r2   k47 ; k47 = L"|cFF66CD00\xe6\x8c\x91\xe6\x88\x98\xe5\x95\x86\xe5" (truncated)
+184260: loadk         r3   k41 ; k41 = 5
+184261: call          r1     3     1
+184262: gettabup      r1    u0   k48 ; k48 = "ShowBossshop"
+184263: call          r1     1     1
+184264: jmp            0  l147
+184265: .label	l142
+184266: gettabup      r1    u0    k4 ; k4 = "cur_monLv"
+184267: eq             0   k49    r1 ; k49 = 54
+184268: jmp            0  l147
+184269: gettabup      r1    u0   k50 ; k50 = "ShopBOSS_Clear"
+184270: call          r1     1     1
+184271: .label	l147
+184272: loadnil       r1     0
+184273: gettabup      r2    u0   k51 ; k51 = "GAME_ENDLESS_TYPE"
+184274: eq             0    k5    r2 ; k5 = 1
+184275: jmp            0  l153
+184276: loadk         r1   k13 ; k13 = 20
+184277: jmp            0  l154
+184278: .label	l153
+184279: loadk         r1   k52 ; k52 = 25
+184280: .label	l154
+184281: gettabup      r2    u0    k4 ; k4 = "cur_monLv"
+184282: eq             0    r1    r2
+184283: jmp            0  l168
+184284: gettabup      r2    u0   k53 ; k53 = "PingMinimap"
+184285: loadk         r3   k27 ; k27 = 0
+184286: loadk         r4   k54 ; k54 = -4400
+184287: loadk         r5   k41 ; k41 = 5
+184288: call          r2     4     1
+184289: gettabup      r2    u0   k37 ; k37 = "DisplayTextToAll"
+184290: loadk         r3   k55 ; k55 = L"|cFF66CD00\xe5\x8f\x98\xe5\xbc\xba\xe8\xb5\x84\xe6" (truncated)
+184291: loadk         r4   k41 ; k41 = 5
+184292: call          r2     3     1
+184293: gettabup      r2    u0   k56 ; k56 = "ShowRshop"
+184294: call          r2     1     1
+184295: .label	l168
+184296: gettabup      r2    u0    k4 ; k4 = "cur_monLv"
+184297: eq             0   k43    r2 ; k43 = 21
+184298: jmp            0  l179
+184299: gettabup      r2    u0   k37 ; k37 = "DisplayTextToAll"
+184300: loadk         r3   k57 ; k57 = L"|cFF66CD00\xe7\xa5\x9e\xe7\xa7\x98\xe5\x95\x86\xe5" (truncated)
+184301: loadk         r4   k41 ; k41 = 5
+184302: call          r2     3     1
+184303: gettabup      r2    u0   k58 ; k58 = "ShowFshop"
+184304: call          r2     1     1
+184305: gettabup      r2    u0   k59 ; k59 = "Reset_Fshop"
+184306: call          r2     1     1
+184307: .label	l179
+184308: gettabup      r2    u0    k4 ; k4 = "cur_monLv"
+184309: eq             0   k60    r2 ; k60 = 22
+184310: jmp            0  l204
+184311: gettabup      r2    u0   k51 ; k51 = "GAME_ENDLESS_TYPE"
+184312: eq             0   k61    r2 ; k61 = 2
+184313: jmp            0  l204
+184314: settabup      u0   k62   k63 ; k63 = true
+184315: gettabup      r2    u0   k19 ; k19 = "pairs"
+184316: gettabup      r3    u0   k64 ; k64 = "Player_Index_Arr"
+184317: call          r2     2     4
+184318: jmp            0  l195
+184319: .label	l190
+184320: gettabup      r7    u0   k65 ; k65 = "Player_Index_Arr_Loc" (truncated)
+184321: settable      r7    r5    r6
+184322: gettabup      r7    u0   k66 ; k66 = "DZAPI_CSCORE_SET1"
+184323: move          r8    r6
+184324: call          r7     2     1
+184325: .label	l195
+184326: tforcall      r2     2
+184327: tforloop      r4  l190
+184328: gettabup      r2    u0   k67 ; k67 = "GAME_MODE_CHOOSE"
+184329: eq             0    k5    r2 ; k5 = 1
+184330: jmp            0  l204
+184331: gettabup      r2    u0   k37 ; k37 = "DisplayTextToAll"
+184332: loadk         r3   k68 ; k68 = L"|cffffcc00\xe7\xb3\xbb\xe7\xbb\x9f\xef\xbc\x9a\xe6" (truncated)
+184333: loadk         r4   k12 ; k12 = 10
+184334: call          r2     3     1
+184335: .label	l204
+184336: gettabup      r2    u0    k4 ; k4 = "cur_monLv"
+184337: eq             1   k69    r2 ; k69 = 26
+184338: jmp            0  l231
+184339: gettabup      r2    u0    k4 ; k4 = "cur_monLv"
+184340: eq             1   k44    r2 ; k44 = 31
+184341: jmp            0  l231
+184342: gettabup      r2    u0    k4 ; k4 = "cur_monLv"
+184343: eq             1   k70    r2 ; k70 = 36
+184344: jmp            0  l231
+184345: gettabup      r2    u0    k4 ; k4 = "cur_monLv"
+184346: eq             1   k45    r2 ; k45 = 41
+184347: jmp            0  l231
+184348: gettabup      r2    u0    k4 ; k4 = "cur_monLv"
+184349: eq             1   k71    r2 ; k71 = 46
+184350: jmp            0  l231
+184351: gettabup      r2    u0    k4 ; k4 = "cur_monLv"
+184352: eq             1   k72    r2 ; k72 = 51
+184353: jmp            0  l231
+184354: gettabup      r2    u0    k4 ; k4 = "cur_monLv"
+184355: eq             1   k73    r2 ; k73 = 52
+184356: jmp            0  l231
+184357: gettabup      r2    u0    k4 ; k4 = "cur_monLv"
+184358: eq             1   k74    r2 ; k74 = 53
+184359: jmp            0  l231
+184360: gettabup      r2    u0    k4 ; k4 = "cur_monLv"
+184361: eq             0   k49    r2 ; k49 = 54
+184362: jmp            0  l237
+184363: .label	l231
+184364: gettabup      r2    u0   k59 ; k59 = "Reset_Fshop"
+184365: call          r2     1     1
+184366: gettabup      r2    u0   k37 ; k37 = "DisplayTextToAll"
+184367: loadk         r3   k75 ; k75 = L"|cFF66CD00\xe7\xa5\x9e\xe7\xa7\x98\xe5\x95\x86\xe5" (truncated)
+184368: loadk         r4   k41 ; k41 = 5
+184369: call          r2     3     1
+184370: .label	l237
+184371: gettabup      r2    u0    k4 ; k4 = "cur_monLv"
+184372: eq             1   k42    r2 ; k42 = 11
+184373: jmp            0  l261
+184374: gettabup      r2    u0    k4 ; k4 = "cur_monLv"
+184375: eq             1   k76    r2 ; k76 = 16
+184376: jmp            0  l261
+184377: gettabup      r2    u0    k4 ; k4 = "cur_monLv"
+184378: eq             1   k43    r2 ; k43 = 21
+184379: jmp            0  l261
+184380: gettabup      r2    u0    k4 ; k4 = "cur_monLv"
+184381: eq             1   k69    r2 ; k69 = 26
+184382: jmp            0  l261
+184383: gettabup      r2    u0    k4 ; k4 = "cur_monLv"
+184384: eq             1   k44    r2 ; k44 = 31
+184385: jmp            0  l261
+184386: gettabup      r2    u0    k4 ; k4 = "cur_monLv"
+184387: eq             1   k70    r2 ; k70 = 36
+184388: jmp            0  l261
+184389: gettabup      r2    u0    k4 ; k4 = "cur_monLv"
+184390: eq             1   k45    r2 ; k45 = 41
+184391: jmp            0  l261
+184392: gettabup      r2    u0    k4 ; k4 = "cur_monLv"
+184393: eq             0   k71    r2 ; k71 = 46
+184394: jmp            0  l263
+184395: .label	l261
+184396: gettabup      r2    u0   k77 ; k77 = "J100_Add"
+184397: call          r2     1     1
+184398: .label	l263
+184399: gettabup      r2    u0    k4 ; k4 = "cur_monLv"
+184400: eq             1   k78    r2 ; k78 = 12
+184401: jmp            0  l287
+184402: gettabup      r2    u0    k4 ; k4 = "cur_monLv"
+184403: eq             1   k79    r2 ; k79 = 17
+184404: jmp            0  l287
+184405: gettabup      r2    u0    k4 ; k4 = "cur_monLv"
+184406: eq             1   k60    r2 ; k60 = 22
+184407: jmp            0  l287
+184408: gettabup      r2    u0    k4 ; k4 = "cur_monLv"
+184409: eq             1   k80    r2 ; k80 = 27
+184410: jmp            0  l287
+184411: gettabup      r2    u0    k4 ; k4 = "cur_monLv"
+184412: eq             1   k81    r2 ; k81 = 32
+184413: jmp            0  l287
+184414: gettabup      r2    u0    k4 ; k4 = "cur_monLv"
+184415: eq             1   k82    r2 ; k82 = 37
+184416: jmp            0  l287
+184417: gettabup      r2    u0    k4 ; k4 = "cur_monLv"
+184418: eq             1   k83    r2 ; k83 = 42
+184419: jmp            0  l287
+184420: gettabup      r2    u0    k4 ; k4 = "cur_monLv"
+184421: eq             0   k84    r2 ; k84 = 47
+184422: jmp            0  l289
+184423: .label	l287
+184424: gettabup      r2    u0   k85 ; k85 = "J100_Remove"
+184425: call          r2     1     1
+184426: .label	l289
+184427: gettabup      r2    u0    k4 ; k4 = "cur_monLv"
+184428: eq             0   k45    r2 ; k45 = 41
+184429: jmp            0  l293
+184430: settabup      u0   k86    k5 ; k5 = 1
+184431: .label	l293
+184432: gettabup      r2    u0   k87 ; k87 = "TaskReward_Item_Show"
+184433: gettabup      r3    u0    k4 ; k4 = "cur_monLv"
+184434: call          r2     2     1
+184435: gettabup      r2    u0   k88 ; k88 = "TaskReward_Item_Get"
+184436: gettabup      r3    u0    k4 ; k4 = "cur_monLv"
+184437: call          r2     2     1
+184438: gettabup      r2    u0    k8 ; k8 = "Trig_monsterShow_Act"
+184439: call          r2     1     1
+184440: gettabup      r2    u0   k19 ; k19 = "pairs"
+184441: gettabup      r3    u0   k64 ; k64 = "Player_Index_Arr"
+184442: call          r2     2     4
+184443: jmp            0  l325
+184444: .label	l305
+184445: gettabup      r7    u0    k4 ; k4 = "cur_monLv"
+184446: eq             0   k49    r7 ; k49 = 54
+184447: jmp            0  l325
+184448: gettabup      r7    u0   k89 ; k89 = "J100_TouZhiDian_Arr"
+184449: gettabup      r8    u0   k20 ; k20 = "GetPlayerId"
+184450: gettabup      r9    u0   k90 ; k90 = "Player"
+184451: move         r10    r6
+184452: call          r9     2     0
+184453: call          r8     0     2
+184454: add           r8    r8    k5 ; k5 = 1
+184455: gettable      r7    r7    r8
+184456: lt             0   k27    r7 ; k27 = 0
+184457: jmp            0  l325
+184458: gettabup      r7    u0   k91 ; k91 = "Mall_ActivityTask_Up" (truncated)
+184459: gettabup      r8    u0   k90 ; k90 = "Player"
+184460: move          r9    r6
+184461: call          r8     2     2
+184462: loadk         r9   k61 ; k61 = 2
+184463: loadk        r10    k5 ; k5 = 1
+184464: call          r7     4     1
+184465: .label	l325
+184466: tforcall      r2     2
+184467: tforloop      r4  l305
+184468: return        r0     1
+184469: 
+
+; source main.disasm sha256 090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1
+; original starting line 185926
+185926: .function	main/f294/f33
+185927: 
+185928: .source	null
+185929: .linedefined	46949
+185930: .lastlinedefined	46981
+185931: .numparams	0
+185932: .is_vararg	0
+185933: .maxstacksize	8
+185934: 
+185935: .upvalue	null	0	false
+185936: .upvalue	null	21	true
+185937: .upvalue	null	22	true
+185938: 
+185939: .constant	k0	"DestroyTimer"
+185940: .constant	k1	"BossStopTimer"
+185941: .constant	k2	"DestroyTimerDialog"
+185942: .constant	k3	"_BossDialog"
+185943: .constant	k4	nil
+185944: .constant	k5	"ClearAllMon"
+185945: .constant	k6	0
+185946: .constant	k7	"Kill_Boss_Num"
+185947: .constant	k8	"GAME_MODE_CHOOSE"
+185948: .constant	k9	"DisplayTextToAll"
+185949: .constant	k10	L"|cffFFFFFF\xe4\xbd\xa0\xe4\xbb\xac\xe4\xb8\x80\xe5\x85\xb1\xe6\x9d\x80\xe6\xad\xbb\xe4\xba\x86|r|cffffcc00"
+185950: .constant	k11	"|r|cffFFFFFF\xe4\xb8\xaa\xe8\x82\x89\xe5\xb1\xb1|r"
+185951: .constant	k12	5
+185952: .constant	k13	"|cffffcc00\xe6\xaf\x8f\xe4\xb8\xaa\xe7\x8e\xa9\xe5\xae\xb6\xe5\xa5\x96\xe5\x8a\xb1|r|cffEE7621"
+185953: .constant	k14	8000
+185954: .constant	k15	"|r|cffffcc00\xe9\x87\x91\xe5\xb8\x81|r"
+185955: .constant	k16	"SetPlayerState"
+185956: .constant	k17	"Player"
+185957: .constant	k18	"PLAYER_STATE_RESOURCE_GOLD"
+185958: .constant	k19	"GetPlayerState"
+185959: .constant	k20	1
+185960: .constant	k21	2
+185961: .constant	k22	3
+185962: .constant	k23	"CreateTimer"
+185963: .constant	k24	L"|cffffcc00\xe6\x8e\xa5\xe4\xb8\x8b\xe6\x9d\xa5\xe4\xbd\xa0\xe4\xbb\xac\xe5\xb0\x86\xe8\xbf\x9b\xe5\x85\xa5\xe6\xb7\xb1\xe6\xb8\x8a\xe6\xa8\xa1\xe5\xbc\x8f\xef\xbc\x81|r"
+185964: .constant	k25	4
+185965: .constant	k26	"TimerStart"
+185966: .constant	k27	L"|cffffcc00\xe6\x8e\xa5\xe4\xb8\x8b\xe6\x9d\xa5\xe4\xbd\xa0\xe4\xbb\xac\xe5\xb0\x86\xe8\xbf\x9b\xe5\x85\xa5\xe6\x97\xa0\xe5\xb0\xbd\xe6\xa8\xa1\xe5\xbc\x8f\xef\xbc\x81|r"
+185967: .constant	k28	"Multiboard_EndLess_Start"
+185968: .constant	k29	"pairs"
+185969: .constant	k30	"Player_Index_Arr"
+185970: .constant	k31	"UpdatePlayerDzapiData"
+185971: .constant	k32	"VictoryOfEveryOne"
+185972: 
+185973: gettabup      r0    u0    k0 ; k0 = "DestroyTimer"
+185974: gettabup      r1    u0    k1 ; k1 = "BossStopTimer"
+185975: call          r0     2     1
+185976: gettabup      r0    u0    k2 ; k2 = "DestroyTimerDialog"
+185977: gettabup      r1    u0    k3 ; k3 = "_BossDialog"
+185978: call          r0     2     1
+185979: settabup      u0    k3    k4 ; k4 = nil
+185980: settabup      u0    k1    k4 ; k4 = nil
+185981: gettabup      r0    u0    k5 ; k5 = "ClearAllMon"
+185982: call          r0     1     1
+185983: gettabup      r0    u0    k7 ; k7 = "Kill_Boss_Num"
+185984: lt             0    k6    r0 ; k6 = 0
+185985: jmp            0  l133
+185986: gettabup      r0    u0    k8 ; k8 = "GAME_MODE_CHOOSE"
+185987: eq             1    k6    r0 ; k6 = 0
+185988: jmp            0  l133
+185989: gettabup      r0    u0    k9 ; k9 = "DisplayTextToAll"
+185990: loadk         r1   k10 ; k10 = L"|cffFFFFFF\xe4\xbd\xa0\xe4\xbb\xac\xe4\xb8\x80\xe5" (truncated)
+185991: gettabup      r2    u0    k7 ; k7 = "Kill_Boss_Num"
+185992: loadk         r3   k11 ; k11 = "|r|cffFFFFFF\xe4\xb8\xaa\xe8\x82\x89\xe5\xb1" (truncated)
+185993: concat        r1    r1    r3
+185994: loadk         r2   k12 ; k12 = 5
+185995: call          r0     3     1
+185996: gettabup      r0    u0    k9 ; k9 = "DisplayTextToAll"
+185997: loadk         r1   k13 ; k13 = "|cffffcc00\xe6\xaf\x8f\xe4\xb8\xaa\xe7\x8e\xa9\xe5" (truncated)
+185998: gettabup      r2    u0    k7 ; k7 = "Kill_Boss_Num"
+185999: mul           r2    r2   k14 ; k14 = 8000
+186000: loadk         r3   k15 ; k15 = "|r|cffffcc00\xe9\x87\x91\xe5\xb8\x81|r"
+186001: concat        r1    r1    r3
+186002: loadk         r2   k12 ; k12 = 5
+186003: call          r0     3     1
+186004: gettabup      r0    u0   k16 ; k16 = "SetPlayerState"
+186005: gettabup      r1    u0   k17 ; k17 = "Player"
+186006: loadk         r2    k6 ; k6 = 0
+186007: call          r1     2     2
+186008: gettabup      r2    u0   k18 ; k18 = "PLAYER_STATE_RESOURC" (truncated)
+186009: gettabup      r3    u0   k19 ; k19 = "GetPlayerState"
+186010: gettabup      r4    u0   k17 ; k17 = "Player"
+186011: loadk         r5    k6 ; k6 = 0
+186012: call          r4     2     2
+186013: gettabup      r5    u0   k18 ; k18 = "PLAYER_STATE_RESOURC" (truncated)
+186014: call          r3     3     2
+186015: gettabup      r4    u0    k7 ; k7 = "Kill_Boss_Num"
+186016: mul           r4    r4   k14 ; k14 = 8000
+186017: add           r3    r3    r4
+186018: call          r0     4     1
+186019: gettabup      r0    u0   k16 ; k16 = "SetPlayerState"
+186020: gettabup      r1    u0   k17 ; k17 = "Player"
+186021: loadk         r2   k20 ; k20 = 1
+186022: call          r1     2     2
+186023: gettabup      r2    u0   k18 ; k18 = "PLAYER_STATE_RESOURC" (truncated)
+186024: gettabup      r3    u0   k19 ; k19 = "GetPlayerState"
+186025: gettabup      r4    u0   k17 ; k17 = "Player"
+186026: loadk         r5   k20 ; k20 = 1
+186027: call          r4     2     2
+186028: gettabup      r5    u0   k18 ; k18 = "PLAYER_STATE_RESOURC" (truncated)
+186029: call          r3     3     2
+186030: gettabup      r4    u0    k7 ; k7 = "Kill_Boss_Num"
+186031: mul           r4    r4   k14 ; k14 = 8000
+186032: add           r3    r3    r4
+186033: call          r0     4     1
+186034: gettabup      r0    u0   k16 ; k16 = "SetPlayerState"
+186035: gettabup      r1    u0   k17 ; k17 = "Player"
+186036: loadk         r2   k21 ; k21 = 2
+186037: call          r1     2     2
+186038: gettabup      r2    u0   k18 ; k18 = "PLAYER_STATE_RESOURC" (truncated)
+186039: gettabup      r3    u0   k19 ; k19 = "GetPlayerState"
+186040: gettabup      r4    u0   k17 ; k17 = "Player"
+186041: loadk         r5   k21 ; k21 = 2
+186042: call          r4     2     2
+186043: gettabup      r5    u0   k18 ; k18 = "PLAYER_STATE_RESOURC" (truncated)
+186044: call          r3     3     2
+186045: gettabup      r4    u0    k7 ; k7 = "Kill_Boss_Num"
+186046: mul           r4    r4   k14 ; k14 = 8000
+186047: add           r3    r3    r4
+186048: call          r0     4     1
+186049: gettabup      r0    u0   k16 ; k16 = "SetPlayerState"
+186050: gettabup      r1    u0   k17 ; k17 = "Player"
+186051: loadk         r2   k22 ; k22 = 3
+186052: call          r1     2     2
+186053: gettabup      r2    u0   k18 ; k18 = "PLAYER_STATE_RESOURC" (truncated)
+186054: gettabup      r3    u0   k19 ; k19 = "GetPlayerState"
+186055: gettabup      r4    u0   k17 ; k17 = "Player"
+186056: loadk         r5   k22 ; k22 = 3
+186057: call          r4     2     2
+186058: gettabup      r5    u0   k18 ; k18 = "PLAYER_STATE_RESOURC" (truncated)
+186059: call          r3     3     2
+186060: gettabup      r4    u0    k7 ; k7 = "Kill_Boss_Num"
+186061: mul           r4    r4   k14 ; k14 = 8000
+186062: add           r3    r3    r4
+186063: call          r0     4     1
+186064: gettabup      r0    u0   k23 ; k23 = "CreateTimer"
+186065: call          r0     1     2
+186066: gettabup      r1    u0    k8 ; k8 = "GAME_MODE_CHOOSE"
+186067: eq             0   k21    r1 ; k21 = 2
+186068: jmp            0  l108
+186069: gettabup      r1    u0    k9 ; k9 = "DisplayTextToAll"
+186070: loadk         r2   k24 ; k24 = L"|cffffcc00\xe6\x8e\xa5\xe4\xb8\x8b\xe6\x9d\xa5\xe4" (truncated)
+186071: loadk         r3   k25 ; k25 = 4
+186072: call          r1     3     1
+186073: gettabup      r1    u0   k26 ; k26 = "TimerStart"
+186074: move          r2    r0
+186075: loadk         r3   k12 ; k12 = 5
+186076: loadbool      r4     0     0
+186077: getupval      r5    u1
+186078: call          r1     5     1
+186079: jmp            0  l123
+186080: .label	l108
+186081: gettabup      r1    u0    k8 ; k8 = "GAME_MODE_CHOOSE"
+186082: eq             0   k20    r1 ; k20 = 1
+186083: jmp            0  l123
+186084: gettabup      r1    u0    k9 ; k9 = "DisplayTextToAll"
+186085: loadk         r2   k27 ; k27 = L"|cffffcc00\xe6\x8e\xa5\xe4\xb8\x8b\xe6\x9d\xa5\xe4" (truncated)
+186086: loadk         r3   k25 ; k25 = 4
+186087: call          r1     3     1
+186088: gettabup      r1    u0   k26 ; k26 = "TimerStart"
+186089: move          r2    r0
+186090: loadk         r3   k12 ; k12 = 5
+186091: loadbool      r4     0     0
+186092: getupval      r5    u2
+186093: call          r1     5     1
+186094: gettabup      r1    u0   k28 ; k28 = "Multiboard_EndLess_S" (truncated)
+186095: call          r1     1     1
+186096: .label	l123
+186097: gettabup      r1    u0   k29 ; k29 = "pairs"
+186098: gettabup      r2    u0   k30 ; k30 = "Player_Index_Arr"
+186099: call          r1     2     4
+186100: jmp            0  l130
+186101: .label	l127
+186102: gettabup      r6    u0   k31 ; k31 = "UpdatePlayerDzapiDat" (truncated)
+186103: move          r7    r5
+186104: call          r6     2     1
+186105: .label	l130
+186106: tforcall      r1     2
+186107: tforloop      r3  l127
+186108: jmp            0  l135
+186109: .label	l133
+186110: gettabup      r0    u0   k32 ; k32 = "VictoryOfEveryOne"
+186111: call          r0     1     1
+186112: .label	l135
+186113: return        r0     1
+186114: 
+
+; source main.disasm sha256 090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1
+; original starting line 186241
+186241: .function	main/f294/f36
+186242: 
+186243: .source	null
+186244: .linedefined	47005
+186245: .lastlinedefined	47034
+186246: .numparams	2
+186247: .is_vararg	0
+186248: .maxstacksize	7
+186249: 
+186250: .upvalue	null	0	false
+186251: 
+186252: .constant	k0	"CreateTrigger"
+186253: .constant	k1	"TriggerRegisterUnitEvent"
+186254: .constant	k2	"EVENT_UNIT_DAMAGED"
+186255: .constant	k3	"TriggerAddAction"
+186256: .constant	k4	"anyUnitDamaged"
+186257: .constant	k5	1
+186258: .constant	k6	nil
+186259: .constant	k7	"mon_arr"
+186260: .constant	k8	"mon_next_pos_index"
+186261: .constant	k9	"mon_damage_trig_arr"
+186262: .constant	k10	0
+186263: .constant	k11	"AddArrAny"
+186264: .constant	k12	"Mon_Mode1_0"
+186265: .constant	k13	"SetUnitColor"
+186266: .constant	k14	"PLAYER_COLOR_RED"
+186267: .constant	k15	"Mon_Mode1_1"
+186268: .constant	k16	"PLAYER_COLOR_BLUE"
+186269: .constant	k17	2
+186270: .constant	k18	"Mon_Mode1_2"
+186271: .constant	k19	"PLAYER_COLOR_CYAN"
+186272: .constant	k20	3
+186273: .constant	k21	"Mon_Mode1_3"
+186274: .constant	k22	"PLAYER_COLOR_PURPLE"
+186275: 
+186276: gettabup      r2    u0    k0 ; k0 = "CreateTrigger"
+186277: call          r2     1     2
+186278: gettabup      r3    u0    k1 ; k1 = "TriggerRegisterUnitE" (truncated)
+186279: move          r4    r2
+186280: move          r5    r0
+186281: gettabup      r6    u0    k2 ; k2 = "EVENT_UNIT_DAMAGED"
+186282: call          r3     4     1
+186283: gettabup      r3    u0    k3 ; k3 = "TriggerAddAction"
+186284: move          r4    r2
+186285: gettabup      r5    u0    k4 ; k4 = "anyUnitDamaged"
+186286: call          r3     3     1
+186287: loadk         r3    k5 ; k5 = 1
+186288: .label	l13
+186289: gettabup      r4    u0    k7 ; k7 = "mon_arr"
+186290: gettable      r4    r4    r3
+186291: eq             1    k6    r4 ; k6 = nil
+186292: jmp            0   l19
+186293: add           r3    r3    k5 ; k5 = 1
+186294: jmp            0   l13
+186295: .label	l19
+186296: gettabup      r4    u0    k7 ; k7 = "mon_arr"
+186297: settable      r4    r3    r0
+186298: gettabup      r4    u0    k8 ; k8 = "mon_next_pos_index"
+186299: settable      r4    r3    r1
+186300: gettabup      r4    u0    k9 ; k9 = "mon_damage_trig_arr"
+186301: settable      r4    r3    r2
+186302: eq             0   k10    r1 ; k10 = 0
+186303: jmp            0   l36
+186304: gettabup      r4    u0   k11 ; k11 = "AddArrAny"
+186305: gettabup      r5    u0   k12 ; k12 = "Mon_Mode1_0"
+186306: move          r6    r0
+186307: call          r4     3     1
+186308: gettabup      r4    u0   k13 ; k13 = "SetUnitColor"
+186309: move          r5    r0
+186310: gettabup      r6    u0   k14 ; k14 = "PLAYER_COLOR_RED"
+186311: call          r4     3     1
+186312: jmp            0   l68
+186313: .label	l36
+186314: eq             0    k5    r1 ; k5 = 1
+186315: jmp            0   l47
+186316: gettabup      r4    u0   k11 ; k11 = "AddArrAny"
+186317: gettabup      r5    u0   k15 ; k15 = "Mon_Mode1_1"
+186318: move          r6    r0
+186319: call          r4     3     1
+186320: gettabup      r4    u0   k13 ; k13 = "SetUnitColor"
+186321: move          r5    r0
+186322: gettabup      r6    u0   k16 ; k16 = "PLAYER_COLOR_BLUE"
+186323: call          r4     3     1
+186324: jmp            0   l68
+186325: .label	l47
+186326: eq             0   k17    r1 ; k17 = 2
+186327: jmp            0   l58
+186328: gettabup      r4    u0   k11 ; k11 = "AddArrAny"
+186329: gettabup      r5    u0   k18 ; k18 = "Mon_Mode1_2"
+186330: move          r6    r0
+186331: call          r4     3     1
+186332: gettabup      r4    u0   k13 ; k13 = "SetUnitColor"
+186333: move          r5    r0
+186334: gettabup      r6    u0   k19 ; k19 = "PLAYER_COLOR_CYAN"
+186335: call          r4     3     1
+186336: jmp            0   l68
+186337: .label	l58
+186338: eq             0   k20    r1 ; k20 = 3
+186339: jmp            0   l68
+186340: gettabup      r4    u0   k11 ; k11 = "AddArrAny"
+186341: gettabup      r5    u0   k21 ; k21 = "Mon_Mode1_3"
+186342: move          r6    r0
+186343: call          r4     3     1
+186344: gettabup      r4    u0   k13 ; k13 = "SetUnitColor"
+186345: move          r5    r0
+186346: gettabup      r6    u0   k22 ; k22 = "PLAYER_COLOR_PURPLE"
+186347: call          r4     3     1
+186348: .label	l68
+186349: loadnil       r2     0
+186350: return        r0     1
+186351: 

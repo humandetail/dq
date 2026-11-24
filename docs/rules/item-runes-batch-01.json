@@ -1,0 +1,237 @@
+{
+  "baselineId": "item-runes-batch-01",
+  "coverage": {
+    "itemComponentsReady": 5,
+    "itemComponentsRemaining": 0,
+    "uniqueItems": 5,
+    "mountedAliases": 2,
+    "auxiliaryAliases": 2,
+    "existingRestorationRuneReused": 1
+  },
+  "items": {
+    "i718": {
+      "name": "赏金神符",
+      "workbookCell": "装备与道具!H238",
+      "alias": null,
+      "componentReady": true,
+      "callback": "Item_Get",
+      "pickupSourceLine": 145429,
+      "sourceItemJsonIndex": 621,
+      "sourceAbility": null
+    },
+    "i719": {
+      "name": "力量神符",
+      "workbookCell": "装备与道具!H239",
+      "alias": "I222",
+      "componentReady": true,
+      "callback": "Item_Get",
+      "pickupSourceLine": 145443,
+      "sourceItemJsonIndex": 622,
+      "sourceAbility": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1145,
+        "id": "I222",
+        "fields": {
+          "alias": "I222",
+          "code": "AIsa",
+          "Area1": 999999.0,
+          "BuffID1": "B052",
+          "Cool1": 60.0,
+          "DataA1": 2.0,
+          "Dur1": 10.0,
+          "HeroDur1": 10.0,
+          "levels": 1,
+          "targs1": "vulnerable,invulnerable,friend,hero",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      }
+    },
+    "i720": {
+      "name": "奥术神符",
+      "workbookCell": "装备与道具!H240",
+      "alias": "I223",
+      "componentReady": true,
+      "callback": "Item_Get",
+      "pickupSourceLine": 145457,
+      "sourceItemJsonIndex": 623,
+      "sourceAbility": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1146,
+        "id": "I223",
+        "fields": {
+          "alias": "I223",
+          "code": "AIsa",
+          "Area1": 999999.0,
+          "BuffID1": "B053",
+          "Cool1": 60.0,
+          "DataA1": 2.0,
+          "Dur1": 10.0,
+          "HeroDur1": 10.0,
+          "levels": 1,
+          "targs1": "vulnerable,invulnerable,friend,hero",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      }
+    },
+    "i721": {
+      "name": "极速神符",
+      "workbookCell": "装备与道具!H241",
+      "alias": null,
+      "componentReady": true,
+      "callback": "Item_Get",
+      "pickupSourceLine": 145471,
+      "sourceItemJsonIndex": 624,
+      "sourceAbility": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1147,
+        "id": "I224",
+        "fields": {
+          "alias": "I224",
+          "code": "Ablo",
+          "BuffID1": "B051",
+          "checkDep": 1,
+          "DataA1": 0.5,
+          "Dur1": 10.0,
+          "HeroDur1": 10.0,
+          "levels": 1,
+          "priority": 11,
+          "Rng1": 999999.0,
+          "targs1": "vulnerable,invulnerable,friend,hero",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      }
+    },
+    "i722": {
+      "name": "幻象神符",
+      "workbookCell": "装备与道具!H242",
+      "alias": null,
+      "componentReady": true,
+      "callback": "Item_Get",
+      "pickupSourceLine": 145485,
+      "sourceItemJsonIndex": 625,
+      "sourceAbility": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1148,
+        "id": "I225",
+        "fields": {
+          "alias": "I225",
+          "code": "AIil",
+          "Area1": 30.0,
+          "BuffID1": "BIil",
+          "DataA1": 0.3,
+          "DataB1": 2.0,
+          "Dur1": 10.0,
+          "HeroDur1": 10.0,
+          "levels": 1,
+          "Rng1": 99999.0,
+          "targs1": "ground,vulnerable,air,invulnerable,friend",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      }
+    }
+  },
+  "web": {
+    "spawn": {
+      "mode": 0,
+      "inclusiveRollRange": [
+        1,
+        100
+      ],
+      "spawnIfLessThan": 50,
+      "delaySeconds": 15,
+      "maxOutstanding": 1,
+      "equalTypePool": [
+        "i718",
+        "i719",
+        "i720",
+        "i721",
+        "i722",
+        "i723"
+      ]
+    },
+    "i718": {
+      "goldPerWave": 66,
+      "sourceMinimumWave": 1,
+      "audience": "active human players"
+    },
+    "i719": {
+      "duration": 10,
+      "physicalMultiplier": 1.2,
+      "movementSpeedBonus": 2,
+      "buff": "B052"
+    },
+    "i720": {
+      "duration": 10,
+      "magicMultiplier": 1.2,
+      "movementSpeedBonus": 2,
+      "buff": "B053"
+    },
+    "i721": {
+      "duration": 10,
+      "attackSpeedBonus": 0.5,
+      "movementSpeedBonus": 0,
+      "buff": "B051",
+      "includesHeroCollector": true
+    },
+    "i722": {
+      "duration": 10,
+      "countPerHero": 1,
+      "attackMultiplier": 0.4,
+      "damageTakenMultiplier": 2,
+      "buff": "BIil"
+    }
+  },
+  "sourceLines": {
+    "refreshAtWave": 184114,
+    "spawnLogic": 181218,
+    "scriptEffects": [
+      136381,
+      136781
+    ],
+    "physicalDamage": 145736,
+    "magicDamage": 145758,
+    "illusionCommand": 136732
+  },
+  "verification": {
+    "goldAfterCreditByWave": {
+      "0": [
+        76,
+        86,
+        96,
+        106
+      ],
+      "3": [
+        208,
+        218,
+        228,
+        238
+      ]
+    },
+    "sourceFilterOrder": [
+      "haste_pre_native",
+      "illusion"
+    ],
+    "sourceFilters": {
+      "collector": [
+        false,
+        true
+      ],
+      "otherHero": [
+        true,
+        true
+      ],
+      "worker": [
+        true,
+        false
+      ]
+    }
+  }
+}

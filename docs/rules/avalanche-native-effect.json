@@ -1,0 +1,2900 @@
+{
+  "schemaVersion": 1,
+  "scope": "T059/T162 only: native acceptance, point snapshot/timing, candidate filtering, one Q40 damage packet per target, HERO/Arsk and stun lifecycle. Existing Q39/Q40/attack entry retained; not other ANcs or AOcr abilities.",
+  "source": {
+    "path": "reference/map-6.25/main.disasm",
+    "sha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+    "workbookPath": "图鉴.xlsx",
+    "workbookSha256": "457c8f7e37e19412a0dd072ce941e95604b0b8910860b9e1eb9883e6b82bb6af",
+    "units_campaignabilitystrings.txt": {
+      "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+      "sha256": "5240c99230cd441b4c376371a31a7987e65470feed736177473a206c55fbe8cc"
+    },
+    "units_commonabilitystrings.txt": {
+      "path": "reference/map-6.25/units_commonabilitystrings.txt",
+      "sha256": "07e87948660b7ec5beea095716ddd66faa340bfacc38a7c8d9bc09b59df2c205"
+    }
+  },
+  "sourceSequence": {
+    "function": "main/f59/f1",
+    "pcs": [
+      55,
+      89
+    ],
+    "lines": [
+      71941,
+      71975
+    ],
+    "instructions": [
+      {
+        "pc": 55,
+        "line": 71941,
+        "instruction": "gettabup      r9    u0   k19"
+      },
+      {
+        "pc": 56,
+        "line": 71942,
+        "instruction": "gettabup     r10    u0   k20"
+      },
+      {
+        "pc": 57,
+        "line": 71943,
+        "instruction": "move         r11    r0"
+      },
+      {
+        "pc": 58,
+        "line": 71944,
+        "instruction": "call         r10     2     2"
+      },
+      {
+        "pc": 59,
+        "line": 71945,
+        "instruction": "gettabup     r11    u0   k10"
+      },
+      {
+        "pc": 60,
+        "line": 71946,
+        "instruction": "move         r12    r0"
+      },
+      {
+        "pc": 61,
+        "line": 71947,
+        "instruction": "call         r11     2     2"
+      },
+      {
+        "pc": 62,
+        "line": 71948,
+        "instruction": "move         r12    r7"
+      },
+      {
+        "pc": 63,
+        "line": 71949,
+        "instruction": "move         r13    r8"
+      },
+      {
+        "pc": 64,
+        "line": 71950,
+        "instruction": "loadk        r14    k4"
+      },
+      {
+        "pc": 65,
+        "line": 71951,
+        "instruction": "loadk        r15   k21"
+      },
+      {
+        "pc": 66,
+        "line": 71952,
+        "instruction": "call          r9     7     2"
+      },
+      {
+        "pc": 67,
+        "line": 71953,
+        "instruction": "gettabup     r10    u0   k22"
+      },
+      {
+        "pc": 68,
+        "line": 71954,
+        "instruction": "move         r11    r9"
+      },
+      {
+        "pc": 69,
+        "line": 71955,
+        "instruction": "loadk        r12   k23"
+      },
+      {
+        "pc": 70,
+        "line": 71956,
+        "instruction": "move         r13    r6"
+      },
+      {
+        "pc": 71,
+        "line": 71957,
+        "instruction": "call         r10     4     1"
+      },
+      {
+        "pc": 72,
+        "line": 71958,
+        "instruction": "gettabup     r10    u0   k24"
+      },
+      {
+        "pc": 73,
+        "line": 71959,
+        "instruction": "move         r11    r9"
+      },
+      {
+        "pc": 74,
+        "line": 71960,
+        "instruction": "move         r12    r2"
+      },
+      {
+        "pc": 75,
+        "line": 71961,
+        "instruction": "call         r10     3     1"
+      },
+      {
+        "pc": 76,
+        "line": 71962,
+        "instruction": "gettabup     r10    u0   k25"
+      },
+      {
+        "pc": 77,
+        "line": 71963,
+        "instruction": "move         r11    r6"
+      },
+      {
+        "pc": 78,
+        "line": 71964,
+        "instruction": "call         r10     2     1"
+      },
+      {
+        "pc": 79,
+        "line": 71965,
+        "instruction": "gettabup     r10    u0   k26"
+      },
+      {
+        "pc": 80,
+        "line": 71966,
+        "instruction": "call         r10     1     2"
+      },
+      {
+        "pc": 81,
+        "line": 71967,
+        "instruction": "move          r3   r10"
+      },
+      {
+        "pc": 82,
+        "line": 71968,
+        "instruction": "gettabup     r10    u0   k27"
+      },
+      {
+        "pc": 83,
+        "line": 71969,
+        "instruction": "move         r11    r3"
+      },
+      {
+        "pc": 84,
+        "line": 71970,
+        "instruction": "loadk        r12   k28"
+      },
+      {
+        "pc": 85,
+        "line": 71971,
+        "instruction": "loadbool     r13     0     0"
+      },
+      {
+        "pc": 86,
+        "line": 71972,
+        "instruction": "getupval     r14    u2"
+      },
+      {
+        "pc": 87,
+        "line": 71973,
+        "instruction": "call         r10     5     1"
+      },
+      {
+        "pc": 88,
+        "line": 71974,
+        "instruction": "settabup      u1    r2    r3"
+      },
+      {
+        "pc": 89,
+        "line": 71975,
+        "instruction": "return        r0     1"
+      }
+    ],
+    "counts": {
+      "instructions": 35,
+      "conditions": 0,
+      "calls": 8,
+      "returnInstructions": 1
+    },
+    "keyCalls": [
+      {
+        "pc": 66,
+        "line": 71952,
+        "name": "CreateTempAndSetAbilityLv"
+      },
+      {
+        "pc": 71,
+        "line": 71957,
+        "name": "IssuePointOrderLoc"
+      },
+      {
+        "pc": 75,
+        "line": 71961,
+        "name": "SetUnitUserData"
+      },
+      {
+        "pc": 78,
+        "line": 71964,
+        "name": "RemoveLocation"
+      },
+      {
+        "pc": 87,
+        "line": 71973,
+        "name": "TimerStart"
+      },
+      {
+        "pc": 88,
+        "line": 71974,
+        "name": "store lock"
+      }
+    ]
+  },
+  "helperFunction": {
+    "name": "CreateTempAndSetAbilityLv",
+    "function": "main/f7/f20",
+    "sourceLines": [
+      51457,
+      51509
+    ],
+    "counts": {
+      "instructions": 33,
+      "conditions": 1,
+      "calls": 8,
+      "returnInstructions": 2
+    },
+    "conditions": [
+      {
+        "pc": 1,
+        "line": 51476,
+        "raw": "test r6 1",
+        "trueNextPC": 4,
+        "falseNextPC": 3,
+        "meaning": "unitID truthy preserved; nil/false defaultsq001"
+      }
+    ],
+    "returns": [
+      {
+        "pc": 32,
+        "line": 51508,
+        "raw": "return r7 2"
+      },
+      {
+        "pc": 33,
+        "line": 51509,
+        "raw": "return r0 1"
+      }
+    ]
+  },
+  "objectData": {
+    "units_abilitydata.json:ANcs": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 5922,
+      "fields": {
+        "alias": "ANcs",
+        "code": "ANcs",
+        "Area1": 200.0,
+        "Area2": 200.0,
+        "Area3": 200.0,
+        "BuffID1": "BNcs",
+        "BuffID2": "BNcs",
+        "BuffID3": "BNcs",
+        "checkDep": 1,
+        "Cool1": 6.0,
+        "Cool2": 6.0,
+        "Cool3": 6.0,
+        "Cost1": 70,
+        "Cost2": 70,
+        "Cost3": 70,
+        "DataA1": 8.75,
+        "DataA2": 16.25,
+        "DataA3": 25.0,
+        "DataB1": 0.25,
+        "DataB2": 0.25,
+        "DataB3": 0.25,
+        "DataC1": 6,
+        "DataC2": 12,
+        "DataC3": 18,
+        "DataD1": 105.0,
+        "DataD2": 195.0,
+        "DataD3": 300.0,
+        "DataE1": 1.0,
+        "DataE2": 1.0,
+        "DataE3": 1.0,
+        "DataF1": 1.01,
+        "DataF2": 1.01,
+        "DataF3": 1.01,
+        "Dur1": 1.01,
+        "Dur2": 1.01,
+        "Dur3": 1.01,
+        "EfctID1": "XNcs",
+        "EfctID2": "XNcs",
+        "EfctID3": "XNcs",
+        "HeroDur1": 1.01,
+        "HeroDur2": 1.01,
+        "HeroDur3": 1.01,
+        "levels": 3,
+        "reqLevel": 1,
+        "Rng1": 800.0,
+        "Rng2": 800.0,
+        "Rng3": 800.0,
+        "targs1": "ground,enemy,neutral,structure",
+        "targs2": "ground,enemy,neutral,structure",
+        "targs3": "ground,enemy,neutral,structure",
+        "targs4": "_"
+      }
+    },
+    "units_abilitydata.json:Arsk": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 12183,
+      "fields": {
+        "alias": "Arsk",
+        "code": "Arsk",
+        "checkDep": 1,
+        "levels": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "units_abilitydata.json:N534": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 27010,
+      "fields": {
+        "alias": "N534",
+        "code": "Arsk",
+        "checkDep": 1,
+        "levels": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "units_abilitydata.json:N535": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 27020,
+      "fields": {
+        "alias": "N535",
+        "code": "ANss",
+        "BuffID1": "BNss",
+        "Cool1": 6.0,
+        "levels": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "units_abilitydata.json:T059": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 33503,
+      "fields": {
+        "alias": "T059",
+        "code": "ANcs",
+        "Area1": 300.0,
+        "Area2": 200.0,
+        "Area3": 200.0,
+        "Area4": 200.0,
+        "BuffID1": "BNcs",
+        "BuffID2": "BNcs",
+        "BuffID3": "BNcs",
+        "BuffID4": "BNcs",
+        "checkDep": 1,
+        "DataA1": 150.0,
+        "DataA2": 275.0,
+        "DataA3": 420.0,
+        "DataA4": 650.0,
+        "DataB1": 0.25,
+        "DataB2": 0.25,
+        "DataB3": 0.25,
+        "DataB4": 0.25,
+        "DataC1": 12,
+        "DataC2": 12,
+        "DataC3": 12,
+        "DataC4": 12,
+        "DataD1": 1000000.0,
+        "DataD2": 1000000.0,
+        "DataD3": 1000000.0,
+        "DataD4": 1000000.0,
+        "DataE1": 1.0,
+        "DataE2": 1.0,
+        "DataE3": 1.0,
+        "DataE4": 1.0,
+        "DataF1": 1.01,
+        "DataF2": 1.01,
+        "DataF3": 1.01,
+        "DataF4": 1.01,
+        "Dur1": 0.4,
+        "Dur2": 0.6,
+        "Dur3": 0.8,
+        "Dur4": 1.0,
+        "EfctID1": "XNcs",
+        "EfctID2": "XNcs",
+        "EfctID3": "XNcs",
+        "EfctID4": "XNcs",
+        "HeroDur1": 0.1,
+        "HeroDur2": 0.3,
+        "HeroDur3": 0.4,
+        "HeroDur4": 0.5,
+        "levels": 6,
+        "reqLevel": 1,
+        "Rng1": 1500.0,
+        "Rng2": 1500.0,
+        "Rng3": 1500.0,
+        "Rng4": 1500.0,
+        "targs1": "enemies",
+        "targs2": "enemies",
+        "targs3": "enemies",
+        "targs4": "enemies"
+      }
+    },
+    "units_abilitydata.json:T162": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 35608,
+      "fields": {
+        "alias": "T162",
+        "code": "ANcs",
+        "Area1": 300.0,
+        "Area2": 200.0,
+        "Area3": 200.0,
+        "Area4": 200.0,
+        "BuffID1": "BNcs",
+        "BuffID2": "BNcs",
+        "BuffID3": "BNcs",
+        "BuffID4": "BNcs",
+        "checkDep": 1,
+        "DataA1": 150.0,
+        "DataA2": 275.0,
+        "DataA3": 420.0,
+        "DataA4": 650.0,
+        "DataB1": 0.25,
+        "DataB2": 0.25,
+        "DataB3": 0.25,
+        "DataB4": 0.25,
+        "DataC1": 12,
+        "DataC2": 12,
+        "DataC3": 12,
+        "DataC4": 12,
+        "DataD1": 1000000.0,
+        "DataD2": 1000000.0,
+        "DataD3": 1000000.0,
+        "DataD4": 1000000.0,
+        "DataE1": 1.0,
+        "DataE2": 1.0,
+        "DataE3": 1.0,
+        "DataE4": 1.0,
+        "DataF1": 1.01,
+        "DataF2": 1.01,
+        "DataF3": 1.01,
+        "DataF4": 1.01,
+        "Dur1": 0.4,
+        "Dur2": 0.6,
+        "Dur3": 0.8,
+        "Dur4": 1.0,
+        "EfctID1": "XNcs",
+        "EfctID2": "XNcs",
+        "EfctID3": "XNcs",
+        "EfctID4": "XNcs",
+        "HeroDur1": 0.1,
+        "HeroDur2": 0.3,
+        "HeroDur3": 0.4,
+        "HeroDur4": 0.5,
+        "levels": 6,
+        "reqLevel": 1,
+        "Rng1": 1500.0,
+        "Rng2": 1500.0,
+        "Rng3": 1500.0,
+        "Rng4": 1500.0,
+        "targs1": "enemies",
+        "targs2": "enemies",
+        "targs3": "enemies",
+        "targs4": "enemies"
+      }
+    },
+    "units_abilitybuffdata.json:BNcs": {
+      "path": "reference/map-6.25/units_abilitybuffdata.json",
+      "line": 147,
+      "fields": {
+        "alias": "BNcs"
+      }
+    },
+    "units_abilitybuffdata.json:XNcs": {
+      "path": "reference/map-6.25/units_abilitybuffdata.json",
+      "line": 660,
+      "fields": {
+        "alias": "XNcs"
+      }
+    },
+    "units_unitabilities.json:q001": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 6555,
+      "fields": {
+        "unitAbilID": "q001",
+        "abilList": "Avul,Aloc",
+        "auto": "_"
+      }
+    },
+    "units_unitbalance.json:q001": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 37578,
+      "fields": {
+        "unitBalanceID": "q001",
+        "bldtm": 20,
+        "bountydice": 6,
+        "bountyplus": 20,
+        "bountysides": 3,
+        "defType": "small",
+        "defUp": 2.0,
+        "HP": 65,
+        "mana0": 1000,
+        "manaN": 1000,
+        "preventPlace": "_",
+        "Primary": "_",
+        "regenHP": 0.25,
+        "regenType": "always",
+        "reptm": 20,
+        "requirePlace": "_",
+        "stockMax": 3,
+        "stockRegen": 30,
+        "tilesets": "*"
+      }
+    },
+    "units_unitweapons.json:q001": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 34183,
+      "fields": {
+        "unitWeapID": "q001",
+        "acquire": 900.0,
+        "atkType1": "spells",
+        "atkType2": "normal",
+        "cool1": 1.0,
+        "dice1": 1,
+        "dmgplus1": 12,
+        "rangeN1": 10,
+        "RngBuff1": 250.0,
+        "showUI1": 1,
+        "showUI2": 1,
+        "sides1": 2,
+        "targCount1": 1,
+        "targCount2": 1,
+        "targs1": "ground,debris,air,item",
+        "weapTp1": "missile"
+      }
+    }
+  },
+  "profiles": {
+    "T059": {
+      "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+      "lines": [
+        20021,
+        20038
+      ],
+      "fields": {
+        "Animnames": "spell,one",
+        "Art": ",",
+        "Buttonpos": "1,2",
+        "Hotkey": "R",
+        "Missilearc": "0.2",
+        "Missileart": "Abilities\\Spells\\Orc\\EarthQuake\\EarthQuakeTarget.mdl",
+        "MissileHoming": "1",
+        "Missilespeed": "700",
+        "Name": "马甲-山崩",
+        "Order": "clusterrockets",
+        "Researchbuttonpos": "1",
+        "Researchhotkey": "R",
+        "Researchtip": " (|cffffcc00R|r)学习火箭群 - [|cffffcc00等级 %d|r]",
+        "Researchubertip": "对某个区域用火箭进行攻击，使目标在1 秒内处于昏晕状态，并对其造成一定程度的伤害。|n|n|cffffcc00等级 1|r - 35 攻击力。|n|cffffcc00等级 2|r - 65 攻击力。|n|cffffcc00等级 3|r - 100 攻击力。",
+        "Tip": "(|cffffcc00R|r)火箭群 - [|cffffcc00等级 1|r],(|cffffcc00R|r)火箭群 - [|cffffcc00等级 2|r],(|cffffcc00R|r)火箭群 - [|cffffcc00等级 3|r]",
+        "Ubertip": "对某个区域用火箭进行攻击，对周围的地面单位造成35点的伤害，并在1 秒内让其处于昏晕状态。,对某个区域用火箭进行攻击，对周围的地面单位造成65点的伤害，并在1 秒内让其处于昏晕状态。,对某个区域用火箭进行攻击，对周围的地面单位造成100点的伤害，并在1 秒内让其处于昏晕状态。"
+      }
+    },
+    "T162": {
+      "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+      "lines": [
+        21325,
+        21342
+      ],
+      "fields": {
+        "Animnames": "spell,one",
+        "Art": ",",
+        "Buttonpos": "1,2",
+        "Hotkey": "R",
+        "Missilearc": "0.2",
+        "Missileart": "AZ_silingfashi02_attack.mdx",
+        "MissileHoming": "1",
+        "Missilespeed": "700",
+        "Name": "马甲-山崩-火焰领主",
+        "Order": "clusterrockets",
+        "Researchbuttonpos": "1",
+        "Researchhotkey": "R",
+        "Researchtip": " (|cffffcc00R|r)学习火箭群 - [|cffffcc00等级 %d|r]",
+        "Researchubertip": "对某个区域用火箭进行攻击，使目标在1 秒内处于昏晕状态，并对其造成一定程度的伤害。|n|n|cffffcc00等级 1|r - 35 攻击力。|n|cffffcc00等级 2|r - 65 攻击力。|n|cffffcc00等级 3|r - 100 攻击力。",
+        "Tip": "(|cffffcc00R|r)火箭群 - [|cffffcc00等级 1|r],(|cffffcc00R|r)火箭群 - [|cffffcc00等级 2|r],(|cffffcc00R|r)火箭群 - [|cffffcc00等级 3|r]",
+        "Ubertip": "对某个区域用火箭进行攻击，对周围的地面单位造成35点的伤害，并在1 秒内让其处于昏晕状态。,对某个区域用火箭进行攻击，对周围的地面单位造成65点的伤害，并在1 秒内让其处于昏晕状态。,对某个区域用火箭进行攻击，对周围的地面单位造成100点的伤害，并在1 秒内让其处于昏晕状态。"
+      }
+    },
+    "BNcs": {
+      "path": "reference/map-6.25/units_commonabilitystrings.txt",
+      "lines": [
+        1516,
+        1522
+      ],
+      "fields": {
+        "Buffart": "ReplaceableTextures\\CommandButtons\\BTNClusterRockets.blp",
+        "Bufftip": "火箭群",
+        "Buffubertip": "火箭群",
+        "TargetArt": "Abilities\\Spells\\Human\\Thunderclap\\ThunderclapTarget.mdl",
+        "Targetattach": "overhead"
+      }
+    },
+    "XNcs": {
+      "path": "reference/map-6.25/units_commonabilitystrings.txt",
+      "lines": [
+        2555,
+        2557
+      ],
+      "fields": {
+        "Buffart": ","
+      }
+    }
+  },
+  "w3aOverrides": [
+    {
+      "old": "T059",
+      "new": "\u0000\u0000\u0000\u0000",
+      "mods": [
+        {
+          "key": "Ncs1",
+          "type": 2,
+          "level": 5,
+          "data": 1,
+          "value": 860.0
+        },
+        {
+          "key": "Ncs1",
+          "type": 2,
+          "level": 6,
+          "data": 1,
+          "value": 1120.0
+        },
+        {
+          "key": "adur",
+          "type": 2,
+          "level": 5,
+          "data": 0,
+          "value": 1.2000000476837158
+        },
+        {
+          "key": "adur",
+          "type": 2,
+          "level": 6,
+          "data": 0,
+          "value": 1.5
+        },
+        {
+          "key": "ahdu",
+          "type": 2,
+          "level": 5,
+          "data": 0,
+          "value": 0.6000000238418579
+        },
+        {
+          "key": "ahdu",
+          "type": 2,
+          "level": 6,
+          "data": 0,
+          "value": 0.800000011920929
+        }
+      ]
+    },
+    {
+      "old": "T162",
+      "new": "\u0000\u0000\u0000\u0000",
+      "mods": [
+        {
+          "key": "Ncs1",
+          "type": 2,
+          "level": 5,
+          "data": 1,
+          "value": 860.0
+        },
+        {
+          "key": "Ncs1",
+          "type": 2,
+          "level": 6,
+          "data": 1,
+          "value": 1120.0
+        },
+        {
+          "key": "adur",
+          "type": 2,
+          "level": 5,
+          "data": 0,
+          "value": 1.2000000476837158
+        },
+        {
+          "key": "adur",
+          "type": 2,
+          "level": 6,
+          "data": 0,
+          "value": 1.5
+        },
+        {
+          "key": "ahdu",
+          "type": 2,
+          "level": 5,
+          "data": 0,
+          "value": 0.6000000238418579
+        },
+        {
+          "key": "ahdu",
+          "type": 2,
+          "level": 6,
+          "data": 0,
+          "value": 0.800000011920929
+        }
+      ]
+    }
+  ],
+  "levels": [
+    {
+      "rank": 1,
+      "originalEffectiveExplicitFields": {
+        "DataA": 150.0,
+        "Dur": 0.4,
+        "HeroDur": 0.1,
+        "Area": 300.0,
+        "Rng": 1500.0,
+        "DataB": 0.25,
+        "DataC": 12,
+        "DataD": 1000000.0,
+        "DataE": 1.0,
+        "DataF": 1.01,
+        "Cost": null,
+        "Cool": null,
+        "targs": "enemies"
+      },
+      "web": {
+        "nominalTotalDamagePerTarget": 150,
+        "ordinaryStunUs": 400000,
+        "heroOrArskStunUs": 100000,
+        "radius": 300,
+        "castRange": 1500
+      }
+    },
+    {
+      "rank": 2,
+      "originalEffectiveExplicitFields": {
+        "DataA": 275.0,
+        "Dur": 0.6,
+        "HeroDur": 0.3,
+        "Area": 200.0,
+        "Rng": 1500.0,
+        "DataB": 0.25,
+        "DataC": 12,
+        "DataD": 1000000.0,
+        "DataE": 1.0,
+        "DataF": 1.01,
+        "Cost": null,
+        "Cool": null,
+        "targs": "enemies"
+      },
+      "web": {
+        "nominalTotalDamagePerTarget": 275,
+        "ordinaryStunUs": 600000,
+        "heroOrArskStunUs": 300000,
+        "radius": 300,
+        "castRange": 1500
+      }
+    },
+    {
+      "rank": 3,
+      "originalEffectiveExplicitFields": {
+        "DataA": 420.0,
+        "Dur": 0.8,
+        "HeroDur": 0.4,
+        "Area": 200.0,
+        "Rng": 1500.0,
+        "DataB": 0.25,
+        "DataC": 12,
+        "DataD": 1000000.0,
+        "DataE": 1.0,
+        "DataF": 1.01,
+        "Cost": null,
+        "Cool": null,
+        "targs": "enemies"
+      },
+      "web": {
+        "nominalTotalDamagePerTarget": 420,
+        "ordinaryStunUs": 800000,
+        "heroOrArskStunUs": 400000,
+        "radius": 300,
+        "castRange": 1500
+      }
+    },
+    {
+      "rank": 4,
+      "originalEffectiveExplicitFields": {
+        "DataA": 650.0,
+        "Dur": 1.0,
+        "HeroDur": 0.5,
+        "Area": 200.0,
+        "Rng": 1500.0,
+        "DataB": 0.25,
+        "DataC": 12,
+        "DataD": 1000000.0,
+        "DataE": 1.0,
+        "DataF": 1.01,
+        "Cost": null,
+        "Cool": null,
+        "targs": "enemies"
+      },
+      "web": {
+        "nominalTotalDamagePerTarget": 650,
+        "ordinaryStunUs": 1000000,
+        "heroOrArskStunUs": 500000,
+        "radius": 300,
+        "castRange": 1500
+      }
+    },
+    {
+      "rank": 5,
+      "originalEffectiveExplicitFields": {
+        "DataA": 860.0,
+        "Dur": 1.2000000476837158,
+        "HeroDur": 0.6000000238418579,
+        "Area": null,
+        "Rng": null,
+        "DataB": null,
+        "DataC": null,
+        "DataD": null,
+        "DataE": null,
+        "DataF": null,
+        "Cost": null,
+        "Cool": null,
+        "targs": null
+      },
+      "web": {
+        "nominalTotalDamagePerTarget": 860,
+        "ordinaryStunUs": 1200000,
+        "heroOrArskStunUs": 600000,
+        "radius": 300,
+        "castRange": 1500
+      }
+    },
+    {
+      "rank": 6,
+      "originalEffectiveExplicitFields": {
+        "DataA": 1120.0,
+        "Dur": 1.5,
+        "HeroDur": 0.800000011920929,
+        "Area": null,
+        "Rng": null,
+        "DataB": null,
+        "DataC": null,
+        "DataD": null,
+        "DataE": null,
+        "DataF": null,
+        "Cost": null,
+        "Cool": null,
+        "targs": null
+      },
+      "web": {
+        "nominalTotalDamagePerTarget": 1120,
+        "ordinaryStunUs": 1500000,
+        "heroOrArskStunUs": 800000,
+        "radius": 300,
+        "castRange": 1500
+      }
+    }
+  ],
+  "workbook": [
+    {
+      "row": 270,
+      "id": "A067",
+      "description": "攻击有15%的概率造成山崩，对目标300范围内敌人眩晕以及伤害，每100点力量提升5%的概率，概率最高达到60%，内置冷却2秒。",
+      "levels": "等级 1｜造成150点伤害，眩晕0.4秒。\n等级 2｜造成275点伤害，眩晕0.6秒。\n等级 3｜造成420点伤害，眩晕0.8秒。\n等级 4｜造成650点伤害，眩晕1秒。\n等级 5｜造成860点伤害，眩晕1.2秒。\n等级 6｜造成1120点伤害，眩晕1.5秒。\n伤害类型 法术伤害"
+    },
+    {
+      "row": 426,
+      "id": "A067",
+      "description": "攻击有15%的概率造成山崩，对目标300范围内敌人眩晕以及伤害，每100点力量提升5%的概率，概率最高达到60%，内置冷却2秒。",
+      "levels": "等级 1｜造成150点伤害，眩晕0.4秒。\n等级 2｜造成275点伤害，眩晕0.6秒。\n等级 3｜造成420点伤害，眩晕0.8秒。\n等级 4｜造成650点伤害，眩晕1秒。\n等级 5｜造成860点伤害，眩晕1.2秒。\n等级 6｜造成1120点伤害，眩晕1.5秒。\n伤害类型 法术伤害"
+    }
+  ],
+  "originalEvidence": {
+    "dummy": "q001 default,3s timed life, no script damage callback",
+    "order": "direct point native; no result check; userData written after order",
+    "level": "original always1; queried hero rank passed as facing; Q40 already supersedes logical effect rank",
+    "CostAndCool": "absent",
+    "q001CastptCastbsw": "absent",
+    "effects": "T059 quake visual/T162 custom projectile; both speed700 arc.2 homing1",
+    "nativeTimingAndTargetMaskNotProven": true,
+    "AreaHigherLevels200": "source retained but Q40 allranks300",
+    "DataB_C_D_FNotWebRepeatOrSharedCap": "Q40 one nominal packet per target; raw source may differ but no extra Web pulses"
+  },
+  "primaryEvidence": [
+    {
+      "url": "https://classic.battle.net/war3/neutral/goblintinker.shtml",
+      "supports": "stock ground enemy/neutral/building targets, stun, full building damage and channel interrupt; mechanical form has stun restriction",
+      "limit": "not custom enemies mask proof, native timing or exact repeated-hit algorithm"
+    },
+    {
+      "url": "https://classic.battle.net/war3/basics/spellbasics.shtml",
+      "supports": "magic immunity, negative targeted shield, resistance reduces negative durations; not exact ANcs refresh/dispel"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/Units/AbilityMetaData.slk#L15164",
+      "supports": "Ncs1..6 map to DataA..F"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/UI/WorldEditStrings.txt#L6476",
+      "supports": "damage, interval, missiles, max damage, building factor, effect duration labels"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/UI/WorldEditStrings.txt#L5838",
+      "supports": "normal/hero duration fields"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/plugin/w3x2lni/script/core/slk/frontend_slk.lua#L19",
+      "supports": "tool missing numeric defaults; not matching client evidence"
+    }
+  ],
+  "decisions": {
+    "Q39": {
+      "status": "confirmed",
+      "seconds": 2,
+      "start": "original TimerStart position after order/userData, regardless of native order/effect result"
+    },
+    "Q40": {
+      "status": "confirmed",
+      "rankProfile": "avalanche-rank-profile-v1",
+      "oneNominalDamagePacketPerTarget": true,
+      "allRanksRadius": 300,
+      "damage": [
+        150,
+        275,
+        420,
+        650,
+        860,
+        1120
+      ],
+      "normalStunSeconds": [
+        0.4,
+        0.6,
+        0.8,
+        1,
+        1.2,
+        1.5
+      ]
+    },
+    "Q24": {
+      "version": "avalanche-native-v1",
+      "notNativeClientVerified": true,
+      "acceptance": {
+        "rank": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "noFallbackRank": true,
+        "noG059FallbackToA067": true,
+        "casterRequires": [
+          "exists",
+          "alive",
+          "selected native ability",
+          "no active casting prohibition lock"
+        ],
+        "selfAvulAlocAllowed": true,
+        "castRange": 1500,
+        "rangeGeometry": "2D center distance <=1500; finite coordinates",
+        "windupSeconds": 0,
+        "manaCost": 0,
+        "extraNativeCooldown": 0,
+        "needsOriginalTargetStillValid": false,
+        "visionPathGate": false,
+        "failure": "no effect; retain source caller userData/location/lock operations"
+      },
+      "scheduling": {
+        "acceptSequence": [
+          "copy point/rank/ability/source",
+          "one temporary SPELL_EFFECT (normal IsTemp early return)",
+          "enqueue B05 zero-time impact"
+        ],
+        "sourceCallerThen": [
+          "SetUnitUserData",
+          "RemoveLocation",
+          "TimerStart Q39 2sec",
+          "store timer lock"
+        ],
+        "impact": "after current attacked-event synchronous stack, ordered by B05 queue sequence at same battle time",
+        "notSynchronousDamageInsideOrder": true,
+        "channelSeconds": 0,
+        "nativeDataFOnlyVisualReference": true,
+        "dummyLifetimeSeconds": 3,
+        "cancelBeforeImpactIfDummyDeadOrRemoved": true,
+        "originalTowerDeathAloneCancels": false,
+        "subsequentStopOrMovementCancelsAcceptedRequest": false,
+        "targetPointNeverFollowsUnit": true,
+        "save": "pending point/rank/source payload, sequence, userData/owner map, lock timer and lifetime stored; no replay after commit"
+      },
+      "candidates": {
+        "radius": 300,
+        "geometry": "2D center closed circle, no collision expansion",
+        "initial": [
+          "exists",
+          "alive",
+          "ground incl structure/mechanical",
+          "enemy or nonallied neutral relative to dummy",
+          "not Aloc",
+          "not invulnerable",
+          "not magic immune"
+        ],
+        "airExcluded": "Q24 scoped choice informed by stock official ANcs; custom enemies mask alone does not prove this",
+        "snapshot": "B04 ascending creation sequence at impact; no added units",
+        "memberRechecks": [
+          "exists",
+          "alive",
+          "ground",
+          "not Aloc",
+          "not invulnerable",
+          "not magic immune"
+        ],
+        "noMemberRecheck": [
+          "position",
+          "ownership"
+        ],
+        "nonunitObjectsExcluded": [
+          "items",
+          "destructibles"
+        ],
+        "sourceInvalidDuringChildren": "stop remaining members"
+      },
+      "damage": {
+        "actualSource": "q001",
+        "attribution": "normal B03 main flow resolves Tower_ALL[userData] per hit; do not replace actual source or cache O",
+        "attack": false,
+        "ranged": false,
+        "attackType": "ATTACK_TYPE_NORMAL (spells)",
+        "damageType": "DAMAGE_TYPE_MAGIC",
+        "weapon": "WEAPON_TYPE_WHOKNOWS",
+        "perTargetRaw": "Q40 rank amount exactly once",
+        "buildingFactor": 1,
+        "sharedMillionCap": false,
+        "splitOrMissileMultiplier": false,
+        "fullDamageEvents": true,
+        "ordinaryAttackDirectlyCancelled": false
+      },
+      "stun": {
+        "applicationOrder": "before this target damage event",
+        "excludeControlButKeepDamage": [
+          "structure",
+          "mechanical",
+          "effective explicit stun immunity"
+        ],
+        "duration": "HERO or effective code Arsk =>HeroDur profile; otherwise Q40 normal profile",
+        "customUnitIsHeroUsed": false,
+        "SAPPEROrBossNameAloneShortens": false,
+        "HEROAndArskFurtherStackReduction": false,
+        "durationSnapshotAtApplication": true,
+        "perUnitSingleAvalancheInstance": "T059/T162 share instance",
+        "refresh": "expiry=max(existing avalanche expiry,now+new duration); update token/source only when extended",
+        "interrupt": [
+          "uncommitted attack windup",
+          "active cast/channel"
+        ],
+        "prohibitWhileActive": [
+          "movement",
+          "new ordinary attacks",
+          "active casts"
+        ],
+        "independentAlreadyCommittedProjectilesContinue": true,
+        "preserveOtherControlLocks": true,
+        "normalMagicDispelRemoves": false,
+        "removeOn": [
+          "expiry",
+          "explicit removal of this effect",
+          "death",
+          "unit removal"
+        ],
+        "damageOrNewMagicImmunityAloneRemoves": false,
+        "dummyDeathAfterApplicationRemoves": false,
+        "zeroFinalDamageRollsBack": false
+      },
+      "N535": "point area effect does not check/consume targeted spell shield in this scoped adapter; not a universal AoE rule"
+    },
+    "newConfirmedConflicts": []
+  },
+  "validation": {
+    "sourceCases": [
+      {
+        "id": "T059_original_rank_1",
+        "input": {
+          "selectedAbility": "T059",
+          "queriedHeroRank": 1
+        },
+        "expected": {
+          "dummyFacing": 1,
+          "actualNativeLevel": 1,
+          "timedLife": 3,
+          "orderBeforeUserData": true,
+          "timerOriginalSeconds": 2.4
+        }
+      },
+      {
+        "id": "T059_original_rank_2",
+        "input": {
+          "selectedAbility": "T059",
+          "queriedHeroRank": 2
+        },
+        "expected": {
+          "dummyFacing": 2,
+          "actualNativeLevel": 1,
+          "timedLife": 3,
+          "orderBeforeUserData": true,
+          "timerOriginalSeconds": 2.4
+        }
+      },
+      {
+        "id": "T059_original_rank_3",
+        "input": {
+          "selectedAbility": "T059",
+          "queriedHeroRank": 3
+        },
+        "expected": {
+          "dummyFacing": 3,
+          "actualNativeLevel": 1,
+          "timedLife": 3,
+          "orderBeforeUserData": true,
+          "timerOriginalSeconds": 2.4
+        }
+      },
+      {
+        "id": "T059_original_rank_4",
+        "input": {
+          "selectedAbility": "T059",
+          "queriedHeroRank": 4
+        },
+        "expected": {
+          "dummyFacing": 4,
+          "actualNativeLevel": 1,
+          "timedLife": 3,
+          "orderBeforeUserData": true,
+          "timerOriginalSeconds": 2.4
+        }
+      },
+      {
+        "id": "T059_original_rank_5",
+        "input": {
+          "selectedAbility": "T059",
+          "queriedHeroRank": 5
+        },
+        "expected": {
+          "dummyFacing": 5,
+          "actualNativeLevel": 1,
+          "timedLife": 3,
+          "orderBeforeUserData": true,
+          "timerOriginalSeconds": 2.4
+        }
+      },
+      {
+        "id": "T059_original_rank_6",
+        "input": {
+          "selectedAbility": "T059",
+          "queriedHeroRank": 6
+        },
+        "expected": {
+          "dummyFacing": 6,
+          "actualNativeLevel": 1,
+          "timedLife": 3,
+          "orderBeforeUserData": true,
+          "timerOriginalSeconds": 2.4
+        }
+      },
+      {
+        "id": "T162_original_rank_1",
+        "input": {
+          "selectedAbility": "T162",
+          "queriedHeroRank": 1
+        },
+        "expected": {
+          "dummyFacing": 1,
+          "actualNativeLevel": 1,
+          "timedLife": 3,
+          "orderBeforeUserData": true,
+          "timerOriginalSeconds": 2.4
+        }
+      },
+      {
+        "id": "T162_original_rank_2",
+        "input": {
+          "selectedAbility": "T162",
+          "queriedHeroRank": 2
+        },
+        "expected": {
+          "dummyFacing": 2,
+          "actualNativeLevel": 1,
+          "timedLife": 3,
+          "orderBeforeUserData": true,
+          "timerOriginalSeconds": 2.4
+        }
+      },
+      {
+        "id": "T162_original_rank_3",
+        "input": {
+          "selectedAbility": "T162",
+          "queriedHeroRank": 3
+        },
+        "expected": {
+          "dummyFacing": 3,
+          "actualNativeLevel": 1,
+          "timedLife": 3,
+          "orderBeforeUserData": true,
+          "timerOriginalSeconds": 2.4
+        }
+      },
+      {
+        "id": "T162_original_rank_4",
+        "input": {
+          "selectedAbility": "T162",
+          "queriedHeroRank": 4
+        },
+        "expected": {
+          "dummyFacing": 4,
+          "actualNativeLevel": 1,
+          "timedLife": 3,
+          "orderBeforeUserData": true,
+          "timerOriginalSeconds": 2.4
+        }
+      },
+      {
+        "id": "T162_original_rank_5",
+        "input": {
+          "selectedAbility": "T162",
+          "queriedHeroRank": 5
+        },
+        "expected": {
+          "dummyFacing": 5,
+          "actualNativeLevel": 1,
+          "timedLife": 3,
+          "orderBeforeUserData": true,
+          "timerOriginalSeconds": 2.4
+        }
+      },
+      {
+        "id": "T162_original_rank_6",
+        "input": {
+          "selectedAbility": "T162",
+          "queriedHeroRank": 6
+        },
+        "expected": {
+          "dummyFacing": 6,
+          "actualNativeLevel": 1,
+          "timedLife": 3,
+          "orderBeforeUserData": true,
+          "timerOriginalSeconds": 2.4
+        }
+      },
+      {
+        "id": "native_order_false_still_lock",
+        "input": {
+          "IssuePointOrderLocReturn": false
+        },
+        "expected": {
+          "userDataWritten": true,
+          "locationFreed": true,
+          "timerCreated": true,
+          "timerOriginalSeconds": 2.4
+        }
+      },
+      {
+        "id": "rank0_source",
+        "input": {
+          "queriedHeroRank": 0
+        },
+        "expected": {
+          "dummyFacing": 0,
+          "actualNativeLevel": 1,
+          "stillIssuesPointOrder": true
+        }
+      },
+      {
+        "id": "native_fields_not_damage_math",
+        "input": {
+          "DataB": 0.25,
+          "DataC": 12,
+          "DataD": 1000000,
+          "DataE": 1,
+          "DataF": 1.01
+        },
+        "expected": {
+          "nativeTotalDamageNotProvenFromProduct": true,
+          "DataFIsEffectDurationNotProvenChannel": true
+        }
+      },
+      {
+        "id": "q001_cast_fields",
+        "input": {
+          "unit": "q001"
+        },
+        "expected": {
+          "castptExplicit": false,
+          "castbswExplicit": false,
+          "mana0": 1000,
+          "manaN": 1000,
+          "initialAbilities": [
+            "Avul",
+            "Aloc"
+          ]
+        }
+      }
+    ],
+    "webCases": [
+      {
+        "id": "rank_1",
+        "input": {
+          "kind": "impact",
+          "rank": 1,
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 0,
+              "y": 0,
+              "hero": true
+            },
+            {
+              "id": 3,
+              "x": 0,
+              "y": 0,
+              "arsk": true
+            },
+            {
+              "id": 4,
+              "x": 0,
+              "y": 0,
+              "hero": true,
+              "arsk": true
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000
+        },
+        "expected": {
+          "damageIds": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "amounts": [
+            150,
+            150,
+            150,
+            150
+          ],
+          "durationsUs": [
+            400000,
+            100000,
+            100000,
+            100000
+          ],
+          "sharedLockUntilUs": 3000000,
+          "actualSources": [
+            "q001",
+            "q001",
+            "q001",
+            "q001"
+          ]
+        }
+      },
+      {
+        "id": "rank_2",
+        "input": {
+          "kind": "impact",
+          "rank": 2,
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 0,
+              "y": 0,
+              "hero": true
+            },
+            {
+              "id": 3,
+              "x": 0,
+              "y": 0,
+              "arsk": true
+            },
+            {
+              "id": 4,
+              "x": 0,
+              "y": 0,
+              "hero": true,
+              "arsk": true
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000
+        },
+        "expected": {
+          "damageIds": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "amounts": [
+            275,
+            275,
+            275,
+            275
+          ],
+          "durationsUs": [
+            600000,
+            300000,
+            300000,
+            300000
+          ],
+          "sharedLockUntilUs": 3000000,
+          "actualSources": [
+            "q001",
+            "q001",
+            "q001",
+            "q001"
+          ]
+        }
+      },
+      {
+        "id": "rank_3",
+        "input": {
+          "kind": "impact",
+          "rank": 3,
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 0,
+              "y": 0,
+              "hero": true
+            },
+            {
+              "id": 3,
+              "x": 0,
+              "y": 0,
+              "arsk": true
+            },
+            {
+              "id": 4,
+              "x": 0,
+              "y": 0,
+              "hero": true,
+              "arsk": true
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000
+        },
+        "expected": {
+          "damageIds": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "amounts": [
+            420,
+            420,
+            420,
+            420
+          ],
+          "durationsUs": [
+            800000,
+            400000,
+            400000,
+            400000
+          ],
+          "sharedLockUntilUs": 3000000,
+          "actualSources": [
+            "q001",
+            "q001",
+            "q001",
+            "q001"
+          ]
+        }
+      },
+      {
+        "id": "rank_4",
+        "input": {
+          "kind": "impact",
+          "rank": 4,
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 0,
+              "y": 0,
+              "hero": true
+            },
+            {
+              "id": 3,
+              "x": 0,
+              "y": 0,
+              "arsk": true
+            },
+            {
+              "id": 4,
+              "x": 0,
+              "y": 0,
+              "hero": true,
+              "arsk": true
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000
+        },
+        "expected": {
+          "damageIds": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "amounts": [
+            650,
+            650,
+            650,
+            650
+          ],
+          "durationsUs": [
+            1000000,
+            500000,
+            500000,
+            500000
+          ],
+          "sharedLockUntilUs": 3000000,
+          "actualSources": [
+            "q001",
+            "q001",
+            "q001",
+            "q001"
+          ]
+        }
+      },
+      {
+        "id": "rank_5",
+        "input": {
+          "kind": "impact",
+          "rank": 5,
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 0,
+              "y": 0,
+              "hero": true
+            },
+            {
+              "id": 3,
+              "x": 0,
+              "y": 0,
+              "arsk": true
+            },
+            {
+              "id": 4,
+              "x": 0,
+              "y": 0,
+              "hero": true,
+              "arsk": true
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000
+        },
+        "expected": {
+          "damageIds": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "amounts": [
+            860,
+            860,
+            860,
+            860
+          ],
+          "durationsUs": [
+            1200000,
+            600000,
+            600000,
+            600000
+          ],
+          "sharedLockUntilUs": 3000000,
+          "actualSources": [
+            "q001",
+            "q001",
+            "q001",
+            "q001"
+          ]
+        }
+      },
+      {
+        "id": "rank_6",
+        "input": {
+          "kind": "impact",
+          "rank": 6,
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 0,
+              "y": 0,
+              "hero": true
+            },
+            {
+              "id": 3,
+              "x": 0,
+              "y": 0,
+              "arsk": true
+            },
+            {
+              "id": 4,
+              "x": 0,
+              "y": 0,
+              "hero": true,
+              "arsk": true
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000
+        },
+        "expected": {
+          "damageIds": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "amounts": [
+            1120,
+            1120,
+            1120,
+            1120
+          ],
+          "durationsUs": [
+            1500000,
+            800000,
+            800000,
+            800000
+          ],
+          "sharedLockUntilUs": 3000000,
+          "actualSources": [
+            "q001",
+            "q001",
+            "q001",
+            "q001"
+          ]
+        }
+      },
+      {
+        "id": "range300_in",
+        "input": {
+          "kind": "impact",
+          "rank": 1,
+          "units": [
+            {
+              "id": 1,
+              "x": 180,
+              "y": 240
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000
+        },
+        "expected": {
+          "damageIds": [
+            1
+          ]
+        }
+      },
+      {
+        "id": "range300_out",
+        "input": {
+          "kind": "impact",
+          "rank": 1,
+          "units": [
+            {
+              "id": 1,
+              "x": 300.001,
+              "y": 0,
+              "collisionRadius": 100
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000
+        },
+        "expected": {
+          "damageIds": []
+        }
+      },
+      {
+        "id": "cast1500_in",
+        "input": {
+          "kind": "impact",
+          "rank": 1,
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000,
+          "dummyPositionOverride": [
+            1500,
+            0
+          ]
+        },
+        "expected": {
+          "accepted": true,
+          "damageIds": [
+            1
+          ]
+        }
+      },
+      {
+        "id": "cast1500_out",
+        "input": {
+          "kind": "impact",
+          "rank": 1,
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000,
+          "dummyPositionOverride": [
+            1500.001,
+            0
+          ]
+        },
+        "expected": {
+          "accepted": false,
+          "damageIds": [],
+          "sharedLockUntilUs": 3000000
+        }
+      },
+      {
+        "id": "point_not_follow_target",
+        "input": {
+          "kind": "impact",
+          "rank": 1,
+          "units": [
+            {
+              "id": 1,
+              "x": 500,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 100,
+              "y": 0
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000
+        },
+        "expected": {
+          "damageIds": [
+            2
+          ]
+        }
+      },
+      {
+        "id": "ground_building_mechanical_air",
+        "input": {
+          "kind": "impact",
+          "rank": 1,
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 0,
+              "y": 0,
+              "category": "structure"
+            },
+            {
+              "id": 3,
+              "x": 0,
+              "y": 0,
+              "category": "mechanical"
+            },
+            {
+              "id": 4,
+              "x": 0,
+              "y": 0,
+              "category": "air"
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000
+        },
+        "expected": {
+          "damageIds": [
+            1,
+            2,
+            3
+          ],
+          "stunIds": [
+            1
+          ],
+          "amounts": [
+            150,
+            150,
+            150
+          ]
+        }
+      },
+      {
+        "id": "magicimmune_invul_aloc_dead",
+        "input": {
+          "kind": "impact",
+          "rank": 1,
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0,
+              "immune": true
+            },
+            {
+              "id": 2,
+              "x": 0,
+              "y": 0,
+              "invulnerable": true
+            },
+            {
+              "id": 3,
+              "x": 0,
+              "y": 0,
+              "aloc": true
+            },
+            {
+              "id": 4,
+              "x": 0,
+              "y": 0,
+              "alive": false
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000
+        },
+        "expected": {
+          "damageIds": [],
+          "stunIds": []
+        }
+      },
+      {
+        "id": "hero_not_custom_boss",
+        "input": {
+          "kind": "impact",
+          "rank": 1,
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0,
+              "sapper": true,
+              "bossName": true
+            },
+            {
+              "id": 2,
+              "x": 0,
+              "y": 0,
+              "arsk": true,
+              "sapper": false
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000
+        },
+        "expected": {
+          "durationsUs": [
+            400000,
+            100000
+          ]
+        }
+      },
+      {
+        "id": "stun_immune_damage_only",
+        "input": {
+          "kind": "impact",
+          "rank": 1,
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0,
+              "stunImmune": true
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000
+        },
+        "expected": {
+          "damageIds": [
+            1
+          ],
+          "stunIds": []
+        }
+      },
+      {
+        "id": "shield_not_targeted",
+        "input": {
+          "kind": "impact",
+          "rank": 1,
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0,
+              "shieldReadyAtUs": 0
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000
+        },
+        "expected": {
+          "damageIds": [
+            1
+          ],
+          "stunIds": [
+            1
+          ],
+          "shieldConsumed": false
+        }
+      },
+      {
+        "id": "dummy_removed_before_impact",
+        "input": {
+          "kind": "impact",
+          "rank": 1,
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000,
+          "dummyRemovedBeforeImpact": true
+        },
+        "expected": {
+          "accepted": true,
+          "cancelled": true,
+          "damageIds": [],
+          "sharedLockUntilUs": 3000000
+        }
+      },
+      {
+        "id": "dummy_dead_before_impact",
+        "input": {
+          "kind": "impact",
+          "rank": 1,
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000,
+          "dummyDeadBeforeImpact": true
+        },
+        "expected": {
+          "accepted": true,
+          "cancelled": true,
+          "damageIds": []
+        }
+      },
+      {
+        "id": "original_tower_dead",
+        "input": {
+          "kind": "impact",
+          "rank": 1,
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000,
+          "originalTowerDead": true
+        },
+        "expected": {
+          "damageIds": [
+            1
+          ]
+        }
+      },
+      {
+        "id": "zero_final_damage_keeps_stun",
+        "input": {
+          "kind": "impact",
+          "rank": 1,
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0,
+              "damageFactor": 0
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000
+        },
+        "expected": {
+          "damageIds": [
+            1
+          ],
+          "stunIds": [
+            1
+          ],
+          "finalDamages": [
+            0
+          ]
+        }
+      },
+      {
+        "id": "stun_before_damage",
+        "input": {
+          "kind": "impact",
+          "rank": 1,
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000
+        },
+        "expected": {
+          "hitTrace": [
+            "stun:1",
+            "damage:1"
+          ]
+        }
+      },
+      {
+        "id": "shorter_stun_does_not_shorten",
+        "input": {
+          "kind": "impact",
+          "rank": 1,
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0,
+              "stunUntilUs": 5000000
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000
+        },
+        "expected": {
+          "stunUntilUs": [
+            5000000
+          ]
+        }
+      },
+      {
+        "id": "longer_stun_extends",
+        "input": {
+          "kind": "impact",
+          "rank": 6,
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0,
+              "stunUntilUs": 1100000
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000
+        },
+        "expected": {
+          "stunUntilUs": [
+            2500000
+          ]
+        }
+      },
+      {
+        "id": "snapshot_not_new_unit",
+        "input": {
+          "kind": "impact",
+          "rank": 1,
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 100,
+              "y": 0
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000,
+          "updatesAfterHit": {
+            "1": [
+              {
+                "create": {
+                  "id": 3,
+                  "x": 100,
+                  "y": 0
+                }
+              }
+            ]
+          }
+        },
+        "expected": {
+          "damageIds": [
+            1,
+            2
+          ]
+        }
+      },
+      {
+        "id": "snapshot_not_reposition",
+        "input": {
+          "kind": "impact",
+          "rank": 1,
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 100,
+              "y": 0
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000,
+          "updatesAfterHit": {
+            "1": [
+              {
+                "set": 2,
+                "x": 9000
+              }
+            ]
+          }
+        },
+        "expected": {
+          "damageIds": [
+            1,
+            2
+          ]
+        }
+      },
+      {
+        "id": "snapshot_not_reteam",
+        "input": {
+          "kind": "impact",
+          "rank": 1,
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 100,
+              "y": 0
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000,
+          "updatesAfterHit": {
+            "1": [
+              {
+                "set": 2,
+                "enemy": false
+              }
+            ]
+          }
+        },
+        "expected": {
+          "damageIds": [
+            1,
+            2
+          ]
+        }
+      },
+      {
+        "id": "snapshot_recheck_death",
+        "input": {
+          "kind": "impact",
+          "rank": 1,
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 100,
+              "y": 0
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000,
+          "updatesAfterHit": {
+            "1": [
+              {
+                "set": 2,
+                "alive": false
+              }
+            ]
+          }
+        },
+        "expected": {
+          "damageIds": [
+            1
+          ]
+        }
+      },
+      {
+        "id": "snapshot_recheck_immunity",
+        "input": {
+          "kind": "impact",
+          "rank": 1,
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 100,
+              "y": 0
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000,
+          "updatesAfterHit": {
+            "1": [
+              {
+                "set": 2,
+                "immune": true
+              }
+            ]
+          }
+        },
+        "expected": {
+          "damageIds": [
+            1
+          ]
+        }
+      },
+      {
+        "id": "snapshot_recheck_air",
+        "input": {
+          "kind": "impact",
+          "rank": 1,
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 100,
+              "y": 0
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000,
+          "updatesAfterHit": {
+            "1": [
+              {
+                "set": 2,
+                "category": "air"
+              }
+            ]
+          }
+        },
+        "expected": {
+          "damageIds": [
+            1
+          ]
+        }
+      },
+      {
+        "id": "dummy_removed_during_child",
+        "input": {
+          "kind": "impact",
+          "rank": 1,
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 100,
+              "y": 0
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000,
+          "updatesAfterHit": {
+            "1": [
+              {
+                "removeDummy": true
+              }
+            ]
+          }
+        },
+        "expected": {
+          "damageIds": [
+            1
+          ]
+        }
+      },
+      {
+        "id": "owner_resolved_each_hit",
+        "input": {
+          "kind": "impact",
+          "rank": 1,
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 100,
+              "y": 0
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000,
+          "updatesAfterHit": {
+            "1": [
+              {
+                "ownerSlot": "newTower"
+              }
+            ]
+          }
+        },
+        "expected": {
+          "damageIds": [
+            1,
+            2
+          ],
+          "attributedOwners": [
+            "oldTower",
+            "newTower"
+          ]
+        }
+      },
+      {
+        "id": "queue_userdata",
+        "input": {
+          "kind": "impact",
+          "rank": 1,
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000
+        },
+        "expected": {
+          "damageIds": [
+            1
+          ],
+          "userDataAtOrder": 0,
+          "userDataAtImpact": 7,
+          "attributedOwners": [
+            "oldTower"
+          ]
+        }
+      },
+      {
+        "id": "invalid_rank_rejected_lock_kept",
+        "input": {
+          "kind": "impact",
+          "rank": 0,
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000
+        },
+        "expected": {
+          "accepted": false,
+          "damageIds": [],
+          "sharedLockUntilUs": 3000000
+        }
+      },
+      {
+        "id": "no_per_target_split",
+        "input": {
+          "kind": "impact",
+          "rank": 6,
+          "units": [],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000,
+          "generateUnits": 900
+        },
+        "expected": {
+          "damageCount": 900,
+          "rawSum": 1008000,
+          "amountPerTarget": 1120
+        }
+      },
+      {
+        "id": "damage_kill_cleans_stun",
+        "input": {
+          "kind": "impact",
+          "rank": 1,
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0,
+              "hp": 1
+            }
+          ],
+          "point": [
+            0,
+            0
+          ],
+          "dummyPosition": [
+            0,
+            0
+          ],
+          "nowUs": 1000000
+        },
+        "expected": {
+          "damageIds": [
+            1
+          ],
+          "stunIds": [
+            1
+          ],
+          "remainingStunIds": []
+        }
+      },
+      {
+        "id": "control_disposition",
+        "input": {
+          "kind": "control",
+          "oldExpiryUs": 5000000,
+          "event": "normal_magic_dispel"
+        },
+        "expected": {
+          "expiryUs": 5000000,
+          "removed": false
+        }
+      },
+      {
+        "id": "control_remove_explicit_BNcs_remove",
+        "input": {
+          "kind": "control",
+          "oldExpiryUs": 5000000,
+          "event": "explicit_BNcs_remove"
+        },
+        "expected": {
+          "removed": true,
+          "oldTokenInvalidated": true
+        }
+      },
+      {
+        "id": "control_remove_death",
+        "input": {
+          "kind": "control",
+          "oldExpiryUs": 5000000,
+          "event": "death"
+        },
+        "expected": {
+          "removed": true,
+          "oldTokenInvalidated": true
+        }
+      },
+      {
+        "id": "control_remove_unit_removal",
+        "input": {
+          "kind": "control",
+          "oldExpiryUs": 5000000,
+          "event": "unit_removal"
+        },
+        "expected": {
+          "removed": true,
+          "oldTokenInvalidated": true
+        }
+      },
+      {
+        "id": "control_remove_expiry",
+        "input": {
+          "kind": "control",
+          "oldExpiryUs": 5000000,
+          "event": "expiry"
+        },
+        "expected": {
+          "removed": true,
+          "oldTokenInvalidated": true
+        }
+      },
+      {
+        "id": "same_time_old_callback_after_reapply",
+        "input": {
+          "kind": "token",
+          "oldToken": 1,
+          "oldExpiryUs": 1000000,
+          "newHitTimeUs": 1000000,
+          "durationUs": 400000
+        },
+        "expected": {
+          "newToken": 2,
+          "expiryUs": 1400000,
+          "oldCallbackClearsNew": false
+        }
+      },
+      {
+        "id": "lifecycle_three_clocks",
+        "input": {
+          "kind": "clocks",
+          "nowUs": 1000000,
+          "rank": 6
+        },
+        "expected": {
+          "sharedLockExpiryUs": 3000000,
+          "dummyTimedDeathUs": 4000000,
+          "ordinaryStunExpiryUs": 2500000,
+          "impactSameBattleTimeAfterStack": true
+        }
+      }
+    ],
+    "method": "static field/bytecode sequence checks and bounded native-stub/reference-event vectors; not original client simulation",
+    "results": {
+      "status": "passed",
+      "recheckedSourceInstructions": 68,
+      "recheckedConditions": 1,
+      "recheckedDirectCalls": 16,
+      "recheckedReturns": 3,
+      "sourceSequenceProbes": 28,
+      "sourceCases": 16,
+      "webCases": 42,
+      "objectRecords": 11,
+      "profiles": 4,
+      "w3aObjects": 2,
+      "w3aModifications": 12,
+      "effectiveLevelProfilesChecked": 12,
+      "workbookRows": 2,
+      "localLinks": 19,
+      "sourceHashes": "match",
+      "limit": "native-stub source sequence plus Web contract reference model; no actual Warcraft/game runtime"
+    }
+  },
+  "completionBoundary": [
+    "Only T059/T162 native layer closed under Q24 and existing Q39/Q40",
+    "68 source instructions rechecked: 35 post-selection caller instructions and complete33-instruction helper; upstream full Action/trigger audits reused",
+    "Actual client omitted fields, targets/flight/channel, packet/control ordering and resistance/refresh/dispel remain unverified and explicitly chosen",
+    "No expansion to other ANcs skills, AOcr wrapper of A067/A148, ANeg skin replacement or all damage callees"
+  ]
+}

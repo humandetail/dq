@@ -1,0 +1,406 @@
+{
+  "baselineId": "item-spell-control-batch-01",
+  "coverage": {
+    "itemsReady": 8,
+    "itemsRemaining": 0,
+    "mountedAliases": 5
+  },
+  "items": {
+    "i202": {
+      "name": "邪恶镰刀",
+      "workbookCell": "装备与道具!H112",
+      "componentReady": true,
+      "alias": null,
+      "callbackReady": [
+        "Item_Skill_Action"
+      ],
+      "sourceActiveFields": [],
+      "web": {
+        "sharedHex": "Q30",
+        "chancePct": 50
+      }
+    },
+    "i224": {
+      "name": "紫苑",
+      "workbookCell": "装备与道具!H134",
+      "componentReady": true,
+      "alias": "I219",
+      "callbackReady": [
+        "Item_Auto_Use"
+      ],
+      "sourceActiveFields": [
+        {
+          "alias": "I219",
+          "code": "ANso",
+          "BuffID1": "B049",
+          "checkDep": 1,
+          "Cool1": 25.0,
+          "Cost1": 70,
+          "DataB1": 1.0,
+          "Dur1": 5.0,
+          "HeroDur1": 5.0,
+          "levels": 1,
+          "reqLevel": 1,
+          "Rng1": 800.0,
+          "targs1": "enemies",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      ],
+      "web": {
+        "spell": "B049",
+        "silenceSeconds": 5,
+        "settlementFraction": 0.3,
+        "collect": "latest application per target, final committed damage"
+      }
+    },
+    "i226": {
+      "name": "血棘",
+      "workbookCell": "装备与道具!H136",
+      "componentReady": true,
+      "alias": "I220",
+      "callbackReady": [
+        "Item_Auto_Use"
+      ],
+      "sourceActiveFields": [
+        {
+          "alias": "I220",
+          "code": "ANso",
+          "BuffID1": "B050",
+          "checkDep": 1,
+          "Cool1": 25.0,
+          "Cost1": 70,
+          "DataB1": 1.0,
+          "Dur1": 5.0,
+          "HeroDur1": 5.0,
+          "levels": 1,
+          "reqLevel": 1,
+          "Rng1": 800.0,
+          "targs1": "enemies",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      ],
+      "web": {
+        "spell": "B050",
+        "silenceSeconds": 5,
+        "settlementFraction": 0.3,
+        "collect": "latest application per target, final committed damage",
+        "successfulOrdinaryAttackCritFloor": 1.5
+      }
+    },
+    "i276": {
+      "name": "琥珀净瓶",
+      "workbookCell": "装备与道具!H186",
+      "componentReady": true,
+      "alias": "I270",
+      "callbackReady": [
+        "Item_Auto_Use"
+      ],
+      "sourceActiveFields": [
+        {
+          "alias": "I270",
+          "code": "ANcl",
+          "checkDep": 1,
+          "Cool1": 30.0,
+          "Cost1": 300,
+          "DataA2": 180.0,
+          "DataA3": 180.0,
+          "DataB1": 1,
+          "DataC1": 1,
+          "DataD2": 0.98,
+          "DataD3": 0.98,
+          "DataE2": 1,
+          "DataE3": 1,
+          "DataF1": "healingward",
+          "levels": 3,
+          "reqLevel": 1,
+          "Rng1": 1000.0,
+          "Rng2": 500.0,
+          "Rng3": 500.0,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      ],
+      "web": {
+        "normalCurrentLifeFraction": 0.4,
+        "abyssBossFraction": 0.1,
+        "lockSeconds": 6,
+        "returnFraction": 0.8
+      }
+    },
+    "i279": {
+      "name": "慧光法杖",
+      "workbookCell": "装备与道具!H189",
+      "componentReady": true,
+      "alias": null,
+      "callbackReady": [
+        "Item_Skill_Action"
+      ],
+      "sourceActiveFields": [],
+      "web": {
+        "marksPerWave": 2,
+        "length": 600,
+        "halfWidths": [
+          125,
+          600
+        ],
+        "magicDamage": 2500,
+        "missileSpeed": 1050
+      }
+    },
+    "i281": {
+      "name": "冥火诅咒",
+      "workbookCell": "装备与道具!H191",
+      "componentReady": true,
+      "alias": "I285",
+      "callbackReady": [
+        "Item_Auto_Use"
+      ],
+      "sourceActiveFields": [
+        {
+          "alias": "I285",
+          "code": "ANcl",
+          "checkDep": 1,
+          "Cool1": 15.0,
+          "Cost1": 100,
+          "DataA2": 180.0,
+          "DataA3": 180.0,
+          "DataB1": 1,
+          "DataC1": 1,
+          "DataD2": 0.98,
+          "DataD3": 0.98,
+          "DataE2": 1,
+          "DataE3": 1,
+          "DataF1": "healingward",
+          "levels": 3,
+          "reqLevel": 1,
+          "Rng1": 900.0,
+          "Rng2": 500.0,
+          "Rng3": 500.0,
+          "targs1": "enemies,sapper",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      ],
+      "web": {
+        "bossPredicate": "N534>0 and SAPPER",
+        "controlBuff": "B181",
+        "controlSeconds": 5,
+        "damageTakenMultiplier": 1.1,
+        "targetLockSeconds": 10,
+        "missileSpeed": 1000
+      }
+    },
+    "i301": {
+      "name": "海神三叉戟",
+      "workbookCell": "装备与道具!H194",
+      "componentReady": true,
+      "alias": null,
+      "callbackReady": [],
+      "sourceActiveFields": [],
+      "web": {
+        "sharedHex": "Q30",
+        "chancePct": 50
+      }
+    },
+    "i325": {
+      "name": "雪落法杖",
+      "workbookCell": "装备与道具!H218",
+      "componentReady": true,
+      "alias": "I243",
+      "callbackReady": [
+        "Item_Skill_Action",
+        "Item_Auto_Use"
+      ],
+      "sourceActiveFields": [
+        {
+          "alias": "I243",
+          "code": "ANcl",
+          "Area1": 400.0,
+          "checkDep": 1,
+          "Cool1": 20.0,
+          "Cost1": 150,
+          "DataA1": 4.0,
+          "DataA2": 180.0,
+          "DataA3": 180.0,
+          "DataB1": 2,
+          "DataC1": 3,
+          "DataD2": 0.98,
+          "DataD3": 0.98,
+          "DataE2": 1,
+          "DataE3": 1,
+          "DataF1": "healingward",
+          "HeroDur1": 1.0,
+          "levels": 3,
+          "reqLevel": 1,
+          "Rng1": 1000.0,
+          "Rng2": 500.0,
+          "Rng3": 500.0,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      ],
+      "web": {
+        "defaultSeconds": 4,
+        "minSetting": 1,
+        "maxSetting": 4,
+        "radii": [
+          300,
+          400,
+          500,
+          600
+        ],
+        "damage": [
+          2800,
+          5600,
+          8400,
+          11200
+        ],
+        "duration": [
+          0.75,
+          1.5,
+          2.25,
+          3
+        ],
+        "heroDuration": [
+          0.75,
+          1,
+          1.25,
+          1.5
+        ],
+        "releaseEvent": "ENDCAST",
+        "radiiDecision": "Q73"
+      }
+    }
+  },
+  "verification": {
+    "original": {
+      "sealOriginalLifeOnOrdinaryAndAbyssExpiry": {
+        "0": [
+          600.0,
+          920.0
+        ],
+        "2": [
+          900.0,
+          980.0
+        ]
+      },
+      "snowOriginalFloorAndLingeringTimer": [
+        [
+          [
+            0,
+            [
+              1,
+              2
+            ],
+            0,
+            "T078",
+            0,
+            1,
+            "q001"
+          ],
+          [
+            "helper",
+            "stomp"
+          ]
+        ],
+        [
+          [
+            0,
+            [
+              1,
+              2
+            ],
+            0,
+            "T078",
+            3,
+            1,
+            "q001"
+          ],
+          [
+            "helper",
+            "stomp"
+          ]
+        ]
+      ],
+      "soulBurnReplacement": {
+        "timersAfterFirstAndSecond": {
+          "1": 5,
+          "2": 0.1,
+          "3": 5,
+          "4": 0.1
+        },
+        "cancelledFirst": 1,
+        "onlySettlement": [
+          [
+            "bloodCaster",
+            "target",
+            60.0
+          ]
+        ]
+      }
+    },
+    "replacedSilence": {
+      "replacedWindow": [
+        0,
+        5
+      ],
+      "latestWindow": [
+        2,
+        7
+      ],
+      "allDamageKinds": [
+        [
+          1,
+          100
+        ],
+        [
+          3,
+          200
+        ],
+        [
+          5,
+          300
+        ]
+      ],
+      "originalTimerNoLongerSettles": true,
+      "latestSettlementAtSeven": 150.0
+    }
+  },
+  "sourceLines": {
+    "hex": [
+      146583,
+      146607
+    ],
+    "soulBurn": [
+      152910,
+      153117
+    ],
+    "seal": [
+      132676,
+      132808
+    ],
+    "staff": [
+      133033,
+      133173
+    ],
+    "curse": [
+      135278,
+      135357
+    ],
+    "snow": [
+      153526,
+      153741
+    ],
+    "snowInput": 201396,
+    "endcastRegistration": 179889
+  }
+}

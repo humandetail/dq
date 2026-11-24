@@ -1,0 +1,1804 @@
+{
+  "schemaVersion": 1,
+  "ruleVersion": "power-suppression-effect-v1",
+  "scope": "Only n208/N086 effect, necessary visual helpers, local missing-field native adaptation; Q38 unchanged; T325 and other n208 abilities excluded.",
+  "status": "bounded_effect_complete_with_explicit_Q24_native_choices",
+  "dependencies": [
+    "skill-power-suppression-proc/Q38",
+    "area-damage-v1",
+    "B03",
+    "B04",
+    "B05"
+  ],
+  "sourceFiles": [
+    {
+      "path": "reference/map-6.25/main.disasm",
+      "sha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+      "lineCount": 202965
+    },
+    {
+      "path": "reference/map-6.25/main.readable.lua",
+      "sha256": "d868f14d946f0780313468f5dd783fa4a6cbe39f5c7851d8e4094ef80aa618b9",
+      "lineCount": 141531
+    },
+    {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "sha256": "b772de42ebcfc1d3818298b35dbe81a35826892848c7cbfef70bf5097e481861",
+      "lineCount": 39637
+    },
+    {
+      "path": "reference/map-6.25/units_abilitydata.slk",
+      "sha256": "ba7657fe7942696310502e51ab349cc77ccd70016915dc26d92ffbcead7bb53d",
+      "lineCount": 35277
+    },
+    {
+      "path": "reference/map-6.25/war3map.w3a.json",
+      "sha256": "d2875f064b389bca471db97121ff7c810d46fbc962ae640ad128d1daa85931bb",
+      "lineCount": 11375
+    },
+    {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "sha256": "ebd8a6fd8410f593c5ecadf6bf7c4f6bbc5b4bb7183c5e986a4d2d77e1747133",
+      "lineCount": 7074
+    },
+    {
+      "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+      "sha256": "5240c99230cd441b4c376371a31a7987e65470feed736177473a206c55fbe8cc",
+      "lineCount": 23626
+    },
+    {
+      "path": "图鉴.xlsx",
+      "sha256": "457c8f7e37e19412a0dd072ce941e95604b0b8910860b9e1eb9883e6b82bb6af"
+    }
+  ],
+  "workbook": {
+    "sheet": "塔技能",
+    "row": 548,
+    "cells": {
+      "A548": "肉山（伪）<SR>",
+      "B548": "n208",
+      "C548": "3",
+      "D548": "自带技能",
+      "E548": "力量压制",
+      "F548": "N086",
+      "G548": "1",
+      "H548": "肉山的攻击有12%的概率产生一次威慑，对目标600范围内的敌人造成肉山血量的物理伤害。",
+      "I548": "",
+      "J548": ""
+    }
+  },
+  "sourceIdentity": {
+    "ability": {
+      "sourcePath": "reference/map-6.25/units_abilitydata.json",
+      "sourceLine": 25354,
+      "record": {
+        "alias": "N086",
+        "code": "AOcr",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "air,ground,enemy,neutral",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "unitAbilities": {
+      "sourcePath": "reference/map-6.25/units_unitabilities.json",
+      "sourceLine": 6260,
+      "record": {
+        "unitAbilID": "n208",
+        "abilList": "Avul,T033,T037,N087,N086,N085",
+        "auto": "_"
+      }
+    },
+    "actualTooltip": {
+      "sourcePath": "reference/map-6.25/units_campaignabilitystrings.txt",
+      "sourceLine": 13995,
+      "raw": "Ubertip=肉山的攻击有12%的概率产生一次威慑，对目标600范围内的敌人造成肉山血量的物理伤害。"
+    }
+  },
+  "coreFunction": {
+    "name": "N086_Action",
+    "function": "main/f181/f0",
+    "sourcePath": "reference/map-6.25/main.disasm",
+    "sourceLines": [
+      113990,
+      114052
+    ],
+    "constants": {
+      "k0": {
+        "value": "GetEventDamageSource",
+        "sourceLine": 114001
+      },
+      "k1": {
+        "value": "GetTriggerUnit",
+        "sourceLine": 114002
+      },
+      "k2": {
+        "value": "GetUnitState",
+        "sourceLine": 114003
+      },
+      "k3": {
+        "value": "UNIT_STATE_MAX_LIFE",
+        "sourceLine": 114004
+      },
+      "k4": {
+        "value": "UnitDamagePoint",
+        "sourceLine": 114005
+      },
+      "k5": {
+        "value": 0,
+        "sourceLine": 114006
+      },
+      "k6": {
+        "value": 600.0,
+        "sourceLine": 114007
+      },
+      "k7": {
+        "value": "GetUnitX",
+        "sourceLine": 114008
+      },
+      "k8": {
+        "value": "GetUnitY",
+        "sourceLine": 114009
+      },
+      "k9": {
+        "value": "ATTACK_TYPE_CHAOS",
+        "sourceLine": 114010
+      },
+      "k10": {
+        "value": "DAMAGE_TYPE_NORMAL",
+        "sourceLine": 114011
+      },
+      "k11": {
+        "value": "WEAPON_TYPE_WHOKNOWS",
+        "sourceLine": 114012
+      },
+      "k12": {
+        "value": "CreateEffAtLoc",
+        "sourceLine": 114013
+      },
+      "k13": {
+        "value": "Abilities\\Spells\\Orc\\WarStomp\\WarStompCaster.mdl",
+        "sourceLine": 114014
+      },
+      "k14": {
+        "value": "GetUnitLoc",
+        "sourceLine": 114015
+      },
+      "k15": {
+        "value": 0.8,
+        "sourceLine": 114016
+      },
+      "k16": {
+        "value": 1.8,
+        "sourceLine": 114017
+      }
+    },
+    "labels": {},
+    "counts": {
+      "instructions": 34,
+      "conditions": 0,
+      "calls": 8,
+      "returnInstructions": 1
+    },
+    "instructions": [
+      {
+        "pc": 1,
+        "sourceLine": 114019,
+        "raw": "gettabup      r0    u0    k0"
+      },
+      {
+        "pc": 2,
+        "sourceLine": 114020,
+        "raw": "call          r0     1     2"
+      },
+      {
+        "pc": 3,
+        "sourceLine": 114021,
+        "raw": "gettabup      r1    u0    k1"
+      },
+      {
+        "pc": 4,
+        "sourceLine": 114022,
+        "raw": "call          r1     1     2"
+      },
+      {
+        "pc": 5,
+        "sourceLine": 114023,
+        "raw": "gettabup      r2    u0    k2"
+      },
+      {
+        "pc": 6,
+        "sourceLine": 114024,
+        "raw": "move          r3    r0"
+      },
+      {
+        "pc": 7,
+        "sourceLine": 114025,
+        "raw": "gettabup      r4    u0    k3"
+      },
+      {
+        "pc": 8,
+        "sourceLine": 114026,
+        "raw": "call          r2     3     2"
+      },
+      {
+        "pc": 9,
+        "sourceLine": 114027,
+        "raw": "gettabup      r3    u0    k4"
+      },
+      {
+        "pc": 10,
+        "sourceLine": 114028,
+        "raw": "move          r4    r0"
+      },
+      {
+        "pc": 11,
+        "sourceLine": 114029,
+        "raw": "loadk         r5    k5"
+      },
+      {
+        "pc": 12,
+        "sourceLine": 114030,
+        "raw": "loadk         r6    k6"
+      },
+      {
+        "pc": 13,
+        "sourceLine": 114031,
+        "raw": "gettabup      r7    u0    k7"
+      },
+      {
+        "pc": 14,
+        "sourceLine": 114032,
+        "raw": "move          r8    r1"
+      },
+      {
+        "pc": 15,
+        "sourceLine": 114033,
+        "raw": "call          r7     2     2"
+      },
+      {
+        "pc": 16,
+        "sourceLine": 114034,
+        "raw": "gettabup      r8    u0    k8"
+      },
+      {
+        "pc": 17,
+        "sourceLine": 114035,
+        "raw": "move          r9    r1"
+      },
+      {
+        "pc": 18,
+        "sourceLine": 114036,
+        "raw": "call          r8     2     2"
+      },
+      {
+        "pc": 19,
+        "sourceLine": 114037,
+        "raw": "move          r9    r2"
+      },
+      {
+        "pc": 20,
+        "sourceLine": 114038,
+        "raw": "loadbool     r10     0     0"
+      },
+      {
+        "pc": 21,
+        "sourceLine": 114039,
+        "raw": "loadbool     r11     0     0"
+      },
+      {
+        "pc": 22,
+        "sourceLine": 114040,
+        "raw": "gettabup     r12    u0    k9"
+      },
+      {
+        "pc": 23,
+        "sourceLine": 114041,
+        "raw": "gettabup     r13    u0   k10"
+      },
+      {
+        "pc": 24,
+        "sourceLine": 114042,
+        "raw": "gettabup     r14    u0   k11"
+      },
+      {
+        "pc": 25,
+        "sourceLine": 114043,
+        "raw": "call          r3    12     1"
+      },
+      {
+        "pc": 26,
+        "sourceLine": 114044,
+        "raw": "gettabup      r3    u0   k12"
+      },
+      {
+        "pc": 27,
+        "sourceLine": 114045,
+        "raw": "loadk         r4   k13"
+      },
+      {
+        "pc": 28,
+        "sourceLine": 114046,
+        "raw": "gettabup      r5    u0   k14"
+      },
+      {
+        "pc": 29,
+        "sourceLine": 114047,
+        "raw": "move          r6    r1"
+      },
+      {
+        "pc": 30,
+        "sourceLine": 114048,
+        "raw": "call          r5     2     2"
+      },
+      {
+        "pc": 31,
+        "sourceLine": 114049,
+        "raw": "loadk         r6   k15"
+      },
+      {
+        "pc": 32,
+        "sourceLine": 114050,
+        "raw": "loadk         r7   k16"
+      },
+      {
+        "pc": 33,
+        "sourceLine": 114051,
+        "raw": "call          r3     5     1"
+      },
+      {
+        "pc": 34,
+        "sourceLine": 114052,
+        "raw": "return        r0     1"
+      }
+    ]
+  },
+  "helperFunctions": [
+    {
+      "name": "CreateEffAtLoc",
+      "function": "main/f7/f25",
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "sourceLines": [
+        51661,
+        51710
+      ],
+      "constants": {
+        "k0": {
+          "value": 1.0,
+          "sourceLine": 51673
+        },
+        "k1": {
+          "value": "AddSpecialEffectLoc",
+          "sourceLine": 51674
+        },
+        "k2": {
+          "value": "CreateTimer",
+          "sourceLine": 51675
+        },
+        "k3": {
+          "value": "TimerStart",
+          "sourceLine": 51676
+        },
+        "k4": {
+          "value": "Eff_time_end",
+          "sourceLine": 51677
+        },
+        "k5": {
+          "value": "AddArrAny",
+          "sourceLine": 51678
+        },
+        "k6": {
+          "value": "Timer_Eff_All",
+          "sourceLine": 51679
+        },
+        "k7": {
+          "value": "Eff_ALL",
+          "sourceLine": 51680
+        },
+        "k8": {
+          "value": "EXSetEffectSize",
+          "sourceLine": 51681
+        }
+      },
+      "labels": {
+        "l4": 4
+      },
+      "counts": {
+        "instructions": 27,
+        "conditions": 1,
+        "calls": 5,
+        "returnInstructions": 2
+      },
+      "instructions": [
+        {
+          "pc": 1,
+          "sourceLine": 51683,
+          "raw": "test          r3     1"
+        },
+        {
+          "pc": 2,
+          "sourceLine": 51684,
+          "raw": "jmp            0    l4"
+        },
+        {
+          "pc": 3,
+          "sourceLine": 51685,
+          "raw": "loadk         r3    k0"
+        },
+        {
+          "pc": 4,
+          "sourceLine": 51687,
+          "raw": "gettabup      r4    u0    k1"
+        },
+        {
+          "pc": 5,
+          "sourceLine": 51688,
+          "raw": "move          r5    r0"
+        },
+        {
+          "pc": 6,
+          "sourceLine": 51689,
+          "raw": "move          r6    r1"
+        },
+        {
+          "pc": 7,
+          "sourceLine": 51690,
+          "raw": "call          r4     3     2"
+        },
+        {
+          "pc": 8,
+          "sourceLine": 51691,
+          "raw": "gettabup      r5    u0    k2"
+        },
+        {
+          "pc": 9,
+          "sourceLine": 51692,
+          "raw": "call          r5     1     2"
+        },
+        {
+          "pc": 10,
+          "sourceLine": 51693,
+          "raw": "gettabup      r6    u0    k3"
+        },
+        {
+          "pc": 11,
+          "sourceLine": 51694,
+          "raw": "move          r7    r5"
+        },
+        {
+          "pc": 12,
+          "sourceLine": 51695,
+          "raw": "move          r8    r2"
+        },
+        {
+          "pc": 13,
+          "sourceLine": 51696,
+          "raw": "loadbool      r9     0     0"
+        },
+        {
+          "pc": 14,
+          "sourceLine": 51697,
+          "raw": "gettabup     r10    u0    k4"
+        },
+        {
+          "pc": 15,
+          "sourceLine": 51698,
+          "raw": "call          r6     5     1"
+        },
+        {
+          "pc": 16,
+          "sourceLine": 51699,
+          "raw": "gettabup      r6    u0    k5"
+        },
+        {
+          "pc": 17,
+          "sourceLine": 51700,
+          "raw": "gettabup      r7    u0    k6"
+        },
+        {
+          "pc": 18,
+          "sourceLine": 51701,
+          "raw": "move          r8    r5"
+        },
+        {
+          "pc": 19,
+          "sourceLine": 51702,
+          "raw": "call          r6     3     2"
+        },
+        {
+          "pc": 20,
+          "sourceLine": 51703,
+          "raw": "gettabup      r7    u0    k7"
+        },
+        {
+          "pc": 21,
+          "sourceLine": 51704,
+          "raw": "settable      r7    r6    r4"
+        },
+        {
+          "pc": 22,
+          "sourceLine": 51705,
+          "raw": "gettabup      r7    u1    k8"
+        },
+        {
+          "pc": 23,
+          "sourceLine": 51706,
+          "raw": "move          r8    r4"
+        },
+        {
+          "pc": 24,
+          "sourceLine": 51707,
+          "raw": "move          r9    r3"
+        },
+        {
+          "pc": 25,
+          "sourceLine": 51708,
+          "raw": "call          r7     3     1"
+        },
+        {
+          "pc": 26,
+          "sourceLine": 51709,
+          "raw": "return        r4     2"
+        },
+        {
+          "pc": 27,
+          "sourceLine": 51710,
+          "raw": "return        r0     1"
+        }
+      ]
+    },
+    {
+      "name": "AddArrAny",
+      "function": "main/f7/f22",
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "sourceLines": [
+        51546,
+        51568
+      ],
+      "constants": {
+        "k0": {
+          "value": 1,
+          "sourceLine": 51555
+        },
+        "k1": {
+          "value": null,
+          "sourceLine": 51556
+        }
+      },
+      "labels": {
+        "l2": 2,
+        "l7": 7
+      },
+      "counts": {
+        "instructions": 9,
+        "conditions": 1,
+        "calls": 0,
+        "returnInstructions": 2
+      },
+      "instructions": [
+        {
+          "pc": 1,
+          "sourceLine": 51558,
+          "raw": "loadk         r2    k0"
+        },
+        {
+          "pc": 2,
+          "sourceLine": 51560,
+          "raw": "gettable      r3    r0    r2"
+        },
+        {
+          "pc": 3,
+          "sourceLine": 51561,
+          "raw": "eq             1    k1    r3"
+        },
+        {
+          "pc": 4,
+          "sourceLine": 51562,
+          "raw": "jmp            0    l7"
+        },
+        {
+          "pc": 5,
+          "sourceLine": 51563,
+          "raw": "add           r2    r2    k0"
+        },
+        {
+          "pc": 6,
+          "sourceLine": 51564,
+          "raw": "jmp            0    l2"
+        },
+        {
+          "pc": 7,
+          "sourceLine": 51566,
+          "raw": "settable      r0    r2    r1"
+        },
+        {
+          "pc": 8,
+          "sourceLine": 51567,
+          "raw": "return        r2     2"
+        },
+        {
+          "pc": 9,
+          "sourceLine": 51568,
+          "raw": "return        r0     1"
+        }
+      ]
+    },
+    {
+      "name": "Eff_time_end",
+      "function": "main/f7/f26",
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "sourceLines": [
+        51712,
+        51752
+      ],
+      "constants": {
+        "k0": {
+          "value": "GetExpiredTimer",
+          "sourceLine": 51723
+        },
+        "k1": {
+          "value": "IsInTable",
+          "sourceLine": 51724
+        },
+        "k2": {
+          "value": "Timer_Eff_All",
+          "sourceLine": 51725
+        },
+        "k3": {
+          "value": "Eff_ALL",
+          "sourceLine": 51726
+        },
+        "k4": {
+          "value": null,
+          "sourceLine": 51727
+        },
+        "k5": {
+          "value": "DestroyEffect",
+          "sourceLine": 51728
+        },
+        "k6": {
+          "value": "DestroyTimer",
+          "sourceLine": 51729
+        }
+      },
+      "labels": {
+        "l14": 14
+      },
+      "counts": {
+        "instructions": 21,
+        "conditions": 1,
+        "calls": 4,
+        "returnInstructions": 1
+      },
+      "instructions": [
+        {
+          "pc": 1,
+          "sourceLine": 51731,
+          "raw": "gettabup      r0    u0    k0"
+        },
+        {
+          "pc": 2,
+          "sourceLine": 51732,
+          "raw": "call          r0     1     2"
+        },
+        {
+          "pc": 3,
+          "sourceLine": 51733,
+          "raw": "gettabup      r1    u0    k1"
+        },
+        {
+          "pc": 4,
+          "sourceLine": 51734,
+          "raw": "move          r2    r0"
+        },
+        {
+          "pc": 5,
+          "sourceLine": 51735,
+          "raw": "gettabup      r3    u0    k2"
+        },
+        {
+          "pc": 6,
+          "sourceLine": 51736,
+          "raw": "call          r1     3     2"
+        },
+        {
+          "pc": 7,
+          "sourceLine": 51737,
+          "raw": "gettabup      r2    u0    k3"
+        },
+        {
+          "pc": 8,
+          "sourceLine": 51738,
+          "raw": "gettable      r2    r2    r1"
+        },
+        {
+          "pc": 9,
+          "sourceLine": 51739,
+          "raw": "eq             1    k4    r2"
+        },
+        {
+          "pc": 10,
+          "sourceLine": 51740,
+          "raw": "jmp            0   l14"
+        },
+        {
+          "pc": 11,
+          "sourceLine": 51741,
+          "raw": "gettabup      r3    u0    k5"
+        },
+        {
+          "pc": 12,
+          "sourceLine": 51742,
+          "raw": "move          r4    r2"
+        },
+        {
+          "pc": 13,
+          "sourceLine": 51743,
+          "raw": "call          r3     2     1"
+        },
+        {
+          "pc": 14,
+          "sourceLine": 51745,
+          "raw": "gettabup      r3    u0    k6"
+        },
+        {
+          "pc": 15,
+          "sourceLine": 51746,
+          "raw": "move          r4    r0"
+        },
+        {
+          "pc": 16,
+          "sourceLine": 51747,
+          "raw": "call          r3     2     1"
+        },
+        {
+          "pc": 17,
+          "sourceLine": 51748,
+          "raw": "gettabup      r3    u0    k2"
+        },
+        {
+          "pc": 18,
+          "sourceLine": 51749,
+          "raw": "settable      r3    r1    k4"
+        },
+        {
+          "pc": 19,
+          "sourceLine": 51750,
+          "raw": "gettabup      r3    u0    k3"
+        },
+        {
+          "pc": 20,
+          "sourceLine": 51751,
+          "raw": "settable      r3    r1    k4"
+        },
+        {
+          "pc": 21,
+          "sourceLine": 51752,
+          "raw": "return        r0     1"
+        }
+      ]
+    },
+    {
+      "name": "IsInTable",
+      "function": "main/f7/f7",
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "sourceLines": [
+        50776,
+        50810
+      ],
+      "constants": {
+        "k0": {
+          "value": null,
+          "sourceLine": 50787
+        },
+        "k1": {
+          "value": -1,
+          "sourceLine": 50788
+        },
+        "k2": {
+          "value": "pairs",
+          "sourceLine": 50789
+        }
+      },
+      "labels": {
+        "l5": 5,
+        "l9": 9,
+        "l13": 13
+      },
+      "counts": {
+        "instructions": 17,
+        "conditions": 2,
+        "calls": 1,
+        "returnInstructions": 4
+      },
+      "instructions": [
+        {
+          "pc": 1,
+          "sourceLine": 50791,
+          "raw": "eq             0    k0    r0"
+        },
+        {
+          "pc": 2,
+          "sourceLine": 50792,
+          "raw": "jmp            0    l5"
+        },
+        {
+          "pc": 3,
+          "sourceLine": 50793,
+          "raw": "loadk         r2    k1"
+        },
+        {
+          "pc": 4,
+          "sourceLine": 50794,
+          "raw": "return        r2     2"
+        },
+        {
+          "pc": 5,
+          "sourceLine": 50796,
+          "raw": "gettabup      r2    u0    k2"
+        },
+        {
+          "pc": 6,
+          "sourceLine": 50797,
+          "raw": "move          r3    r1"
+        },
+        {
+          "pc": 7,
+          "sourceLine": 50798,
+          "raw": "call          r2     2     4"
+        },
+        {
+          "pc": 8,
+          "sourceLine": 50799,
+          "raw": "jmp            0   l13"
+        },
+        {
+          "pc": 9,
+          "sourceLine": 50801,
+          "raw": "gettable      r7    r1    r5"
+        },
+        {
+          "pc": 10,
+          "sourceLine": 50802,
+          "raw": "eq             0    r7    r0"
+        },
+        {
+          "pc": 11,
+          "sourceLine": 50803,
+          "raw": "jmp            0   l13"
+        },
+        {
+          "pc": 12,
+          "sourceLine": 50804,
+          "raw": "return        r5     2"
+        },
+        {
+          "pc": 13,
+          "sourceLine": 50806,
+          "raw": "tforcall      r2     2"
+        },
+        {
+          "pc": 14,
+          "sourceLine": 50807,
+          "raw": "tforloop      r4    l9"
+        },
+        {
+          "pc": 15,
+          "sourceLine": 50808,
+          "raw": "loadk         r2    k1"
+        },
+        {
+          "pc": 16,
+          "sourceLine": 50809,
+          "raw": "return        r2     2"
+        },
+        {
+          "pc": 17,
+          "sourceLine": 50810,
+          "raw": "return        r0     1"
+        }
+      ]
+    }
+  ],
+  "helperTotals": {
+    "instructions": 74,
+    "conditions": 5,
+    "calls": 10,
+    "returnInstructions": 9
+  },
+  "sourceEffect": {
+    "source": "GetEventDamageSource() actual S, not attribution tower O",
+    "target": "GetTriggerUnit() T",
+    "rawDamage": {
+      "expression": "GetUnitState(S, UNIT_STATE_MAX_LIFE)",
+      "readOnce": true,
+      "sourceLines": [
+        114023,
+        114026
+      ],
+      "nativeCurrentHpRead": false,
+      "noLocalPositiveGuard": true
+    },
+    "area": {
+      "sourceLines": [
+        114027,
+        114043
+      ],
+      "source": "S",
+      "delay": 0,
+      "radius": 600,
+      "center": "T x/y at UnitDamagePoint call",
+      "attack": false,
+      "ranged": false,
+      "attackType": "ATTACK_TYPE_CHAOS",
+      "damageType": "DAMAGE_TYPE_NORMAL",
+      "weaponType": "WEAPON_TYPE_WHOKNOWS",
+      "nativeReturnUsed": false
+    },
+    "visual": {
+      "sourceLines": [
+        114044,
+        114051
+      ],
+      "model": "Abilities\\Spells\\Orc\\WarStomp\\WarStompCaster.mdl",
+      "position": "fresh GetUnitLoc(T) after area returns",
+      "duration": 0.8,
+      "scale": 1.8,
+      "TxShowGuard": false
+    },
+    "parentEventDamageWrite": false,
+    "controlCalls": [],
+    "additionalRngCalls": 0,
+    "localManaOrCooldownChecks": false,
+    "entryReference": {
+      "path": "reference/map-6.25/main.disasm",
+      "lines": [
+        164474,
+        164492
+      ],
+      "policyPath": "docs/rules/skill-power-suppression-proc.md",
+      "Q38": "exact12/100; no replacement here"
+    }
+  },
+  "nativeAOcrEvidence": {
+    "slkRow": 1396,
+    "slkFileLines": [
+      22653,
+      22661
+    ],
+    "slkRecord": {
+      "alias": "N086",
+      "code": "AOcr",
+      "checkDep": 1,
+      "levels": 1,
+      "reqLevel": 1,
+      "targs1": "air,ground,enemy,neutral",
+      "targs2": "_",
+      "targs3": "_",
+      "targs4": "_"
+    },
+    "absentFields": [
+      "DataA1",
+      "DataB1",
+      "DataC1",
+      "DataD1",
+      "DataE1"
+    ],
+    "absentIsNotConfirmedClientZero": true,
+    "w3aCheckedRecordCount": 268,
+    "w3aCheckedKeys": [
+      "old",
+      "new"
+    ],
+    "w3aN086Matches": [],
+    "stockAOcrSeparateRecord": {
+      "sourcePath": "reference/map-6.25/units_abilitydata.json",
+      "sourceLine": 7885,
+      "record": {
+        "alias": "AOcr",
+        "code": "AOcr",
+        "checkDep": 1,
+        "DataA1": 15.0,
+        "DataA2": 15.0,
+        "DataA3": 15.0,
+        "DataB1": 2.0,
+        "DataB2": 3.0,
+        "DataB3": 4.0,
+        "levels": 3,
+        "reqLevel": 1,
+        "targs1": "air,ground,enemy,neutral",
+        "targs2": "air,ground,enemy,neutral",
+        "targs3": "air,ground,enemy,neutral",
+        "targs4": "_"
+      }
+    },
+    "primarySources": [
+      {
+        "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/Units/AbilityMetaData.slk#L1730",
+        "supports": "AOcr DataA..E metadata mapping; not engine defaults"
+      },
+      {
+        "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/UI/WorldEditStrings.txt#L5889",
+        "supports": "Ocr1..4 labels"
+      },
+      {
+        "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/UI/WorldEditStrings.txt#L8118",
+        "supports": "Ocr5 Never Miss label"
+      },
+      {
+        "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/plugin/w3x2lni/script/core/slk/frontend_slk.lua#L19",
+        "supports": "converter missing numeric values normalize to0; own custom SLK records read, not client execution proof"
+      },
+      {
+        "url": "https://classic.battle.net/war3/orc/units/blademaster.shtml",
+        "supports": "ordinary Critical Strike is an attack passive; does not specify custom SLK missing-field runtime"
+      }
+    ]
+  },
+  "webSelections": {
+    "authorization": "Q24, after source investigation; no matched client runtime claim",
+    "area": "reuse area-damage-v1 unchanged; synchronous zero delay; enemy center closed circle, stable snapshot, NORMAL immunity matrix",
+    "AOcr": {
+      "scopeIds": [
+        "N086"
+      ],
+      "extraNativeProc": false,
+      "extraNativeCriticalMultiplier": false,
+      "extraNativeSingleTargetDamage": false,
+      "grantEvasion": false,
+      "grantNeverMiss": false,
+      "grantControl": false,
+      "neverMultiplyNormalAttackByMissingZero": true,
+      "otherAbilitiesUnchanged": true,
+      "T325Unchanged": true
+    },
+    "visual": {
+      "logicalEffectIndependentFromRenderer": true,
+      "cleanupBattleSeconds": 0.8,
+      "queue": "B05",
+      "deathDoesNotCancel": true,
+      "removedTargetPosition": "only this visual request uses target handle last recorded coordinates before removal",
+      "noGlobalInvalidGetUnitLocRule": true,
+      "missingTimerLookup": "preserve IsInTable=-1, effect conditional destroy, timer unconditional destroy, clear both tables at returned index"
+    },
+    "nativeNotProven": [
+      "actual-client AOcr missing field behavior",
+      "actual-client GetUnitLoc of removed target",
+      "actual-client model load failure effect-handle details"
+    ],
+    "saveRuleVersions": [
+      "power-suppression-effect-v1",
+      "area-damage-v1",
+      "B03",
+      "B05"
+    ]
+  },
+  "newWorkbookConflicts": [],
+  "verification": {
+    "coreExecution": "minimal Lua register-bytecode interpreter with native stubs; no game engine",
+    "coreProbeCount": 10,
+    "coreProbes": [
+      {
+        "id": "max_not_current_owner_or_victim",
+        "kind": "bytecode_native_stubs",
+        "input": {},
+        "trace": [
+          {
+            "call": "UnitDamagePoint",
+            "args": [
+              "actual-source",
+              0,
+              600.0,
+              10,
+              20,
+              1000,
+              false,
+              false,
+              "ATTACK_TYPE_CHAOS",
+              "DAMAGE_TYPE_NORMAL",
+              "WEAPON_TYPE_WHOKNOWS"
+            ]
+          },
+          {
+            "call": "CreateEffAtLoc",
+            "args": [
+              "Abilities\\Spells\\Orc\\WarStomp\\WarStompCaster.mdl",
+              [
+                10,
+                20
+              ],
+              0.8,
+              1.8
+            ]
+          }
+        ],
+        "maxLifeReads": [
+          [
+            "actual-source",
+            "UNIT_STATE_MAX_LIFE"
+          ]
+        ],
+        "parentAmountAfter": 100,
+        "passed": true
+      },
+      {
+        "id": "current_hp_ignored",
+        "kind": "bytecode_native_stubs",
+        "input": {
+          "hp": 1199,
+          "maxLife": 1200
+        },
+        "trace": [
+          {
+            "call": "UnitDamagePoint",
+            "args": [
+              "actual-source",
+              0,
+              600.0,
+              10,
+              20,
+              1200,
+              false,
+              false,
+              "ATTACK_TYPE_CHAOS",
+              "DAMAGE_TYPE_NORMAL",
+              "WEAPON_TYPE_WHOKNOWS"
+            ]
+          },
+          {
+            "call": "CreateEffAtLoc",
+            "args": [
+              "Abilities\\Spells\\Orc\\WarStomp\\WarStompCaster.mdl",
+              [
+                10,
+                20
+              ],
+              0.8,
+              1.8
+            ]
+          }
+        ],
+        "maxLifeReads": [
+          [
+            "actual-source",
+            "UNIT_STATE_MAX_LIFE"
+          ]
+        ],
+        "parentAmountAfter": 100,
+        "passed": true
+      },
+      {
+        "id": "fractional_max_preserved",
+        "kind": "bytecode_native_stubs",
+        "input": {
+          "maxLife": 1234.5
+        },
+        "trace": [
+          {
+            "call": "UnitDamagePoint",
+            "args": [
+              "actual-source",
+              0,
+              600.0,
+              10,
+              20,
+              1234.5,
+              false,
+              false,
+              "ATTACK_TYPE_CHAOS",
+              "DAMAGE_TYPE_NORMAL",
+              "WEAPON_TYPE_WHOKNOWS"
+            ]
+          },
+          {
+            "call": "CreateEffAtLoc",
+            "args": [
+              "Abilities\\Spells\\Orc\\WarStomp\\WarStompCaster.mdl",
+              [
+                10,
+                20
+              ],
+              0.8,
+              1.8
+            ]
+          }
+        ],
+        "maxLifeReads": [
+          [
+            "actual-source",
+            "UNIT_STATE_MAX_LIFE"
+          ]
+        ],
+        "parentAmountAfter": 100,
+        "passed": true
+      },
+      {
+        "id": "snapshot_max",
+        "kind": "bytecode_native_stubs",
+        "input": {
+          "changeMax": true
+        },
+        "trace": [
+          {
+            "call": "UnitDamagePoint",
+            "args": [
+              "actual-source",
+              0,
+              600.0,
+              10,
+              20,
+              1000,
+              false,
+              false,
+              "ATTACK_TYPE_CHAOS",
+              "DAMAGE_TYPE_NORMAL",
+              "WEAPON_TYPE_WHOKNOWS"
+            ]
+          },
+          {
+            "call": "CreateEffAtLoc",
+            "args": [
+              "Abilities\\Spells\\Orc\\WarStomp\\WarStompCaster.mdl",
+              [
+                10,
+                20
+              ],
+              0.8,
+              1.8
+            ]
+          }
+        ],
+        "maxLifeReads": [
+          [
+            "actual-source",
+            "UNIT_STATE_MAX_LIFE"
+          ]
+        ],
+        "parentAmountAfter": 100,
+        "passed": true
+      },
+      {
+        "id": "visual_position_reread",
+        "kind": "bytecode_native_stubs",
+        "input": {
+          "move": true
+        },
+        "trace": [
+          {
+            "call": "UnitDamagePoint",
+            "args": [
+              "actual-source",
+              0,
+              600.0,
+              10,
+              20,
+              1000,
+              false,
+              false,
+              "ATTACK_TYPE_CHAOS",
+              "DAMAGE_TYPE_NORMAL",
+              "WEAPON_TYPE_WHOKNOWS"
+            ]
+          },
+          {
+            "call": "CreateEffAtLoc",
+            "args": [
+              "Abilities\\Spells\\Orc\\WarStomp\\WarStompCaster.mdl",
+              [
+                30,
+                40
+              ],
+              0.8,
+              1.8
+            ]
+          }
+        ],
+        "maxLifeReads": [
+          [
+            "actual-source",
+            "UNIT_STATE_MAX_LIFE"
+          ]
+        ],
+        "parentAmountAfter": 100,
+        "passed": true
+      },
+      {
+        "id": "native_false_ignored",
+        "kind": "bytecode_native_stubs",
+        "input": {
+          "areaReturn": false
+        },
+        "trace": [
+          {
+            "call": "UnitDamagePoint",
+            "args": [
+              "actual-source",
+              0,
+              600.0,
+              10,
+              20,
+              1000,
+              false,
+              false,
+              "ATTACK_TYPE_CHAOS",
+              "DAMAGE_TYPE_NORMAL",
+              "WEAPON_TYPE_WHOKNOWS"
+            ]
+          },
+          {
+            "call": "CreateEffAtLoc",
+            "args": [
+              "Abilities\\Spells\\Orc\\WarStomp\\WarStompCaster.mdl",
+              [
+                10,
+                20
+              ],
+              0.8,
+              1.8
+            ]
+          }
+        ],
+        "maxLifeReads": [
+          [
+            "actual-source",
+            "UNIT_STATE_MAX_LIFE"
+          ]
+        ],
+        "parentAmountAfter": 100,
+        "passed": true
+      },
+      {
+        "id": "parent_zero_not_local_guard",
+        "kind": "bytecode_native_stubs",
+        "input": {
+          "parentAmount": 0
+        },
+        "trace": [
+          {
+            "call": "UnitDamagePoint",
+            "args": [
+              "actual-source",
+              0,
+              600.0,
+              10,
+              20,
+              1000,
+              false,
+              false,
+              "ATTACK_TYPE_CHAOS",
+              "DAMAGE_TYPE_NORMAL",
+              "WEAPON_TYPE_WHOKNOWS"
+            ]
+          },
+          {
+            "call": "CreateEffAtLoc",
+            "args": [
+              "Abilities\\Spells\\Orc\\WarStomp\\WarStompCaster.mdl",
+              [
+                10,
+                20
+              ],
+              0.8,
+              1.8
+            ]
+          }
+        ],
+        "maxLifeReads": [
+          [
+            "actual-source",
+            "UNIT_STATE_MAX_LIFE"
+          ]
+        ],
+        "parentAmountAfter": 0,
+        "passed": true
+      },
+      {
+        "id": "zero_max_still_calls_native_and_visual",
+        "kind": "bytecode_native_stubs",
+        "input": {
+          "maxLife": 0
+        },
+        "trace": [
+          {
+            "call": "UnitDamagePoint",
+            "args": [
+              "actual-source",
+              0,
+              600.0,
+              10,
+              20,
+              0,
+              false,
+              false,
+              "ATTACK_TYPE_CHAOS",
+              "DAMAGE_TYPE_NORMAL",
+              "WEAPON_TYPE_WHOKNOWS"
+            ]
+          },
+          {
+            "call": "CreateEffAtLoc",
+            "args": [
+              "Abilities\\Spells\\Orc\\WarStomp\\WarStompCaster.mdl",
+              [
+                10,
+                20
+              ],
+              0.8,
+              1.8
+            ]
+          }
+        ],
+        "maxLifeReads": [
+          [
+            "actual-source",
+            "UNIT_STATE_MAX_LIFE"
+          ]
+        ],
+        "parentAmountAfter": 100,
+        "passed": true
+      },
+      {
+        "id": "TxShow_false_not_local_guard",
+        "kind": "bytecode_native_stubs",
+        "input": {
+          "TxShow": false
+        },
+        "trace": [
+          {
+            "call": "UnitDamagePoint",
+            "args": [
+              "actual-source",
+              0,
+              600.0,
+              10,
+              20,
+              1000,
+              false,
+              false,
+              "ATTACK_TYPE_CHAOS",
+              "DAMAGE_TYPE_NORMAL",
+              "WEAPON_TYPE_WHOKNOWS"
+            ]
+          },
+          {
+            "call": "CreateEffAtLoc",
+            "args": [
+              "Abilities\\Spells\\Orc\\WarStomp\\WarStompCaster.mdl",
+              [
+                10,
+                20
+              ],
+              0.8,
+              1.8
+            ]
+          }
+        ],
+        "maxLifeReads": [
+          [
+            "actual-source",
+            "UNIT_STATE_MAX_LIFE"
+          ]
+        ],
+        "parentAmountAfter": 100,
+        "passed": true
+      },
+      {
+        "id": "removed_target_visual_Q24_last_transform",
+        "kind": "bytecode_native_stubs_with_Q24_visual_adapter",
+        "input": {
+          "remove": true
+        },
+        "trace": [
+          {
+            "call": "UnitDamagePoint",
+            "args": [
+              "actual-source",
+              0,
+              600.0,
+              10,
+              20,
+              1000,
+              false,
+              false,
+              "ATTACK_TYPE_CHAOS",
+              "DAMAGE_TYPE_NORMAL",
+              "WEAPON_TYPE_WHOKNOWS"
+            ]
+          },
+          {
+            "call": "CreateEffAtLoc",
+            "args": [
+              "Abilities\\Spells\\Orc\\WarStomp\\WarStompCaster.mdl",
+              [
+                50,
+                60
+              ],
+              0.8,
+              1.8
+            ]
+          }
+        ],
+        "maxLifeReads": [
+          [
+            "actual-source",
+            "UNIT_STATE_MAX_LIFE"
+          ]
+        ],
+        "parentAmountAfter": 100,
+        "passed": true
+      }
+    ],
+    "webSpecCaseCount": 16,
+    "webSpecCases": [
+      {
+        "id": "circle_600",
+        "basis": "area-damage-v1",
+        "input": {
+          "center": [
+            0,
+            0
+          ],
+          "radius": 600,
+          "enemyCenter": [
+            600,
+            0
+          ]
+        },
+        "expected": {
+          "included": true
+        },
+        "checked": true
+      },
+      {
+        "id": "circle_600.001",
+        "basis": "area-damage-v1",
+        "input": {
+          "center": [
+            0,
+            0
+          ],
+          "radius": 600,
+          "enemyCenter": [
+            600.001,
+            0
+          ]
+        },
+        "expected": {
+          "included": false
+        },
+        "checked": true
+      },
+      {
+        "id": "source_origin_not_center",
+        "basis": "source+area-damage-v1",
+        "input": {
+          "source": [
+            1000,
+            1000
+          ],
+          "victim": [
+            0,
+            0
+          ],
+          "enemy": [
+            600,
+            0
+          ]
+        },
+        "expected": {
+          "included": true,
+          "center": [
+            0,
+            0
+          ]
+        },
+        "checked": true
+      },
+      {
+        "id": "per_target_not_divided",
+        "basis": "source+area-damage-v1",
+        "input": {
+          "rawDamage": 1000,
+          "eligibleTargets": 2,
+          "damageModifiers": "none"
+        },
+        "expected": {
+          "rawAmounts": [
+            1000,
+            1000
+          ]
+        },
+        "checked": true
+      },
+      {
+        "id": "NORMAL_magic_immune",
+        "basis": "area-damage-v1",
+        "input": {
+          "enemyMagicImmune": true,
+          "invulnerable": false
+        },
+        "expected": {
+          "entersDamagePipeline": true,
+          "types": [
+            "CHAOS",
+            "NORMAL"
+          ]
+        },
+        "checked": true
+      },
+      {
+        "id": "invulnerable_or_Aloc",
+        "basis": "area-damage-v1",
+        "input": {
+          "enemyInvulnerableOrAloc": true
+        },
+        "expected": {
+          "childDamageEvents": 0
+        },
+        "checked": true
+      },
+      {
+        "id": "original_target_included",
+        "basis": "source+area-damage-v1",
+        "input": {
+          "victimAlive": true,
+          "victimEnemy": true,
+          "victimOtherwiseEligible": true
+        },
+        "expected": {
+          "included": true
+        },
+        "checked": true
+      },
+      {
+        "id": "air_building_not_extra_filtered",
+        "basis": "area-damage-v1",
+        "input": {
+          "eligibleTypes": [
+            "ground",
+            "air",
+            "building"
+          ]
+        },
+        "expected": {
+          "includedTypes": [
+            "ground",
+            "air",
+            "building"
+          ]
+        },
+        "checked": true
+      },
+      {
+        "id": "child_no_repeat_Q38",
+        "basis": "existing_proc+source",
+        "input": {
+          "childAttackFlag": false,
+          "sourceHasN086": true
+        },
+        "expected": {
+          "N086ProbabilityRolls": 0
+        },
+        "checked": true
+      },
+      {
+        "id": "snapshot_move_kill_create",
+        "basis": "area-damage-v1",
+        "input": {
+          "snapshotIds": [
+            4,
+            9,
+            12
+          ],
+          "child4": "move9 out, kill12, create13 inside"
+        },
+        "expected": {
+          "processedIds": [
+            4,
+            9
+          ]
+        },
+        "checked": true
+      },
+      {
+        "id": "parent_context_restore",
+        "basis": "B03+source",
+        "input": {
+          "parentAmount": 100,
+          "childAmounts": [
+            1000,
+            1000
+          ]
+        },
+        "expected": {
+          "parentAmountAtHelperReturn": 100,
+          "parentDownstreamContinues": true
+        },
+        "checked": true
+      },
+      {
+        "id": "visual_lifetime",
+        "basis": "B05+source",
+        "input": {
+          "startBattleTime": 10,
+          "duration": 0.8,
+          "scale": 1.8
+        },
+        "expected": {
+          "cleanupBattleTime": 10.8,
+          "radius": 600,
+          "damageRepeatCount": 0,
+          "controlDuration": null
+        },
+        "checked": true
+      },
+      {
+        "id": "source_target_death_no_early_visual_cleanup",
+        "basis": "Q24_visual",
+        "input": {
+          "effectCreated": true,
+          "sourceOrTargetDiesBefore0_8": true
+        },
+        "expected": {
+          "cleanupAfterBattleSeconds": 0.8
+        },
+        "checked": true
+      },
+      {
+        "id": "renderer_failure_no_gameplay_change",
+        "basis": "Q24_visual",
+        "input": {
+          "modelLoadSucceeds": false
+        },
+        "expected": {
+          "logicalTimerExists": true,
+          "extraRandomDraws": 0,
+          "damageUnchanged": true
+        },
+        "checked": true
+      },
+      {
+        "id": "N086_no_native_AOcr_extra",
+        "basis": "Q24_AOcr",
+        "input": {
+          "N086Present": true,
+          "otherAbilityEffects": "independent"
+        },
+        "expected": {
+          "extraNativeAOcrRolls": 0,
+          "attackMultiplierOverride": null,
+          "extraSingleTargetDamage": 0,
+          "grantsEvasion": false,
+          "grantsNeverMiss": false,
+          "grantsControl": false
+        },
+        "checked": true
+      },
+      {
+        "id": "T325_out_of_scope",
+        "basis": "scope",
+        "input": {
+          "sourceHasT325Only": true
+        },
+        "expected": {
+          "N086ProbabilityRolls": 0,
+          "T325PolicyChanged": false
+        },
+        "checked": true
+      }
+    ],
+    "helperVerification": "all instructions/conditions/returns statically matched; no fresh engine execution",
+    "sourceInstructionCount": 108,
+    "originalClientRun": false,
+    "webGameRun": false
+  },
+  "excluded": [
+    "T325 copied-skill effect/probability",
+    "N085 and N087 effects",
+    "global native critical-strike stacking",
+    "other control ability implementations"
+  ]
+}

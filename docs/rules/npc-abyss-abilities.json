@@ -1,0 +1,1284 @@
+{
+  "totals": {
+    "npcScope": 13,
+    "ready": 13,
+    "pending": 0,
+    "workbookCountIncrement": 0
+  },
+  "sharedRefs": [
+    "damage-pipeline.md",
+    "challenge-spawns.md",
+    "native-armor-and-xp.md",
+    "skill-stone-gaze.md"
+  ],
+  "records": [
+    {
+      "id": "N537",
+      "host": "ma02",
+      "status": "ready",
+      "rules": {
+        "command": "mirrorimage",
+        "selfDispel": "removable magic status",
+        "replaceOldImages": true,
+        "copies": 3,
+        "duration": 20,
+        "damageDealtFactor": 0,
+        "damageTakenFactor": 2,
+        "birth": "actual BIil, no generic P11 registration"
+      },
+      "sourceRefs": {
+        "nativeFields": {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 1501,
+          "id": "N537",
+          "fields": {
+            "alias": "N537",
+            "code": "AOmi",
+            "Area1": 1000.0,
+            "BuffID1": "BOmi",
+            "checkDep": 1,
+            "Cool1": 25.0,
+            "Cost1": 125,
+            "DataA1": 3,
+            "DataC1": 2.0,
+            "Dur1": 20.0,
+            "HeroDur1": 20.0,
+            "levels": 1,
+            "reqLevel": 1,
+            "Rng1": 100.0,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        "hostAbilityIndex": 1150,
+        "hostWeaponIndex": 1150,
+        "hintLine": 15193,
+        "functions": [],
+        "router": [
+          [
+            "main/f291/f1",
+            3280,
+            165957
+          ]
+        ]
+      },
+      "differences": [
+        "Map template text claims one image and 60s; object 3 and 20s. Missing image damage and animation delay select 0; incoming factor 2."
+      ],
+      "unresolved": [],
+      "validation": "source fields, routes, and applicable grouped probes"
+    },
+    {
+      "id": "N538",
+      "host": "ma02",
+      "status": "ready",
+      "rules": {
+        "command": "harvest",
+        "healthBelow": 0.5,
+        "activeDuration": 15,
+        "interval": 1.2,
+        "initialPulse": true,
+        "maxPulses": 13,
+        "scanRadius": 2500,
+        "proxy": "q001:T070",
+        "proxyLife": 1,
+        "sleepRange": 3000,
+        "sleepDuration": 1.5,
+        "initialStunSegment": 0.1,
+        "wakeOnLegalAttackAfterInitialSegment": true
+      },
+      "sourceRefs": {
+        "nativeFields": {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 1502,
+          "id": "N538",
+          "fields": {
+            "alias": "N538",
+            "code": "ANcl",
+            "checkDep": 1,
+            "Cool1": 45.0,
+            "Cost1": 100,
+            "DataC1": 1,
+            "DataF1": "harvest",
+            "levels": 1,
+            "reqLevel": 1,
+            "Rng1": 500.0,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        "hostAbilityIndex": 1150,
+        "hostWeaponIndex": 1150,
+        "hintLine": 15211,
+        "functions": [
+          [
+            "main/f191",
+            115600,
+            115622
+          ],
+          [
+            "main/f191/f0",
+            115623,
+            115735
+          ],
+          [
+            "main/f191/f1",
+            115736,
+            115783
+          ],
+          [
+            "main/f191/f2",
+            115784,
+            115820
+          ],
+          [
+            "main/f191/f3",
+            115821,
+            115904
+          ]
+        ],
+        "router": [
+          [
+            "main/f291/f1",
+            3295,
+            165973
+          ],
+          [
+            "main/f291/f14",
+            1748,
+            171915
+          ]
+        ]
+      },
+      "differences": [
+        "Host ANcl is only a wrapper; T070 supplies actual non-template duration and initial segment."
+      ],
+      "unresolved": [],
+      "validation": "source fields, routes, and applicable grouped probes"
+    },
+    {
+      "id": "N539",
+      "host": "ma02",
+      "status": "ready",
+      "rules": {
+        "command": "ensnare",
+        "randomCandidate": "live non-P11 native HERO within 5000",
+        "missileSpeed": 1500,
+        "moveLockDuration": 6,
+        "airLowerDuration": 0.6,
+        "airHeight": 200,
+        "meleeReachField": 128,
+        "breakChannelOnHit": true
+      },
+      "sourceRefs": {
+        "nativeFields": {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 1503,
+          "id": "N539",
+          "fields": {
+            "alias": "N539",
+            "code": "Aens",
+            "BuffID1": "Bena,Beng",
+            "Cool1": 20.0,
+            "Cost1": 150,
+            "DataA1": 0.6,
+            "DataB1": 200.0,
+            "DataC1": 128.0,
+            "Dur1": 6.0,
+            "HeroDur1": 6.0,
+            "levels": 1,
+            "Rng1": 6000.0,
+            "targs1": "enemies,invulnerable",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        "hostAbilityIndex": 1150,
+        "hostWeaponIndex": 1150,
+        "hintLine": 15224,
+        "functions": [
+          [
+            "main/f192",
+            115905,
+            115921
+          ],
+          [
+            "main/f192/f0",
+            115922,
+            116044
+          ]
+        ],
+        "router": [
+          [
+            "main/f291/f1",
+            3316,
+            165995
+          ]
+        ]
+      },
+      "differences": [
+        "Default text 10s; actual ordinary and hero durations are both 6s."
+      ],
+      "unresolved": [],
+      "validation": "source fields, routes, and applicable grouped probes"
+    },
+    {
+      "id": "N550",
+      "host": "ma03",
+      "status": "ready",
+      "rules": {
+        "command": "harvest",
+        "healthBelow": 0.8,
+        "followThrough": 3,
+        "trigger": "normal FINISH",
+        "selfHealMaximumFraction": 0.25
+      },
+      "sourceRefs": {
+        "nativeFields": {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 1514,
+          "id": "N550",
+          "fields": {
+            "alias": "N550",
+            "code": "ANcl",
+            "checkDep": 1,
+            "Cool1": 15.0,
+            "Cost1": 500,
+            "DataA1": 3.0,
+            "DataC1": 1,
+            "DataF1": "harvest",
+            "levels": 1,
+            "reqLevel": 1,
+            "Rng1": 500.0,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        "hostAbilityIndex": 1151,
+        "hostWeaponIndex": 1151,
+        "hintLine": 15361,
+        "functions": [
+          [
+            "main/f198",
+            117170,
+            117186
+          ],
+          [
+            "main/f198/f0",
+            117187,
+            117243
+          ]
+        ],
+        "router": [
+          [
+            "main/f291/f1",
+            3427,
+            166113
+          ],
+          [
+            "main/f291/f16",
+            135,
+            172421
+          ]
+        ]
+      },
+      "differences": [],
+      "unresolved": [],
+      "validation": "source fields, routes, and applicable grouped probes"
+    },
+    {
+      "id": "N551",
+      "host": "ma03",
+      "status": "ready",
+      "rules": {
+        "command": "charm",
+        "nativeProxy": "T071/B063",
+        "proxyLife": 1,
+        "armor": 5,
+        "scriptMarkerLife": 18,
+        "acceptsEventType": "magic",
+        "healFactor": 5,
+        "sourceDamageSet": 0,
+        "sameMarkerReplaces": true,
+        "independentOfNativeBuff": true,
+        "autoRandomWhenBothReadyAndNeitherPresent": "uniform(1..100)>50"
+      },
+      "sourceRefs": {
+        "nativeFields": {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 1515,
+          "id": "N551",
+          "fields": {
+            "alias": "N551",
+            "code": "ANcl",
+            "checkDep": 1,
+            "Cool1": 20.0,
+            "Cost1": 100,
+            "DataC1": 1,
+            "DataF1": "charm",
+            "levels": 1,
+            "reqLevel": 1,
+            "Rng1": 500.0,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        "hostAbilityIndex": 1151,
+        "hostWeaponIndex": 1151,
+        "hintLine": 15373,
+        "functions": [
+          [
+            "main/f199",
+            117244,
+            117265
+          ],
+          [
+            "main/f199/f0",
+            117266,
+            117299
+          ],
+          [
+            "main/f199/f1",
+            117300,
+            117395
+          ]
+        ],
+        "router": [
+          [
+            "main/f291/f1",
+            3463,
+            166150
+          ],
+          [
+            "main/f291/f14",
+            1788,
+            171959
+          ]
+        ]
+      },
+      "differences": [],
+      "unresolved": [],
+      "validation": "source fields, routes, and applicable grouped probes"
+    },
+    {
+      "id": "N552",
+      "host": "ma03",
+      "status": "ready",
+      "rules": {
+        "command": "ambush",
+        "nativeProxy": "T072/B064",
+        "proxyLife": 1,
+        "armor": 5,
+        "scriptMarkerLife": 18,
+        "acceptsEventType": "physical",
+        "healFactor": 5,
+        "sourceDamageSet": 0,
+        "sameMarkerReplaces": true,
+        "independentOfNativeBuff": true,
+        "autoRandomWhenBothReadyAndNeitherPresent": "uniform(1..100)<=50"
+      },
+      "sourceRefs": {
+        "nativeFields": {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 1516,
+          "id": "N552",
+          "fields": {
+            "alias": "N552",
+            "code": "ANcl",
+            "checkDep": 1,
+            "Cool1": 20.0,
+            "Cost1": 100,
+            "DataC1": 1,
+            "DataF1": "ambush",
+            "levels": 1,
+            "reqLevel": 1,
+            "Rng1": 500.0,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        "hostAbilityIndex": 1151,
+        "hostWeaponIndex": 1151,
+        "hintLine": 15385,
+        "functions": [
+          [
+            "main/f200",
+            117396,
+            117417
+          ],
+          [
+            "main/f200/f0",
+            117418,
+            117451
+          ],
+          [
+            "main/f200/f1",
+            117452,
+            117547
+          ]
+        ],
+        "router": [
+          [
+            "main/f291/f1",
+            3472,
+            166159
+          ],
+          [
+            "main/f291/f14",
+            1798,
+            171970
+          ]
+        ]
+      },
+      "differences": [],
+      "unresolved": [],
+      "validation": "source fields, routes, and applicable grouped probes"
+    },
+    {
+      "id": "N540",
+      "host": "ma04",
+      "status": "ready",
+      "rules": {
+        "command": "harvest",
+        "randomCandidate": "live non-P11 native HERO without T069 within 2000",
+        "interval": 0.01,
+        "airInitialStep": 30,
+        "changeToDownwardAboveDefault": 750,
+        "upDecay": 0.7,
+        "downAcceleration": 0.8,
+        "verticalStepRange": [
+          2,
+          150
+        ],
+        "horizontalStep": "20*delta/max(abs(dx),abs(dy)); zero vector stays zero",
+        "xyLimit": [
+          [
+            -5000,
+            5000
+          ],
+          [
+            -4700,
+            4700
+          ]
+        ],
+        "pause": "global raw PauseUnit bool; separate timed control remains",
+        "directDamage": 0
+      },
+      "sourceRefs": {
+        "nativeFields": {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 1504,
+          "id": "N540",
+          "fields": {
+            "alias": "N540",
+            "code": "ANcl",
+            "checkDep": 1,
+            "Cool1": 15.0,
+            "Cost1": 150,
+            "DataB1": 1,
+            "DataC1": 1,
+            "DataF1": "harvest",
+            "levels": 1,
+            "reqLevel": 1,
+            "Rng1": 5000.0,
+            "targs1": "enemies,invulnerable",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        "hostAbilityIndex": 1152,
+        "hostWeaponIndex": 1152,
+        "hintLine": 15237,
+        "functions": [
+          [
+            "main/f193",
+            116045,
+            116074
+          ],
+          [
+            "main/f193/f0",
+            116075,
+            116267
+          ],
+          [
+            "main/f193/f1",
+            116268,
+            116393
+          ],
+          [
+            "main/f193/f2",
+            116394,
+            116527
+          ]
+        ],
+        "router": [
+          [
+            "main/f291/f1",
+            3350,
+            166031
+          ],
+          [
+            "main/f291/f14",
+            1757,
+            171925
+          ]
+        ]
+      },
+      "differences": [
+        "Source co-located direction is 0/0; finite coordinates use zero horizontal motion while retaining original vertical path."
+      ],
+      "unresolved": [],
+      "validation": "source fields, routes, and applicable grouped probes"
+    },
+    {
+      "id": "N542",
+      "host": "ma04",
+      "status": "ready",
+      "rules": {
+        "command": "bloodlust",
+        "healthBelow": 0.6,
+        "buff": "B059",
+        "duration": 20,
+        "moveSpeedFactor": 1.8,
+        "attackSpeedIncrease": 0,
+        "artScaleField": 2.0
+      },
+      "sourceRefs": {
+        "nativeFields": {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 1506,
+          "id": "N542",
+          "fields": {
+            "alias": "N542",
+            "code": "Ablo",
+            "BuffID1": "B059",
+            "checkDep": 1,
+            "Cool1": 40.0,
+            "Cost1": 300,
+            "DataB1": 0.8,
+            "DataC1": 2.0,
+            "Dur1": 20.0,
+            "HeroDur1": 20.0,
+            "levels": 1,
+            "priority": 11,
+            "Rng1": 600.0,
+            "targs1": "air,ground,friend,organic,self,neutral",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        "hostAbilityIndex": 1152,
+        "hostWeaponIndex": 1152,
+        "hintLine": 15261,
+        "functions": [],
+        "router": [
+          [
+            "main/f291/f1",
+            3363,
+            166045
+          ]
+        ]
+      },
+      "differences": [
+        "Default text offers attack speed and 60s; DataA absent, DataB .8, actual duration20."
+      ],
+      "unresolved": [],
+      "validation": "source fields, routes, and applicable grouped probes"
+    },
+    {
+      "id": "N559",
+      "host": "ma04",
+      "status": "ready",
+      "rules": {
+        "command": "blizzard",
+        "target": "actual attacker owner position",
+        "nativeBlizzardPayloadCount": 0,
+        "proxy": "q001:T074",
+        "area": 800,
+        "interval": 0.25,
+        "areaDuration": 2,
+        "stunSeconds": 5,
+        "nativeMissingDamage": 0,
+        "visualMissileCount": 60,
+        "visualMissileSpeed": 400,
+        "intervalAdapter": "fixed impact point; .25 through 2 inclusive; refresh control"
+      },
+      "sourceRefs": {
+        "nativeFields": {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 1523,
+          "id": "N559",
+          "fields": {
+            "alias": "N559",
+            "code": "AHbz",
+            "Area1": 800.0,
+            "Area2": 200.0,
+            "Area3": 200.0,
+            "Area4": 200.0,
+            "BuffID1": "BHbd,BHbz",
+            "BuffID2": "BHbd,BHbz",
+            "BuffID3": "BHbd,BHbz",
+            "BuffID4": "BHbd,BHbz",
+            "Cast2": 1.0,
+            "Cast3": 1.0,
+            "Cast4": 1.0,
+            "checkDep": 1,
+            "Cool1": 9.0,
+            "Cool2": 6.0,
+            "Cool3": 6.0,
+            "Cool4": 6.0,
+            "Cost1": 150,
+            "Cost2": 75,
+            "Cost3": 75,
+            "Cost4": 75,
+            "DataA2": 8,
+            "DataA3": 10,
+            "DataA4": 10,
+            "DataB2": 40.0,
+            "DataB3": 50.0,
+            "DataB4": 50.0,
+            "DataC2": 7,
+            "DataC3": 10,
+            "DataC4": 10,
+            "DataD2": 0.5,
+            "DataD3": 0.5,
+            "DataD4": 0.5,
+            "DataF2": 200.0,
+            "DataF3": 250.0,
+            "DataF4": 250.0,
+            "EfctID2": "XHbz",
+            "EfctID3": "XHbz",
+            "EfctID4": "XHbz",
+            "levels": 6,
+            "reqLevel": 1,
+            "Rng1": 5000.0,
+            "Rng2": 800.0,
+            "Rng3": 800.0,
+            "Rng4": 800.0,
+            "targs1": "none",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        "hostAbilityIndex": 1152,
+        "hostWeaponIndex": 1152,
+        "hintLine": 15475,
+        "functions": [
+          [
+            "main/f205",
+            118375,
+            118391
+          ],
+          [
+            "main/f205/f0",
+            118392,
+            118430
+          ]
+        ],
+        "router": [
+          [
+            "main/f291/f1",
+            3331,
+            166011
+          ],
+          [
+            "main/f291/f14",
+            1840,
+            172016
+          ]
+        ]
+      },
+      "differences": [
+        "Default Blizzard description is unbound; no raw damage fields on actual control proxy. Interval uses object footprint with deterministic Q24 refresh."
+      ],
+      "unresolved": [],
+      "validation": "source fields, routes, and applicable grouped probes"
+    },
+    {
+      "id": "N543",
+      "host": "ma05",
+      "status": "ready",
+      "rules": {
+        "command": "charm",
+        "followThrough": 1,
+        "trigger": "normal FINISH",
+        "destination": "uniform path index 0..23 center",
+        "position": "SetUnitPositionLoc, same actual entity and path registration"
+      },
+      "sourceRefs": {
+        "nativeFields": {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 1507,
+          "id": "N543",
+          "fields": {
+            "alias": "N543",
+            "code": "ANcl",
+            "checkDep": 1,
+            "Cool1": 25.0,
+            "Cost1": 100,
+            "DataA1": 1.0,
+            "DataC1": 1,
+            "DataF1": "charm",
+            "levels": 1,
+            "reqLevel": 1,
+            "Rng1": 500.0,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        "hostAbilityIndex": 1153,
+        "hostWeaponIndex": 1153,
+        "hintLine": 15278,
+        "functions": [
+          [
+            "main/f195",
+            116671,
+            116690
+          ],
+          [
+            "main/f195/f0",
+            116691,
+            116710
+          ],
+          [
+            "main/f195/f1",
+            116711,
+            116752
+          ]
+        ],
+        "router": [
+          [
+            "main/f291/f1",
+            3386,
+            166069
+          ],
+          [
+            "main/f291/f16",
+            126,
+            172411
+          ]
+        ]
+      },
+      "differences": [],
+      "unresolved": [],
+      "validation": "source fields, routes, and applicable grouped probes"
+    },
+    {
+      "id": "N554",
+      "host": "ma06",
+      "status": "ready",
+      "rules": {
+        "command": "cannibalize",
+        "randomCandidate": "live non-P11 native HERO within 2000",
+        "point": "target at effect time",
+        "warningThenVisualAt": 1.5,
+        "proxy": "P11 q001/T073",
+        "proxyBornAt": 2,
+        "radius": 700,
+        "normalStun": 7,
+        "nativeShortenedStun": 5,
+        "nativeMissingDamage": 0
+      },
+      "sourceRefs": {
+        "nativeFields": {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 1518,
+          "id": "N554",
+          "fields": {
+            "alias": "N554",
+            "code": "ANcl",
+            "checkDep": 1,
+            "Cool1": 8.0,
+            "Cost1": 500,
+            "DataB1": 1,
+            "DataC1": 1,
+            "DataF1": "cannibalize",
+            "levels": 1,
+            "reqLevel": 1,
+            "Rng1": 5000.0,
+            "targs1": "enemies,invulnerable",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        "hostAbilityIndex": 1154,
+        "hostWeaponIndex": 1154,
+        "hintLine": 15411,
+        "functions": [
+          [
+            "main/f201",
+            117548,
+            117571
+          ],
+          [
+            "main/f201/f0",
+            117572,
+            117691
+          ],
+          [
+            "main/f201/f1",
+            117692,
+            117744
+          ],
+          [
+            "main/f201/f2",
+            117745,
+            117796
+          ],
+          [
+            "main/f201/f3",
+            117797,
+            117843
+          ]
+        ],
+        "router": [
+          [
+            "main/f291/f1",
+            3501,
+            166190
+          ],
+          [
+            "main/f291/f14",
+            1808,
+            171981
+          ]
+        ]
+      },
+      "differences": [],
+      "unresolved": [],
+      "validation": "source fields, routes, and applicable grouped probes"
+    },
+    {
+      "id": "N557",
+      "host": "ma06",
+      "status": "ready",
+      "rules": {
+        "command": "banish",
+        "duration": 8,
+        "slow": 0.4,
+        "buff": "BHbn",
+        "normalAttackDisabled": true,
+        "eventSelection": "physical damage, roll 51..100 with O uses O, otherwise self",
+        "auxTarget": "b115 qualifying guard route",
+        "damageVector": [
+          0,
+          0,
+          0,
+          1.3,
+          0,
+          1.3,
+          1
+        ]
+      },
+      "sourceRefs": {
+        "nativeFields": {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 1521,
+          "id": "N557",
+          "fields": {
+            "alias": "N557",
+            "code": "AHbn",
+            "BuffID1": "BHbn",
+            "checkDep": 1,
+            "Cool1": 18.0,
+            "Cost1": 260,
+            "DataA1": 0.4,
+            "Dur1": 8.0,
+            "HeroDur1": 8.0,
+            "levels": 1,
+            "reqLevel": 1,
+            "Rng1": 999999.0,
+            "targs1": "enemies,vulnerable,invulnerable,self,friend",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        "hostAbilityIndex": 1154,
+        "hostWeaponIndex": 1154,
+        "hintLine": 15448,
+        "functions": [
+          [
+            "main/f203",
+            117935,
+            117951
+          ],
+          [
+            "main/f203/f0",
+            117952,
+            117993
+          ]
+        ],
+        "router": [
+          [
+            "main/f291/f1",
+            2557,
+            165188
+          ],
+          [
+            "main/f291/f1",
+            3529,
+            166220
+          ]
+        ]
+      },
+      "differences": [
+        "Stock 50%/12s differ from actual .4/8, default 66% magic vulnerability replaced by effective map vector."
+      ],
+      "unresolved": [],
+      "validation": "source fields, routes, and applicable grouped probes"
+    },
+    {
+      "id": "N558",
+      "host": "ma06",
+      "status": "ready",
+      "rules": {
+        "command": "harvest",
+        "healthBelow": 2,
+        "scanRadius": 999999,
+        "candidateType": "b115",
+        "targetNativeRelation": "friend",
+        "activeDuration": 8,
+        "interval": 0.1,
+        "naturalPulses": 79,
+        "perPulse": "clamp(self.hp+.002*self.liveMaxHP)",
+        "targetResourceChange": 0,
+        "state": "independent accepted link with actual caster/unit, both must remain alive"
+      },
+      "sourceRefs": {
+        "nativeFields": {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 1522,
+          "id": "N558",
+          "fields": {
+            "alias": "N558",
+            "code": "ANcl",
+            "checkDep": 1,
+            "Cool1": 20.0,
+            "Cost1": 500,
+            "DataB1": 1,
+            "DataC1": 1,
+            "DataF1": "harvest",
+            "levels": 1,
+            "reqLevel": 1,
+            "Rng1": 9999999.0,
+            "targs1": "friend",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        "hostAbilityIndex": 1154,
+        "hostWeaponIndex": 1154,
+        "hintLine": 15463,
+        "functions": [
+          [
+            "main/f204",
+            117994,
+            118021
+          ],
+          [
+            "main/f204/f0",
+            118022,
+            118124
+          ],
+          [
+            "main/f204/f1",
+            118125,
+            118163
+          ],
+          [
+            "main/f204/f2",
+            118164,
+            118190
+          ],
+          [
+            "main/f204/f3",
+            118191,
+            118299
+          ],
+          [
+            "main/f204/f4",
+            118300,
+            118374
+          ]
+        ],
+        "router": [
+          [
+            "main/f291/f1",
+            3550,
+            166242
+          ],
+          [
+            "main/f291/f14",
+            1829,
+            172004
+          ]
+        ]
+      },
+      "differences": [],
+      "unresolved": [],
+      "validation": "source fields, routes, and applicable grouped probes"
+    }
+  ],
+  "auxiliary": {
+    "T069": [
+      {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1946,
+        "id": "T069",
+        "fields": {
+          "alias": "T069",
+          "code": "AOae",
+          "BuffID1": "BPSE",
+          "checkDep": 1,
+          "levels": 1,
+          "reqLevel": 1,
+          "targs1": "self",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      }
+    ],
+    "T070": [
+      {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1947,
+        "id": "T070",
+        "fields": {
+          "alias": "T070",
+          "code": "AUsl",
+          "BuffID1": "BUsl,BUsp,Bust",
+          "checkDep": 1,
+          "Cool1": 1.0,
+          "DataA1": 0.1,
+          "Dur1": 1.5,
+          "HeroDur1": 1.5,
+          "levels": 1,
+          "reqLevel": 1,
+          "Rng1": 3000.0,
+          "targs1": "enemies,invulnerable",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      }
+    ],
+    "T071": [
+      {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1948,
+        "id": "T071",
+        "fields": {
+          "alias": "T071",
+          "code": "Ainf",
+          "BuffID1": "B063",
+          "checkDep": 1,
+          "Cool1": 1.0,
+          "DataB1": 5,
+          "DataC1": 500.0,
+          "Dur1": 18.0,
+          "HeroDur1": 18.0,
+          "levels": 1,
+          "priority": 10,
+          "Rng1": 200.0,
+          "targs1": "friend",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      }
+    ],
+    "T072": [
+      {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1949,
+        "id": "T072",
+        "fields": {
+          "alias": "T072",
+          "code": "Ainf",
+          "BuffID1": "B064",
+          "checkDep": 1,
+          "Cool1": 1.0,
+          "DataB1": 5,
+          "DataC1": 500.0,
+          "Dur1": 18.0,
+          "HeroDur1": 18.0,
+          "levels": 1,
+          "priority": 10,
+          "Rng1": 200.0,
+          "targs1": "friend",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      }
+    ],
+    "T073": [
+      {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1950,
+        "id": "T073",
+        "fields": {
+          "alias": "T073",
+          "code": "AOws",
+          "Area1": 700.0,
+          "BuffID1": "BPSE",
+          "Cool1": 1.0,
+          "Dur1": 7.0,
+          "HeroDur1": 5.0,
+          "levels": 1,
+          "targs1": "enemies,invulnerable",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      }
+    ],
+    "T074": [
+      {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1951,
+        "id": "T074",
+        "fields": {
+          "alias": "T074",
+          "code": "ANcs",
+          "Area1": 800.0,
+          "BuffID1": "BNcs",
+          "checkDep": 1,
+          "DataB1": 0.25,
+          "DataC1": 60,
+          "DataE1": 1.0,
+          "DataF1": 2.0,
+          "Dur1": 5.0,
+          "EfctID1": "XNcs",
+          "HeroDur1": 5.0,
+          "levels": 1,
+          "reqLevel": 1,
+          "Rng1": 5000.0,
+          "targs1": "enemies,invulnerable",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      }
+    ],
+    "Arav": [
+      {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 678,
+        "id": "Arav",
+        "fields": {
+          "alias": "Arav",
+          "code": "Arav",
+          "Area1": -1.0,
+          "Cast1": 1.05,
+          "checkDep": 1,
+          "Cost1": 50,
+          "DataA1": "edot",
+          "DataB1": 5,
+          "DataC1": 1.0,
+          "DataD1": 1.0,
+          "Dur1": 0.6,
+          "levels": 1,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_",
+          "UnitID1": "edtm"
+        }
+      }
+    ],
+    "BIil": [
+      {
+        "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+        "jsonIndex": 30,
+        "id": "BIil",
+        "fields": {
+          "alias": "BIil"
+        }
+      }
+    ],
+    "b115": [
+      {
+        "sourcePath": "reference/map-6.25/units_unitabilities.json",
+        "jsonIndex": 990,
+        "id": "b115",
+        "fields": {
+          "unitAbilID": "b115",
+          "abilList": "N556",
+          "auto": "_"
+        }
+      }
+    ]
+  },
+  "disasmSha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+  "validation": {
+    "rawVM": {
+      "N538": {
+        "pulses": 13,
+        "lastPulse": 14.4
+      },
+      "N543": {
+        "draw24Center": [
+          46,
+          23
+        ]
+      },
+      "N550": {
+        "hp900Max1000FinishesAt": 1000
+      },
+      "N551_N552": {
+        "originalRefreshKeepsMagicUntil34": true,
+        "physicalExpiredAt33": true,
+        "healFactorAtOriginalPipeline": 5,
+        "divineUnaffected": true
+      },
+      "N540": {
+        "firstFrame": [
+          120,
+          60,
+          30
+        ],
+        "landTime": 1.3,
+        "ticks": 130,
+        "landPosition": [
+          2700,
+          1350.0
+        ]
+      },
+      "N554": {
+        "visualT": 1.5,
+        "stompT": 2,
+        "usesSavedLocationAfterTargetMovesAndSourceDies": true
+      },
+      "N558": {
+        "naturalTicks": 79,
+        "firstTick": 0.1,
+        "lastTick": 7.9,
+        "healAt1000Max": 158,
+        "guardDamage": 0,
+        "guardDeathAbortsOnNextTick": 8.3
+      }
+    },
+    "originalClient": "untested"
+  }
+}

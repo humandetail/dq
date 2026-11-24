@@ -1,0 +1,2205 @@
+{
+  "schema_version": 1,
+  "baseline_id": "item-hex-effect-v1",
+  "status": "static_source_audit_and_Q24_Web_choices_no_client_test",
+  "scope": "i202_Skill, CreateTempAndSetAbilityLv and T049 required behavior; Q30 probability unchanged; no i325 snowfall active",
+  "decisions": {
+    "Q30": "exact 50%, one shared proc; unchanged",
+    "Q24": "explicit native choices below; no new user question",
+    "duration_boundary": "ordinary Dur=2 and HeroDur=1 preserved; active Arsk selects 1 as Web choice; not evidence that map custom UnitIsHero is native Hero"
+  },
+  "source_hashes": {
+    "main.disasm": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+    "main.readable.lua": "d868f14d946f0780313468f5dd783fa4a6cbe39f5c7851d8e4094ef80aa618b9",
+    "units_abilitydata.json": "b772de42ebcfc1d3818298b35dbe81a35826892848c7cbfef70bf5097e481861",
+    "war3map.w3a.json": "d2875f064b389bca471db97121ff7c810d46fbc962ae640ad128d1daa85931bb",
+    "war3map.w3u.json": "4d599edcf9784748cb7d8f07d873331de37393c9dec20d55b8551a924e6946c1"
+  },
+  "workbook": [
+    {
+      "sheet": "装备与道具",
+      "cell": "H112",
+      "item": "i202",
+      "text": "释放技能时有50%的概率使周围敌人变成小动物，持续2秒。"
+    },
+    {
+      "sheet": "装备与道具",
+      "cell": "H218",
+      "item": "i325",
+      "text": "共享妖术同H112；独立落雪本批不展开"
+    }
+  ],
+  "functions": [
+    {
+      "function": "main/f245/f0",
+      "source_lines": [
+        127935,
+        128071
+      ],
+      "constants": {
+        "k0": "GetTriggerUnit",
+        "k1": "GetUnitLoc",
+        "k2": "GetUnitX",
+        "k3": "GetUnitY",
+        "k4": "CreateGroup",
+        "k5": "GroupEnumUnitsInRange",
+        "k6": 700,
+        "k7": "null",
+        "k8": "_loop_",
+        "k9": "FirstOfGroup",
+        "k10": null,
+        "k11": "GroupRemoveUnit",
+        "k12": "IsUnitOwnedByPlayer",
+        "k13": "Player",
+        "k14": 11,
+        "k15": 0,
+        "k16": "GetUnitState",
+        "k17": "UNIT_STATE_LIFE",
+        "k18": "CreateTempAndSetAbilityLv",
+        "k19": "GetOwningPlayer",
+        "k20": "T049",
+        "k21": 1,
+        "k22": "SetUnitUserData",
+        "k23": "GetUnitUserData",
+        "k24": "IssueTargetOrder",
+        "k25": "hex",
+        "k26": "GroupClear",
+        "k27": "DestroyGroup",
+        "k28": "SetPhyDamagePoint",
+        "k29": 0.2,
+        "k30": "RemoveLocation"
+      },
+      "labels": {
+        "l25": 25,
+        "l71": 71,
+        "l73": 73
+      },
+      "instructions": [
+        {
+          "pc": 1,
+          "line": 127978,
+          "op": "gettabup",
+          "args": [
+            "r0",
+            "u0",
+            "k0"
+          ]
+        },
+        {
+          "pc": 2,
+          "line": 127979,
+          "op": "call",
+          "args": [
+            "r0",
+            "1",
+            "2"
+          ]
+        },
+        {
+          "pc": 3,
+          "line": 127980,
+          "op": "gettabup",
+          "args": [
+            "r1",
+            "u0",
+            "k1"
+          ]
+        },
+        {
+          "pc": 4,
+          "line": 127981,
+          "op": "move",
+          "args": [
+            "r2",
+            "r0"
+          ]
+        },
+        {
+          "pc": 5,
+          "line": 127982,
+          "op": "call",
+          "args": [
+            "r1",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "pc": 6,
+          "line": 127983,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k2"
+          ]
+        },
+        {
+          "pc": 7,
+          "line": 127984,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ]
+        },
+        {
+          "pc": 8,
+          "line": 127985,
+          "op": "call",
+          "args": [
+            "r2",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "pc": 9,
+          "line": 127986,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k3"
+          ]
+        },
+        {
+          "pc": 10,
+          "line": 127987,
+          "op": "move",
+          "args": [
+            "r4",
+            "r0"
+          ]
+        },
+        {
+          "pc": 11,
+          "line": 127988,
+          "op": "call",
+          "args": [
+            "r3",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "pc": 12,
+          "line": 127989,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k4"
+          ]
+        },
+        {
+          "pc": 13,
+          "line": 127990,
+          "op": "call",
+          "args": [
+            "r4",
+            "1",
+            "2"
+          ]
+        },
+        {
+          "pc": 14,
+          "line": 127991,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k5"
+          ]
+        },
+        {
+          "pc": 15,
+          "line": 127992,
+          "op": "move",
+          "args": [
+            "r6",
+            "r4"
+          ]
+        },
+        {
+          "pc": 16,
+          "line": 127993,
+          "op": "move",
+          "args": [
+            "r7",
+            "r2"
+          ]
+        },
+        {
+          "pc": 17,
+          "line": 127994,
+          "op": "move",
+          "args": [
+            "r8",
+            "r3"
+          ]
+        },
+        {
+          "pc": 18,
+          "line": 127995,
+          "op": "loadk",
+          "args": [
+            "r9",
+            "k6"
+          ]
+        },
+        {
+          "pc": 19,
+          "line": 127996,
+          "op": "gettabup",
+          "args": [
+            "r10",
+            "u0",
+            "k7"
+          ]
+        },
+        {
+          "pc": 20,
+          "line": 127997,
+          "op": "call",
+          "args": [
+            "r5",
+            "6",
+            "1"
+          ]
+        },
+        {
+          "pc": 21,
+          "line": 127998,
+          "op": "loadnil",
+          "args": [
+            "r5",
+            "1"
+          ]
+        },
+        {
+          "pc": 22,
+          "line": 127999,
+          "op": "gettabup",
+          "args": [
+            "r7",
+            "u0",
+            "k8"
+          ]
+        },
+        {
+          "pc": 23,
+          "line": 128000,
+          "op": "call",
+          "args": [
+            "r7",
+            "1",
+            "4"
+          ]
+        },
+        {
+          "pc": 24,
+          "line": 128001,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l71"
+          ]
+        },
+        {
+          "pc": 25,
+          "line": 128003,
+          "op": "gettabup",
+          "args": [
+            "r11",
+            "u0",
+            "k9"
+          ]
+        },
+        {
+          "pc": 26,
+          "line": 128004,
+          "op": "move",
+          "args": [
+            "r12",
+            "r4"
+          ]
+        },
+        {
+          "pc": 27,
+          "line": 128005,
+          "op": "call",
+          "args": [
+            "r11",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "pc": 28,
+          "line": 128006,
+          "op": "move",
+          "args": [
+            "r5",
+            "r11"
+          ]
+        },
+        {
+          "pc": 29,
+          "line": 128007,
+          "op": "eq",
+          "args": [
+            "1",
+            "k10",
+            "r5"
+          ]
+        },
+        {
+          "pc": 30,
+          "line": 128008,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l73"
+          ]
+        },
+        {
+          "pc": 31,
+          "line": 128009,
+          "op": "gettabup",
+          "args": [
+            "r11",
+            "u0",
+            "k11"
+          ]
+        },
+        {
+          "pc": 32,
+          "line": 128010,
+          "op": "move",
+          "args": [
+            "r12",
+            "r4"
+          ]
+        },
+        {
+          "pc": 33,
+          "line": 128011,
+          "op": "move",
+          "args": [
+            "r13",
+            "r5"
+          ]
+        },
+        {
+          "pc": 34,
+          "line": 128012,
+          "op": "call",
+          "args": [
+            "r11",
+            "3",
+            "1"
+          ]
+        },
+        {
+          "pc": 35,
+          "line": 128013,
+          "op": "gettabup",
+          "args": [
+            "r11",
+            "u0",
+            "k12"
+          ]
+        },
+        {
+          "pc": 36,
+          "line": 128014,
+          "op": "move",
+          "args": [
+            "r12",
+            "r5"
+          ]
+        },
+        {
+          "pc": 37,
+          "line": 128015,
+          "op": "gettabup",
+          "args": [
+            "r13",
+            "u0",
+            "k13"
+          ]
+        },
+        {
+          "pc": 38,
+          "line": 128016,
+          "op": "loadk",
+          "args": [
+            "r14",
+            "k14"
+          ]
+        },
+        {
+          "pc": 39,
+          "line": 128017,
+          "op": "call",
+          "args": [
+            "r13",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 40,
+          "line": 128018,
+          "op": "call",
+          "args": [
+            "r11",
+            "0",
+            "2"
+          ]
+        },
+        {
+          "pc": 41,
+          "line": 128019,
+          "op": "test",
+          "args": [
+            "r11",
+            "0"
+          ]
+        },
+        {
+          "pc": 42,
+          "line": 128020,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l71"
+          ]
+        },
+        {
+          "pc": 43,
+          "line": 128021,
+          "op": "gettabup",
+          "args": [
+            "r11",
+            "u0",
+            "k16"
+          ]
+        },
+        {
+          "pc": 44,
+          "line": 128022,
+          "op": "move",
+          "args": [
+            "r12",
+            "r5"
+          ]
+        },
+        {
+          "pc": 45,
+          "line": 128023,
+          "op": "gettabup",
+          "args": [
+            "r13",
+            "u0",
+            "k17"
+          ]
+        },
+        {
+          "pc": 46,
+          "line": 128024,
+          "op": "call",
+          "args": [
+            "r11",
+            "3",
+            "2"
+          ]
+        },
+        {
+          "pc": 47,
+          "line": 128025,
+          "op": "lt",
+          "args": [
+            "0",
+            "k15",
+            "r11"
+          ]
+        },
+        {
+          "pc": 48,
+          "line": 128026,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l71"
+          ]
+        },
+        {
+          "pc": 49,
+          "line": 128027,
+          "op": "gettabup",
+          "args": [
+            "r11",
+            "u0",
+            "k18"
+          ]
+        },
+        {
+          "pc": 50,
+          "line": 128028,
+          "op": "gettabup",
+          "args": [
+            "r12",
+            "u0",
+            "k19"
+          ]
+        },
+        {
+          "pc": 51,
+          "line": 128029,
+          "op": "move",
+          "args": [
+            "r13",
+            "r0"
+          ]
+        },
+        {
+          "pc": 52,
+          "line": 128030,
+          "op": "call",
+          "args": [
+            "r12",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "pc": 53,
+          "line": 128031,
+          "op": "move",
+          "args": [
+            "r13",
+            "r1"
+          ]
+        },
+        {
+          "pc": 54,
+          "line": 128032,
+          "op": "loadk",
+          "args": [
+            "r14",
+            "k15"
+          ]
+        },
+        {
+          "pc": 55,
+          "line": 128033,
+          "op": "loadk",
+          "args": [
+            "r15",
+            "k20"
+          ]
+        },
+        {
+          "pc": 56,
+          "line": 128034,
+          "op": "loadk",
+          "args": [
+            "r16",
+            "k21"
+          ]
+        },
+        {
+          "pc": 57,
+          "line": 128035,
+          "op": "loadk",
+          "args": [
+            "r17",
+            "k21"
+          ]
+        },
+        {
+          "pc": 58,
+          "line": 128036,
+          "op": "call",
+          "args": [
+            "r11",
+            "7",
+            "2"
+          ]
+        },
+        {
+          "pc": 59,
+          "line": 128037,
+          "op": "move",
+          "args": [
+            "r6",
+            "r11"
+          ]
+        },
+        {
+          "pc": 60,
+          "line": 128038,
+          "op": "gettabup",
+          "args": [
+            "r11",
+            "u0",
+            "k22"
+          ]
+        },
+        {
+          "pc": 61,
+          "line": 128039,
+          "op": "move",
+          "args": [
+            "r12",
+            "r6"
+          ]
+        },
+        {
+          "pc": 62,
+          "line": 128040,
+          "op": "gettabup",
+          "args": [
+            "r13",
+            "u0",
+            "k23"
+          ]
+        },
+        {
+          "pc": 63,
+          "line": 128041,
+          "op": "move",
+          "args": [
+            "r14",
+            "r0"
+          ]
+        },
+        {
+          "pc": 64,
+          "line": 128042,
+          "op": "call",
+          "args": [
+            "r13",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 65,
+          "line": 128043,
+          "op": "call",
+          "args": [
+            "r11",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 66,
+          "line": 128044,
+          "op": "gettabup",
+          "args": [
+            "r11",
+            "u0",
+            "k24"
+          ]
+        },
+        {
+          "pc": 67,
+          "line": 128045,
+          "op": "move",
+          "args": [
+            "r12",
+            "r6"
+          ]
+        },
+        {
+          "pc": 68,
+          "line": 128046,
+          "op": "loadk",
+          "args": [
+            "r13",
+            "k25"
+          ]
+        },
+        {
+          "pc": 69,
+          "line": 128047,
+          "op": "move",
+          "args": [
+            "r14",
+            "r5"
+          ]
+        },
+        {
+          "pc": 70,
+          "line": 128048,
+          "op": "call",
+          "args": [
+            "r11",
+            "4",
+            "1"
+          ]
+        },
+        {
+          "pc": 71,
+          "line": 128050,
+          "op": "tforcall",
+          "args": [
+            "r7",
+            "1"
+          ]
+        },
+        {
+          "pc": 72,
+          "line": 128051,
+          "op": "tforloop",
+          "args": [
+            "r9",
+            "l25"
+          ]
+        },
+        {
+          "pc": 73,
+          "line": 128053,
+          "op": "gettabup",
+          "args": [
+            "r7",
+            "u0",
+            "k26"
+          ]
+        },
+        {
+          "pc": 74,
+          "line": 128054,
+          "op": "move",
+          "args": [
+            "r8",
+            "r4"
+          ]
+        },
+        {
+          "pc": 75,
+          "line": 128055,
+          "op": "call",
+          "args": [
+            "r7",
+            "2",
+            "1"
+          ]
+        },
+        {
+          "pc": 76,
+          "line": 128056,
+          "op": "gettabup",
+          "args": [
+            "r7",
+            "u0",
+            "k27"
+          ]
+        },
+        {
+          "pc": 77,
+          "line": 128057,
+          "op": "move",
+          "args": [
+            "r8",
+            "r4"
+          ]
+        },
+        {
+          "pc": 78,
+          "line": 128058,
+          "op": "call",
+          "args": [
+            "r7",
+            "2",
+            "1"
+          ]
+        },
+        {
+          "pc": 79,
+          "line": 128059,
+          "op": "gettabup",
+          "args": [
+            "r7",
+            "u0",
+            "k28"
+          ]
+        },
+        {
+          "pc": 80,
+          "line": 128060,
+          "op": "move",
+          "args": [
+            "r8",
+            "r0"
+          ]
+        },
+        {
+          "pc": 81,
+          "line": 128061,
+          "op": "loadk",
+          "args": [
+            "r9",
+            "k29"
+          ]
+        },
+        {
+          "pc": 82,
+          "line": 128062,
+          "op": "loadk",
+          "args": [
+            "r10",
+            "k6"
+          ]
+        },
+        {
+          "pc": 83,
+          "line": 128063,
+          "op": "move",
+          "args": [
+            "r11",
+            "r2"
+          ]
+        },
+        {
+          "pc": 84,
+          "line": 128064,
+          "op": "move",
+          "args": [
+            "r12",
+            "r3"
+          ]
+        },
+        {
+          "pc": 85,
+          "line": 128065,
+          "op": "loadk",
+          "args": [
+            "r13",
+            "k21"
+          ]
+        },
+        {
+          "pc": 86,
+          "line": 128066,
+          "op": "call",
+          "args": [
+            "r7",
+            "7",
+            "1"
+          ]
+        },
+        {
+          "pc": 87,
+          "line": 128067,
+          "op": "gettabup",
+          "args": [
+            "r7",
+            "u0",
+            "k30"
+          ]
+        },
+        {
+          "pc": 88,
+          "line": 128068,
+          "op": "move",
+          "args": [
+            "r8",
+            "r1"
+          ]
+        },
+        {
+          "pc": 89,
+          "line": 128069,
+          "op": "call",
+          "args": [
+            "r7",
+            "2",
+            "1"
+          ]
+        },
+        {
+          "pc": 90,
+          "line": 128070,
+          "op": "return",
+          "args": [
+            "r0",
+            "1"
+          ]
+        }
+      ],
+      "counts": {
+        "instructions": 90,
+        "conditions": 3,
+        "calls": 21
+      }
+    },
+    {
+      "function": "main/f7/f20",
+      "source_lines": [
+        51457,
+        51510
+      ],
+      "constants": {
+        "k0": "q001",
+        "k1": "CreateUnitAtLoc",
+        "k2": "GetId",
+        "k3": "UnitAddAbility",
+        "k4": "SetUnitAbilityLevel",
+        "k5": "UnitApplyTimedLife",
+        "k6": "BHwe"
+      },
+      "labels": {
+        "l4": 4
+      },
+      "instructions": [
+        {
+          "pc": 1,
+          "line": 51476,
+          "op": "test",
+          "args": [
+            "r6",
+            "1"
+          ]
+        },
+        {
+          "pc": 2,
+          "line": 51477,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l4"
+          ]
+        },
+        {
+          "pc": 3,
+          "line": 51478,
+          "op": "loadk",
+          "args": [
+            "r6",
+            "k0"
+          ]
+        },
+        {
+          "pc": 4,
+          "line": 51480,
+          "op": "gettabup",
+          "args": [
+            "r7",
+            "u0",
+            "k1"
+          ]
+        },
+        {
+          "pc": 5,
+          "line": 51481,
+          "op": "move",
+          "args": [
+            "r8",
+            "r0"
+          ]
+        },
+        {
+          "pc": 6,
+          "line": 51482,
+          "op": "gettabup",
+          "args": [
+            "r9",
+            "u0",
+            "k2"
+          ]
+        },
+        {
+          "pc": 7,
+          "line": 51483,
+          "op": "move",
+          "args": [
+            "r10",
+            "r6"
+          ]
+        },
+        {
+          "pc": 8,
+          "line": 51484,
+          "op": "call",
+          "args": [
+            "r9",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "pc": 9,
+          "line": 51485,
+          "op": "move",
+          "args": [
+            "r10",
+            "r1"
+          ]
+        },
+        {
+          "pc": 10,
+          "line": 51486,
+          "op": "move",
+          "args": [
+            "r11",
+            "r2"
+          ]
+        },
+        {
+          "pc": 11,
+          "line": 51487,
+          "op": "call",
+          "args": [
+            "r7",
+            "5",
+            "2"
+          ]
+        },
+        {
+          "pc": 12,
+          "line": 51488,
+          "op": "gettabup",
+          "args": [
+            "r8",
+            "u0",
+            "k3"
+          ]
+        },
+        {
+          "pc": 13,
+          "line": 51489,
+          "op": "move",
+          "args": [
+            "r9",
+            "r7"
+          ]
+        },
+        {
+          "pc": 14,
+          "line": 51490,
+          "op": "gettabup",
+          "args": [
+            "r10",
+            "u0",
+            "k2"
+          ]
+        },
+        {
+          "pc": 15,
+          "line": 51491,
+          "op": "move",
+          "args": [
+            "r11",
+            "r3"
+          ]
+        },
+        {
+          "pc": 16,
+          "line": 51492,
+          "op": "call",
+          "args": [
+            "r10",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 17,
+          "line": 51493,
+          "op": "call",
+          "args": [
+            "r8",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 18,
+          "line": 51494,
+          "op": "gettabup",
+          "args": [
+            "r8",
+            "u0",
+            "k4"
+          ]
+        },
+        {
+          "pc": 19,
+          "line": 51495,
+          "op": "move",
+          "args": [
+            "r9",
+            "r7"
+          ]
+        },
+        {
+          "pc": 20,
+          "line": 51496,
+          "op": "gettabup",
+          "args": [
+            "r10",
+            "u0",
+            "k2"
+          ]
+        },
+        {
+          "pc": 21,
+          "line": 51497,
+          "op": "move",
+          "args": [
+            "r11",
+            "r3"
+          ]
+        },
+        {
+          "pc": 22,
+          "line": 51498,
+          "op": "call",
+          "args": [
+            "r10",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "pc": 23,
+          "line": 51499,
+          "op": "move",
+          "args": [
+            "r11",
+            "r4"
+          ]
+        },
+        {
+          "pc": 24,
+          "line": 51500,
+          "op": "call",
+          "args": [
+            "r8",
+            "4",
+            "1"
+          ]
+        },
+        {
+          "pc": 25,
+          "line": 51501,
+          "op": "gettabup",
+          "args": [
+            "r8",
+            "u0",
+            "k5"
+          ]
+        },
+        {
+          "pc": 26,
+          "line": 51502,
+          "op": "move",
+          "args": [
+            "r9",
+            "r7"
+          ]
+        },
+        {
+          "pc": 27,
+          "line": 51503,
+          "op": "gettabup",
+          "args": [
+            "r10",
+            "u0",
+            "k2"
+          ]
+        },
+        {
+          "pc": 28,
+          "line": 51504,
+          "op": "loadk",
+          "args": [
+            "r11",
+            "k6"
+          ]
+        },
+        {
+          "pc": 29,
+          "line": 51505,
+          "op": "call",
+          "args": [
+            "r10",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "pc": 30,
+          "line": 51506,
+          "op": "move",
+          "args": [
+            "r11",
+            "r5"
+          ]
+        },
+        {
+          "pc": 31,
+          "line": 51507,
+          "op": "call",
+          "args": [
+            "r8",
+            "4",
+            "1"
+          ]
+        },
+        {
+          "pc": 32,
+          "line": 51508,
+          "op": "return",
+          "args": [
+            "r7",
+            "2"
+          ]
+        },
+        {
+          "pc": 33,
+          "line": 51509,
+          "op": "return",
+          "args": [
+            "r0",
+            "1"
+          ]
+        }
+      ],
+      "counts": {
+        "instructions": 33,
+        "conditions": 1,
+        "calls": 8
+      }
+    },
+    {
+      "function": "main/f7/f30",
+      "source_lines": [
+        51941,
+        51971
+      ],
+      "constants": {
+        "k0": "UnitDamagePoint",
+        "k1": "ATTACK_TYPE_HERO",
+        "k2": "DAMAGE_TYPE_NORMAL",
+        "k3": "WEAPON_TYPE_WHOKNOWS"
+      },
+      "labels": {},
+      "instructions": [
+        {
+          "pc": 1,
+          "line": 51957,
+          "op": "gettabup",
+          "args": [
+            "r6",
+            "u0",
+            "k0"
+          ]
+        },
+        {
+          "pc": 2,
+          "line": 51958,
+          "op": "move",
+          "args": [
+            "r7",
+            "r0"
+          ]
+        },
+        {
+          "pc": 3,
+          "line": 51959,
+          "op": "move",
+          "args": [
+            "r8",
+            "r1"
+          ]
+        },
+        {
+          "pc": 4,
+          "line": 51960,
+          "op": "move",
+          "args": [
+            "r9",
+            "r2"
+          ]
+        },
+        {
+          "pc": 5,
+          "line": 51961,
+          "op": "move",
+          "args": [
+            "r10",
+            "r3"
+          ]
+        },
+        {
+          "pc": 6,
+          "line": 51962,
+          "op": "move",
+          "args": [
+            "r11",
+            "r4"
+          ]
+        },
+        {
+          "pc": 7,
+          "line": 51963,
+          "op": "move",
+          "args": [
+            "r12",
+            "r5"
+          ]
+        },
+        {
+          "pc": 8,
+          "line": 51964,
+          "op": "loadbool",
+          "args": [
+            "r13",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "pc": 9,
+          "line": 51965,
+          "op": "loadbool",
+          "args": [
+            "r14",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "pc": 10,
+          "line": 51966,
+          "op": "gettabup",
+          "args": [
+            "r15",
+            "u0",
+            "k1"
+          ]
+        },
+        {
+          "pc": 11,
+          "line": 51967,
+          "op": "gettabup",
+          "args": [
+            "r16",
+            "u0",
+            "k2"
+          ]
+        },
+        {
+          "pc": 12,
+          "line": 51968,
+          "op": "gettabup",
+          "args": [
+            "r17",
+            "u0",
+            "k3"
+          ]
+        },
+        {
+          "pc": 13,
+          "line": 51969,
+          "op": "call",
+          "args": [
+            "r6",
+            "12",
+            "1"
+          ]
+        },
+        {
+          "pc": 14,
+          "line": 51970,
+          "op": "return",
+          "args": [
+            "r0",
+            "1"
+          ]
+        }
+      ],
+      "counts": {
+        "instructions": 14,
+        "conditions": 0,
+        "calls": 1
+      }
+    }
+  ],
+  "objects": {
+    "units_abilitydata.json": [
+      {
+        "line": 33209,
+        "record": {
+          "alias": "T049",
+          "code": "AOhx",
+          "BuffID1": "BOhx",
+          "checkDep": 1,
+          "Cool1": 17.0,
+          "DataA1": 1000,
+          "DataB1": "nsha",
+          "DataC1": "nsha",
+          "DataD1": "nsha",
+          "DataE1": "nsha",
+          "Dur1": 2.0,
+          "HeroDur1": 1.0,
+          "levels": 1,
+          "Rng1": 5000.0,
+          "targs1": "air,ground,enemy,organic,neutral",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      {
+        "line": 27010,
+        "record": {
+          "alias": "N534",
+          "code": "Arsk",
+          "checkDep": 1,
+          "levels": 1,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      {
+        "line": 27020,
+        "record": {
+          "alias": "N535",
+          "code": "ANss",
+          "BuffID1": "BNss",
+          "Cool1": 6.0,
+          "levels": 1,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      }
+    ],
+    "units_unitdata.json": [
+      {
+        "line": 19502,
+        "record": {
+          "unitID": "q001",
+          "canFlee": 1,
+          "cargoSize": 1,
+          "death": 1.0,
+          "moveFloor": 45.0,
+          "movetp": "fly",
+          "points": 100,
+          "prio": 1,
+          "propWin": 170.0,
+          "race": "undead",
+          "targType": "air",
+          "turnRate": 0.2
+        }
+      },
+      {
+        "line": 8957,
+        "record": {
+          "unitID": "nsha",
+          "canFlee": 1,
+          "cargoSize": 1,
+          "death": 3.0,
+          "deathType": 3,
+          "formation": 4,
+          "movetp": "amph",
+          "points": 100,
+          "prio": 1,
+          "propWin": 60.0,
+          "race": "critters",
+          "targType": "ground",
+          "turnRate": 0.5
+        }
+      }
+    ],
+    "units_unitbalance.json": [
+      {
+        "line": 37578,
+        "record": {
+          "unitBalanceID": "q001",
+          "bldtm": 20,
+          "bountydice": 6,
+          "bountyplus": 20,
+          "bountysides": 3,
+          "defType": "small",
+          "defUp": 2.0,
+          "HP": 65,
+          "mana0": 1000,
+          "manaN": 1000,
+          "preventPlace": "_",
+          "Primary": "_",
+          "regenHP": 0.25,
+          "regenType": "always",
+          "reptm": 20,
+          "requirePlace": "_",
+          "stockMax": 3,
+          "stockRegen": 30,
+          "tilesets": "*"
+        }
+      },
+      {
+        "line": 17294,
+        "record": {
+          "unitBalanceID": "nsha",
+          "bldtm": 1,
+          "collision": 16.0,
+          "defType": "medium",
+          "defUp": 2.0,
+          "HP": 15,
+          "minSpd": 100,
+          "nsight": 350,
+          "preventPlace": "_",
+          "Primary": "_",
+          "regenHP": 0.5,
+          "regenType": "always",
+          "reptm": 1,
+          "requirePlace": "_",
+          "sight": 350,
+          "spd": 100,
+          "tilesets": "L,F,W,Y,X,V,Q,J"
+        }
+      }
+    ],
+    "units_unitabilities.json": [
+      {
+        "line": 6555,
+        "record": {
+          "unitAbilID": "q001",
+          "abilList": "Avul,Aloc",
+          "auto": "_"
+        }
+      },
+      {
+        "line": 2950,
+        "record": {
+          "unitAbilID": "nsha",
+          "abilList": "Awan",
+          "auto": "_"
+        }
+      },
+      {
+        "line": 5323,
+        "record": {
+          "unitAbilID": "m005",
+          "abilList": "N534",
+          "auto": "_"
+        }
+      },
+      {
+        "line": 5730,
+        "record": {
+          "unitAbilID": "ma02",
+          "abilList": "N535,N536,N537,N538,N539,T015,N534",
+          "auto": "_"
+        }
+      },
+      {
+        "line": 5735,
+        "record": {
+          "unitAbilID": "ma03",
+          "abilList": "N535,N536,N550,N551,N552,N553,T016,N534",
+          "auto": "_"
+        }
+      },
+      {
+        "line": 5740,
+        "record": {
+          "unitAbilID": "ma04",
+          "abilList": "N535,N536,N540,N559,N541,N542,T016,N534",
+          "auto": "_"
+        }
+      },
+      {
+        "line": 5745,
+        "record": {
+          "unitAbilID": "ma05",
+          "abilList": "N535,N536,N543,N548,N549,T016,N534",
+          "auto": "_"
+        }
+      },
+      {
+        "line": 5750,
+        "record": {
+          "unitAbilID": "ma06",
+          "abilList": "N535,N536,N554,N555,N557,N558,T016,N534",
+          "auto": "_"
+        }
+      },
+      {
+        "line": 5805,
+        "record": {
+          "unitAbilID": "mw14",
+          "abilList": "T013,N535,N534,N577",
+          "auto": "_"
+        }
+      }
+    ],
+    "units_unitweapons.json": [
+      {
+        "line": 34183,
+        "record": {
+          "unitWeapID": "q001",
+          "acquire": 900.0,
+          "atkType1": "spells",
+          "atkType2": "normal",
+          "cool1": 1.0,
+          "dice1": 1,
+          "dmgplus1": 12,
+          "rangeN1": 10,
+          "RngBuff1": 250.0,
+          "showUI1": 1,
+          "showUI2": 1,
+          "sides1": 2,
+          "targCount1": 1,
+          "targCount2": 1,
+          "targs1": "ground,debris,air,item",
+          "weapTp1": "missile"
+        }
+      }
+    ],
+    "units_unitui.json": [
+      {
+        "line": 33684,
+        "record": {
+          "unitUIID": "q001",
+          "name": "custom_q001",
+          "armor": "Flesh",
+          "blend": 0.15,
+          "blue": 255,
+          "elevRad": 20.0,
+          "file": "_",
+          "green": 255,
+          "hideHeroBar": 1,
+          "hideHeroDeathMsg": 1,
+          "hideHeroMinimap": 1,
+          "maxPitch": 45.0,
+          "maxRoll": 45.0,
+          "modelScale": 1.0,
+          "red": 255,
+          "run": 700.0,
+          "scale": 1.0,
+          "scaleBull": 1,
+          "shadowH": 35.0,
+          "shadowOnWater": 1,
+          "shadowW": 35.0,
+          "shadowX": 17.0,
+          "shadowY": 17.0,
+          "teamColor": -1,
+          "walk": 700.0
+        }
+      },
+      {
+        "line": 15541,
+        "record": {
+          "unitUIID": "nsha",
+          "name": "amphibioussheep",
+          "armor": "Flesh",
+          "blend": 0.15,
+          "blue": 255,
+          "elevRad": 20.0,
+          "file": "units\\critters\\Sheep\\Sheep",
+          "green": 255,
+          "maxPitch": 45.0,
+          "maxRoll": 10.0,
+          "modelScale": 1.2,
+          "red": 255,
+          "run": 110.0,
+          "scale": 0.9,
+          "scaleBull": 1,
+          "selCircOnWater": 1,
+          "shadowH": 60.0,
+          "shadowOnWater": 1,
+          "shadowW": 60.0,
+          "shadowX": 30.0,
+          "shadowY": 30.0,
+          "teamColor": -1,
+          "unitShadow": "Shadow",
+          "unitSound": "Sheep",
+          "walk": 110.0
+        }
+      }
+    ]
+  },
+  "object_overrides": {
+    "war3map.w3a.json": [],
+    "war3map.w3u.json": []
+  },
+  "script_flow": [
+    "capture S=GetTriggerUnit(), loc(S), x(S), y(S)",
+    "GroupEnumUnitsInRange(group,x,y,700,null)",
+    "FirstOfGroup; if nil end; remove member from group before predicates",
+    "only owner==Player(11) and LIFE>0: create one q001 at captured source loc, facing0, owner=GetOwningPlayer(S), grant T049 level1, BHwe timed life1 second",
+    "copy original source GetUnitUserData to q001; IssueTargetOrder(dummy,hex,target); return value ignored",
+    "clear and destroy group",
+    "unconditionally request SetPhyDamagePoint(S,0.2,700,capturedX,capturedY,1)",
+    "RemoveLocation(capturedLoc)"
+  ],
+  "web": {
+    "group_query": {
+      "geometry": "2D center closed circle, squared distance <=700^2; no collision extension",
+      "snapshot": "all existing units in circle including dead/invulnerable; no area-damage enemy/immunity prefilter; loop reads current owner/life",
+      "order": "B04 creation id ascending",
+      "not_same_as_area_packet": "script owner Player(11) gate remains exact"
+    },
+    "dummy": {
+      "unit": "q001",
+      "at": "captured source point",
+      "facing": 0,
+      "owner": "original caster current owner when each dummy is created",
+      "userData": "copied from original caster",
+      "ability": "T049",
+      "ability_level": 1,
+      "timed_life_seconds": 1,
+      "timed_life_buff": "BHwe",
+      "initial_abilities": [
+        "Avul",
+        "Aloc"
+      ],
+      "mana_initial": 1000,
+      "mana_max": 1000,
+      "presentation": "no model; remains a real logical unit and consumes creation id",
+      "expiry": "Q24: timed-life expiry invokes shared unit death lifecycle at1 second, not an extra hit; status does not depend on dummy alive. Existing corpse/removal lifecycle remains shared, no speculative second kill."
+    },
+    "T049_cast": {
+      "native_code": "AOhx",
+      "order": "hex",
+      "buff": "BOhx",
+      "cast_range": 5000,
+      "cooldown_seconds": 17,
+      "cast_point_seconds": 0,
+      "mana_cost": 0,
+      "cast_point_and_cost_evidence": "not explicitly present in resolved source records; zero chosen only for this dedicated one-use dummy, not global defaults",
+      "dispatch": "Q24 synchronous accepted dummy cast; nested SPELL_EFFECT context restored; IsTemp(q001) prevents item recursion",
+      "invalid_target": "reject order, no shield consumption, no hex; original loop and later area still continue",
+      "valid_but_spellshield": "accepted cast/SPELL_EFFECT and dummy cooldown, shield blocks only status"
+    },
+    "T049_targets": {
+      "required": [
+        "exists",
+        "LIFE>0",
+        "organic",
+        "air_or_ground",
+        "enemy_or_neutral_to_dummy_owner",
+        "not_structure",
+        "not_mechanical",
+        "not_summoned",
+        "not_magic_immune",
+        "not_invulnerable",
+        "no_active_Aloc",
+        "nonhero level <=1000; native heroes not limited by Maximum Creep Level",
+        "within 5000 cast range at acceptance"
+      ],
+      "name_or_Boss_is_not_a_gate": true,
+      "visibility_and_detection": "not extra gates for this dedicated dummy Web adapter",
+      "failure_never_cancels_area": true
+    },
+    "duration": {
+      "at": "successful unblocked status application; snapshot current flags",
+      "normal_seconds": 2,
+      "native_HERO_seconds": 1,
+      "active_Arsk_seconds": 1,
+      "selector": "nativeHero OR effective ability code Arsk ->1, otherwise2",
+      "resistant_source_aliases": [
+        "ACrk",
+        "ACsk",
+        "Arsk",
+        "N534"
+      ],
+      "resistant_choice_status": "Q24 explicit Web adaptation; no proof of map-client Arsk exact selector",
+      "not_selector": [
+        "name contains Boss",
+        "SAPPER alone",
+        "map UnitIsHero predicate"
+      ],
+      "later_flag_change": "does not recalculate this instance"
+    },
+    "status": {
+      "identity": "single BOhx/T049 status per target across sources",
+      "refresh": "replace expiry with now+new duration, not add and not max; last successful application owns status; invalidate old expiry generation",
+      "expiry": "B05 callback removes only its matching generation; same-time queue order preserved",
+      "dispel": "negative magic status removable by explicit matching dispel; invalidate old expiry; later damage does not break status",
+      "death": "remove status and invalidate expiry; no revival carryover",
+      "dummy_death": "does not remove status",
+      "immunity_gained_later": "state flag alone does not erase existing hex; explicit dispel/removal effects apply their own rules",
+      "model": "nsha sheep overlay from DataB-E; do not replace logical unit identity or HP/mana/armor/owner/userData with nsha values; preserve original movement class/flying state",
+      "control": [
+        "interrupt current active cast/channel and attack windup",
+        "deny new attacks, active casts and active item use while status exists",
+        "allow move orders and route continuation",
+        "movement speed override100 while active; after removal recompute normal movement modifiers",
+        "no blanket removal of ability levels, passive map callbacks, timers, attributes or auras; direct script effects continue unless their own rules check control"
+      ]
+    },
+    "N535_local_gate": {
+      "code": "ANss",
+      "ready_predicate": "now>=shieldReadyAt",
+      "cooldown_us": 6000000,
+      "scope": "T049 only; does not define all ANss interactions",
+      "after": "native target eligibility succeeds; before status application",
+      "on_block": "consume one readiness, shieldReadyAt=now+6s, no BOhx; leave later area packet independent",
+      "on_other_gate_failure": "do not consume readiness",
+      "hex_does_not_remove_passive_shield_ability": true
+    },
+    "followup_area": {
+      "baseline": "area-damage-v1",
+      "source": "original trigger unit, not q001",
+      "delay_seconds": 0.2,
+      "center": "original captured source x/y",
+      "radius": 700,
+      "raw_amount": 1,
+      "tuple": [
+        false,
+        false,
+        "HERO",
+        "NORMAL",
+        "WHOKNOWS"
+      ],
+      "unconditional": "even if no group members or every hex fails",
+      "targets": "new area snapshot at200ms; independent from initial hex group/status",
+      "may_hit": "magic-immune, mechanical, summoned or structure targets if they satisfy area policy; no hex status requirement",
+      "pipeline": "B03 and full original damage pipeline including Before/After, applicable buffs, monster responses, mode/credit logic; no final fixed1 assumption",
+      "source_lifecycle": "reuse area-damage-v1: source dead-but-existing continues, source removed before due cancels"
+    },
+    "persistence": "save logical dummy identities/owner/userData/lifetime, BOhx generation/owner/expiry, N535 readyAt, area request and B05 enqueue ids with baseline version"
+  },
+  "pipeline_dependencies": [
+    {
+      "topic": "dummy spell recursion filter",
+      "bytecode": "main/f291/f14:170040-170066; IsTemp main/f7/f15:51273-51303; q001 list initialization near49860",
+      "result": "temporary q001 exits before Item_Skill_Action"
+    },
+    {
+      "topic": "area typed wrapper",
+      "bytecode": "main/f7/f30:51941-51970",
+      "result": "false,false,HERO,NORMAL,WHOKNOWS"
+    },
+    {
+      "topic": "source attribution",
+      "bytecode": "main/f291/f1:PC28-51",
+      "result": "normal original tower stays actual source; do not substitute hex dummy"
+    },
+    {
+      "topic": "Before/After",
+      "bytecode": "162607 and164515",
+      "result": "both retained on followup if earlier branches permit; attack=false only excludes explicit attack gates"
+    },
+    {
+      "topic": "move resume",
+      "bytecode": "main/f291/f1:PC2480-2509;165109-165139",
+      "result": "nil/stop/attack order may call MonKeepMove; move is allowed during hex"
+    },
+    {
+      "topic": "monster native commands vs script callbacks",
+      "bytecode": "main/f291/f1:PC2662 onward",
+      "result": "original callbacks still called; native active casts rejected by control overlay; do not skip entire damage event"
+    },
+    {
+      "topic": "special buildings",
+      "bytecode": "main/f291/f1:PC2510-2605",
+      "result": "b115/b138 attack-only condition means followup false attack is not treated as valid hero attack"
+    },
+    {
+      "topic": "no BOhx checks found",
+      "source": "literal scan main.readable.lua/main.disasm",
+      "result": "no added map-side hex damage immunity or automatic damage-break rule"
+    }
+  ],
+  "primary_sources": [
+    {
+      "url": "https://classic.battle.net/war3/orc/units/shadowhunter.shtml",
+      "supports": "Hex target classes, hero duration distinction, skill/item disable, speed100, interrupt channel, summoned units not affected; not map version execution"
+    },
+    {
+      "url": "https://classic.battle.net/war3/basics/spellbasics.shtml",
+      "supports": "magic immunity, negative spell shield, resistant skin reduces durations; not exact map N534 selector"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/Units/AbilityMetaData.slk",
+      "lines": [
+        1240,
+        1281,
+        6928,
+        7028
+      ],
+      "supports": "adur->Dur, ahdu->HeroDur, Ply1-5 fields for AOhx"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/UI/WorldEditStrings.txt",
+      "lines": [
+        5838,
+        5839,
+        6106,
+        6110
+      ],
+      "supports": "normal/hero duration; maximum creep level; ground/air/amphibious/water morph units"
+    },
+    {
+      "url": "https://github.com/Retera/WarsmashModEngine/blob/f9e0aeed4be372d6016519d0e97b384aa873f374/core/src/com/etheller/warsmash/viewer5/handlers/w3x/simulation/abilities/skills/CAbilitySpellBase.java#L77",
+      "supports": "independent implementation explicitly chooses HeroDur for isHero; does not prove original client or Arsk"
+    }
+  ],
+  "validation_cases": [
+    {
+      "id": "empty_group",
+      "targets": [],
+      "expected_dummy_count": 0,
+      "expected_area_requests": 1
+    },
+    {
+      "id": "script_filters",
+      "targets": [
+        {
+          "id": 4,
+          "owner": 11,
+          "life": 1
+        },
+        {
+          "id": 9,
+          "owner": 11,
+          "life": 0
+        },
+        {
+          "id": 12,
+          "owner": 0,
+          "life": 10
+        }
+      ],
+      "expected_dummy_target_ids": [
+        4
+      ],
+      "expected_area_requests": 1
+    },
+    {
+      "id": "creation_order",
+      "targets": [
+        {
+          "id": 12,
+          "owner": 11,
+          "life": 10
+        },
+        {
+          "id": 4,
+          "owner": 11,
+          "life": 10
+        },
+        {
+          "id": 9,
+          "owner": 11,
+          "life": 10
+        }
+      ],
+      "expected_dummy_target_ids": [
+        4,
+        9,
+        12
+      ]
+    },
+    {
+      "id": "dummy_per_failed_hex",
+      "targets": [
+        {
+          "id": 4,
+          "owner": 11,
+          "life": 10,
+          "magicImmune": true
+        },
+        {
+          "id": 9,
+          "owner": 11,
+          "life": 10,
+          "structure": true
+        }
+      ],
+      "expected_dummy_count": 2,
+      "expected_hex_applied": 0,
+      "expected_area_requests": 1
+    },
+    {
+      "id": "center_boundary",
+      "center": [
+        0,
+        0
+      ],
+      "radius": 700,
+      "target_centers": [
+        [
+          700,
+          0
+        ],
+        [
+          700.001,
+          0
+        ]
+      ],
+      "expected_indices": [
+        0
+      ]
+    },
+    {
+      "id": "normal_duration",
+      "applied_at_us": 1000000,
+      "nativeHero": false,
+      "resistantSkin": false,
+      "expected_expires_at_us": 3000000
+    },
+    {
+      "id": "hero_duration",
+      "applied_at_us": 1000000,
+      "nativeHero": true,
+      "resistantSkin": false,
+      "expected_expires_at_us": 2000000,
+      "classification": "raw field preserved; map reachability unproven"
+    },
+    {
+      "id": "resistant_duration",
+      "applied_at_us": 1000000,
+      "nativeHero": false,
+      "resistantSkin": true,
+      "expected_expires_at_us": 2000000,
+      "classification": "Q24 Web choice; not UnitIsHero"
+    },
+    {
+      "id": "sapper_name_only",
+      "applied_at_us": 1000000,
+      "nativeHero": false,
+      "resistantSkin": false,
+      "name": "Boss",
+      "sapper": true,
+      "expected_expires_at_us": 3000000
+    },
+    {
+      "id": "refresh",
+      "old_expiry_us": 2000000,
+      "reapplied_at_us": 1500000,
+      "duration_us": 2000000,
+      "expected_expiry_us": 3500000,
+      "old_callback": "no effect"
+    },
+    {
+      "id": "refresh_may_shorten",
+      "old_expiry_us": 3000000,
+      "reapplied_at_us": 1500000,
+      "duration_us": 1000000,
+      "expected_expiry_us": 2500000
+    },
+    {
+      "id": "creep_level_cap",
+      "nonhero_levels": [
+        1000,
+        1001
+      ],
+      "expected_allowed": [
+        true,
+        false
+      ]
+    },
+    {
+      "id": "N535_block",
+      "now_us": 1000000,
+      "shield_ready_at_us": 1000000,
+      "expected_hex": false,
+      "expected_shield_ready_at_us": 7000000,
+      "expected_area_requests": 1
+    },
+    {
+      "id": "N535_cooldown",
+      "now_us": 6999999,
+      "shield_ready_at_us": 7000000,
+      "expected_hex": true,
+      "expected_shield_ready_at_us": 7000000
+    },
+    {
+      "id": "N535_boundary",
+      "now_us": 7000000,
+      "shield_ready_at_us": 7000000,
+      "expected_hex": false,
+      "expected_shield_ready_at_us": 13000000
+    },
+    {
+      "id": "invalid_target_does_not_consume_shield",
+      "magicImmune": true,
+      "shield_ready": true,
+      "expected_hex": false,
+      "expected_shield_consumed": false
+    },
+    {
+      "id": "different_areas",
+      "initial_hex_targets": [
+        4
+      ],
+      "initial_outside_target": 9,
+      "at_200ms_inside": [
+        9
+      ],
+      "expected_damage_target_ids": [
+        9
+      ]
+    },
+    {
+      "id": "original_source",
+      "original_source_id": 1,
+      "dummy_ids": [
+        20,
+        21
+      ],
+      "expected_area_source_id": 1,
+      "expected_raw_amount": 1,
+      "expected_tuple": [
+        false,
+        false,
+        "HERO",
+        "NORMAL",
+        "WHOKNOWS"
+      ]
+    },
+    {
+      "id": "dummy_expires_before_normal_hex",
+      "dummy_expiry_us": 1000000,
+      "normal_hex_expiry_us": 2000000,
+      "expected_hex_still_active_at_us": 1500000
+    },
+    {
+      "id": "hex_not_sleep",
+      "damage_received_at_us": 200000,
+      "hex_expiry_us": 2000000,
+      "expected_damage_does_not_remove_hex": true
+    },
+    {
+      "id": "movement",
+      "base_speed": 300,
+      "hex_speed": 100,
+      "expected_base_speed_after_removal": 300,
+      "expected_move_commands_allowed": true
+    },
+    {
+      "id": "buff_dispel",
+      "removed_at_us": 500000,
+      "old_expiry_us": 2000000,
+      "expected_unlock_at_us": 500000,
+      "old_callback": "no effect"
+    },
+    {
+      "id": "q001_spell_effect",
+      "caster_type": "q001",
+      "expected_Item_Skill_Action_calls": 0,
+      "reason": "IsTemp early return"
+    }
+  ],
+  "boundaries": [
+    "No new proven reachable workbook conflict; HeroDur1 field is retained without declaring map Boss nativeHero",
+    "Hex passive/native edge behavior, exact shield timing and resistant duration selector are explicit Q24 Web choices",
+    "No full global immunity/ANss/resistant-skin rule for other spells; no independent i325 snowfall investigation",
+    "Shared unit death/decay, global lifecycle and undiscovered additional control immunity abilities remain their own modules; this effect does not invent them",
+    "No Warcraft or Web game runtime test"
+  ]
+}

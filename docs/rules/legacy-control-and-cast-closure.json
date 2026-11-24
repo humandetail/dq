@@ -1,0 +1,541 @@
+{
+  "baselineId": "legacy-control-and-cast-closure-v1",
+  "status": "implementation_ready",
+  "skillIds": [
+    "A007",
+    "A057",
+    "A180"
+  ],
+  "originalClientTested": false,
+  "objects": {
+    "A007": {
+      "sourcePath": "reference/map-6.25/units_abilitydata.json",
+      "jsonIndex": 805,
+      "id": "A007",
+      "fields": {
+        "alias": "A007",
+        "code": "AUav",
+        "checkDep": 1,
+        "levels": 6,
+        "reqLevel": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "A057": {
+      "sourcePath": "reference/map-6.25/units_abilitydata.json",
+      "jsonIndex": 855,
+      "id": "A057",
+      "fields": {
+        "alias": "A057",
+        "code": "ANcl",
+        "checkDep": 1,
+        "Cool1": 20.0,
+        "Cool2": 18.0,
+        "Cool3": 16.0,
+        "Cool4": 14.0,
+        "Cost1": 10,
+        "Cost2": 20,
+        "Cost3": 30,
+        "Cost4": 40,
+        "DataA1": 0.8,
+        "DataA2": 0.8,
+        "DataA3": 0.8,
+        "DataA4": 0.8,
+        "DataB1": 1,
+        "DataB2": 1,
+        "DataB3": 1,
+        "DataB4": 1,
+        "DataC1": 1,
+        "DataC2": 1,
+        "DataC3": 1,
+        "DataC4": 1,
+        "DataF1": "militia",
+        "DataF2": "militia",
+        "DataF3": "militia",
+        "DataF4": "militia",
+        "levels": 6,
+        "reqLevel": 1,
+        "Rng1": 600.0,
+        "Rng2": 600.0,
+        "Rng3": 600.0,
+        "Rng4": 600.0,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "A180": {
+      "sourcePath": "reference/map-6.25/units_abilitydata.json",
+      "jsonIndex": 969,
+      "id": "A180",
+      "fields": {
+        "alias": "A180",
+        "code": "ANcl",
+        "Area1": 250.0,
+        "Area2": 300.0,
+        "Area3": 350.0,
+        "Area4": 400.0,
+        "checkDep": 1,
+        "Cool1": 8.0,
+        "Cool2": 7.0,
+        "Cool3": 6.0,
+        "Cool4": 5.0,
+        "Cost1": 20,
+        "Cost2": 30,
+        "Cost3": 40,
+        "Cost4": 50,
+        "DataA1": 0.3,
+        "DataA2": 0.3,
+        "DataA3": 0.3,
+        "DataA4": 0.3,
+        "DataB1": 2,
+        "DataB2": 2,
+        "DataB3": 2,
+        "DataB4": 2,
+        "DataC1": 3,
+        "DataC2": 3,
+        "DataC3": 3,
+        "DataC4": 3,
+        "DataD1": 1.0,
+        "DataD2": 1.0,
+        "DataD3": 1.0,
+        "DataD4": 1.0,
+        "DataF1": "cloudoffog",
+        "DataF2": "cloudoffog",
+        "DataF3": "cloudoffog",
+        "DataF4": "cloudoffog",
+        "levels": 6,
+        "reqLevel": 1,
+        "Rng1": 1200.0,
+        "Rng2": 1200.0,
+        "Rng3": 1200.0,
+        "Rng4": 1200.0,
+        "targs1": "enemies,vulnerable",
+        "targs2": "enemies,vulnerable",
+        "targs3": "enemies,vulnerable",
+        "targs4": "enemies,vulnerable"
+      }
+    },
+    "T012": {
+      "sourcePath": "reference/map-6.25/units_abilitydata.json",
+      "jsonIndex": 1899,
+      "id": "T012",
+      "fields": {
+        "alias": "T012",
+        "code": "AIcb",
+        "DataE1": 2,
+        "Dur1": 5.0,
+        "HeroDur1": 5.0,
+        "levels": 1,
+        "targs1": "ground,air,ward",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "T020": {
+      "sourcePath": "reference/map-6.25/units_abilitydata.json",
+      "jsonIndex": 1907,
+      "id": "T020",
+      "fields": {
+        "alias": "T020",
+        "code": "AIcb",
+        "DataE1": 2,
+        "Dur1": 5.0,
+        "HeroDur1": 5.0,
+        "levels": 1,
+        "targs1": "ground,air,ward",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "T220": {
+      "sourcePath": "reference/map-6.25/units_abilitydata.json",
+      "jsonIndex": 2091,
+      "id": "T220",
+      "fields": {
+        "alias": "T220",
+        "code": "Ainf",
+        "BuffID1": "B171",
+        "checkDep": 1,
+        "Cool1": 1.0,
+        "Dur1": 20.0,
+        "HeroDur1": 20.0,
+        "levels": 1,
+        "priority": 10,
+        "Rng1": 500.0,
+        "targs1": "invulnerable,friend",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "T410": {
+      "sourcePath": "reference/map-6.25/units_abilitydata.json",
+      "jsonIndex": 2206,
+      "id": "T410",
+      "fields": {
+        "alias": "T410",
+        "code": "Ablo",
+        "BuffID1": "B220",
+        "BuffID2": "B220",
+        "checkDep": 1,
+        "Cool1": 1.0,
+        "DataA1": 0.9,
+        "DataA2": 0.9,
+        "Dur1": 60.0,
+        "HeroDur1": 3.0,
+        "HeroDur2": 6.0,
+        "levels": 2,
+        "priority": 11,
+        "Rng1": 600.0,
+        "targs1": "friend,invulnerable",
+        "targs2": "friend,invulnerable",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    }
+  },
+  "casterTiming": {
+    "H017": {
+      "castpt": 0.3,
+      "castbsw": 0.1
+    },
+    "G067": {
+      "castpt": 0.3,
+      "castbsw": 0.1
+    },
+    "G032": {
+      "castpt": 0.3,
+      "castbsw": 0.1
+    },
+    "G033": {
+      "castpt": 0.3,
+      "castbsw": 0.1
+    },
+    "H046": {
+      "castpt": 0.01,
+      "castbsw": 0.1
+    },
+    "G065": {
+      "castpt": 0.01,
+      "castbsw": 0.1
+    }
+  },
+  "A057CountReferences": [
+    {
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "function": "main/f51",
+      "key": "k1",
+      "constantLine": 68918,
+      "pc": 5,
+      "sourceLine": 68925,
+      "instruction": "settabup u0 k1 r2"
+    },
+    {
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "function": "main/f51/f1",
+      "key": "k12",
+      "constantLine": 69043,
+      "pc": 23,
+      "sourceLine": 69107,
+      "instruction": "gettabup r8 u0 k12"
+    },
+    {
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "function": "main/f51/f1",
+      "key": "k12",
+      "constantLine": 69043,
+      "pc": 27,
+      "sourceLine": 69111,
+      "instruction": "gettabup r8 u0 k12"
+    },
+    {
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "function": "main/f51/f1",
+      "key": "k12",
+      "constantLine": 69043,
+      "pc": 31,
+      "sourceLine": 69115,
+      "instruction": "gettabup r8 u0 k12"
+    },
+    {
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "function": "main/f51/f1",
+      "key": "k12",
+      "constantLine": 69043,
+      "pc": 129,
+      "sourceLine": 69217,
+      "instruction": "gettabup r13 u0 k12"
+    },
+    {
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "function": "main/f51/f1",
+      "key": "k12",
+      "constantLine": 69043,
+      "pc": 133,
+      "sourceLine": 69221,
+      "instruction": "gettabup r13 u0 k12"
+    },
+    {
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "function": "main/f51/f1",
+      "key": "k12",
+      "constantLine": 69043,
+      "pc": 137,
+      "sourceLine": 69225,
+      "instruction": "gettabup r13 u0 k12"
+    },
+    {
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "function": "main/f51/f1",
+      "key": "k12",
+      "constantLine": 69043,
+      "pc": 164,
+      "sourceLine": 69254,
+      "instruction": "gettabup r8 u0 k12"
+    },
+    {
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "function": "main/f51/f1",
+      "key": "k12",
+      "constantLine": 69043,
+      "pc": 168,
+      "sourceLine": 69258,
+      "instruction": "gettabup r8 u0 k12"
+    },
+    {
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "function": "main/f51/f1",
+      "key": "k12",
+      "constantLine": 69043,
+      "pc": 170,
+      "sourceLine": 69261,
+      "instruction": "gettabup r8 u0 k12"
+    },
+    {
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "function": "main/f51/f1",
+      "key": "k12",
+      "constantLine": 69043,
+      "pc": 171,
+      "sourceLine": 69262,
+      "instruction": "gettabup r9 u0 k12"
+    }
+  ],
+  "sourceLocations": {
+    "cleanup": "main/f291/f4:167402-167590",
+    "A057Callback": "main/f51/f0:68932-69016",
+    "A180Advance": "main/f127/f0:96177-96420"
+  },
+  "reuse": [
+    "skill-stone-gaze.md",
+    "skill-culling-blade.md",
+    "skill-focus-fire.md",
+    "shared-attack-resolution.md",
+    "pathing-and-placement.md",
+    "focus-fire-native.md",
+    "doom-devour-borrowed-skills.md"
+  ],
+  "webChoices": {
+    "pause": "one source-written boolean, independent of native stun/other locks",
+    "T012_T020": "explicitly named visual-only shells; no unspecified corrosion",
+    "A057": "current actual table slot; T410/T220 separate buff lifecycle",
+    "A180": "current actual Tower_ALL slot carrier; normal attack requests with movement adapter",
+    "A180Damage": "live O membership in A180_Dur; Game_Mode 1 ×2.5, other modes ×2.7"
+  },
+  "validation": {
+    "sourceVM": {
+      "A057CurrentSlot": [
+        [
+          "cd",
+          "replacement:A057",
+          1,
+          4.0
+        ],
+        [
+          "buff",
+          "dummy",
+          "innerfire",
+          "replacement"
+        ],
+        [
+          "destroy",
+          "timer"
+        ]
+      ],
+      "A057EmptySlot": [
+        [
+          "destroy",
+          "timer"
+        ]
+      ],
+      "A180RequestOnly": [
+        [
+          "move",
+          "hero",
+          [
+            110,
+            210
+          ]
+        ],
+        [
+          "facing",
+          "hero",
+          0
+        ],
+        [
+          "order",
+          "hero",
+          "attack",
+          "enemy"
+        ]
+      ],
+      "A180EndNextAdvance": [
+        [
+          "destroy",
+          "period"
+        ],
+        [
+          "remove",
+          "visual"
+        ],
+        [
+          "move",
+          "hero",
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          "stat",
+          "hero",
+          37,
+          1.2
+        ],
+        [
+          "stat",
+          "hero",
+          81,
+          1
+        ],
+        [
+          "color",
+          "hero",
+          255,
+          255,
+          255,
+          255
+        ],
+        [
+          "ability",
+          "hero",
+          "T012"
+        ],
+        [
+          "turn",
+          "hero",
+          0.5
+        ]
+      ],
+      "A180CurrentSlot": {
+        "replacement": {
+          "step": [
+            [
+              "move",
+              "replacement",
+              [
+                110,
+                210
+              ]
+            ],
+            [
+              "facing",
+              "replacement",
+              0
+            ],
+            [
+              "order",
+              "replacement",
+              "attack",
+              "enemy"
+            ]
+          ],
+          "finish": [
+            [
+              "destroy",
+              "period"
+            ],
+            [
+              "remove",
+              "visual"
+            ],
+            [
+              "move",
+              "replacement",
+              [
+                0,
+                0
+              ]
+            ],
+            [
+              "stat",
+              "replacement",
+              37,
+              2.1
+            ],
+            [
+              "stat",
+              "replacement",
+              81,
+              -4
+            ],
+            [
+              "color",
+              "replacement",
+              255,
+              255,
+              255,
+              255
+            ],
+            [
+              "ability",
+              "replacement",
+              "T012"
+            ],
+            [
+              "turn",
+              "replacement",
+              0.5
+            ]
+          ]
+        },
+        "empty": {
+          "step": [],
+          "finish": [
+            [
+              "destroy",
+              "period"
+            ],
+            [
+              "remove",
+              "visual"
+            ]
+          ]
+        }
+      },
+      "A180DamageByGameMode": {
+        "0": 270.0,
+        "1": 250.0,
+        "2": 270.0
+      }
+    },
+    "probesPassed": 9
+  }
+}

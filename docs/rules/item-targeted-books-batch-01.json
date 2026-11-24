@@ -1,0 +1,562 @@
+{
+  "baselineId": "item-targeted-books-batch-01",
+  "status": "bounded_source_audit_and_Q24_Web_selection",
+  "coverage": {
+    "workbookItems": 243,
+    "aliases": 9,
+    "uniqueItems": 9,
+    "recipeBookMounts": 0,
+    "commandShellsReady": 9,
+    "itemCastEffectsReady": 5,
+    "itemCastEffectsRemaining": 4
+  },
+  "items": [
+    {
+      "id": "i127",
+      "name": "经验书",
+      "workbookCell": "装备与道具!H37",
+      "alias": "I167",
+      "script": {
+        "handler": "I167_Acition",
+        "dispatchLines": [
+          143979,
+          143986
+        ],
+        "existingRule": "experience-sharing/X03"
+      },
+      "sources": {
+        "itemObjectJsonIndex": 330,
+        "abilityObjectJsonIndex": 1099,
+        "native": {
+          "targs1": "invulnerable,hero,friend",
+          "Rng1": 999999.0,
+          "Area1": 500.0,
+          "Cool1": null,
+          "Cost1": null,
+          "DataA1": null,
+          "DataB1": null,
+          "DataC1": null,
+          "DataD1": null
+        },
+        "item": {
+          "uses": 1,
+          "usable": 1,
+          "perishable": 1,
+          "cooldownID": "I167"
+        }
+      },
+      "componentsReady": [
+        "single-target command and dispatch",
+        "L03 use/cooldown/charges",
+        "zero native chain damage",
+        "direct XP and level effect per experience-sharing/X03–X04"
+      ],
+      "componentsRemaining": [],
+      "mergesChargesOnPickup": true,
+      "recipe": null
+    },
+    {
+      "id": "i128",
+      "name": "能量书",
+      "workbookCell": "装备与道具!H38",
+      "alias": "I168",
+      "script": {
+        "handler": "I168_Acition",
+        "dispatchLines": [
+          143988,
+          143995
+        ],
+        "existingRule": "experience-sharing/X03"
+      },
+      "sources": {
+        "itemObjectJsonIndex": 331,
+        "abilityObjectJsonIndex": 1100,
+        "native": {
+          "targs1": "invulnerable,hero,friend",
+          "Rng1": 999999.0,
+          "Area1": 500.0,
+          "Cool1": null,
+          "Cost1": null,
+          "DataA1": null,
+          "DataB1": null,
+          "DataC1": null,
+          "DataD1": null
+        },
+        "item": {
+          "uses": 1,
+          "usable": 1,
+          "perishable": 1,
+          "cooldownID": "I168"
+        }
+      },
+      "componentsReady": [
+        "single-target command and dispatch",
+        "L03 use/cooldown/charges",
+        "zero native chain damage",
+        "direct XP and level effect per experience-sharing/X03–X04"
+      ],
+      "componentsRemaining": [],
+      "mergesChargesOnPickup": true,
+      "recipe": null
+    },
+    {
+      "id": "i258",
+      "name": "神能之书",
+      "workbookCell": "装备与道具!H168",
+      "alias": "I253",
+      "script": {
+        "handler": "i258_SkillRandom",
+        "dispatchLines": [
+          144333,
+          144342
+        ],
+        "sourceModulePair": {
+          "functions": [
+            "main/f225/f7",
+            "main/f258/f7"
+          ],
+          "instructionCountEach": 53,
+          "lines": [
+            [
+              123467,
+              123521
+            ],
+            [
+              131031,
+              131085
+            ]
+          ]
+        }
+      },
+      "sources": {
+        "itemObjectJsonIndex": 461,
+        "abilityObjectJsonIndex": 1176,
+        "native": {
+          "targs1": "invulnerable,hero,friend",
+          "Rng1": 999999.0,
+          "Area1": 500.0,
+          "Cool1": null,
+          "Cost1": null,
+          "DataA1": null,
+          "DataB1": null,
+          "DataC1": null,
+          "DataD1": null
+        },
+        "item": {
+          "uses": 1,
+          "usable": 1,
+          "perishable": 1,
+          "cooldownID": "I253"
+        }
+      },
+      "componentsReady": [
+        "single-target command and dispatch",
+        "L03 use/cooldown/charges",
+        "zero native chain damage"
+      ],
+      "componentsRemaining": [
+        "P200/P201–P222 transformation or star effect"
+      ],
+      "mergesChargesOnPickup": true,
+      "recipe": null
+    },
+    {
+      "id": "i259",
+      "name": "神能结晶",
+      "workbookCell": "装备与道具!H169",
+      "alias": "I254",
+      "script": {
+        "handler": "i258_StarUp",
+        "dispatchLines": [
+          144344,
+          144353
+        ],
+        "sourceModulePair": {
+          "functions": [
+            "main/f225/f8",
+            "main/f258/f8"
+          ],
+          "instructionCountEach": 197,
+          "lines": [
+            [
+              123570,
+              123779
+            ],
+            [
+              131134,
+              131343
+            ]
+          ]
+        }
+      },
+      "sources": {
+        "itemObjectJsonIndex": 462,
+        "abilityObjectJsonIndex": 1177,
+        "native": {
+          "targs1": "invulnerable,hero,friend",
+          "Rng1": 999999.0,
+          "Area1": 500.0,
+          "Cool1": null,
+          "Cost1": null,
+          "DataA1": null,
+          "DataB1": null,
+          "DataC1": null,
+          "DataD1": null
+        },
+        "item": {
+          "uses": 1,
+          "usable": 1,
+          "perishable": 1,
+          "cooldownID": "I254"
+        }
+      },
+      "componentsReady": [
+        "single-target command and dispatch",
+        "L03 use/cooldown/charges",
+        "zero native chain damage"
+      ],
+      "componentsRemaining": [
+        "P200/P201–P222 transformation or star effect"
+      ],
+      "mergesChargesOnPickup": true,
+      "recipe": null
+    },
+    {
+      "id": "i260",
+      "name": "神书之羽",
+      "workbookCell": "装备与道具!H170",
+      "alias": "I255",
+      "script": {
+        "handler": "i258_StarRandom",
+        "dispatchLines": [
+          144366,
+          144375
+        ],
+        "sourceModulePair": {
+          "functions": [
+            "main/f225/f10",
+            "main/f258/f10"
+          ],
+          "instructionCountEach": 64,
+          "lines": [
+            [
+              123918,
+              123984
+            ],
+            [
+              131482,
+              131548
+            ]
+          ]
+        }
+      },
+      "sources": {
+        "itemObjectJsonIndex": 463,
+        "abilityObjectJsonIndex": 1178,
+        "native": {
+          "targs1": "invulnerable,hero,friend",
+          "Rng1": 999999.0,
+          "Area1": 500.0,
+          "Cool1": null,
+          "Cost1": null,
+          "DataA1": null,
+          "DataB1": null,
+          "DataC1": null,
+          "DataD1": null
+        },
+        "item": {
+          "uses": 1,
+          "usable": 1,
+          "perishable": 1,
+          "cooldownID": "I255"
+        }
+      },
+      "componentsReady": [
+        "single-target command and dispatch",
+        "L03 use/cooldown/charges",
+        "zero native chain damage"
+      ],
+      "componentsRemaining": [
+        "P200/P201–P222 transformation or star effect"
+      ],
+      "mergesChargesOnPickup": true,
+      "recipe": null
+    },
+    {
+      "id": "i264",
+      "name": "神能宝石",
+      "workbookCell": "装备与道具!H174",
+      "alias": "I260",
+      "script": {
+        "handler": "i264_StarUp",
+        "dispatchLines": [
+          144355,
+          144364
+        ],
+        "sourceModulePair": {
+          "functions": [
+            "main/f225/f9",
+            "main/f258/f9"
+          ],
+          "instructionCountEach": 75,
+          "lines": [
+            [
+              123812,
+              123889
+            ],
+            [
+              131376,
+              131453
+            ]
+          ]
+        }
+      },
+      "sources": {
+        "itemObjectJsonIndex": 467,
+        "abilityObjectJsonIndex": 1183,
+        "native": {
+          "targs1": "invulnerable,hero,friend",
+          "Rng1": 999999.0,
+          "Area1": 500.0,
+          "Cool1": null,
+          "Cost1": null,
+          "DataA1": null,
+          "DataB1": null,
+          "DataC1": null,
+          "DataD1": null
+        },
+        "item": {
+          "uses": 1,
+          "usable": 1,
+          "perishable": 1,
+          "cooldownID": "I260"
+        }
+      },
+      "componentsReady": [
+        "single-target command and dispatch",
+        "L03 use/cooldown/charges",
+        "zero native chain damage"
+      ],
+      "componentsRemaining": [
+        "P200/P201–P222 transformation or star effect"
+      ],
+      "mergesChargesOnPickup": false,
+      "recipe": null
+    },
+    {
+      "id": "i312",
+      "name": "知识之书Lv1",
+      "workbookCell": "装备与道具!H205",
+      "alias": "I226",
+      "script": {
+        "handler": "I226_Acition",
+        "dispatchLines": [
+          143997,
+          144004
+        ],
+        "existingRule": "experience-sharing/X03"
+      },
+      "sources": {
+        "itemObjectJsonIndex": 498,
+        "abilityObjectJsonIndex": 1149,
+        "native": {
+          "targs1": "invulnerable,hero,friend",
+          "Rng1": 999999.0,
+          "Area1": 500.0,
+          "Cool1": 180.0,
+          "Cost1": null,
+          "DataA1": null,
+          "DataB1": null,
+          "DataC1": null,
+          "DataD1": null
+        },
+        "item": {
+          "uses": null,
+          "usable": 1,
+          "perishable": null,
+          "cooldownID": "I226"
+        }
+      },
+      "componentsReady": [
+        "single-target command and dispatch",
+        "L03 use/cooldown/charges",
+        "zero native chain damage",
+        "direct XP and level effect per experience-sharing/X03–X04"
+      ],
+      "componentsRemaining": [],
+      "mergesChargesOnPickup": false,
+      "recipe": {
+        "materials": [
+          "i315",
+          "i127",
+          "i128"
+        ],
+        "sourceLines": [
+          142014,
+          142027
+        ],
+        "workbook": {
+          "sheet": "合成配方",
+          "cell": "D61",
+          "multiplicityMatches": true
+        }
+      }
+    },
+    {
+      "id": "i313",
+      "name": "知识之书Lv2",
+      "workbookCell": "装备与道具!H206",
+      "alias": "I227",
+      "script": {
+        "handler": "I227_Acition",
+        "dispatchLines": [
+          144006,
+          144013
+        ],
+        "existingRule": "experience-sharing/X03"
+      },
+      "sources": {
+        "itemObjectJsonIndex": 499,
+        "abilityObjectJsonIndex": 1150,
+        "native": {
+          "targs1": "invulnerable,hero,friend",
+          "Rng1": 999999.0,
+          "Area1": 500.0,
+          "Cool1": 180.0,
+          "Cost1": null,
+          "DataA1": null,
+          "DataB1": null,
+          "DataC1": null,
+          "DataD1": null
+        },
+        "item": {
+          "uses": null,
+          "usable": 1,
+          "perishable": null,
+          "cooldownID": "I227"
+        }
+      },
+      "componentsReady": [
+        "single-target command and dispatch",
+        "L03 use/cooldown/charges",
+        "zero native chain damage",
+        "direct XP and level effect per experience-sharing/X03–X04"
+      ],
+      "componentsRemaining": [],
+      "mergesChargesOnPickup": false,
+      "recipe": {
+        "materials": [
+          "i315",
+          "i312"
+        ],
+        "sourceLines": [
+          141520,
+          141530
+        ],
+        "workbook": {
+          "sheet": "合成配方",
+          "cell": "D23",
+          "multiplicityMatches": true
+        }
+      }
+    },
+    {
+      "id": "i314",
+      "name": "知识之书Max",
+      "workbookCell": "装备与道具!H207",
+      "alias": "I228",
+      "script": {
+        "handler": "I228_Acition",
+        "dispatchLines": [
+          144015,
+          144022
+        ],
+        "existingRule": "experience-sharing/X03"
+      },
+      "sources": {
+        "itemObjectJsonIndex": 500,
+        "abilityObjectJsonIndex": 1151,
+        "native": {
+          "targs1": "invulnerable,hero,friend",
+          "Rng1": 999999.0,
+          "Area1": 500.0,
+          "Cool1": 180.0,
+          "Cost1": null,
+          "DataA1": null,
+          "DataB1": null,
+          "DataC1": null,
+          "DataD1": null
+        },
+        "item": {
+          "uses": null,
+          "usable": 1,
+          "perishable": null,
+          "cooldownID": "I228"
+        }
+      },
+      "componentsReady": [
+        "single-target command and dispatch",
+        "L03 use/cooldown/charges",
+        "zero native chain damage",
+        "direct XP and level effect per experience-sharing/X03–X04"
+      ],
+      "componentsRemaining": [],
+      "mergesChargesOnPickup": false,
+      "recipe": {
+        "materials": [
+          "i315",
+          "i313"
+        ],
+        "sourceLines": [
+          141531,
+          141541
+        ],
+        "workbook": {
+          "sheet": "合成配方",
+          "cell": "D24",
+          "multiplicityMatches": true
+        }
+      }
+    }
+  ],
+  "webRule": {
+    "target": "One valid living friendly native hero. Keep caster, target and item context under L03.",
+    "geometry": "Targeted range 999999. Area 500 is an unused chain field. No combat projectile, secondary target, damage or hit roll.",
+    "nativeCost": "Zero mana and zero cooldown for source omissions. Knowledge volumes use their explicit alias cooldownID and 180 seconds.",
+    "hooks": "Use existing AnySkillStart ordering. I167/I168 are present in IsUseless for Item_Skill_Action."
+  },
+  "candidate": {
+    "scope": "Shared P200/P201–P222 transformation, star draws, swaps and downstream effects",
+    "items": [
+      "i258",
+      "i259",
+      "i260",
+      "i264"
+    ],
+    "refundHelper": {
+      "functions": [
+        "main/f225/f5",
+        "main/f258/f5"
+      ],
+      "instructionCountEach": 15,
+      "lines": [
+        [
+          122776,
+          122790
+        ],
+        [
+          130340,
+          130354
+        ]
+      ]
+    },
+    "sourceEvidence": "The rejection helper creates a fresh same-type item at caster position and attempts delivery."
+  },
+  "dependencies": [
+    "item-lifecycle-v1/L03-L04",
+    "experience-sharing/X03-X04",
+    "skill-essence-aura-proc",
+    "summon-and-delivery"
+  ],
+  "originalClientTested": false
+}

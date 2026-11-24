@@ -1,0 +1,1878 @@
+{
+  "baselineId": "item-flat-attack-v1",
+  "status": "bounded_source_audit_and_Q24_Web_selection",
+  "dependencies": [
+    "item-lifecycle-v1/L01-L09",
+    "weapon-attribute-interface-v1/W01-W03"
+  ],
+  "webRule": {
+    "authority": "Q24, scoped to the 31 listed types after source review",
+    "contribution": "Sum one workbook-selected fixed F amount per actually mounted eligible item instance. Repeated aliases stay in source data. Preserve original admission and rejection handlers.",
+    "ordering": "Attach before PICKUP, detach before DROP, recompute before the next observable read. Swap is event-free. Rebuild from restored mounted instances without replaying events or resetting J19.",
+    "scope": "Passive fixed F only. Other attached capabilities, bear or illusion inheritance, death inventory rules and all AIab variants remain separate."
+  },
+  "workbook": {
+    "sheet": "装备与道具",
+    "columns": "A:H",
+    "rowsCompared": 247,
+    "itemRows": 243,
+    "bothBooksMatch": true
+  },
+  "slkDecodedRowsCompared": {
+    "units_itemdata": 743,
+    "units_abilitydata": 2224
+  },
+  "aliases": {
+    "I131": {
+      "sourceSlk": {
+        "row": 1066,
+        "line": 18949
+      },
+      "sourceFields": {
+        "alias": "I131",
+        "code": "AIat",
+        "DataA1": 1,
+        "levels": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "w3aOverride": null,
+      "mountOccurrences": 1
+    },
+    "I133": {
+      "sourceSlk": {
+        "row": 1068,
+        "line": 18965
+      },
+      "sourceFields": {
+        "alias": "I133",
+        "code": "AIat",
+        "DataA1": 5,
+        "levels": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "w3aOverride": null,
+      "mountOccurrences": 1
+    },
+    "I134": {
+      "sourceSlk": {
+        "row": 1069,
+        "line": 18973
+      },
+      "sourceFields": {
+        "alias": "I134",
+        "code": "AIat",
+        "DataA1": 10,
+        "levels": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "w3aOverride": null,
+      "mountOccurrences": 15
+    },
+    "I135": {
+      "sourceSlk": {
+        "row": 1070,
+        "line": 18981
+      },
+      "sourceFields": {
+        "alias": "I135",
+        "code": "AIat",
+        "DataA1": 40,
+        "levels": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "w3aOverride": null,
+      "mountOccurrences": 9
+    },
+    "I136": {
+      "sourceSlk": {
+        "row": 1071,
+        "line": 18989
+      },
+      "sourceFields": {
+        "alias": "I136",
+        "code": "AIat",
+        "DataA1": 100,
+        "levels": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "w3aOverride": null,
+      "mountOccurrences": 2
+    },
+    "I138": {
+      "sourceSlk": {
+        "row": 1073,
+        "line": 19005
+      },
+      "sourceFields": {
+        "alias": "I138",
+        "code": "AIat",
+        "DataA1": 300,
+        "levels": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "w3aOverride": null,
+      "mountOccurrences": 1
+    },
+    "I139": {
+      "sourceSlk": {
+        "row": 1074,
+        "line": 19013
+      },
+      "sourceFields": {
+        "alias": "I139",
+        "code": "AIat",
+        "DataA1": 800,
+        "levels": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "w3aOverride": null,
+      "mountOccurrences": 1
+    },
+    "I180": {
+      "sourceSlk": {
+        "row": 1106,
+        "line": 19288
+      },
+      "sourceFields": {
+        "alias": "I180",
+        "code": "AIat",
+        "DataA1": 85,
+        "levels": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "w3aOverride": null,
+      "mountOccurrences": 4
+    },
+    "I187": {
+      "sourceSlk": {
+        "row": 1112,
+        "line": 19360
+      },
+      "sourceFields": {
+        "alias": "I187",
+        "code": "AIat",
+        "DataA1": 115,
+        "levels": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "w3aOverride": null,
+      "mountOccurrences": 1
+    },
+    "I201": {
+      "sourceSlk": {
+        "row": 1126,
+        "line": 19490
+      },
+      "sourceFields": {
+        "alias": "I201",
+        "code": "AIat",
+        "DataA1": 36,
+        "levels": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "w3aOverride": null,
+      "mountOccurrences": 4
+    },
+    "I213": {
+      "sourceSlk": {
+        "row": 1138,
+        "line": 19655
+      },
+      "sourceFields": {
+        "alias": "I213",
+        "code": "AIat",
+        "DataA1": 80,
+        "levels": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "w3aOverride": null,
+      "mountOccurrences": 2
+    },
+    "I252": {
+      "sourceSlk": {
+        "row": 1177,
+        "line": 20220
+      },
+      "sourceFields": {
+        "alias": "I252",
+        "code": "AIat",
+        "DataA1": 180,
+        "levels": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "w3aOverride": null,
+      "mountOccurrences": 1
+    },
+    "I272": {
+      "sourceSlk": {
+        "row": 1197,
+        "line": 20467
+      },
+      "sourceFields": {
+        "alias": "I272",
+        "code": "AIat",
+        "DataA1": 100,
+        "levels": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "w3aOverride": null,
+      "mountOccurrences": 1
+    }
+  },
+  "items": [
+    {
+      "id": "i115",
+      "name": "狂战斧",
+      "workbook": {
+        "row": 25,
+        "cell": "装备与道具!H25",
+        "effect": "属性：\n增加60点攻击力。\n分裂攻击：\n45%分裂伤害，380有效范围，仅近战单位携带有效。（无攻击弹道的为近战）"
+      },
+      "sourceItemSlk": {
+        "row": 320,
+        "line": 6312
+      },
+      "sourceAbilList": "I135,I135",
+      "orderedMounts": [
+        {
+          "alias": "I135",
+          "DataA1": 40
+        },
+        {
+          "alias": "I135",
+          "DataA1": 40
+        }
+      ],
+      "sourceOccurrenceSum": 80,
+      "w3tOverrideKeys": [
+        "iico",
+        "ides",
+        "uhot",
+        "unam",
+        "utip",
+        "utub"
+      ],
+      "w3tTooltip": "|cffffcc00属性：|r|n-增加60点攻击力。|n|cffffcc00分裂攻击：|r|n-45%分裂伤害，380有效范围，仅近战单位携带有效。（无攻击弹道的为近战）",
+      "webFlatAttack": 60
+    },
+    {
+      "id": "i117",
+      "name": "阔剑",
+      "workbook": {
+        "row": 27,
+        "cell": "装备与道具!H27",
+        "effect": "增加20点攻击力。"
+      },
+      "sourceItemSlk": {
+        "row": 322,
+        "line": 6353
+      },
+      "sourceAbilList": "I134,I134",
+      "orderedMounts": [
+        {
+          "alias": "I134",
+          "DataA1": 10
+        },
+        {
+          "alias": "I134",
+          "DataA1": 10
+        }
+      ],
+      "sourceOccurrenceSum": 20,
+      "w3tOverrideKeys": [
+        "iico",
+        "ides",
+        "uhot",
+        "unam",
+        "utip",
+        "utub"
+      ],
+      "w3tTooltip": "增加20点攻击力。",
+      "webFlatAttack": 20
+    },
+    {
+      "id": "i118",
+      "name": "大剑",
+      "workbook": {
+        "row": 28,
+        "cell": "装备与道具!H28",
+        "effect": "增加26点攻击力。"
+      },
+      "sourceItemSlk": {
+        "row": 323,
+        "line": 6374
+      },
+      "sourceAbilList": "I134,I134,I133,I131",
+      "orderedMounts": [
+        {
+          "alias": "I134",
+          "DataA1": 10
+        },
+        {
+          "alias": "I134",
+          "DataA1": 10
+        },
+        {
+          "alias": "I133",
+          "DataA1": 5
+        },
+        {
+          "alias": "I131",
+          "DataA1": 1
+        }
+      ],
+      "sourceOccurrenceSum": 26,
+      "w3tOverrideKeys": [
+        "iico",
+        "ides",
+        "uhot",
+        "unam",
+        "utip",
+        "utub"
+      ],
+      "w3tTooltip": "增加26点攻击力。",
+      "webFlatAttack": 26
+    },
+    {
+      "id": "i123",
+      "name": "蝴蝶",
+      "workbook": {
+        "row": 33,
+        "cell": "装备与道具!H33",
+        "effect": "属性：\n提高英雄86点敏捷。\n增加40%攻击速度。\n增加20点攻击力。"
+      },
+      "sourceItemSlk": {
+        "row": 328,
+        "line": 6478
+      },
+      "sourceAbilList": "I166,I125,I134,I134",
+      "orderedMounts": [
+        {
+          "alias": "I134",
+          "DataA1": 10
+        },
+        {
+          "alias": "I134",
+          "DataA1": 10
+        }
+      ],
+      "sourceOccurrenceSum": 20,
+      "w3tOverrideKeys": [
+        "iico",
+        "ides",
+        "uhot",
+        "unam",
+        "utip",
+        "utub"
+      ],
+      "w3tTooltip": "|cffffcc00属性：|r|n-提高英雄86点敏捷。|n-增加40%攻击速度。|n-增加20点攻击力。",
+      "webFlatAttack": 20
+    },
+    {
+      "id": "i125",
+      "name": "短棍",
+      "workbook": {
+        "row": 35,
+        "cell": "装备与道具!H35",
+        "effect": "增加10点攻击力和10%攻击速度。"
+      },
+      "sourceItemSlk": {
+        "row": 330,
+        "line": 6519
+      },
+      "sourceAbilList": "I134,I122",
+      "orderedMounts": [
+        {
+          "alias": "I134",
+          "DataA1": 10
+        }
+      ],
+      "sourceOccurrenceSum": 10,
+      "w3tOverrideKeys": [
+        "iico",
+        "ides",
+        "uhot",
+        "unam",
+        "utip",
+        "utub"
+      ],
+      "w3tTooltip": "增加10点攻击力和10%攻击速度。",
+      "webFlatAttack": 10
+    },
+    {
+      "id": "i135",
+      "name": "辉耀Lv1",
+      "workbook": {
+        "row": 45,
+        "cell": "装备与道具!H45",
+        "effect": "属性：\n增加85点攻击力。\n灼烧：\n对周围900范围内的敌人每秒造成250点法术伤害（唯一被动，多个灼烧不叠加）。"
+      },
+      "sourceItemSlk": {
+        "row": 340,
+        "line": 6724
+      },
+      "sourceAbilList": "I180,I181",
+      "orderedMounts": [
+        {
+          "alias": "I180",
+          "DataA1": 85
+        }
+      ],
+      "sourceOccurrenceSum": 85,
+      "w3tOverrideKeys": [
+        "iico",
+        "ides",
+        "uhot",
+        "unam",
+        "utip",
+        "utub"
+      ],
+      "w3tTooltip": "|cffffcc00属性：|r|n-增加85点攻击力。|n|cffffcc00灼烧：|r|n-对周围900范围内的敌人每秒造成250点法术伤害（唯一被动，多个灼烧不叠加）。",
+      "webFlatAttack": 85
+    },
+    {
+      "id": "i136",
+      "name": "辉耀Lv2",
+      "workbook": {
+        "row": 46,
+        "cell": "装备与道具!H46",
+        "effect": "属性：\n增加85点攻击力。\n灼烧：\n对周围900范围内的敌人每秒造成360点法术伤害（唯一被动，多个灼烧不叠加）。"
+      },
+      "sourceItemSlk": {
+        "row": 341,
+        "line": 6745
+      },
+      "sourceAbilList": "I180,I182",
+      "orderedMounts": [
+        {
+          "alias": "I180",
+          "DataA1": 85
+        }
+      ],
+      "sourceOccurrenceSum": 85,
+      "w3tOverrideKeys": [
+        "iico",
+        "ides",
+        "uhot",
+        "unam",
+        "utip",
+        "utub"
+      ],
+      "w3tTooltip": "|cffffcc00属性：|r|n-增加85点攻击力。|n|cffffcc00灼烧：|r|n-对周围900范围内的敌人每秒造成360点法术伤害（唯一被动，多个灼烧不叠加）。",
+      "webFlatAttack": 85
+    },
+    {
+      "id": "i137",
+      "name": "辉耀Lv3",
+      "workbook": {
+        "row": 47,
+        "cell": "装备与道具!H47",
+        "effect": "属性：\n增加85点攻击力。\n灼烧：\n对周围900范围内的敌人每秒造成470点法术伤害（唯一被动，多个灼烧不叠加）。"
+      },
+      "sourceItemSlk": {
+        "row": 342,
+        "line": 6766
+      },
+      "sourceAbilList": "I180,I183",
+      "orderedMounts": [
+        {
+          "alias": "I180",
+          "DataA1": 85
+        }
+      ],
+      "sourceOccurrenceSum": 85,
+      "w3tOverrideKeys": [
+        "iico",
+        "ides",
+        "uhot",
+        "unam",
+        "utip",
+        "utub"
+      ],
+      "w3tTooltip": "|cffffcc00属性：|r|n-增加85点攻击力。|n|cffffcc00灼烧：|r|n-对周围900范围内的敌人每秒造成470点法术伤害（唯一被动，多个灼烧不叠加）。",
+      "webFlatAttack": 85
+    },
+    {
+      "id": "i138",
+      "name": "辉耀Max",
+      "workbook": {
+        "row": 48,
+        "cell": "装备与道具!H48",
+        "effect": "属性：\n增加85点攻击力。\n灼烧：\n对周围900范围内的敌人每秒造成620点法术伤害（唯一被动，多个灼烧不叠加）。"
+      },
+      "sourceItemSlk": {
+        "row": 343,
+        "line": 6787
+      },
+      "sourceAbilList": "I180,I184",
+      "orderedMounts": [
+        {
+          "alias": "I180",
+          "DataA1": 85
+        }
+      ],
+      "sourceOccurrenceSum": 85,
+      "w3tOverrideKeys": [
+        "iico",
+        "ides",
+        "uhot",
+        "unam",
+        "utip",
+        "utub"
+      ],
+      "w3tTooltip": "|cffffcc00属性：|r|n-增加85点攻击力。|n|cffffcc00灼烧：|r|n-对周围900范围内的敌人每秒造成620点法术伤害（唯一被动，多个灼烧不叠加）。",
+      "webFlatAttack": 85
+    },
+    {
+      "id": "i140",
+      "name": "圣者遗物",
+      "workbook": {
+        "row": 50,
+        "cell": "装备与道具!H50",
+        "effect": "增加80点攻击力。"
+      },
+      "sourceItemSlk": {
+        "row": 345,
+        "line": 6828
+      },
+      "sourceAbilList": "I135,I135",
+      "orderedMounts": [
+        {
+          "alias": "I135",
+          "DataA1": 40
+        },
+        {
+          "alias": "I135",
+          "DataA1": 40
+        }
+      ],
+      "sourceOccurrenceSum": 80,
+      "w3tOverrideKeys": [],
+      "w3tTooltip": null,
+      "webFlatAttack": 80
+    },
+    {
+      "id": "i141",
+      "name": "金箍棒",
+      "workbook": {
+        "row": 51,
+        "cell": "装备与道具!H51",
+        "effect": "属性：\n增加115点攻击力。\n克敌机先：\n攻击有70%的概率不会丢失，并且有30%的概率额外造成400点物理伤害。"
+      },
+      "sourceItemSlk": {
+        "row": 346,
+        "line": 6849
+      },
+      "sourceAbilList": "I185,I187",
+      "orderedMounts": [
+        {
+          "alias": "I187",
+          "DataA1": 115
+        }
+      ],
+      "sourceOccurrenceSum": 115,
+      "w3tOverrideKeys": [
+        "iico",
+        "ides",
+        "uhot",
+        "unam",
+        "utip",
+        "utub"
+      ],
+      "w3tTooltip": "|cffffcc00属性：|r|n-增加115点攻击力。|n|cffffcc00克敌机先：|r|n-攻击有70%的概率不会丢失，并且有30%的概率额外造成400点物理伤害。",
+      "webFlatAttack": 115
+    },
+    {
+      "id": "i143",
+      "name": "恶魔刀锋",
+      "workbook": {
+        "row": 53,
+        "cell": "装备与道具!H53",
+        "effect": "增加60点攻击力。"
+      },
+      "sourceItemSlk": {
+        "row": 348,
+        "line": 6890
+      },
+      "sourceAbilList": "I135,I134,I134",
+      "orderedMounts": [
+        {
+          "alias": "I135",
+          "DataA1": 40
+        },
+        {
+          "alias": "I134",
+          "DataA1": 10
+        },
+        {
+          "alias": "I134",
+          "DataA1": 10
+        }
+      ],
+      "sourceOccurrenceSum": 60,
+      "w3tOverrideKeys": [
+        "iico",
+        "ides",
+        "uhot",
+        "unam",
+        "utip",
+        "utub"
+      ],
+      "w3tTooltip": "增加60点攻击力。",
+      "webFlatAttack": 60
+    },
+    {
+      "id": "i144",
+      "name": "标枪",
+      "workbook": {
+        "row": 54,
+        "cell": "装备与道具!H54",
+        "effect": "增加20点攻击力。并且攻击有20%概率额外造成100点物理伤害。"
+      },
+      "sourceItemSlk": {
+        "row": 349,
+        "line": 6911
+      },
+      "sourceAbilList": "I134,I134",
+      "orderedMounts": [
+        {
+          "alias": "I134",
+          "DataA1": 10
+        },
+        {
+          "alias": "I134",
+          "DataA1": 10
+        }
+      ],
+      "sourceOccurrenceSum": 20,
+      "w3tOverrideKeys": [
+        "iico",
+        "ides",
+        "uhot",
+        "unam",
+        "utip",
+        "utub"
+      ],
+      "w3tTooltip": "增加20点攻击力。并且攻击有20%概率额外造成100点物理伤害。",
+      "webFlatAttack": 20
+    },
+    {
+      "id": "i173",
+      "name": "漩涡",
+      "workbook": {
+        "row": 83,
+        "cell": "装备与道具!H83",
+        "effect": "属性：\n增加20%攻击速度。\n增加50点攻击力。\n连环闪电：\n攻击有15%的概率释放一道闪电链，闪电链对敌人造成1000点法术伤害。"
+      },
+      "sourceItemSlk": {
+        "row": 378,
+        "line": 7511
+      },
+      "sourceAbilList": "I123,I135,I134",
+      "orderedMounts": [
+        {
+          "alias": "I135",
+          "DataA1": 40
+        },
+        {
+          "alias": "I134",
+          "DataA1": 10
+        }
+      ],
+      "sourceOccurrenceSum": 50,
+      "w3tOverrideKeys": [],
+      "w3tTooltip": null,
+      "webFlatAttack": 50
+    },
+    {
+      "id": "i176",
+      "name": "秘银锤",
+      "workbook": {
+        "row": 86,
+        "cell": "装备与道具!H86",
+        "effect": "增加36点攻击力。"
+      },
+      "sourceItemSlk": {
+        "row": 381,
+        "line": 7573
+      },
+      "sourceAbilList": "I201",
+      "orderedMounts": [
+        {
+          "alias": "I201",
+          "DataA1": 36
+        }
+      ],
+      "sourceOccurrenceSum": 36,
+      "w3tOverrideKeys": [],
+      "w3tTooltip": null,
+      "webFlatAttack": 36
+    },
+    {
+      "id": "i177",
+      "name": "雷神之锤",
+      "workbook": {
+        "row": 87,
+        "cell": "装备与道具!H87",
+        "effect": "属性：\n增加60%攻击速度。\n增加50点攻击力。\n连环闪电：\n攻击有25%的概率释放一道闪电链，闪电链对敌人造成2000点法术伤害。"
+      },
+      "sourceItemSlk": {
+        "row": 382,
+        "line": 7594
+      },
+      "sourceAbilList": "I123,I125,I135,I134",
+      "orderedMounts": [
+        {
+          "alias": "I135",
+          "DataA1": 40
+        },
+        {
+          "alias": "I134",
+          "DataA1": 10
+        }
+      ],
+      "sourceOccurrenceSum": 50,
+      "w3tOverrideKeys": [],
+      "w3tTooltip": null,
+      "webFlatAttack": 50
+    },
+    {
+      "id": "i186",
+      "name": "黯灭",
+      "workbook": {
+        "row": 96,
+        "cell": "装备与道具!H96",
+        "effect": "属性：\n增加40点攻击力。\n腐蚀：\n物理攻击会减少目标25点护甲。（法球效果不能叠加）"
+      },
+      "sourceItemSlk": {
+        "row": 391,
+        "line": 7781
+      },
+      "sourceAbilList": "I135,I202",
+      "orderedMounts": [
+        {
+          "alias": "I135",
+          "DataA1": 40
+        }
+      ],
+      "sourceOccurrenceSum": 40,
+      "w3tOverrideKeys": [],
+      "w3tTooltip": null,
+      "webFlatAttack": 40
+    },
+    {
+      "id": "i188",
+      "name": "大黯灭",
+      "workbook": {
+        "row": 98,
+        "cell": "装备与道具!H98",
+        "effect": "属性：\n增加100点攻击力。\n腐蚀：\n物理攻击会减少目标70点护甲。（法球效果不能叠加）"
+      },
+      "sourceItemSlk": {
+        "row": 393,
+        "line": 7822
+      },
+      "sourceAbilList": "I136,I203",
+      "orderedMounts": [
+        {
+          "alias": "I136",
+          "DataA1": 100
+        }
+      ],
+      "sourceOccurrenceSum": 100,
+      "w3tOverrideKeys": [
+        "iico",
+        "ubpx",
+        "ubpy",
+        "ides",
+        "uhot",
+        "unam",
+        "utip",
+        "utub"
+      ],
+      "w3tTooltip": "|cffffcc00属性：|r|n-增加100点攻击力。|n|cffffcc00腐蚀：|r|n-物理攻击会减少目标70点护甲。（法球效果不能叠加）",
+      "webFlatAttack": 100
+    },
+    {
+      "id": "i209",
+      "name": "大狂战斧",
+      "workbook": {
+        "row": 119,
+        "cell": "装备与道具!H119",
+        "effect": "属性：\n增加80点攻击力。\n增加350点魔法值。\n增加100%魔法回复速度。\n分裂攻击：\n90%分裂伤害，520有效范围，仅近战单位携带有效。（无攻击弹道的为近战）\n吸血鬼祭品（光环）：\n增加周围1000范围友军35%的攻击力。"
+      },
+      "sourceItemSlk": {
+        "row": 414,
+        "line": 8248
+      },
+      "sourceAbilList": "I212,I213,I113,I104",
+      "orderedMounts": [
+        {
+          "alias": "I213",
+          "DataA1": 80
+        }
+      ],
+      "sourceOccurrenceSum": 80,
+      "w3tOverrideKeys": [
+        "iico",
+        "ides",
+        "uhot",
+        "unam",
+        "utip",
+        "utub"
+      ],
+      "w3tTooltip": "|cffffcc00属性：|r|n-增加80点攻击力。|n-增加350点魔法值。|n-增加100%魔法回复速度。|n|cffffcc00分裂攻击：|r|n-90%分裂伤害，520有效范围，仅近战单位携带有效。（无攻击弹道的为近战）|n|cffffcc00吸血鬼祭品（光环）：|r|n-增加周围1000范围友军35%的攻击力。",
+      "webFlatAttack": 80
+    },
+    {
+      "id": "i211",
+      "name": "攻击之爪",
+      "workbook": {
+        "row": 121,
+        "cell": "装备与道具!H121",
+        "effect": "提高英雄10点攻击。"
+      },
+      "sourceItemSlk": {
+        "row": 416,
+        "line": 8289
+      },
+      "sourceAbilList": "I134",
+      "orderedMounts": [
+        {
+          "alias": "I134",
+          "DataA1": 10
+        }
+      ],
+      "sourceOccurrenceSum": 10,
+      "w3tOverrideKeys": [
+        "iico",
+        "ubpx",
+        "ides",
+        "uhot",
+        "unam",
+        "utip",
+        "utub"
+      ],
+      "w3tTooltip": "提高英雄10点攻击。",
+      "webFlatAttack": 10
+    },
+    {
+      "id": "i213",
+      "name": "水晶剑",
+      "workbook": {
+        "row": 123,
+        "cell": "装备与道具!H123",
+        "effect": "属性：\n增加36点攻击力。\n致命一击：\n攻击时有20%概率对目标造成2倍伤害。"
+      },
+      "sourceItemSlk": {
+        "row": 418,
+        "line": 8330
+      },
+      "sourceAbilList": "I201,I214",
+      "orderedMounts": [
+        {
+          "alias": "I201",
+          "DataA1": 36
+        }
+      ],
+      "sourceOccurrenceSum": 36,
+      "w3tOverrideKeys": [
+        "iico",
+        "ides",
+        "uhot",
+        "unam",
+        "utip",
+        "utub"
+      ],
+      "w3tTooltip": "|cffffcc00属性：|r|n-增加36点攻击力。|n|cffffcc00致命一击：|r|n-攻击时有20%概率对目标造成2倍伤害。",
+      "webFlatAttack": 36
+    },
+    {
+      "id": "i215",
+      "name": "暴雪弩炮",
+      "workbook": {
+        "row": 125,
+        "cell": "装备与道具!H125",
+        "effect": "属性：\n增加100点攻击力。\n致命一击：\n攻击时有25%概率对目标造成3.8倍伤害。"
+      },
+      "sourceItemSlk": {
+        "row": 420,
+        "line": 8371
+      },
+      "sourceAbilList": "I136,I215",
+      "orderedMounts": [
+        {
+          "alias": "I136",
+          "DataA1": 100
+        }
+      ],
+      "sourceOccurrenceSum": 100,
+      "w3tOverrideKeys": [
+        "iico",
+        "ubpx",
+        "ubpy",
+        "ides",
+        "uhot",
+        "unam",
+        "utip",
+        "utub"
+      ],
+      "w3tTooltip": "|cffffcc00属性：|r|n-增加100点攻击力。|n|cffffcc00致命一击：|r|n-攻击时有25%概率对目标造成3.8倍伤害。",
+      "webFlatAttack": 100
+    },
+    {
+      "id": "i217",
+      "name": "强袭胸甲",
+      "workbook": {
+        "row": 127,
+        "cell": "装备与道具!H127",
+        "effect": "属性：\n增加40点攻击力。\n增加自己25%攻击速度。\n强袭（光环）：\n增加周围800范围友军20%的攻击速度\n压制（光环）：\n减少周围800范围敌军30点护甲。"
+      },
+      "sourceItemSlk": {
+        "row": 422,
+        "line": 8412
+      },
+      "sourceAbilList": "I135,I216,I217,I218",
+      "orderedMounts": [
+        {
+          "alias": "I135",
+          "DataA1": 40
+        }
+      ],
+      "sourceOccurrenceSum": 40,
+      "w3tOverrideKeys": [
+        "iico",
+        "ubpx",
+        "ubpy",
+        "ides",
+        "uhot",
+        "unam",
+        "utip",
+        "utub"
+      ],
+      "w3tTooltip": "|cffffcc00属性：|r|n-增加40点攻击力。|n-增加自己25%攻击速度。|n|cffffcc00强袭（光环）：|r|n-增加周围800范围友军20%的攻击速度|n|cffffcc00压制（光环）：|r|n-减少周围800范围敌军30点护甲。",
+      "webFlatAttack": 40
+    },
+    {
+      "id": "i222",
+      "name": "空明杖",
+      "workbook": {
+        "row": 132,
+        "cell": "装备与道具!H132",
+        "effect": "属性：\n增加10点攻击力。\n增加10点智力。\n增加10%攻击速度。\n增加70%的魔法回复。"
+      },
+      "sourceItemSlk": {
+        "row": 427,
+        "line": 8515
+      },
+      "sourceAbilList": "I134,I156,I103,I122",
+      "orderedMounts": [
+        {
+          "alias": "I134",
+          "DataA1": 10
+        }
+      ],
+      "sourceOccurrenceSum": 10,
+      "w3tOverrideKeys": [
+        "iico",
+        "ides",
+        "uhot",
+        "unam",
+        "utip",
+        "utub"
+      ],
+      "w3tTooltip": "|cffffcc00属性：|r|n-增加10点攻击力。|n-增加10点智力。|n-增加10%攻击速度。|n-增加70%的魔法回复。",
+      "webFlatAttack": 10
+    },
+    {
+      "id": "i224",
+      "name": "紫苑",
+      "workbook": {
+        "row": 134,
+        "cell": "装备与道具!H134",
+        "effect": "属性：\n增加36点攻击力。\n增加25点智力。\n增加150%魔法回复速度。\n灵魂燃烧：\n沉默一个目标，使其5秒内不能施法。5秒后，额外受到沉默期间所有伤害的30%。"
+      },
+      "sourceItemSlk": {
+        "row": 429,
+        "line": 8556
+      },
+      "sourceAbilList": "I219,I105,I199,I201",
+      "orderedMounts": [
+        {
+          "alias": "I201",
+          "DataA1": 36
+        }
+      ],
+      "sourceOccurrenceSum": 36,
+      "w3tOverrideKeys": [
+        "iico",
+        "ubpx",
+        "ubpy",
+        "ides",
+        "unam",
+        "utip",
+        "utub"
+      ],
+      "w3tTooltip": "|cffffcc00属性：|r|n-增加36点攻击力。|n-增加25点智力。|n-增加150%魔法回复速度。|n|cffffcc00灵魂燃烧：|r|n-沉默一个目标，使其5秒内不能施法。5秒后，额外受到沉默期间所有伤害的30%。",
+      "webFlatAttack": 36
+    },
+    {
+      "id": "i226",
+      "name": "血棘",
+      "workbook": {
+        "row": 136,
+        "cell": "装备与道具!H136",
+        "effect": "属性：\n增加80点攻击力。\n增加35点智力。\n增加150%魔法回复速度。\n灵魂燃烧：\n沉默一个目标，使其5秒内不能施法。5秒后，额外受到沉默期间所有伤害的30%,期间任意普通攻击都会造成150%暴击伤害。"
+      },
+      "sourceItemSlk": {
+        "row": 431,
+        "line": 8598
+      },
+      "sourceAbilList": "I220,I105,I200,I213",
+      "orderedMounts": [
+        {
+          "alias": "I213",
+          "DataA1": 80
+        }
+      ],
+      "sourceOccurrenceSum": 80,
+      "w3tOverrideKeys": [
+        "iico",
+        "ides",
+        "uhot",
+        "unam",
+        "utip",
+        "utub"
+      ],
+      "w3tTooltip": "|cffffcc00属性：|r|n-增加80点攻击力。|n-增加35点智力。|n-增加150%魔法回复速度。|n|cffffcc00灵魂燃烧：|r|n-沉默一个目标，使其5秒内不能施法。5秒后，额外受到沉默期间所有伤害的30%,期间任意普通攻击都会造成150%暴击伤害。",
+      "webFlatAttack": 80
+    },
+    {
+      "id": "i232",
+      "name": "黑皇杖",
+      "workbook": {
+        "row": 142,
+        "cell": "装备与道具!H142",
+        "effect": "属性：\n增加36点攻击力。\n增加10点力量。\n天神下凡：\n获得技能免疫状态,持续6秒,冷却时间30秒。"
+      },
+      "sourceItemSlk": {
+        "row": 437,
+        "line": 8723
+      },
+      "sourceAbilList": "I234,I144,I201",
+      "orderedMounts": [
+        {
+          "alias": "I201",
+          "DataA1": 36
+        }
+      ],
+      "sourceOccurrenceSum": 36,
+      "w3tOverrideKeys": [
+        "iico",
+        "ubpx",
+        "ides",
+        "uhot",
+        "unam",
+        "utip",
+        "utub"
+      ],
+      "w3tTooltip": "|cffffcc00属性：|r|n-增加36点攻击力。|n-增加10点力量。|n|cffffcc00天神下凡：|r|n-获得技能免疫状态,持续6秒,冷却时间30秒。",
+      "webFlatAttack": 36
+    },
+    {
+      "id": "i267",
+      "name": "刺客之刃",
+      "workbook": {
+        "row": 177,
+        "cell": "装备与道具!H177",
+        "effect": "属性：\n增加300点攻击力。\n增加50点敏捷。\n穿刺技巧：\n自身的攻击无视敌人35%护甲。\n一位有名的工匠使用已经绝迹的龙晶打造而成。"
+      },
+      "sourceItemSlk": {
+        "row": 472,
+        "line": 9463
+      },
+      "sourceAbilList": "I138,I151,I150",
+      "orderedMounts": [
+        {
+          "alias": "I138",
+          "DataA1": 300
+        }
+      ],
+      "sourceOccurrenceSum": 300,
+      "w3tOverrideKeys": [
+        "iico",
+        "ubpx",
+        "ides",
+        "uhot",
+        "unam",
+        "utip",
+        "utub"
+      ],
+      "w3tTooltip": "|cffffcc00属性：|r|n-增加300点攻击力。|n-增加50点敏捷。|n|cffffcc00穿刺技巧：|r|n-自身的攻击无视敌人35%护甲。|n|n|cff838B8B一位有名的工匠使用已经绝迹的龙晶打造而成。",
+      "webFlatAttack": 300
+    },
+    {
+      "id": "i276",
+      "name": "琥珀净瓶",
+      "workbook": {
+        "row": 186,
+        "cell": "装备与道具!H186",
+        "effect": "属性：\n增加100点攻击力。\n灼烧：\n对周围900范围内的敌人每秒造成1000点法术伤害（唯一被动，多个灼烧不叠加）\n上古封印：\n封印目标当前生命值的40%(深渊BOSS为10%)，6秒后封印解除，解除后返还被封印生命值的80%(目标被封印期间，再次受到封印将无效）。\n传闻这个道具能锁住时间。"
+      },
+      "sourceItemSlk": {
+        "row": 481,
+        "line": 9650
+      },
+      "sourceAbilList": "I270,I271,I272",
+      "orderedMounts": [
+        {
+          "alias": "I272",
+          "DataA1": 100
+        }
+      ],
+      "sourceOccurrenceSum": 100,
+      "w3tOverrideKeys": [
+        "iico",
+        "ides",
+        "uhot",
+        "unam",
+        "utip",
+        "utub"
+      ],
+      "w3tTooltip": "|cffffcc00属性：|r|n-增加100点攻击力。|n|cffffcc00灼烧：|r|n-对周围900范围内的敌人每秒造成1000点法术伤害（唯一被动，多个灼烧不叠加）|n|cffffcc00上古封印：|r|n-封印目标当前生命值的40%(深渊BOSS为10%)，6秒后封印解除，解除后返还被封印生命值的80%(目标被封印期间，再次受到封印将无效）。|n|n|cff838B8B传闻这个道具能锁住时间。",
+      "webFlatAttack": 100
+    },
+    {
+      "id": "i304",
+      "name": "圣剑",
+      "workbook": {
+        "row": 197,
+        "cell": "装备与道具!H197",
+        "effect": "属性：\n增加800点攻击。\n圣力（唯一被动）：\n英雄的基础攻击间隔减少0.2。\n注：每个单位最多只能携带一把‘圣剑’。\n这把剑只侍奉拯救世界之人。"
+      },
+      "sourceItemSlk": {
+        "row": 492,
+        "line": 9881
+      },
+      "sourceAbilList": "I139",
+      "orderedMounts": [
+        {
+          "alias": "I139",
+          "DataA1": 800
+        }
+      ],
+      "sourceOccurrenceSum": 800,
+      "w3tOverrideKeys": [],
+      "w3tTooltip": null,
+      "webFlatAttack": 800
+    },
+    {
+      "id": "i322",
+      "name": "遗物之刃",
+      "workbook": {
+        "row": 215,
+        "cell": "装备与道具!H215",
+        "effect": "属性：\n增加180点攻击\n增加90%攻击速度。\n奇锋：\n每攻击10次将会对前方直线敌人造成神圣伤害，攻速越快，伤害越高。近战并且敏捷最高时有效。\n克敌机先：\n攻击有70%的概率不会丢失。\n注：每个单位最多只能携带一把‘遗物之刃’。\n这把武器散发着翡翠色的刀光。"
+      },
+      "sourceItemSlk": {
+        "row": 510,
+        "line": 10252
+      },
+      "sourceAbilList": "I252,I126,I251",
+      "orderedMounts": [
+        {
+          "alias": "I252",
+          "DataA1": 180
+        }
+      ],
+      "sourceOccurrenceSum": 180,
+      "w3tOverrideKeys": [],
+      "w3tTooltip": null,
+      "webFlatAttack": 180
+    }
+  ],
+  "recipeBooksWithoutAIat": [
+    {
+      "id": "i116",
+      "name": "制作书-狂战斧",
+      "workbook": {
+        "row": 26,
+        "cell": "装备与道具!H26",
+        "effect": "属性：\n增加60点攻击力。\n分裂攻击：\n45%分裂伤害，380有效范围，仅近战单位携带有效。（无攻击弹道的为近战）\n需要：：\n阔剑（武器铺一）\n大剑（武器铺一）"
+      },
+      "sourceAbilList": null
+    },
+    {
+      "id": "i124",
+      "name": "制作书-蝴蝶",
+      "workbook": {
+        "row": 34,
+        "cell": "装备与道具!H34",
+        "effect": "属性：\n提高英雄86点敏捷。\n增加40%攻击速度。\n增加20点攻击力。\n需要：：\n角鹰弓（武器铺二）\n短棍（武器铺一）\n短棍（武器铺一）"
+      },
+      "sourceAbilList": null
+    },
+    {
+      "id": "i139",
+      "name": "制作书-辉耀",
+      "workbook": {
+        "row": 49,
+        "cell": "装备与道具!H49",
+        "effect": "属性：\n增加85点攻击力。\n灼烧：\n对周围900范围内的敌人每秒造成250点法术伤害（唯一被动，多个灼烧不叠加）。\n需要：：\n圣者遗物（武器店二）\n[再次购买制作书可以升级，最高4级，4级是橙色装备]"
+      },
+      "sourceAbilList": null
+    },
+    {
+      "id": "i142",
+      "name": "制作书-金箍棒",
+      "workbook": {
+        "row": 52,
+        "cell": "装备与道具!H52",
+        "effect": "属性：\n增加115点攻击力。\n克敌机先：\n攻击有70%的概率不会丢失，并且有30%的概率额外造成400点物理伤害。\n需要：：\n恶魔刀锋（武器店二）\n标枪（武器店一）\n标枪（武器店一）"
+      },
+      "sourceAbilList": null
+    },
+    {
+      "id": "i174",
+      "name": "制作书-漩涡",
+      "workbook": {
+        "row": 84,
+        "cell": "装备与道具!H84",
+        "effect": "属性：\n增加20%攻击速度。\n增加50点攻击力。\n连环闪电：\n攻击有15%的概率释放一道闪电链，闪电链对敌人造成1000点法术伤害。\n需要：：\n加速手套（饰品店一）\n秘银锤（武器铺一）"
+      },
+      "sourceAbilList": null
+    },
+    {
+      "id": "i178",
+      "name": "制作书-雷神之锤",
+      "workbook": {
+        "row": 88,
+        "cell": "装备与道具!H88",
+        "effect": "属性：\n增加60%攻击速度。\n增加50点攻击力。\n连环闪电：\n攻击有25%的概率释放一道闪电链，闪电链对敌人造成2000点法术伤害。\n需要：：\n漩涡（制作书三）\n振奋宝石（饰品店二）"
+      },
+      "sourceAbilList": null
+    },
+    {
+      "id": "i187",
+      "name": "制作书-黯灭",
+      "workbook": {
+        "row": 97,
+        "cell": "装备与道具!H97",
+        "effect": "属性：\n增加40点攻击力。\n腐蚀：\n物理攻击会减少目标25点护甲。（法球效果不能叠加）\n需要：：\n秘银锤（武器铺一）"
+      },
+      "sourceAbilList": null
+    },
+    {
+      "id": "i189",
+      "name": "制作书-大黯灭",
+      "workbook": {
+        "row": 99,
+        "cell": "装备与道具!H99",
+        "effect": "属性：\n增加100点攻击力。\n腐蚀：\n物理攻击会减少目标70点护甲。（法球效果不能叠加）\n需要：：\n黯灭（制作书三）\n秘银锤（武器铺一）\n阔剑（武器铺一）"
+      },
+      "sourceAbilList": null
+    },
+    {
+      "id": "i210",
+      "name": "制作书-大狂战斧",
+      "workbook": {
+        "row": 120,
+        "cell": "装备与道具!H120",
+        "effect": "属性：\n增加80点攻击力。\n增加300点魔法值。\n增加100%魔法回复速度。\n分裂攻击：\n90%分裂伤害，520有效范围，仅近战单位携带有效。（无攻击弹道的为近战）\n吸血鬼祭品（光环）：\n增加周围1000范围友军35%的攻击力。\n需要：：\n吸血鬼的祭品（制作书二）\n狂战斧（制作书二）"
+      },
+      "sourceAbilList": null
+    },
+    {
+      "id": "i212",
+      "name": "制作书-水晶剑",
+      "workbook": {
+        "row": 122,
+        "cell": "装备与道具!H122",
+        "effect": "属性：\n增加36点攻击力。\n致命一击：\n攻击时有20%概率对目标造成200%暴击伤害。\n需要：：\n阔剑（武器铺一）\n攻击之爪（武器铺一）"
+      },
+      "sourceAbilList": null
+    },
+    {
+      "id": "i214",
+      "name": "制作书-暴雪弩炮",
+      "workbook": {
+        "row": 124,
+        "cell": "装备与道具!H124",
+        "effect": "属性：\n增加100点攻击力。\n致命一击：\n攻击时有25%概率对目标造成3.8倍伤害。\n需要：：\n水晶剑（制作书二）\n恶魔刀锋（武器店二）"
+      },
+      "sourceAbilList": null
+    },
+    {
+      "id": "i216",
+      "name": "制作书-强袭胸甲",
+      "workbook": {
+        "row": 126,
+        "cell": "装备与道具!H126",
+        "effect": "属性：\n增加40点攻击力。\n增加自己25%攻击速度。\n强袭（光环）：\n增加周围800范围友军20%攻击速度。\n压制（光环）：\n减少周围800范围敌军30点护甲。\n需要：：\n黯灭（制作书三）\n振奋宝石（饰品店二）"
+      },
+      "sourceAbilList": null
+    },
+    {
+      "id": "i223",
+      "name": "制作书-空明杖",
+      "workbook": {
+        "row": 133,
+        "cell": "装备与道具!H133",
+        "effect": "属性：\n增加10点攻击力。\n增加10点智力。\n增加10%攻击速度。\n增加70%的魔法回复。\n需要：：\n短棍（武器铺一）\n艺人面罩（饰品店一）\n法师长袍（饰品店一）"
+      },
+      "sourceAbilList": null
+    },
+    {
+      "id": "i225",
+      "name": "制作书-紫苑",
+      "workbook": {
+        "row": 135,
+        "cell": "装备与道具!H135",
+        "effect": "属性：\n增加36点攻击力。\n增加25点智力。\n增加150%魔法回复速度。\n灵魂燃烧：\n沉默一个目标，使其5秒内不能施法。5秒后，额外受到沉默期间所有伤害的30%。\n需要：：\n空明杖（制作书二）\n空明杖（制作书二）"
+      },
+      "sourceAbilList": null
+    },
+    {
+      "id": "i227",
+      "name": "制作书-血棘",
+      "workbook": {
+        "row": 137,
+        "cell": "装备与道具!H137",
+        "effect": "属性：\n增加80点攻击力。\n增加35点智力。\n增加150%魔法回复速度。\n灵魂燃烧：\n沉默一个目标，使其5秒内不能施法。5秒后，额外受到沉默期间所有伤害的30%,期间任意普通攻击都会造成150%暴击伤害。\n需要：：\n紫苑（制作书四）\n水晶剑（制作书二）"
+      },
+      "sourceAbilList": null
+    },
+    {
+      "id": "i233",
+      "name": "制作书-黑皇杖",
+      "workbook": {
+        "row": 143,
+        "cell": "装备与道具!H143",
+        "effect": "属性：\n增加36点攻击力。\n增加10点力量。\n天神下凡：\n获得技能免疫状态,持续6秒,冷却时间30秒。\n需要：：\n食人魔之斧（武器铺一）\n秘银锤（武器铺一）"
+      },
+      "sourceAbilList": null
+    },
+    {
+      "id": "i268",
+      "name": "制作书-刺客之刃",
+      "workbook": {
+        "row": 178,
+        "cell": "装备与道具!H178",
+        "effect": "刺客之刃\n属性：\n增加300点攻击力。\n增加50点敏捷。\n穿刺技巧：\n自身的攻击无视敌人35%护甲。\n需要：：\n欢欣之刃（武器铺一）\n秘银锤（武器铺一）\n恶魔刀锋（武器店二）\n一位有名的工匠使用已经绝迹的龙晶打造而成。"
+      },
+      "sourceAbilList": null
+    },
+    {
+      "id": "i277",
+      "name": "制作书-琥珀净瓶",
+      "workbook": {
+        "row": 187,
+        "cell": "装备与道具!H187",
+        "effect": "琥珀净瓶\n属性：\n增加100点攻击力。\n灼烧：\n对周围900范围内的敌人每秒造成1000点法术伤害（唯一被动，多个灼烧不叠加）\n上古封印：\n封印目标当前生命值的40%(深渊BOSS为10%)，6秒后封印解除，解除后返还被封印生命值的80%。\n需要：：\n辉耀Max（制作书三）\n传闻这个道具能锁住时间。"
+      },
+      "sourceAbilList": null
+    },
+    {
+      "id": "i305",
+      "name": "制作书-圣剑",
+      "workbook": {
+        "row": 198,
+        "cell": "装备与道具!H198",
+        "effect": "圣剑\n属性：\n增加800点攻击。\n圣力（唯一被动）：\n英雄的基础攻击间隔减少0.2。\n需要：：\n圣者遗物（武器店二）\n圣者遗物（武器店二）\n恶魔刀锋（武器店二）\n恶魔刀锋（武器店二）\n这把剑只侍奉拯救世界之人。"
+      },
+      "sourceAbilList": null
+    },
+    {
+      "id": "i323",
+      "name": "制作书-遗物之刃",
+      "workbook": {
+        "row": 216,
+        "cell": "装备与道具!H216",
+        "effect": "遗物之刃\n属性：\n增加180点攻击\n增加90%攻击速度。\n奇锋：\n每攻击10次将会对前方直线敌人造成神圣伤害，攻速越快，伤害越高。近战并且敏捷最高时有效。\n克敌机先：\n攻击有70%的概率不会丢失。\n需要：：\n金箍棒（制作书四）\n银月之晶（制作书三）"
+      },
+      "sourceAbilList": null
+    }
+  ],
+  "numericOverride": {
+    "id": "i115",
+    "sourceOccurrenceSum": 80,
+    "webFlatAttack": 60,
+    "authority": "2026-11-23 workbook priority"
+  },
+  "scriptScan": {
+    "aliasLiteralHits": 0,
+    "rawcodeIntegerHits": 0,
+    "shortQuotedAliasPrefixHits": 0,
+    "GetId": {
+      "function": "main/f7/f0",
+      "registrationLines": [
+        49488,
+        49490
+      ],
+      "lines": [
+        50362,
+        50408
+      ]
+    },
+    "StringTypeID": {
+      "function": "main/f7/f56",
+      "lines": [
+        52891,
+        52934
+      ]
+    },
+    "mutationCandidates": {
+      "EXSetAbilityDataReal": [
+        108274
+      ],
+      "EXSetItemDataString": [
+        152608
+      ]
+    },
+    "reviewedCandidates": [
+      {
+        "lines": [
+          108313,
+          108343
+        ],
+        "target": "q056/T286",
+        "operation": "rewrite two ability real fields"
+      },
+      {
+        "lines": [
+          152661,
+          152681
+        ],
+        "target": "i546",
+        "operation": "rewrite Art/Ubertip/Name"
+      }
+    ],
+    "stringFormat": {
+      "lines": [
+        195469,
+        195514
+      ],
+      "purpose": "format numbers with 亿/万 suffixes"
+    },
+    "boundary": "Static literal, rawcode and candidate API scans plus review of ID conversion and targeted item gates. Computed or external opaque native inputs are not excluded by the literal scan."
+  },
+  "otherFamilyWhitespaceExample": {
+    "id": "i147",
+    "sourceAbilList": "I250, I145"
+  },
+  "verification": {
+    "kind": "original script bytecode at event boundaries with Web native doubles and W01/W02 arithmetic",
+    "cases": [
+      {
+        "name": "distinct instances of the same type and equal aliases",
+        "expected": [
+          [
+            "PICKUP",
+            "i115",
+            60
+          ],
+          [
+            "PICKUP",
+            "i117",
+            80
+          ],
+          [
+            "PICKUP",
+            "i117",
+            100
+          ]
+        ],
+        "actual": [
+          [
+            "PICKUP",
+            "i115",
+            60
+          ],
+          [
+            "PICKUP",
+            "i117",
+            80
+          ],
+          [
+            "PICKUP",
+            "i117",
+            100
+          ],
+          [
+            "DROP",
+            "i117",
+            80
+          ]
+        ]
+      },
+      {
+        "name": "fixed F is outside P and leaves J19 intact",
+        "expected": [
+          240,
+          236,
+          482,
+          13
+        ],
+        "actual": [
+          240.0,
+          236.0,
+          482.0,
+          13
+        ]
+      },
+      {
+        "name": "remove aura without changing F or J19",
+        "expected": [
+          100,
+          113,
+          359
+        ],
+        "actual": [
+          100,
+          113.0,
+          359.0
+        ]
+      },
+      {
+        "name": "slot swap does not fire another item event",
+        "expected": [
+          3,
+          100
+        ],
+        "actual": [
+          3,
+          100
+        ]
+      },
+      {
+        "name": "restore inventory and rebuild F with no replay",
+        "expected": [
+          {
+            "channels": {
+              "base": [
+                100,
+                1
+              ],
+              "primary": [
+                140,
+                1
+              ],
+              "flat": [
+                100,
+                1
+              ],
+              "pct": [
+                0,
+                1
+              ],
+              "j18": [
+                0,
+                1
+              ],
+              "j19": [
+                13,
+                1
+              ],
+              "growth69": [
+                0,
+                1
+              ]
+            },
+            "dice": 2,
+            "sides": 5,
+            "exists": true
+          },
+          []
+        ],
+        "actual": [
+          {
+            "channels": {
+              "base": [
+                100,
+                1
+              ],
+              "primary": [
+                140,
+                1
+              ],
+              "flat": [
+                100,
+                1
+              ],
+              "pct": [
+                0,
+                1
+              ],
+              "j18": [
+                0,
+                1
+              ],
+              "j19": [
+                13,
+                1
+              ],
+              "growth69": [
+                0,
+                1
+              ]
+            },
+            "dice": 2,
+            "sides": 5,
+            "exists": true
+          },
+          []
+        ]
+      },
+      {
+        "name": "drop removes just one instance before event",
+        "expected": [
+          "DROP",
+          "i117",
+          80
+        ],
+        "actual": [
+          "DROP",
+          "i117",
+          80
+        ]
+      },
+      {
+        "name": "different items sharing I135 retain separate workbook amounts",
+        "expected": [
+          [
+            "PICKUP",
+            "i115",
+            60
+          ],
+          [
+            "PICKUP",
+            "i140",
+            140
+          ]
+        ],
+        "actual": [
+          [
+            "PICKUP",
+            "i115",
+            60
+          ],
+          [
+            "PICKUP",
+            "i140",
+            140
+          ]
+        ]
+      },
+      {
+        "name": "full inventory never mounts ground item",
+        "expected": [
+          false,
+          null,
+          120,
+          []
+        ],
+        "actual": [
+          false,
+          null,
+          120,
+          []
+        ]
+      },
+      {
+        "name": "script qualification rejects after transient mount",
+        "expected": [
+          [
+            "PICKUP",
+            "i304",
+            800
+          ],
+          [
+            "DROP",
+            "i304",
+            0
+          ]
+        ],
+        "actual": [
+          [
+            "PICKUP",
+            "i304",
+            800
+          ],
+          [
+            "DROP",
+            "i304",
+            0
+          ]
+        ]
+      },
+      {
+        "name": "script unique group rejects duplicate item",
+        "expected": [
+          [
+            "PICKUP",
+            "i322",
+            180
+          ],
+          [
+            "PICKUP",
+            "i322",
+            360
+          ],
+          [
+            "DROP",
+            "i322",
+            180
+          ]
+        ],
+        "actual": [
+          [
+            "PICKUP",
+            "i322",
+            180
+          ],
+          [
+            "PICKUP",
+            "i322",
+            360
+          ],
+          [
+            "DROP",
+            "i322",
+            180
+          ]
+        ]
+      },
+      {
+        "name": "nested recipes remove material and mount result once",
+        "expected": [
+          [
+            "PICKUP",
+            "i139",
+            80
+          ],
+          [
+            "DROP",
+            "i139",
+            80
+          ],
+          [
+            "DROP",
+            "i140",
+            0
+          ],
+          [
+            "PICKUP",
+            "i135",
+            85
+          ],
+          [
+            "DROP",
+            "i139",
+            85
+          ],
+          [
+            "DROP",
+            "i135",
+            0
+          ],
+          [
+            "PICKUP",
+            "i136",
+            85
+          ]
+        ],
+        "actual": [
+          [
+            "PICKUP",
+            "i139",
+            80
+          ],
+          [
+            "DROP",
+            "i139",
+            80
+          ],
+          [
+            "DROP",
+            "i140",
+            0
+          ],
+          [
+            "PICKUP",
+            "i135",
+            85
+          ],
+          [
+            "DROP",
+            "i139",
+            85
+          ],
+          [
+            "DROP",
+            "i135",
+            0
+          ],
+          [
+            "PICKUP",
+            "i136",
+            85
+          ]
+        ]
+      },
+      {
+        "name": "nested recipes final inventory",
+        "expected": [
+          [
+            "i136"
+          ],
+          85
+        ],
+        "actual": [
+          [
+            "i136"
+          ],
+          85
+        ]
+      }
+    ]
+  }
+}

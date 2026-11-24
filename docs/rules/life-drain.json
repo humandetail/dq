@@ -1,0 +1,195 @@
+{
+  "id": "A103",
+  "status": "ready",
+  "rules": {
+    "native": [
+      "A103",
+      "A176"
+    ],
+    "range": 800,
+    "maintainRange": 1000,
+    "manaCost": 0,
+    "cooldown": 12,
+    "duration": 8,
+    "period": 0.5,
+    "hpAmount": [
+      100,
+      200,
+      300,
+      400,
+      500,
+      600
+    ],
+    "manaAmount": [
+      50,
+      80,
+      110,
+      140,
+      170,
+      200
+    ],
+    "secondaryPerTickHP": 100,
+    "secondaryTargetExclusive": true,
+    "secondaryLevelMatchesChannel": true,
+    "agedDamagePercentPerTick": [
+      0.05,
+      0.1,
+      0.025
+    ],
+    "specialBossRate": 0.005,
+    "mainBeforeSecondaryAtSameTick": true
+  },
+  "sourceRefs": {
+    "workbookRowsOnBoth": [
+      232,
+      567
+    ],
+    "objects": {
+      "A103": {
+        "units_abilitydata": 901,
+        "war3map.w3a": 64
+      },
+      "A176": {
+        "units_abilitydata": 965,
+        "war3map.w3a": 107
+      },
+      "T099": {
+        "units_abilitydata": 1976,
+        "war3map.w3a": 202
+      },
+      "q026": {
+        "units_unitabilities": 1340,
+        "units_unitbalance": 1340,
+        "units_unitweapons": 1340
+      }
+    },
+    "hintLines": {
+      "A103": 1543,
+      "A176": 2545,
+      "T099": 20606
+    },
+    "disasmSha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+    "functionRanges": [
+      [
+        "main/f83",
+        78673,
+        78698
+      ],
+      [
+        "main/f83/f0",
+        78699,
+        78803
+      ],
+      [
+        "main/f83/f1",
+        78804,
+        78841
+      ]
+    ],
+    "effect": [
+      "main/f291/f14",
+      668,
+      682
+    ],
+    "endcast": [
+      "main/f291/f15",
+      19,
+      30
+    ],
+    "autocast": [
+      "main/f291/f27",
+      1653,
+      1710
+    ],
+    "convert": [
+      "main/f291/f1",
+      1651,
+      1729
+    ],
+    "agedStateSpec": "hero-spells-batch-02.md#规则"
+  },
+  "differences": [
+    "A176 original passes true as T099 level; Web passes actual integer rank",
+    "Q61 applies tooltip exact base, endless, abyss figures to B100 conversion",
+    "Q24 defines native transfers, independent mana path and end-of-channel pulse ordering"
+  ],
+  "unresolved": [],
+  "auxiliary": [
+    "A176",
+    "T099",
+    "q026",
+    "B100"
+  ],
+  "validation": {
+    "rawVM": {
+      "normalModeAt10000HP": [
+        500.0,
+        800.0,
+        100.0
+      ],
+      "roshanAndShopAt10000HP": [
+        50,
+        50
+      ],
+      "packetOrder": [
+        "parentZero",
+        "newTownerDivine"
+      ],
+      "noAgingOrNoOwner": true,
+      "sourceLifecycles": "orb-and-channel-batch-01.json"
+    },
+    "webCases": {
+      "fullTicks": [
+        0.5,
+        1.0,
+        1.5,
+        2.0,
+        2.5,
+        3.0,
+        3.5,
+        4.0,
+        4.5,
+        5.0,
+        5.5,
+        6.0,
+        6.5,
+        7.0,
+        7.5,
+        8.0
+      ],
+      "interruptedAfter1_1": [
+        0.5,
+        1.0
+      ],
+      "currentHPAndManaClamps": [
+        70,
+        29
+      ],
+      "modeAmountsAt10000HP": [
+        500.0,
+        1000.0,
+        250.0
+      ],
+      "specialBossAmount": 50,
+      "dynamicB100": [
+        {
+          "parent": 100,
+          "divine": 0,
+          "carrierHealFromParent": true
+        },
+        {
+          "parent": 0,
+          "divine": 1000.0,
+          "carrierHeal": 0
+        },
+        {
+          "parent": 100,
+          "divine": 0,
+          "carrierHealFromParent": true
+        }
+      ],
+      "exclusiveTargetAndOldEndGuard": true
+    },
+    "originalClientTested": false
+  }
+}

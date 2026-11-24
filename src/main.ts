@@ -1,7 +1,7 @@
 import "./style.css";
 import { containmentPoints, enqueue, enterEndless, newMatch, running, type Hit } from "./game/battle.ts";
 import { creditTime, drainFrames, newClock } from "./game/clock.ts";
-import { contentVersion, economy, frameMs, items, map, recipes, shop, towers, type SiteId } from "./game/content.ts";
+import { contentVersion, economy, frameMs, items, mainline, map, overcharge, recipes, shop, towers, type SiteId } from "./game/content.ts";
 import { createSaveStore } from "./game/save.ts";
 import { saveFormatVersion, type PlayerAction, type SaveSnapshot } from "./game/state.ts";
 import { createScene, type Pick } from "./scene.ts";
@@ -14,11 +14,11 @@ const labels: Record<SiteId, string> = { west: "西侧", east: "东侧", north: 
 const rejections = {
   gold: "金币不足", missing: "对象已失效或不可用", occupied: "阵位已占用", phase: "当前阶段无法执行",
   capacity: "没有空余位置", stock: "商品售罄", materials: "合成材料不匹配", "max-level": "已达最高等级",
-  range: "目标超出射程", cooldown: "攻击冷却中",
+  range: "目标超出射程", cooldown: "冷却中",
 } as const;
 const actionNames: Record<PlayerAction["type"], string> = {
   build: "建造", upgrade: "升级", draw: "抽卡", buy: "购买", craft: "合成", equip: "装备",
-  attack: "指定攻击", "enter-endless": "进入无尽", restart: "重开",
+  attack: "指定攻击", overcharge: overcharge.name, "enter-endless": "进入无尽", restart: "重开",
 };
 
 const store = createSaveStore();
@@ -29,6 +29,7 @@ let lastDraw = 0;
 let site: SiteId = "west";
 let panelKey = "";
 let saveNeeded = false;
+let needsSceneSync = false;
 const sentActions = new Map<string, PlayerAction["type"]>();
 
 function makeSnapshot(): SaveSnapshot {
@@ -39,7 +40,7 @@ function makeSnapshot(): SaveSnapshot {
   };
 }
 
-let scene: ReturnType<typeof createScene> | undefined;
+let scene: Awaited<ReturnType<typeof createScene>> | undefined;
 function select(pick: Pick) {
   if ("site" in pick) {
     site = pick.site;
@@ -100,7 +101,7 @@ function render(syncScene = false) {
   const { state, clock } = snapshot;
   const active = running(state);
   element("phase").textContent = state.mode === "mainline" ? "标准难度 · 主线" : "标准难度 · 无尽";
-  element("wave").textContent = `${state.currentWave} / ${state.mode === "mainline" ? "10" : "∞"}`;
+  element("wave").textContent = `${state.currentWave} / ${state.mode === "mainline" ? mainline.waves.length : "∞"}`;
   element("containment").textContent = `${containmentPoints(state)} / ${map.containment.limit}`;
   element("gold").textContent = String(state.gold);
   const seconds = Math.floor(state.frame * frameMs / 1000);
@@ -120,11 +121,18 @@ function render(syncScene = false) {
     element("settlement-title").textContent = failed ? "防线失守" : "主线完成";
     element("settlement-detail").textContent = failed
       ? `第 ${state.currentWave} 波达到 ${state.containmentPoints} 容怪点，已完成第 ${state.lastCompletedWave} 波。`
-      : "十波全部清场。进入无尽后继承当前阵容、装备和金币。";
+      : `${mainline.waves.length} 波全部清场。进入无尽后继承当前阵容、装备和金币。`;
     button("endless").hidden = failed;
     button("restart").hidden = !failed;
   }
   if (syncScene) scene?.sync(state, site);
+
+  const selectedTower = state.towers.find(entry => entry.site === site);
+  const skill = button("overcharge");
+  skill.hidden = !selectedTower;
+  const skillRemaining = Math.ceil(Math.max(0, (selectedTower?.skillReadyFrames.overcharge ?? 0) - state.frame) * frameMs / 1000);
+  skill.disabled = !active || skillRemaining > 0;
+  skill.textContent = skillRemaining ? `${overcharge.name}（${skillRemaining} 秒）` : overcharge.name;
 
   const key = JSON.stringify([state.matchId, site, active, state.gold, state.cards,
     state.towers.map(tower => [tower.id, tower.level]), state.stock, state.items]);
@@ -134,7 +142,8 @@ function render(syncScene = false) {
   for (const control of element("sites").querySelectorAll("button")) {
     control.setAttribute("aria-pressed", String(control.dataset.site === site));
   }
-  const tower = state.towers.find(entry => entry.site === site);
+  const tower = selectedTower;
+  skill.onclick = tower ? () => send({ type: "overcharge", towerId: tower.id }) : null;
   const equipped = state.items.find(item => item.owner.type === "tower" && item.owner.id === tower?.id);
   element("selected-site").textContent = tower
     ? `${labels[site]} · ${towers[tower.type].name} Lv.${tower.level}${equipped ? ` · ${items[equipped.type].name}` : ""}`
@@ -172,16 +181,19 @@ function render(syncScene = false) {
     active && !!tower, () => send({ type: "equip", towerId: tower!.id, itemId: amplifier.id })));
 }
 
-function tick(now: number) {
+function update(now: number, draw: boolean) {
   // A just-delivered input event can have a later timestamp than this RAF.
   now = Math.max(now, lastTime);
   account(now);
   const before = snapshot.state.frame;
   const beforeResults = snapshot.state.results.length;
   const hits = new Map<number, Hit>();
+  const arrivals = new Set<number>();
   drainFrames(snapshot, 240, report => {
     saveNeeded ||= report.save;
+    if (!draw) return;
     for (const hit of report.hits) hits.set(hit.towerId, hit);
+    for (const id of report.arrivals) arrivals.add(id);
   });
   for (const result of snapshot.state.results.slice(beforeResults)) {
     const action = sentActions.get(result.id);
@@ -189,13 +201,23 @@ function tick(now: number) {
     feedback.textContent = result.ok ? `${actionNames[action]}成功` : `${actionNames[action]}失败：${rejections[result.reason]}`;
     sentActions.delete(result.id);
   }
-  if (snapshot.state.frame !== before) render(true);
+  if (draw && (snapshot.state.frame !== before || needsSceneSync)) {
+    render(true);
+    needsSceneSync = false;
+  } else if (!draw && snapshot.state.frame !== before) {
+    needsSceneSync = true;
+  }
   for (const hit of hits.values()) scene?.animate(hit, now);
-  if (now - lastDraw >= 1000 / 30) {
+  for (const id of arrivals) scene?.animateEnemy(id, now);
+  if (draw && now - lastDraw >= 1000 / 30) {
     scene?.draw(now);
     lastDraw = now;
   }
   if (saveNeeded || (running(snapshot.state) && !snapshot.clock.paused && now - lastSave >= 5000)) save(now);
+}
+
+function tick(now: number) {
+  if (!document.hidden) update(now, true);
   requestAnimationFrame(tick);
 }
 
@@ -204,7 +226,7 @@ async function start() {
   snapshot = restored ?? makeSnapshot();
   const canvas = element<HTMLCanvasElement>("battlefield");
   try {
-    scene = createScene(canvas, select);
+    scene = await createScene(canvas, select);
   } catch {
     const fallback = document.createElement("p");
     fallback.className = "no-scene";
@@ -258,17 +280,16 @@ async function start() {
   document.addEventListener("visibilitychange", () => {
     if (document.visibilityState !== "hidden") return;
     const now = performance.now();
-    account(now);
-    save(now);
+    update(now, false);
+    if (now !== lastSave) save(now);
   });
 
   // A hidden page may still run timers while Chrome suspends animation frames.
   window.setInterval(() => {
-    if (!document.hidden || !running(snapshot.state) || snapshot.clock.paused) return;
+    if (!document.hidden || !running(snapshot.state)) return;
+    if (snapshot.clock.paused && snapshot.clock.pendingFrames === 0) return;
     const now = performance.now();
-    if (now - lastSave < 5000) return;
-    account(now);
-    save(now);
+    update(now, false);
   }, 1000);
 
   document.querySelector(".layout")?.removeAttribute("inert");

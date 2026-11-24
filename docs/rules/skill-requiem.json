@@ -1,0 +1,2272 @@
+{
+  "schemaVersion": 1,
+  "scope": "Complete A001 module (2 bodies) plus A002_Action as the only named soul-state writer, CreateTempAndSetAbilityLv, SetMagicDamage, UnitIsHero and pre-credit list cleanup. Entry/owner/death/autocast fragments checked; global damage/autocast dispatch reused. Does NOT recursively verify all prior death hooks, all skills or full native engine.",
+  "source": {
+    "path": "reference/map-6.25/main.disasm",
+    "sha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+    "workbookPath": "图鉴.xlsx",
+    "workbookSha256": "457c8f7e37e19412a0dd072ce941e95604b0b8910860b9e1eb9883e6b82bb6af",
+    "abilityStringsPath": "reference/map-6.25/units_campaignabilitystrings.txt",
+    "abilityStringsSha256": "5240c99230cd441b4c376371a31a7987e65470feed736177473a206c55fbe8cc"
+  },
+  "coreCounts": {
+    "instructions": 87,
+    "conditions": 4,
+    "calls": 15,
+    "returnInstructions": 3
+  },
+  "coreFunctions": [
+    {
+      "name": "A001_Action",
+      "function": "main/f15/f0",
+      "sourceLines": [
+        60484,
+        60587
+      ],
+      "counts": {
+        "instructions": 66,
+        "conditions": 2,
+        "calls": 12,
+        "returnInstructions": 1
+      },
+      "conditions": [
+        {
+          "pc": 7,
+          "line": 60524,
+          "raw": "eq 0 k3 r1",
+          "trueNextPC": 9,
+          "falseNextPC": 14,
+          "meaning": "caster absent from Tower_ALL: append at #Tower_ALL+1; do not set caster userData here"
+        },
+        {
+          "pc": 21,
+          "line": 60539,
+          "raw": "eq 0 r3 r4",
+          "trueNextPC": 23,
+          "falseNextPC": 24,
+          "meaning": "current caster type G053: select T135; otherwise T001"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 66,
+          "line": 60587,
+          "raw": "return r0 1"
+        }
+      ],
+      "numericLoop": {
+        "pcs": [
+          26,
+          65
+        ],
+        "start": 1,
+        "end": 20,
+        "step": 1,
+        "bodyPCs": [
+          30,
+          64
+        ],
+        "backedgePC": 65,
+        "backedgeLine": 60586,
+        "sync": true
+      }
+    },
+    {
+      "name": "A001_Damage",
+      "function": "main/f15/f1",
+      "sourceLines": [
+        60589,
+        60632
+      ],
+      "counts": {
+        "instructions": 21,
+        "conditions": 2,
+        "calls": 3,
+        "returnInstructions": 2
+      },
+      "conditions": [
+        {
+          "pc": 10,
+          "line": 60619,
+          "raw": "eq 1 k5 r3",
+          "trueNextPC": 14,
+          "falseNextPC": 12,
+          "meaning": "soul entry nil: return after zeroing current event"
+        },
+        {
+          "pc": 12,
+          "line": 60621,
+          "raw": "eq 0 k1 r3",
+          "trueNextPC": 14,
+          "falseNextPC": 15,
+          "meaning": "soul entry zero: return after zeroing current event"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 14,
+          "line": 60624,
+          "raw": "return r0 1"
+        },
+        {
+          "pc": 21,
+          "line": 60632,
+          "raw": "return r0 1"
+        }
+      ]
+    }
+  ],
+  "directFunctionCounts": {
+    "instructions": 243,
+    "conditions": 18,
+    "calls": 38,
+    "returnInstructions": 8
+  },
+  "directFunctions": [
+    {
+      "name": "A002_Action: soul-state writer",
+      "function": "main/f16/f0",
+      "sourceLines": [
+        60658,
+        60834
+      ],
+      "counts": {
+        "instructions": 116,
+        "conditions": 12,
+        "calls": 16,
+        "returnInstructions": 2
+      },
+      "conditions": [
+        {
+          "pc": 11,
+          "line": 60715,
+          "raw": "test r4 0",
+          "trueNextPC": 13,
+          "falseNextPC": 15,
+          "meaning": "UnitIsHero(dead) true: soul delta10; otherwise1"
+        },
+        {
+          "pc": 22,
+          "line": 60728,
+          "raw": "eq 0 k9 r5",
+          "trueNextPC": 24,
+          "falseNextPC": 27,
+          "meaning": "soul entry nil: store full delta, bypass cap and Has_A_Item branch"
+        },
+        {
+          "pc": 28,
+          "line": 60735,
+          "raw": "eq 0 k6 r2",
+          "trueNextPC": 30,
+          "falseNextPC": 32,
+          "meaning": "A002 level1: cap200"
+        },
+        {
+          "pc": 32,
+          "line": 60740,
+          "raw": "eq 0 k12 r2",
+          "trueNextPC": 34,
+          "falseNextPC": 36,
+          "meaning": "level2: cap250"
+        },
+        {
+          "pc": 36,
+          "line": 60745,
+          "raw": "eq 0 k14 r2",
+          "trueNextPC": 38,
+          "falseNextPC": 40,
+          "meaning": "level3: cap300"
+        },
+        {
+          "pc": 40,
+          "line": 60750,
+          "raw": "eq 0 k16 r2",
+          "trueNextPC": 42,
+          "falseNextPC": 44,
+          "meaning": "level4: cap350"
+        },
+        {
+          "pc": 44,
+          "line": 60755,
+          "raw": "eq 0 k18 r2",
+          "trueNextPC": 46,
+          "falseNextPC": 48,
+          "meaning": "level5: cap400"
+        },
+        {
+          "pc": 48,
+          "line": 60760,
+          "raw": "eq 0 k20 r2",
+          "trueNextPC": 50,
+          "falseNextPC": 51,
+          "meaning": "level6: cap500; other levels remain0"
+        },
+        {
+          "pc": 54,
+          "line": 60767,
+          "raw": "test r6 0",
+          "trueNextPC": 56,
+          "falseNextPC": 57,
+          "meaning": "Has_A_Item(caster) truthy: double cap"
+        },
+        {
+          "pc": 59,
+          "line": 60773,
+          "raw": "le 0 r5 r6",
+          "trueNextPC": 61,
+          "falseNextPC": 62,
+          "meaning": "existing souls>=cap: return before writes/skin effect"
+        },
+        {
+          "pc": 65,
+          "line": 60780,
+          "raw": "lt 0 r5 r6",
+          "trueNextPC": 67,
+          "falseNextPC": 70,
+          "meaning": "existing+delta>cap: clamp delta to cap-existing"
+        },
+        {
+          "pc": 95,
+          "line": 60812,
+          "raw": "eq 0 r6 r7",
+          "trueNextPC": 97,
+          "falseNextPC": 116,
+          "meaning": "caster type G053: request T136 level1 from corpse to caster"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 61,
+          "line": 60775,
+          "raw": "return r0 1"
+        },
+        {
+          "pc": 116,
+          "line": 60834,
+          "raw": "return r0 1"
+        }
+      ]
+    },
+    {
+      "name": "CreateTempAndSetAbilityLv",
+      "function": "main/f7/f20",
+      "sourceLines": [
+        51457,
+        51509
+      ],
+      "counts": {
+        "instructions": 33,
+        "conditions": 1,
+        "calls": 8,
+        "returnInstructions": 2
+      },
+      "conditions": [
+        {
+          "pc": 1,
+          "line": 51476,
+          "raw": "test r6 1",
+          "trueNextPC": 4,
+          "falseNextPC": 3,
+          "meaning": "explicit unit id truthy: use it; otherwise q001"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 32,
+          "line": 51508,
+          "raw": "return r7 2"
+        },
+        {
+          "pc": 33,
+          "line": 51509,
+          "raw": "return r0 1"
+        }
+      ]
+    },
+    {
+      "name": "SetMagicDamage",
+      "function": "main/f7/f34",
+      "sourceLines": [
+        52062,
+        52088
+      ],
+      "counts": {
+        "instructions": 11,
+        "conditions": 0,
+        "calls": 1,
+        "returnInstructions": 1
+      },
+      "conditions": [],
+      "returns": [
+        {
+          "pc": 11,
+          "line": 52088,
+          "raw": "return r0 1"
+        }
+      ]
+    },
+    {
+      "name": "UnitIsHero",
+      "function": "main/f7/f45",
+      "sourceLines": [
+        52444,
+        52480
+      ],
+      "counts": {
+        "instructions": 17,
+        "conditions": 1,
+        "calls": 3,
+        "returnInstructions": 2
+      },
+      "conditions": [
+        {
+          "pc": 7,
+          "line": 52468,
+          "raw": "lt 0 k0 r1",
+          "trueNextPC": 9,
+          "falseNextPC": 14,
+          "meaning": "N534 level>0: return UNIT_TYPE_SAPPER test; otherwisefalse"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 16,
+          "line": 52479,
+          "raw": "return r1 2"
+        },
+        {
+          "pc": 17,
+          "line": 52480,
+          "raw": "return r0 1"
+        }
+      ]
+    },
+    {
+      "name": "DeadToRemoveUnitAndTrig: pre-credit list cleanup",
+      "function": "main/f7/f3",
+      "sourceLines": [
+        50494,
+        50586
+      ],
+      "counts": {
+        "instructions": 66,
+        "conditions": 4,
+        "calls": 10,
+        "returnInstructions": 1
+      },
+      "conditions": [
+        {
+          "pc": 19,
+          "line": 50535,
+          "raw": "eq 1 k4 r2",
+          "trueNextPC": 28,
+          "falseNextPC": 21,
+          "meaning": "target absent from Mon_Mode1_0: try next; otherwise clear matching slot and return"
+        },
+        {
+          "pc": 32,
+          "line": 50549,
+          "raw": "eq 1 k4 r2",
+          "trueNextPC": 41,
+          "falseNextPC": 34,
+          "meaning": "target absent from Mon_Mode1_1: try next; otherwise clear matching slot and return"
+        },
+        {
+          "pc": 45,
+          "line": 50563,
+          "raw": "eq 1 k4 r2",
+          "trueNextPC": 54,
+          "falseNextPC": 47,
+          "meaning": "target absent from Mon_Mode1_2: try next; otherwise clear matching slot and return"
+        },
+        {
+          "pc": 58,
+          "line": 50577,
+          "raw": "eq 1 k4 r2",
+          "trueNextPC": 66,
+          "falseNextPC": 60,
+          "meaning": "target absent from Mon_Mode1_3: finish; otherwise clear matching slot"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 66,
+          "line": 50586,
+          "raw": "return r0 1"
+        }
+      ]
+    }
+  ],
+  "entryFragments": [
+    {
+      "name": "spell-effect predispatch and item hook",
+      "function": "main/f291/f14",
+      "pcs": [
+        1,
+        72
+      ],
+      "lines": [
+        170000,
+        170074
+      ],
+      "conditions": [
+        {
+          "pc": 13,
+          "line": 170012,
+          "raw": "eq 1 r3 r4",
+          "trueNextPC": 40,
+          "falseNextPC": 15
+        },
+        {
+          "pc": 18,
+          "line": 170017,
+          "raw": "eq 0 k6 r3",
+          "trueNextPC": 20,
+          "falseNextPC": 40
+        },
+        {
+          "pc": 23,
+          "line": 170022,
+          "raw": "eq 0 k6 r3",
+          "trueNextPC": 25,
+          "falseNextPC": 40
+        },
+        {
+          "pc": 29,
+          "line": 170028,
+          "raw": "eq 0 k9 r3",
+          "trueNextPC": 31,
+          "falseNextPC": 40
+        },
+        {
+          "pc": 35,
+          "line": 170034,
+          "raw": "eq 1 k9 r3",
+          "trueNextPC": 40,
+          "falseNextPC": 37
+        },
+        {
+          "pc": 43,
+          "line": 170043,
+          "raw": "test r3 1",
+          "trueNextPC": 65,
+          "falseNextPC": 45
+        },
+        {
+          "pc": 48,
+          "line": 170048,
+          "raw": "eq 1 r0 r3",
+          "trueNextPC": 65,
+          "falseNextPC": 50
+        },
+        {
+          "pc": 53,
+          "line": 170053,
+          "raw": "eq 1 r0 r3",
+          "trueNextPC": 65,
+          "falseNextPC": 55
+        },
+        {
+          "pc": 58,
+          "line": 170058,
+          "raw": "eq 1 r0 r3",
+          "trueNextPC": 65,
+          "falseNextPC": 60
+        },
+        {
+          "pc": 63,
+          "line": 170063,
+          "raw": "eq 0 r0 r3",
+          "trueNextPC": 65,
+          "falseNextPC": 66
+        }
+      ]
+    },
+    {
+      "name": "A001 dispatch and return",
+      "function": "main/f291/f14",
+      "pcs": [
+        162,
+        169
+      ],
+      "lines": [
+        170172,
+        170179
+      ],
+      "conditions": [
+        {
+          "pc": 165,
+          "line": 170175,
+          "raw": "eq 0 r0 r4",
+          "trueNextPC": 167,
+          "falseNextPC": 170
+        }
+      ]
+    },
+    {
+      "name": "zero-event early return and source owner attribution",
+      "function": "main/f291/f1",
+      "pcs": [
+        22,
+        51
+      ],
+      "lines": [
+        162517,
+        162548
+      ],
+      "conditions": [
+        {
+          "pc": 25,
+          "line": 162520,
+          "raw": "eq 0 k6 r1",
+          "trueNextPC": 27,
+          "falseNextPC": 28
+        },
+        {
+          "pc": 34,
+          "line": 162530,
+          "raw": "test r3 1",
+          "trueNextPC": 47,
+          "falseNextPC": 36
+        },
+        {
+          "pc": 39,
+          "line": 162535,
+          "raw": "test r3 1",
+          "trueNextPC": 47,
+          "falseNextPC": 41
+        },
+        {
+          "pc": 45,
+          "line": 162541,
+          "raw": "test r3 0",
+          "trueNextPC": 47,
+          "falseNextPC": 52
+        }
+      ]
+    },
+    {
+      "name": "q014 bridge",
+      "function": "main/f291/f1",
+      "pcs": [
+        334,
+        347
+      ],
+      "lines": [
+        162844,
+        162857
+      ],
+      "conditions": [
+        {
+          "pc": 334,
+          "line": 162844,
+          "raw": "eq 1 k26 r2",
+          "trueNextPC": 348,
+          "falseNextPC": 336
+        },
+        {
+          "pc": 342,
+          "line": 162852,
+          "raw": "eq 0 r4 r5",
+          "trueNextPC": 344,
+          "falseNextPC": 348
+        }
+      ]
+    },
+    {
+      "name": "autocast B012 gate",
+      "function": "main/f291/f27",
+      "pcs": [
+        1,
+        22
+      ],
+      "lines": [
+        174089,
+        174110
+      ],
+      "conditions": [
+        {
+          "pc": 20,
+          "line": 174108,
+          "raw": "le 0 r7 k5",
+          "trueNextPC": 22,
+          "falseNextPC": 23
+        }
+      ]
+    },
+    {
+      "name": "A001 ready/range/order",
+      "function": "main/f291/f27",
+      "pcs": [
+        628,
+        656
+      ],
+      "lines": [
+        174757,
+        174786
+      ],
+      "conditions": [
+        {
+          "pc": 634,
+          "line": 174763,
+          "raw": "test r11 0",
+          "trueNextPC": 636,
+          "falseNextPC": 657
+        },
+        {
+          "pc": 647,
+          "line": 174776,
+          "raw": "eq 1 k20 r5",
+          "trueNextPC": 654,
+          "falseNextPC": 649
+        }
+      ]
+    },
+    {
+      "name": "cleanup and killer attribution",
+      "function": "main/f291/f9",
+      "pcs": [
+        290,
+        314
+      ],
+      "lines": [
+        168708,
+        168733
+      ],
+      "conditions": [
+        {
+          "pc": 297,
+          "line": 168715,
+          "raw": "test r3 1",
+          "trueNextPC": 310,
+          "falseNextPC": 299
+        },
+        {
+          "pc": 303,
+          "line": 168721,
+          "raw": "test r3 1",
+          "trueNextPC": 310,
+          "falseNextPC": 305
+        },
+        {
+          "pc": 308,
+          "line": 168726,
+          "raw": "test r3 0",
+          "trueNextPC": 310,
+          "falseNextPC": 315
+        }
+      ]
+    },
+    {
+      "name": "A002 credit call",
+      "function": "main/f291/f9",
+      "pcs": [
+        389,
+        400
+      ],
+      "lines": [
+        168814,
+        168825
+      ],
+      "conditions": [
+        {
+          "pc": 395,
+          "line": 168820,
+          "raw": "lt 0 k10 r3",
+          "trueNextPC": 397,
+          "falseNextPC": 401
+        }
+      ]
+    }
+  ],
+  "workbook": [
+    {
+      "towerName": "影魔<SSR>",
+      "towerId": "H001",
+      "cells": [
+        "塔技能!H45",
+        "塔技能!I45"
+      ],
+      "description": "召唤恶灵向四周扩散。每只恶灵造成（20x支配死灵灵魂数）的伤害。",
+      "levelsText": "等级 1｜冷却18秒。 耗蓝 20点。\n等级 2｜冷却16秒。 耗蓝 50点。\n等级 3｜冷却14秒。 耗蓝 80点。\n等级 4｜冷却12秒。 耗蓝 110点。\n等级 5｜冷却10秒。 耗蓝 140点。\n等级 6｜冷却8秒。 耗蓝 170点。\n伤害类型 法术伤害"
+    },
+    {
+      "towerName": "灵魂收割者<SSR>",
+      "towerId": "G053",
+      "cells": [
+        "塔技能!H75",
+        "塔技能!I75"
+      ],
+      "description": "召唤恶灵向四周扩散。每只恶灵造成（20x支配死灵灵魂数）的伤害。",
+      "levelsText": "等级 1｜冷却18秒。 耗蓝 20点。\n等级 2｜冷却16秒。 耗蓝 50点。\n等级 3｜冷却14秒。 耗蓝 80点。\n等级 4｜冷却12秒。 耗蓝 110点。\n等级 5｜冷却10秒。 耗蓝 140点。\n等级 6｜冷却8秒。 耗蓝 170点。\n伤害类型 法术伤害"
+    }
+  ],
+  "actualTooltip": {
+    "A001Research": {
+      "line": 26,
+      "text": "Researchubertip=召唤恶灵向四周扩散。每只恶灵造成（20x|cffffcc00支配死灵|r灵魂数）的伤害。|n|n|cffffcc00等级 1|r|n冷却18秒。|n-耗蓝：20点。|n|cffffcc00等级 2|r|n冷却16秒。|n-耗蓝：50点。|n|cffffcc00等级 3|r|n冷却14秒。|n-耗蓝：80点。|n|cffffcc00等级 4|r|n冷却12秒。|n-耗蓝：110点。|n|cffffcc00等级 5|r|n冷却10秒。|n-耗蓝：140点。|n|cffffcc00等级 6|r|n冷却8秒。|n-耗蓝：170点。|n|n|cffffcc00伤害类型：|r法术伤害"
+    },
+    "A001Learned": {
+      "line": 29,
+      "text": "Ubertip=每只恶灵造成（20x灵魂数）的伤害，冷却18秒。,每只恶灵造成（20x灵魂数）的伤害，冷却16秒。,每只恶灵造成（20x灵魂数）的伤害，冷却14秒。,每只恶灵造成（20x灵魂数）的伤害，冷却12秒。,每只恶灵造成（20x灵魂数）的伤害，冷却10秒。,每只恶灵造成（20x灵魂数）的伤害，冷却8秒。"
+    },
+    "A002Learned": {
+      "line": 42,
+      "text": "Ubertip=灵魂存储量最多为200。|n|cff66CD00[持有神杖时灵魂储存量翻倍]|r,灵魂存储量最多为250。|n|cff66CD00[持有神杖时灵魂储存量翻倍]|r,灵魂存储量最多为300。|n|cff66CD00[持有神杖时灵魂储存量翻倍]|r,灵魂存储量最多为350。|n|cff66CD00[持有神杖时灵魂储存量翻倍]|r,灵魂存储量最多为400。|n|cff66CD00[持有神杖时灵魂储存量翻倍]|r,灵魂存储量最多为500。|n|cff66CD00[持有神杖时灵魂储存量翻倍]|r"
+    }
+  },
+  "levels": [
+    {
+      "level": 1,
+      "cooldownSeconds": 18,
+      "manaCost": 20
+    },
+    {
+      "level": 2,
+      "cooldownSeconds": 16,
+      "manaCost": 50
+    },
+    {
+      "level": 3,
+      "cooldownSeconds": 14,
+      "manaCost": 80
+    },
+    {
+      "level": 4,
+      "cooldownSeconds": 12,
+      "manaCost": 110
+    },
+    {
+      "level": 5,
+      "cooldownSeconds": 10,
+      "manaCost": 140
+    },
+    {
+      "level": 6,
+      "cooldownSeconds": 8,
+      "manaCost": 170
+    }
+  ],
+  "objectData": {
+    "units_abilitydata.json:A001": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 13664,
+      "fields": {
+        "alias": "A001",
+        "code": "ANcl",
+        "checkDep": 1,
+        "Cool1": 18.0,
+        "Cool2": 16.0,
+        "Cool3": 14.0,
+        "Cool4": 12.0,
+        "Cost1": 20,
+        "Cost2": 50,
+        "Cost3": 80,
+        "Cost4": 110,
+        "DataA1": 0.6,
+        "DataA2": 0.6,
+        "DataA3": 0.6,
+        "DataA4": 0.6,
+        "DataC1": 1,
+        "DataC2": 1,
+        "DataC3": 1,
+        "DataC4": 1,
+        "DataD1": 1.0,
+        "DataD2": 1.0,
+        "DataD3": 1.0,
+        "DataD4": 1.0,
+        "DataF1": "evileye",
+        "DataF2": "evileye",
+        "DataF3": "evileye",
+        "DataF4": "evileye",
+        "HeroDur1": 1.0,
+        "HeroDur2": 1.0,
+        "HeroDur3": 1.0,
+        "HeroDur4": 1.0,
+        "levels": 6,
+        "reqLevel": 1,
+        "Rng1": 500.0,
+        "Rng2": 500.0,
+        "Rng3": 500.0,
+        "Rng4": 500.0,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "units_abilitydata.json:A002": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 13707,
+      "fields": {
+        "alias": "A002",
+        "code": "AUav",
+        "checkDep": 1,
+        "levels": 6,
+        "reqLevel": 1,
+        "targs1": "air,ground,friend,self,vuln,invu,organic",
+        "targs2": "air,ground,friend,self,vuln,invu,organic",
+        "targs3": "air,ground,friend,self,vuln,invu,organic",
+        "targs4": "air,ground,friend,self,vuln,invu,organic"
+      }
+    },
+    "units_abilitydata.json:T001": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 32455,
+      "fields": {
+        "alias": "T001",
+        "code": "AUcs",
+        "Area1": 20.0,
+        "BuffID1": "BUcs",
+        "checkDep": 1,
+        "Cool1": 10.0,
+        "DataA1": 10.0,
+        "DataB1": 9999999.0,
+        "DataC1": 800.0,
+        "DataD1": 300.0,
+        "levels": 1,
+        "reqLevel": 1,
+        "Rng1": 700.0,
+        "targs1": "ground,air,organic",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "units_abilitydata.json:T135": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 35151,
+      "fields": {
+        "alias": "T135",
+        "code": "AUcs",
+        "Area1": 20.0,
+        "BuffID1": "BUcs",
+        "checkDep": 1,
+        "Cool1": 10.0,
+        "DataA1": 10.0,
+        "DataB1": 9999999.0,
+        "DataC1": 800.0,
+        "DataD1": 300.0,
+        "levels": 1,
+        "reqLevel": 1,
+        "Rng1": 700.0,
+        "targs1": "ground,air,organic",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "units_abilitydata.json:T136": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 35170,
+      "fields": {
+        "alias": "T136",
+        "code": "ANcs",
+        "Area2": 200.0,
+        "Area3": 200.0,
+        "BuffID1": "BNcs",
+        "BuffID2": "BNcs",
+        "BuffID3": "BNcs",
+        "checkDep": 1,
+        "Cool1": 1.0,
+        "Cool2": 6.0,
+        "Cool3": 6.0,
+        "Cost2": 70,
+        "Cost3": 70,
+        "DataA2": 16.25,
+        "DataA3": 25.0,
+        "DataB2": 0.25,
+        "DataB3": 0.25,
+        "DataC1": 1,
+        "DataC2": 12,
+        "DataC3": 18,
+        "DataD2": 195.0,
+        "DataD3": 300.0,
+        "DataE2": 1.0,
+        "DataE3": 1.0,
+        "DataF2": 1.01,
+        "DataF3": 1.01,
+        "Dur1": 1.0,
+        "Dur2": 1.01,
+        "Dur3": 1.01,
+        "EfctID2": "XNcs",
+        "EfctID3": "XNcs",
+        "HeroDur1": 0.5,
+        "HeroDur2": 1.01,
+        "HeroDur3": 1.01,
+        "levels": 3,
+        "reqLevel": 1,
+        "Rng1": 9999.0,
+        "Rng2": 800.0,
+        "Rng3": 800.0,
+        "targs1": "_",
+        "targs2": "ground,enemy,neutral,structure",
+        "targs3": "ground,enemy,neutral,structure",
+        "targs4": "_"
+      }
+    },
+    "units_abilitydata.json:ANcs": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 5922,
+      "fields": {
+        "alias": "ANcs",
+        "code": "ANcs",
+        "Area1": 200.0,
+        "Area2": 200.0,
+        "Area3": 200.0,
+        "BuffID1": "BNcs",
+        "BuffID2": "BNcs",
+        "BuffID3": "BNcs",
+        "checkDep": 1,
+        "Cool1": 6.0,
+        "Cool2": 6.0,
+        "Cool3": 6.0,
+        "Cost1": 70,
+        "Cost2": 70,
+        "Cost3": 70,
+        "DataA1": 8.75,
+        "DataA2": 16.25,
+        "DataA3": 25.0,
+        "DataB1": 0.25,
+        "DataB2": 0.25,
+        "DataB3": 0.25,
+        "DataC1": 6,
+        "DataC2": 12,
+        "DataC3": 18,
+        "DataD1": 105.0,
+        "DataD2": 195.0,
+        "DataD3": 300.0,
+        "DataE1": 1.0,
+        "DataE2": 1.0,
+        "DataE3": 1.0,
+        "DataF1": 1.01,
+        "DataF2": 1.01,
+        "DataF3": 1.01,
+        "Dur1": 1.01,
+        "Dur2": 1.01,
+        "Dur3": 1.01,
+        "EfctID1": "XNcs",
+        "EfctID2": "XNcs",
+        "EfctID3": "XNcs",
+        "HeroDur1": 1.01,
+        "HeroDur2": 1.01,
+        "HeroDur3": 1.01,
+        "levels": 3,
+        "reqLevel": 1,
+        "Rng1": 800.0,
+        "Rng2": 800.0,
+        "Rng3": 800.0,
+        "targs1": "ground,enemy,neutral,structure",
+        "targs2": "ground,enemy,neutral,structure",
+        "targs3": "ground,enemy,neutral,structure",
+        "targs4": "_"
+      }
+    },
+    "units_abilitydata.json:ANcl": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 5857,
+      "fields": {
+        "alias": "ANcl",
+        "code": "ANcl",
+        "checkDep": 1,
+        "DataA1": 180.0,
+        "DataA2": 180.0,
+        "DataA3": 180.0,
+        "DataD1": 0.98,
+        "DataD2": 0.98,
+        "DataD3": 0.98,
+        "DataE1": 1,
+        "DataE2": 1,
+        "DataE3": 1,
+        "DataF1": "channel",
+        "levels": 3,
+        "reqLevel": 1,
+        "Rng1": 500.0,
+        "Rng2": 500.0,
+        "Rng3": 500.0,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "units_abilitydata.json:AUcs": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 8725,
+      "fields": {
+        "alias": "AUcs",
+        "code": "AUcs",
+        "Area1": 100.0,
+        "Area2": 100.0,
+        "Area3": 100.0,
+        "BuffID1": "BUcs",
+        "BuffID2": "BUcs",
+        "BuffID3": "BUcs",
+        "checkDep": 1,
+        "Cool1": 10.0,
+        "Cool2": 10.0,
+        "Cool3": 10.0,
+        "Cost1": 110,
+        "Cost2": 110,
+        "Cost3": 110,
+        "DataA1": 75.0,
+        "DataA2": 125.0,
+        "DataA3": 200.0,
+        "DataB1": 300.0,
+        "DataB2": 600.0,
+        "DataB3": 1000.0,
+        "DataC1": 800.0,
+        "DataC2": 800.0,
+        "DataC3": 800.0,
+        "DataD1": 300.0,
+        "DataD2": 300.0,
+        "DataD3": 300.0,
+        "levels": 3,
+        "reqLevel": 1,
+        "Rng1": 700.0,
+        "Rng2": 700.0,
+        "Rng3": 700.0,
+        "targs1": "ground,air,organic",
+        "targs2": "ground,air,organic",
+        "targs3": "ground,air,organic",
+        "targs4": "_"
+      }
+    },
+    "units_unitabilities.json:H001": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 4468,
+      "fields": {
+        "unitAbilID": "H001",
+        "abilList": "Avul,AInv,T033,S161",
+        "auto": "_",
+        "heroAbilList": "A001,A002,A003,T000,P000"
+      }
+    },
+    "units_unitabilities.json:G053": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 4300,
+      "fields": {
+        "unitAbilID": "G053",
+        "abilList": "Avul,AInv,T033",
+        "auto": "_",
+        "heroAbilList": "A001,A002,A003,T000,P000"
+      }
+    },
+    "units_unitabilities.json:q014": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 6620,
+      "fields": {
+        "unitAbilID": "q014",
+        "abilList": "Avul,Aloc",
+        "auto": "_"
+      }
+    },
+    "units_unitweapons.json:H001": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 22699,
+      "fields": {
+        "unitWeapID": "H001",
+        "castbsw": 0.4,
+        "castpt": 0.67
+      }
+    },
+    "units_unitweapons.json:G053": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 21723,
+      "fields": {
+        "unitWeapID": "G053",
+        "castbsw": 0.4,
+        "castpt": 0.67
+      }
+    },
+    "units_unitweapons.json:q014": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 34427,
+      "fields": {
+        "unitWeapID": "q014"
+      }
+    },
+    "units_unitbalance.json:q014": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 37842,
+      "fields": {
+        "unitBalanceID": "q014",
+        "mana0": 1000,
+        "manaN": 1000
+      }
+    }
+  },
+  "overrides": {
+    "path": "reference/map-6.25/war3map.w3a.json",
+    "lines": [
+      2,
+      35
+    ],
+    "A001": {
+      "old": "A001",
+      "new": "\u0000\u0000\u0000\u0000",
+      "mods": [
+        {
+          "key": "acdn",
+          "type": 2,
+          "level": 5,
+          "data": 0,
+          "value": 10.0
+        },
+        {
+          "key": "acdn",
+          "type": 2,
+          "level": 6,
+          "data": 0,
+          "value": 8.0
+        },
+        {
+          "key": "amcs",
+          "type": 0,
+          "level": 5,
+          "data": 0,
+          "value": 140
+        },
+        {
+          "key": "amcs",
+          "type": 0,
+          "level": 6,
+          "data": 0,
+          "value": 170
+        }
+      ]
+    },
+    "noOverridesFor": [
+      "A002",
+      "T001",
+      "T135",
+      "T136",
+      "q014",
+      "H001",
+      "G053"
+    ],
+    "qualification": "no w3a/w3u entries for these IDs, not proof missing SLK fields are zero"
+  },
+  "originalRules": {
+    "castEntry": {
+      "event": "SPELL_EFFECT for players0,1,2,3,11",
+      "prelude": "AnySkillStart PC1..39 may request Skill_BS_Still for matching transform-list skills; original predispatch preserved",
+      "temporaryCaster": "IsTemp => return before Item_Skill_Action",
+      "order": [
+        "outer filter",
+        "Item_Skill_Action(GetSpellTargetUnit())",
+        "WAbility_initAbility()",
+        "A001 dispatch",
+        "A001_Action()",
+        "return"
+      ],
+      "noLocalCheck": [
+        "A001 level",
+        "souls>0",
+        "Has_A_Item",
+        "mode",
+        "caster alive",
+        "attack target"
+      ],
+      "nativeAcceptance": "not proven by successful Issue*Order request"
+    },
+    "autocast": {
+      "trigger": "nonillusion attack on Player11 unit, existing global scan order",
+      "gate": "B012>0; ready(A001); first Player11 alive unit in700",
+      "ready": "abilityLevel>0 AND cooldown==0 AND mana>=current ability cost",
+      "order": "IssueImmediateOrder(caster,evileye)",
+      "targetHandlePassed": false,
+      "stopsScanAfterRequest": true,
+      "orderResultUsed": false,
+      "noExplicitSoulGate": true
+    },
+    "emission": {
+      "towerIndex": "IsInTable(caster,Tower_ALL); if-1 append at #Tower_ALL+1, but do not write caster userData",
+      "ability": "G053 at Action entry ? T135 : T001",
+      "count": 20,
+      "loop": "j=1..20 synchronously",
+      "facingDegrees": "18*j (absolute, not caster-facing offset)",
+      "each": [
+        "GetUnitLoc(caster)",
+        "create q014 with native ability level1 and3-second BHwe timed life",
+        "SetUnitUserData(q014,towerIndex)",
+        "GetUnitLoc(q014)",
+        "IssuePointOrderLoc(q014,carrionswarm,its own position)"
+      ],
+      "orderResultUsed": false,
+      "luaTimers": 0,
+      "returnWaves": false,
+      "cancelCallback": null,
+      "TxShowGate": false
+    },
+    "bridge": {
+      "actualSource": "q014",
+      "owner": "current Tower_ALL[GetUnitUserData(actualSource)]",
+      "gate": "execution reaches main/f291/f1 PC334; owner!=nil; source typeq014",
+      "extraA001LevelCheck": false,
+      "sequence": [
+        "EXSetEventDamage(0) for outer carrier event",
+        "i=IsInTable(owner,Tower_ALL)",
+        "n=A002_table[i]",
+        "if n==nil or n==0 return from helper only",
+        "SetMagicDamage(owner,target,20*n)",
+        "outer main damage pipeline resumes after helper"
+      ],
+      "magicPacket": {
+        "source": "resolved owner unit",
+        "raw": "20*currentSoulCount",
+        "attack": false,
+        "ranged": false,
+        "attackType": "NORMAL",
+        "damageType": "MAGIC",
+        "weapon": "WHOKNOWS"
+      },
+      "totalRawChildDamage": "sum over actual qualifying native hit events of20*n_at_that_hit",
+      "noPostChildResetOfParentToZero": true,
+      "qualification": "outer pipeline may subsequently rewrite its zero; zero is not a global return"
+    },
+    "souls": {
+      "init": "A002_table={} at module load",
+      "storage": "A002_table[IsInTable(creditedKiller,Tower_ALL)]",
+      "allNamedAccessesInMain": "A001 reads; A002 initializes and writes, no other explicit A002_table reference",
+      "creditSource": "actual killer unless IsTemp OR UNIT_TYPE_SUMMONED OR IsUnitIllusion, then Tower_ALL[killer.userData]",
+      "entryGate": "resolved killer A002 level>0, at death handler PC389; no direct killed-owner or mode gate enclosing this call",
+      "delta": "N534>0 AND UNIT_TYPE_SAPPER of dead unit ?10:1",
+      "initialNil": "write full delta; bypass cap and Has_A_Item checks",
+      "existingCapByA002Level": [
+        200,
+        250,
+        300,
+        350,
+        400,
+        500
+      ],
+      "invalidLevelCap": 0,
+      "HasA": "A111_113_A contains caster OR HasItem(i310)!=nil; double cap",
+      "atOrAboveCap": "return without truncating old souls, bonus or skin call",
+      "otherwise": "delta=min(delta,cap-old); souls+=delta; state19+=3*delta",
+      "state19": "attack1 bonus damage; external YDWE mapping0x13",
+      "consumeOnA001": false,
+      "resetOnA001": false,
+      "A_scepterRemoval": "no immediate clamp, old amount continues to feed A001",
+      "G053CreditEffect": "only after accepted delta, create defaultq001 at dead unit with T136lv1 lifetime1, issue clusterrockets toward caster",
+      "modeMultiplierInA001OrA002": null
+    },
+    "carrierPayload": {
+      "nativeCode": "AUcs",
+      "nativeDamage": 10,
+      "maxNativeDamage": 9999999,
+      "Area": 20,
+      "Distance": 800,
+      "FinalArea": 300,
+      "CastRange": 700,
+      "missileSpeed": 800,
+      "targets": "ground,air,organic",
+      "costMissing": true,
+      "q014CastPointMissing": true,
+      "T001AndT135NumericEqual": true,
+      "artDifferenceOnlyWithinTheseTwoAbilityRecords": true
+    },
+    "cancellationAndTiming": "no Lua timer repeats, charge, random draw, recall or cancellation handler; native SPELL_EFFECT and AUcs implementation determine original timing",
+    "indexBoundary": "lookups stay dynamic; no new stable owner snapshot or automatic soul transfer/reset inferred on Tower_ALL replacement"
+  },
+  "primarySources": [
+    {
+      "title": "Blizzard Carrion Swarm",
+      "url": "https://classic.battle.net/war3/undead/units/dreadlord.shtml",
+      "supports": "enemy air/ground damage, per-unit and total damage concepts, excludes wards; does not establish exact custom geometry/colocated order"
+    },
+    {
+      "title": "YDWE pinned AbilityMetaData",
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/Units/AbilityMetaData.slk",
+      "sha256": "891109928d7f34fc5f4e33eb53b807513ae54107b13dea0dde5ce75bbe063246",
+      "fields": [
+        {
+          "id": "amsp",
+          "field": "Missilespeed",
+          "data": 0,
+          "label": "Missile Speed",
+          "labelLine": 5823
+        },
+        {
+          "id": "aare",
+          "field": "Area",
+          "data": 0,
+          "label": "Area of Effect",
+          "labelLine": 5842
+        },
+        {
+          "id": "aran",
+          "field": "Rng",
+          "data": 0,
+          "label": "Cast Range",
+          "labelLine": 5843
+        },
+        {
+          "id": "Ucs1",
+          "field": "Data",
+          "data": 1,
+          "label": "Damage",
+          "labelLine": 5925
+        },
+        {
+          "id": "Ucs2",
+          "field": "Data",
+          "data": 2,
+          "label": "Max Damage",
+          "labelLine": 5926
+        },
+        {
+          "id": "Ucs3",
+          "field": "Data",
+          "data": 3,
+          "label": "Distance",
+          "labelLine": 5927
+        },
+        {
+          "id": "Ucs4",
+          "field": "Data",
+          "data": 4,
+          "label": "Final Area",
+          "labelLine": 5928
+        },
+        {
+          "id": "Ncl1",
+          "field": "Data",
+          "data": 1,
+          "label": "Follow Through Time",
+          "labelLine": 6453
+        },
+        {
+          "id": "Ncl2",
+          "field": "Data",
+          "data": 2,
+          "label": "Target Type",
+          "labelLine": 6454
+        },
+        {
+          "id": "Ncl3",
+          "field": "Data",
+          "data": 3,
+          "label": "Options",
+          "labelLine": 6455
+        },
+        {
+          "id": "Ncl4",
+          "field": "Data",
+          "data": 4,
+          "label": "Art Duration",
+          "labelLine": 6456
+        },
+        {
+          "id": "Ncl5",
+          "field": "Data",
+          "data": 5,
+          "label": "Disable Other Abilities",
+          "labelLine": 6457
+        },
+        {
+          "id": "Ncl6",
+          "field": "Data",
+          "data": 6,
+          "label": "Base Order ID",
+          "labelLine": 6458
+        }
+      ]
+    },
+    {
+      "title": "YDWE pinned editor labels",
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/UI/WorldEditStrings.txt",
+      "sha256": "b0e9a709df79c7b1190f43e621c95ad3babc469d1ecf96e2aa576e74c17e2aa0",
+      "supports": "field names only, not native algorithm"
+    },
+    {
+      "title": "YDWE UnitState",
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Plugin/Warcraft3/yd_jass_api/UnitState.cpp#L21",
+      "supports": "0x13 attack1 bonus; getter uses bonus field",
+      "sha256": "cce69daa88a376177c31dacf52901e30f9bb37fd28cfb3abfbabe112a3d139a8"
+    }
+  ],
+  "decision": {
+    "status": "no workbook conflict proven",
+    "Q24": "authorized explicit native fallback only",
+    "webRuleVersion": "requiem-native-v1"
+  },
+  "webNativeRules": {
+    "status": "Q24 design choices, not original-client measurement; literal script behavior above unchanged",
+    "casting": {
+      "targetType": "no target",
+      "eligible": "unit exists/alive, A001 level1..6, current runtime canCast=true, cooldown0, enough mana",
+      "castPointSeconds": 0.67,
+      "levelParameterRead": "at SPELL_EFFECT commit; recheck eligibility/mana/cooldown",
+      "commit": "deduct exact mana and start exact cooldown once, then dispatch SPELL_EFFECT and create20 carriers",
+      "cancelBeforeCommit": "no effect, cost or cooldown",
+      "postCommit": "follow-through0.6sec can be cancelled without refund or recalling waves; normal attack/move orders can end it",
+      "level5And6MissingChannelFields": "use same0.6/evileye/no-target as levels1..4",
+      "otherSkillsCastRules": "outside scope"
+    },
+    "waves": {
+      "launch": "each own-position carrionswarm order schedules one zero-delay wave launch in j order, after current stack returns (B05)",
+      "dummyManaCost": 0,
+      "dummyCastPointSeconds": 0,
+      "origin": "dummy position at order",
+      "direction": "dummy facing from script; absolute18*j degrees, even when ordered at its own location",
+      "durationSeconds": 1,
+      "length": 800,
+      "speed": 800,
+      "geometry": "moving transverse line segment: at elapsed t in[0,1], longitudinal coordinate s=800*t and lateral half-width20+0.35*s; target center crossing that closed segment is contact",
+      "targetPosition": "piecewise-linear continuous world-center trajectory; no unit collision radius; teleport is discontinuous and does not sweep the teleport path",
+      "repeat": "at most once per(unit,wave); different waves independent",
+      "eventTime": "first qualifying geometric contact; scheduled in B05 integer-microsecond time using its rounding; same time wave creation index then target creation index",
+      "boundary": "0<=s<=800 inclusive; |lateral|<=20+.35*s; endpoints included, no lingering coverage behind front",
+      "unknownOriginal": "shape interpolation, half-width interpretation, zero-point direction, duplicate-hit behavior, missile clock not established by supplied native code"
+    },
+    "waveTarget": {
+      "must": [
+        "exists",
+        "alive",
+        "enemy of carrier current owner",
+        "organic",
+        "ground or air",
+        "not ward",
+        "not activeAloc",
+        "not invulnerable",
+        "not magicImmune"
+      ],
+      "notExtraFilters": [
+        "visibility",
+        "invisibility",
+        "height",
+        "path blockers",
+        "ordinary weapon targeting",
+        "boss label"
+      ],
+      "contactRecheck": "recheck eligibility before submitting contact; no damage if now ineligible; mark consumed only when carrier packet is submitted",
+      "sourceCasterDeath": "no wave recall added; carrier and dynamic Tower_ALL owner lookup remain operative",
+      "removedOwnerSlot": "preserve original owner-nil bridge bypass, not a new guaranteedzero rule"
+    },
+    "carrierEvent": {
+      "rawDamage": 10,
+      "budgetPerWave": 9999999,
+      "budgetConsumption": "before event: d=min(10,remaining); subtract d even if later event becomeszero; final remainder may bepartial",
+      "types": {
+        "attack": false,
+        "ranged": false,
+        "attackType": "NORMAL",
+        "damageType": "MAGIC",
+        "weapon": "WHOKNOWS"
+      },
+      "process": "native reductions then original full damage pipeline; bridge zeros parent and makes normal nested owner packet; do not collapse two events",
+      "zeroInitialEvent": "existing pipeline initialzero return stays",
+      "noBudgetScaleOnMagicChild": true
+    },
+    "T136": {
+      "templateComparison": {
+        "sameMapBase": "ANcs",
+        "baseLevel1": {
+          "Area": 200,
+          "Cost": 70,
+          "DataA": 8.75,
+          "DataB": 0.25,
+          "DataC": 6,
+          "DataD": 105,
+          "DataE": 1,
+          "DataF": 1.01,
+          "targets": "ground,enemy,neutral,structure"
+        },
+        "customLevel1": {
+          "DataC": 1,
+          "Range": 9999,
+          "Dur": 1,
+          "HeroDur": 0.5,
+          "targets": "_",
+          "AreaCostAndDamageFields": "omitted, not proved0 or inherited"
+        },
+        "w3aOverride": false
+      },
+      "role": "soul absorption visual only",
+      "damagePackets": 0,
+      "stuns": 0,
+      "reason": "level1 target _ and missing damage fields do not prove inherited native behavior; choose explicit zero gameplay effect for this otherwise cosmetic branch",
+      "scope": "only this A002 G053 level1 use; not generic ANcs behavior"
+    },
+    "save": "persist rule version, carrier/index/state, wave origin/direction/launch time/budget/hit IDs, pending cast/commit/followthrough and B05 order; no new offline advancement"
+  },
+  "reusedEvidence": [
+    "docs/rules/damage-pipeline.md",
+    "docs/rules/item-damage-dispatch.md",
+    "docs/rules/autocast.md",
+    "docs/rules/web-baseline.md",
+    "docs/rules/native-area-damage.md"
+  ],
+  "boundedUnknowns": [
+    "Actual client/native AUcs collision, channel acceptance and base fields inherited when absent: deterministic Web choices above, not proved original",
+    "All other before/after-damage and death callees remain independent audited/pending modules; this document does not claim all downstream net damage or loot behavior",
+    "Global Tower_ALL replacement and skin-transformation lifecycle beyond the literal dynamic lookups here is not audited; no implicit transfer/reset claimed",
+    "Other A002 native AUav inherited fields and all other Shadow Fiend skills are outside scope; only explicit soul-state writer and necessary G053 request included",
+    "T136 generic engine defaults and native visual execution are not proved; local Web adapter is deliberately cosmetic"
+  ],
+  "validation": {
+    "kind": "static bytecode/source-field/hash and arithmetic/boundary cases; no game execution",
+    "originalCases": [
+      {
+        "id": "level_1",
+        "input": {
+          "A001Level": 1
+        },
+        "expected": {
+          "cooldownSeconds": 18,
+          "manaCost": 20,
+          "emissions": 20,
+          "rawDamagePerSoulPerHit": 20
+        }
+      },
+      {
+        "id": "level_2",
+        "input": {
+          "A001Level": 2
+        },
+        "expected": {
+          "cooldownSeconds": 16,
+          "manaCost": 50,
+          "emissions": 20,
+          "rawDamagePerSoulPerHit": 20
+        }
+      },
+      {
+        "id": "level_3",
+        "input": {
+          "A001Level": 3
+        },
+        "expected": {
+          "cooldownSeconds": 14,
+          "manaCost": 80,
+          "emissions": 20,
+          "rawDamagePerSoulPerHit": 20
+        }
+      },
+      {
+        "id": "level_4",
+        "input": {
+          "A001Level": 4
+        },
+        "expected": {
+          "cooldownSeconds": 12,
+          "manaCost": 110,
+          "emissions": 20,
+          "rawDamagePerSoulPerHit": 20
+        }
+      },
+      {
+        "id": "level_5",
+        "input": {
+          "A001Level": 5
+        },
+        "expected": {
+          "cooldownSeconds": 10,
+          "manaCost": 140,
+          "emissions": 20,
+          "rawDamagePerSoulPerHit": 20
+        }
+      },
+      {
+        "id": "level_6",
+        "input": {
+          "A001Level": 6
+        },
+        "expected": {
+          "cooldownSeconds": 8,
+          "manaCost": 170,
+          "emissions": 20,
+          "rawDamagePerSoulPerHit": 20
+        }
+      },
+      {
+        "id": "directions",
+        "input": {},
+        "expected": {
+          "degrees": [
+            18,
+            36,
+            54,
+            72,
+            90,
+            108,
+            126,
+            144,
+            162,
+            180,
+            198,
+            216,
+            234,
+            252,
+            270,
+            288,
+            306,
+            324,
+            342,
+            360
+          ],
+          "luaTimersCreated": 0
+        }
+      },
+      {
+        "id": "skin_H001",
+        "input": {
+          "casterType": "H001"
+        },
+        "expected": {
+          "carrierAbility": "T001",
+          "carrierLevel": 1,
+          "q014TimedLifeSeconds": 3
+        }
+      },
+      {
+        "id": "skin_G053",
+        "input": {
+          "casterType": "G053"
+        },
+        "expected": {
+          "carrierAbility": "T135",
+          "carrierLevel": 1,
+          "q014TimedLifeSeconds": 3
+        }
+      },
+      {
+        "id": "skin_other",
+        "input": {
+          "casterType": "other"
+        },
+        "expected": {
+          "carrierAbility": "T001",
+          "carrierLevel": 1,
+          "q014TimedLifeSeconds": 3
+        }
+      },
+      {
+        "id": "damage_souls_None",
+        "input": {
+          "currentSoulCount": null
+        },
+        "expected": {
+          "outerDamageWritten": 0,
+          "magicPackets": 0,
+          "rawMagicDamage": null
+        }
+      },
+      {
+        "id": "damage_souls_0",
+        "input": {
+          "currentSoulCount": 0
+        },
+        "expected": {
+          "outerDamageWritten": 0,
+          "magicPackets": 0,
+          "rawMagicDamage": null
+        }
+      },
+      {
+        "id": "damage_souls_1",
+        "input": {
+          "currentSoulCount": 1
+        },
+        "expected": {
+          "outerDamageWritten": 0,
+          "magicPackets": 1,
+          "rawMagicDamage": 20
+        }
+      },
+      {
+        "id": "damage_souls_500",
+        "input": {
+          "currentSoulCount": 500
+        },
+        "expected": {
+          "outerDamageWritten": 0,
+          "magicPackets": 1,
+          "rawMagicDamage": 10000
+        }
+      },
+      {
+        "id": "damage_souls_1000",
+        "input": {
+          "currentSoulCount": 1000
+        },
+        "expected": {
+          "outerDamageWritten": 0,
+          "magicPackets": 1,
+          "rawMagicDamage": 20000
+        }
+      },
+      {
+        "id": "dynamic_souls",
+        "input": {
+          "soulsAtHit": [
+            10,
+            11,
+            21
+          ]
+        },
+        "expected": {
+          "rawMagicPackets": [
+            200,
+            220,
+            420
+          ],
+          "sumOfRawMagicPackets": 840,
+          "launchSnapshotUsed": false
+        }
+      },
+      {
+        "id": "no_soul_consumption",
+        "input": {
+          "soulsBefore": 500,
+          "qualifyingHits": 20
+        },
+        "expected": {
+          "rawSum": 200000,
+          "soulsAfterIfNoKills": 500,
+          "qualification": "all20hits actually reach the bridge; excludes reductions and later pipeline side effects"
+        }
+      },
+      {
+        "id": "nil_owner",
+        "input": {
+          "Tower_ALL_atCarrierUserData": null
+        },
+        "expected": {
+          "A001_DamageCalled": false,
+          "bridgeWritesZero": false
+        }
+      },
+      {
+        "id": "zero_carrier_event",
+        "input": {
+          "damageAtInitialPipelineCheck": 0
+        },
+        "expected": {
+          "A001_DamageCalled": false,
+          "reason": "early return at main/f291/f1 PC27"
+        }
+      },
+      {
+        "id": "soul_first_normal",
+        "input": {
+          "oldSouls": null,
+          "A002Level": 1,
+          "UnitIsHero": false,
+          "Has_A_Item": false
+        },
+        "expected": {
+          "newSouls": 1,
+          "attack1BonusAdded": 3,
+          "earlyReturnBeforeSkinVisual": false,
+          "qualification": "invalid-level vectors exercise helper directly; outer caller requires A002>0"
+        }
+      },
+      {
+        "id": "soul_first_boss",
+        "input": {
+          "oldSouls": null,
+          "A002Level": 1,
+          "UnitIsHero": true,
+          "Has_A_Item": false
+        },
+        "expected": {
+          "newSouls": 10,
+          "attack1BonusAdded": 30,
+          "earlyReturnBeforeSkinVisual": false,
+          "qualification": "invalid-level vectors exercise helper directly; outer caller requires A002>0"
+        }
+      },
+      {
+        "id": "soul_clamp_boss",
+        "input": {
+          "oldSouls": 198,
+          "A002Level": 1,
+          "UnitIsHero": true,
+          "Has_A_Item": false
+        },
+        "expected": {
+          "newSouls": 200,
+          "attack1BonusAdded": 6,
+          "earlyReturnBeforeSkinVisual": false,
+          "qualification": "invalid-level vectors exercise helper directly; outer caller requires A002>0"
+        }
+      },
+      {
+        "id": "soul_cap_exact",
+        "input": {
+          "oldSouls": 200,
+          "A002Level": 1,
+          "UnitIsHero": false,
+          "Has_A_Item": false
+        },
+        "expected": {
+          "newSouls": 200,
+          "attack1BonusAdded": 0,
+          "earlyReturnBeforeSkinVisual": true,
+          "qualification": "invalid-level vectors exercise helper directly; outer caller requires A002>0"
+        }
+      },
+      {
+        "id": "soul_scepter",
+        "input": {
+          "oldSouls": 500,
+          "A002Level": 6,
+          "UnitIsHero": true,
+          "Has_A_Item": true
+        },
+        "expected": {
+          "newSouls": 510,
+          "attack1BonusAdded": 30,
+          "earlyReturnBeforeSkinVisual": false,
+          "qualification": "invalid-level vectors exercise helper directly; outer caller requires A002>0"
+        }
+      },
+      {
+        "id": "soul_scepter_removed",
+        "input": {
+          "oldSouls": 900,
+          "A002Level": 6,
+          "UnitIsHero": true,
+          "Has_A_Item": false
+        },
+        "expected": {
+          "newSouls": 900,
+          "attack1BonusAdded": 0,
+          "earlyReturnBeforeSkinVisual": true,
+          "qualification": "invalid-level vectors exercise helper directly; outer caller requires A002>0"
+        }
+      },
+      {
+        "id": "soul_invalid_initialized",
+        "input": {
+          "oldSouls": 10,
+          "A002Level": 0,
+          "UnitIsHero": false,
+          "Has_A_Item": false
+        },
+        "expected": {
+          "newSouls": 10,
+          "attack1BonusAdded": 0,
+          "earlyReturnBeforeSkinVisual": true,
+          "qualification": "invalid-level vectors exercise helper directly; outer caller requires A002>0"
+        }
+      },
+      {
+        "id": "soul_invalid_first",
+        "input": {
+          "oldSouls": null,
+          "A002Level": 0,
+          "UnitIsHero": true,
+          "Has_A_Item": false
+        },
+        "expected": {
+          "newSouls": 10,
+          "attack1BonusAdded": 30,
+          "earlyReturnBeforeSkinVisual": false,
+          "qualification": "invalid-level vectors exercise helper directly; outer caller requires A002>0"
+        }
+      },
+      {
+        "id": "boss_False_False",
+        "input": {
+          "N534Present": false,
+          "UNIT_TYPE_SAPPER": false
+        },
+        "expected": {
+          "soulDelta": 1
+        }
+      },
+      {
+        "id": "boss_True_False",
+        "input": {
+          "N534Present": true,
+          "UNIT_TYPE_SAPPER": false
+        },
+        "expected": {
+          "soulDelta": 1
+        }
+      },
+      {
+        "id": "boss_False_True",
+        "input": {
+          "N534Present": false,
+          "UNIT_TYPE_SAPPER": true
+        },
+        "expected": {
+          "soulDelta": 1
+        }
+      },
+      {
+        "id": "boss_True_True",
+        "input": {
+          "N534Present": true,
+          "UNIT_TYPE_SAPPER": true
+        },
+        "expected": {
+          "soulDelta": 10
+        }
+      },
+      {
+        "id": "no_direct_mode_multiplier",
+        "input": {
+          "modes": [
+            0,
+            1,
+            2
+          ],
+          "currentSouls": 100
+        },
+        "expected": {
+          "rawMagicPerQualifyingHit": [
+            2000,
+            2000,
+            2000
+          ],
+          "finalDamage": "still passes mode and item pipeline"
+        }
+      },
+      {
+        "id": "no_postlaunch_cancel_in_module",
+        "input": {
+          "stopAfterSpellEffect": true
+        },
+        "expected": {
+          "luaCarrierRecallCalls": 0,
+          "luaSoulsResetCalls": 0
+        }
+      }
+    ],
+    "webNativeCases": [
+      {
+        "id": "front_0_20",
+        "input": {
+          "localX": 0,
+          "localY": 20,
+          "stationary": true
+        },
+        "expected": {
+          "hit": true,
+          "contactTimeSeconds": 0.0
+        }
+      },
+      {
+        "id": "front_0_20.001",
+        "input": {
+          "localX": 0,
+          "localY": 20.001,
+          "stationary": true
+        },
+        "expected": {
+          "hit": false,
+          "contactTimeSeconds": null
+        }
+      },
+      {
+        "id": "front_400_160",
+        "input": {
+          "localX": 400,
+          "localY": 160,
+          "stationary": true
+        },
+        "expected": {
+          "hit": true,
+          "contactTimeSeconds": 0.5
+        }
+      },
+      {
+        "id": "front_400_160.001",
+        "input": {
+          "localX": 400,
+          "localY": 160.001,
+          "stationary": true
+        },
+        "expected": {
+          "hit": false,
+          "contactTimeSeconds": null
+        }
+      },
+      {
+        "id": "front_800_300",
+        "input": {
+          "localX": 800,
+          "localY": 300,
+          "stationary": true
+        },
+        "expected": {
+          "hit": true,
+          "contactTimeSeconds": 1.0
+        }
+      },
+      {
+        "id": "front_800_300.001",
+        "input": {
+          "localX": 800,
+          "localY": 300.001,
+          "stationary": true
+        },
+        "expected": {
+          "hit": false,
+          "contactTimeSeconds": null
+        }
+      },
+      {
+        "id": "front_-1_0",
+        "input": {
+          "localX": -1,
+          "localY": 0,
+          "stationary": true
+        },
+        "expected": {
+          "hit": false,
+          "contactTimeSeconds": null
+        }
+      },
+      {
+        "id": "front_800.001_0",
+        "input": {
+          "localX": 800.001,
+          "localY": 0,
+          "stationary": true
+        },
+        "expected": {
+          "hit": false,
+          "contactTimeSeconds": null
+        }
+      },
+      {
+        "id": "moving_target_toward_wave",
+        "input": {
+          "x": "600-400*t",
+          "y": 0,
+          "timeInterval": [
+            0,
+            1
+          ]
+        },
+        "expected": {
+          "hit": true,
+          "contactTimeSeconds": 0.5,
+          "localXAtContact": 400
+        }
+      },
+      {
+        "id": "moving_target_outruns_wave",
+        "input": {
+          "x": "100+1000*t",
+          "y": 0,
+          "timeInterval": [
+            0,
+            1
+          ]
+        },
+        "expected": {
+          "hit": false,
+          "contactTimeSeconds": null
+        }
+      },
+      {
+        "id": "same_wave_reentry",
+        "input": {
+          "wave": 1,
+          "alreadyHit": true,
+          "crossesAgain": true
+        },
+        "expected": {
+          "newCarrierEvents": 0
+        }
+      },
+      {
+        "id": "two_waves",
+        "input": {
+          "hitWaves": [
+            1,
+            2
+          ],
+          "soulsAtBothHits": 100
+        },
+        "expected": {
+          "carrierEvents": 2,
+          "rawMagicPackets": [
+            2000,
+            2000
+          ]
+        }
+      },
+      {
+        "id": "center_all_waves",
+        "input": {
+          "targetPositionEqualsOrigin": true,
+          "eligible": true,
+          "soulsRemain": 100
+        },
+        "expected": {
+          "hits": 20,
+          "rawMagicSum": 40000,
+          "eventOrder": "wave index1..20 for the same contact timestamp"
+        }
+      },
+      {
+        "id": "filter_ally",
+        "input": {
+          "otherwiseEligible": true,
+          "ally": true
+        },
+        "expected": {
+          "carrierEvents": 0
+        }
+      },
+      {
+        "id": "filter_mechanical",
+        "input": {
+          "otherwiseEligible": true,
+          "mechanical": true
+        },
+        "expected": {
+          "carrierEvents": 0
+        }
+      },
+      {
+        "id": "filter_ward",
+        "input": {
+          "otherwiseEligible": true,
+          "ward": true
+        },
+        "expected": {
+          "carrierEvents": 0
+        }
+      },
+      {
+        "id": "filter_dead",
+        "input": {
+          "otherwiseEligible": true,
+          "dead": true
+        },
+        "expected": {
+          "carrierEvents": 0
+        }
+      },
+      {
+        "id": "filter_removed",
+        "input": {
+          "otherwiseEligible": true,
+          "removed": true
+        },
+        "expected": {
+          "carrierEvents": 0
+        }
+      },
+      {
+        "id": "filter_Aloc",
+        "input": {
+          "otherwiseEligible": true,
+          "Aloc": true
+        },
+        "expected": {
+          "carrierEvents": 0
+        }
+      },
+      {
+        "id": "filter_invulnerable",
+        "input": {
+          "otherwiseEligible": true,
+          "invulnerable": true
+        },
+        "expected": {
+          "carrierEvents": 0
+        }
+      },
+      {
+        "id": "filter_magicImmune",
+        "input": {
+          "otherwiseEligible": true,
+          "magicImmune": true
+        },
+        "expected": {
+          "carrierEvents": 0
+        }
+      },
+      {
+        "id": "cast_interrupted_before_commit",
+        "input": {
+          "acceptedAt": 0,
+          "stopAt": 0.66
+        },
+        "expected": {
+          "spellEffectEvents": 0,
+          "manaSpent": 0,
+          "cooldownStarted": false,
+          "emissions": 0
+        }
+      },
+      {
+        "id": "cast_stop_after_commit",
+        "input": {
+          "acceptedAt": 0,
+          "stopAt": 0.68
+        },
+        "expected": {
+          "spellEffectAt": 0.67,
+          "emissions": 20,
+          "wavesCancelled": false,
+          "manaRefunded": false
+        }
+      },
+      {
+        "id": "level6_commit",
+        "input": {
+          "acceptedAt": 0,
+          "levelAtCommit": 6,
+          "manaAtCommit": 170,
+          "cooldownAtCommit": 0
+        },
+        "expected": {
+          "spellEffectAt": 0.67,
+          "manaAfter": 0,
+          "cooldownEndsAt": 8.67,
+          "followThroughEndsAt": 1.27
+        }
+      },
+      {
+        "id": "commit_no_mana",
+        "input": {
+          "acceptedAt": 0,
+          "levelAtCommit": 6,
+          "manaAtCommit": 169
+        },
+        "expected": {
+          "spellEffectEvents": 0,
+          "manaSpent": 0,
+          "cooldownStarted": false
+        }
+      },
+      {
+        "id": "finite_carrier_budget",
+        "input": {
+          "remainingRawBudget": 9,
+          "soulsAtHit": 100
+        },
+        "expected": {
+          "rawCarrierDamage": 9,
+          "remainingRawBudget": 0,
+          "rawMagicChildIfBridgeReached": 2000
+        }
+      },
+      {
+        "id": "T136_visual",
+        "input": {
+          "casterType": "G053",
+          "creditedSouls": 10
+        },
+        "expected": {
+          "spawnedAbility": "T136",
+          "ownDamagePackets": 0,
+          "ownStuns": 0,
+          "changesSoulCountBeyondCredit": false
+        }
+      }
+    ]
+  }
+}

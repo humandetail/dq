@@ -1,0 +1,437 @@
+{
+  "skills": [
+    {
+      "id": "A094",
+      "status": "ready",
+      "rules": {
+        "count": 8,
+        "duration": 12,
+        "range": 800,
+        "area": 300,
+        "cooldown": 18,
+        "levels": [
+          {
+            "level": 1,
+            "unit": "b122",
+            "baseDisplayedAttack": 40,
+            "mana": 100,
+            "attackInterval": 1.5
+          },
+          {
+            "level": 2,
+            "unit": "b123",
+            "baseDisplayedAttack": 70,
+            "mana": 115,
+            "attackInterval": 1.5
+          },
+          {
+            "level": 3,
+            "unit": "b124",
+            "baseDisplayedAttack": 100,
+            "mana": 130,
+            "attackInterval": 1.4
+          },
+          {
+            "level": 4,
+            "unit": "b125",
+            "baseDisplayedAttack": 130,
+            "mana": 145,
+            "attackInterval": 1.4
+          },
+          {
+            "level": 5,
+            "unit": "b126",
+            "baseDisplayedAttack": 160,
+            "mana": 160,
+            "attackInterval": 1.3
+          },
+          {
+            "level": 6,
+            "unit": "b127",
+            "baseDisplayedAttack": 200,
+            "mana": 175,
+            "attackInterval": 1.2
+          }
+        ]
+      },
+      "sourceRefs": {
+        "ability": {
+          "reference/map-6.25/units_abilitydata.json": 892,
+          "reference/map-6.25/war3map.w3a.json": 58
+        },
+        "scripts": [
+          {
+            "sourcePath": "reference/map-6.25/main.disasm",
+            "function": "main/f7",
+            "key": "k72",
+            "constantLine": 49266,
+            "pc": 209,
+            "sourceLine": 49694,
+            "instruction": "loadk r41 k72"
+          },
+          {
+            "sourcePath": "reference/map-6.25/main.disasm",
+            "function": "main/f7/f11",
+            "key": "k9",
+            "constantLine": 50947,
+            "pc": 37,
+            "sourceLine": 50997,
+            "instruction": "loadk r4 k9"
+          },
+          {
+            "sourcePath": "reference/map-6.25/main.disasm",
+            "function": "main/f291/f27",
+            "key": "k111",
+            "constantLine": 173883,
+            "pc": 1359,
+            "sourceLine": 175536,
+            "instruction": "loadk r14 k111"
+          }
+        ]
+      },
+      "differences": [
+        "图鉴本体攻击额覆盖模板额外固定1d1",
+        "Q55远程绿蓝契使用完整图鉴系数和概率"
+      ],
+      "unresolved": [],
+      "validation": "双图鉴、对象、召唤继承原VM和Web向量"
+    },
+    {
+      "id": "A095",
+      "status": "ready",
+      "rules": {
+        "count": 8,
+        "duration": 15,
+        "range": 800,
+        "area": 300,
+        "cooldown": 18,
+        "levels": [
+          {
+            "level": 1,
+            "unit": "b132",
+            "baseDisplayedAttack": 40,
+            "mana": 100,
+            "attackInterval": 1.5
+          },
+          {
+            "level": 2,
+            "unit": "b133",
+            "baseDisplayedAttack": 70,
+            "mana": 115,
+            "attackInterval": 1.5
+          },
+          {
+            "level": 3,
+            "unit": "b134",
+            "baseDisplayedAttack": 100,
+            "mana": 130,
+            "attackInterval": 1.4
+          },
+          {
+            "level": 4,
+            "unit": "b135",
+            "baseDisplayedAttack": 130,
+            "mana": 145,
+            "attackInterval": 1.4
+          },
+          {
+            "level": 5,
+            "unit": "b136",
+            "baseDisplayedAttack": 160,
+            "mana": 160,
+            "attackInterval": 1.3
+          },
+          {
+            "level": 6,
+            "unit": "b137",
+            "baseDisplayedAttack": 200,
+            "mana": 175,
+            "attackInterval": 1.2
+          }
+        ]
+      },
+      "sourceRefs": {
+        "ability": {
+          "reference/map-6.25/units_abilitydata.json": 893,
+          "reference/map-6.25/war3map.w3a.json": 59
+        },
+        "scripts": [
+          {
+            "sourcePath": "reference/map-6.25/main.disasm",
+            "function": "main/f7/f12",
+            "key": "k8",
+            "constantLine": 51110,
+            "pc": 30,
+            "sourceLine": 51148,
+            "instruction": "loadk r4 k8"
+          },
+          {
+            "sourcePath": "reference/map-6.25/main.disasm",
+            "function": "main/f291/f27",
+            "key": "k112",
+            "constantLine": 173884,
+            "pc": 1367,
+            "sourceLine": 175544,
+            "instruction": "loadk r14 k112"
+          }
+        ]
+      },
+      "differences": [
+        "图鉴本体攻击额覆盖模板额外固定1d1",
+        "Q55远程绿蓝契使用完整图鉴系数和概率",
+        "N132三份提示为总4，原对象DataC=2"
+      ],
+      "unresolved": [],
+      "validation": "双图鉴、对象、召唤继承原VM和Web向量"
+    }
+  ],
+  "sourceRefs": {
+    "unitRecords": {
+      "b122": {
+        "reference/map-6.25/units_unitabilities.json": 997,
+        "reference/map-6.25/units_unitbalance.json": 997,
+        "reference/map-6.25/units_unitweapons.json": 997,
+        "reference/map-6.25/war3map.w3u.json": 13
+      },
+      "b123": {
+        "reference/map-6.25/units_unitabilities.json": 998,
+        "reference/map-6.25/units_unitbalance.json": 998,
+        "reference/map-6.25/units_unitweapons.json": 998,
+        "reference/map-6.25/war3map.w3u.json": 14
+      },
+      "b124": {
+        "reference/map-6.25/units_unitabilities.json": 999,
+        "reference/map-6.25/units_unitbalance.json": 999,
+        "reference/map-6.25/units_unitweapons.json": 999,
+        "reference/map-6.25/war3map.w3u.json": 15
+      },
+      "b125": {
+        "reference/map-6.25/units_unitabilities.json": 1000,
+        "reference/map-6.25/units_unitbalance.json": 1000,
+        "reference/map-6.25/units_unitweapons.json": 1000,
+        "reference/map-6.25/war3map.w3u.json": 16
+      },
+      "b126": {
+        "reference/map-6.25/units_unitabilities.json": 1001,
+        "reference/map-6.25/units_unitbalance.json": 1001,
+        "reference/map-6.25/units_unitweapons.json": 1001,
+        "reference/map-6.25/war3map.w3u.json": 17
+      },
+      "b127": {
+        "reference/map-6.25/units_unitabilities.json": 1002,
+        "reference/map-6.25/units_unitbalance.json": 1002,
+        "reference/map-6.25/units_unitweapons.json": 1002,
+        "reference/map-6.25/war3map.w3u.json": 18
+      },
+      "b132": {
+        "reference/map-6.25/units_unitabilities.json": 1003,
+        "reference/map-6.25/units_unitbalance.json": 1003,
+        "reference/map-6.25/units_unitweapons.json": 1003,
+        "reference/map-6.25/war3map.w3u.json": 19
+      },
+      "b133": {
+        "reference/map-6.25/units_unitabilities.json": 1004,
+        "reference/map-6.25/units_unitbalance.json": 1004,
+        "reference/map-6.25/units_unitweapons.json": 1004,
+        "reference/map-6.25/war3map.w3u.json": 20
+      },
+      "b134": {
+        "reference/map-6.25/units_unitabilities.json": 1005,
+        "reference/map-6.25/units_unitbalance.json": 1005,
+        "reference/map-6.25/units_unitweapons.json": 1005,
+        "reference/map-6.25/war3map.w3u.json": 21
+      },
+      "b135": {
+        "reference/map-6.25/units_unitabilities.json": 1006,
+        "reference/map-6.25/units_unitbalance.json": 1006,
+        "reference/map-6.25/units_unitweapons.json": 1006,
+        "reference/map-6.25/war3map.w3u.json": 22
+      },
+      "b136": {
+        "reference/map-6.25/units_unitabilities.json": 1007,
+        "reference/map-6.25/units_unitbalance.json": 1007,
+        "reference/map-6.25/units_unitweapons.json": 1007,
+        "reference/map-6.25/war3map.w3u.json": 23
+      },
+      "b137": {
+        "reference/map-6.25/units_unitabilities.json": 1008,
+        "reference/map-6.25/units_unitbalance.json": 1008,
+        "reference/map-6.25/units_unitweapons.json": 1008,
+        "reference/map-6.25/war3map.w3u.json": 24
+      }
+    },
+    "workbookRows": [
+      345,
+      345
+    ],
+    "sourceFingerprints": {
+      "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx": "47af226c7d16f240975d148e4b8f20bbcbf43c6141987cffc67435c1e0f437a1",
+      "图鉴.xlsx": "457c8f7e37e19412a0dd072ce941e95604b0b8910860b9e1eb9883e6b82bb6af",
+      "reference/map-6.25/units_abilitydata.json": "b772de42ebcfc1d3818298b35dbe81a35826892848c7cbfef70bf5097e481861",
+      "reference/map-6.25/units_unitabilities.json": "ebd8a6fd8410f593c5ecadf6bf7c4f6bbc5b4bb7183c5e986a4d2d77e1747133",
+      "reference/map-6.25/units_unitbalance.json": "096bad329e3b86f3ed4cad3e4ca7c8c4d8efcea2f25a366eef4eac8367eb70e3",
+      "reference/map-6.25/units_unitdata.json": "5489f9711b37803ea5d50e755d7c191205ea28710650d9a40dcd51b2e27c9e04",
+      "reference/map-6.25/units_unitweapons.json": "3d19b979895be4cb5fdaa6d6905faf6b2a907200fc67dfd2756777386dca1ec7",
+      "reference/map-6.25/war3map.w3a.json": "d2875f064b389bca471db97121ff7c810d46fbc962ae640ad128d1daa85931bb",
+      "reference/map-6.25/war3map.w3u.json": "4d599edcf9784748cb7d8f07d873331de37393c9dec20d55b8551a924e6946c1",
+      "reference/map-6.25/main.disasm": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+      "reference/map-6.25/units_campaignabilitystrings.txt": "5240c99230cd441b4c376371a31a7987e65470feed736177473a206c55fbe8cc"
+    },
+    "functions": [
+      {
+        "function": "main/f7/f11",
+        "startLine": 50925,
+        "endLine": 51089
+      },
+      {
+        "function": "main/f7/f12",
+        "startLine": 51090,
+        "endLine": 51204
+      },
+      {
+        "function": "main/f232/f0",
+        "startLine": 125445,
+        "endLine": 125916
+      },
+      {
+        "function": "main/f232/f1",
+        "startLine": 125917,
+        "endLine": 126170
+      },
+      {
+        "function": "main/f291/f1",
+        "startLine": 161979,
+        "endLine": 167019
+      },
+      {
+        "function": "main/f291/f20",
+        "startLine": 173119,
+        "endLine": 173543
+      },
+      {
+        "function": "main/f291/f21",
+        "startLine": 173544,
+        "endLine": 173568
+      },
+      {
+        "function": "main/f291/f27",
+        "startLine": 173759,
+        "endLine": 179251
+      },
+      {
+        "function": "main/f291/f40",
+        "startLine": 180081,
+        "endLine": 180155
+      }
+    ]
+  },
+  "auxiliary": [
+    "A096",
+    "A114",
+    "N132",
+    "12 ward unit templates"
+  ],
+  "validation": {
+    "original": {
+      "summonStates": [
+        {
+          "ward": "b122",
+          "mode": 0,
+          "items": [],
+          "baseState": 160.0,
+          "speedState": 1,
+          "addedAbilities": {}
+        },
+        {
+          "ward": "b132",
+          "mode": 0,
+          "items": [
+            "i240"
+          ],
+          "baseState": 220.0,
+          "speedState": 1.3,
+          "addedAbilities": {}
+        },
+        {
+          "ward": "b132",
+          "mode": 2,
+          "items": [
+            "i242"
+          ],
+          "baseState": 160.0,
+          "speedState": 1.2,
+          "addedAbilities": {}
+        },
+        {
+          "ward": "b132",
+          "mode": 1,
+          "items": [
+            "i250",
+            "i252",
+            "i254",
+            "i240",
+            "i242"
+          ],
+          "baseState": 220.0,
+          "speedState": 2.7,
+          "addedAbilities": {
+            "T085": 3,
+            "T086": 3,
+            "T087": 3
+          }
+        }
+      ],
+      "rangedSourceBlueAtRoll6Only": true,
+      "rangedGreenUsesOwnerAgiAndEndlessFactor": true,
+      "noRangedRed": true
+    },
+    "selected": {
+      "Q55": {
+        "greenOrdinary": [
+          72,
+          96,
+          120
+        ],
+        "greenEndless": [
+          144,
+          192,
+          240
+        ],
+        "blueOrdinary": [
+          1320,
+          1760,
+          2200
+        ],
+        "blueMainline": [
+          660,
+          880,
+          1100
+        ],
+        "blueSuccessRolls": 15
+      },
+      "simultaneousGroupCounts": [
+        16,
+        8,
+        0
+      ],
+      "independentExpires": [
+        [
+          12,
+          "A094"
+        ],
+        [
+          17,
+          "A095"
+        ]
+      ],
+      "ringSlotCount": 8,
+      "baseAndScaledInheritance": [
+        160,
+        190,
+        220
+      ],
+      "scepterWardTotalTargetCap": 4
+    },
+    "originalClientTested": false
+  }
+}

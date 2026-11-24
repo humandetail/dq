@@ -1,0 +1,311 @@
+{
+  "decision": "Q61",
+  "scope": "Existing audited differences and existing extracts",
+  "delegated": [
+    "area-active-batch-01",
+    "divine-books"
+  ],
+  "entries": [
+    {
+      "id": "A106.pulseRadius",
+      "status": "updated",
+      "source": 450,
+      "tooltip": 500,
+      "workbook": null,
+      "web": 500,
+      "refs": [
+        "units_campaignabilitystrings.txt#L1586",
+        "main.disasm#L79274"
+      ],
+      "machine": "zeus-skills.json",
+      "checks": [
+        [
+          [
+            "rules",
+            "A106",
+            "radius"
+          ],
+          500
+        ],
+        [
+          [
+            "rules",
+            "A106",
+            "sourceLuaRadius"
+          ],
+          450
+        ]
+      ]
+    },
+    {
+      "id": "A107.scepterMissingLifePercent",
+      "status": "updated",
+      "source": 10,
+      "tooltip": 12,
+      "workbook": null,
+      "web": 12,
+      "refs": [
+        "units_campaignabilitystrings.txt#L1603",
+        "main.disasm#L79802"
+      ],
+      "machine": "zeus-skills.json",
+      "checks": [
+        [
+          [
+            "rules",
+            "A107",
+            "scepterPercentMissingLife"
+          ],
+          12
+        ],
+        [
+          [
+            "rules",
+            "A107",
+            "sourceScepterPercentMissingLife"
+          ],
+          10
+        ]
+      ]
+    },
+    {
+      "id": "A107.scepterAbyssMultiplier",
+      "status": "updated",
+      "source": 0.1,
+      "tooltip": 0.5,
+      "workbook": null,
+      "web": 0.5,
+      "refs": [
+        "units_campaignabilitystrings.txt#L1603",
+        "main.disasm#L79802"
+      ],
+      "machine": "zeus-skills.json",
+      "checks": [
+        [
+          [
+            "rules",
+            "A107",
+            "scepterAbyssMultiplier"
+          ],
+          0.5
+        ],
+        [
+          [
+            "rules",
+            "A107",
+            "sourceScepterAbyssMultiplier"
+          ],
+          0.1
+        ]
+      ]
+    },
+    {
+      "id": "A112.endlessMultiplier",
+      "status": "updated",
+      "source": [
+        100,
+        67
+      ],
+      "tooltip": [
+        3,
+        2
+      ],
+      "workbook": null,
+      "web": [
+        3,
+        2
+      ],
+      "refs": [
+        "units_campaignabilitystrings.txt#L1677",
+        "units_campaignabilitystrings.txt#L2046",
+        "units_campaignabilitystrings.txt#L2066",
+        "main.disasm#L81282",
+        "wisp-link-overcharge-relocate.json#a112.decision"
+      ],
+      "machine": "wisp-link-overcharge-relocate.json",
+      "checks": [
+        [
+          [
+            "a112",
+            "selected",
+            "endlessMultiplier",
+            "numerator"
+          ],
+          3
+        ],
+        [
+          [
+            "a112",
+            "selected",
+            "endlessMultiplier",
+            "denominator"
+          ],
+          2
+        ],
+        [
+          [
+            "a112",
+            "decision",
+            "selected"
+          ],
+          "option1_floor70"
+        ]
+      ]
+    },
+    {
+      "id": "A072.scepterSecondaryRadius",
+      "status": "updated",
+      "source": 280,
+      "tooltip": 350,
+      "workbook": null,
+      "web": 350,
+      "refs": [
+        "units_campaignabilitystrings.txt#L1049",
+        "main.disasm#L73137"
+      ],
+      "machine": "hero-aura-family.json",
+      "checks": [
+        [
+          [
+            "entries",
+            {
+              "id": "A072"
+            },
+            "selected_parameters",
+            "scepter_secondary_radius"
+          ],
+          350
+        ],
+        [
+          [
+            "tooltip_only_differences",
+            0,
+            "script_radius"
+          ],
+          280
+        ]
+      ]
+    },
+    {
+      "id": "i115.flatAttack",
+      "status": "retained",
+      "reason": "workbook H25",
+      "refs": [
+        "item-flat-attack.md"
+      ]
+    },
+    {
+      "id": "A029.rank6Damage",
+      "status": "retained",
+      "reason": "explicit workbook override",
+      "refs": [
+        "native-targeted-batch-01.md"
+      ]
+    },
+    {
+      "id": "A090.root",
+      "status": "retained",
+      "reason": "explicit workbook I326/I561",
+      "refs": [
+        "bounty-hunter-tracking.md"
+      ]
+    },
+    {
+      "id": "A209.rank5and6WeaponRange",
+      "status": "retained",
+      "reason": "explicit workbook override",
+      "refs": [
+        "summon-family-batch-01.md"
+      ]
+    },
+    {
+      "id": "A026.armorIgnore",
+      "status": "retained",
+      "reason": "Q26",
+      "refs": [
+        "combat-and-skills.md"
+      ]
+    },
+    {
+      "id": "N140–N141.roar",
+      "status": "retained",
+      "reason": "Q59",
+      "refs": [
+        "spirit-bear.md"
+      ]
+    },
+    {
+      "id": "N136–N137.ensnare",
+      "status": "retained",
+      "reason": "Actual rank-1 tooltip matches chance and ordinary duration; hero-specific duration comes from auxiliary object and has no explicit hero figure in tooltip",
+      "refs": [
+        "spirit-bear.md",
+        "units_campaignabilitystrings.txt#L14548"
+      ]
+    },
+    {
+      "id": "T263–T268.poison",
+      "status": "retained",
+      "reason": "Q57",
+      "refs": [
+        "summon-family-batch-01.md"
+      ]
+    },
+    {
+      "id": "N731.totalTargets",
+      "status": "retained",
+      "reason": "Applicable tooltip already selected",
+      "refs": [
+        "summon-family-batch-01.md"
+      ]
+    },
+    {
+      "id": "N142–N147.chance",
+      "status": "updated_after_reachability_audit",
+      "source": [
+        25,
+        101
+      ],
+      "tooltipPercent": 25,
+      "webPercentIfReachable": 25,
+      "refs": [
+        "probability-helper-coverage.md",
+        "units_campaignabilitystrings.txt#L14616",
+        "main.disasm#L114401"
+      ],
+      "webPercent": 25,
+      "reachability": "A175/T189 -> n261–n266 -> N142–N147",
+      "completedRules": "legacy-skill-flaming-fists.json"
+    }
+  ],
+  "validation": {
+    "numericalProbes": {
+      "A106IncludedDistances": [
+        450,
+        450.001,
+        500
+      ],
+      "A107ScepterAmounts": [
+        480,
+        960,
+        240,
+        120,
+        120
+      ],
+      "A112EndlessAt699_700_9999_10000": [
+        140,
+        210,
+        2940,
+        3000
+      ],
+      "A072ClosedRadiusCases": [
+        true,
+        true,
+        true,
+        false
+      ]
+    },
+    "existingWispComparisonVectors": 168,
+    "originalClientTested": false
+  }
+}

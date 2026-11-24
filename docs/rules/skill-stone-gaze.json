@@ -1,0 +1,1599 @@
+{
+  "schemaVersion": 1,
+  "scope": "All four A007 module bodies and UnitIsHero checked; N536_Action fully checked only to close the direct early-unpause interaction. A164_T302_Eff audited only through the membership multiplier/damage call, not its full spell lifecycle. No client execution or universal native-control proof.",
+  "source": {
+    "path": "reference/map-6.25/main.disasm",
+    "sha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+    "workbookPath": "图鉴.xlsx",
+    "workbookSha256": "457c8f7e37e19412a0dd072ce941e95604b0b8910860b9e1eb9883e6b82bb6af",
+    "abilityStringsPath": "reference/map-6.25/units_campaignabilitystrings.txt",
+    "abilityStringsSha256": "5240c99230cd441b4c376371a31a7987e65470feed736177473a206c55fbe8cc"
+  },
+  "coreCounts": {
+    "instructions": 195,
+    "conditions": 17,
+    "calls": 28,
+    "returnInstructions": 14
+  },
+  "coreFunctions": [
+    {
+      "name": "A007_Action1",
+      "function": "main/f19/f0",
+      "sourceLines": [
+        61059,
+        61208
+      ],
+      "counts": {
+        "instructions": 101,
+        "conditions": 8,
+        "calls": 16,
+        "returnInstructions": 3
+      },
+      "conditions": [
+        {
+          "pc": 9,
+          "line": 61109,
+          "raw": "le 0 r2 k2",
+          "trueNextPC": 11,
+          "falseNextPC": 12,
+          "meaning": "target current life <= 0: return before state writes"
+        },
+        {
+          "pc": 16,
+          "line": 61117,
+          "raw": "eq 0 r3 k6",
+          "trueNextPC": 18,
+          "falseNextPC": 20,
+          "meaning": "UnitIsHero(target) == true: duration0.2 else1"
+        },
+        {
+          "pc": 26,
+          "line": 61129,
+          "raw": "eq 1 k11 r3",
+          "trueNextPC": 34,
+          "falseNextPC": 28,
+          "meaning": "target not in A007_units: continue; otherwise test paused"
+        },
+        {
+          "pc": 31,
+          "line": 61134,
+          "raw": "test r5 0",
+          "trueNextPC": 33,
+          "falseNextPC": 34,
+          "meaning": "already recorded and paused: return without refresh"
+        },
+        {
+          "pc": 52,
+          "line": 61157,
+          "raw": "eq 1 k18 r6",
+          "trueNextPC": 63,
+          "falseNextPC": 54,
+          "meaning": "candidate unit slot nil: use slot"
+        },
+        {
+          "pc": 59,
+          "line": 61164,
+          "raw": "lt 0 k2 r6",
+          "trueNextPC": 61,
+          "falseNextPC": 63,
+          "meaning": "candidate slot life>0: continue scanning; else reuse dead slot"
+        },
+        {
+          "pc": 82,
+          "line": 61188,
+          "raw": "eq 0 r6 r7",
+          "trueNextPC": 84,
+          "falseNextPC": 101,
+          "meaning": "actual source type==G043: inspect TxShow"
+        },
+        {
+          "pc": 85,
+          "line": 61191,
+          "raw": "eq 0 k6 r6",
+          "trueNextPC": 87,
+          "falseNextPC": 101,
+          "meaning": "TxShow==true: crystal visual and restore white immediately"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 11,
+          "line": 61111,
+          "raw": "return r0 1"
+        },
+        {
+          "pc": 33,
+          "line": 61136,
+          "raw": "return r0 1"
+        },
+        {
+          "pc": 101,
+          "line": 61208,
+          "raw": "return r0 1"
+        }
+      ],
+      "backedges": [
+        {
+          "pc": 62,
+          "line": 61167,
+          "targetPC": 50
+        }
+      ]
+    },
+    {
+      "name": "A007_time_start",
+      "function": "main/f19/f1",
+      "sourceLines": [
+        61210,
+        61237
+      ],
+      "counts": {
+        "instructions": 12,
+        "conditions": 0,
+        "calls": 3,
+        "returnInstructions": 1
+      },
+      "conditions": [],
+      "returns": [
+        {
+          "pc": 12,
+          "line": 61237,
+          "raw": "return r0 1"
+        }
+      ],
+      "backedges": []
+    },
+    {
+      "name": "A007_time_end",
+      "function": "main/f19/f2",
+      "sourceLines": [
+        61239,
+        61300
+      ],
+      "counts": {
+        "instructions": 37,
+        "conditions": 2,
+        "calls": 6,
+        "returnInstructions": 1
+      },
+      "conditions": [
+        {
+          "pc": 7,
+          "line": 61269,
+          "raw": "eq 1 k3 r1",
+          "trueNextPC": 34,
+          "falseNextPC": 9,
+          "meaning": "expired timer not found: skip restore/slot cleanup"
+        },
+        {
+          "pc": 11,
+          "line": 61273,
+          "raw": "eq 1 k4 r2",
+          "trueNextPC": 34,
+          "falseNextPC": 13,
+          "meaning": "matched unit slot nil: skip restore/slot cleanup"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 37,
+          "line": 61300,
+          "raw": "return r0 1"
+        }
+      ],
+      "backedges": []
+    },
+    {
+      "name": "A007_Get_probability",
+      "function": "main/f19/f3",
+      "sourceLines": [
+        61302,
+        61382
+      ],
+      "counts": {
+        "instructions": 45,
+        "conditions": 7,
+        "calls": 3,
+        "returnInstructions": 9
+      },
+      "conditions": [
+        {
+          "pc": 9,
+          "line": 61338,
+          "raw": "eq 0 k4 r1",
+          "trueNextPC": 11,
+          "falseNextPC": 13,
+          "meaning": "Game_Mode==2: return3 before level cases"
+        },
+        {
+          "pc": 13,
+          "line": 61343,
+          "raw": "eq 0 k7 r0",
+          "trueNextPC": 15,
+          "falseNextPC": 18,
+          "meaning": "level==1: return5"
+        },
+        {
+          "pc": 18,
+          "line": 61349,
+          "raw": "eq 0 k4 r0",
+          "trueNextPC": 20,
+          "falseNextPC": 23,
+          "meaning": "level==2: return6"
+        },
+        {
+          "pc": 23,
+          "line": 61355,
+          "raw": "eq 0 k6 r0",
+          "trueNextPC": 25,
+          "falseNextPC": 28,
+          "meaning": "level==3: return7"
+        },
+        {
+          "pc": 28,
+          "line": 61361,
+          "raw": "eq 0 k11 r0",
+          "trueNextPC": 30,
+          "falseNextPC": 33,
+          "meaning": "level==4: return8"
+        },
+        {
+          "pc": 33,
+          "line": 61367,
+          "raw": "eq 0 k8 r0",
+          "trueNextPC": 35,
+          "falseNextPC": 38,
+          "meaning": "level==5: return9"
+        },
+        {
+          "pc": 38,
+          "line": 61373,
+          "raw": "eq 0 k9 r0",
+          "trueNextPC": 40,
+          "falseNextPC": 43,
+          "meaning": "level==6: return12"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 12,
+          "line": 61341,
+          "raw": "return r1 2"
+        },
+        {
+          "pc": 16,
+          "line": 61346,
+          "raw": "return r1 2"
+        },
+        {
+          "pc": 21,
+          "line": 61352,
+          "raw": "return r1 2"
+        },
+        {
+          "pc": 26,
+          "line": 61358,
+          "raw": "return r1 2"
+        },
+        {
+          "pc": 31,
+          "line": 61364,
+          "raw": "return r1 2"
+        },
+        {
+          "pc": 36,
+          "line": 61370,
+          "raw": "return r1 2"
+        },
+        {
+          "pc": 41,
+          "line": 61376,
+          "raw": "return r1 2"
+        },
+        {
+          "pc": 44,
+          "line": 61380,
+          "raw": "return r1 2"
+        },
+        {
+          "pc": 45,
+          "line": 61382,
+          "raw": "return r0 1"
+        }
+      ],
+      "backedges": []
+    }
+  ],
+  "directFunctions": [
+    {
+      "name": "UnitIsHero",
+      "function": "main/f7/f45",
+      "sourceLines": [
+        52444,
+        52480
+      ],
+      "counts": {
+        "instructions": 17,
+        "conditions": 1,
+        "calls": 3,
+        "returnInstructions": 2
+      },
+      "conditions": [
+        {
+          "pc": 7,
+          "line": 52468,
+          "raw": "lt 0 k0 r1",
+          "trueNextPC": 9,
+          "falseNextPC": 14,
+          "meaning": "N534 level>0: return native SAPPER type test; elsefalse"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 16,
+          "line": 52479,
+          "raw": "return r1 2"
+        },
+        {
+          "pc": 17,
+          "line": 52480,
+          "raw": "return r0 1"
+        }
+      ],
+      "backedges": []
+    },
+    {
+      "name": "N536_Action necessary early-unpause interaction",
+      "function": "main/f190/f0",
+      "sourceLines": [
+        115496,
+        115598
+      ],
+      "counts": {
+        "instructions": 65,
+        "conditions": 5,
+        "calls": 10,
+        "returnInstructions": 3
+      },
+      "conditions": [
+        {
+          "pc": 4,
+          "line": 115533,
+          "raw": "eq 0 k1 r1",
+          "trueNextPC": 6,
+          "falseNextPC": 7,
+          "meaning": "current event damage==0: return"
+        },
+        {
+          "pc": 11,
+          "line": 115541,
+          "raw": "eq 1 k3 r2",
+          "trueNextPC": 22,
+          "falseNextPC": 13,
+          "meaning": "target absent from private tracking list: skip existing-record lethal check"
+        },
+        {
+          "pc": 17,
+          "line": 115547,
+          "raw": "lt 0 r3 r1",
+          "trueNextPC": 19,
+          "falseNextPC": 22,
+          "meaning": "existing record and D>current life: clear record/counter and return"
+        },
+        {
+          "pc": 22,
+          "line": 115553,
+          "raw": "eq 0 k3 r2",
+          "trueNextPC": 24,
+          "falseNextPC": 30,
+          "meaning": "target absent: allocate record and initialize counter0"
+        },
+        {
+          "pc": 39,
+          "line": 115571,
+          "raw": "lt 0 r3 r4",
+          "trueNextPC": 41,
+          "falseNextPC": 65,
+          "meaning": "accumulated damage>maxLife*0.1: reset accumulated value and unpause/purge"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 6,
+          "line": 115535,
+          "raw": "return r0 1"
+        },
+        {
+          "pc": 21,
+          "line": 115551,
+          "raw": "return r0 1"
+        },
+        {
+          "pc": 65,
+          "line": 115598,
+          "raw": "return r0 1"
+        }
+      ],
+      "backedges": []
+    }
+  ],
+  "workbook": [
+    {
+      "towerName": "桔梗<SR>",
+      "towerId": "G043",
+      "cells": [
+        "塔技能!H367",
+        "塔技能!I367"
+      ],
+      "description": "美杜莎的任意伤害都有概率石化敌人。\n被动",
+      "levelsText": "等级 1｜5%的概率石化敌人。\n等级 2｜6%的概率石化敌人。\n等级 3｜7%的概率石化敌人。\n等级 4｜8%的概率石化敌人。\n等级 5｜9%的概率石化敌人。\n等级 6｜12%的概率石化敌人。"
+    },
+    {
+      "towerName": "琴弓媚姬<SR>",
+      "towerId": "G035",
+      "cells": [
+        "塔技能!H508",
+        "塔技能!I508"
+      ],
+      "description": "美杜莎的任意伤害都有概率石化敌人。\n被动",
+      "levelsText": "等级 1｜5%的概率石化敌人。\n等级 2｜6%的概率石化敌人。\n等级 3｜7%的概率石化敌人。\n等级 4｜8%的概率石化敌人。\n等级 5｜9%的概率石化敌人。\n等级 6｜12%的概率石化敌人。"
+    },
+    {
+      "towerName": "美杜莎<SR>",
+      "towerId": "H002",
+      "cells": [
+        "塔技能!H544",
+        "塔技能!I544"
+      ],
+      "description": "美杜莎的任意伤害都有概率石化敌人。\n被动",
+      "levelsText": "等级 1｜5%的概率石化敌人。\n等级 2｜6%的概率石化敌人。\n等级 3｜7%的概率石化敌人。\n等级 4｜8%的概率石化敌人。\n等级 5｜9%的概率石化敌人。\n等级 6｜12%的概率石化敌人。"
+    }
+  ],
+  "actualTooltip": {
+    "researchLine": 94,
+    "researchText": "Researchubertip=美杜莎的任意伤害都有概率石化敌人。|n|cffffcc00被动|r|n|n|cffffcc00等级 1|r|n -5%的概率石化敌人。|n|cffffcc00等级 2|r|n -6%的概率石化敌人。|n|cffffcc00等级 3|r|n -7%的概率石化敌人。|n|cffffcc00等级 4|r|n -8%的概率石化敌人。|n|cffffcc00等级 5|r|n -9%的概率石化敌人。|n|cffffcc00等级 6|r|n -12%的概率石化敌人。",
+    "learnedLine": 97,
+    "learnedText": "Ubertip=美杜莎的任意伤害都有5%的概率石化敌人。,美杜莎的任意伤害都有6%的概率石化敌人。,美杜莎的任意伤害都有7%的概率石化敌人。,美杜莎的任意伤害都有8%的概率石化敌人。,美杜莎的任意伤害都有9%的概率石化敌人。,美杜莎的任意伤害都有12%的概率石化敌人。",
+    "interpretation": "Both say any damage; both list5/6/7/8/9/12%; neither lists Abyss3%, duration, generic vulnerability or refresh rule."
+  },
+  "objectData": {
+    "A007": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 13779,
+      "data": {
+        "alias": "A007",
+        "code": "AUav",
+        "checkDep": 1,
+        "levels": 6,
+        "reqLevel": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "N534": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 27010,
+      "data": {
+        "alias": "N534",
+        "code": "Arsk",
+        "checkDep": 1,
+        "levels": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "N536": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 27031,
+      "data": {
+        "alias": "N536",
+        "code": "AOcr",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "air,ground,enemy,neutral",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "G043": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 4240,
+      "data": {
+        "unitAbilID": "G043",
+        "abilList": "Avul,AInv,T033,A098",
+        "auto": "_",
+        "heroAbilList": "A005,A006,A007,T000,P000"
+      }
+    },
+    "G035": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 4192,
+      "data": {
+        "unitAbilID": "G035",
+        "abilList": "Avul,AInv,T033,A100",
+        "auto": "_",
+        "heroAbilList": "A005,A006,A007,T000,P000"
+      }
+    },
+    "H002": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 4474,
+      "data": {
+        "unitAbilID": "H002",
+        "abilList": "Avul,AInv,T033,S041",
+        "auto": "_",
+        "heroAbilList": "A005,A006,A007,T000,P000"
+      }
+    }
+  },
+  "incrementalAbilityOverrides": null,
+  "originalRules": {
+    "entry": {
+      "event": "anyUnitDamaged",
+      "source": "actual event source S, not automatically owner O",
+      "target": "GetTriggerUnit(): current event victim",
+      "gate": [
+        "execution reaches PC293 (earlier pipeline returns/bypasses apply)",
+        "GetUnitAbilityLevel(S,A007)>0",
+        "IsUnitIllusion(S)==false"
+      ],
+      "sequence": [
+        "read mode/level threshold",
+        "draw integer0..100 once",
+        "if roll<threshold: call A007_Action1",
+        "Action1 independently rechecks target life and recorded-paused state"
+      ],
+      "noLocalGate": [
+        "attack flag",
+        "damage type",
+        "target owner/enemy relation",
+        "target boss/gold ID",
+        "current A007 cooldown",
+        "mana",
+        "target already paused before random draw"
+      ],
+      "sourceWithoutAbility": "owner having A007 alone does not pass"
+    },
+    "probability": {
+      "thresholdByLevel": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        12
+      ],
+      "abyssOverride": 3,
+      "abyssPredicate": "Game_Mode==2, before level dispatch",
+      "inclusiveRandomRange": [
+        0,
+        100
+      ],
+      "comparison": "r<threshold",
+      "exactProbability": "threshold/101",
+      "invalidLevelNonAbyss": 0,
+      "invalidLevelAbyss": 3,
+      "randomLocation": "main/f291/f1, not inside A007_Get_probability"
+    },
+    "application": {
+      "targetDeadPredicate": "GetUnitState(T,LIFE)<=0: return",
+      "duration": "UnitIsHero(T)==true ?0.2:1",
+      "customHero": "N534 level>0 AND native UNIT_TYPE_SAPPER",
+      "blockedRepeat": "IsInTable(T,A007_units)!=-1 AND IsUnitPaused(T) truthy: return",
+      "stateWritesOrdered": [
+        [
+          "vertexColor",
+          [
+            96,
+            96,
+            96,
+            255
+          ]
+        ],
+        [
+          "timeScale",
+          0
+        ],
+        [
+          "paused",
+          true
+        ]
+      ],
+      "allocation": "first i>=1 where unit slot is nil OR that stored unit life<=0",
+      "timer": "one-shot, duration0.2 or1, A007_time_end",
+      "writeOrder": [
+        "TimerStart(newTimer,duration,false,A007_time_end)",
+        "A007_timers[i]=newTimer",
+        "A007_units[i]=T"
+      ],
+      "oldTimerOnDeadSlotReuse": "not destroyed",
+      "recordedButUnpaused": "new record may duplicate T; old timer retained",
+      "skinVisual": "only source typeG043 and TxShow==true: crystal effect for duration, then white color; pause and timeScale unchanged"
+    },
+    "expiry": {
+      "lookup": "IsInTable(GetExpiredTimer(),A007_timers)",
+      "guard": "index!=-1 AND A007_units[index]!=nil",
+      "insideGuard": [
+        "set colorwhite255",
+        "set timeScale1",
+        "PauseUnit(false)",
+        "clear timer slot",
+        "clear unit slot"
+      ],
+      "outsideGuard": "always DestroyTimer(expired)",
+      "lifeCheck": false,
+      "restorePreviousValues": false,
+      "missingUnitSlot": "timer array slot not cleared by this body"
+    },
+    "registrationHelper": {
+      "name": "A007_time_start(timer)",
+      "behavior": "create trigger, register timer expire, add A007_time_end, set local trigger variable nil; no DestroyTrigger",
+      "staticallyReferencedCallsites": 0,
+      "activeApplication": "Action1 uses TimerStart callback directly; does not call A007_time_start"
+    },
+    "damageAndInteractions": {
+      "ownDamagePackets": 0,
+      "genericDamageMultiplier": null,
+      "directExternalArrayReaders": [
+        "A164_T302_Eff"
+      ],
+      "snake": {
+        "condition": "target found in A007_units",
+        "formula": "T302Level*privateSnakeIndex*2000*(membership?2:1)",
+        "currentPausedChecked": false,
+        "packet": "actual source arg0, attackfalse,rangedfalse,NORMAL/MAGIC,WHOKNOWS",
+        "scope": "only this specific derived packet, not all damage",
+        "actualTooltipEvidence": {
+          "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+          "line": 22963,
+          "text": "Ubertip=末日使者放出秘术异蛇在敌人之间跳跃，造成2000法术伤害并偷取法力值，每次跳跃伤害增加2000。抵达最后一个目标后，它会返回到末日使者身上为其恢复法力值。对石化凝视作用下的石化单位将造成双倍伤害。,末日使者放出秘术异蛇在敌人之间跳跃，造成4000法术伤害并偷取法力值，每次跳跃伤害增加4000。抵达最后一个目标后，它会返回到末日使者身上为其恢复法力值。对石化凝视作用下的石化单位将造成双倍伤害。,末日使者放出秘术异蛇在敌人之间跳跃，造成6000法术伤害并偷取法力值，每次跳跃伤害增加6000。抵达最后一个目标后，它会返回到末日使者身上为其恢复法力值。对石化凝视作用下的石化单位将造成双倍伤害。,末日使者放出秘术异蛇在敌人之间跳跃，造成8000法术伤害并偷取法力值，每次跳跃伤害增加8000。抵达最后一个目标后，它会返回到末日使者身上为其恢复法力值。对石化凝视作用下的石化单位将造成双倍伤害。",
+          "qualification": "T302 actual tooltip explicitly gives double damage to A007 stone targets; no generic all-damage amplification"
+        }
+      },
+      "N536": {
+        "callOrder": "after A007 branch in the same damage event, PC3110",
+        "zeroDamage": "D==0 returns",
+        "existingLethal": "already tracked AND D>life: clear N536 record/counter and return",
+        "newRecord": "create private record/counter0 if absent",
+        "counter": "counter+=current mutable event D",
+        "purgePredicate": "counter>maxLife*0.1 strictly",
+        "purgeActions": [
+          "counter=0",
+          "UnitRemoveBuffs(false,true)",
+          "PauseUnit(false)",
+          "restore default fly height",
+          "visual"
+        ],
+        "doesNotChange": [
+          "A007_units",
+          "A007_timers",
+          "vertexColor",
+          "timeScale"
+        ]
+      }
+    }
+  },
+  "evidence": [
+    {
+      "name": "source and random entry",
+      "function": "main/f291/f1",
+      "lines": [
+        162801,
+        162823
+      ],
+      "pcs": [
+        293,
+        315
+      ]
+    },
+    {
+      "name": "N536 later dispatch",
+      "function": "main/f291/f1",
+      "lines": [
+        165764,
+        165775
+      ],
+      "pcs": [
+        3099,
+        3110
+      ]
+    },
+    {
+      "name": "snake membership multiplier and packet only",
+      "function": "main/f115/f9",
+      "lines": [
+        89785,
+        89805
+      ],
+      "pcs": [
+        27,
+        46
+      ]
+    },
+    {
+      "name": "snake q034 caller bridge",
+      "function": "main/f291/f1",
+      "lines": [
+        164938,
+        164958
+      ],
+      "pcs": [
+        2318,
+        2338
+      ],
+      "qualification": "q034-source branch with owner T302; original larger q-source dispatch chain remains in damage-pipeline audit"
+    }
+  ],
+  "reusedEvidence": {
+    "pipeline": "docs/rules/damage-pipeline.md",
+    "eventAndTimerBaseline": "docs/rules/web-baseline.md",
+    "IsInTable": {
+      "function": "main/f7/f7",
+      "lines": [
+        50776,
+        50810
+      ]
+    },
+    "visualHelpers": [
+      {
+        "function": "main/f7/f24",
+        "lines": [
+          51609,
+          51659
+        ]
+      },
+      {
+        "function": "main/f7/f26",
+        "lines": [
+          51712,
+          51752
+        ]
+      }
+    ],
+    "AddArrAny": {
+      "function": "main/f7/f22",
+      "lines": [
+        51546,
+        51568
+      ]
+    },
+    "AbyssChickenPeriodicUnpause": "docs/rules/waves-and-modes.md"
+  },
+  "decision": {
+    "id": "Q33",
+    "status": "confirmed",
+    "selected": {
+      "id": "exact_with_abyss3",
+      "normalAndEndlessPercent": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        12
+      ],
+      "abyssPercent": 3,
+      "exactProbability": "threshold/100"
+    },
+    "preserve": [
+      "any damage type and attack flag",
+      "actual source must have A007 level>0",
+      "source must be nonillusion",
+      "earlier event exits and bypasses",
+      "resolve threshold then draw once at the original caller position",
+      "target-life and recorded/paused checks occur only after successful draw",
+      "original target, duration, timer and other supplemental behavior"
+    ],
+    "branchOrder": "read level, then Game_Mode==2 returns threshold3 before the level1..6 dispatch; do not add a level1..6 guard to the Abyss override",
+    "invalidLevels": "outside Abyss, unmatched level returns0; in Abyss, threshold resolver returns3 for any level, but the caller still separately requires level>0"
+  },
+  "Q24Boundary": "No substitute rule chosen for known script behavior; external pause interactions remain literal source rules. Native client details not established are explicitly left unclosed.",
+  "unclosed": [
+    "Native PauseUnit/SetUnitTimeScale/vertex-color behavior on removed handles and simultaneous controls beyond the exact writes here",
+    "Same-deadline timer/event ordering is Web B05 choice, not evidence of original client ordering",
+    "Other native properties inherited from AUav/Arsk/AOcr where source fields are absent; omission is not zero",
+    "Full A164_T302 spell lifecycle and all possible control writers are outside this batch; only specific membership multiplier and N536 interaction checked"
+  ],
+  "validation": {
+    "kind": "Static bytecode/source checks plus separately identified original and confirmed-Web Q33 probability/gate vectors; no game execution.",
+    "cases": [
+      {
+        "id": "original_probability_L1_mode0",
+        "input": {
+          "level": 1,
+          "Game_Mode": 0
+        },
+        "expected": {
+          "threshold": 5,
+          "originalProbability": 0.04950495049504951,
+          "webProbability": 0.05
+        },
+        "basis": "original_script_and_confirmed_Q33"
+      },
+      {
+        "id": "original_probability_L1_mode1",
+        "input": {
+          "level": 1,
+          "Game_Mode": 1
+        },
+        "expected": {
+          "threshold": 5,
+          "originalProbability": 0.04950495049504951,
+          "webProbability": 0.05
+        },
+        "basis": "original_script_and_confirmed_Q33"
+      },
+      {
+        "id": "original_probability_L1_mode2",
+        "input": {
+          "level": 1,
+          "Game_Mode": 2
+        },
+        "expected": {
+          "threshold": 3,
+          "originalProbability": 0.0297029702970297,
+          "webProbability": 0.03
+        },
+        "basis": "original_script_and_confirmed_Q33"
+      },
+      {
+        "id": "original_probability_L2_mode0",
+        "input": {
+          "level": 2,
+          "Game_Mode": 0
+        },
+        "expected": {
+          "threshold": 6,
+          "originalProbability": 0.0594059405940594,
+          "webProbability": 0.06
+        },
+        "basis": "original_script_and_confirmed_Q33"
+      },
+      {
+        "id": "original_probability_L2_mode1",
+        "input": {
+          "level": 2,
+          "Game_Mode": 1
+        },
+        "expected": {
+          "threshold": 6,
+          "originalProbability": 0.0594059405940594,
+          "webProbability": 0.06
+        },
+        "basis": "original_script_and_confirmed_Q33"
+      },
+      {
+        "id": "original_probability_L2_mode2",
+        "input": {
+          "level": 2,
+          "Game_Mode": 2
+        },
+        "expected": {
+          "threshold": 3,
+          "originalProbability": 0.0297029702970297,
+          "webProbability": 0.03
+        },
+        "basis": "original_script_and_confirmed_Q33"
+      },
+      {
+        "id": "original_probability_L3_mode0",
+        "input": {
+          "level": 3,
+          "Game_Mode": 0
+        },
+        "expected": {
+          "threshold": 7,
+          "originalProbability": 0.06930693069306931,
+          "webProbability": 0.07
+        },
+        "basis": "original_script_and_confirmed_Q33"
+      },
+      {
+        "id": "original_probability_L3_mode1",
+        "input": {
+          "level": 3,
+          "Game_Mode": 1
+        },
+        "expected": {
+          "threshold": 7,
+          "originalProbability": 0.06930693069306931,
+          "webProbability": 0.07
+        },
+        "basis": "original_script_and_confirmed_Q33"
+      },
+      {
+        "id": "original_probability_L3_mode2",
+        "input": {
+          "level": 3,
+          "Game_Mode": 2
+        },
+        "expected": {
+          "threshold": 3,
+          "originalProbability": 0.0297029702970297,
+          "webProbability": 0.03
+        },
+        "basis": "original_script_and_confirmed_Q33"
+      },
+      {
+        "id": "original_probability_L4_mode0",
+        "input": {
+          "level": 4,
+          "Game_Mode": 0
+        },
+        "expected": {
+          "threshold": 8,
+          "originalProbability": 0.07920792079207921,
+          "webProbability": 0.08
+        },
+        "basis": "original_script_and_confirmed_Q33"
+      },
+      {
+        "id": "original_probability_L4_mode1",
+        "input": {
+          "level": 4,
+          "Game_Mode": 1
+        },
+        "expected": {
+          "threshold": 8,
+          "originalProbability": 0.07920792079207921,
+          "webProbability": 0.08
+        },
+        "basis": "original_script_and_confirmed_Q33"
+      },
+      {
+        "id": "original_probability_L4_mode2",
+        "input": {
+          "level": 4,
+          "Game_Mode": 2
+        },
+        "expected": {
+          "threshold": 3,
+          "originalProbability": 0.0297029702970297,
+          "webProbability": 0.03
+        },
+        "basis": "original_script_and_confirmed_Q33"
+      },
+      {
+        "id": "original_probability_L5_mode0",
+        "input": {
+          "level": 5,
+          "Game_Mode": 0
+        },
+        "expected": {
+          "threshold": 9,
+          "originalProbability": 0.0891089108910891,
+          "webProbability": 0.09
+        },
+        "basis": "original_script_and_confirmed_Q33"
+      },
+      {
+        "id": "original_probability_L5_mode1",
+        "input": {
+          "level": 5,
+          "Game_Mode": 1
+        },
+        "expected": {
+          "threshold": 9,
+          "originalProbability": 0.0891089108910891,
+          "webProbability": 0.09
+        },
+        "basis": "original_script_and_confirmed_Q33"
+      },
+      {
+        "id": "original_probability_L5_mode2",
+        "input": {
+          "level": 5,
+          "Game_Mode": 2
+        },
+        "expected": {
+          "threshold": 3,
+          "originalProbability": 0.0297029702970297,
+          "webProbability": 0.03
+        },
+        "basis": "original_script_and_confirmed_Q33"
+      },
+      {
+        "id": "original_probability_L6_mode0",
+        "input": {
+          "level": 6,
+          "Game_Mode": 0
+        },
+        "expected": {
+          "threshold": 12,
+          "originalProbability": 0.1188118811881188,
+          "webProbability": 0.12
+        },
+        "basis": "original_script_and_confirmed_Q33"
+      },
+      {
+        "id": "original_probability_L6_mode1",
+        "input": {
+          "level": 6,
+          "Game_Mode": 1
+        },
+        "expected": {
+          "threshold": 12,
+          "originalProbability": 0.1188118811881188,
+          "webProbability": 0.12
+        },
+        "basis": "original_script_and_confirmed_Q33"
+      },
+      {
+        "id": "original_probability_L6_mode2",
+        "input": {
+          "level": 6,
+          "Game_Mode": 2
+        },
+        "expected": {
+          "threshold": 3,
+          "originalProbability": 0.0297029702970297,
+          "webProbability": 0.03
+        },
+        "basis": "original_script_and_confirmed_Q33"
+      },
+      {
+        "id": "threshold_roll_boundaries",
+        "input": {
+          "Game_Mode": 2,
+          "rolls": [
+            0,
+            2,
+            3,
+            100
+          ]
+        },
+        "expected": {
+          "originalSuccess": [
+            true,
+            true,
+            false,
+            false
+          ]
+        }
+      },
+      {
+        "id": "invalid_level_nonabyss",
+        "input": {
+          "level": 7,
+          "Game_Mode": 1
+        },
+        "expected": {
+          "threshold": 0,
+          "originalProbability": 0,
+          "webProbability": 0.0
+        },
+        "basis": "original_script_and_confirmed_Q33"
+      },
+      {
+        "id": "invalid_level_abyss",
+        "input": {
+          "level": 7,
+          "Game_Mode": 2
+        },
+        "expected": {
+          "threshold": 3,
+          "originalProbability": 0.0297029702970297,
+          "qualification": "outer has-level gate is >0, not range1..6",
+          "webProbability": 0.03
+        },
+        "basis": "original_script_and_confirmed_Q33"
+      },
+      {
+        "id": "duration_ordinary",
+        "input": {
+          "N534": false,
+          "SAPPER": false,
+          "nativeHERO": false
+        },
+        "expected": {
+          "durationSeconds": 1
+        }
+      },
+      {
+        "id": "duration_custom_boss",
+        "input": {
+          "N534": true,
+          "SAPPER": true,
+          "nativeHERO": false
+        },
+        "expected": {
+          "durationSeconds": 0.2
+        }
+      },
+      {
+        "id": "duration_N534_only",
+        "input": {
+          "N534": true,
+          "SAPPER": false,
+          "nativeHERO": false
+        },
+        "expected": {
+          "durationSeconds": 1
+        }
+      },
+      {
+        "id": "duration_sapper_only",
+        "input": {
+          "N534": false,
+          "SAPPER": true,
+          "nativeHERO": false
+        },
+        "expected": {
+          "durationSeconds": 1
+        }
+      },
+      {
+        "id": "duration_native_hero_only",
+        "input": {
+          "N534": false,
+          "SAPPER": false,
+          "nativeHERO": true
+        },
+        "expected": {
+          "durationSeconds": 1
+        }
+      },
+      {
+        "id": "dead_target_after_successful_draw",
+        "input": {
+          "life": 0,
+          "probabilitySucceeded": true
+        },
+        "expected": {
+          "randomDraws": 1,
+          "stateWrites": 0,
+          "timersCreated": 0
+        }
+      },
+      {
+        "id": "already_paused_and_recorded",
+        "input": {
+          "life": 100,
+          "alreadyRecorded": true,
+          "paused": true,
+          "probabilitySucceeded": true
+        },
+        "expected": {
+          "randomDraws": 1,
+          "timersCreated": 0,
+          "durationRefreshed": false
+        }
+      },
+      {
+        "id": "paused_without_record",
+        "input": {
+          "life": 100,
+          "alreadyRecorded": false,
+          "paused": true
+        },
+        "expected": {
+          "timersCreated": 1,
+          "pauseTrueWrites": 1,
+          "laterPauseFalseWrites": 1
+        }
+      },
+      {
+        "id": "recorded_but_unpaused",
+        "input": {
+          "life": 100,
+          "alreadyRecorded": true,
+          "paused": false,
+          "oldRecordStillAlive": true
+        },
+        "expected": {
+          "newDuplicateRecord": true,
+          "oldTimerCancelled": false
+        }
+      },
+      {
+        "id": "duplicate_timer_unpause",
+        "input": {
+          "firstApplyTime": 0,
+          "externalUnpauseTime": 0.4,
+          "secondApplyTime": 0.5,
+          "duration": 1
+        },
+        "expected": {
+          "timerDeadlines": [
+            1,
+            1.5
+          ],
+          "firstRestorationTime": 1,
+          "membershipRemainsUntil": 1.5,
+          "qualification": "with no further status mutation or slot reuse"
+        }
+      },
+      {
+        "id": "dead_slot_reuse",
+        "input": {
+          "slotUnits": [
+            {
+              "id": "dead",
+              "life": 0
+            },
+            {
+              "id": "alive",
+              "life": 10
+            }
+          ],
+          "oldTimerAtSlot1Exists": true
+        },
+        "expected": {
+          "allocatedIndex": 1,
+          "oldTimerCancelled": false,
+          "oldExpiryFindsTimer": false
+        }
+      },
+      {
+        "id": "expiry_missing_timer",
+        "input": {
+          "matchedIndex": -1
+        },
+        "expected": {
+          "stateWrites": 0,
+          "slotClears": 0,
+          "timerDestroyed": true
+        }
+      },
+      {
+        "id": "expiry_nil_unit",
+        "input": {
+          "matchedIndex": 1,
+          "unitAtSlot": null
+        },
+        "expected": {
+          "stateWrites": 0,
+          "slotClears": 0,
+          "timerDestroyed": true,
+          "timerArraySlotStays": true
+        }
+      },
+      {
+        "id": "expiry_dead_unit",
+        "input": {
+          "matchedIndex": 1,
+          "unitAtSlot": "dead",
+          "unitLife": 0
+        },
+        "expected": {
+          "color": [
+            255,
+            255,
+            255,
+            255
+          ],
+          "timeScale": 1,
+          "paused": false,
+          "clearsTimerAndUnitSlot": true
+        }
+      },
+      {
+        "id": "crystal_skin",
+        "input": {
+          "sourceType": "G043",
+          "TxShow": true
+        },
+        "expected": {
+          "finalColor": [
+            255,
+            255,
+            255,
+            255
+          ],
+          "timeScale": 0,
+          "paused": true,
+          "visual": "AZ_ShuiJingShiHua.mdx"
+        }
+      },
+      {
+        "id": "crystal_skin_visual_off",
+        "input": {
+          "sourceType": "G043",
+          "TxShow": false
+        },
+        "expected": {
+          "finalColor": [
+            96,
+            96,
+            96,
+            255
+          ],
+          "timeScale": 0,
+          "paused": true,
+          "visual": null
+        }
+      },
+      {
+        "id": "other_skin",
+        "input": {
+          "sourceType": "G035",
+          "TxShow": true
+        },
+        "expected": {
+          "finalColor": [
+            96,
+            96,
+            96,
+            255
+          ],
+          "timeScale": 0,
+          "paused": true,
+          "visual": null
+        }
+      },
+      {
+        "id": "nonattack_damage_eligible",
+        "input": {
+          "reachesBranch": true,
+          "hasA007": true,
+          "illusion": false,
+          "attackFlag": 0
+        },
+        "expected": {
+          "probabilityCalls": 1
+        }
+      },
+      {
+        "id": "illusion_damage_excluded",
+        "input": {
+          "reachesBranch": true,
+          "hasA007": true,
+          "illusion": true,
+          "attackFlag": 1
+        },
+        "expected": {
+          "probabilityCalls": 0
+        }
+      },
+      {
+        "id": "owner_only_skill",
+        "input": {
+          "reachesBranch": true,
+          "actualSourceHasA007": false,
+          "ownerHasA007": true,
+          "illusion": false
+        },
+        "expected": {
+          "probabilityCalls": 0
+        }
+      },
+      {
+        "id": "initial_zero_early_return",
+        "input": {
+          "reachesBranch": false,
+          "initialEventDamage": 0,
+          "hasA007": true,
+          "illusion": false
+        },
+        "expected": {
+          "probabilityCalls": 0
+        }
+      },
+      {
+        "id": "T302_membership_False_False",
+        "input": {
+          "T302Level": 2,
+          "currentSnakeIndex": 3,
+          "targetInA007Units": false,
+          "targetPaused": false
+        },
+        "expected": {
+          "rawSnakeMagicDamage": 12000,
+          "generalDamageMultiplierGrantedByA007": null
+        }
+      },
+      {
+        "id": "T302_membership_True_True",
+        "input": {
+          "T302Level": 2,
+          "currentSnakeIndex": 3,
+          "targetInA007Units": true,
+          "targetPaused": true
+        },
+        "expected": {
+          "rawSnakeMagicDamage": 24000,
+          "generalDamageMultiplierGrantedByA007": null
+        }
+      },
+      {
+        "id": "T302_membership_True_False",
+        "input": {
+          "T302Level": 2,
+          "currentSnakeIndex": 3,
+          "targetInA007Units": true,
+          "targetPaused": false
+        },
+        "expected": {
+          "rawSnakeMagicDamage": 24000,
+          "generalDamageMultiplierGrantedByA007": null
+        }
+      },
+      {
+        "id": "N536_purge_boundary_100",
+        "input": {
+          "tracked": true,
+          "currentDamage": 1,
+          "currentLife": 500,
+          "maxLife": 1000,
+          "priorAccumulatedDamage": 99
+        },
+        "expected": {
+          "unpause": false,
+          "A007RecordRemoved": false,
+          "A007TimeScaleRestored": false
+        }
+      },
+      {
+        "id": "N536_purge_boundary_101",
+        "input": {
+          "tracked": true,
+          "currentDamage": 1,
+          "currentLife": 500,
+          "maxLife": 1000,
+          "priorAccumulatedDamage": 100
+        },
+        "expected": {
+          "unpause": true,
+          "A007RecordRemoved": false,
+          "A007TimeScaleRestored": false
+        }
+      },
+      {
+        "id": "N536_existing_lethal_early_return",
+        "input": {
+          "tracked": true,
+          "currentDamage": 501,
+          "currentLife": 500,
+          "maxLife": 1000,
+          "priorAccumulatedDamage": 100
+        },
+        "expected": {
+          "clearsN536Record": true,
+          "unpause": false,
+          "A007RecordRemoved": false
+        }
+      },
+      {
+        "id": "abyss_threshold_resolver_level0",
+        "basis": "original_script_and_confirmed_Q33",
+        "input": {
+          "scope": "thresholdResolverDirectCall",
+          "level": 0,
+          "Game_Mode": 2
+        },
+        "expected": {
+          "threshold": 3,
+          "originalProbability": 0.0297029702970297,
+          "webProbability": 0.03,
+          "qualification": "ordinary damage caller rejects level0 before invoking resolver or drawing"
+        }
+      },
+      {
+        "id": "web_abyss_outer_level0_rejected",
+        "basis": "confirmed_Q33",
+        "input": {
+          "scope": "damageEntry",
+          "reachesBranch": true,
+          "level": 0,
+          "Game_Mode": 2,
+          "illusion": false
+        },
+        "expected": {
+          "thresholdResolverCalls": 0,
+          "randomDraws": 0,
+          "actionCalls": 0
+        }
+      },
+      {
+        "id": "web_abyss_level7_not_range_filtered",
+        "basis": "confirmed_Q33",
+        "input": {
+          "scope": "damageEntry",
+          "reachesBranch": true,
+          "level": 7,
+          "Game_Mode": 2,
+          "illusion": false
+        },
+        "expected": {
+          "thresholdResolverCalls": 1,
+          "randomDraws": 1,
+          "threshold": 3,
+          "webProbability": 0.03
+        }
+      },
+      {
+        "id": "web_nonabyss_level7_zero_still_draws",
+        "basis": "confirmed_Q33",
+        "input": {
+          "scope": "damageEntry",
+          "reachesBranch": true,
+          "level": 7,
+          "Game_Mode": 1,
+          "illusion": false
+        },
+        "expected": {
+          "thresholdResolverCalls": 1,
+          "randomDraws": 1,
+          "threshold": 0,
+          "webProbability": 0,
+          "actionCalls": 0
+        }
+      },
+      {
+        "id": "web_nonattack_packet_qualifies",
+        "basis": "confirmed_Q33",
+        "input": {
+          "scope": "damageEntry",
+          "reachesBranch": true,
+          "level": 6,
+          "Game_Mode": 0,
+          "illusion": false,
+          "attackFlag": 0,
+          "damageType": "MAGIC"
+        },
+        "expected": {
+          "thresholdResolverCalls": 1,
+          "randomDraws": 1,
+          "threshold": 12,
+          "webProbability": 0.12
+        }
+      },
+      {
+        "id": "web_illusion_rejected_before_draw",
+        "basis": "confirmed_Q33",
+        "input": {
+          "scope": "damageEntry",
+          "reachesBranch": true,
+          "level": 6,
+          "Game_Mode": 2,
+          "illusion": true
+        },
+        "expected": {
+          "thresholdResolverCalls": 0,
+          "randomDraws": 0,
+          "actionCalls": 0
+        }
+      },
+      {
+        "id": "web_prior_exit_still_applies",
+        "basis": "confirmed_Q33",
+        "input": {
+          "scope": "damageEntry",
+          "reachesBranch": false,
+          "level": 6,
+          "Game_Mode": 2,
+          "illusion": false
+        },
+        "expected": {
+          "thresholdResolverCalls": 0,
+          "randomDraws": 0,
+          "actionCalls": 0
+        }
+      }
+    ]
+  },
+  "webRules": {
+    "basis": "confirmed Q33",
+    "thresholdResolver": {
+      "readFirst": "GetUnitAbilityLevel(actualDamageSource,A007)",
+      "firstBranch": "if Game_Mode==2 return3",
+      "otherwise": "levels1..6 return5/6/7/8/9/12; unmatched level returns0",
+      "outputUnit": "integer percentage points, unchanged from source resolver"
+    },
+    "probability": {
+      "exact": "threshold/100",
+      "drawLocation": "main damage dispatch after threshold resolution and before A007_Action1",
+      "drawsPerQualifiedInvocation": 1,
+      "zeroProbability": "still consume the existing single draw if caller gates pass",
+      "additionalLevelRangeGate": false
+    },
+    "callerGate": "reaches A007 branch AND actual source A007 level>0 AND IsUnitIllusion(source)==false",
+    "unchanged": "any damage, target and duration rules, repeated-paused rejection, expiry and original interactions"
+  }
+}

@@ -1,0 +1,2163 @@
+{
+  "baselineId": "divine-books-v1",
+  "Q60": {
+    "policy": "At 10 stars reject before setter and return one fresh item through f5.",
+    "initialDebit": "L03 commits the old charge and later clears an exhausted instance.",
+    "preserve": "All current stars and auxiliary contributions."
+  },
+  "books": [
+    {
+      "id": "i258",
+      "alias": "I253",
+      "workbookCell": "装备与道具!H168",
+      "handler": "i258_SkillRandom",
+      "dispatchLines": [
+        144333,
+        144342
+      ],
+      "stackOnPickup": true
+    },
+    {
+      "id": "i259",
+      "alias": "I254",
+      "workbookCell": "装备与道具!H169",
+      "handler": "i258_StarUp",
+      "dispatchLines": [
+        144344,
+        144353
+      ],
+      "stackOnPickup": true
+    },
+    {
+      "id": "i260",
+      "alias": "I255",
+      "workbookCell": "装备与道具!H170",
+      "handler": "i258_StarRandom",
+      "dispatchLines": [
+        144366,
+        144375
+      ],
+      "stackOnPickup": true
+    },
+    {
+      "id": "i264",
+      "alias": "I260",
+      "workbookCell": "装备与道具!H174",
+      "handler": "i264_StarUp",
+      "dispatchLines": [
+        144355,
+        144364
+      ],
+      "stackOnPickup": false
+    }
+  ],
+  "Q61": {
+    "sameAliasSameRankTooltipLine": {
+      "P200": 16273,
+      "P201": 16286,
+      "P202": 16299,
+      "P203": 16312,
+      "P204": 16325,
+      "P205": 16338,
+      "P206": 16351,
+      "P207": 16364,
+      "P208": 16377,
+      "P209": 16390,
+      "P210": 16403,
+      "P211": 16416,
+      "P212": 16429,
+      "P213": 16441,
+      "P214": 16454,
+      "P215": 16467,
+      "P216": 16480,
+      "P217": 16493,
+      "P218": 16506,
+      "P219": 16519,
+      "P220": 16532,
+      "P221": 16545,
+      "P222": 16558
+    },
+    "selectedOverrides": {
+      "P205": {
+        "source": {
+          "exclusiveThresholdOn0Through100": 15,
+          "duration": 3,
+          "cooldown": 6
+        },
+        "web": {
+          "probabilityPct": 20,
+          "duration": 3,
+          "cooldown": 5,
+          "rng": "one uniform 1..100 draw, success at <= probabilityPct"
+        }
+      },
+      "P206": {
+        "source": {
+          "exclusiveThresholdOn0Through100": 10,
+          "duration": 3,
+          "cooldown": 6
+        },
+        "web": {
+          "probabilityPct": 10,
+          "duration": 3,
+          "cooldown": 5,
+          "rng": "one uniform 1..100 draw, success at <= probabilityPct"
+        }
+      },
+      "P207": {
+        "source": {
+          "exclusiveThresholdOn0Through100": 30,
+          "duration": 3,
+          "cooldown": 6
+        },
+        "web": {
+          "probabilityPct": 30,
+          "duration": 3,
+          "cooldown": 5,
+          "rng": "one uniform 1..100 draw, success at <= probabilityPct"
+        }
+      },
+      "P208": {
+        "source": {
+          "exclusiveThresholdOn0Through100": 15,
+          "duration": 3,
+          "cooldown": 6
+        },
+        "web": {
+          "probabilityPct": 15,
+          "duration": 3,
+          "cooldown": 5,
+          "rng": "one uniform 1..100 draw, success at <= probabilityPct"
+        }
+      },
+      "P217": {
+        "source": {
+          "exclusiveThresholdOn0Through100": 70,
+          "duration": 6,
+          "cooldown": 9
+        },
+        "web": {
+          "probabilityPct": 70,
+          "duration": 5,
+          "cooldown": 7,
+          "rng": "one uniform 1..100 draw, success at <= probabilityPct"
+        }
+      },
+      "P214": {
+        "source": {
+          "movementPct": [
+            30,
+            40,
+            50,
+            60,
+            70,
+            80,
+            90,
+            100,
+            110,
+            130
+          ],
+          "attackSpeedPct": [
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            27,
+            30
+          ]
+        },
+        "web": {
+          "movementPct": [
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            27,
+            30
+          ],
+          "movementGameMode": 2,
+          "attackSpeedPct": [
+            30,
+            40,
+            50,
+            60,
+            70,
+            80,
+            90,
+            100,
+            110,
+            130
+          ]
+        }
+      }
+    }
+  },
+  "formProfiles": {
+    "P200": {
+      "jsonIndex": 1590,
+      "code": "AOcr",
+      "levels": 1,
+      "explicit": {
+        "targs": [
+          "air,ground,enemy,neutral"
+        ]
+      },
+      "effective": {
+        "targs": [
+          "air,ground,enemy,neutral"
+        ]
+      }
+    },
+    "P201": {
+      "jsonIndex": 1591,
+      "code": "Aamk",
+      "levels": 10,
+      "explicit": {
+        "DataC": [
+          40,
+          60,
+          80,
+          100,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "effective": {
+        "DataC": [
+          40,
+          60,
+          80,
+          100,
+          120,
+          140,
+          170,
+          200,
+          240,
+          300
+        ]
+      }
+    },
+    "P202": {
+      "jsonIndex": 1592,
+      "code": "Aamk",
+      "levels": 10,
+      "explicit": {
+        "DataA": [
+          40,
+          60,
+          80,
+          100,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "effective": {
+        "DataA": [
+          40,
+          60,
+          80,
+          100,
+          120,
+          140,
+          170,
+          200,
+          240,
+          300
+        ]
+      }
+    },
+    "P203": {
+      "jsonIndex": 1593,
+      "code": "Aamk",
+      "levels": 10,
+      "explicit": {
+        "DataB": [
+          40,
+          60,
+          80,
+          100,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "effective": {
+        "DataB": [
+          40,
+          60,
+          80,
+          100,
+          120,
+          140,
+          170,
+          200,
+          240,
+          300
+        ]
+      }
+    },
+    "P204": {
+      "jsonIndex": 1594,
+      "code": "Aamk",
+      "levels": 10,
+      "explicit": {
+        "DataA": [
+          50,
+          60,
+          70,
+          80,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "DataB": [
+          50,
+          60,
+          70,
+          80,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "DataC": [
+          50,
+          60,
+          70,
+          80,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "effective": {
+        "DataA": [
+          50,
+          60,
+          70,
+          80,
+          90,
+          100,
+          110,
+          120,
+          140,
+          160
+        ],
+        "DataB": [
+          50,
+          60,
+          70,
+          80,
+          90,
+          100,
+          110,
+          120,
+          140,
+          160
+        ],
+        "DataC": [
+          50,
+          60,
+          70,
+          80,
+          90,
+          100,
+          110,
+          120,
+          140,
+          160
+        ]
+      }
+    },
+    "P205": {
+      "jsonIndex": 1595,
+      "code": "Aamk",
+      "levels": 10,
+      "explicit": {},
+      "effective": {}
+    },
+    "P206": {
+      "jsonIndex": 1596,
+      "code": "Aamk",
+      "levels": 10,
+      "explicit": {},
+      "effective": {}
+    },
+    "P207": {
+      "jsonIndex": 1597,
+      "code": "Aamk",
+      "levels": 10,
+      "explicit": {},
+      "effective": {}
+    },
+    "P208": {
+      "jsonIndex": 1598,
+      "code": "Aamk",
+      "levels": 10,
+      "explicit": {},
+      "effective": {}
+    },
+    "P209": {
+      "jsonIndex": 1599,
+      "code": "Aamk",
+      "levels": 10,
+      "explicit": {},
+      "effective": {}
+    },
+    "P210": {
+      "jsonIndex": 1600,
+      "code": "Aamk",
+      "levels": 10,
+      "explicit": {},
+      "effective": {}
+    },
+    "P211": {
+      "jsonIndex": 1601,
+      "code": "Aamk",
+      "levels": 10,
+      "explicit": {},
+      "effective": {}
+    },
+    "P212": {
+      "jsonIndex": 1602,
+      "code": "Aamk",
+      "levels": 10,
+      "explicit": {},
+      "effective": {}
+    },
+    "P213": {
+      "jsonIndex": 1603,
+      "code": "AOcr",
+      "levels": 10,
+      "explicit": {
+        "DataA": [
+          10.0,
+          11.0,
+          12.0,
+          13.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "DataB": [
+          2.0,
+          2.2,
+          2.5,
+          2.8,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "targs": [
+          "air,ground,enemy,neutral",
+          "air,ground,enemy,neutral",
+          "air,ground,enemy,neutral",
+          "air,ground,enemy,neutral",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "effective": {
+        "DataA": [
+          10.0,
+          11.0,
+          12.0,
+          13.0,
+          14.0,
+          15.0,
+          16.0,
+          17.0,
+          18.0,
+          20.0
+        ],
+        "DataB": [
+          2.0,
+          2.2,
+          2.5,
+          2.8,
+          3.1,
+          3.4,
+          3.7,
+          4.0,
+          5.0,
+          6.0
+        ],
+        "targs": [
+          "air,ground,enemy,neutral",
+          "air,ground,enemy,neutral",
+          "air,ground,enemy,neutral",
+          "air,ground,enemy,neutral",
+          "air,ground,enemy,neutral",
+          "air,ground,enemy,neutral",
+          "air,ground,enemy,neutral",
+          "air,ground,enemy,neutral",
+          "air,ground,enemy,neutral",
+          "air,ground,enemy,neutral"
+        ]
+      }
+    },
+    "P214": {
+      "jsonIndex": 1604,
+      "code": "AOae",
+      "levels": 10,
+      "explicit": {
+        "DataA": [
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "DataB": [
+          0.1,
+          0.12,
+          0.14,
+          0.16,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "Area": [
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "BuffID": [
+          "B115",
+          "B115",
+          "B115",
+          "B115",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "targs": [
+          "self,invulnerable",
+          "self,invulnerable",
+          "self,invulnerable",
+          "self,invulnerable",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "effective": {
+        "DataA": [
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8,
+          0.9,
+          1.0,
+          1.1,
+          1.3
+        ],
+        "DataB": [
+          0.1,
+          0.12,
+          0.14,
+          0.16,
+          0.18,
+          0.2,
+          0.22,
+          0.24,
+          0.27,
+          0.3
+        ],
+        "Area": [
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0
+        ],
+        "BuffID": [
+          "B115",
+          "B115",
+          "B115",
+          "B115",
+          "B115",
+          "B115",
+          "B115",
+          "B115",
+          "B115",
+          "B115"
+        ],
+        "targs": [
+          "self,invulnerable",
+          "self,invulnerable",
+          "self,invulnerable",
+          "self,invulnerable",
+          "self,invulnerable",
+          "self,invulnerable",
+          "self,invulnerable",
+          "self,invulnerable",
+          "self,invulnerable",
+          "self,invulnerable"
+        ]
+      }
+    },
+    "P215": {
+      "jsonIndex": 1605,
+      "code": "Aamk",
+      "levels": 10,
+      "explicit": {},
+      "effective": {}
+    },
+    "P216": {
+      "jsonIndex": 1606,
+      "code": "Aamk",
+      "levels": 10,
+      "explicit": {},
+      "effective": {}
+    },
+    "P217": {
+      "jsonIndex": 1607,
+      "code": "Aamk",
+      "levels": 10,
+      "explicit": {},
+      "effective": {}
+    },
+    "P218": {
+      "jsonIndex": 1608,
+      "code": "AHad",
+      "levels": 10,
+      "explicit": {
+        "Area": [
+          600.0,
+          900.0,
+          600.0,
+          900.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "BuffID": [
+          "B121",
+          "B121",
+          "B122",
+          "B122",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "targs": [
+          "enemies",
+          "enemies",
+          "enemies",
+          "enemies",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "effective": {
+        "Area": [
+          600.0,
+          900.0,
+          600.0,
+          900.0,
+          600.0,
+          900,
+          600.0,
+          900,
+          600.0,
+          900
+        ],
+        "BuffID": [
+          "B121",
+          "B121",
+          "B122",
+          "B122",
+          "B123",
+          "B123",
+          "B124",
+          "B124",
+          "B125",
+          "B125"
+        ],
+        "targs": [
+          "enemies",
+          "enemies",
+          "enemies",
+          "enemies",
+          "enemies",
+          "enemies",
+          "enemies",
+          "enemies",
+          "enemies",
+          "enemies"
+        ]
+      }
+    },
+    "P219": {
+      "jsonIndex": 1609,
+      "code": "AHad",
+      "levels": 10,
+      "explicit": {
+        "DataA": [
+          -20.0,
+          -25.0,
+          -30.0,
+          -35.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "Area": [
+          800.0,
+          800.0,
+          800.0,
+          800.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "BuffID": [
+          "B128",
+          "B128",
+          "B128",
+          "B128",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "targs": [
+          "enemies,ground,vulnerable,air,invulnerable",
+          "enemies,ground,vulnerable,air,invulnerable",
+          "enemies,ground,vulnerable,air,invulnerable",
+          "enemies,ground,vulnerable,air,invulnerable",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "effective": {
+        "DataA": [
+          -20.0,
+          -25.0,
+          -30.0,
+          -35.0,
+          -45.0,
+          -55.0,
+          -65.0,
+          -80.0,
+          -95.0,
+          -110.0
+        ],
+        "Area": [
+          800.0,
+          800.0,
+          800.0,
+          800.0,
+          800.0,
+          800.0,
+          800.0,
+          800.0,
+          800.0,
+          800.0
+        ],
+        "BuffID": [
+          "B128",
+          "B128",
+          "B128",
+          "B128",
+          "B128",
+          "B128",
+          "B128",
+          "B128",
+          "B128",
+          "B128"
+        ],
+        "targs": [
+          "enemies,ground,vulnerable,air,invulnerable",
+          "enemies,ground,vulnerable,air,invulnerable",
+          "enemies,ground,vulnerable,air,invulnerable",
+          "enemies,ground,vulnerable,air,invulnerable",
+          "enemies,ground,vulnerable,air,invulnerable",
+          "enemies,ground,vulnerable,air,invulnerable",
+          "enemies,ground,vulnerable,air,invulnerable",
+          "enemies,ground,vulnerable,air,invulnerable",
+          "enemies,ground,vulnerable,air,invulnerable",
+          "enemies,ground,vulnerable,air,invulnerable"
+        ]
+      }
+    },
+    "P220": {
+      "jsonIndex": 1610,
+      "code": "Aamk",
+      "levels": 10,
+      "explicit": {},
+      "effective": {}
+    },
+    "P221": {
+      "jsonIndex": 1611,
+      "code": "Aamk",
+      "levels": 10,
+      "explicit": {},
+      "effective": {}
+    },
+    "P222": {
+      "jsonIndex": 1612,
+      "code": "AOae",
+      "levels": 10,
+      "explicit": {
+        "Area": [
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "BuffID": [
+          "B180",
+          "B180",
+          "B180",
+          "B180",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "targs": [
+          "self,invulnerable",
+          "self,invulnerable",
+          "self,invulnerable",
+          "self,invulnerable",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "effective": {
+        "Area": [
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0
+        ],
+        "BuffID": [
+          "B180",
+          "B180",
+          "B180",
+          "B180",
+          "B180",
+          "B180",
+          "B180",
+          "B180",
+          "B180",
+          "B180"
+        ],
+        "targs": [
+          "self,invulnerable",
+          "self,invulnerable",
+          "self,invulnerable",
+          "self,invulnerable",
+          "self,invulnerable",
+          "self,invulnerable",
+          "self,invulnerable",
+          "self,invulnerable",
+          "self,invulnerable",
+          "self,invulnerable"
+        ]
+      }
+    }
+  },
+  "auxiliaryProfiles": {
+    "T114": {
+      "jsonIndex": 1991,
+      "code": "AIas",
+      "levels": 10,
+      "explicit": {
+        "DataA": [
+          -0.05,
+          -0.08,
+          -0.11,
+          -0.14,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "effective": {
+        "DataA": [
+          -0.05,
+          -0.08,
+          -0.11,
+          -0.14,
+          -0.17,
+          -0.2,
+          -0.23,
+          -0.26,
+          -0.29,
+          -0.32
+        ]
+      }
+    },
+    "T115": {
+      "jsonIndex": 1992,
+      "code": "AIat",
+      "levels": 10,
+      "explicit": {
+        "DataA": [
+          150,
+          200,
+          250,
+          300,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "effective": {
+        "DataA": [
+          150,
+          200,
+          250,
+          300,
+          350,
+          400,
+          450,
+          500,
+          600,
+          700
+        ]
+      }
+    },
+    "T116": {
+      "jsonIndex": 1993,
+      "code": "AIat",
+      "levels": 10,
+      "explicit": {
+        "DataA": [
+          400,
+          450,
+          500,
+          550,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "effective": {
+        "DataA": [
+          400,
+          450,
+          500,
+          550,
+          600,
+          650,
+          750,
+          850,
+          950,
+          1100
+        ]
+      }
+    },
+    "T125": {
+      "jsonIndex": 2002,
+      "code": "Aamk",
+      "levels": 10,
+      "explicit": {
+        "DataC": [
+          80,
+          120,
+          160,
+          200,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "effective": {
+        "DataC": [
+          80,
+          120,
+          160,
+          200,
+          240,
+          280,
+          340,
+          400,
+          480,
+          600
+        ]
+      }
+    },
+    "T126": {
+      "jsonIndex": 2003,
+      "code": "Aamk",
+      "levels": 10,
+      "explicit": {
+        "DataA": [
+          80,
+          120,
+          160,
+          200,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "effective": {
+        "DataA": [
+          80,
+          120,
+          160,
+          200,
+          240,
+          280,
+          340,
+          400,
+          480,
+          600
+        ]
+      }
+    },
+    "T127": {
+      "jsonIndex": 2004,
+      "code": "Aamk",
+      "levels": 10,
+      "explicit": {
+        "DataB": [
+          80,
+          120,
+          160,
+          200,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "effective": {
+        "DataB": [
+          80,
+          120,
+          160,
+          200,
+          240,
+          280,
+          340,
+          400,
+          480,
+          600
+        ]
+      }
+    },
+    "T128": {
+      "jsonIndex": 2005,
+      "code": "Aamk",
+      "levels": 10,
+      "explicit": {
+        "DataA": [
+          100,
+          120,
+          140,
+          160,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "DataB": [
+          100,
+          120,
+          140,
+          160,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "DataC": [
+          100,
+          120,
+          140,
+          160,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "effective": {
+        "DataA": [
+          100,
+          120,
+          140,
+          160,
+          180,
+          200,
+          220,
+          240,
+          280,
+          320
+        ],
+        "DataB": [
+          100,
+          120,
+          140,
+          160,
+          180,
+          200,
+          220,
+          240,
+          280,
+          320
+        ],
+        "DataC": [
+          100,
+          120,
+          140,
+          160,
+          180,
+          200,
+          220,
+          240,
+          280,
+          320
+        ]
+      }
+    },
+    "T232": {
+      "jsonIndex": 2102,
+      "code": "AIml",
+      "levels": 1,
+      "explicit": {
+        "DataA": [
+          2500
+        ]
+      },
+      "effective": {
+        "DataA": [
+          2500
+        ]
+      }
+    },
+    "T233": {
+      "jsonIndex": 2103,
+      "code": "AIml",
+      "levels": 1,
+      "explicit": {
+        "DataA": [
+          4000
+        ]
+      },
+      "effective": {
+        "DataA": [
+          4000
+        ]
+      }
+    },
+    "T234": {
+      "jsonIndex": 2104,
+      "code": "AIml",
+      "levels": 1,
+      "explicit": {
+        "DataA": [
+          5500
+        ]
+      },
+      "effective": {
+        "DataA": [
+          5500
+        ]
+      }
+    },
+    "T235": {
+      "jsonIndex": 2105,
+      "code": "AIml",
+      "levels": 1,
+      "explicit": {
+        "DataA": [
+          7000
+        ]
+      },
+      "effective": {
+        "DataA": [
+          7000
+        ]
+      }
+    },
+    "T236": {
+      "jsonIndex": 2106,
+      "code": "AIml",
+      "levels": 1,
+      "explicit": {
+        "DataA": [
+          8500
+        ]
+      },
+      "effective": {
+        "DataA": [
+          8500
+        ]
+      }
+    },
+    "T237": {
+      "jsonIndex": 2107,
+      "code": "AIml",
+      "levels": 1,
+      "explicit": {
+        "DataA": [
+          10000
+        ]
+      },
+      "effective": {
+        "DataA": [
+          10000
+        ]
+      }
+    },
+    "T238": {
+      "jsonIndex": 2108,
+      "code": "AIml",
+      "levels": 1,
+      "explicit": {
+        "DataA": [
+          12000
+        ]
+      },
+      "effective": {
+        "DataA": [
+          12000
+        ]
+      }
+    },
+    "T239": {
+      "jsonIndex": 2109,
+      "code": "AIml",
+      "levels": 1,
+      "explicit": {
+        "DataA": [
+          14000
+        ]
+      },
+      "effective": {
+        "DataA": [
+          14000
+        ]
+      }
+    },
+    "T240": {
+      "jsonIndex": 2110,
+      "code": "AIml",
+      "levels": 1,
+      "explicit": {
+        "DataA": [
+          16000
+        ]
+      },
+      "effective": {
+        "DataA": [
+          16000
+        ]
+      }
+    },
+    "T241": {
+      "jsonIndex": 2111,
+      "code": "AIml",
+      "levels": 1,
+      "explicit": {
+        "DataA": [
+          19000
+        ]
+      },
+      "effective": {
+        "DataA": [
+          19000
+        ]
+      }
+    },
+    "T242": {
+      "jsonIndex": 2112,
+      "code": "AImm",
+      "levels": 1,
+      "explicit": {
+        "DataA": [
+          1000
+        ]
+      },
+      "effective": {
+        "DataA": [
+          1000
+        ]
+      }
+    },
+    "T243": {
+      "jsonIndex": 2113,
+      "code": "AImm",
+      "levels": 1,
+      "explicit": {
+        "DataA": [
+          2000
+        ]
+      },
+      "effective": {
+        "DataA": [
+          2000
+        ]
+      }
+    },
+    "T244": {
+      "jsonIndex": 2114,
+      "code": "AImm",
+      "levels": 1,
+      "explicit": {
+        "DataA": [
+          3000
+        ]
+      },
+      "effective": {
+        "DataA": [
+          3000
+        ]
+      }
+    },
+    "T245": {
+      "jsonIndex": 2115,
+      "code": "AImm",
+      "levels": 1,
+      "explicit": {
+        "DataA": [
+          4000
+        ]
+      },
+      "effective": {
+        "DataA": [
+          4000
+        ]
+      }
+    },
+    "T246": {
+      "jsonIndex": 2116,
+      "code": "AImm",
+      "levels": 1,
+      "explicit": {
+        "DataA": [
+          5000
+        ]
+      },
+      "effective": {
+        "DataA": [
+          5000
+        ]
+      }
+    },
+    "T247": {
+      "jsonIndex": 2117,
+      "code": "AImm",
+      "levels": 1,
+      "explicit": {
+        "DataA": [
+          6000
+        ]
+      },
+      "effective": {
+        "DataA": [
+          6000
+        ]
+      }
+    },
+    "T248": {
+      "jsonIndex": 2118,
+      "code": "AImm",
+      "levels": 1,
+      "explicit": {
+        "DataA": [
+          7000
+        ]
+      },
+      "effective": {
+        "DataA": [
+          7000
+        ]
+      }
+    },
+    "T249": {
+      "jsonIndex": 2119,
+      "code": "AImm",
+      "levels": 1,
+      "explicit": {
+        "DataA": [
+          8500
+        ]
+      },
+      "effective": {
+        "DataA": [
+          8500
+        ]
+      }
+    },
+    "T250": {
+      "jsonIndex": 2120,
+      "code": "AImm",
+      "levels": 1,
+      "explicit": {
+        "DataA": [
+          10000
+        ]
+      },
+      "effective": {
+        "DataA": [
+          10000
+        ]
+      }
+    },
+    "T251": {
+      "jsonIndex": 2121,
+      "code": "AImm",
+      "levels": 1,
+      "explicit": {
+        "DataA": [
+          12000
+        ]
+      },
+      "effective": {
+        "DataA": [
+          12000
+        ]
+      }
+    }
+  },
+  "sourceFunctionLines": {
+    "main/f225/f0": [
+      122463,
+      122504
+    ],
+    "main/f225/f3": [
+      122599,
+      122656
+    ],
+    "main/f225/f6": [
+      122792,
+      123440
+    ],
+    "main/f225/f11": [
+      123986,
+      124079
+    ],
+    "main/f225/f15": [
+      124362,
+      124445
+    ],
+    "main/f225/f17": [
+      124488,
+      124543
+    ],
+    "main/f225/f18": [
+      124544,
+      124569
+    ],
+    "main/f226/f2": [
+      124662,
+      124734
+    ],
+    "main/f227/f2": [
+      124827,
+      124899
+    ],
+    "main/f228/f2": [
+      124992,
+      125064
+    ],
+    "main/f229/f2": [
+      125157,
+      125229
+    ],
+    "main/f281/f2": [
+      137354,
+      137426
+    ],
+    "main/f291/f17": [
+      172450,
+      172900
+    ],
+    "main/f283/f12": [
+      138879,
+      139490
+    ]
+  },
+  "verification": {
+    "starMassOutOf600": {
+      "1": 92,
+      "2": 92,
+      "3": 92,
+      "4": 92,
+      "5": 92,
+      "6": 92,
+      "7": 24,
+      "8": 12,
+      "9": 10,
+      "10": 2
+    },
+    "cases": [
+      {
+        "name": "i258 rejects another player and recreates at caster",
+        "finalAbilities": {
+          "P200": 1
+        },
+        "trace": [
+          [
+            "notice",
+            2
+          ],
+          [
+            "create",
+            "i258",
+            10,
+            20
+          ],
+          [
+            "deliver",
+            "caster",
+            "i258"
+          ]
+        ]
+      },
+      {
+        "name": "i258 draws star first then eleven excluded forms and falls back P212",
+        "finalAbilities": {
+          "P000": 1,
+          "P212": 10
+        },
+        "trace": [
+          [
+            "rng",
+            1,
+            100,
+            99
+          ],
+          [
+            "rng",
+            1,
+            6,
+            6
+          ],
+          [
+            "rng",
+            1,
+            22,
+            16
+          ],
+          [
+            "rng",
+            1,
+            22,
+            16
+          ],
+          [
+            "rng",
+            1,
+            22,
+            16
+          ],
+          [
+            "rng",
+            1,
+            22,
+            16
+          ],
+          [
+            "rng",
+            1,
+            22,
+            16
+          ],
+          [
+            "rng",
+            1,
+            22,
+            16
+          ],
+          [
+            "rng",
+            1,
+            22,
+            16
+          ],
+          [
+            "rng",
+            1,
+            22,
+            16
+          ],
+          [
+            "rng",
+            1,
+            22,
+            16
+          ],
+          [
+            "rng",
+            1,
+            22,
+            16
+          ],
+          [
+            "rng",
+            1,
+            22,
+            16
+          ],
+          [
+            "levelRequest",
+            "target",
+            "P212",
+            10
+          ],
+          [
+            "broadcast",
+            5
+          ]
+        ]
+      },
+      {
+        "name": "i258 can replace an existing form and removes old auxiliaries",
+        "finalAbilities": {
+          "P220": 1,
+          "T232": 1
+        },
+        "trace": [
+          [
+            "rng",
+            1,
+            100,
+            1
+          ],
+          [
+            "rng",
+            1,
+            6,
+            1
+          ],
+          [
+            "rng",
+            1,
+            22,
+            20
+          ],
+          [
+            "levelRequest",
+            "target",
+            "P220",
+            1
+          ],
+          [
+            "notice",
+            1
+          ]
+        ]
+      },
+      {
+        "name": "i259 rejects P200 with a replacement",
+        "finalAbilities": {
+          "P200": 1
+        },
+        "trace": [
+          [
+            "notice",
+            1
+          ],
+          [
+            "create",
+            "i259",
+            10,
+            20
+          ],
+          [
+            "deliver",
+            "caster",
+            "i259"
+          ]
+        ]
+      },
+      {
+        "name": "i259 ten-star rejection still consumes a roll",
+        "finalAbilities": {
+          "P221": 10,
+          "T251": 1
+        },
+        "trace": [
+          [
+            "rng",
+            1,
+            100,
+            1
+          ],
+          [
+            "notice",
+            1
+          ],
+          [
+            "create",
+            "i259",
+            10,
+            20
+          ],
+          [
+            "deliver",
+            "caster",
+            "i259"
+          ]
+        ]
+      },
+      {
+        "name": "i259 six-star first success die",
+        "finalAbilities": {
+          "P221": 7,
+          "T248": 1
+        },
+        "trace": [
+          [
+            "rng",
+            1,
+            100,
+            26
+          ],
+          [
+            "notice",
+            1
+          ],
+          [
+            "effect",
+            "SSZYeff1.mdx",
+            "target",
+            "origin",
+            1
+          ],
+          [
+            "levelRequest",
+            "target",
+            "P221",
+            7
+          ],
+          [
+            "broadcast",
+            5
+          ]
+        ]
+      },
+      {
+        "name": "i259 six-star boundary failure spends charge without replacement",
+        "finalAbilities": {
+          "P221": 6,
+          "T247": 1
+        },
+        "trace": [
+          [
+            "rng",
+            1,
+            100,
+            25
+          ],
+          [
+            "notice",
+            1
+          ],
+          [
+            "effect",
+            "ShenNengZhiShu.mdx",
+            "target",
+            "head",
+            1
+          ]
+        ]
+      },
+      {
+        "name": "i260 can lower star and switches the resource source",
+        "finalAbilities": {
+          "P220": 1,
+          "T232": 1
+        },
+        "trace": [
+          [
+            "rng",
+            1,
+            100,
+            1
+          ],
+          [
+            "rng",
+            1,
+            6,
+            1
+          ],
+          [
+            "levelRequest",
+            "target",
+            "P220",
+            1
+          ],
+          [
+            "notice",
+            1
+          ]
+        ]
+      },
+      {
+        "name": "i264 succeeds without RNG",
+        "finalAbilities": {
+          "P216": 3,
+          "T115": 3
+        },
+        "trace": [
+          [
+            "effect",
+            "SSZYeff1.mdx",
+            "target",
+            "origin",
+            1
+          ],
+          [
+            "levelRequest",
+            "target",
+            "P216",
+            3
+          ],
+          [
+            "levelRequest",
+            "target",
+            "T115",
+            3
+          ],
+          [
+            "notice",
+            1
+          ]
+        ]
+      },
+      {
+        "name": "old temporary bonus survives a form swap until its original timer",
+        "finalAbilities": {
+          "T125": 6,
+          "P221": 1,
+          "T242": 1
+        },
+        "trace": [
+          [
+            "rng",
+            1,
+            100,
+            1
+          ],
+          [
+            "rng",
+            1,
+            6,
+            1
+          ],
+          [
+            "rng",
+            1,
+            22,
+            21
+          ],
+          [
+            "levelRequest",
+            "target",
+            "P221",
+            1
+          ],
+          [
+            "notice",
+            1
+          ]
+        ]
+      },
+      {
+        "name": "i264 original request exceeds rank and removes auxiliary before an invalid title",
+        "finalAbilities": {
+          "P220": 11
+        },
+        "trace": [
+          [
+            "effect",
+            "SSZYeff1.mdx",
+            "target",
+            "origin",
+            1
+          ],
+          [
+            "levelRequest",
+            "target",
+            "P220",
+            11
+          ],
+          [
+            "broadcast",
+            5
+          ]
+        ]
+      },
+      {
+        "name": "native clamp alone still loses 10-star resource auxiliary",
+        "finalAbilities": {
+          "P220": 10
+        },
+        "trace": [
+          [
+            "effect",
+            "SSZYeff1.mdx",
+            "target",
+            "origin",
+            1
+          ],
+          [
+            "levelRequest",
+            "target",
+            "P220",
+            11
+          ],
+          [
+            "broadcast",
+            5
+          ]
+        ]
+      }
+    ],
+    "Q60Cases": [
+      {
+        "tier": "P220",
+        "initialInventoryCountIncludingOld": 5,
+        "unchangedAbilities": {
+          "P220": 10,
+          "T241": 1
+        },
+        "old": {
+          "id": "old",
+          "charges": 0,
+          "inInventory": false
+        },
+        "replacement": {
+          "id": "new",
+          "type": "i264",
+          "charges": 1,
+          "location": [
+            10,
+            20
+          ],
+          "inInventory": true
+        },
+        "trace": [
+          [
+            "rejectFullStar",
+            "P220"
+          ]
+        ]
+      },
+      {
+        "tier": "P221",
+        "initialInventoryCountIncludingOld": 6,
+        "unchangedAbilities": {
+          "P221": 10,
+          "T251": 1
+        },
+        "old": {
+          "id": "old",
+          "charges": 0,
+          "inInventory": false
+        },
+        "replacement": {
+          "id": "new",
+          "type": "i264",
+          "charges": 1,
+          "location": [
+            10,
+            20
+          ],
+          "inInventory": false
+        },
+        "trace": [
+          [
+            "rejectFullStar",
+            "P221"
+          ]
+        ]
+      }
+    ],
+    "damageMultipliersByStar": {
+      "P209": [
+        1.1,
+        1.12,
+        1.14,
+        1.16,
+        1.18,
+        1.2,
+        1.24,
+        1.28,
+        1.34,
+        1.4
+      ],
+      "P210": [
+        1.1,
+        1.12,
+        1.14,
+        1.16,
+        1.18,
+        1.2,
+        1.24,
+        1.28,
+        1.34,
+        1.4
+      ],
+      "P211": [
+        1.1,
+        1.12,
+        1.14,
+        1.16,
+        1.18,
+        1.2,
+        1.24,
+        1.28,
+        1.34,
+        1.4
+      ],
+      "P212": [
+        1.1,
+        1.11,
+        1.12,
+        1.13,
+        1.14,
+        1.15,
+        1.17,
+        1.19,
+        1.24,
+        1.3
+      ]
+    },
+    "P218MultipliersByBuff": [
+      1.12,
+      1.14,
+      1.16,
+      1.18,
+      1.2
+    ]
+  }
+}

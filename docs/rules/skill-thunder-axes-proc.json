@@ -1,0 +1,1531 @@
+{
+  "schema_version": 1,
+  "status": "Q36 confirmed exact15%; probability entry specified, full effect still separate",
+  "scope": [
+    "N054/N055/N056/N057 workbook and actual tooltip identity",
+    "N054_57_Get_probability full bytecode",
+    "anyUnitDamaged PC1761..1803 branch and shared early exclusions"
+  ],
+  "not_in_scope": [
+    "N054_57_Action full effect closure",
+    "native AOcr behavior",
+    "range packet targets/mitigation or possible control effect",
+    "other tower procs"
+  ],
+  "decision": {
+    "id": "Q36",
+    "status": "confirmed",
+    "selected": "exact_workbook_percent",
+    "workbook_probability": {
+      "numerator": 15,
+      "denominator": 100,
+      "percent": 15
+    },
+    "source_probability": {
+      "roll": "GetRandomInt",
+      "inclusive_min": 0,
+      "inclusive_max": 100,
+      "predicate": "roll<15",
+      "true_outcomes": [
+        0,
+        14
+      ],
+      "false_outcomes": [
+        15,
+        100
+      ],
+      "numerator": 15,
+      "denominator": 101,
+      "percent": 14.851485148514852
+    },
+    "options": [
+      {
+        "id": "exact_workbook_percent",
+        "probability": "15/100",
+        "description": "准确15%；仅修改此判定概率，保留一次抽样位置、资格与顺序",
+        "possible_integer_implementation": "GetRandomInt(1,100)<=15; selected by Q36"
+      },
+      {
+        "id": "preserve_source",
+        "probability": "15/101",
+        "description": "保留原GetRandomInt(0,100)<15，true仅0..14"
+      }
+    ],
+    "web_rule": {
+      "authority": "Q36",
+      "ability_ids": [
+        "N054",
+        "N055",
+        "N056",
+        "N057"
+      ],
+      "inclusive_min": 1,
+      "inclusive_max": 100,
+      "predicate": "roll<=15",
+      "numerator": 15,
+      "denominator": 100,
+      "percent": 15,
+      "draw_count": "one at original helper call before skill checks when attack flag nonzero and prior dispatcher gates reached; no extra rolls for multiple held IDs",
+      "source_identity": "ability checks use actual damage source S, not attributed owner O",
+      "other_conditions": "unchanged; no added illusion, mode, mana or cooldown restrictions"
+    }
+  },
+  "workbook": [
+    {
+      "row": 726,
+      "unit": "n179",
+      "role": "树魔狂战士Lv3<R>",
+      "id": "N054",
+      "skill_id_cell": "F726",
+      "probability_cell": "H726",
+      "skill_level": 1,
+      "percent": 15,
+      "text_damage": 800,
+      "range_text": 500
+    },
+    {
+      "row": 729,
+      "unit": "n180",
+      "role": "树魔狂战士Lv4<R>",
+      "id": "N055",
+      "skill_id_cell": "F729",
+      "probability_cell": "H729",
+      "skill_level": 1,
+      "percent": 15,
+      "text_damage": 1200,
+      "range_text": 500
+    },
+    {
+      "row": 732,
+      "unit": "n181",
+      "role": "树魔狂战士Lv5<R>",
+      "id": "N056",
+      "skill_id_cell": "F732",
+      "probability_cell": "H732",
+      "skill_level": 1,
+      "percent": 15,
+      "text_damage": 1800,
+      "range_text": 500
+    },
+    {
+      "row": 735,
+      "unit": "n182",
+      "role": "树魔狂战士Max<R>",
+      "id": "N057",
+      "skill_id_cell": "F735",
+      "probability_cell": "H735",
+      "skill_level": 1,
+      "percent": 15,
+      "text_damage": 4000,
+      "range_text": 500
+    }
+  ],
+  "actual_tooltips": [
+    {
+      "id": "N054",
+      "section_line": 13620,
+      "fields": {
+        "Name": {
+          "line": 13623,
+          "value": "雷霆战斧"
+        },
+        "Tip": {
+          "line": 13629,
+          "value": "雷霆战斧 - [|cffffcc00等级 1|r]"
+        },
+        "Ubertip": {
+          "line": 13630,
+          "value": "树魔狂战士攻击敌人时有15%概率产生重击对500范围的敌人造成800点物理伤害。"
+        }
+      }
+    },
+    {
+      "id": "N055",
+      "section_line": 13632,
+      "fields": {
+        "Name": {
+          "line": 13635,
+          "value": "雷霆战斧"
+        },
+        "Tip": {
+          "line": 13641,
+          "value": "雷霆战斧 - [|cffffcc00等级 2|r]"
+        },
+        "Ubertip": {
+          "line": 13642,
+          "value": "树魔狂战士攻击敌人时有15%概率产生重击对500范围的敌人造成1200点物理伤害。"
+        }
+      }
+    },
+    {
+      "id": "N056",
+      "section_line": 13644,
+      "fields": {
+        "Name": {
+          "line": 13647,
+          "value": "雷霆战斧"
+        },
+        "Tip": {
+          "line": 13653,
+          "value": "雷霆战斧 - [|cffffcc00等级 3|r]"
+        },
+        "Ubertip": {
+          "line": 13654,
+          "value": "树魔狂战士攻击敌人时有15%概率产生重击对500范围的敌人造成1800点物理伤害。"
+        }
+      }
+    },
+    {
+      "id": "N057",
+      "section_line": 13656,
+      "fields": {
+        "Name": {
+          "line": 13659,
+          "value": "雷霆战斧"
+        },
+        "Tip": {
+          "line": 13665,
+          "value": "雷霆战斧 - [|cffffcc00等级 4|r]"
+        },
+        "Ubertip": {
+          "line": 13666,
+          "value": "树魔狂战士攻击敌人时有15%概率产生重击对500范围的敌人造成4000点物理伤害。"
+        }
+      }
+    }
+  ],
+  "objects": {
+    "units_abilitydata.json": [
+      {
+        "line": 24910,
+        "record": {
+          "alias": "N054",
+          "code": "AOcr",
+          "checkDep": 1,
+          "levels": 1,
+          "reqLevel": 1,
+          "targs1": "air,ground,enemy,neutral",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      {
+        "line": 24921,
+        "record": {
+          "alias": "N055",
+          "code": "AOcr",
+          "checkDep": 1,
+          "levels": 1,
+          "reqLevel": 1,
+          "targs1": "air,ground,enemy,neutral",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      {
+        "line": 24932,
+        "record": {
+          "alias": "N056",
+          "code": "AOcr",
+          "checkDep": 1,
+          "levels": 1,
+          "reqLevel": 1,
+          "targs1": "air,ground,enemy,neutral",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      {
+        "line": 24943,
+        "record": {
+          "alias": "N057",
+          "code": "AOcr",
+          "checkDep": 1,
+          "levels": 1,
+          "reqLevel": 1,
+          "targs1": "air,ground,enemy,neutral",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      }
+    ],
+    "units_unitabilities.json": [
+      {
+        "line": 6115,
+        "record": {
+          "unitAbilID": "n179",
+          "abilList": "Avul,T033,T035,N050,N054,N159",
+          "auto": "_"
+        }
+      },
+      {
+        "line": 6120,
+        "record": {
+          "unitAbilID": "n180",
+          "abilList": "Avul,T033,T035,N051,N055,N159",
+          "auto": "_"
+        }
+      },
+      {
+        "line": 6125,
+        "record": {
+          "unitAbilID": "n181",
+          "abilList": "Avul,T033,T035,N052,N056,N159",
+          "auto": "_"
+        }
+      },
+      {
+        "line": 6130,
+        "record": {
+          "unitAbilID": "n182",
+          "abilList": "Avul,T033,T035,N053,N057,N159",
+          "auto": "_"
+        }
+      }
+    ]
+  },
+  "w3a_matches": [],
+  "source_hashes": {
+    "main.disasm": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+    "main.readable.lua": "d868f14d946f0780313468f5dd783fa4a6cbe39f5c7851d8e4094ef80aa618b9",
+    "units_unitabilities.json": "ebd8a6fd8410f593c5ecadf6bf7c4f6bbc5b4bb7183c5e986a4d2d77e1747133",
+    "units_abilitydata.json": "b772de42ebcfc1d3818298b35dbe81a35826892848c7cbfef70bf5097e481861",
+    "units_campaignabilitystrings.txt": "5240c99230cd441b4c376371a31a7987e65470feed736177473a206c55fbe8cc",
+    "war3map.w3a.json": "d2875f064b389bca471db97121ff7c810d46fbc962ae640ad128d1daa85931bb"
+  },
+  "helper": {
+    "function": "main/f176/f1",
+    "lines": [
+      113292,
+      113319
+    ],
+    "constants": {
+      "k0": "GetRandomInt",
+      "k1": 0,
+      "k2": 100,
+      "k3": 15
+    },
+    "instructions": [
+      {
+        "pc": 1,
+        "line": 113308,
+        "op": "gettabup",
+        "args": [
+          "r0",
+          "u0",
+          "k0"
+        ]
+      },
+      {
+        "pc": 2,
+        "line": 113309,
+        "op": "loadk",
+        "args": [
+          "r1",
+          "k1"
+        ]
+      },
+      {
+        "pc": 3,
+        "line": 113310,
+        "op": "loadk",
+        "args": [
+          "r2",
+          "k2"
+        ]
+      },
+      {
+        "pc": 4,
+        "line": 113311,
+        "op": "call",
+        "args": [
+          "r0",
+          "3",
+          "2"
+        ]
+      },
+      {
+        "pc": 5,
+        "line": 113312,
+        "op": "lt",
+        "args": [
+          "1",
+          "r0",
+          "k3"
+        ]
+      },
+      {
+        "pc": 6,
+        "line": 113313,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l8"
+        ]
+      },
+      {
+        "pc": 7,
+        "line": 113314,
+        "op": "loadbool",
+        "args": [
+          "r0",
+          "0",
+          "1"
+        ]
+      },
+      {
+        "pc": 8,
+        "line": 113316,
+        "op": "loadbool",
+        "args": [
+          "r0",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "pc": 9,
+        "line": 113317,
+        "op": "return",
+        "args": [
+          "r0",
+          "2"
+        ]
+      },
+      {
+        "pc": 10,
+        "line": 113318,
+        "op": "return",
+        "args": [
+          "r0",
+          "1"
+        ]
+      }
+    ],
+    "labels": {
+      "l8": 8
+    }
+  },
+  "entry": {
+    "function": "main/f291/f1",
+    "pcs": [
+      1761,
+      1803
+    ],
+    "lines": [
+      164351,
+      164394
+    ],
+    "constants": {
+      "k27": "GetUnitAbilityLevel",
+      "k2": "GetId",
+      "k229": "N054",
+      "k231": "N056",
+      "k233": "N054_57_Action",
+      "k228": "N054_57_Get_probability",
+      "k230": "N055",
+      "k232": "N057",
+      "k31": "EXGetEventDamageData",
+      "k6": 0,
+      "k32": 2
+    },
+    "instructions": [
+      {
+        "pc": 1761,
+        "line": 164351,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u1",
+          "k31"
+        ]
+      },
+      {
+        "pc": 1762,
+        "line": 164352,
+        "op": "loadk",
+        "args": [
+          "r5",
+          "k32"
+        ]
+      },
+      {
+        "pc": 1763,
+        "line": 164353,
+        "op": "call",
+        "args": [
+          "r4",
+          "2",
+          "2"
+        ]
+      },
+      {
+        "pc": 1764,
+        "line": 164354,
+        "op": "eq",
+        "args": [
+          "1",
+          "k6",
+          "r4"
+        ]
+      },
+      {
+        "pc": 1765,
+        "line": 164355,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l1804"
+        ]
+      },
+      {
+        "pc": 1766,
+        "line": 164356,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k228"
+        ]
+      },
+      {
+        "pc": 1767,
+        "line": 164357,
+        "op": "call",
+        "args": [
+          "r4",
+          "1",
+          "2"
+        ]
+      },
+      {
+        "pc": 1768,
+        "line": 164358,
+        "op": "test",
+        "args": [
+          "r4",
+          "0"
+        ]
+      },
+      {
+        "pc": 1769,
+        "line": 164359,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l1804"
+        ]
+      },
+      {
+        "pc": 1770,
+        "line": 164360,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k27"
+        ]
+      },
+      {
+        "pc": 1771,
+        "line": 164361,
+        "op": "move",
+        "args": [
+          "r5",
+          "r0"
+        ]
+      },
+      {
+        "pc": 1772,
+        "line": 164362,
+        "op": "gettabup",
+        "args": [
+          "r6",
+          "u0",
+          "k2"
+        ]
+      },
+      {
+        "pc": 1773,
+        "line": 164363,
+        "op": "loadk",
+        "args": [
+          "r7",
+          "k229"
+        ]
+      },
+      {
+        "pc": 1774,
+        "line": 164364,
+        "op": "call",
+        "args": [
+          "r6",
+          "2",
+          "0"
+        ]
+      },
+      {
+        "pc": 1775,
+        "line": 164365,
+        "op": "call",
+        "args": [
+          "r4",
+          "0",
+          "2"
+        ]
+      },
+      {
+        "pc": 1776,
+        "line": 164366,
+        "op": "lt",
+        "args": [
+          "1",
+          "k6",
+          "r4"
+        ]
+      },
+      {
+        "pc": 1777,
+        "line": 164367,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l1802"
+        ]
+      },
+      {
+        "pc": 1778,
+        "line": 164368,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k27"
+        ]
+      },
+      {
+        "pc": 1779,
+        "line": 164369,
+        "op": "move",
+        "args": [
+          "r5",
+          "r0"
+        ]
+      },
+      {
+        "pc": 1780,
+        "line": 164370,
+        "op": "gettabup",
+        "args": [
+          "r6",
+          "u0",
+          "k2"
+        ]
+      },
+      {
+        "pc": 1781,
+        "line": 164371,
+        "op": "loadk",
+        "args": [
+          "r7",
+          "k230"
+        ]
+      },
+      {
+        "pc": 1782,
+        "line": 164372,
+        "op": "call",
+        "args": [
+          "r6",
+          "2",
+          "0"
+        ]
+      },
+      {
+        "pc": 1783,
+        "line": 164373,
+        "op": "call",
+        "args": [
+          "r4",
+          "0",
+          "2"
+        ]
+      },
+      {
+        "pc": 1784,
+        "line": 164374,
+        "op": "lt",
+        "args": [
+          "1",
+          "k6",
+          "r4"
+        ]
+      },
+      {
+        "pc": 1785,
+        "line": 164375,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l1802"
+        ]
+      },
+      {
+        "pc": 1786,
+        "line": 164376,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k27"
+        ]
+      },
+      {
+        "pc": 1787,
+        "line": 164377,
+        "op": "move",
+        "args": [
+          "r5",
+          "r0"
+        ]
+      },
+      {
+        "pc": 1788,
+        "line": 164378,
+        "op": "gettabup",
+        "args": [
+          "r6",
+          "u0",
+          "k2"
+        ]
+      },
+      {
+        "pc": 1789,
+        "line": 164379,
+        "op": "loadk",
+        "args": [
+          "r7",
+          "k231"
+        ]
+      },
+      {
+        "pc": 1790,
+        "line": 164380,
+        "op": "call",
+        "args": [
+          "r6",
+          "2",
+          "0"
+        ]
+      },
+      {
+        "pc": 1791,
+        "line": 164381,
+        "op": "call",
+        "args": [
+          "r4",
+          "0",
+          "2"
+        ]
+      },
+      {
+        "pc": 1792,
+        "line": 164382,
+        "op": "lt",
+        "args": [
+          "1",
+          "k6",
+          "r4"
+        ]
+      },
+      {
+        "pc": 1793,
+        "line": 164383,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l1802"
+        ]
+      },
+      {
+        "pc": 1794,
+        "line": 164384,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k27"
+        ]
+      },
+      {
+        "pc": 1795,
+        "line": 164385,
+        "op": "move",
+        "args": [
+          "r5",
+          "r0"
+        ]
+      },
+      {
+        "pc": 1796,
+        "line": 164386,
+        "op": "gettabup",
+        "args": [
+          "r6",
+          "u0",
+          "k2"
+        ]
+      },
+      {
+        "pc": 1797,
+        "line": 164387,
+        "op": "loadk",
+        "args": [
+          "r7",
+          "k232"
+        ]
+      },
+      {
+        "pc": 1798,
+        "line": 164388,
+        "op": "call",
+        "args": [
+          "r6",
+          "2",
+          "0"
+        ]
+      },
+      {
+        "pc": 1799,
+        "line": 164389,
+        "op": "call",
+        "args": [
+          "r4",
+          "0",
+          "2"
+        ]
+      },
+      {
+        "pc": 1800,
+        "line": 164390,
+        "op": "lt",
+        "args": [
+          "0",
+          "k6",
+          "r4"
+        ]
+      },
+      {
+        "pc": 1801,
+        "line": 164391,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l1804"
+        ]
+      },
+      {
+        "pc": 1802,
+        "line": 164393,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k233"
+        ]
+      },
+      {
+        "pc": 1803,
+        "line": 164394,
+        "op": "call",
+        "args": [
+          "r4",
+          "1",
+          "1"
+        ]
+      }
+    ],
+    "labels": {
+      "l1804": 1804,
+      "l1802": 1802
+    }
+  },
+  "shared_gates": [
+    {
+      "meaning": "q004/q005 source -> eventD=0; initialD==0 return, else continue",
+      "bytecode": {
+        "function": "main/f291/f1",
+        "pcs": [
+          1,
+          27
+        ],
+        "lines": [
+          162494,
+          162522
+        ],
+        "constants": {
+          "k7": "GetEventDamage",
+          "k2": "GetId",
+          "k5": "EXSetEventDamage",
+          "k0": "GetEventDamageSource",
+          "k4": "q005",
+          "k6": 0,
+          "k1": "GetUnitTypeId",
+          "k3": "q004"
+        },
+        "instructions": [
+          {
+            "pc": 1,
+            "line": 162494,
+            "op": "gettabup",
+            "args": [
+              "r0",
+              "u0",
+              "k0"
+            ]
+          },
+          {
+            "pc": 2,
+            "line": 162495,
+            "op": "call",
+            "args": [
+              "r0",
+              "1",
+              "2"
+            ]
+          },
+          {
+            "pc": 3,
+            "line": 162496,
+            "op": "gettabup",
+            "args": [
+              "r1",
+              "u0",
+              "k1"
+            ]
+          },
+          {
+            "pc": 4,
+            "line": 162497,
+            "op": "move",
+            "args": [
+              "r2",
+              "r0"
+            ]
+          },
+          {
+            "pc": 5,
+            "line": 162498,
+            "op": "call",
+            "args": [
+              "r1",
+              "2",
+              "2"
+            ]
+          },
+          {
+            "pc": 6,
+            "line": 162499,
+            "op": "gettabup",
+            "args": [
+              "r2",
+              "u0",
+              "k2"
+            ]
+          },
+          {
+            "pc": 7,
+            "line": 162500,
+            "op": "loadk",
+            "args": [
+              "r3",
+              "k3"
+            ]
+          },
+          {
+            "pc": 8,
+            "line": 162501,
+            "op": "call",
+            "args": [
+              "r2",
+              "2",
+              "2"
+            ]
+          },
+          {
+            "pc": 9,
+            "line": 162502,
+            "op": "eq",
+            "args": [
+              "1",
+              "r1",
+              "r2"
+            ]
+          },
+          {
+            "pc": 10,
+            "line": 162503,
+            "op": "jmp",
+            "args": [
+              "0",
+              "l19"
+            ]
+          },
+          {
+            "pc": 11,
+            "line": 162504,
+            "op": "gettabup",
+            "args": [
+              "r1",
+              "u0",
+              "k1"
+            ]
+          },
+          {
+            "pc": 12,
+            "line": 162505,
+            "op": "move",
+            "args": [
+              "r2",
+              "r0"
+            ]
+          },
+          {
+            "pc": 13,
+            "line": 162506,
+            "op": "call",
+            "args": [
+              "r1",
+              "2",
+              "2"
+            ]
+          },
+          {
+            "pc": 14,
+            "line": 162507,
+            "op": "gettabup",
+            "args": [
+              "r2",
+              "u0",
+              "k2"
+            ]
+          },
+          {
+            "pc": 15,
+            "line": 162508,
+            "op": "loadk",
+            "args": [
+              "r3",
+              "k4"
+            ]
+          },
+          {
+            "pc": 16,
+            "line": 162509,
+            "op": "call",
+            "args": [
+              "r2",
+              "2",
+              "2"
+            ]
+          },
+          {
+            "pc": 17,
+            "line": 162510,
+            "op": "eq",
+            "args": [
+              "0",
+              "r1",
+              "r2"
+            ]
+          },
+          {
+            "pc": 18,
+            "line": 162511,
+            "op": "jmp",
+            "args": [
+              "0",
+              "l22"
+            ]
+          },
+          {
+            "pc": 19,
+            "line": 162513,
+            "op": "gettabup",
+            "args": [
+              "r1",
+              "u1",
+              "k5"
+            ]
+          },
+          {
+            "pc": 20,
+            "line": 162514,
+            "op": "loadk",
+            "args": [
+              "r2",
+              "k6"
+            ]
+          },
+          {
+            "pc": 21,
+            "line": 162515,
+            "op": "call",
+            "args": [
+              "r1",
+              "2",
+              "1"
+            ]
+          },
+          {
+            "pc": 22,
+            "line": 162517,
+            "op": "gettabup",
+            "args": [
+              "r1",
+              "u1",
+              "k7"
+            ]
+          },
+          {
+            "pc": 23,
+            "line": 162518,
+            "op": "loadk",
+            "args": [
+              "r2",
+              "k6"
+            ]
+          },
+          {
+            "pc": 24,
+            "line": 162519,
+            "op": "call",
+            "args": [
+              "r1",
+              "2",
+              "2"
+            ]
+          },
+          {
+            "pc": 25,
+            "line": 162520,
+            "op": "eq",
+            "args": [
+              "0",
+              "k6",
+              "r1"
+            ]
+          },
+          {
+            "pc": 26,
+            "line": 162521,
+            "op": "jmp",
+            "args": [
+              "0",
+              "l28"
+            ]
+          },
+          {
+            "pc": 27,
+            "line": 162522,
+            "op": "return",
+            "args": [
+              "r0",
+              "1"
+            ]
+          }
+        ],
+        "labels": {
+          "l19": 19,
+          "l22": 22,
+          "l28": 28
+        }
+      }
+    },
+    {
+      "meaning": "q039 source bypasses body to PC3964; no N054_57 draw",
+      "bytecode": {
+        "function": "main/f291/f1",
+        "pcs": [
+          98,
+          105
+        ],
+        "lines": [
+          162598,
+          162605
+        ],
+        "constants": {
+          "k1": "GetUnitTypeId",
+          "k24": "q039",
+          "k2": "GetId"
+        },
+        "instructions": [
+          {
+            "pc": 98,
+            "line": 162598,
+            "op": "gettabup",
+            "args": [
+              "r4",
+              "u0",
+              "k1"
+            ]
+          },
+          {
+            "pc": 99,
+            "line": 162599,
+            "op": "move",
+            "args": [
+              "r5",
+              "r0"
+            ]
+          },
+          {
+            "pc": 100,
+            "line": 162600,
+            "op": "call",
+            "args": [
+              "r4",
+              "2",
+              "2"
+            ]
+          },
+          {
+            "pc": 101,
+            "line": 162601,
+            "op": "gettabup",
+            "args": [
+              "r5",
+              "u0",
+              "k2"
+            ]
+          },
+          {
+            "pc": 102,
+            "line": 162602,
+            "op": "loadk",
+            "args": [
+              "r6",
+              "k24"
+            ]
+          },
+          {
+            "pc": 103,
+            "line": 162603,
+            "op": "call",
+            "args": [
+              "r5",
+              "2",
+              "2"
+            ]
+          },
+          {
+            "pc": 104,
+            "line": 162604,
+            "op": "eq",
+            "args": [
+              "1",
+              "r4",
+              "r5"
+            ]
+          },
+          {
+            "pc": 105,
+            "line": 162605,
+            "op": "jmp",
+            "args": [
+              "0",
+              "l3964"
+            ]
+          }
+        ],
+        "labels": {
+          "l3964": 3964
+        }
+      }
+    },
+    {
+      "meaning": "attack!=0 && actual source has B177 -> A164_T322_Action then return; no N054_57 draw",
+      "bytecode": {
+        "function": "main/f291/f1",
+        "pcs": [
+          198,
+          214
+        ],
+        "lines": [
+          162702,
+          162718
+        ],
+        "constants": {
+          "k40": "B177",
+          "k27": "GetUnitAbilityLevel",
+          "k2": "GetId",
+          "k31": "EXGetEventDamageData",
+          "k41": "A164_T322_Action",
+          "k6": 0,
+          "k32": 2
+        },
+        "instructions": [
+          {
+            "pc": 198,
+            "line": 162702,
+            "op": "gettabup",
+            "args": [
+              "r4",
+              "u1",
+              "k31"
+            ]
+          },
+          {
+            "pc": 199,
+            "line": 162703,
+            "op": "loadk",
+            "args": [
+              "r5",
+              "k32"
+            ]
+          },
+          {
+            "pc": 200,
+            "line": 162704,
+            "op": "call",
+            "args": [
+              "r4",
+              "2",
+              "2"
+            ]
+          },
+          {
+            "pc": 201,
+            "line": 162705,
+            "op": "eq",
+            "args": [
+              "1",
+              "k6",
+              "r4"
+            ]
+          },
+          {
+            "pc": 202,
+            "line": 162706,
+            "op": "jmp",
+            "args": [
+              "0",
+              "l215"
+            ]
+          },
+          {
+            "pc": 203,
+            "line": 162707,
+            "op": "gettabup",
+            "args": [
+              "r4",
+              "u0",
+              "k27"
+            ]
+          },
+          {
+            "pc": 204,
+            "line": 162708,
+            "op": "move",
+            "args": [
+              "r5",
+              "r0"
+            ]
+          },
+          {
+            "pc": 205,
+            "line": 162709,
+            "op": "gettabup",
+            "args": [
+              "r6",
+              "u0",
+              "k2"
+            ]
+          },
+          {
+            "pc": 206,
+            "line": 162710,
+            "op": "loadk",
+            "args": [
+              "r7",
+              "k40"
+            ]
+          },
+          {
+            "pc": 207,
+            "line": 162711,
+            "op": "call",
+            "args": [
+              "r6",
+              "2",
+              "0"
+            ]
+          },
+          {
+            "pc": 208,
+            "line": 162712,
+            "op": "call",
+            "args": [
+              "r4",
+              "0",
+              "2"
+            ]
+          },
+          {
+            "pc": 209,
+            "line": 162713,
+            "op": "lt",
+            "args": [
+              "0",
+              "k6",
+              "r4"
+            ]
+          },
+          {
+            "pc": 210,
+            "line": 162714,
+            "op": "jmp",
+            "args": [
+              "0",
+              "l215"
+            ]
+          },
+          {
+            "pc": 211,
+            "line": 162715,
+            "op": "gettabup",
+            "args": [
+              "r4",
+              "u0",
+              "k41"
+            ]
+          },
+          {
+            "pc": 212,
+            "line": 162716,
+            "op": "move",
+            "args": [
+              "r5",
+              "r0"
+            ]
+          },
+          {
+            "pc": 213,
+            "line": 162717,
+            "op": "call",
+            "args": [
+              "r4",
+              "2",
+              "1"
+            ]
+          },
+          {
+            "pc": 214,
+            "line": 162718,
+            "op": "return",
+            "args": [
+              "r0",
+              "1"
+            ]
+          }
+        ],
+        "labels": {
+          "l215": 215
+        }
+      }
+    }
+  ],
+  "readable": {
+    "helper_lines": [
+      71678,
+      71688
+    ],
+    "branch_lines": [
+      112164,
+      112208
+    ],
+    "module_action_lines": [
+      71596,
+      71676
+    ]
+  },
+  "execution": {
+    "entry_source": "actual damage source S=r0, not attributed original tower O=r2",
+    "event": "damage dispatcher with EXGetEventDamageData(2)!=0 at PC1764; not merely attack-start event",
+    "random_order": "after attack flag succeeds, always call helper once before checking any N054..N057; even no ability holder consumes this draw when reaching branch",
+    "ability_order": [
+      "N054",
+      "N055",
+      "N056",
+      "N057"
+    ],
+    "ability_predicate": "GetUnitAbilityLevel(S,id)>0 for at least one; short circuit after first present ID, one action call total",
+    "success_action": "N054_57_Action(); no arguments, itself reads event source/target",
+    "native_ability_field_warning": "Each ID is level1 codeAOcr with absent DataA/B values; template Researchubertip says generic critical strike. The actual Ubertip is the named area-damage text; no assumption about raw native critical stacking here.",
+    "not_added_gates": [
+      "no local Game_Mode condition",
+      "no local illusion exclusion",
+      "no extra local enemy-owner check",
+      "no local post-modification positive-D recheck",
+      "no caster mana or cooldown check in this branch"
+    ],
+    "shared_gate_notes": "initialD==0 is checked once at entry; later D=0 does not automatically stop this branch. Other called skill effects/context remain under shared dispatcher; no new global return invented."
+  },
+  "validation": {
+    "status": "passed",
+    "helper_outcomes": 101,
+    "source_true_outcomes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "source_false_outcomes": [
+      15,
+      100
+    ],
+    "entry_states": 1414,
+    "public_gate_local_states": 12,
+    "instruction_identity_checks": 105,
+    "method": "small Lua bytecode interpreter, native functions stubbed; selected dispatcher fragments only, no full effect or Warcraft runtime test",
+    "workbook_and_tooltip_exact_matches": 4,
+    "confirmed_choice_preserved": true,
+    "web_Q36": {
+      "enumerated_outcomes": 100,
+      "true_outcomes": [
+        1,
+        15
+      ],
+      "false_outcomes": [
+        16,
+        100
+      ],
+      "boundaries": {
+        "1": true,
+        "15": true,
+        "16": false,
+        "100": false
+      },
+      "scope": "mathematical and local entry checks, not game runtime",
+      "local_entry_math_states": 3200
+    }
+  },
+  "remaining": [
+    "N054_57_Action full execution and native area/critical/control interactions are not claimed complete; this batch only establishes probability and admission order"
+  ]
+}

@@ -1,0 +1,1965 @@
+{
+  "schema_version": 1,
+  "baseline_id": "area-damage-v1",
+  "status": "Q24-selected-web-baseline-not-native-runtime-test",
+  "scope": [
+    "UnitDamagePoint eligibility geometry and ordering",
+    "i132 i134 N068-N071 N054-N057 N086 integration",
+    "all direct point-call type preservation inventory"
+  ],
+  "source_hashes": {
+    "main.disasm": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+    "main.readable.lua": "d868f14d946f0780313468f5dd783fa4a6cbe39f5c7851d8e4094ef80aa618b9",
+    "units_abilitydata.json": "b772de42ebcfc1d3818298b35dbe81a35826892848c7cbfef70bf5097e481861"
+  },
+  "sources": [
+    {
+      "id": "native_declaration",
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/compiler/jass/24/common.j#L1618",
+      "supports": "11 arguments and boolean return, not target filter implementation"
+    },
+    {
+      "id": "bj_wrapper",
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/compiler/jass/24/blizzard.j#L3844",
+      "supports": "location wrapper sets attack=true, ranged=false"
+    },
+    {
+      "id": "official_spell_categories",
+      "url": "https://classic.battle.net/war3/basics/spellbasics.shtml",
+      "supports": "physical/magical/universal distinction and spell immunity; not exact native or map client version"
+    }
+  ],
+  "workbook_constraints": [
+    {
+      "sheet": "装备与道具",
+      "cell": "H42",
+      "constraint": "目标范围；20%、攻击×3.6由Q28已决",
+      "relation_explicit": false
+    },
+    {
+      "sheet": "装备与道具",
+      "cell": "H44",
+      "constraint": "周围敌人；50%、当前魔法×0.67由Q29已决",
+      "relation_explicit": true
+    },
+    {
+      "sheet": "塔技能",
+      "cells": [
+        "H776",
+        "H779",
+        "H782",
+        "H785"
+      ],
+      "constraint": "取消此次攻击，改对周围敌人范围伤害；攻击力越高伤害越高，攻速越慢范围越大",
+      "relation_explicit": true
+    },
+    {
+      "sheet": "塔技能",
+      "cell": "H726/H729/H732/H735",
+      "constraint": "雷霆战斧明确500范围敌人",
+      "relation_explicit": true
+    },
+    {
+      "sheet": "塔技能",
+      "cell": "H548",
+      "constraint": "力量压制明确目标600范围内敌人",
+      "relation_explicit": true
+    }
+  ],
+  "web_rules": {
+    "target_relation": "enemy_of_source_owner_at_area_resolution; caller-explicit relationship policy has priority; three closed profiles use enemy",
+    "geometry": {
+      "dimensions": 2,
+      "predicate": "(unit.x-center.x)^2+(unit.y-center.y)^2 <= radius^2",
+      "collision_radius_added": false,
+      "edge_inclusive": true,
+      "air_and_structures": "included unless caller-specific filter excludes",
+      "visibility_detection_height_los": "not implicit filters"
+    },
+    "snapshot": {
+      "time": "immediate if delay=0; due time if positive",
+      "order": "ascending persistent unit creation id (B04)",
+      "initial_filters": [
+        "exists",
+        "alive",
+        "enemy",
+        "inside_closed_circle",
+        "no_active_Aloc",
+        "not_invulnerable",
+        "not_MAGIC_against_magic_immune",
+        "caller_target_filter"
+      ],
+      "before_each_child_recheck": [
+        "exists",
+        "alive",
+        "active_Aloc",
+        "invulnerable",
+        "MAGIC_against_magic_immune"
+      ],
+      "not_rechecked": [
+        "position",
+        "allegiance",
+        "caller spatial filter"
+      ],
+      "created_during_resolution": "excluded"
+    },
+    "magic_immunity": {
+      "MAGIC": "skip before event",
+      "NORMAL": "not rejected by magic immunity",
+      "DIVINE": "not rejected by magic immunity",
+      "other_types": "not classified by this baseline; require typed-damage contract",
+      "attack_type": "preserve separately; not overwritten by damage_type"
+    },
+    "zero_delay": "synchronous; each child completes before next; all children finish before native returns; no TimerStart(0) scheduling",
+    "positive_delay": {
+      "capture": [
+        "source_unit_ref",
+        "center_x",
+        "center_y",
+        "radius",
+        "amount",
+        "attack",
+        "ranged",
+        "attack_type",
+        "damage_type",
+        "weapon_type"
+      ],
+      "schedule": "B05 microseconds and enqueue order",
+      "target_query": "at due time",
+      "dead_source": "continues if still exists",
+      "removed_source_before_due": "cancel emission",
+      "source_owner": "read at resolution"
+    },
+    "packet": "one area emission; same requested raw amount for every victim; no division by target count, no extra hit roll, no single-target spell-effect event or per-target cost; per-victim B03 typed mitigation and original damage pipeline",
+    "source_attributes": "caller snapshots raw amount once; map event callbacks may read live source attributes normally",
+    "invalid_inputs": "finite center/radius/amount/delay required; radius, delay and amount >=0; removed source invalid; false and no damage/queue mutation on invalid request; never clamp or invent radius",
+    "zero_amount": "no damage events; caller continues normally; source trigger gates and RNG calls have already occurred",
+    "negative_amount": "return false and emit no damage or delayed job; never convert to healing. No reachable negative call is established in the three closed profiles; i132/i134 explicitly return on P<=0, Dragonspawn has no local P>0 guard. Any future evidenced reachable negative formula requires an explicit skill rule instead of silent omission.",
+    "return": "false for invalid request; true for accepted request even if no victim; positive delay returns acceptance, not eventual hit result"
+  },
+  "closed_profiles": [
+    {
+      "id": "i132",
+      "name": "村正·居合",
+      "formula_web": "((state20+state21)/2)*3.6 + maxLife*0.15; existing B060/no-A multiplier 0.8 applies",
+      "radius": 460,
+      "center": "trigger target location at call",
+      "delay": 0,
+      "tuple": [
+        false,
+        false,
+        "HERO",
+        "NORMAL",
+        "WHOKNOWS"
+      ],
+      "bytecode": [
+        "main/f238/f1:126768-126875",
+        "main/f7/f30:51941-51970"
+      ],
+      "caller_gates": "unchanged; item-muramasa-takemitsu.md Q28"
+    },
+    {
+      "id": "i134",
+      "name": "竹光·细雪",
+      "formula_web": "currentMana*0.67 at original read point after optional A084",
+      "radius": 900,
+      "center": "trigger caster at call",
+      "delay": 0,
+      "tuple": [
+        false,
+        false,
+        "NORMAL",
+        "MAGIC",
+        "WHOKNOWS"
+      ],
+      "bytecode": [
+        "main/f240/f1:127051-127123"
+      ],
+      "caller_gates": "unchanged; item-muramasa-takemitsu.md Q29"
+    },
+    {
+      "id": "N068-N071",
+      "name": "龙卵领主",
+      "formula": "((state20+state21)/2)*[0.8,1.0,1.2,1.4][rank]",
+      "radius_formula": "min(1200,50+260*state37/state81)",
+      "rank_priority": [
+        "N069:2",
+        "N070:3",
+        "N071:4",
+        "else:1"
+      ],
+      "center": "attacker at call",
+      "delay": 0,
+      "tuple": [
+        false,
+        false,
+        "CHAOS",
+        "NORMAL",
+        "WHOKNOWS"
+      ],
+      "bytecode": [
+        "main/f178/f0:113486-113648",
+        "main/f291/f1:164433-164473"
+      ],
+      "after_area_return": "EXSetEventDamage(0) on restored parent context; then continue original pipeline",
+      "caller_gates": "original attack!=0 and at least one N068/N069/N070/N071"
+    },
+    {
+      "id": "N054-N057",
+      "name": "雷霆战斧",
+      "damage_priority": [
+        "N055:1200",
+        "N056:1800",
+        "N057:4000",
+        "else:800"
+      ],
+      "radius": 500,
+      "center": "original target position at native call",
+      "delay": 0,
+      "tuple": [
+        false,
+        false,
+        "MELEE",
+        "NORMAL",
+        "WHOKNOWS"
+      ],
+      "bytecode": [
+        "main/f176/f0:113162-113290",
+        "main/f291/f1:164351-164394"
+      ],
+      "caller_gates": "Q36 exact15%; attack flag check then probability then actual source any N054-N057; public gates preserved",
+      "after_area_return": "parent damage unchanged by this function; reread target location for visual0.8 seconds scale1.4",
+      "specification": "skill-thunder-axes-effect.md"
+    },
+    {
+      "id": "N086",
+      "name": "力量压制",
+      "formula": "GetUnitState(actualSource, UNIT_STATE_MAX_LIFE), read once at effect invocation",
+      "radius": 600,
+      "center": "original target position at native call",
+      "delay": 0,
+      "tuple": [
+        false,
+        false,
+        "CHAOS",
+        "NORMAL",
+        "WHOKNOWS"
+      ],
+      "bytecode": [
+        "main/f181/f0:113990-114053",
+        "main/f291/f1:164474-164492"
+      ],
+      "caller_gates": "Q38 exact12%; actual source N086>0 then attack flag then probability; public gates preserved",
+      "after_area_return": "parent damage unchanged by function; visual0.8seconds scale1.8 rereads target position per local visual rules",
+      "specification": "skill-power-suppression-effect.md"
+    }
+  ],
+  "direct_call_inventory": [
+    {
+      "module": "BJ",
+      "lua_load_line": 16123,
+      "lua_call_line": 16139,
+      "bytecode": {
+        "function": "main/f6/f397",
+        "load_line": 28682,
+        "call_line": 28698,
+        "flags_and_types": [
+          true,
+          false,
+          "parameter/register r5",
+          "parameter/register r6",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "generic_wrapper",
+      "arguments": "source,delay,radius,location.x,location.y,amount,true,false,caller.attackType,caller.damageType,WHOKNOWS"
+    },
+    {
+      "module": "scripts.utils.Util",
+      "lua_load_line": 31855,
+      "lua_call_line": 31867,
+      "bytecode": {
+        "function": "main/f7/f30",
+        "load_line": 51957,
+        "call_line": 51969,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_HERO",
+          "DAMAGE_TYPE_NORMAL",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "typed_wrapper",
+      "arguments_lexical": [
+        "A0_3",
+        "A1_3",
+        "A2_3",
+        "A3_3",
+        "A4_3",
+        "A5_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_HERO",
+        "DAMAGE_TYPE_NORMAL",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.utils.Util",
+      "lua_load_line": 31874,
+      "lua_call_line": 31886,
+      "bytecode": {
+        "function": "main/f7/f31",
+        "load_line": 51988,
+        "call_line": 52000,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_NORMAL",
+          "DAMAGE_TYPE_MAGIC",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "typed_wrapper",
+      "arguments_lexical": [
+        "A0_3",
+        "A1_3",
+        "A2_3",
+        "A3_3",
+        "A4_3",
+        "A5_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_NORMAL",
+        "DAMAGE_TYPE_MAGIC",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.utils.Util",
+      "lua_load_line": 31893,
+      "lua_call_line": 31905,
+      "bytecode": {
+        "function": "main/f7/f32",
+        "load_line": 52019,
+        "call_line": 52031,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_CHAOS",
+          "DAMAGE_TYPE_DIVINE",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "typed_wrapper",
+      "arguments_lexical": [
+        "A0_3",
+        "A1_3",
+        "A2_3",
+        "A3_3",
+        "A4_3",
+        "A5_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_CHAOS",
+        "DAMAGE_TYPE_DIVINE",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.skill.A020",
+      "lua_load_line": 38653,
+      "lua_call_line": 38665,
+      "bytecode": {
+        "function": "main/f22/f1",
+        "load_line": 62353,
+        "call_line": 62365,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_NORMAL",
+          "DAMAGE_TYPE_MAGIC",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "A0_3",
+        "0",
+        "600",
+        "L3_3",
+        "L4_3",
+        "A2_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_NORMAL",
+        "DAMAGE_TYPE_MAGIC",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.skill.A037",
+      "lua_load_line": 40046,
+      "lua_call_line": 40062,
+      "bytecode": {
+        "function": "main/f35/f2",
+        "load_line": 64710,
+        "call_line": 64726,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_CHAOS",
+          "DAMAGE_TYPE_DIVINE",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "L2_3",
+        "0",
+        "500",
+        "GetUnitX(L2_3)",
+        "GetUnitY(L2_3)",
+        "L6_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_CHAOS",
+        "DAMAGE_TYPE_DIVINE",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.skill.A047",
+      "lua_load_line": 41459,
+      "lua_call_line": 41471,
+      "bytecode": {
+        "function": "main/f43/f1",
+        "load_line": 67036,
+        "call_line": 67048,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_NORMAL",
+          "DAMAGE_TYPE_MAGIC",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "L2_3",
+        "0",
+        "1000",
+        "L3_3",
+        "L4_3",
+        "L7_3 / 2",
+        "false",
+        "false",
+        "ATTACK_TYPE_NORMAL",
+        "DAMAGE_TYPE_MAGIC",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.skill.A054",
+      "lua_load_line": 41967,
+      "lua_call_line": 41979,
+      "bytecode": {
+        "function": "main/f48/f2",
+        "load_line": 67900,
+        "call_line": 67912,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_NORMAL",
+          "DAMAGE_TYPE_MAGIC",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "L2_3",
+        "0",
+        "L7_3",
+        "L5_3",
+        "L6_3",
+        "L4_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_NORMAL",
+        "DAMAGE_TYPE_MAGIC",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.skill.A057",
+      "lua_load_line": 42799,
+      "lua_call_line": 42811,
+      "bytecode": {
+        "function": "main/f51/f1",
+        "load_line": 69187,
+        "call_line": 69199,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_HERO",
+          "DAMAGE_TYPE_NORMAL",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "L1_3",
+        "0",
+        "500",
+        "L8_3",
+        "L9_3",
+        "L10_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_HERO",
+        "DAMAGE_TYPE_NORMAL",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.skill.A080",
+      "lua_load_line": 46608,
+      "lua_call_line": 46620,
+      "bytecode": {
+        "function": "main/f69/f1",
+        "load_line": 74988,
+        "call_line": 75000,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_NORMAL",
+          "DAMAGE_TYPE_MAGIC",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "A0_3",
+        "0",
+        "L6_3",
+        "L2_3",
+        "L3_3",
+        "300 * L7_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_NORMAL",
+        "DAMAGE_TYPE_MAGIC",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.skill.A081",
+      "lua_load_line": 46879,
+      "lua_call_line": 46891,
+      "bytecode": {
+        "function": "main/f70/f1",
+        "load_line": 75378,
+        "call_line": 75390,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_CHAOS",
+          "DAMAGE_TYPE_DIVINE",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "A0_3",
+        "0",
+        "520",
+        "L5_3",
+        "L6_3",
+        "0.9 * L12_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_CHAOS",
+        "DAMAGE_TYPE_DIVINE",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.skill.A081",
+      "lua_load_line": 46900,
+      "lua_call_line": 46912,
+      "bytecode": {
+        "function": "main/f70/f1",
+        "load_line": 75401,
+        "call_line": 75413,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_CHAOS",
+          "DAMAGE_TYPE_DIVINE",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "A0_3",
+        "0",
+        "380",
+        "L5_3",
+        "L6_3",
+        "0.45 * L12_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_CHAOS",
+        "DAMAGE_TYPE_DIVINE",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.skill.A081",
+      "lua_load_line": 46922,
+      "lua_call_line": 46934,
+      "bytecode": {
+        "function": "main/f70/f1",
+        "load_line": 75422,
+        "call_line": 75434,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_CHAOS",
+          "DAMAGE_TYPE_DIVINE",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "A0_3",
+        "0",
+        "L10_3",
+        "L5_3",
+        "L6_3",
+        "L12_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_CHAOS",
+        "DAMAGE_TYPE_DIVINE",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.skill.A083",
+      "lua_load_line": 47484,
+      "lua_call_line": 47496,
+      "bytecode": {
+        "function": "main/f72/f1",
+        "load_line": 76254,
+        "call_line": 76266,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_CHAOS",
+          "DAMAGE_TYPE_DIVINE",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "A0_3",
+        "0",
+        "285",
+        "L4_3",
+        "L5_3",
+        "L3_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_CHAOS",
+        "DAMAGE_TYPE_DIVINE",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.skill.A085",
+      "lua_load_line": 47868,
+      "lua_call_line": 47880,
+      "bytecode": {
+        "function": "main/f74/f0",
+        "load_line": 76833,
+        "call_line": 76845,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_NORMAL",
+          "DAMAGE_TYPE_MAGIC",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "A0_3",
+        "0",
+        "L3_3",
+        "L5_3",
+        "L6_3",
+        "L9_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_NORMAL",
+        "DAMAGE_TYPE_MAGIC",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.skill.A087",
+      "lua_load_line": 48064,
+      "lua_call_line": 48076,
+      "bytecode": {
+        "function": "main/f76/f0",
+        "load_line": 77145,
+        "call_line": 77157,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_CHAOS",
+          "DAMAGE_TYPE_DIVINE",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "L1_3",
+        "0",
+        "400",
+        "L6_3",
+        "L7_3",
+        "L9_3 * 2",
+        "false",
+        "false",
+        "ATTACK_TYPE_CHAOS",
+        "DAMAGE_TYPE_DIVINE",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.skill.A101",
+      "lua_load_line": 48947,
+      "lua_call_line": 48959,
+      "bytecode": {
+        "function": "main/f81/f0",
+        "load_line": 78490,
+        "call_line": 78502,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_NORMAL",
+          "DAMAGE_TYPE_MAGIC",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "A0_3",
+        "L7_3",
+        "500",
+        "L2_3",
+        "L3_3",
+        "L5_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_NORMAL",
+        "DAMAGE_TYPE_MAGIC",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.skill.A107",
+      "lua_load_line": 49812,
+      "lua_call_line": 49824,
+      "bytecode": {
+        "function": "main/f86/f1",
+        "load_line": 79802,
+        "call_line": 79814,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_NORMAL",
+          "DAMAGE_TYPE_MAGIC",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "A0_3",
+        "0",
+        "200",
+        "L8_3",
+        "L9_3",
+        "L4_3 * L6_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_NORMAL",
+        "DAMAGE_TYPE_MAGIC",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.skill.A108",
+      "lua_load_line": 49957,
+      "lua_call_line": 49969,
+      "bytecode": {
+        "function": "main/f87/f0",
+        "load_line": 80019,
+        "call_line": 80031,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_HERO",
+          "DAMAGE_TYPE_NORMAL",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "A0_3",
+        "L12_3 - 1",
+        "500",
+        "L3_3",
+        "L4_3",
+        "L8_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_HERO",
+        "DAMAGE_TYPE_NORMAL",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.skill.A132",
+      "lua_load_line": 53345,
+      "lua_call_line": 53357,
+      "bytecode": {
+        "function": "main/f100/f0",
+        "load_line": 85070,
+        "call_line": 85082,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_HERO",
+          "DAMAGE_TYPE_NORMAL",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "L1_3",
+        "0",
+        "500",
+        "L2_3",
+        "L3_3",
+        "L7_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_HERO",
+        "DAMAGE_TYPE_NORMAL",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.skill.A157",
+      "lua_load_line": 54712,
+      "lua_call_line": 54724,
+      "bytecode": {
+        "function": "main/f108/f2",
+        "load_line": 87106,
+        "call_line": 87118,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_CHAOS",
+          "DAMAGE_TYPE_DIVINE",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "L3_3",
+        "0",
+        "360",
+        "L4_3",
+        "L5_3",
+        "L9_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_CHAOS",
+        "DAMAGE_TYPE_DIVINE",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.skill.A160",
+      "lua_load_line": 55074,
+      "lua_call_line": 55086,
+      "bytecode": {
+        "function": "main/f111/f0",
+        "load_line": 87665,
+        "call_line": 87677,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_NORMAL",
+          "DAMAGE_TYPE_MAGIC",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "A0_3",
+        "0",
+        "300",
+        "L5_3",
+        "L6_3",
+        "L4_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_NORMAL",
+        "DAMAGE_TYPE_MAGIC",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.skill.A164",
+      "lua_load_line": 57182,
+      "lua_call_line": 57194,
+      "bytecode": {
+        "function": "main/f115/f22",
+        "load_line": 90958,
+        "call_line": 90970,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_HERO",
+          "DAMAGE_TYPE_NORMAL",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "L1_3",
+        "0",
+        "500",
+        "L2_3",
+        "L3_3",
+        "L7_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_HERO",
+        "DAMAGE_TYPE_NORMAL",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.skill.A164",
+      "lua_load_line": 58102,
+      "lua_call_line": 58118,
+      "bytecode": {
+        "function": "main/f115/f40",
+        "load_line": 92460,
+        "call_line": 92476,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_CHAOS",
+          "DAMAGE_TYPE_NORMAL",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "L0_3",
+        "0",
+        "600.0",
+        "GetUnitX(L1_3)",
+        "GetUnitY(L1_3)",
+        "L2_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_CHAOS",
+        "DAMAGE_TYPE_NORMAL",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.skill.A165",
+      "lua_load_line": 58373,
+      "lua_call_line": 58389,
+      "bytecode": {
+        "function": "main/f116/f0",
+        "load_line": 92909,
+        "call_line": 92925,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_NORMAL",
+          "DAMAGE_TYPE_MAGIC",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "A0_3",
+        "0",
+        "500",
+        "GetUnitX(A0_3)",
+        "GetUnitY(A0_3)",
+        "L5_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_NORMAL",
+        "DAMAGE_TYPE_MAGIC",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.skill.A165",
+      "lua_load_line": 58445,
+      "lua_call_line": 58461,
+      "bytecode": {
+        "function": "main/f116/f1",
+        "load_line": 93011,
+        "call_line": 93027,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_NORMAL",
+          "DAMAGE_TYPE_MAGIC",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "L2_3",
+        "0",
+        "500",
+        "GetUnitX(L2_3)",
+        "GetUnitY(L2_3)",
+        "L4_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_NORMAL",
+        "DAMAGE_TYPE_MAGIC",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.skill.A179",
+      "lua_load_line": 60354,
+      "lua_call_line": 60370,
+      "bytecode": {
+        "function": "main/f126/f1",
+        "load_line": 95999,
+        "call_line": 96015,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_NORMAL",
+          "DAMAGE_TYPE_MAGIC",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "L2_3",
+        "0",
+        "800",
+        "GetUnitX(L2_3)",
+        "GetUnitY(L2_3)",
+        "L4_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_NORMAL",
+        "DAMAGE_TYPE_MAGIC",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.skill.A179",
+      "lua_load_line": 60412,
+      "lua_call_line": 60428,
+      "bytecode": {
+        "function": "main/f126/f2",
+        "load_line": 96101,
+        "call_line": 96117,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_NORMAL",
+          "DAMAGE_TYPE_MAGIC",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "A0_3",
+        "0",
+        "800",
+        "GetUnitX(A0_3)",
+        "GetUnitY(A0_3)",
+        "L4_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_NORMAL",
+        "DAMAGE_TYPE_MAGIC",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.skill.N054_57",
+      "lua_load_line": 71649,
+      "lua_call_line": 71665,
+      "bytecode": {
+        "function": "main/f176/f0",
+        "load_line": 113265,
+        "call_line": 113281,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_MELEE",
+          "DAMAGE_TYPE_NORMAL",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "L0_3",
+        "0",
+        "500.0",
+        "GetUnitX(L1_3)",
+        "GetUnitY(L1_3)",
+        "L3_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_MELEE",
+        "DAMAGE_TYPE_NORMAL",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.skill.N068_71",
+      "lua_load_line": 71874,
+      "lua_call_line": 71890,
+      "bytecode": {
+        "function": "main/f178/f0",
+        "load_line": 113628,
+        "call_line": 113644,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_CHAOS",
+          "DAMAGE_TYPE_NORMAL",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "L0_3",
+        "0",
+        "L3_3",
+        "GetUnitX(L0_3)",
+        "GetUnitY(L0_3)",
+        "L2_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_CHAOS",
+        "DAMAGE_TYPE_NORMAL",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.skill.N086",
+      "lua_load_line": 72136,
+      "lua_call_line": 72152,
+      "bytecode": {
+        "function": "main/f181/f0",
+        "load_line": 114027,
+        "call_line": 114043,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_CHAOS",
+          "DAMAGE_TYPE_NORMAL",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "L0_3",
+        "0",
+        "600.0",
+        "GetUnitX(L1_3)",
+        "GetUnitY(L1_3)",
+        "L2_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_CHAOS",
+        "DAMAGE_TYPE_NORMAL",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.skill.N142_N147",
+      "lua_load_line": 72360,
+      "lua_call_line": 72376,
+      "bytecode": {
+        "function": "main/f183/f0",
+        "load_line": 114382,
+        "call_line": 114398,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_NORMAL",
+          "DAMAGE_TYPE_MAGIC",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "L0_3",
+        "0",
+        "300.0",
+        "GetUnitX(L1_3)",
+        "GetUnitY(L1_3)",
+        "L3_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_NORMAL",
+        "DAMAGE_TYPE_MAGIC",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.Item.i240_254",
+      "lua_load_line": 79881,
+      "lua_call_line": 79897,
+      "bytecode": {
+        "function": "main/f232/f1",
+        "load_line": 126040,
+        "call_line": 126056,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_HERO",
+          "DAMAGE_TYPE_NORMAL",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "A0_3",
+        "0",
+        "300",
+        "GetUnitX(A2_3)",
+        "GetUnitY(A2_3)",
+        "L9_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_HERO",
+        "DAMAGE_TYPE_NORMAL",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.Item.i240_254",
+      "lua_load_line": 79985,
+      "lua_call_line": 80001,
+      "bytecode": {
+        "function": "main/f232/f1",
+        "load_line": 126151,
+        "call_line": 126167,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_NORMAL",
+          "DAMAGE_TYPE_MAGIC",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "A0_3",
+        "0",
+        "400",
+        "GetUnitX(A2_3)",
+        "GetUnitY(A2_3)",
+        "L7_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_NORMAL",
+        "DAMAGE_TYPE_MAGIC",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.item.i134",
+      "lua_load_line": 80563,
+      "lua_call_line": 80579,
+      "bytecode": {
+        "function": "main/f240/f1",
+        "load_line": 127094,
+        "call_line": 127110,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_NORMAL",
+          "DAMAGE_TYPE_MAGIC",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "L0_3",
+        "0.0",
+        "900",
+        "GetUnitX(L0_3)",
+        "GetUnitY(L0_3)",
+        "L1_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_NORMAL",
+        "DAMAGE_TYPE_MAGIC",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.item.i302",
+      "lua_load_line": 84809,
+      "lua_call_line": 84821,
+      "bytecode": {
+        "function": "main/f268/f1",
+        "load_line": 133605,
+        "call_line": 133617,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_CHAOS",
+          "DAMAGE_TYPE_DIVINE",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "A0_3",
+        "0",
+        "425",
+        "L3_3",
+        "L4_3",
+        "L8_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_CHAOS",
+        "DAMAGE_TYPE_DIVINE",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.item.i316",
+      "lua_load_line": 85060,
+      "lua_call_line": 85072,
+      "bytecode": {
+        "function": "main/f269/f2",
+        "load_line": 133992,
+        "call_line": 134004,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_HERO",
+          "DAMAGE_TYPE_NORMAL",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "A0_3",
+        "0",
+        "440",
+        "L4_3",
+        "L5_3",
+        "L9_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_HERO",
+        "DAMAGE_TYPE_NORMAL",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    },
+    {
+      "module": "scripts.model.item.i316",
+      "lua_load_line": 85095,
+      "lua_call_line": 85111,
+      "bytecode": {
+        "function": "main/f269/f2",
+        "load_line": 134028,
+        "call_line": 134044,
+        "flags_and_types": [
+          false,
+          false,
+          "ATTACK_TYPE_HERO",
+          "DAMAGE_TYPE_NORMAL",
+          "WEAPON_TYPE_WHOKNOWS"
+        ]
+      },
+      "kind": "direct_call",
+      "arguments_lexical": [
+        "A0_3",
+        "0",
+        "310",
+        "GetUnitX(A1_3)",
+        "GetUnitY(A1_3)",
+        "L9_3",
+        "false",
+        "false",
+        "ATTACK_TYPE_HERO",
+        "DAMAGE_TYPE_NORMAL",
+        "WEAPON_TYPE_WHOKNOWS"
+      ],
+      "scope_note": "类型/标记已对照字节码；其他局部变量仅作定位，不声称完整技能门槛已核"
+    }
+  ],
+  "helper_references": [
+    {
+      "lua_load_line": 40806,
+      "helper": "SetRealDamagePoint"
+    },
+    {
+      "lua_load_line": 57412,
+      "helper": "SetMagicDamagePoint"
+    },
+    {
+      "lua_load_line": 63360,
+      "helper": "SetPhyDamagePoint"
+    },
+    {
+      "lua_load_line": 64104,
+      "helper": "SetMagicDamagePoint"
+    },
+    {
+      "lua_load_line": 64266,
+      "helper": "SetMagicDamagePoint"
+    },
+    {
+      "lua_load_line": 64579,
+      "helper": "SetMagicDamagePoint"
+    },
+    {
+      "lua_load_line": 64856,
+      "helper": "SetMagicDamagePoint"
+    },
+    {
+      "lua_load_line": 65300,
+      "helper": "SetMagicDamagePoint"
+    },
+    {
+      "lua_load_line": 66197,
+      "helper": "SetPhyDamagePoint"
+    },
+    {
+      "lua_load_line": 66803,
+      "helper": "SetMagicDamagePoint"
+    },
+    {
+      "lua_load_line": 67771,
+      "helper": "SetPhyDamagePoint"
+    },
+    {
+      "lua_load_line": 69964,
+      "helper": "SetMagicDamagePoint"
+    },
+    {
+      "lua_load_line": 70156,
+      "helper": "SetMagicDamagePoint"
+    },
+    {
+      "lua_load_line": 70668,
+      "helper": "SetMagicDamagePoint"
+    },
+    {
+      "lua_load_line": 70919,
+      "helper": "SetPhyDamagePoint"
+    },
+    {
+      "lua_load_line": 80428,
+      "helper": "SetPhyDamagePoint"
+    },
+    {
+      "lua_load_line": 81182,
+      "helper": "SetPhyDamagePoint"
+    },
+    {
+      "lua_load_line": 85212,
+      "helper": "SetMagicDamagePoint"
+    },
+    {
+      "lua_load_line": 85695,
+      "helper": "SetPhyDamagePoint"
+    },
+    {
+      "lua_load_line": 103639,
+      "helper": "SetMagicDamagePoint"
+    }
+  ],
+  "nonzero_delay_evidence": [
+    {
+      "id": "A101",
+      "bytecode": "78474-78503",
+      "delay": "0.8; G060 source ->0.2",
+      "radius": 500,
+      "tuple": [
+        false,
+        false,
+        "NORMAL",
+        "MAGIC",
+        "WHOKNOWS"
+      ],
+      "scope": "only delay/type operands checked; not full skill"
+    },
+    {
+      "id": "A108",
+      "bytecode": "80013-80035",
+      "delay": "loop i=1..6 -> i-1, thus 0..5 seconds",
+      "radius": 500,
+      "tuple": [
+        false,
+        false,
+        "HERO",
+        "NORMAL",
+        "WHOKNOWS"
+      ],
+      "scope": "only loop/delay/type operands checked; not full skill"
+    }
+  ],
+  "classification_sources": {
+    "ability_records": [
+      {
+        "id": "ACm2",
+        "code": "Amim",
+        "line": 923,
+        "raw": {
+          "alias": "ACm2",
+          "code": "Amim",
+          "levels": 1,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      {
+        "id": "ACm3",
+        "code": "Amim",
+        "line": 932,
+        "raw": {
+          "alias": "ACm3",
+          "code": "Amim",
+          "levels": 1,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      {
+        "id": "ACmi",
+        "code": "Amim",
+        "line": 957,
+        "raw": {
+          "alias": "ACmi",
+          "code": "Amim",
+          "levels": 1,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      {
+        "id": "AImx",
+        "code": "Amim",
+        "line": 4191,
+        "raw": {
+          "alias": "AImx",
+          "code": "Amim",
+          "DataA1": 10.0,
+          "levels": 1,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      {
+        "id": "Aloc",
+        "code": "Aloc",
+        "line": 11101,
+        "raw": {
+          "alias": "Aloc",
+          "code": "Aloc",
+          "levels": 1,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      {
+        "id": "Amim",
+        "code": "Amim",
+        "line": 11310,
+        "raw": {
+          "alias": "Amim",
+          "code": "Amim",
+          "checkDep": 1,
+          "levels": 1,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      {
+        "id": "Avul",
+        "code": "Avul",
+        "line": 13107,
+        "raw": {
+          "alias": "Avul",
+          "code": "Avul",
+          "checkDep": 1,
+          "levels": 1,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      {
+        "id": "T060",
+        "code": "Amim",
+        "line": 33562,
+        "raw": {
+          "alias": "T060",
+          "code": "Amim",
+          "checkDep": 1,
+          "levels": 1,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      }
+    ],
+    "initial_unit_abilities": "reference/map-6.25/units_unitabilities.json:abilList, plus war3map.w3u.json and runtime UnitAdd/RemoveAbility",
+    "runtime_invulnerability": "SetUnitInvulnerable and active Avul; no inference from armor or HP",
+    "runtime_magic_immunity": "active resolved ability code Amim plus separately verified native-state contributions; no inference from name, appearance, or 100% magic reduction",
+    "runtime_contract": "Provide authoritative current booleans for exists/alive/invulnerable/magicImmune/activeAloc and relation. Other ability-specific immunity lifecycles remain skill adapters; missing state is an integration error, never silently assumed false."
+  },
+  "validation_cases": [
+    {
+      "id": "boundary_inclusive",
+      "input": {
+        "center": [
+          0,
+          0
+        ],
+        "radius": 460,
+        "enemy_centers": [
+          [
+            460,
+            0
+          ],
+          [
+            460.001,
+            0
+          ]
+        ],
+        "collision_radii": [
+          0,
+          128
+        ]
+      },
+      "expected_included_indices": [
+        0
+      ]
+    },
+    {
+      "id": "circle_not_box",
+      "input": {
+        "center": [
+          0,
+          0
+        ],
+        "radius": 460,
+        "enemy_centers": [
+          [
+            300,
+            300
+          ],
+          [
+            460,
+            460
+          ]
+        ]
+      },
+      "expected_included_indices": [
+        0
+      ]
+    },
+    {
+      "id": "zero_radius",
+      "input": {
+        "center": [
+          5,
+          6
+        ],
+        "radius": 0,
+        "enemy_centers": [
+          [
+            5,
+            6
+          ],
+          [
+            5,
+            6.00001
+          ]
+        ]
+      },
+      "expected_included_indices": [
+        0
+      ]
+    },
+    {
+      "id": "allegiance",
+      "input": {
+        "within_radius": true,
+        "relations": [
+          "self",
+          "ally",
+          "neutral_passive",
+          "enemy"
+        ]
+      },
+      "expected_included_indices": [
+        3
+      ]
+    },
+    {
+      "id": "air_structure",
+      "input": {
+        "within_radius": true,
+        "enemy": true,
+        "classes": [
+          "ground",
+          "air",
+          "structure"
+        ]
+      },
+      "expected_included_indices": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "immune_magic",
+      "input": {
+        "magic_immune": true,
+        "damage_type": "MAGIC",
+        "attack_type": "NORMAL"
+      },
+      "expected": "skip_without_damage_event"
+    },
+    {
+      "id": "immune_physical",
+      "input": {
+        "magic_immune": true,
+        "damage_type": "NORMAL",
+        "attack_type": "HERO"
+      },
+      "expected": "continue_to_typed_mitigation"
+    },
+    {
+      "id": "immune_divine",
+      "input": {
+        "magic_immune": true,
+        "damage_type": "DIVINE",
+        "attack_type": "CHAOS"
+      },
+      "expected": "continue_to_typed_mitigation"
+    },
+    {
+      "id": "invulnerable",
+      "input": {
+        "invulnerable": true,
+        "damage_types": [
+          "NORMAL",
+          "MAGIC",
+          "DIVINE"
+        ]
+      },
+      "expected": "all_skip_without_damage_event"
+    },
+    {
+      "id": "snapshot",
+      "input": {
+        "initial_candidates": [
+          4,
+          9,
+          12
+        ],
+        "created_during_first_child": 13,
+        "moved_out_during_first_child": 9,
+        "killed_during_first_child": 12
+      },
+      "expected_damage_event_order": [
+        4,
+        9
+      ],
+      "expected_not_included": [
+        12,
+        13
+      ]
+    },
+    {
+      "id": "zero_delay",
+      "input": {
+        "delay": 0,
+        "initial_candidates": [
+          4,
+          9
+        ],
+        "caller_after": "EXSetEventDamage(0)"
+      },
+      "expected_order": [
+        "child4.complete",
+        "child9.complete",
+        "return_native",
+        "parent.set_damage_zero"
+      ]
+    },
+    {
+      "id": "positive_delay",
+      "input": {
+        "issued_at_us": 1000000,
+        "delay_seconds": 0.2,
+        "center": [
+          100,
+          200
+        ],
+        "source_moved_before_due": [
+          900,
+          900
+        ]
+      },
+      "expected": {
+        "due_us": 1200000,
+        "center": [
+          100,
+          200
+        ],
+        "targets": "query_at_due"
+      }
+    },
+    {
+      "id": "q28_unchanged",
+      "input": {
+        "min_attack": 200,
+        "max_attack": 400,
+        "max_life": 1000
+      },
+      "expected_raw_amount": 1230
+    },
+    {
+      "id": "q29_unchanged",
+      "input": {
+        "current_mana": 1500
+      },
+      "expected_raw_amount": 1005
+    },
+    {
+      "id": "dragon_radius",
+      "input": {
+        "state37": 2,
+        "state81": 1,
+        "min_attack": 200,
+        "max_attack": 400,
+        "rank": 2
+      },
+      "expected": {
+        "radius": 570,
+        "raw_amount": 300,
+        "attack": false,
+        "attack_type": "CHAOS",
+        "damage_type": "NORMAL"
+      }
+    },
+    {
+      "id": "dragon_cap",
+      "input": {
+        "state37": 5,
+        "state81": 1
+      },
+      "expected_radius": 1200
+    },
+    {
+      "id": "negative_amount",
+      "input": {
+        "amount": -1,
+        "delay": 0
+      },
+      "expected": {
+        "return": false,
+        "damage_events": 0,
+        "delayed_jobs": 0
+      }
+    }
+  ],
+  "limits": [
+    "No matching Warcraft client runtime evidence; target/native geometry/order are explicitly selected Web behavior",
+    "Five complete integration profiles; direct-call inventory verifies flags/types not every skill gate or formula",
+    "Global ethereal behavior and other damage-type mitigation, ability immunity grant/remove lifecycles are not created by this baseline",
+    "Source-removal and zero/positive delay lifecycle choices are Web choices, not native findings",
+    "No new workbook conflict found; Q28/Q29 formulas unchanged"
+  ]
+}

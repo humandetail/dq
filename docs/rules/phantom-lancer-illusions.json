@@ -1,0 +1,379 @@
+[
+  {
+    "id": "A122",
+    "status": "ready",
+    "rules": {
+      "range": 900,
+      "mana": [
+        50,
+        60,
+        70,
+        80,
+        90,
+        100
+      ],
+      "cooldown": 9,
+      "missileSpeed": 1000,
+      "damage": [
+        1200,
+        1400,
+        1600,
+        1800,
+        2000,
+        2200
+      ],
+      "interruption": 0.01,
+      "moveSlow": 0.4,
+      "attackSlow": 0.25,
+      "slowDuration": 4,
+      "staffRadius": 400,
+      "hitsWithStaff": 3,
+      "illusionLife": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "illusionOutput": 1,
+      "separateCastToken": true
+    },
+    "sourceRefs": {
+      "bookRowOnBoth": 290,
+      "hintLine": 1818,
+      "objectIndex": 920,
+      "auxiliary": [
+        "T130",
+        "T131",
+        "T132",
+        "q029",
+        "B131",
+        "B132"
+      ],
+      "locations": [
+        [
+          "main/f7",
+          227,
+          49712
+        ],
+        [
+          "main/f95/f0",
+          20,
+          83082
+        ],
+        [
+          "main/f95/f1",
+          23,
+          83152
+        ],
+        [
+          "main/f95/f2",
+          114,
+          83344
+        ],
+        [
+          "main/f291/f1",
+          2438,
+          165064
+        ],
+        [
+          "main/f291/f14",
+          835,
+          170916
+        ],
+        [
+          "main/f291/f27",
+          1951,
+          176167
+        ]
+      ],
+      "modules": [
+        [
+          "main/f95",
+          83007,
+          83034
+        ],
+        [
+          "main/f95/f0",
+          83035,
+          83098
+        ],
+        [
+          "main/f95/f1",
+          83099,
+          83172
+        ],
+        [
+          "main/f95/f2",
+          83173,
+          83371
+        ]
+      ],
+      "disasmSha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+    },
+    "differences": [
+      "Source chain counter and deferred spawns share slots; Web isolates actual cast and landing tokens.",
+      "Player tooltip states three bounces without specifying additional hits; source confirms three inclusive."
+    ],
+    "unresolved": [],
+    "validation": {
+      "sourceVM": {
+        "sourceStaffBoltAndIllusionPoints": [
+          [
+            500,
+            700,
+            500
+          ],
+          [
+            500,
+            700,
+            500
+          ]
+        ]
+      },
+      "web": {
+        "independentHitTokens": {
+          "old": 3,
+          "new": 1
+        }
+      },
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A123",
+    "status": "ready",
+    "rules": {
+      "chanceMainBase": 10,
+      "illusionMaximumByAttackRank": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "addToOwnerAgi": 20,
+      "lifetime": 10,
+      "normalDivineDamageFactor": 0.5,
+      "endlessDivineDamageFactor": 1,
+      "decision": "Q77",
+      "actualAttackSource": "BIil illusion with A123",
+      "juxtaposeCountSourceOnly": "q030",
+      "reserveUntilBirthOrFailure": true
+    },
+    "sourceRefs": {
+      "bookRowOnBoth": 291,
+      "hintLine": 1835,
+      "objectIndex": 921,
+      "auxiliary": [
+        "T134",
+        "q030",
+        "BIil",
+        "B130"
+      ],
+      "locations": [
+        [
+          "main/f96/f0",
+          4,
+          83443
+        ],
+        [
+          "main/f96/f6",
+          5,
+          83721
+        ],
+        [
+          "main/f291/f1",
+          2451,
+          165078
+        ],
+        [
+          "main/f291/f9",
+          329,
+          168749
+        ],
+        [
+          "main/f291/f10",
+          164,
+          169211
+        ],
+        [
+          "main/f291/f20",
+          43,
+          173244
+        ]
+      ],
+      "modules": [
+        [
+          "main/f96",
+          83372,
+          83417
+        ],
+        [
+          "main/f96/f0",
+          83418,
+          83461
+        ],
+        [
+          "main/f96/f1",
+          83462,
+          83495
+        ],
+        [
+          "main/f96/f2",
+          83496,
+          83521
+        ],
+        [
+          "main/f96/f3",
+          83522,
+          83582
+        ],
+        [
+          "main/f96/f4",
+          83583,
+          83618
+        ],
+        [
+          "main/f96/f5",
+          83619,
+          83681
+        ],
+        [
+          "main/f96/f6",
+          83682,
+          83850
+        ]
+      ],
+      "disasmSha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+    },
+    "differences": [
+      "Source q030 generation timers share a slot before native birth; Web reserves each success.",
+      "Workbook and source tooltip specify illusion divine damage, but the saved source has no associated formula."
+    ],
+    "unresolved": [],
+    "validation": {
+      "sourceVM": {
+        "nativeBoundaryOfOverwrittenCallback": [
+          "nil owner",
+          true
+        ],
+        "spearThenJuxtaposeBonusesAndCount": [
+          140,
+          1
+        ],
+        "afterSpearExpires": [
+          120,
+          1
+        ],
+        "afterJuxtaposeExpires": [
+          100,
+          0
+        ]
+      },
+      "web": {
+        "oneCapBlocksSecondReservation": true,
+        "failureReleasesReservation": true,
+        "spearDoesNotCountForJuxtapose": true,
+        "normalAndEndlessAtIllusionAgi120Owner160": [
+          60.0,
+          120
+        ]
+      },
+      "originalClientTested": false
+    }
+  },
+  {
+    "id": "A124",
+    "status": "ready",
+    "rules": {
+      "mainChanceIncrease": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "illusionChance": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "auxiliaryNativeCritical": 0,
+      "sharesA123CapAndLife": true
+    },
+    "sourceRefs": {
+      "bookRowOnBoth": 292,
+      "hintLine": 1848,
+      "objectIndex": 922,
+      "auxiliary": [],
+      "locations": [
+        [
+          "main/f96/f6",
+          11,
+          83727
+        ]
+      ],
+      "modules": [
+        [
+          "main/f96",
+          83372,
+          83417
+        ],
+        [
+          "main/f96/f0",
+          83418,
+          83461
+        ],
+        [
+          "main/f96/f1",
+          83462,
+          83495
+        ],
+        [
+          "main/f96/f2",
+          83496,
+          83521
+        ],
+        [
+          "main/f96/f3",
+          83522,
+          83582
+        ],
+        [
+          "main/f96/f4",
+          83583,
+          83618
+        ],
+        [
+          "main/f96/f5",
+          83619,
+          83681
+        ],
+        [
+          "main/f96/f6",
+          83682,
+          83850
+        ]
+      ],
+      "disasmSha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+    },
+    "differences": [],
+    "unresolved": [],
+    "validation": {
+      "sourceVM": {
+        "existingProbabilityAudit": "skill-inline-probability-audit.md"
+      },
+      "web": {
+        "sameCapRetained": true
+      },
+      "originalClientTested": false
+    }
+  }
+]

@@ -1,0 +1,1689 @@
+{
+  "baseline": "creep-damage-auras-v1",
+  "status": "bounded source branches and native aura contract specified",
+  "entries": [
+    {
+      "id": "N133",
+      "buff": "B097",
+      "tower": "n198",
+      "row": 825,
+      "sourceMultiplier": 1.07,
+      "selectedMultiplier": 1.1,
+      "ability": {
+        "alias": "N133",
+        "code": "AHad",
+        "Area1": 500.0,
+        "BuffID1": "B097",
+        "levels": 1,
+        "targs1": "invulnerable,self,friend",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "mount": {
+        "unitAbilID": "n198",
+        "abilList": "Avul,T033,N075,N133",
+        "auto": "Aslo"
+      },
+      "branch": {
+        "function": "main/f291/f1",
+        "pcRange": [
+          1294,
+          1314
+        ],
+        "sourceLines": [
+          163857,
+          163877
+        ],
+        "instructions": [
+          {
+            "pc": 1294,
+            "line": 163857,
+            "raw": [
+              "gettabup",
+              "r4",
+              "u0",
+              "k160"
+            ]
+          },
+          {
+            "pc": 1295,
+            "line": 163858,
+            "raw": [
+              "gettabup",
+              "r5",
+              "u1",
+              "k31"
+            ]
+          },
+          {
+            "pc": 1296,
+            "line": 163859,
+            "raw": [
+              "loadk",
+              "r6",
+              "k60"
+            ]
+          },
+          {
+            "pc": 1297,
+            "line": 163860,
+            "raw": [
+              "call",
+              "r5",
+              "2",
+              "0"
+            ]
+          },
+          {
+            "pc": 1298,
+            "line": 163861,
+            "raw": [
+              "call",
+              "r4",
+              "0",
+              "2"
+            ]
+          },
+          {
+            "pc": 1299,
+            "line": 163862,
+            "raw": [
+              "test",
+              "r4",
+              "0"
+            ]
+          },
+          {
+            "pc": 1300,
+            "line": 163863,
+            "raw": [
+              "jmp",
+              "0",
+              "l1447"
+            ]
+          },
+          {
+            "pc": 1301,
+            "line": 163864,
+            "raw": [
+              "gettabup",
+              "r4",
+              "u0",
+              "k27"
+            ]
+          },
+          {
+            "pc": 1302,
+            "line": 163865,
+            "raw": [
+              "move",
+              "r5",
+              "r0"
+            ]
+          },
+          {
+            "pc": 1303,
+            "line": 163866,
+            "raw": [
+              "gettabup",
+              "r6",
+              "u0",
+              "k2"
+            ]
+          },
+          {
+            "pc": 1304,
+            "line": 163867,
+            "raw": [
+              "loadk",
+              "r7",
+              "k186"
+            ]
+          },
+          {
+            "pc": 1305,
+            "line": 163868,
+            "raw": [
+              "call",
+              "r6",
+              "2",
+              "0"
+            ]
+          },
+          {
+            "pc": 1306,
+            "line": 163869,
+            "raw": [
+              "call",
+              "r4",
+              "0",
+              "2"
+            ]
+          },
+          {
+            "pc": 1307,
+            "line": 163870,
+            "raw": [
+              "lt",
+              "0",
+              "k6",
+              "r4"
+            ]
+          },
+          {
+            "pc": 1308,
+            "line": 163871,
+            "raw": [
+              "jmp",
+              "0",
+              "l1315"
+            ]
+          },
+          {
+            "pc": 1309,
+            "line": 163872,
+            "raw": [
+              "gettabup",
+              "r4",
+              "u1",
+              "k5"
+            ]
+          },
+          {
+            "pc": 1310,
+            "line": 163873,
+            "raw": [
+              "gettabup",
+              "r5",
+              "u1",
+              "k7"
+            ]
+          },
+          {
+            "pc": 1311,
+            "line": 163874,
+            "raw": [
+              "loadk",
+              "r6",
+              "k6"
+            ]
+          },
+          {
+            "pc": 1312,
+            "line": 163875,
+            "raw": [
+              "call",
+              "r5",
+              "2",
+              "2"
+            ]
+          },
+          {
+            "pc": 1313,
+            "line": 163876,
+            "raw": [
+              "mul",
+              "r5",
+              "r5",
+              "k187"
+            ]
+          },
+          {
+            "pc": 1314,
+            "line": 163877,
+            "raw": [
+              "call",
+              "r4",
+              "2",
+              "1"
+            ]
+          }
+        ],
+        "resolvedConstants": {
+          "k2": "GetId",
+          "k5": "EXSetEventDamage",
+          "k6": 0,
+          "k7": "GetEventDamage",
+          "k27": "GetUnitAbilityLevel",
+          "k31": "EXGetEventDamageData",
+          "k60": 4,
+          "k160": "isPhyDamage",
+          "k186": "B097",
+          "k187": 1.07
+        },
+        "outgoingBranches": {
+          "l1447": 1447,
+          "l1315": 1315
+        }
+      }
+    },
+    {
+      "id": "N134",
+      "buff": "B098",
+      "tower": "n248",
+      "row": 821,
+      "sourceMultiplier": 1.1,
+      "selectedMultiplier": 1.1,
+      "ability": {
+        "alias": "N134",
+        "code": "AHad",
+        "Area1": 500.0,
+        "BuffID1": "B098",
+        "levels": 1,
+        "targs1": "invulnerable,self,friend",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "mount": {
+        "unitAbilID": "n248",
+        "abilList": "Avul,T033,N119,N134",
+        "auto": "_"
+      },
+      "branch": {
+        "function": "main/f291/f1",
+        "pcRange": [
+          1447,
+          1467
+        ],
+        "sourceLines": [
+          164019,
+          164039
+        ],
+        "instructions": [
+          {
+            "pc": 1447,
+            "line": 164019,
+            "raw": [
+              "gettabup",
+              "r4",
+              "u0",
+              "k59"
+            ]
+          },
+          {
+            "pc": 1448,
+            "line": 164020,
+            "raw": [
+              "gettabup",
+              "r5",
+              "u1",
+              "k31"
+            ]
+          },
+          {
+            "pc": 1449,
+            "line": 164021,
+            "raw": [
+              "loadk",
+              "r6",
+              "k60"
+            ]
+          },
+          {
+            "pc": 1450,
+            "line": 164022,
+            "raw": [
+              "call",
+              "r5",
+              "2",
+              "0"
+            ]
+          },
+          {
+            "pc": 1451,
+            "line": 164023,
+            "raw": [
+              "call",
+              "r4",
+              "0",
+              "2"
+            ]
+          },
+          {
+            "pc": 1452,
+            "line": 164024,
+            "raw": [
+              "test",
+              "r4",
+              "0"
+            ]
+          },
+          {
+            "pc": 1453,
+            "line": 164025,
+            "raw": [
+              "jmp",
+              "0",
+              "l1596"
+            ]
+          },
+          {
+            "pc": 1454,
+            "line": 164026,
+            "raw": [
+              "gettabup",
+              "r4",
+              "u0",
+              "k27"
+            ]
+          },
+          {
+            "pc": 1455,
+            "line": 164027,
+            "raw": [
+              "move",
+              "r5",
+              "r0"
+            ]
+          },
+          {
+            "pc": 1456,
+            "line": 164028,
+            "raw": [
+              "gettabup",
+              "r6",
+              "u0",
+              "k2"
+            ]
+          },
+          {
+            "pc": 1457,
+            "line": 164029,
+            "raw": [
+              "loadk",
+              "r7",
+              "k199"
+            ]
+          },
+          {
+            "pc": 1458,
+            "line": 164030,
+            "raw": [
+              "call",
+              "r6",
+              "2",
+              "0"
+            ]
+          },
+          {
+            "pc": 1459,
+            "line": 164031,
+            "raw": [
+              "call",
+              "r4",
+              "0",
+              "2"
+            ]
+          },
+          {
+            "pc": 1460,
+            "line": 164032,
+            "raw": [
+              "lt",
+              "0",
+              "k6",
+              "r4"
+            ]
+          },
+          {
+            "pc": 1461,
+            "line": 164033,
+            "raw": [
+              "jmp",
+              "0",
+              "l1468"
+            ]
+          },
+          {
+            "pc": 1462,
+            "line": 164034,
+            "raw": [
+              "gettabup",
+              "r4",
+              "u1",
+              "k5"
+            ]
+          },
+          {
+            "pc": 1463,
+            "line": 164035,
+            "raw": [
+              "gettabup",
+              "r5",
+              "u1",
+              "k7"
+            ]
+          },
+          {
+            "pc": 1464,
+            "line": 164036,
+            "raw": [
+              "loadk",
+              "r6",
+              "k6"
+            ]
+          },
+          {
+            "pc": 1465,
+            "line": 164037,
+            "raw": [
+              "call",
+              "r5",
+              "2",
+              "2"
+            ]
+          },
+          {
+            "pc": 1466,
+            "line": 164038,
+            "raw": [
+              "mul",
+              "r5",
+              "r5",
+              "k169"
+            ]
+          },
+          {
+            "pc": 1467,
+            "line": 164039,
+            "raw": [
+              "call",
+              "r4",
+              "2",
+              "1"
+            ]
+          }
+        ],
+        "resolvedConstants": {
+          "k2": "GetId",
+          "k5": "EXSetEventDamage",
+          "k6": 0,
+          "k7": "GetEventDamage",
+          "k27": "GetUnitAbilityLevel",
+          "k31": "EXGetEventDamageData",
+          "k59": "isMagicDamage",
+          "k60": 4,
+          "k169": 1.1,
+          "k199": "B098"
+        },
+        "outgoingBranches": {
+          "l1596": 1596,
+          "l1468": 1468
+        }
+      }
+    },
+    {
+      "id": "N135",
+      "buff": "B099",
+      "tower": "n220",
+      "row": 859,
+      "sourceMultiplier": 1.08,
+      "selectedMultiplier": 1.1,
+      "ability": {
+        "alias": "N135",
+        "code": "AHad",
+        "Area1": 500.0,
+        "BuffID1": "B099",
+        "levels": 1,
+        "targs1": "invulnerable,self,friend",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "mount": {
+        "unitAbilID": "n220",
+        "abilList": "Avul,T033,N095,N135",
+        "auto": "_"
+      },
+      "branch": {
+        "function": "main/f291/f1",
+        "pcRange": [
+          1596,
+          1616
+        ],
+        "sourceLines": [
+          164176,
+          164196
+        ],
+        "instructions": [
+          {
+            "pc": 1596,
+            "line": 164176,
+            "raw": [
+              "gettabup",
+              "r4",
+              "u0",
+              "k212"
+            ]
+          },
+          {
+            "pc": 1597,
+            "line": 164177,
+            "raw": [
+              "gettabup",
+              "r5",
+              "u1",
+              "k31"
+            ]
+          },
+          {
+            "pc": 1598,
+            "line": 164178,
+            "raw": [
+              "loadk",
+              "r6",
+              "k60"
+            ]
+          },
+          {
+            "pc": 1599,
+            "line": 164179,
+            "raw": [
+              "call",
+              "r5",
+              "2",
+              "0"
+            ]
+          },
+          {
+            "pc": 1600,
+            "line": 164180,
+            "raw": [
+              "call",
+              "r4",
+              "0",
+              "2"
+            ]
+          },
+          {
+            "pc": 1601,
+            "line": 164181,
+            "raw": [
+              "test",
+              "r4",
+              "0"
+            ]
+          },
+          {
+            "pc": 1602,
+            "line": 164182,
+            "raw": [
+              "jmp",
+              "0",
+              "l1651"
+            ]
+          },
+          {
+            "pc": 1603,
+            "line": 164183,
+            "raw": [
+              "gettabup",
+              "r4",
+              "u0",
+              "k27"
+            ]
+          },
+          {
+            "pc": 1604,
+            "line": 164184,
+            "raw": [
+              "move",
+              "r5",
+              "r0"
+            ]
+          },
+          {
+            "pc": 1605,
+            "line": 164185,
+            "raw": [
+              "gettabup",
+              "r6",
+              "u0",
+              "k2"
+            ]
+          },
+          {
+            "pc": 1606,
+            "line": 164186,
+            "raw": [
+              "loadk",
+              "r7",
+              "k213"
+            ]
+          },
+          {
+            "pc": 1607,
+            "line": 164187,
+            "raw": [
+              "call",
+              "r6",
+              "2",
+              "0"
+            ]
+          },
+          {
+            "pc": 1608,
+            "line": 164188,
+            "raw": [
+              "call",
+              "r4",
+              "0",
+              "2"
+            ]
+          },
+          {
+            "pc": 1609,
+            "line": 164189,
+            "raw": [
+              "lt",
+              "0",
+              "k6",
+              "r4"
+            ]
+          },
+          {
+            "pc": 1610,
+            "line": 164190,
+            "raw": [
+              "jmp",
+              "0",
+              "l1617"
+            ]
+          },
+          {
+            "pc": 1611,
+            "line": 164191,
+            "raw": [
+              "gettabup",
+              "r4",
+              "u1",
+              "k5"
+            ]
+          },
+          {
+            "pc": 1612,
+            "line": 164192,
+            "raw": [
+              "gettabup",
+              "r5",
+              "u1",
+              "k7"
+            ]
+          },
+          {
+            "pc": 1613,
+            "line": 164193,
+            "raw": [
+              "loadk",
+              "r6",
+              "k6"
+            ]
+          },
+          {
+            "pc": 1614,
+            "line": 164194,
+            "raw": [
+              "call",
+              "r5",
+              "2",
+              "2"
+            ]
+          },
+          {
+            "pc": 1615,
+            "line": 164195,
+            "raw": [
+              "mul",
+              "r5",
+              "r5",
+              "k214"
+            ]
+          },
+          {
+            "pc": 1616,
+            "line": 164196,
+            "raw": [
+              "call",
+              "r4",
+              "2",
+              "1"
+            ]
+          }
+        ],
+        "resolvedConstants": {
+          "k2": "GetId",
+          "k5": "EXSetEventDamage",
+          "k6": 0,
+          "k7": "GetEventDamage",
+          "k27": "GetUnitAbilityLevel",
+          "k31": "EXGetEventDamageData",
+          "k60": 4,
+          "k212": "isRealDamage",
+          "k213": "B099",
+          "k214": 1.08
+        },
+        "outgoingBranches": {
+          "l1651": 1651,
+          "l1617": 1617
+        }
+      }
+    }
+  ],
+  "workbooks": [
+    {
+      "path": "/Volumes/personal/www/td3/图鉴.xlsx",
+      "sha256": "457c8f7e37e19412a0dd072ce941e95604b0b8910860b9e1eb9883e6b82bb6af",
+      "rows": [
+        {
+          "row": 821,
+          "cells": {
+            "A821": "海龟Max<N>",
+            "B821": "n248",
+            "C821": 2,
+            "D821": "自带技能",
+            "E821": "潮水侵蚀",
+            "F821": "N134",
+            "G821": 1,
+            "H821": "周围友军的法术伤害增加10%",
+            "I821": null,
+            "J821": null
+          }
+        },
+        {
+          "row": 825,
+          "cells": {
+            "A825": "淤泥怪Max<N>",
+            "B825": "n198",
+            "C825": 2,
+            "D825": "自带技能",
+            "E825": "疾病腐蚀",
+            "F825": "N133",
+            "G825": 1,
+            "H825": "周围友军的物理伤害增加10%",
+            "I825": null,
+            "J825": null
+          }
+        },
+        {
+          "row": 859,
+          "cells": {
+            "A859": "豺狼刺客Max<N>",
+            "B859": "n220",
+            "C859": 2,
+            "D859": "自带技能",
+            "E859": "邪毒腐化",
+            "F859": "N135",
+            "G859": 1,
+            "H859": "周围友军的神圣伤害增加10%",
+            "I859": null,
+            "J859": null
+          }
+        }
+      ]
+    },
+    {
+      "path": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+      "sha256": "47af226c7d16f240975d148e4b8f20bbcbf43c6141987cffc67435c1e0f437a1",
+      "rows": [
+        {
+          "row": 821,
+          "cells": {
+            "A821": "海龟Max<N>",
+            "B821": "n248",
+            "C821": 2,
+            "D821": "自带技能",
+            "E821": "潮水侵蚀",
+            "F821": "N134",
+            "G821": 1,
+            "H821": "周围友军的法术伤害增加10%",
+            "I821": null,
+            "J821": null
+          }
+        },
+        {
+          "row": 825,
+          "cells": {
+            "A825": "淤泥怪Max<N>",
+            "B825": "n198",
+            "C825": 2,
+            "D825": "自带技能",
+            "E825": "疾病腐蚀",
+            "F825": "N133",
+            "G825": 1,
+            "H825": "周围友军的物理伤害增加10%",
+            "I825": null,
+            "J825": null
+          }
+        },
+        {
+          "row": 859,
+          "cells": {
+            "A859": "豺狼刺客Max<N>",
+            "B859": "n220",
+            "C859": 2,
+            "D859": "自带技能",
+            "E859": "邪毒腐化",
+            "F859": "N135",
+            "G859": 1,
+            "H859": "周围友军的神圣伤害增加10%",
+            "I859": null,
+            "J859": null
+          }
+        }
+      ]
+    }
+  ],
+  "classifierHelpers": [
+    {
+      "name": "main/f7/f36",
+      "sourceLines": [
+        52118,
+        52150
+      ],
+      "constants": {
+        "k0": "ConvertDamageType",
+        "k1": "DAMAGE_TYPE_DIVINE",
+        "k2": "DAMAGE_TYPE_NORMAL"
+      },
+      "labels": {
+        "l9": 9,
+        "l13": 13
+      },
+      "instructions": [
+        {
+          "pc": 1,
+          "line": 52133,
+          "raw": [
+            "gettabup",
+            "r1",
+            "u0",
+            "k0"
+          ]
+        },
+        {
+          "pc": 2,
+          "line": 52134,
+          "raw": [
+            "move",
+            "r2",
+            "r0"
+          ]
+        },
+        {
+          "pc": 3,
+          "line": 52135,
+          "raw": [
+            "call",
+            "r1",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "pc": 4,
+          "line": 52136,
+          "raw": [
+            "gettabup",
+            "r2",
+            "u0",
+            "k1"
+          ]
+        },
+        {
+          "pc": 5,
+          "line": 52137,
+          "raw": [
+            "eq",
+            "0",
+            "r2",
+            "r1"
+          ]
+        },
+        {
+          "pc": 6,
+          "line": 52138,
+          "raw": [
+            "jmp",
+            "0",
+            "l9"
+          ]
+        },
+        {
+          "pc": 7,
+          "line": 52139,
+          "raw": [
+            "loadbool",
+            "r2",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "pc": 8,
+          "line": 52140,
+          "raw": [
+            "return",
+            "r2",
+            "2"
+          ]
+        },
+        {
+          "pc": 9,
+          "line": 52142,
+          "raw": [
+            "gettabup",
+            "r2",
+            "u0",
+            "k2"
+          ]
+        },
+        {
+          "pc": 10,
+          "line": 52143,
+          "raw": [
+            "eq",
+            "0",
+            "r2",
+            "r1"
+          ]
+        },
+        {
+          "pc": 11,
+          "line": 52144,
+          "raw": [
+            "jmp",
+            "0",
+            "l13"
+          ]
+        },
+        {
+          "pc": 12,
+          "line": 52145,
+          "raw": [
+            "loadbool",
+            "r2",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 13,
+          "line": 52147,
+          "raw": [
+            "loadbool",
+            "r2",
+            "1",
+            "0"
+          ]
+        },
+        {
+          "pc": 14,
+          "line": 52148,
+          "raw": [
+            "return",
+            "r2",
+            "2"
+          ]
+        },
+        {
+          "pc": 15,
+          "line": 52149,
+          "raw": [
+            "return",
+            "r0",
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "main/f7/f37",
+      "sourceLines": [
+        52151,
+        52183
+      ],
+      "constants": {
+        "k0": "ConvertDamageType",
+        "k1": "DAMAGE_TYPE_DIVINE",
+        "k2": "DAMAGE_TYPE_NORMAL"
+      },
+      "labels": {
+        "l9": 9,
+        "l13": 13
+      },
+      "instructions": [
+        {
+          "pc": 1,
+          "line": 52166,
+          "raw": [
+            "gettabup",
+            "r1",
+            "u0",
+            "k0"
+          ]
+        },
+        {
+          "pc": 2,
+          "line": 52167,
+          "raw": [
+            "move",
+            "r2",
+            "r0"
+          ]
+        },
+        {
+          "pc": 3,
+          "line": 52168,
+          "raw": [
+            "call",
+            "r1",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "pc": 4,
+          "line": 52169,
+          "raw": [
+            "gettabup",
+            "r2",
+            "u0",
+            "k1"
+          ]
+        },
+        {
+          "pc": 5,
+          "line": 52170,
+          "raw": [
+            "eq",
+            "0",
+            "r2",
+            "r1"
+          ]
+        },
+        {
+          "pc": 6,
+          "line": 52171,
+          "raw": [
+            "jmp",
+            "0",
+            "l9"
+          ]
+        },
+        {
+          "pc": 7,
+          "line": 52172,
+          "raw": [
+            "loadbool",
+            "r2",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "pc": 8,
+          "line": 52173,
+          "raw": [
+            "return",
+            "r2",
+            "2"
+          ]
+        },
+        {
+          "pc": 9,
+          "line": 52175,
+          "raw": [
+            "gettabup",
+            "r2",
+            "u0",
+            "k2"
+          ]
+        },
+        {
+          "pc": 10,
+          "line": 52176,
+          "raw": [
+            "eq",
+            "1",
+            "r2",
+            "r1"
+          ]
+        },
+        {
+          "pc": 11,
+          "line": 52177,
+          "raw": [
+            "jmp",
+            "0",
+            "l13"
+          ]
+        },
+        {
+          "pc": 12,
+          "line": 52178,
+          "raw": [
+            "loadbool",
+            "r2",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 13,
+          "line": 52180,
+          "raw": [
+            "loadbool",
+            "r2",
+            "1",
+            "0"
+          ]
+        },
+        {
+          "pc": 14,
+          "line": 52181,
+          "raw": [
+            "return",
+            "r2",
+            "2"
+          ]
+        },
+        {
+          "pc": 15,
+          "line": 52182,
+          "raw": [
+            "return",
+            "r0",
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "main/f7/f38",
+      "sourceLines": [
+        52184,
+        52212
+      ],
+      "constants": {
+        "k0": "ConvertDamageType",
+        "k1": "DAMAGE_TYPE_DIVINE"
+      },
+      "labels": {
+        "l10": 10,
+        "l12": 12
+      },
+      "instructions": [
+        {
+          "pc": 1,
+          "line": 52198,
+          "raw": [
+            "gettabup",
+            "r1",
+            "u0",
+            "k0"
+          ]
+        },
+        {
+          "pc": 2,
+          "line": 52199,
+          "raw": [
+            "move",
+            "r2",
+            "r0"
+          ]
+        },
+        {
+          "pc": 3,
+          "line": 52200,
+          "raw": [
+            "call",
+            "r1",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "pc": 4,
+          "line": 52201,
+          "raw": [
+            "gettabup",
+            "r2",
+            "u0",
+            "k1"
+          ]
+        },
+        {
+          "pc": 5,
+          "line": 52202,
+          "raw": [
+            "eq",
+            "0",
+            "r2",
+            "r1"
+          ]
+        },
+        {
+          "pc": 6,
+          "line": 52203,
+          "raw": [
+            "jmp",
+            "0",
+            "l10"
+          ]
+        },
+        {
+          "pc": 7,
+          "line": 52204,
+          "raw": [
+            "loadbool",
+            "r2",
+            "1",
+            "0"
+          ]
+        },
+        {
+          "pc": 8,
+          "line": 52205,
+          "raw": [
+            "return",
+            "r2",
+            "2"
+          ]
+        },
+        {
+          "pc": 9,
+          "line": 52206,
+          "raw": [
+            "jmp",
+            "0",
+            "l12"
+          ]
+        },
+        {
+          "pc": 10,
+          "line": 52208,
+          "raw": [
+            "loadbool",
+            "r2",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "pc": 11,
+          "line": 52209,
+          "raw": [
+            "return",
+            "r2",
+            "2"
+          ]
+        },
+        {
+          "pc": 12,
+          "line": 52211,
+          "raw": [
+            "return",
+            "r0",
+            "1"
+          ]
+        }
+      ]
+    }
+  ],
+  "sourceRegister": "main/f291/f1 begins GetEventDamageSource into r0; these branches move r0 into buff query, never resolved owner r2",
+  "sourceDecisions": [
+    "N133 1.07 -> workbook1.10",
+    "N134 remains1.10",
+    "N135 1.08 -> workbook1.10"
+  ],
+  "webContract": {
+    "aura": "500 closed center circle, self/friend; instant application/recompute and zero linger; same buff single presence, not per-emitter stacking",
+    "nativeArmor": 0,
+    "armorNote": "DataA is absent; zero is explicit Q24 no implicit extra armor",
+    "sourceEligibility": "existing alive completed nonhidden nonillusion source with enabled ability; use same ordinary aura emission gates as hero-aura-family-v1",
+    "receivers": "existing alive nonhidden nonAloc friendly units including self, air/ground, native heroes, summoned/illusions, invulnerable/magic-immune/ethereal; no extra armor even if received",
+    "damage": "check actual damage source buff at original branch time, category determined solely by source helpers; no local ordinary-attack/hero/nonillusion/mode/positive-current-damage gate",
+    "lifecycle": "ordinary dispel does not remove ongoing aura; source removal/disabled/death, receiver death/remove, allegiance/range changes recompute immediately; preserve explicit hidden state rather than inheriting buffs from owner",
+    "events": "no separate damage, spell event, mana, cooldown or RNG",
+    "save": "restore actual sources and units then recompute membership once; never replay damage"
+  },
+  "validation": {
+    "sourceSliceInstructions": 63,
+    "completeClassifierInstructions": 42,
+    "bookCells": 60,
+    "contractCases": 63,
+    "cases": [
+      {
+        "name": "('NORMAL', 'B097', 0)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('NORMAL', 'B097', 1)",
+        "actual": 1100.0,
+        "expected": 1100
+      },
+      {
+        "name": "('NORMAL', 'B097', 2)",
+        "actual": 1100.0,
+        "expected": 1100
+      },
+      {
+        "name": "('NORMAL', 'B098', 0)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('NORMAL', 'B098', 1)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('NORMAL', 'B098', 2)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('NORMAL', 'B099', 0)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('NORMAL', 'B099', 1)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('NORMAL', 'B099', 2)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('DIVINE', 'B097', 0)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('DIVINE', 'B097', 1)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('DIVINE', 'B097', 2)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('DIVINE', 'B098', 0)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('DIVINE', 'B098', 1)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('DIVINE', 'B098', 2)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('DIVINE', 'B099', 0)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('DIVINE', 'B099', 1)",
+        "actual": 1100.0,
+        "expected": 1100
+      },
+      {
+        "name": "('DIVINE', 'B099', 2)",
+        "actual": 1100.0,
+        "expected": 1100
+      },
+      {
+        "name": "('MAGIC', 'B097', 0)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('MAGIC', 'B097', 1)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('MAGIC', 'B097', 2)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('MAGIC', 'B098', 0)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('MAGIC', 'B098', 1)",
+        "actual": 1100.0,
+        "expected": 1100
+      },
+      {
+        "name": "('MAGIC', 'B098', 2)",
+        "actual": 1100.0,
+        "expected": 1100
+      },
+      {
+        "name": "('MAGIC', 'B099', 0)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('MAGIC', 'B099', 1)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('MAGIC', 'B099', 2)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('FIRE', 'B097', 0)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('FIRE', 'B097', 1)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('FIRE', 'B097', 2)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('FIRE', 'B098', 0)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('FIRE', 'B098', 1)",
+        "actual": 1100.0,
+        "expected": 1100
+      },
+      {
+        "name": "('FIRE', 'B098', 2)",
+        "actual": 1100.0,
+        "expected": 1100
+      },
+      {
+        "name": "('FIRE', 'B099', 0)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('FIRE', 'B099', 1)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('FIRE', 'B099', 2)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('POISON', 'B097', 0)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('POISON', 'B097', 1)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('POISON', 'B097', 2)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('POISON', 'B098', 0)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('POISON', 'B098', 1)",
+        "actual": 1100.0,
+        "expected": 1100
+      },
+      {
+        "name": "('POISON', 'B098', 2)",
+        "actual": 1100.0,
+        "expected": 1100
+      },
+      {
+        "name": "('POISON', 'B099', 0)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('POISON', 'B099', 1)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('POISON', 'B099', 2)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('UNKNOWN', 'B097', 0)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('UNKNOWN', 'B097', 1)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('UNKNOWN', 'B097', 2)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('UNKNOWN', 'B098', 0)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('UNKNOWN', 'B098', 1)",
+        "actual": 1100.0,
+        "expected": 1100
+      },
+      {
+        "name": "('UNKNOWN', 'B098', 2)",
+        "actual": 1100.0,
+        "expected": 1100
+      },
+      {
+        "name": "('UNKNOWN', 'B099', 0)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('UNKNOWN', 'B099', 1)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "('UNKNOWN', 'B099', 2)",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "range499.999",
+        "actual": true,
+        "expected": true
+      },
+      {
+        "name": "range500",
+        "actual": true,
+        "expected": true
+      },
+      {
+        "name": "range500.001",
+        "actual": false,
+        "expected": false
+      },
+      {
+        "name": "same-buff emitters 1",
+        "actual": 1100.0,
+        "expected": 1100
+      },
+      {
+        "name": "same-buff emitters 2",
+        "actual": 1100.0,
+        "expected": 1100
+      },
+      {
+        "name": "same-buff emitters 8",
+        "actual": 1100.0,
+        "expected": 1100
+      },
+      {
+        "name": "actual dummy without buff, tower owner buff does not substitute",
+        "actual": 1000,
+        "expected": 1000
+      },
+      {
+        "name": "at source position in pipeline after previous change",
+        "actual": 275.0,
+        "expected": 275
+      },
+      {
+        "name": "later zero remains zero",
+        "actual": 0.0,
+        "expected": 0
+      }
+    ],
+    "kind": "exact opcode/operand/branch assertions plus explicitly selected Web vectors; no bytecode execution claimed",
+    "clientRun": false,
+    "gameRun": false
+  },
+  "sourceHashes": {
+    "reference/map-6.25/main.disasm": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+    "reference/map-6.25/units_abilitydata.json": "b772de42ebcfc1d3818298b35dbe81a35826892848c7cbfef70bf5097e481861",
+    "reference/map-6.25/units_unitabilities.json": "ebd8a6fd8410f593c5ecadf6bf7c4f6bbc5b4bb7183c5e986a4d2d77e1747133",
+    "reference/map-6.25/war3map.w3a.json": "d2875f064b389bca471db97121ff7c810d46fbc962ae640ad128d1daa85931bb"
+  },
+  "remaining": [
+    "other damage pipeline callees",
+    "global summon/illusion membership",
+    "the entire three carrier towers and their other skills"
+  ]
+}

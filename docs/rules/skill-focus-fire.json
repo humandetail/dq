@@ -1,0 +1,1996 @@
+{
+  "version": "focus-fire-v1",
+  "status": "complete bounded static A163 module plus explicit A180 identity correction; native behavior gaps retained; no new user conflict",
+  "identityCorrection": {
+    "invalidPriorComparison": "A163 workbook H498/H582 compared against A180 Set37=0.3",
+    "result": "withdrawn; distinct skill IDs",
+    "pendingUserDecision": null,
+    "skillA163": {
+      "name": "集中火力",
+      "units": {
+        "G072": "猫耳奥蕾莉亚",
+        "H041": "风行者"
+      },
+      "workbookRows": [
+        498,
+        582
+      ],
+      "scriptCooldownEffect": "C -= 0.2; later C += 0.2"
+    },
+    "skillA180": {
+      "name": "无影拳",
+      "units": {
+        "G065": "烈焰双刃",
+        "H046": "灰烬之灵"
+      },
+      "workbookRows": [
+        433,
+        448
+      ],
+      "scriptCooldownEffect": "save oldC-0.3; C = 0.3; later C += saved difference",
+      "workbookSpecifiesCooldownDeltaOrAbsolute": false
+    }
+  },
+  "workbookEvidence": {
+    "file": "图鉴.xlsx",
+    "sheet": "塔技能",
+    "cells": {
+      "A433": "灰烬之灵<SR>",
+      "B433": "H046",
+      "C433": "3",
+      "D433": "学习技能",
+      "E433": "无影拳",
+      "F433": "A180",
+      "G433": "6",
+      "H433": "以闪电般的速度横冲直撞，攻击目标区域所有敌人，攻击期间灰烬之灵的所有伤害获得高额加成。",
+      "I433": "等级 1｜攻击目标区域为250范围。 耗蓝 20点，冷却 8秒。\n等级 2｜攻击目标区域为300范围。 耗蓝 30点，冷却 7秒。\n等级 3｜攻击目标区域为350范围。 耗蓝 40点，冷却 6秒。\n等级 4｜攻击目标区域为400范围。 耗蓝 50点，冷却 5秒。\n等级 5｜攻击目标区域为450范围。 耗蓝 70点，冷却 4秒。\n等级 6｜攻击目标区域为500范围。 耗蓝 90点，冷却 3秒。",
+      "J433": "冷却 4.0／3.0；耗蓝 70／90",
+      "A448": "烈焰双刃<SR>",
+      "B448": "G065",
+      "C448": "3",
+      "D448": "学习技能",
+      "E448": "无影拳",
+      "F448": "A180",
+      "G448": "6",
+      "H448": "以闪电般的速度横冲直撞，攻击目标区域所有敌人，攻击期间灰烬之灵的所有伤害获得高额加成。",
+      "I448": "等级 1｜攻击目标区域为250范围。 耗蓝 20点，冷却 8秒。\n等级 2｜攻击目标区域为300范围。 耗蓝 30点，冷却 7秒。\n等级 3｜攻击目标区域为350范围。 耗蓝 40点，冷却 6秒。\n等级 4｜攻击目标区域为400范围。 耗蓝 50点，冷却 5秒。\n等级 5｜攻击目标区域为450范围。 耗蓝 70点，冷却 4秒。\n等级 6｜攻击目标区域为500范围。 耗蓝 90点，冷却 3秒。",
+      "J448": "冷却 4.0／3.0；耗蓝 70／90",
+      "A498": "猫耳奥蕾莉亚<SR>",
+      "B498": "G072",
+      "C498": "3",
+      "D498": "学习技能",
+      "E498": "集中火力",
+      "F498": "A163",
+      "G498": "6",
+      "H498": "给予自身500%攻击速度，攻击间隔减少0.2。集中火力期间攻击造成的伤害降低为80%，冷却12秒。",
+      "I498": "等级 1｜持续3秒。 耗蓝 40点。\n等级 2｜持续3.5秒。 耗蓝 70点。\n等级 3｜持续4秒。 耗蓝 100点。\n等级 4｜持续4.5秒。 耗蓝 130点。\n等级 5｜持续5秒。 耗蓝 160点。\n等级 6｜持续6秒。 耗蓝 200点。",
+      "J498": "耗蓝 160／200",
+      "A582": "风行者<SR>",
+      "B582": "H041",
+      "C582": "3",
+      "D582": "学习技能",
+      "E582": "集中火力",
+      "F582": "A163",
+      "G582": "6",
+      "H582": "给予自身500%攻击速度，攻击间隔减少0.2。集中火力期间攻击造成的伤害降低为80%，冷却12秒。",
+      "I582": "等级 1｜持续3秒。 耗蓝 40点。\n等级 2｜持续3.5秒。 耗蓝 70点。\n等级 3｜持续4秒。 耗蓝 100点。\n等级 4｜持续4.5秒。 耗蓝 130点。\n等级 5｜持续5秒。 耗蓝 160点。\n等级 6｜持续6秒。 耗蓝 200点。",
+      "J582": "耗蓝 160／200"
+    }
+  },
+  "rawAbilityObjects": [
+    {
+      "id": "A163",
+      "fields": {
+        "alias": {
+          "value": "A163",
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 17991
+          }
+        },
+        "code": {
+          "value": "ANcl",
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 17992
+          }
+        },
+        "checkDep": {
+          "value": 1,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 17993
+          }
+        },
+        "Cool1": {
+          "value": 12.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 17994
+          }
+        },
+        "Cool2": {
+          "value": 12.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 17995
+          }
+        },
+        "Cool3": {
+          "value": 12.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 17996
+          }
+        },
+        "Cool4": {
+          "value": 12.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 17997
+          }
+        },
+        "Cost1": {
+          "value": 40,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 17998
+          }
+        },
+        "Cost2": {
+          "value": 70,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 17999
+          }
+        },
+        "Cost3": {
+          "value": 100,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18000
+          }
+        },
+        "Cost4": {
+          "value": 130,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18001
+          }
+        },
+        "DataC1": {
+          "value": 1,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18002
+          }
+        },
+        "DataC2": {
+          "value": 1,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18003
+          }
+        },
+        "DataC3": {
+          "value": 1,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18004
+          }
+        },
+        "DataC4": {
+          "value": 1,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18005
+          }
+        },
+        "DataD1": {
+          "value": 1.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18006
+          }
+        },
+        "DataD2": {
+          "value": 1.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18007
+          }
+        },
+        "DataD3": {
+          "value": 1.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18008
+          }
+        },
+        "DataD4": {
+          "value": 1.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18009
+          }
+        },
+        "DataF1": {
+          "value": "evileye",
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18010
+          }
+        },
+        "DataF2": {
+          "value": "evileye",
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18011
+          }
+        },
+        "DataF3": {
+          "value": "evileye",
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18012
+          }
+        },
+        "DataF4": {
+          "value": "evileye",
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18013
+          }
+        },
+        "HeroDur1": {
+          "value": 3.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18014
+          }
+        },
+        "HeroDur2": {
+          "value": 3.5,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18015
+          }
+        },
+        "HeroDur3": {
+          "value": 4.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18016
+          }
+        },
+        "HeroDur4": {
+          "value": 4.5,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18017
+          }
+        },
+        "levels": {
+          "value": 6,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18018
+          }
+        },
+        "reqLevel": {
+          "value": 1,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18019
+          }
+        },
+        "Rng1": {
+          "value": 1000.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18020
+          }
+        },
+        "Rng2": {
+          "value": 1000.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18021
+          }
+        },
+        "Rng3": {
+          "value": 1000.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18022
+          }
+        },
+        "Rng4": {
+          "value": 1000.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18023
+          }
+        },
+        "targs1": {
+          "value": "self,invulnerable",
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18024
+          }
+        },
+        "targs2": {
+          "value": "self,invulnerable",
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18025
+          }
+        },
+        "targs3": {
+          "value": "self,invulnerable",
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18026
+          }
+        },
+        "targs4": {
+          "value": "self,invulnerable",
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18027
+          }
+        }
+      }
+    },
+    {
+      "id": "A180",
+      "fields": {
+        "alias": {
+          "value": "A180",
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18608
+          }
+        },
+        "code": {
+          "value": "ANcl",
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18609
+          }
+        },
+        "Area1": {
+          "value": 250.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18610
+          }
+        },
+        "Area2": {
+          "value": 300.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18611
+          }
+        },
+        "Area3": {
+          "value": 350.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18612
+          }
+        },
+        "Area4": {
+          "value": 400.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18613
+          }
+        },
+        "checkDep": {
+          "value": 1,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18614
+          }
+        },
+        "Cool1": {
+          "value": 8.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18615
+          }
+        },
+        "Cool2": {
+          "value": 7.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18616
+          }
+        },
+        "Cool3": {
+          "value": 6.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18617
+          }
+        },
+        "Cool4": {
+          "value": 5.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18618
+          }
+        },
+        "Cost1": {
+          "value": 20,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18619
+          }
+        },
+        "Cost2": {
+          "value": 30,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18620
+          }
+        },
+        "Cost3": {
+          "value": 40,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18621
+          }
+        },
+        "Cost4": {
+          "value": 50,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18622
+          }
+        },
+        "DataA1": {
+          "value": 0.3,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18623
+          }
+        },
+        "DataA2": {
+          "value": 0.3,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18624
+          }
+        },
+        "DataA3": {
+          "value": 0.3,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18625
+          }
+        },
+        "DataA4": {
+          "value": 0.3,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18626
+          }
+        },
+        "DataB1": {
+          "value": 2,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18627
+          }
+        },
+        "DataB2": {
+          "value": 2,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18628
+          }
+        },
+        "DataB3": {
+          "value": 2,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18629
+          }
+        },
+        "DataB4": {
+          "value": 2,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18630
+          }
+        },
+        "DataC1": {
+          "value": 3,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18631
+          }
+        },
+        "DataC2": {
+          "value": 3,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18632
+          }
+        },
+        "DataC3": {
+          "value": 3,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18633
+          }
+        },
+        "DataC4": {
+          "value": 3,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18634
+          }
+        },
+        "DataD1": {
+          "value": 1.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18635
+          }
+        },
+        "DataD2": {
+          "value": 1.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18636
+          }
+        },
+        "DataD3": {
+          "value": 1.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18637
+          }
+        },
+        "DataD4": {
+          "value": 1.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18638
+          }
+        },
+        "DataF1": {
+          "value": "cloudoffog",
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18639
+          }
+        },
+        "DataF2": {
+          "value": "cloudoffog",
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18640
+          }
+        },
+        "DataF3": {
+          "value": "cloudoffog",
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18641
+          }
+        },
+        "DataF4": {
+          "value": "cloudoffog",
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18642
+          }
+        },
+        "levels": {
+          "value": 6,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18643
+          }
+        },
+        "reqLevel": {
+          "value": 1,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18644
+          }
+        },
+        "Rng1": {
+          "value": 1200.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18645
+          }
+        },
+        "Rng2": {
+          "value": 1200.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18646
+          }
+        },
+        "Rng3": {
+          "value": 1200.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18647
+          }
+        },
+        "Rng4": {
+          "value": 1200.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18648
+          }
+        },
+        "targs1": {
+          "value": "enemies,vulnerable",
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18649
+          }
+        },
+        "targs2": {
+          "value": "enemies,vulnerable",
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18650
+          }
+        },
+        "targs3": {
+          "value": "enemies,vulnerable",
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18651
+          }
+        },
+        "targs4": {
+          "value": "enemies,vulnerable",
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 18652
+          }
+        }
+      }
+    },
+    {
+      "id": "T171",
+      "fields": {
+        "alias": {
+          "value": "T171",
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 35788
+          }
+        },
+        "code": {
+          "value": "Ablo",
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 35789
+          }
+        },
+        "BuffID1": {
+          "value": "B060",
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 35790
+          }
+        },
+        "BuffID2": {
+          "value": "B060",
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 35791
+          }
+        },
+        "BuffID3": {
+          "value": "B060",
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 35792
+          }
+        },
+        "BuffID4": {
+          "value": "B060",
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 35793
+          }
+        },
+        "checkDep": {
+          "value": 1,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 35794
+          }
+        },
+        "Cool1": {
+          "value": 1.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 35795
+          }
+        },
+        "DataA1": {
+          "value": 5.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 35796
+          }
+        },
+        "DataA2": {
+          "value": 5.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 35797
+          }
+        },
+        "DataA3": {
+          "value": 5.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 35798
+          }
+        },
+        "DataA4": {
+          "value": 5.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 35799
+          }
+        },
+        "Dur1": {
+          "value": 60.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 35800
+          }
+        },
+        "HeroDur1": {
+          "value": 3.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 35801
+          }
+        },
+        "HeroDur2": {
+          "value": 3.5,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 35802
+          }
+        },
+        "HeroDur3": {
+          "value": 4.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 35803
+          }
+        },
+        "HeroDur4": {
+          "value": 4.5,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 35804
+          }
+        },
+        "levels": {
+          "value": 6,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 35805
+          }
+        },
+        "priority": {
+          "value": 11,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 35806
+          }
+        },
+        "Rng1": {
+          "value": 600.0,
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 35807
+          }
+        },
+        "targs1": {
+          "value": "friend,invulnerable",
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 35808
+          }
+        },
+        "targs2": {
+          "value": "friend,invulnerable",
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 35809
+          }
+        },
+        "targs3": {
+          "value": "friend,invulnerable",
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 35810
+          }
+        },
+        "targs4": {
+          "value": "friend,invulnerable",
+          "source": {
+            "file": "reference/map-6.25/units_abilitydata.json",
+            "line": 35811
+          }
+        }
+      }
+    }
+  ],
+  "rawHeroAbilityLists": [
+    {
+      "id": "G065",
+      "fields": {
+        "unitAbilID": {
+          "value": "G065",
+          "source": {
+            "file": "reference/map-6.25/units_unitabilities.json",
+            "line": 4372
+          }
+        },
+        "abilList": {
+          "value": "Avul,AInv,T033",
+          "source": {
+            "file": "reference/map-6.25/units_unitabilities.json",
+            "line": 4373
+          }
+        },
+        "auto": {
+          "value": "_",
+          "source": {
+            "file": "reference/map-6.25/units_unitabilities.json",
+            "line": 4374
+          }
+        },
+        "heroAbilList": {
+          "value": "A178,A179,A180,T000,P000",
+          "source": {
+            "file": "reference/map-6.25/units_unitabilities.json",
+            "line": 4375
+          }
+        }
+      }
+    },
+    {
+      "id": "G072",
+      "fields": {
+        "unitAbilID": {
+          "value": "G072",
+          "source": {
+            "file": "reference/map-6.25/units_unitabilities.json",
+            "line": 4414
+          }
+        },
+        "abilList": {
+          "value": "Avul,AInv,T033",
+          "source": {
+            "file": "reference/map-6.25/units_unitabilities.json",
+            "line": 4415
+          }
+        },
+        "auto": {
+          "value": "_",
+          "source": {
+            "file": "reference/map-6.25/units_unitabilities.json",
+            "line": 4416
+          }
+        },
+        "heroAbilList": {
+          "value": "A161,A162,A163,T000,P000",
+          "source": {
+            "file": "reference/map-6.25/units_unitabilities.json",
+            "line": 4417
+          }
+        }
+      }
+    },
+    {
+      "id": "H041",
+      "fields": {
+        "unitAbilID": {
+          "value": "H041",
+          "source": {
+            "file": "reference/map-6.25/units_unitabilities.json",
+            "line": 4708
+          }
+        },
+        "abilList": {
+          "value": "Avul,AInv,T033,S331",
+          "source": {
+            "file": "reference/map-6.25/units_unitabilities.json",
+            "line": 4709
+          }
+        },
+        "auto": {
+          "value": "_",
+          "source": {
+            "file": "reference/map-6.25/units_unitabilities.json",
+            "line": 4710
+          }
+        },
+        "heroAbilList": {
+          "value": "A161,A162,A163,T000,P000",
+          "source": {
+            "file": "reference/map-6.25/units_unitabilities.json",
+            "line": 4711
+          }
+        }
+      }
+    },
+    {
+      "id": "H046",
+      "fields": {
+        "unitAbilID": {
+          "value": "H046",
+          "source": {
+            "file": "reference/map-6.25/units_unitabilities.json",
+            "line": 4738
+          }
+        },
+        "abilList": {
+          "value": "Avul,AInv,T033,S261",
+          "source": {
+            "file": "reference/map-6.25/units_unitabilities.json",
+            "line": 4739
+          }
+        },
+        "auto": {
+          "value": "_",
+          "source": {
+            "file": "reference/map-6.25/units_unitabilities.json",
+            "line": 4740
+          }
+        },
+        "heroAbilList": {
+          "value": "A178,A179,A180,T000,P000",
+          "source": {
+            "file": "reference/map-6.25/units_unitabilities.json",
+            "line": 4741
+          }
+        }
+      }
+    }
+  ],
+  "explicitIncrementFields": [
+    {
+      "id": "A163",
+      "key": "amcs",
+      "level": 5,
+      "value": 160,
+      "source": {
+        "file": "reference/map-6.25/war3map.w3a.json",
+        "line": 3025
+      }
+    },
+    {
+      "id": "A163",
+      "key": "amcs",
+      "level": 6,
+      "value": 200,
+      "source": {
+        "file": "reference/map-6.25/war3map.w3a.json",
+        "line": 3032
+      }
+    },
+    {
+      "id": "A163",
+      "key": "ahdu",
+      "level": 5,
+      "value": 5,
+      "source": {
+        "file": "reference/map-6.25/war3map.w3a.json",
+        "line": 3039
+      }
+    },
+    {
+      "id": "A163",
+      "key": "ahdu",
+      "level": 6,
+      "value": 6,
+      "source": {
+        "file": "reference/map-6.25/war3map.w3a.json",
+        "line": 3046
+      }
+    },
+    {
+      "id": "T171",
+      "key": "ahdu",
+      "level": 5,
+      "value": 5,
+      "source": {
+        "file": "reference/map-6.25/war3map.w3a.json",
+        "line": 10072
+      }
+    },
+    {
+      "id": "T171",
+      "key": "ahdu",
+      "level": 6,
+      "value": 6,
+      "source": {
+        "file": "reference/map-6.25/war3map.w3a.json",
+        "line": 10079
+      }
+    }
+  ],
+  "actualTooltips": [
+    {
+      "id": "A163",
+      "source": {
+        "file": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "line": 2323,
+        "endLine": 2338
+      },
+      "meaning": "+500%, interval -0.2, attack damage 80%, duration 3/3.5/4/4.5/5/6; each Ubertip includes scepter removes attack-damage penalty"
+    },
+    {
+      "id": "A180",
+      "source": {
+        "file": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "line": 2595,
+        "endLine": 2611
+      },
+      "meaning": "area sequential attacks with increased damage; no specified interval number"
+    },
+    {
+      "id": "T171",
+      "source": {
+        "file": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "line": 21396,
+        "endLine": 21412
+      },
+      "meaning": "stale 40%/25%/60s base Bloodlust tooltip; does not override custom field values"
+    }
+  ],
+  "coverage": {
+    "A163ChildFunctions": 3,
+    "A163ExecutionInstructions": 121,
+    "A163Conditions": 5,
+    "A163Calls": 26,
+    "A163DirectPenaltyCallSites": 2,
+    "A180ChildFunctionsChecked": 4,
+    "A180ExecutionInstructions": 445,
+    "A180Conditions": 29,
+    "A180Calls": 93,
+    "scope": "entire local modules plus listed direct helpers/call sites; not recursive audit of all parent event filters, dispels, cooldown reset and native movement"
+  },
+  "functions": [
+    {
+      "name": "main/f114/f0",
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 88310,
+        "endLine": 88361,
+        "function": "main/f114/f0"
+      },
+      "instructionCount": 28,
+      "conditionalCount": 0,
+      "callCount": 7,
+      "returnCount": 1,
+      "instructions": [
+        {
+          "line": 88333,
+          "instruction": "gettabup      r0    u0    k0 ; k0 = \"GetExpiredTimer\""
+        },
+        {
+          "line": 88334,
+          "instruction": "call          r0     1     2"
+        },
+        {
+          "line": 88335,
+          "instruction": "gettabup      r1    u0    k1 ; k1 = \"IsInTable\""
+        },
+        {
+          "line": 88336,
+          "instruction": "move          r2    r0"
+        },
+        {
+          "line": 88337,
+          "instruction": "getupval      r3    u1"
+        },
+        {
+          "line": 88338,
+          "instruction": "call          r1     3     2"
+        },
+        {
+          "line": 88339,
+          "instruction": "gettabup      r2    u0    k2 ; k2 = \"A163_unit\""
+        },
+        {
+          "line": 88340,
+          "instruction": "gettable      r2    r2    r1"
+        },
+        {
+          "line": 88341,
+          "instruction": "gettabup      r3    u0    k3 ; k3 = \"DestroyTimer\""
+        },
+        {
+          "line": 88342,
+          "instruction": "move          r4    r0"
+        },
+        {
+          "line": 88343,
+          "instruction": "call          r3     2     1"
+        },
+        {
+          "line": 88344,
+          "instruction": "gettabup      r3    u0    k4 ; k4 = \"SetUnitState\""
+        },
+        {
+          "line": 88345,
+          "instruction": "move          r4    r2"
+        },
+        {
+          "line": 88346,
+          "instruction": "gettabup      r5    u0    k5 ; k5 = \"ConvertUnitState\""
+        },
+        {
+          "line": 88347,
+          "instruction": "loadk         r6    k6 ; k6 = 37"
+        },
+        {
+          "line": 88348,
+          "instruction": "call          r5     2     2"
+        },
+        {
+          "line": 88349,
+          "instruction": "gettabup      r6    u0    k7 ; k7 = \"GetUnitState\""
+        },
+        {
+          "line": 88350,
+          "instruction": "move          r7    r2"
+        },
+        {
+          "line": 88351,
+          "instruction": "gettabup      r8    u0    k5 ; k5 = \"ConvertUnitState\""
+        },
+        {
+          "line": 88352,
+          "instruction": "loadk         r9    k6 ; k6 = 37"
+        },
+        {
+          "line": 88353,
+          "instruction": "call          r8     2     0"
+        },
+        {
+          "line": 88354,
+          "instruction": "call          r6     0     2"
+        },
+        {
+          "line": 88355,
+          "instruction": "add           r6    r6    k8 ; k8 = 0.2"
+        },
+        {
+          "line": 88356,
+          "instruction": "call          r3     4     1"
+        },
+        {
+          "line": 88357,
+          "instruction": "settabup      u1    r1    k9 ; k9 = nil"
+        },
+        {
+          "line": 88358,
+          "instruction": "gettabup      r3    u0    k2 ; k2 = \"A163_unit\""
+        },
+        {
+          "line": 88359,
+          "instruction": "settable      r3    r1    k9 ; k9 = nil"
+        },
+        {
+          "line": 88360,
+          "instruction": "return        r0     1"
+        }
+      ]
+    },
+    {
+      "name": "main/f114/f1",
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 88362,
+        "endLine": 88500,
+        "function": "main/f114/f1"
+      },
+      "instructionCount": 90,
+      "conditionalCount": 5,
+      "callCount": 19,
+      "returnCount": 1,
+      "instructions": [
+        {
+          "line": 88407,
+          "instruction": "gettabup      r1    u0    k0 ; k0 = \"IsInTable\""
+        },
+        {
+          "line": 88408,
+          "instruction": "move          r2    r0"
+        },
+        {
+          "line": 88409,
+          "instruction": "gettabup      r3    u0    k1 ; k1 = \"Tower_ALL\""
+        },
+        {
+          "line": 88410,
+          "instruction": "call          r1     3     2"
+        },
+        {
+          "line": 88411,
+          "instruction": "gettabup      r2    u0    k2 ; k2 = \"GetUnitAbilityLevel\""
+        },
+        {
+          "line": 88412,
+          "instruction": "move          r3    r0"
+        },
+        {
+          "line": 88413,
+          "instruction": "gettabup      r4    u0    k3 ; k3 = \"GetId\""
+        },
+        {
+          "line": 88414,
+          "instruction": "loadk         r5    k4 ; k4 = \"A163\""
+        },
+        {
+          "line": 88415,
+          "instruction": "call          r4     2     0"
+        },
+        {
+          "line": 88416,
+          "instruction": "call          r2     0     2"
+        },
+        {
+          "line": 88417,
+          "instruction": "gettabup      r3    u0    k5 ; k5 = \"GetUnitLoc\""
+        },
+        {
+          "line": 88418,
+          "instruction": "move          r4    r0"
+        },
+        {
+          "line": 88419,
+          "instruction": "call          r3     2     2"
+        },
+        {
+          "line": 88420,
+          "instruction": "loadk         r4    k6 ; k6 = 0"
+        },
+        {
+          "line": 88421,
+          "instruction": "eq             0    k7    r2 ; k7 = 6"
+        },
+        {
+          "line": 88422,
+          "instruction": "jmp            0   l19"
+        },
+        {
+          "line": 88423,
+          "instruction": "loadk         r4    k7 ; k7 = 6"
+        },
+        {
+          "line": 88424,
+          "instruction": "jmp            0   l25"
+        },
+        {
+          "line": 88426,
+          "instruction": "lt             0    k6    r2 ; k6 = 0"
+        },
+        {
+          "line": 88427,
+          "instruction": "jmp            0   l25"
+        },
+        {
+          "line": 88428,
+          "instruction": "lt             0    r2    k7 ; k7 = 6"
+        },
+        {
+          "line": 88429,
+          "instruction": "jmp            0   l25"
+        },
+        {
+          "line": 88430,
+          "instruction": "mul           r5    k8    r2 ; k8 = 0.5"
+        },
+        {
+          "line": 88431,
+          "instruction": "add           r4    k9    r5 ; k9 = 2.5"
+        },
+        {
+          "line": 88433,
+          "instruction": "gettabup      r5    u0   k11 ; k11 = \"TxShow\""
+        },
+        {
+          "line": 88434,
+          "instruction": "eq             0   k10    r5 ; k10 = true"
+        },
+        {
+          "line": 88435,
+          "instruction": "jmp            0   l42"
+        },
+        {
+          "line": 88436,
+          "instruction": "gettabup      r5    u0   k12 ; k12 = \"GetUnitTypeId\""
+        },
+        {
+          "line": 88437,
+          "instruction": "move          r6    r0"
+        },
+        {
+          "line": 88438,
+          "instruction": "call          r5     2     2"
+        },
+        {
+          "line": 88439,
+          "instruction": "gettabup      r6    u0    k3 ; k3 = \"GetId\""
+        },
+        {
+          "line": 88440,
+          "instruction": "loadk         r7   k13 ; k13 = \"G072\""
+        },
+        {
+          "line": 88441,
+          "instruction": "call          r6     2     2"
+        },
+        {
+          "line": 88442,
+          "instruction": "eq             0    r5    r6"
+        },
+        {
+          "line": 88443,
+          "instruction": "jmp            0   l42"
+        },
+        {
+          "line": 88444,
+          "instruction": "gettabup      r5    u0   k14 ; k14 = \"CreateEffByUnit\""
+        },
+        {
+          "line": 88445,
+          "instruction": "loadk         r6   k15 ; k15 = \"H120.mdx\""
+        },
+        {
+          "line": 88446,
+          "instruction": "move          r7    r0"
+        },
+        {
+          "line": 88447,
+          "instruction": "loadk         r8   k16 ; k16 = \"origin\""
+        },
+        {
+          "line": 88448,
+          "instruction": "move          r9    r4"
+        },
+        {
+          "line": 88449,
+          "instruction": "call          r5     5     1"
+        },
+        {
+          "line": 88451,
+          "instruction": "gettabup      r5    u0   k17 ; k17 = \"CreateTimer\""
+        },
+        {
+          "line": 88452,
+          "instruction": "call          r5     1     2"
+        },
+        {
+          "line": 88453,
+          "instruction": "gettabup      r6    u0   k18 ; k18 = \"TimerStart\""
+        },
+        {
+          "line": 88454,
+          "instruction": "move          r7    r5"
+        },
+        {
+          "line": 88455,
+          "instruction": "move          r8    r4"
+        },
+        {
+          "line": 88456,
+          "instruction": "loadbool      r9     0     0"
+        },
+        {
+          "line": 88457,
+          "instruction": "getupval     r10    u1"
+        },
+        {
+          "line": 88458,
+          "instruction": "call          r6     5     1"
+        },
+        {
+          "line": 88459,
+          "instruction": "settabup      u2    r1    r5"
+        },
+        {
+          "line": 88460,
+          "instruction": "gettabup      r6    u0   k19 ; k19 = \"A163_unit\""
+        },
+        {
+          "line": 88461,
+          "instruction": "settable      r6    r1    r0"
+        },
+        {
+          "line": 88462,
+          "instruction": "gettabup      r6    u0   k20 ; k20 = \"SetUnitState\""
+        },
+        {
+          "line": 88463,
+          "instruction": "move          r7    r0"
+        },
+        {
+          "line": 88464,
+          "instruction": "gettabup      r8    u0   k21 ; k21 = \"ConvertUnitState\""
+        },
+        {
+          "line": 88465,
+          "instruction": "loadk         r9   k22 ; k22 = 37"
+        },
+        {
+          "line": 88466,
+          "instruction": "call          r8     2     2"
+        },
+        {
+          "line": 88467,
+          "instruction": "gettabup      r9    u0   k23 ; k23 = \"GetUnitState\""
+        },
+        {
+          "line": 88468,
+          "instruction": "move         r10    r0"
+        },
+        {
+          "line": 88469,
+          "instruction": "gettabup     r11    u0   k21 ; k21 = \"ConvertUnitState\""
+        },
+        {
+          "line": 88470,
+          "instruction": "loadk        r12   k22 ; k22 = 37"
+        },
+        {
+          "line": 88471,
+          "instruction": "call         r11     2     0"
+        },
+        {
+          "line": 88472,
+          "instruction": "call          r9     0     2"
+        },
+        {
+          "line": 88473,
+          "instruction": "sub           r9    r9   k24 ; k24 = 0.2"
+        },
+        {
+          "line": 88474,
+          "instruction": "call          r6     4     1"
+        },
+        {
+          "line": 88475,
+          "instruction": "gettabup      r6    u0   k25 ; k25 = \"CreateTempAndSetAbil\" (truncated)"
+        },
+        {
+          "line": 88476,
+          "instruction": "gettabup      r7    u0   k26 ; k26 = \"GetOwningPlayer\""
+        },
+        {
+          "line": 88477,
+          "instruction": "move          r8    r0"
+        },
+        {
+          "line": 88478,
+          "instruction": "call          r7     2     2"
+        },
+        {
+          "line": 88479,
+          "instruction": "move          r8    r3"
+        },
+        {
+          "line": 88480,
+          "instruction": "loadk         r9    k6 ; k6 = 0"
+        },
+        {
+          "line": 88481,
+          "instruction": "loadk        r10   k27 ; k27 = \"T171\""
+        },
+        {
+          "line": 88482,
+          "instruction": "gettabup     r11    u0    k2 ; k2 = \"GetUnitAbilityLevel\""
+        },
+        {
+          "line": 88483,
+          "instruction": "move         r12    r0"
+        },
+        {
+          "line": 88484,
+          "instruction": "gettabup     r13    u0    k3 ; k3 = \"GetId\""
+        },
+        {
+          "line": 88485,
+          "instruction": "loadk        r14    k4 ; k4 = \"A163\""
+        },
+        {
+          "line": 88486,
+          "instruction": "call         r13     2     0"
+        },
+        {
+          "line": 88487,
+          "instruction": "call         r11     0     2"
+        },
+        {
+          "line": 88488,
+          "instruction": "loadk        r12    k8 ; k8 = 0.5"
+        },
+        {
+          "line": 88489,
+          "instruction": "call          r6     7     2"
+        },
+        {
+          "line": 88490,
+          "instruction": "gettabup      r7    u0   k28 ; k28 = \"SetUnitUserData\""
+        },
+        {
+          "line": 88491,
+          "instruction": "move          r8    r6"
+        },
+        {
+          "line": 88492,
+          "instruction": "move          r9    r1"
+        },
+        {
+          "line": 88493,
+          "instruction": "call          r7     3     1"
+        },
+        {
+          "line": 88494,
+          "instruction": "gettabup      r7    u0   k29 ; k29 = \"IssueTargetOrder\""
+        },
+        {
+          "line": 88495,
+          "instruction": "move          r8    r6"
+        },
+        {
+          "line": 88496,
+          "instruction": "loadk         r9   k30 ; k30 = \"bloodlust\""
+        },
+        {
+          "line": 88497,
+          "instruction": "move         r10    r0"
+        },
+        {
+          "line": 88498,
+          "instruction": "call          r7     4     1"
+        },
+        {
+          "line": 88499,
+          "instruction": "return        r0     1"
+        }
+      ]
+    },
+    {
+      "name": "main/f114/f2",
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 88501,
+        "endLine": 88515,
+        "function": "main/f114/f2"
+      },
+      "instructionCount": 3,
+      "conditionalCount": 0,
+      "callCount": 0,
+      "returnCount": 2,
+      "instructions": [
+        {
+          "line": 88512,
+          "instruction": "mul           r2    r1    k0 ; k0 = 0.8"
+        },
+        {
+          "line": 88513,
+          "instruction": "return        r2     2"
+        },
+        {
+          "line": 88514,
+          "instruction": "return        r0     1"
+        }
+      ]
+    }
+  ],
+  "A180FunctionsChecked": [
+    {
+      "name": "main/f127/f0",
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 96177,
+        "endLine": 96410,
+        "function": "main/f127/f0"
+      },
+      "instructionCount": 167,
+      "conditionalCount": 11,
+      "callCount": 34,
+      "returnCount": 2
+    },
+    {
+      "name": "main/f127/f1",
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 96411,
+        "endLine": 96437,
+        "function": "main/f127/f1"
+      },
+      "instructionCount": 10,
+      "conditionalCount": 0,
+      "callCount": 3,
+      "returnCount": 1
+    },
+    {
+      "name": "main/f127/f2",
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 96438,
+        "endLine": 96470,
+        "function": "main/f127/f2"
+      },
+      "instructionCount": 14,
+      "conditionalCount": 0,
+      "callCount": 4,
+      "returnCount": 1
+    },
+    {
+      "name": "main/f127/f3",
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 96471,
+        "endLine": 96834,
+        "function": "main/f127/f3"
+      },
+      "instructionCount": 254,
+      "conditionalCount": 18,
+      "callCount": 52,
+      "returnCount": 3
+    }
+  ],
+  "levelTable": [
+    {
+      "level": 1,
+      "durationSeconds": 3.0,
+      "manaCost": 40,
+      "cooldownSeconds": 12,
+      "attackSpeedBonus": 5,
+      "baseIntervalDeltaSeconds": -0.2,
+      "nativeBuff": "B060",
+      "timerPolicy": "one shot; no existing-timer cancellation in module"
+    },
+    {
+      "level": 2,
+      "durationSeconds": 3.5,
+      "manaCost": 70,
+      "cooldownSeconds": 12,
+      "attackSpeedBonus": 5,
+      "baseIntervalDeltaSeconds": -0.2,
+      "nativeBuff": "B060",
+      "timerPolicy": "one shot; no existing-timer cancellation in module"
+    },
+    {
+      "level": 3,
+      "durationSeconds": 4.0,
+      "manaCost": 100,
+      "cooldownSeconds": 12,
+      "attackSpeedBonus": 5,
+      "baseIntervalDeltaSeconds": -0.2,
+      "nativeBuff": "B060",
+      "timerPolicy": "one shot; no existing-timer cancellation in module"
+    },
+    {
+      "level": 4,
+      "durationSeconds": 4.5,
+      "manaCost": 130,
+      "cooldownSeconds": 12,
+      "attackSpeedBonus": 5,
+      "baseIntervalDeltaSeconds": -0.2,
+      "nativeBuff": "B060",
+      "timerPolicy": "one shot; no existing-timer cancellation in module"
+    },
+    {
+      "level": 5,
+      "durationSeconds": 5.0,
+      "manaCost": 160,
+      "cooldownSeconds": 12,
+      "attackSpeedBonus": 5,
+      "baseIntervalDeltaSeconds": -0.2,
+      "nativeBuff": "B060",
+      "timerPolicy": "one shot; no existing-timer cancellation in module"
+    },
+    {
+      "level": 6,
+      "durationSeconds": 6.0,
+      "manaCost": 200,
+      "cooldownSeconds": 12,
+      "attackSpeedBonus": 5,
+      "baseIntervalDeltaSeconds": -0.2,
+      "nativeBuff": "B060",
+      "timerPolicy": "one shot; no existing-timer cancellation in module"
+    }
+  ],
+  "probability": {
+    "hasProbabilisticProc": false,
+    "randomDrawCallsInA163Module": 0,
+    "reason": "active ability / readiness-driven autocast, not random attack proc"
+  },
+  "entryPoints": [
+    {
+      "kind": "Skill_Auto branch 70",
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 176314,
+        "endLine": 176325,
+        "function": "main/f291/f27"
+      },
+      "condition": "Unit_Ability_Has_Cool_Down(attacker,A163)",
+      "command": {
+        "api": "IssueImmediateOrder",
+        "order": "evileye",
+        "target": null
+      },
+      "endsSkillScan": false,
+      "nativeAcceptedNotProven": true
+    },
+    {
+      "kind": "AnySkillStart successful spell effect dispatch",
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 171130,
+        "endLine": 171139,
+        "function": "main/f291/f14"
+      },
+      "condition": "spellAbilityId == A163",
+      "call": "A163_Action(caster,target); extra target ignored by one-arg function",
+      "immediateReturnAfterCall": false
+    }
+  ],
+  "readinessHelper": {
+    "source": {
+      "file": "reference/map-6.25/main.disasm",
+      "line": 52213,
+      "endLine": 52272,
+      "function": "main/f7/f39"
+    },
+    "conditions": [
+      "abilityLevel>0",
+      "remaining cooldown == 0",
+      "current mana >= current-level native ability cost"
+    ],
+    "missingNativeChecks": [
+      "silence/stun/pause",
+      "order acceptance and interruption",
+      "spell effect timing"
+    ]
+  },
+  "apply": {
+    "source": {
+      "file": "reference/map-6.25/main.disasm",
+      "line": 88362,
+      "endLine": 88500,
+      "function": "main/f114/f1"
+    },
+    "orderedSteps": [
+      "index = IsInTable(caster,Tower_ALL); read level; read caster location",
+      "duration = 6 if level==6, else 2.5+0.5*level if 0<level<6, else 0; no early return",
+      "if TxShow and type G072: visual H120.mdx for duration",
+      "create one-shot expiration timer; store timers[index], A163_unit[index]",
+      "Set37(caster,Get37(caster)-0.2)",
+      "create default q001 at caster original point, T171 level re-read, BHwe timed life 0.5",
+      "dummy.UserData = index",
+      "IssueTargetOrder(dummy,bloodlust,caster); discard boolean result"
+    ],
+    "cancellationOfPriorTimer": false,
+    "rollBackIntervalIfBloodlustFails": false,
+    "bloodlustoffIssued": false,
+    "dummyType": "q001",
+    "dummyAbility": "T171",
+    "dummyLifetimeSeconds": 0.5
+  },
+  "expire": {
+    "source": {
+      "file": "reference/map-6.25/main.disasm",
+      "line": 88310,
+      "endLine": 88361,
+      "function": "main/f114/f0"
+    },
+    "orderedSteps": [
+      "timer=GetExpiredTimer",
+      "index=IsInTable(timer,timers)",
+      "unit=A163_unit[index]",
+      "DestroyTimer(timer)",
+      "Set37(unit,Get37(unit)+0.2)",
+      "timers[index]=nil",
+      "A163_unit[index]=nil"
+    ],
+    "checksUnitExistsOrAlive": false,
+    "removesB060": false,
+    "changesState81": false,
+    "restoresAbsoluteOriginalC": false
+  },
+  "createTempHelper": {
+    "source": {
+      "file": "reference/map-6.25/main.disasm",
+      "line": 51457,
+      "endLine": 51510,
+      "function": "main/f7/f20"
+    },
+    "operations": [
+      "default type q001 if omitted",
+      "CreateUnitAtLoc",
+      "UnitAddAbility",
+      "SetUnitAbilityLevel",
+      "UnitApplyTimedLife BHwe with passed life seconds"
+    ],
+    "instructionCount": 33
+  },
+  "penaltyHelper": {
+    "source": {
+      "file": "reference/map-6.25/main.disasm",
+      "line": 88501,
+      "endLine": 88515,
+      "function": "main/f114/f2"
+    },
+    "expression": "inputDamage * 0.8",
+    "unitParameterUsed": false,
+    "timerCreated": false
+  },
+  "penaltyCallSites": [
+    {
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 163478,
+        "endLine": 163507,
+        "function": "main/f291/f1"
+      },
+      "conditions": [
+        "EXGetEventDamageData(2) != 0",
+        "GetUnitAbilityLevel(actualDamageSource,B060)>0",
+        "Has_A_Item(actualDamageSource)==false"
+      ],
+      "damageReadTiming": "re-read current event amount after all these checks",
+      "output": "EXSetEventDamage(amount * 0.8)",
+      "scopeCaveat": "still subject to enclosing damage-dispatch paths and earlier filters"
+    },
+    {
+      "source": {
+        "file": "reference/map-6.25/main.disasm",
+        "line": 126827,
+        "endLine": 126864,
+        "function": "main/f238/f1"
+      },
+      "conditions": [
+        "computed Muramasa independent package > 0",
+        "GetUnitAbilityLevel(caster,B060)>0",
+        "Has_A_Item(caster)==false"
+      ],
+      "damageReadTiming": "already computed independent package",
+      "output": "package *= 0.8 before SetPhyDamagePoint",
+      "otherRule": "docs/rules/item-muramasa-takemitsu.md"
+    }
+  ],
+  "qualification": {
+    "source": {
+      "file": "reference/map-6.25/main.disasm",
+      "line": 50812,
+      "endLine": 50855,
+      "function": "main/f7/f8"
+    },
+    "predicate": "unit exists in A111_113_A value list OR has i310",
+    "readAtEachPenaltyCall": true,
+    "changesIntervalDurationOrSpeedBonus": false
+  },
+  "A180IdentityCheck": {
+    "levelOnlyChangesLocalRadius": true,
+    "HasAItemOrI310BranchInModule": false,
+    "relativePointTwoBranchInModule": false,
+    "applySource": {
+      "file": "reference/map-6.25/main.disasm",
+      "line": 96691,
+      "endLine": 96725,
+      "function": "main/f127/f3"
+    },
+    "expireSource": {
+      "file": "reference/map-6.25/main.disasm",
+      "line": 96231,
+      "endLine": 96350,
+      "function": "main/f127/f0"
+    },
+    "sourceSpeedOffset": 5,
+    "sourceAbsoluteC": 0.3,
+    "radiusByLevel": [
+      250,
+      300,
+      350,
+      400,
+      450,
+      500
+    ],
+    "periodSeconds": 0.25,
+    "firstAdvanceDelaySeconds": 0.01,
+    "targetPredicate": "owner Player(11) and life>0 at initial enumeration",
+    "finish": "index > target-list length; restore original point, add saved C difference, subtract 5 from R; clear state",
+    "dummy": "q036 or TxShow/G065 q043; T187 level1 timed life10",
+    "nativeBoundary": "does not directly guarantee one hit per target or fixed duration; commands and moves are native"
+  },
+  "confirmedExamples": [
+    {
+      "name": "A163 base interval",
+      "beforeC": 1.2,
+      "afterApplyC": 1.0,
+      "afterExpireC": 1.2
+    },
+    {
+      "name": "A163 concurrent other C delta",
+      "beforeC": 1.2,
+      "afterApplyC": 1.0,
+      "otherDelta": -0.1,
+      "afterExpireC": 1.1
+    },
+    {
+      "name": "penalty no qualification",
+      "B060": true,
+      "HasAItem": false,
+      "attackFlag": true,
+      "input": 100,
+      "afterLocalPenalty": 80
+    },
+    {
+      "name": "qualification exception",
+      "B060": true,
+      "HasAItem": true,
+      "attackFlag": true,
+      "input": 100,
+      "afterLocalPenalty": 100
+    },
+    {
+      "name": "A180 different skill",
+      "beforeC": 1.2,
+      "savedDelta": 0.9,
+      "afterApplyC": 0.3,
+      "afterRestoreC": 1.2
+    }
+  ],
+  "nativeGaps": [
+    "ANcl order acceptance and spell-effect timing, especially same-scan later commands",
+    "T171 native successful cast, B060 stacking/removal",
+    "overlapping forced A163 effect calls overwrite timers[index]; old expiration lookup and nil native result untested"
+  ],
+  "implementationBoundaries": [
+    "do not apply effect merely on IssueImmediateOrder",
+    "do not merge the interval timer with B060 lifecycle",
+    "do not infer missing native field as 0",
+    "keep shared attack-timing and B05 semantics",
+    "no new Q36 decision: incorrect skill-ID comparison withdrawn"
+  ],
+  "validation": {
+    "sourceHashes": {
+      "main.disasm": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+      "图鉴.xlsx": "457c8f7e37e19412a0dd072ce941e95604b0b8910860b9e1eb9883e6b82bb6af"
+    },
+    "fullA163InstructionsChecked": true,
+    "fullA180InstructionsCheckedForIdentityAndTiming": true,
+    "workbookIdentityAndLevelTableChecked": true,
+    "originalClientTested": false,
+    "WebRuntimeTested": false,
+    "checkedSourceObjects": 150,
+    "checkedLocalMarkdownLinks": 12
+  },
+  "webAdaptation": {
+    "version": "focus-fire-native-v1",
+    "specification": "focus-fire-native.md",
+    "machineRules": "focus-fire-native.json",
+    "scope": "explicit Q24 choices for listed native gaps; original client remains untested"
+  }
+}

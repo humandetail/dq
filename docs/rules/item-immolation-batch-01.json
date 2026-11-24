@@ -1,0 +1,98 @@
+{
+  "baselineId": "item-immolation-batch-01",
+  "coverage": {
+    "aliasesReady": 5,
+    "aliasesRemaining": 0,
+    "uniqueItems": 5,
+    "recipeRows": 0
+  },
+  "items": {
+    "i135": {
+      "name": "辉耀Lv1",
+      "abilityJsonIndex": 1105,
+      "itemJsonIndex": 338,
+      "alias": "I181",
+      "workbookCell": "装备与道具!H45",
+      "amount": 250,
+      "componentReady": true,
+      "independentComponentsRemaining": []
+    },
+    "i136": {
+      "name": "辉耀Lv2",
+      "abilityJsonIndex": 1106,
+      "itemJsonIndex": 339,
+      "alias": "I182",
+      "workbookCell": "装备与道具!H46",
+      "amount": 360,
+      "componentReady": true,
+      "independentComponentsRemaining": []
+    },
+    "i137": {
+      "name": "辉耀Lv3",
+      "abilityJsonIndex": 1107,
+      "itemJsonIndex": 340,
+      "alias": "I183",
+      "workbookCell": "装备与道具!H47",
+      "amount": 470,
+      "componentReady": true,
+      "independentComponentsRemaining": []
+    },
+    "i138": {
+      "name": "辉耀Max",
+      "abilityJsonIndex": 1108,
+      "itemJsonIndex": 341,
+      "alias": "I184",
+      "workbookCell": "装备与道具!H48",
+      "amount": 620,
+      "componentReady": true,
+      "independentComponentsRemaining": []
+    },
+    "i276": {
+      "name": "琥珀净瓶",
+      "abilityJsonIndex": 1194,
+      "itemJsonIndex": 479,
+      "alias": "I271",
+      "workbookCell": "装备与道具!H186",
+      "amount": 1000,
+      "componentReady": true,
+      "independentComponentsRemaining": [
+        "I270",
+        "Item_Auto_Use"
+      ]
+    }
+  },
+  "web": {
+    "buff": "B029",
+    "radius": 900,
+    "periodSeconds": 1,
+    "firstTickAfterSeconds": 1,
+    "dedupe": "maximum eligible source amount per target; stable earliest source on equal amount",
+    "packet": {
+      "isAttack": false,
+      "isRanged": false,
+      "attackType": "NORMAL",
+      "damageType": "MAGIC"
+    },
+    "separatePeriodicBuff": "Bpig"
+  },
+  "verification": {
+    "overlapTieAndFallback": [
+      [
+        1000,
+        2
+      ],
+      [
+        1000,
+        4
+      ],
+      [
+        620,
+        3
+      ],
+      [
+        0,
+        0
+      ]
+    ]
+  }
+}

@@ -1,0 +1,1170 @@
+{
+  "schemaVersion": 1,
+  "scope": "Four sword proc/probability bodies fully checked; direct damage helper and prior mana-effect body checked; entry gates and literal callsite boundaries checked, not all hero/callee lifecycles or native area mechanics.",
+  "source": {
+    "path": "reference/map-6.25/main.disasm",
+    "sha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+    "readablePath": "reference/map-6.25/main.readable.lua",
+    "workbookPath": "图鉴.xlsx",
+    "workbookSha256": "457c8f7e37e19412a0dd072ce941e95604b0b8910860b9e1eb9883e6b82bb6af"
+  },
+  "counts": {
+    "instructions": 126,
+    "conditions": 8,
+    "calls": 23,
+    "returnInstructions": 8
+  },
+  "functions": [
+    {
+      "name": "i132_Skill",
+      "function": "main/f238/f1",
+      "sourceLines": [
+        126768,
+        126875
+      ],
+      "counts": {
+        "instructions": 67,
+        "conditions": 4,
+        "calls": 14,
+        "returnInstructions": 2
+      },
+      "conditions": [
+        {
+          "pc": 22,
+          "line": 126827,
+          "raw": "le 0 r5 k8",
+          "trueNextPC": 24,
+          "falseNextPC": 25,
+          "meaning": "P<=0: return"
+        },
+        {
+          "pc": 34,
+          "line": 126840,
+          "raw": "lt 0 k8 r7",
+          "trueNextPC": 36,
+          "falseNextPC": 46,
+          "meaning": "level(S,B060)>0: inspect Has_A_Item"
+        },
+        {
+          "pc": 39,
+          "line": 126845,
+          "raw": "eq 0 k13 r7",
+          "trueNextPC": 41,
+          "falseNextPC": 46,
+          "meaning": "Has_A_Item(S)==false: multiply P by 0.8"
+        },
+        {
+          "pc": 59,
+          "line": 126866,
+          "raw": "eq 0 k20 r7",
+          "trueNextPC": 61,
+          "falseNextPC": 67,
+          "meaning": "TxShow==true: create visual"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 24,
+          "line": 126829
+        },
+        {
+          "pc": 67,
+          "line": 126875
+        }
+      ],
+      "readableLines": [
+        80381,
+        80451
+      ]
+    },
+    {
+      "name": "i132_Get_probability",
+      "function": "main/f238/f2",
+      "sourceLines": [
+        126877,
+        126903
+      ],
+      "counts": {
+        "instructions": 10,
+        "conditions": 1,
+        "calls": 1,
+        "returnInstructions": 2
+      },
+      "conditions": [
+        {
+          "pc": 5,
+          "line": 126897,
+          "raw": "lt 1 r0 k3",
+          "trueNextPC": 8,
+          "falseNextPC": 7,
+          "meaning": "r<20: return true (original)"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 9,
+          "line": 126902
+        },
+        {
+          "pc": 10,
+          "line": 126903
+        }
+      ],
+      "readableLines": [
+        80453,
+        80463
+      ]
+    },
+    {
+      "name": "i134_Skill",
+      "function": "main/f240/f1",
+      "sourceLines": [
+        127051,
+        127123
+      ],
+      "counts": {
+        "instructions": 39,
+        "conditions": 2,
+        "calls": 7,
+        "returnInstructions": 2
+      },
+      "conditions": [
+        {
+          "pc": 8,
+          "line": 127090,
+          "raw": "le 0 r1 k4",
+          "trueNextPC": 10,
+          "falseNextPC": 11,
+          "meaning": "P<=0: return"
+        },
+        {
+          "pc": 29,
+          "line": 127112,
+          "raw": "eq 0 k13 r2",
+          "trueNextPC": 31,
+          "falseNextPC": 39,
+          "meaning": "TxShow==true: create visual"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 10,
+          "line": 127092
+        },
+        {
+          "pc": 39,
+          "line": 127123
+        }
+      ],
+      "readableLines": [
+        80551,
+        80593
+      ]
+    },
+    {
+      "name": "i134_Get_probability",
+      "function": "main/f240/f2",
+      "sourceLines": [
+        127125,
+        127151
+      ],
+      "counts": {
+        "instructions": 10,
+        "conditions": 1,
+        "calls": 1,
+        "returnInstructions": 2
+      },
+      "conditions": [
+        {
+          "pc": 5,
+          "line": 127145,
+          "raw": "lt 1 r0 k3",
+          "trueNextPC": 8,
+          "falseNextPC": 7,
+          "meaning": "r<50: return true (original)"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 9,
+          "line": 127150
+        },
+        {
+          "pc": 10,
+          "line": 127151
+        }
+      ],
+      "readableLines": [
+        80595,
+        80605
+      ]
+    }
+  ],
+  "directDependencies": [
+    {
+      "name": "A084_Action",
+      "function": "main/f73/f0",
+      "sourceLines": [
+        76378,
+        76516
+      ],
+      "counts": {
+        "instructions": 91,
+        "conditions": 8,
+        "calls": 17,
+        "returnInstructions": 2
+      },
+      "conditions": [
+        {
+          "pc": 5,
+          "line": 76422,
+          "raw": "lt 0 k0 r1",
+          "trueNextPC": 7,
+          "falseNextPC": 8,
+          "meaning": "3<r: return without mana change"
+        },
+        {
+          "pc": 15,
+          "line": 76433,
+          "raw": "lt 0 k2 r2",
+          "trueNextPC": 17,
+          "falseNextPC": 19,
+          "meaning": "level(C,B088)>0: ratio 0.30"
+        },
+        {
+          "pc": 25,
+          "line": 76444,
+          "raw": "lt 0 k2 r2",
+          "trueNextPC": 27,
+          "falseNextPC": 29,
+          "meaning": "level(C,B087)>0: ratio 0.25"
+        },
+        {
+          "pc": 35,
+          "line": 76455,
+          "raw": "lt 0 k2 r2",
+          "trueNextPC": 37,
+          "falseNextPC": 39,
+          "meaning": "level(C,B086)>0: ratio 0.20"
+        },
+        {
+          "pc": 45,
+          "line": 76466,
+          "raw": "lt 0 k2 r2",
+          "trueNextPC": 47,
+          "falseNextPC": 49,
+          "meaning": "level(C,B085)>0: ratio 0.15"
+        },
+        {
+          "pc": 55,
+          "line": 76477,
+          "raw": "lt 0 k2 r2",
+          "trueNextPC": 57,
+          "falseNextPC": 59,
+          "meaning": "level(C,B084)>0: ratio 0.10"
+        },
+        {
+          "pc": 65,
+          "line": 76488,
+          "raw": "lt 0 k2 r2",
+          "trueNextPC": 67,
+          "falseNextPC": 68,
+          "meaning": "level(C,B083)>0: ratio 0.05"
+        },
+        {
+          "pc": 69,
+          "line": 76493,
+          "raw": "eq 0 k18 r2",
+          "trueNextPC": 71,
+          "falseNextPC": 77,
+          "meaning": "TxShow==true: create visual"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 7,
+          "line": 76424
+        },
+        {
+          "pc": 91,
+          "line": 76516
+        }
+      ],
+      "readableLines": [
+        47573,
+        47667
+      ]
+    },
+    {
+      "name": "A163_Debuff_DUr",
+      "function": "main/f114/f2",
+      "sourceLines": [
+        88501,
+        88514
+      ],
+      "counts": {
+        "instructions": 3,
+        "conditions": 0,
+        "calls": 0,
+        "returnInstructions": 2
+      },
+      "conditions": [],
+      "returns": [
+        {
+          "pc": 2,
+          "line": 88513
+        },
+        {
+          "pc": 3,
+          "line": 88514
+        }
+      ],
+      "readableLines": [
+        55631,
+        55637
+      ]
+    },
+    {
+      "name": "SetPhyDamagePoint",
+      "function": "main/f7/f30",
+      "sourceLines": [
+        51941,
+        51970
+      ],
+      "counts": {
+        "instructions": 14,
+        "conditions": 0,
+        "calls": 1,
+        "returnInstructions": 1
+      },
+      "conditions": [],
+      "returns": [
+        {
+          "pc": 14,
+          "line": 51970
+        }
+      ],
+      "readableLines": [
+        31853,
+        31870
+      ]
+    }
+  ],
+  "reusedDependencies": {
+    "Has_A_Item": {
+      "function": "main/f7/f8",
+      "lines": [
+        50812,
+        50855
+      ],
+      "predicate": "unit in values(A111_113_A) OR owns i310"
+    },
+    "CreateEffAtLoc": {
+      "function": "main/f7/f25",
+      "lines": [
+        51661,
+        51710
+      ]
+    },
+    "CreateEffByUnit": {
+      "function": "main/f7/f24",
+      "lines": [
+        51609,
+        51659
+      ]
+    },
+    "Eff_time_end": {
+      "function": "main/f7/f26",
+      "lines": [
+        51712,
+        51752
+      ],
+      "effect": "destroy existing visual, destroy timer, clear two slots; no combat mutation"
+    }
+  },
+  "filters": {
+    "IsTemp": {
+      "sourceLines": [
+        49860,
+        50034
+      ],
+      "ids": [
+        "q001",
+        "q002",
+        "q003",
+        "q006",
+        "q007",
+        "q008",
+        "q009",
+        "q010",
+        "q011",
+        "q012",
+        "q013",
+        "q014",
+        "q015",
+        "q016",
+        "q017",
+        "b117",
+        "b118",
+        "b139",
+        "b140",
+        "q019",
+        "q020",
+        "q021",
+        "q022",
+        "q023",
+        "q024",
+        "q025",
+        "q026",
+        "q028",
+        "q029",
+        "q030",
+        "q032",
+        "q033",
+        "q034",
+        "q035",
+        "q036",
+        "q037",
+        "q038",
+        "q039",
+        "q040",
+        "q041",
+        "q042",
+        "q043",
+        "q044",
+        "q045",
+        "q046",
+        "q047",
+        "q050",
+        "q051",
+        "q052",
+        "q053",
+        "q054",
+        "q056",
+        "q057",
+        "q058",
+        "q059",
+        "q062",
+        "q064"
+      ],
+      "function": "main/f7/f15",
+      "functionLines": [
+        51273,
+        51303
+      ]
+    },
+    "IsUseless": {
+      "sourceLines": [
+        50036,
+        50128
+      ],
+      "ids": [
+        "A000",
+        "A075",
+        "A083",
+        "A164",
+        "I001",
+        "I002",
+        "I167",
+        "I168",
+        "I204",
+        "I205",
+        "I206",
+        "I207",
+        "I210",
+        "I211",
+        "I219",
+        "I220",
+        "I233",
+        "I243",
+        "I245",
+        "I248",
+        "I266",
+        "I267",
+        "I274",
+        "N000",
+        "T329",
+        "A226",
+        "A227",
+        "A228",
+        "A229",
+        "I270"
+      ],
+      "function": "main/f7/f16",
+      "functionLines": [
+        51305,
+        51331
+      ]
+    },
+    "IsWorker": {
+      "sourceLines": [
+        50238,
+        50313
+      ],
+      "ids": [
+        "w001",
+        "g002",
+        "g003",
+        "g004",
+        "g005",
+        "g006",
+        "g007",
+        "g008",
+        "g009",
+        "g010",
+        "g011",
+        "g012",
+        "g013",
+        "g014",
+        "g015",
+        "g016",
+        "g017",
+        "g018"
+      ],
+      "function": "main/f7/f49",
+      "functionLines": [
+        52611,
+        52641
+      ]
+    },
+    "IsBOX": {
+      "sourceLines": [
+        50315,
+        50334
+      ],
+      "ids": [
+        "w000",
+        "g200",
+        "g201",
+        "g202"
+      ],
+      "function": "main/f7/f50",
+      "functionLines": [
+        52643,
+        52673
+      ]
+    }
+  },
+  "muramasa": {
+    "itemId": "i132",
+    "workbook": "装备与道具!H42",
+    "originalProbability": {
+      "range": [
+        0,
+        100
+      ],
+      "predicate": "r<20",
+      "probabilityIfInclusiveUniform": "20/101"
+    },
+    "attackRead": "mean(GetUnitState(S,21),GetUnitState(S,20))",
+    "lifeRead": "UNIT_STATE_MAX_LIFE",
+    "originalFormula": "((maxAttack1+minAttack1)/2)*3 + maxLife*0.15",
+    "webFormula": "((maxAttack1+minAttack1)/2)*3.6 + maxLife*0.15",
+    "nonpositiveEarlyReturn": true,
+    "B060Adjustment": {
+      "predicate": "level(S,B060)>0 && Has_A_Item(S)==false",
+      "multiplier": 0.8
+    },
+    "areaCall": {
+      "function": "SetPhyDamagePoint",
+      "actualSource": "S",
+      "delay": 0,
+      "radius": 460,
+      "center": "current position of T",
+      "attack": false,
+      "ranged": false,
+      "attackType": "HERO",
+      "damageType": "NORMAL",
+      "weaponType": "WHOKNOWS"
+    },
+    "visual": {
+      "gate": "TxShow==true",
+      "model": "Cleave_Cast_Base_Purple.mdx",
+      "seconds": 0.5,
+      "scale": 3.6
+    },
+    "eligibility": [
+      "Item_Attack_Special checks HasItem(S,i132)!=nil then probability",
+      "No intrinsic melee/hero/life/mana/cooldown/illusion check in Special i132 prefix",
+      "Primary attacked-event entry separately rejects attacker illusions",
+      "No shared proc deduplication key in these functions"
+    ]
+  },
+  "takemitsu": {
+    "itemId": "i134",
+    "workbook": "装备与道具!H44",
+    "originalProbability": {
+      "range": [
+        0,
+        100
+      ],
+      "predicate": "r<50",
+      "probabilityIfInclusiveUniform": "50/101"
+    },
+    "event": "EVENT_PLAYER_UNIT_SPELL_EFFECT",
+    "registeredPlayers": [
+      0,
+      1,
+      2,
+      3,
+      11
+    ],
+    "outerExcludedAbilityIds": [
+      "T033",
+      "A040",
+      "A070",
+      "A210"
+    ],
+    "gateSequence": [
+      "AnySkillStart earlier optional Skill_BS_Still (not an exclusion for Player11)",
+      "return if IsTemp or outerExcludedAbilityId",
+      "Item_Skill_Action returns if IsWorker or IsBOX or IsUseless",
+      "if any B083..B088: call A084_Action before item check",
+      "if hasI134: draw i134 probability",
+      "on success: read current caster mana inside i134_Skill"
+    ],
+    "originalFormula": "M/1.5",
+    "webFormula": "M*0.67",
+    "readMoment": "after previous A084_Action, during SPELL_EFFECT handler, before later spell-specific dispatch",
+    "nonpositiveEarlyReturn": true,
+    "manaConsumedByThisProc": false,
+    "areaCall": {
+      "actualSource": "GetTriggerUnit()",
+      "delay": 0,
+      "radius": 900,
+      "center": "current caster position",
+      "attack": false,
+      "ranged": false,
+      "attackType": "NORMAL",
+      "damageType": "MAGIC",
+      "weaponType": "WHOKNOWS"
+    },
+    "visual": {
+      "gate": "TxShow==true",
+      "model": "Frost_Nova_1.mdx",
+      "seconds": 0.5,
+      "scale": 2
+    },
+    "priorA084": {
+      "randomRange": [
+        0,
+        10
+      ],
+      "returnPredicate": "r>3",
+      "buffPriority": [
+        [
+          "B088",
+          0.3
+        ],
+        [
+          "B087",
+          0.25
+        ],
+        [
+          "B086",
+          0.2
+        ],
+        [
+          "B085",
+          0.15
+        ],
+        [
+          "B084",
+          0.1
+        ],
+        [
+          "B083",
+          0.05
+        ]
+      ],
+      "requestedMana": "currentMana+maxMana*ratio",
+      "nativeClamp": "Original native clipping remains unproven; essence-aura-effect-v1 now specifies immediate clamp to[0,maxMana] for this A084 write. Q29 reads that committed value.",
+      "sourceOnlyProbabilityFields": [
+        "randomRange",
+        "returnPredicate"
+      ],
+      "selectedWebProbability": {
+        "decision": "Q41",
+        "probability": 0.3,
+        "randomRange": [
+          1,
+          100
+        ],
+        "successPredicate": "r<=30",
+        "atExistingHelperCallPoint": true,
+        "specification": "skill-essence-aura-proc.md",
+        "machineRules": "skill-essence-aura-proc.json"
+      }
+    }
+  },
+  "entryEvidence": [
+    {
+      "name": "Item_Attack_Special i132 prefix",
+      "function": "main/f285/f14",
+      "lines": [
+        146270,
+        146287
+      ],
+      "auditedPCs": [
+        1,
+        18
+      ]
+    },
+    {
+      "name": "Item_Attack_Action final Special call",
+      "function": "main/f285/f15",
+      "lines": [
+        146431,
+        146435
+      ],
+      "auditedPCs": [
+        74,
+        78
+      ]
+    },
+    {
+      "name": "SPELL_EFFECT registration",
+      "function": "main/f291/f35",
+      "lines": [
+        179727,
+        179797
+      ]
+    },
+    {
+      "name": "AnySkillStart to Item_Skill_Action",
+      "function": "main/f291/f14",
+      "lines": [
+        169999,
+        170072
+      ],
+      "auditedPCs": [
+        1,
+        70
+      ]
+    },
+    {
+      "name": "Item_Skill_Action through i134",
+      "function": "main/f285/f16",
+      "lines": [
+        146490,
+        146582
+      ],
+      "auditedPCs": [
+        1,
+        89
+      ]
+    }
+  ],
+  "muramasaAdditionalCallsites": [
+    {
+      "caller": "chooseAttackedAction",
+      "function": "main/f291/f3",
+      "callLine": 167396,
+      "callee": "Item_Attack_Action",
+      "arguments": [
+        "GetAttacker()",
+        "GetTriggerUnit()"
+      ],
+      "gate": "attacker nonillusion; prior ordinary attack dispatch actions run first"
+    },
+    {
+      "caller": "anyUnitDamaged T217 branch",
+      "function": "main/f291/f1",
+      "callLine": 162681,
+      "callee": "Item_Attack_Special",
+      "arguments": [
+        "actual event source",
+        "event target"
+      ],
+      "gate": "within earlier main filters, attack!=0, IsUnitIllusion(S)==false, level(S,T217)>0"
+    },
+    {
+      "caller": "A045 local hit",
+      "function": "main/f41/f1",
+      "callLine": 66021,
+      "callee": "Item_Attack_Action",
+      "arguments": [
+        "arg0",
+        "arg2"
+      ],
+      "gate": "Has_A_Item(arg0); after local divine area call"
+    },
+    {
+      "caller": "A204 ring callback",
+      "function": "main/f149/f1",
+      "callLine": 104425,
+      "callee": "Item_Attack_Special",
+      "arguments": [
+        "caster",
+        "enumerated target"
+      ],
+      "gate": "Player11, alive, within current ring, not yet hit, IsKillCdSkill(caster); after magical hit"
+    },
+    {
+      "caller": "A206 local skill",
+      "function": "main/f151/f0",
+      "callLine": 105086,
+      "callee": "Item_Attack_Action",
+      "arguments": [
+        "arg0",
+        "arg2"
+      ],
+      "gate": "A206 level1..6; after physical area call"
+    },
+    {
+      "caller": "A223_Damage",
+      "function": "main/f160/f4",
+      "callLine": 108213,
+      "callee": "Item_Attack_Action",
+      "arguments": [
+        "arg0",
+        "arg1"
+      ],
+      "gate": "none in this body; before single-target physical damage"
+    }
+  ],
+  "primaryInterfaceEvidence": {
+    "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Plugin/Warcraft3/yd_jass_api/UnitState.cpp",
+    "constantLines": [
+      22,
+      23
+    ],
+    "implementationLines": [
+      289,
+      294
+    ],
+    "state20": "attack1_damage_base + attack1_damage_bonus + attack1_damage_dice",
+    "state21": "attack1_damage_base + attack1_damage_bonus + attack1_damage_dice * attack1_damage_side",
+    "qualification": "Developer implementation explains extended interface; not evidence of every runtime client behavior."
+  },
+  "decisions": {
+    "Q28": {
+      "status": "confirmed",
+      "probability": 0.2,
+      "attackMultiplier": 3.6,
+      "maxLifeRatio": 0.15,
+      "radius": 460,
+      "preserve": "original supplemental filters, timing and B060 adjustment"
+    },
+    "Q29": {
+      "status": "confirmed",
+      "probability": 0.5,
+      "currentManaRatio": 0.67,
+      "radius": 900,
+      "preserve": "original filters, pre-proc mana restoration and read moment"
+    }
+  },
+  "unclosed": [
+    "Native UnitDamagePoint target filter/edge behavior and delay=0 execution details",
+    "Native mana cost timing relative to SPELL_EFFECT and mana clamp behavior",
+    "Full hero skill lifecycles for additional Item_Attack entry calls",
+    "Full B060/B083..B088 grant/expiry lifecycles",
+    "Stats, upgrade/crafting and one-demonic-sword inventory enforcement outside this batch"
+  ],
+  "validation": {
+    "kind": "static source references and local mathematical/boundary vectors; no client/game execution",
+    "cases": [
+      {
+        "id": "muramasa_original_rng",
+        "basis": "original_script",
+        "input": {
+          "r": [
+            0,
+            19,
+            20,
+            100
+          ]
+        },
+        "expected": {
+          "success": [
+            true,
+            true,
+            false,
+            false
+          ]
+        }
+      },
+      {
+        "id": "muramasa_formula",
+        "basis": "original_and_Q28",
+        "input": {
+          "minAttack1": 200,
+          "maxAttack1": 400,
+          "maxLife": 1000
+        },
+        "expected": {
+          "originalRawDamage": 1050,
+          "webRawDamage": 1230
+        }
+      },
+      {
+        "id": "muramasa_low_current_life",
+        "basis": "original_and_Q28",
+        "input": {
+          "minAttack1": 200,
+          "maxAttack1": 400,
+          "maxLife": 1000,
+          "currentLife": 100
+        },
+        "expected": {
+          "originalRawDamage": 1050,
+          "webRawDamage": 1230
+        }
+      },
+      {
+        "id": "muramasa_B060_unempowered",
+        "basis": "original_and_Q28",
+        "input": {
+          "minAttack1": 200,
+          "maxAttack1": 400,
+          "maxLife": 1000,
+          "B060": true,
+          "Has_A_Item": false
+        },
+        "expected": {
+          "originalRawDamage": 840,
+          "webRawDamage": 984
+        }
+      },
+      {
+        "id": "muramasa_B060_empowered",
+        "basis": "original_and_Q28",
+        "input": {
+          "minAttack1": 200,
+          "maxAttack1": 400,
+          "maxLife": 1000,
+          "B060": true,
+          "Has_A_Item": true
+        },
+        "expected": {
+          "originalRawDamage": 1050,
+          "webRawDamage": 1230
+        }
+      },
+      {
+        "id": "muramasa_zero_after_success",
+        "basis": "original_and_Q28",
+        "input": {
+          "probabilitySucceeded": true,
+          "minAttack1": 0,
+          "maxAttack1": 0,
+          "maxLife": 0
+        },
+        "expected": {
+          "itemProbabilityDraws": 1,
+          "rangeDamageCalls": 0,
+          "visualTimers": 0
+        }
+      },
+      {
+        "id": "muramasa_ranged_source",
+        "basis": "original_and_Q28",
+        "input": {
+          "atSpecialEntry": true,
+          "hasI132": true,
+          "nativeMelee": false
+        },
+        "expected": {
+          "ownMeleeGate": false,
+          "itemProbabilityDraws": 1
+        }
+      },
+      {
+        "id": "muramasa_no_item",
+        "basis": "original_and_Q28",
+        "input": {
+          "atSpecialEntry": true,
+          "hasI132": false
+        },
+        "expected": {
+          "itemProbabilityDraws": 0,
+          "skillCalls": 0
+        }
+      },
+      {
+        "id": "takemitsu_original_rng",
+        "basis": "original_script",
+        "input": {
+          "r": [
+            0,
+            49,
+            50,
+            100
+          ]
+        },
+        "expected": {
+          "success": [
+            true,
+            true,
+            false,
+            false
+          ]
+        }
+      },
+      {
+        "id": "takemitsu_formula",
+        "basis": "original_and_Q29",
+        "input": {
+          "currentManaAtSkillRead": 1500
+        },
+        "expected": {
+          "originalRawDamage": 1000,
+          "webRawDamage": 1005,
+          "radius": 900,
+          "center": "caster"
+        }
+      },
+      {
+        "id": "takemitsu_after_A084",
+        "basis": "original_and_Q29",
+        "input": {
+          "beforeA084Mana": 100,
+          "maxMana": 1000,
+          "buff": "B083",
+          "A084Roll": 3,
+          "readableManaAfterWrite": 150
+        },
+        "expected": {
+          "A084RequestedMana": 150,
+          "originalRawDamage": 100,
+          "webRawDamage": 100.5,
+          "randomOrder": [
+            "A084",
+            "i134"
+          ]
+        }
+      },
+      {
+        "id": "takemitsu_A084_fails",
+        "basis": "original_and_Q29",
+        "input": {
+          "beforeA084Mana": 100,
+          "maxMana": 1000,
+          "buff": "B083",
+          "A084Roll": 4,
+          "readableManaAfterWrite": 100
+        },
+        "expected": {
+          "A084ManaWrites": 0,
+          "originalRawDamage": 66.66666666666667,
+          "webRawDamage": 67,
+          "randomOrder": [
+            "A084",
+            "i134"
+          ]
+        }
+      },
+      {
+        "id": "takemitsu_zero_after_success",
+        "basis": "original_and_Q29",
+        "input": {
+          "probabilitySucceeded": true,
+          "currentManaAtSkillRead": 0
+        },
+        "expected": {
+          "itemProbabilityDraws": 1,
+          "rangeDamageCalls": 0,
+          "visualTimers": 0
+        }
+      },
+      {
+        "id": "takemitsu_outer_exclusions",
+        "basis": "original_and_Q29",
+        "input": {
+          "cases": [
+            "IsTemp",
+            "T033",
+            "A040",
+            "A070",
+            "A210",
+            "IsWorker",
+            "IsBOX",
+            "IsUseless"
+          ]
+        },
+        "expected": {
+          "i134ProbabilityDrawsEach": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "id": "takemitsu_no_item_with_mana_buff",
+        "basis": "original_and_Q29",
+        "input": {
+          "entryEligible": true,
+          "hasI134": false,
+          "hasB083": true
+        },
+        "expected": {
+          "A084Calls": 1,
+          "i134ProbabilityDraws": 0,
+          "i134SkillCalls": 0
+        }
+      },
+      {
+        "id": "takemitsu_no_mana_buff",
+        "basis": "original_and_Q29",
+        "input": {
+          "entryEligible": true,
+          "hasI134": true,
+          "hasAnyB083ThroughB088": false
+        },
+        "expected": {
+          "A084Calls": 0,
+          "A084RandomDraws": 0,
+          "i134ProbabilityDraws": 1
+        }
+      },
+      {
+        "id": "visual_off",
+        "basis": "original_and_Q28_Q29",
+        "input": {
+          "TxShow": false,
+          "probabilitySucceeded": true,
+          "positiveDamage": true
+        },
+        "expected": {
+          "rangeDamageCallsEach": [
+            1,
+            1
+          ],
+          "visualTimersEach": [
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "id": "A084_priority",
+        "basis": "original_script",
+        "input": {
+          "presentBuffs": [
+            "B083",
+            "B088"
+          ],
+          "roll": 0,
+          "currentMana": 100,
+          "maxMana": 1000
+        },
+        "expected": {
+          "ratio": 0.3,
+          "requestedMana": 400
+        }
+      }
+    ],
+    "A084ProbeScope": "Cases with A084Roll in0..10 exercise original source helper only; they are not cumulative Q41 Web probability tests. Read-after-refill ordering still applies; selected Web boundary validation is in skill-essence-aura-proc.json."
+  },
+  "resolvedFollowups": {
+    "A084": "skill-essence-aura-effect.md",
+    "B060": "focus-fire-native.md",
+    "UnitDamagePoint_i132_i134": "native-area-damage.md"
+  }
+}

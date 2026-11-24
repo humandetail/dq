@@ -1,0 +1,1529 @@
+{
+  "schemaVersion": 1,
+  "scope": "Complete static review of eight named Lua effect bodies and seven necessary helper bodies; not all capabilities of these items or native AUcs mechanics.",
+  "source": {
+    "path": "reference/map-6.25/main.disasm",
+    "sha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+    "readablePath": "reference/map-6.25/main.readable.lua",
+    "workbookPath": "图鉴.xlsx",
+    "workbookSha256": "457c8f7e37e19412a0dd072ce941e95604b0b8910860b9e1eb9883e6b82bb6af"
+  },
+  "counts": {
+    "instructions": 380,
+    "conditions": 25,
+    "calls": 82,
+    "returnInstructions": 13,
+    "directDamageWrites": 5,
+    "directChildDamageCalls": 3
+  },
+  "functions": [
+    {
+      "name": "i115_Action",
+      "function": "main/f233/f0",
+      "disasmLines": [
+        126192,
+        126363
+      ],
+      "counts": {
+        "instructions": 112,
+        "conditions": 8,
+        "calls": 25,
+        "returnInstructions": 1,
+        "directDamageWrites": 0,
+        "directChildDamageCalls": 1
+      },
+      "conditions": [
+        {
+          "pc": 21,
+          "line": 126265,
+          "raw": "eq 1 k7 r7",
+          "trueNextPC": 25,
+          "falseNextPC": 23,
+          "meaning": "HasItem(S,i209)==nil: ordinary tier; false: big tier"
+        },
+        {
+          "pc": 40,
+          "line": 126286,
+          "raw": "eq 1 k7 r7",
+          "trueNextPC": 106,
+          "falseNextPC": 42,
+          "meaning": "U==nil: exit loop"
+        },
+        {
+          "pc": 52,
+          "line": 126298,
+          "raw": "test r14 0",
+          "trueNextPC": 54,
+          "falseNextPC": 104,
+          "meaning": "truthy(IsUnitOwnedByPlayer(U,Player(11))): continue filtering"
+        },
+        {
+          "pc": 54,
+          "line": 126300,
+          "raw": "eq 1 r7 r1",
+          "trueNextPC": 104,
+          "falseNextPC": 56,
+          "meaning": "U==T: skip victim"
+        },
+        {
+          "pc": 60,
+          "line": 126306,
+          "raw": "lt 0 k21 r14",
+          "trueNextPC": 62,
+          "falseNextPC": 104,
+          "meaning": "0<life(U): continue"
+        },
+        {
+          "pc": 73,
+          "line": 126319,
+          "raw": "eq 1 r14 r15",
+          "trueNextPC": 83,
+          "falseNextPC": 75,
+          "meaning": "type(U)==m999: g=0.2"
+        },
+        {
+          "pc": 81,
+          "line": 126327,
+          "raw": "eq 0 r14 r15",
+          "trueNextPC": 83,
+          "falseNextPC": 84,
+          "meaning": "type(U)==m998: g=0.2"
+        },
+        {
+          "pc": 94,
+          "line": 126342,
+          "raw": "eq 0 k32 r14",
+          "trueNextPC": 96,
+          "falseNextPC": 101,
+          "meaning": "TxShow==true: create visual"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 112,
+          "line": 126363
+        }
+      ],
+      "effectCalls": [
+        {
+          "pc": 92,
+          "line": 126340,
+          "callee": "SetRealDamage"
+        },
+        {
+          "pc": 100,
+          "line": 126348,
+          "callee": "CreateEffAtLoc"
+        }
+      ],
+      "readableLines": [
+        80021,
+        80138
+      ],
+      "rule": {
+        "items": [
+          "i115",
+          "i209"
+        ],
+        "workbookCells": [
+          "装备与道具!H25",
+          "装备与道具!H119"
+        ],
+        "outerGate": "Before: source nonillusion; has i115 or i209; attack flag !=0; native melee attacker",
+        "center": "current position of T",
+        "radius": {
+          "default": 380,
+          "ifHas_i209": 520
+        },
+        "ratio": {
+          "default": 0.45,
+          "ifHas_i209": 0.9
+        },
+        "victimFilter": "owned by Player(11) && U!=T && life(U)>0",
+        "goldTypes": [
+          "m999",
+          "m998"
+        ],
+        "goldFactor": 0.2,
+        "childDamage": "SetRealDamage(S,U,readEventDamage()*ratio*(goldType?0.2:1))",
+        "damageRead": "each qualifying victim separately",
+        "visual": {
+          "gate": "TxShow==true",
+          "seconds": 0.5,
+          "model": "Abilities\\Spells\\Other\\Cleave\\CleaveDamageTarget.mdl"
+        }
+      }
+    },
+    {
+      "name": "i132_Action",
+      "function": "main/f238/f0",
+      "disasmLines": [
+        126744,
+        126766
+      ],
+      "counts": {
+        "instructions": 7,
+        "conditions": 0,
+        "calls": 2,
+        "returnInstructions": 1,
+        "directDamageWrites": 1,
+        "directChildDamageCalls": 0
+      },
+      "conditions": [],
+      "returns": [
+        {
+          "pc": 7,
+          "line": 126766
+        }
+      ],
+      "effectCalls": [
+        {
+          "pc": 6,
+          "line": 126765,
+          "callee": "EXSetEventDamage"
+        }
+      ],
+      "readableLines": [
+        80369,
+        80379
+      ],
+      "rule": {
+        "items": [
+          "i132"
+        ],
+        "workbookCells": [
+          "装备与道具!H42"
+        ],
+        "outerGate": "After: O has i132 && physical type; no attack flag requirement",
+        "writeDamage": "readEventDamage()*1.25",
+        "otherProcNotCovered": "居合 / i132_Skill and i132_Get_probability"
+      }
+    },
+    {
+      "name": "i134_Action",
+      "function": "main/f240/f0",
+      "disasmLines": [
+        127027,
+        127049
+      ],
+      "counts": {
+        "instructions": 7,
+        "conditions": 0,
+        "calls": 2,
+        "returnInstructions": 1,
+        "directDamageWrites": 1,
+        "directChildDamageCalls": 0
+      },
+      "conditions": [],
+      "returns": [
+        {
+          "pc": 7,
+          "line": 127049
+        }
+      ],
+      "effectCalls": [
+        {
+          "pc": 6,
+          "line": 127048,
+          "callee": "EXSetEventDamage"
+        }
+      ],
+      "readableLines": [
+        80539,
+        80549
+      ],
+      "rule": {
+        "items": [
+          "i134"
+        ],
+        "workbookCells": [
+          "装备与道具!H44"
+        ],
+        "outerGate": "After: O has i134 && magical type",
+        "writeDamage": "readEventDamage()*1.32",
+        "otherProcNotCovered": "细雪 / i134_Skill and i134_Get_probability"
+      }
+    },
+    {
+      "name": "i184_Action",
+      "function": "main/f244/f0",
+      "disasmLines": [
+        127809,
+        127913
+      ],
+      "counts": {
+        "instructions": 67,
+        "conditions": 6,
+        "calls": 14,
+        "returnInstructions": 1,
+        "directDamageWrites": 1,
+        "directChildDamageCalls": 0
+      },
+      "conditions": [
+        {
+          "pc": 8,
+          "line": 127848,
+          "raw": "eq 1 k1 r2",
+          "trueNextPC": 12,
+          "falseNextPC": 10,
+          "meaning": "HasItem(O,i184)==nil: try next; otherwise choose multiplier and join at PC61"
+        },
+        {
+          "pc": 18,
+          "line": 127859,
+          "raw": "eq 1 k1 r2",
+          "trueNextPC": 22,
+          "falseNextPC": 20,
+          "meaning": "HasItem(O,i183)==nil: try next; otherwise choose multiplier and join at PC61"
+        },
+        {
+          "pc": 28,
+          "line": 127870,
+          "raw": "eq 1 k1 r2",
+          "trueNextPC": 32,
+          "falseNextPC": 30,
+          "meaning": "HasItem(O,i182)==nil: try next; otherwise choose multiplier and join at PC61"
+        },
+        {
+          "pc": 38,
+          "line": 127881,
+          "raw": "eq 1 k1 r2",
+          "trueNextPC": 42,
+          "falseNextPC": 40,
+          "meaning": "HasItem(O,i181)==nil: try next; otherwise choose multiplier and join at PC61"
+        },
+        {
+          "pc": 48,
+          "line": 127892,
+          "raw": "eq 1 k1 r2",
+          "trueNextPC": 52,
+          "falseNextPC": 50,
+          "meaning": "HasItem(O,i180)==nil: try next; otherwise choose multiplier and join at PC61"
+        },
+        {
+          "pc": 58,
+          "line": 127903,
+          "raw": "eq 1 k1 r2",
+          "trueNextPC": 61,
+          "falseNextPC": 60,
+          "meaning": "HasItem(O,i179)==nil: try next; otherwise choose multiplier and join at PC61"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 67,
+          "line": 127913
+        }
+      ],
+      "effectCalls": [
+        {
+          "pc": 66,
+          "line": 127912,
+          "callee": "EXSetEventDamage"
+        }
+      ],
+      "readableLines": [
+        81019,
+        81089
+      ],
+      "rule": {
+        "items": [
+          "i179",
+          "i180",
+          "i181",
+          "i182",
+          "i183",
+          "i184"
+        ],
+        "workbookCells": [
+          "装备与道具!H89:H94"
+        ],
+        "outerGate": "After: O has any Dagon tier && magical type",
+        "priority": [
+          [
+            "i184",
+            1.35
+          ],
+          [
+            "i183",
+            1.27
+          ],
+          [
+            "i182",
+            1.22
+          ],
+          [
+            "i181",
+            1.17
+          ],
+          [
+            "i180",
+            1.12
+          ],
+          [
+            "i179",
+            1.07
+          ]
+        ],
+        "defaultMultiplier": 1,
+        "writeDamage": "readEventDamage()*firstPresentTierMultiplier"
+      }
+    },
+    {
+      "name": "i263_Action1",
+      "function": "main/f260/f0",
+      "disasmLines": [
+        132253,
+        132283
+      ],
+      "counts": {
+        "instructions": 12,
+        "conditions": 1,
+        "calls": 2,
+        "returnInstructions": 2,
+        "directDamageWrites": 0,
+        "directChildDamageCalls": 1
+      },
+      "conditions": [
+        {
+          "pc": 1,
+          "line": 132271,
+          "raw": "eq 0 k0 r1",
+          "trueNextPC": 3,
+          "falseNextPC": 4,
+          "meaning": "T==nil: return"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 3,
+          "line": 132273
+        },
+        {
+          "pc": 12,
+          "line": 132283
+        }
+      ],
+      "effectCalls": [
+        {
+          "pc": 11,
+          "line": 132282,
+          "callee": "SetRealDamage"
+        }
+      ],
+      "readableLines": [
+        83936,
+        83951
+      ],
+      "rule": {
+        "items": [
+          "i263"
+        ],
+        "workbookCells": [
+          "装备与道具!H173"
+        ],
+        "outerGate": "After: O has i263; first writes *1.18; non-DIVINE branch",
+        "earlyReturn": "T==nil",
+        "childDamage": "SetRealDamage(O,T,readEventDamage()*0.15)",
+        "reentry": "child is DIVINE, can take Action2 but not Action1 if type remains DIVINE; parent context restored under B03"
+      }
+    },
+    {
+      "name": "i263_Action2",
+      "function": "main/f260/f1",
+      "disasmLines": [
+        132285,
+        132335
+      ],
+      "counts": {
+        "instructions": 24,
+        "conditions": 2,
+        "calls": 4,
+        "returnInstructions": 3,
+        "directDamageWrites": 1,
+        "directChildDamageCalls": 0
+      },
+      "conditions": [
+        {
+          "pc": 1,
+          "line": 132310,
+          "raw": "eq 0 k0 r0",
+          "trueNextPC": 3,
+          "falseNextPC": 4,
+          "meaning": "T==nil: return before consuming random"
+        },
+        {
+          "pc": 8,
+          "line": 132318,
+          "raw": "lt 0 k1 r1",
+          "trueNextPC": 10,
+          "falseNextPC": 11,
+          "meaning": "20<r: return; otherwise multiply 2.2 (original script)"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 3,
+          "line": 132312
+        },
+        {
+          "pc": 10,
+          "line": 132320
+        },
+        {
+          "pc": 24,
+          "line": 132335
+        }
+      ],
+      "effectCalls": [
+        {
+          "pc": 16,
+          "line": 132327,
+          "callee": "EXSetEventDamage"
+        },
+        {
+          "pc": 23,
+          "line": 132334,
+          "callee": "CreateEffByUnit"
+        }
+      ],
+      "readableLines": [
+        83953,
+        83980
+      ],
+      "rule": {
+        "items": [
+          "i263"
+        ],
+        "workbookCells": [
+          "装备与道具!H173"
+        ],
+        "outerGate": "After: O has i263; first writes *1.18; DIVINE branch",
+        "earlyReturnBeforeRandom": "T==nil",
+        "originalScript": {
+          "randomRange": [
+            0,
+            100
+          ],
+          "success": "r<=20",
+          "conditionalProbabilityIfInclusiveUniform": "21/101",
+          "multiplier": 2.2
+        },
+        "webDecision": {
+          "question": "Q25",
+          "status": "confirmed",
+          "successProbability": 0.2,
+          "multiplier": 2.4
+        },
+        "visual": {
+          "model": "AZ_JianCi.mdx",
+          "attachment": "origin",
+          "seconds": 1,
+          "scale": 1,
+          "TxShowGate": false
+        }
+      }
+    },
+    {
+      "name": "i322_Action",
+      "function": "main/f267/f0",
+      "disasmLines": [
+        133200,
+        133313
+      ],
+      "counts": {
+        "instructions": 74,
+        "conditions": 5,
+        "calls": 15,
+        "returnInstructions": 2,
+        "directDamageWrites": 0,
+        "directChildDamageCalls": 0
+      },
+      "conditions": [
+        {
+          "pc": 3,
+          "line": 133238,
+          "raw": "eq 1 k1 r0",
+          "trueNextPC": 25,
+          "falseNextPC": 5,
+          "meaning": "S==nil: return"
+        },
+        {
+          "pc": 13,
+          "line": 133248,
+          "raw": "lt 1 r1 r2",
+          "trueNextPC": 25,
+          "falseNextPC": 15,
+          "meaning": "AGI(S,true)<INT(S,true): return"
+        },
+        {
+          "pc": 23,
+          "line": 133258,
+          "raw": "lt 0 r1 r2",
+          "trueNextPC": 25,
+          "falseNextPC": 26,
+          "meaning": "AGI(S,true)<STR(S,true): return"
+        },
+        {
+          "pc": 32,
+          "line": 133269,
+          "raw": "eq 0 k7 r2",
+          "trueNextPC": 34,
+          "falseNextPC": 40,
+          "meaning": "index==-1: add source with initial counter zero"
+        },
+        {
+          "pc": 44,
+          "line": 133282,
+          "raw": "le 0 k11 r3",
+          "trueNextPC": 46,
+          "falseNextPC": 74,
+          "meaning": "10<=counter: reset counter and cast"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 25,
+          "line": 133261
+        },
+        {
+          "pc": 74,
+          "line": 133313
+        }
+      ],
+      "effectCalls": [
+        {
+          "pc": 59,
+          "line": 133297,
+          "callee": "CreateTempAndSetAbilityLv"
+        },
+        {
+          "pc": 66,
+          "line": 133304,
+          "callee": "SetUnitUserData"
+        },
+        {
+          "pc": 73,
+          "line": 133311,
+          "callee": "IssuePointOrderLoc"
+        }
+      ],
+      "readableLines": [
+        84554,
+        84633
+      ],
+      "rule": {
+        "items": [
+          "i322"
+        ],
+        "workbookCells": [
+          "装备与道具!H215"
+        ],
+        "outerGate": "Before: source nonillusion; has i322; attack flag !=0; native melee attacker",
+        "innerGate": "S!=nil && AGI(S,true)>=INT(S,true) && AGI(S,true)>=STR(S,true)",
+        "counterKey": "actual source S, in module-local table",
+        "newCounter": 0,
+        "increment": 1,
+        "threshold": 10,
+        "resetBeforeCreateOrOrder": true,
+        "failedEligibilityResetsCounter": false,
+        "spawn": {
+          "type": "q018",
+          "owner": "GetOwningPlayer(S)",
+          "location": "GetUnitLoc(S)",
+          "facing": 0,
+          "ability": "T077",
+          "abilityLevel": 1,
+          "timedLifeSeconds": 2,
+          "userData": "IsInTable(S,Tower_ALL)"
+        },
+        "order": {
+          "id": "carrionswarm",
+          "targetPoint": "current GetUnitLoc(T)",
+          "successChecked": false
+        },
+        "notSnapshot": "damage formula is evaluated when q018 hits"
+      }
+    },
+    {
+      "name": "i322_Damage",
+      "function": "main/f267/f1",
+      "disasmLines": [
+        133315,
+        133435
+      ],
+      "counts": {
+        "instructions": 77,
+        "conditions": 3,
+        "calls": 18,
+        "returnInstructions": 2,
+        "directDamageWrites": 1,
+        "directChildDamageCalls": 1
+      },
+      "conditions": [
+        {
+          "pc": 9,
+          "line": 133364,
+          "raw": "eq 1 k4 r2",
+          "trueNextPC": 17,
+          "falseNextPC": 11,
+          "meaning": "O==nil: return after zeroing current damage"
+        },
+        {
+          "pc": 15,
+          "line": 133370,
+          "raw": "le 0 r3 k1",
+          "trueNextPC": 17,
+          "falseNextPC": 18,
+          "meaning": "life(O)<=0: return after zeroing current damage"
+        },
+        {
+          "pc": 43,
+          "line": 133400,
+          "raw": "lt 0 r6 k15",
+          "trueNextPC": 45,
+          "falseNextPC": 46,
+          "meaning": "P<1000: clamp P to 1000"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 17,
+          "line": 133373
+        },
+        {
+          "pc": 77,
+          "line": 133435
+        }
+      ],
+      "effectCalls": [
+        {
+          "pc": 3,
+          "line": 133358,
+          "callee": "EXSetEventDamage"
+        },
+        {
+          "pc": 57,
+          "line": 133415,
+          "callee": "CreateUnitAtLoc"
+        },
+        {
+          "pc": 64,
+          "line": 133422,
+          "callee": "UnitApplyTimedLife"
+        },
+        {
+          "pc": 71,
+          "line": 133429,
+          "callee": "SetUnitUserData"
+        },
+        {
+          "pc": 76,
+          "line": 133434,
+          "callee": "SetRealDamage"
+        }
+      ],
+      "readableLines": [
+        84635,
+        84717
+      ],
+      "rule": {
+        "items": [
+          "i322"
+        ],
+        "workbookCells": [
+          "装备与道具!H215"
+        ],
+        "outerGate": "Before: source nonillusion and type q018",
+        "firstWriteDamage": 0,
+        "ownerLookup": "Tower_ALL[GetUnitUserData(q018)]",
+        "earlyReturn": "O==nil || life(O)<=0",
+        "formula": "max(1000, floor((7/C)*900 + V*1000) + A*2.5)",
+        "stateReads": {
+          "C": "GetUnitState(O,ConvertUnitState(37))",
+          "V": "GetUnitState(O,ConvertUnitState(81))",
+          "A": "GetHeroAgi(O,true)"
+        },
+        "readTime": "each carrier impact; no cast-time snapshot",
+        "divisionByZeroGuard": false,
+        "spawn": {
+          "type": "q019",
+          "owner": "GetOwningPlayer(O)",
+          "location": "GetUnitLoc(O)",
+          "facing": 0,
+          "timedLifeSeconds": 1,
+          "userData": "IsInTable(O,Tower_ALL)"
+        },
+        "childDamage": "SetRealDamage(q019,T,P)",
+        "doesNotRecheck": [
+          "item ownership",
+          "melee status",
+          "AGI highest"
+        ]
+      }
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "CreateTempAndSetAbilityLv",
+      "function": "main/f7/f20",
+      "disasmLines": [
+        51457,
+        51509
+      ],
+      "counts": {
+        "instructions": 33,
+        "conditions": 1,
+        "calls": 8,
+        "returnInstructions": 2,
+        "directDamageWrites": 0,
+        "directChildDamageCalls": 0
+      },
+      "conditions": [
+        {
+          "pc": 1,
+          "line": 51476,
+          "raw": "test r6 1",
+          "trueNextPC": 4,
+          "falseNextPC": 3,
+          "meaning": "truthy(unitType): keep argument; otherwise q001"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 32,
+          "line": 51508
+        },
+        {
+          "pc": 33,
+          "line": 51509
+        }
+      ],
+      "effectCalls": [
+        {
+          "pc": 11,
+          "line": 51487,
+          "callee": "CreateUnitAtLoc"
+        },
+        {
+          "pc": 31,
+          "line": 51507,
+          "callee": "UnitApplyTimedLife"
+        }
+      ]
+    },
+    {
+      "name": "IsInTable",
+      "function": "main/f7/f7",
+      "disasmLines": [
+        50776,
+        50810
+      ],
+      "counts": {
+        "instructions": 17,
+        "conditions": 2,
+        "calls": 1,
+        "returnInstructions": 4,
+        "directDamageWrites": 0,
+        "directChildDamageCalls": 0
+      },
+      "conditions": [
+        {
+          "pc": 1,
+          "line": 50791,
+          "raw": "eq 0 k0 r0",
+          "trueNextPC": 3,
+          "falseNextPC": 5,
+          "meaning": "value==nil: return -1"
+        },
+        {
+          "pc": 10,
+          "line": 50802,
+          "raw": "eq 0 r7 r0",
+          "trueNextPC": 12,
+          "falseNextPC": 13,
+          "meaning": "table[key]==value: return key"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 4,
+          "line": 50794
+        },
+        {
+          "pc": 12,
+          "line": 50804
+        },
+        {
+          "pc": 16,
+          "line": 50809
+        },
+        {
+          "pc": 17,
+          "line": 50810
+        }
+      ],
+      "effectCalls": []
+    },
+    {
+      "name": "AddArrAny",
+      "function": "main/f7/f22",
+      "disasmLines": [
+        51546,
+        51568
+      ],
+      "counts": {
+        "instructions": 9,
+        "conditions": 1,
+        "calls": 0,
+        "returnInstructions": 2,
+        "directDamageWrites": 0,
+        "directChildDamageCalls": 0
+      },
+      "conditions": [
+        {
+          "pc": 3,
+          "line": 51561,
+          "raw": "eq 1 k1 r3",
+          "trueNextPC": 7,
+          "falseNextPC": 5,
+          "meaning": "table[index]==nil: write into this slot"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 8,
+          "line": 51567
+        },
+        {
+          "pc": 9,
+          "line": 51568
+        }
+      ],
+      "effectCalls": []
+    },
+    {
+      "name": "CreateEffByUnit",
+      "function": "main/f7/f24",
+      "disasmLines": [
+        51609,
+        51659
+      ],
+      "counts": {
+        "instructions": 28,
+        "conditions": 1,
+        "calls": 5,
+        "returnInstructions": 2,
+        "directDamageWrites": 0,
+        "directChildDamageCalls": 0
+      },
+      "conditions": [
+        {
+          "pc": 1,
+          "line": 51631,
+          "raw": "test r4 1",
+          "trueNextPC": 4,
+          "falseNextPC": 3,
+          "meaning": "truthy(scale): keep argument; otherwise 1"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 27,
+          "line": 51658
+        },
+        {
+          "pc": 28,
+          "line": 51659
+        }
+      ],
+      "effectCalls": [
+        {
+          "pc": 16,
+          "line": 51647,
+          "callee": "TimerStart"
+        }
+      ]
+    },
+    {
+      "name": "CreateEffAtLoc",
+      "function": "main/f7/f25",
+      "disasmLines": [
+        51661,
+        51710
+      ],
+      "counts": {
+        "instructions": 27,
+        "conditions": 1,
+        "calls": 5,
+        "returnInstructions": 2,
+        "directDamageWrites": 0,
+        "directChildDamageCalls": 0
+      },
+      "conditions": [
+        {
+          "pc": 1,
+          "line": 51683,
+          "raw": "test r3 1",
+          "trueNextPC": 4,
+          "falseNextPC": 3,
+          "meaning": "truthy(scale): keep argument; otherwise 1"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 26,
+          "line": 51709
+        },
+        {
+          "pc": 27,
+          "line": 51710
+        }
+      ],
+      "effectCalls": [
+        {
+          "pc": 15,
+          "line": 51698,
+          "callee": "TimerStart"
+        }
+      ]
+    },
+    {
+      "name": "Eff_time_end",
+      "function": "main/f7/f26",
+      "disasmLines": [
+        51712,
+        51752
+      ],
+      "counts": {
+        "instructions": 21,
+        "conditions": 1,
+        "calls": 4,
+        "returnInstructions": 1,
+        "directDamageWrites": 0,
+        "directChildDamageCalls": 0
+      },
+      "conditions": [
+        {
+          "pc": 9,
+          "line": 51739,
+          "raw": "eq 1 k4 r2",
+          "trueNextPC": 14,
+          "falseNextPC": 11,
+          "meaning": "effect==nil: skip DestroyEffect; still destroy timer and clear slots"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 21,
+          "line": 51752
+        }
+      ],
+      "effectCalls": [
+        {
+          "pc": 13,
+          "line": 51743,
+          "callee": "DestroyEffect"
+        },
+        {
+          "pc": 16,
+          "line": 51747,
+          "callee": "DestroyTimer"
+        }
+      ]
+    },
+    {
+      "name": "SetRealDamage",
+      "function": "main/f7/f35",
+      "disasmLines": [
+        52090,
+        52116
+      ],
+      "counts": {
+        "instructions": 11,
+        "conditions": 0,
+        "calls": 1,
+        "returnInstructions": 1,
+        "directDamageWrites": 0,
+        "directChildDamageCalls": 0
+      },
+      "conditions": [],
+      "returns": [
+        {
+          "pc": 11,
+          "line": 52116
+        }
+      ],
+      "effectCalls": [
+        {
+          "pc": 10,
+          "line": 52115,
+          "callee": "UnitDamageTarget"
+        }
+      ]
+    }
+  ],
+  "nativeBoundary": {
+    "abilityRecord": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "lines": [
+        33894,
+        33910
+      ],
+      "value": {
+        "alias": "T077",
+        "code": "AUcs",
+        "Area1": 300.0,
+        "BuffID1": "BUcs",
+        "checkDep": 1,
+        "DataA1": 10.0,
+        "DataB1": 9999999.0,
+        "DataC1": 900.0,
+        "DataD1": 300.0,
+        "levels": 1,
+        "reqLevel": 1,
+        "Rng1": 5000.0,
+        "targs1": "enemies",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "w3aOverrideT077": false,
+    "w3uOverrideQ018Q019": false,
+    "unitAbilities": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "lines": [
+        6640,
+        6648
+      ],
+      "q018": "Avul,Aloc",
+      "q019": "Avul,Aloc"
+    },
+    "unclosed": [
+      "AUcs field semantics and geometry",
+      "native flight speed and impact ordering",
+      "per-wave per-unit hit count",
+      "collision-edge inclusion",
+      "native cast acceptance and failure",
+      "relationship of timed-life expiry to in-flight wave",
+      "C=0 and complete state37/state81 native contracts",
+      "Tower_ALL slot and counter lifecycle across transformations/removals"
+    ]
+  },
+  "decisions": {
+    "Q25": {
+      "status": "confirmed",
+      "workbook": "装备与道具!H173",
+      "effect": "鬼切月影",
+      "webProbability": 0.2,
+      "webMultiplier": 2.4,
+      "originalScriptSuccessPredicate": "GetRandomInt(0,100)<=20",
+      "originalScriptMultiplier": 2.2
+    },
+    "reusedWebBaselines": [
+      "B03 nested event isolation and mutable damage write semantics",
+      "B04 stable enumeration by creation order",
+      "B05 deterministic combat timer order"
+    ],
+    "noNewWebFallbackSelected": true
+  },
+  "notCovered": [
+    "i132_Skill / i132_Get_probability 居合",
+    "i134_Skill / i134_Get_probability 细雪",
+    "i209 aura",
+    "i322 native accuracy passive",
+    "all unrelated equipment effects"
+  ],
+  "validation": {
+    "kind": "static source audit and local arithmetic/boundary cases; no game or client execution",
+    "cases": [
+      {
+        "id": "cleave_regular",
+        "basis": "original_script",
+        "function": "i115_Action",
+        "input": {
+          "damage": 1000,
+          "hasBigAxe": false,
+          "victimType": "other"
+        },
+        "expect": {
+          "radius": 380,
+          "childDamage": 450
+        }
+      },
+      {
+        "id": "cleave_gold_small",
+        "basis": "original_script",
+        "function": "i115_Action",
+        "input": {
+          "damage": 1000,
+          "hasBigAxe": false,
+          "victimType": "m999"
+        },
+        "expect": {
+          "childDamage": 90
+        }
+      },
+      {
+        "id": "cleave_big_precedence",
+        "basis": "original_script",
+        "function": "i115_Action",
+        "input": {
+          "damage": 1000,
+          "hasSmallAxe": true,
+          "hasBigAxe": true,
+          "victimType": "other"
+        },
+        "expect": {
+          "radius": 520,
+          "childDamage": 900
+        }
+      },
+      {
+        "id": "cleave_gold_big",
+        "basis": "original_script",
+        "function": "i115_Action",
+        "input": {
+          "damage": 1000,
+          "hasBigAxe": true,
+          "victimType": "m998"
+        },
+        "expect": {
+          "childDamage": 180
+        }
+      },
+      {
+        "id": "cleave_filters",
+        "basis": "original_script",
+        "function": "i115_Action",
+        "input": {
+          "candidateCases": [
+            "U==T",
+            "owner(U)!=Player(11)",
+            "life(U)==0"
+          ]
+        },
+        "expect": {
+          "childCallsEach": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "id": "cleave_visual_disabled",
+        "basis": "original_script",
+        "function": "i115_Action",
+        "input": {
+          "damage": 1000,
+          "qualifyingVictim": true,
+          "TxShow": false
+        },
+        "expect": {
+          "smallAxeChildDamage": 450,
+          "visualTimers": 0
+        }
+      },
+      {
+        "id": "muramasa",
+        "basis": "original_script",
+        "function": "i132_Action",
+        "input": {
+          "damage": 1000
+        },
+        "expect": {
+          "currentDamage": 1250
+        }
+      },
+      {
+        "id": "takemitsu",
+        "basis": "original_script",
+        "function": "i134_Action",
+        "input": {
+          "damage": 1000
+        },
+        "expect": {
+          "currentDamage": 1320
+        }
+      },
+      {
+        "id": "dagon_priority",
+        "basis": "original_script",
+        "function": "i184_Action",
+        "input": {
+          "damage": 1000,
+          "items": [
+            "i179",
+            "i184"
+          ]
+        },
+        "expect": {
+          "multiplier": 1.35,
+          "currentDamage": 1350
+        }
+      },
+      {
+        "id": "dagon_default",
+        "basis": "original_script",
+        "function": "i184_Action",
+        "input": {
+          "damage": 1000,
+          "items": [],
+          "invokedDirectly": true
+        },
+        "expect": {
+          "multiplier": 1,
+          "currentDamage": 1000
+        }
+      },
+      {
+        "id": "tsubame_child",
+        "basis": "original_script_and_web_baseline_B03",
+        "function": "i263_Action1",
+        "input": {
+          "beforeI263Multiplier": 1000,
+          "type": "non-DIVINE"
+        },
+        "expect": {
+          "parentCurrentDamage": 1180,
+          "rawChildDamage": 177,
+          "childActualSource": "O",
+          "childDamageType": "DIVINE",
+          "restoreParentAfterChild": true
+        }
+      },
+      {
+        "id": "moon_nil_target",
+        "basis": "original_script",
+        "function": "i263_Action2",
+        "input": {
+          "target": null
+        },
+        "expect": {
+          "randomDraws": 0,
+          "directDamageWrites": 0,
+          "visualTimers": 0
+        }
+      },
+      {
+        "id": "moon_original_endpoints",
+        "basis": "original_script",
+        "function": "i263_Action2",
+        "input": {
+          "targetExists": true,
+          "rolls": [
+            0,
+            20,
+            21,
+            100
+          ],
+          "currentDamageAtFunctionEntry": 1000
+        },
+        "expect": {
+          "success": [
+            true,
+            true,
+            false,
+            false
+          ],
+          "currentDamage": [
+            2200,
+            2200,
+            1000,
+            1000
+          ]
+        }
+      },
+      {
+        "id": "moon_web_success",
+        "basis": "web_decision_Q25",
+        "function": "i263_Action2",
+        "input": {
+          "beforeI263Multiplier": 1000,
+          "type": "DIVINE",
+          "twentyPercentEventSucceeds": true,
+          "TxShow": false
+        },
+        "expect": {
+          "currentDamage": 2832,
+          "visualTimers": 1,
+          "visualSeconds": 1
+        }
+      },
+      {
+        "id": "relic_tie_tenth",
+        "basis": "original_script",
+        "function": "i322_Action",
+        "input": {
+          "counter": 9,
+          "agi": 100,
+          "int": 100,
+          "str": 100,
+          "outerGate": true
+        },
+        "expect": {
+          "counter": 0,
+          "spawnQ018": 1,
+          "pointOrders": 1
+        }
+      },
+      {
+        "id": "relic_requalifies",
+        "basis": "original_script",
+        "function": "i322_Action",
+        "input": {
+          "initialCounter": 9,
+          "successiveStats": [
+            {
+              "agi": 99,
+              "int": 100,
+              "str": 100
+            },
+            {
+              "agi": 100,
+              "int": 100,
+              "str": 100
+            }
+          ],
+          "outerGate": true
+        },
+        "expect": {
+          "counterAfterEach": [
+            9,
+            0
+          ],
+          "spawnQ018AfterEach": [
+            0,
+            1
+          ]
+        }
+      },
+      {
+        "id": "relic_cast_failure",
+        "basis": "original_script",
+        "function": "i322_Action",
+        "input": {
+          "counter": 9,
+          "qualifies": true,
+          "nativeOrderAccepted": false
+        },
+        "expect": {
+          "counter": 0,
+          "retryScheduledByThisFunction": false
+        }
+      },
+      {
+        "id": "relic_floor_scope",
+        "basis": "original_script",
+        "function": "i322_Damage",
+        "input": {
+          "C": 1.4,
+          "V": 2,
+          "A": 101,
+          "ownerAlive": true
+        },
+        "expect": {
+          "rawChildDamage": 6752.5
+        }
+      },
+      {
+        "id": "relic_clamp",
+        "basis": "original_script",
+        "function": "i322_Damage",
+        "input": {
+          "C": 100,
+          "V": 0.1,
+          "A": 0,
+          "ownerAlive": true
+        },
+        "expect": {
+          "rawChildDamage": 1000
+        }
+      },
+      {
+        "id": "relic_impact_read_one",
+        "basis": "original_script",
+        "function": "i322_Damage",
+        "input": {
+          "C": 2,
+          "V": 1,
+          "A": 100,
+          "ownerAlive": true
+        },
+        "expect": {
+          "rawChildDamage": 4400
+        }
+      },
+      {
+        "id": "relic_impact_read_two",
+        "basis": "original_script",
+        "function": "i322_Damage",
+        "input": {
+          "C": 2,
+          "V": 2,
+          "A": 100,
+          "ownerAlive": true
+        },
+        "expect": {
+          "rawChildDamage": 5400
+        }
+      },
+      {
+        "id": "relic_missing_or_dead_owner",
+        "basis": "original_script",
+        "function": "i322_Damage",
+        "input": {
+          "ownerCases": [
+            "nil",
+            "life==0",
+            "life<0"
+          ]
+        },
+        "expect": {
+          "currentDamageAtFunctionReturnEach": [
+            0,
+            0,
+            0
+          ],
+          "spawnQ019Each": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "id": "effect_cleanup",
+        "basis": "original_script",
+        "function": "Eff_time_end",
+        "input": {
+          "effectCases": [
+            "present",
+            "nil"
+          ]
+        },
+        "expect": {
+          "destroyEffectEach": [
+            1,
+            0
+          ],
+          "destroyTimerEach": [
+            1,
+            1
+          ],
+          "clearBothSlotsEach": [
+            true,
+            true
+          ]
+        }
+      }
+    ],
+    "notes": [
+      "Expected childDamage is raw argument to SetRealDamage, not final HP loss.",
+      "CurrentDamage values stop at the named local effect/After segment; other dispatcher effects are excluded.",
+      "Return instruction counts include implicit compiler returns; no claim all source states are dynamically reachable."
+    ]
+  }
+}

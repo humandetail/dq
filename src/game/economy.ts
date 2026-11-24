@@ -1,7 +1,7 @@
 import { economy, items, map, recipes, shop, towers } from "./content.ts";
 import type { CommandResult, MatchState, PlayerAction, ScheduledCommand, Tower } from "./state.ts";
 
-export type EconomyAction = Exclude<PlayerAction, { type: "attack" | "enter-endless" | "restart" }>;
+export type EconomyAction = Exclude<PlayerAction, { type: "attack" | "overcharge" | "enter-endless" | "restart" }>;
 export type Rejection = Extract<CommandResult, { ok: false }>["reason"];
 export type Outcome = { ok: true; createdId?: number } | { ok: false; reason: Rejection };
 
@@ -9,7 +9,7 @@ const reject = (reason: Rejection): Outcome => ({ ok: false, reason });
 const success: Outcome = { ok: true };
 
 export function shopStock(mode: MatchState["mode"]): MatchState["stock"] {
-  return { lens: shop.lens.stock[mode], filament: shop.filament.stock[mode] };
+  return Object.fromEntries(Object.entries(shop).map(([id, item]) => [id, item.stock[mode]])) as MatchState["stock"];
 }
 
 export function towerStats(tower: Tower) {
