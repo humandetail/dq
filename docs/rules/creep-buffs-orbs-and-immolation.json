@@ -1,0 +1,5151 @@
+{
+  "schemaVersion": 1,
+  "baselineId": "creep-buffs-orbs-v1",
+  "scope": "24 workbook IDs,4 dependency/unacquired IDs; five scoped native families, not all orb interactions or all build-handler branches",
+  "counts": {
+    "workbookIds": 24,
+    "workbookRows": 24,
+    "families": 5,
+    "auxiliaryIds": 4,
+    "boundedWebIds": 24,
+    "confirmedQ45Ids": 10,
+    "pendingMechanismIds": 0
+  },
+  "sourceFiles": {
+    "main.disasm": {
+      "path": "reference/map-6.25/main.disasm",
+      "sha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+    },
+    "war3map.j": {
+      "path": "reference/map-6.25/war3map.j",
+      "sha256": "67d4ebedc82fc39d687689b593efe0d21319ef6fcee44591058812d1baf1c3f8"
+    },
+    "units_abilitydata.json": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "sha256": "b772de42ebcfc1d3818298b35dbe81a35826892848c7cbfef70bf5097e481861"
+    },
+    "war3map.w3a.json": {
+      "path": "reference/map-6.25/war3map.w3a.json",
+      "sha256": "d2875f064b389bca471db97121ff7c810d46fbc962ae640ad128d1daa85931bb"
+    },
+    "units_unitabilities.json": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "sha256": "ebd8a6fd8410f593c5ecadf6bf7c4f6bbc5b4bb7183c5e986a4d2d77e1747133"
+    },
+    "units_unitweapons.json": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "sha256": "3d19b979895be4cb5fdaa6d6905faf6b2a907200fc67dfd2756777386dca1ec7"
+    },
+    "units_unitbalance.json": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "sha256": "096bad329e3b86f3ed4cad3e4ca7c8c4d8efcea2f25a366eef4eac8367eb70e3"
+    },
+    "units_unitdata.json": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "sha256": "5489f9711b37803ea5d50e755d7c191205ea28710650d9a40dcd51b2e27c9e04"
+    },
+    "war3map.w3u.json": {
+      "path": "reference/map-6.25/war3map.w3u.json",
+      "sha256": "4d599edcf9784748cb7d8f07d873331de37393c9dec20d55b8551a924e6946c1"
+    },
+    "units_campaignabilitystrings.txt": {
+      "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+      "sha256": "5240c99230cd441b4c376371a31a7987e65470feed736177473a206c55fbe8cc"
+    },
+    "units_campaignunitstrings.txt": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "sha256": "c247a137399eee98afe1c0ed276f045f1d6dfa63080d3fefbf6f4d05f7d61b53"
+    },
+    "workbook": {
+      "path": "图鉴.xlsx",
+      "sha256": "457c8f7e37e19412a0dd072ce941e95604b0b8910860b9e1eb9883e6b82bb6af"
+    }
+  },
+  "ids": [
+    {
+      "id": "N089",
+      "family": "bloodlust",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 872,
+          "cells": {
+            "A872": "食人魔Lv1<N>",
+            "B872": "n214",
+            "C872": "1",
+            "D872": "自带技能",
+            "E872": "嗜血术",
+            "F872": "N089",
+            "G872": "1",
+            "H872": "增加目标20%的攻击速度。",
+            "I872": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:N089",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          14023,
+          14038
+        ],
+        "fields": {"Art":"ReplaceableTextures\\CommandButtons\\BTNBloodLustOn.blp","Buttonpos":"3,2","Hotkey":"L","Name":"嗜血术","Order":"bloodlust","Orderoff":"bloodlustoff","Orderon":"bloodluston","Tip":"嗜血术 - [|cffffcc00等级 1|r]","Ubertip":"增加目标20%的攻击速度。","Unart":"ReplaceableTextures\\CommandButtons\\BTNBloodLustOff.blp","UnButtonpos":"3,2","Unhotkey":"L","Untip":"|cffc3dbff点击右键以激活自动施放功能。|r","Unubertip":"|cffc3dbff点击右键以取消自动施放功能。|r"}
+      },
+      "initialCarriers": [
+        "n214"
+      ],
+      "status": "bounded-Web-effect-defined",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "N090",
+      "family": "bloodlust",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 873,
+          "cells": {
+            "A873": "食人魔Lv2<N>",
+            "B873": "n215",
+            "C873": "1",
+            "D873": "自带技能",
+            "E873": "嗜血术",
+            "F873": "N090",
+            "G873": "1",
+            "H873": "增加目标30%的攻击速度。",
+            "I873": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:N090",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          14039,
+          14054
+        ],
+        "fields": {"Art":"ReplaceableTextures\\CommandButtons\\BTNBloodLustOn.blp","Buttonpos":"3,2","Hotkey":"L","Name":"嗜血术","Order":"bloodlust","Orderoff":"bloodlustoff","Orderon":"bloodluston","Tip":"嗜血术 - [|cffffcc00等级 2|r]","Ubertip":"增加目标30%的攻击速度。","Unart":"ReplaceableTextures\\CommandButtons\\BTNBloodLustOff.blp","UnButtonpos":"3,2","Unhotkey":"L","Untip":"|cffc3dbff点击右键以激活自动施放功能。|r","Unubertip":"|cffc3dbff点击右键以取消自动施放功能。|r"}
+      },
+      "initialCarriers": [
+        "n215"
+      ],
+      "status": "bounded-Web-effect-defined",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "N091",
+      "family": "bloodlust",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 874,
+          "cells": {
+            "A874": "食人魔Lv3<N>",
+            "B874": "n216",
+            "C874": "1",
+            "D874": "自带技能",
+            "E874": "嗜血术",
+            "F874": "N091",
+            "G874": "1",
+            "H874": "增加目标40%的攻击速度。",
+            "I874": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:N091",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          14055,
+          14070
+        ],
+        "fields": {"Art":"ReplaceableTextures\\CommandButtons\\BTNBloodLustOn.blp","Buttonpos":"3,2","Hotkey":"L","Name":"嗜血术","Order":"bloodlust","Orderoff":"bloodlustoff","Orderon":"bloodluston","Tip":"嗜血术 - [|cffffcc00等级 3|r]","Ubertip":"增加目标40%的攻击速度。","Unart":"ReplaceableTextures\\CommandButtons\\BTNBloodLustOff.blp","UnButtonpos":"3,2","Unhotkey":"L","Untip":"|cffc3dbff点击右键以激活自动施放功能。|r","Unubertip":"|cffc3dbff点击右键以取消自动施放功能。|r"}
+      },
+      "initialCarriers": [
+        "n216"
+      ],
+      "status": "bounded-Web-effect-defined",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "N092",
+      "family": "bloodlust",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 875,
+          "cells": {
+            "A875": "食人魔Max<N>",
+            "B875": "n217",
+            "C875": "1",
+            "D875": "自带技能",
+            "E875": "嗜血术",
+            "F875": "N092",
+            "G875": "1",
+            "H875": "增加目标50%的攻击速度。",
+            "I875": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:N092",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          14071,
+          14086
+        ],
+        "fields": {"Art":"ReplaceableTextures\\CommandButtons\\BTNBloodLustOn.blp","Buttonpos":"3,2","Hotkey":"L","Name":"嗜血术","Order":"bloodlust","Orderoff":"bloodlustoff","Orderon":"bloodluston","Tip":"嗜血术 - [|cffffcc00等级 4|r]","Ubertip":"增加目标50%的攻击速度。","Unart":"ReplaceableTextures\\CommandButtons\\BTNBloodLustOff.blp","UnButtonpos":"3,2","Unhotkey":"L","Untip":"|cffc3dbff点击右键以激活自动施放功能。|r","Unubertip":"|cffc3dbff点击右键以取消自动施放功能。|r"}
+      },
+      "initialCarriers": [
+        "n217"
+      ],
+      "status": "bounded-Web-effect-defined",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "N093",
+      "family": "poison",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 857,
+          "cells": {
+            "A857": "豺狼刺客Lv2<N>",
+            "B857": "n219",
+            "C857": "1",
+            "D857": "自带技能",
+            "E857": "浸毒武器",
+            "F857": "N093",
+            "G857": "1",
+            "H857": "攻击使得目标中毒，每秒受到50点伤害和减速，持续5秒。",
+            "I857": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:N093",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          14087,
+          14093
+        ],
+        "fields": {"Art":"ReplaceableTextures\\PassiveButtons\\PASBTNEnvenomedSpear.blp","Buttonpos":"3,2","Name":"浸毒武器","Tip":"浸毒武器 - [|cffffcc00等级 1|r]","Ubertip":"攻击使得目标中毒，每秒受到50点伤害和减速，持续5秒。"}
+      },
+      "initialCarriers": [
+        "n219"
+      ],
+      "status": "bounded-Web-effect-defined",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "N095",
+      "family": "poison",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 858,
+          "cells": {
+            "A858": "豺狼刺客Max<N>",
+            "B858": "n220",
+            "C858": "1",
+            "D858": "自带技能",
+            "E858": "浸毒武器",
+            "F858": "N095",
+            "G858": "1",
+            "H858": "攻击使得目标中毒，每秒受到150点伤害和减速，持续5秒。",
+            "I858": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:N095",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          14101,
+          14107
+        ],
+        "fields": {"Art":"ReplaceableTextures\\PassiveButtons\\PASBTNEnvenomedSpear.blp","Buttonpos":"3,2","Name":"浸毒武器","Tip":"浸毒武器 - [|cffffcc00等级 3|r]","Ubertip":"攻击使得目标中毒，每秒受到150点伤害和减速，持续5秒。"}
+      },
+      "initialCarriers": [
+        "n220"
+      ],
+      "status": "bounded-Web-effect-defined",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "N105",
+      "family": "corruption",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 845,
+          "cells": {
+            "A845": "腐尸甲虫Lv1<N>",
+            "B845": "n240",
+            "C845": "1",
+            "D845": "自带技能",
+            "E845": "腐蚀攻击",
+            "F845": "N105",
+            "G845": "1",
+            "H845": "攻击目标会降低目标10点护甲。",
+            "I845": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:N105",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          14222,
+          14233
+        ],
+        "fields": {"Art":"ReplaceableTextures\\CommandButtons\\BTNOrbOfCorruption.blp","Buttonpos":"3,2","Name":"腐蚀攻击","ResearchArt":"ReplaceableTextures\\CommandButtons\\BTNCriticalStrike.blp","Researchbuttonpos":"2","Researchhotkey":"C","Researchtip":"学习致命一击(|cffffcc00C|r) - [|cffffcc00等级 %d|r]","Researchubertip":"给予一定的概率使得攻击力能大大增强。|n|n|cffffcc00等级 1|r -15%的概率，2倍于一般攻击的伤害值。|n|cffffcc00等级 2|r -15%的概率，3倍于一般攻击的伤害值。|n|cffffcc00等级 3|r -15%的概率，4倍于一般攻击的伤害值。","Tip":"腐蚀攻击 - [|cffffcc00等级 1|r]","Ubertip":"攻击目标会降低目标10点护甲。"}
+      },
+      "initialCarriers": [
+        "n240"
+      ],
+      "status": "bounded-Web-effect-defined",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "N106",
+      "family": "corruption",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 846,
+          "cells": {
+            "A846": "腐尸甲虫Lv2<N>",
+            "B846": "n241",
+            "C846": "1",
+            "D846": "自带技能",
+            "E846": "腐蚀攻击",
+            "F846": "N106",
+            "G846": "1",
+            "H846": "攻击目标会降低目标25点护甲。",
+            "I846": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:N106",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          14234,
+          14245
+        ],
+        "fields": {"Art":"ReplaceableTextures\\CommandButtons\\BTNOrbOfCorruption.blp","Buttonpos":"3,2","Name":"腐蚀攻击","ResearchArt":"ReplaceableTextures\\CommandButtons\\BTNCriticalStrike.blp","Researchbuttonpos":"2","Researchhotkey":"C","Researchtip":"学习致命一击(|cffffcc00C|r) - [|cffffcc00等级 %d|r]","Researchubertip":"给予一定的概率使得攻击力能大大增强。|n|n|cffffcc00等级 1|r -15%的概率，2倍于一般攻击的伤害值。|n|cffffcc00等级 2|r -15%的概率，3倍于一般攻击的伤害值。|n|cffffcc00等级 3|r -15%的概率，4倍于一般攻击的伤害值。","Tip":"腐蚀攻击 - [|cffffcc00等级 2|r]","Ubertip":"攻击目标会降低目标25点护甲。"}
+      },
+      "initialCarriers": [
+        "n241"
+      ],
+      "status": "bounded-Web-effect-defined",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "N107",
+      "family": "corruption",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 847,
+          "cells": {
+            "A847": "腐尸甲虫Max<N>",
+            "B847": "n242",
+            "C847": "1",
+            "D847": "自带技能",
+            "E847": "腐蚀攻击",
+            "F847": "N107",
+            "G847": "1",
+            "H847": "攻击目标会降低目标40点护甲。",
+            "I847": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:N107",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          14246,
+          14257
+        ],
+        "fields": {"Art":"ReplaceableTextures\\CommandButtons\\BTNOrbOfCorruption.blp","Buttonpos":"3,2","Name":"腐蚀攻击","ResearchArt":"ReplaceableTextures\\CommandButtons\\BTNCriticalStrike.blp","Researchbuttonpos":"2","Researchhotkey":"C","Researchtip":"学习致命一击(|cffffcc00C|r) - [|cffffcc00等级 %d|r]","Researchubertip":"给予一定的概率使得攻击力能大大增强。|n|n|cffffcc00等级 1|r -15%的概率，2倍于一般攻击的伤害值。|n|cffffcc00等级 2|r -15%的概率，3倍于一般攻击的伤害值。|n|cffffcc00等级 3|r -15%的概率，4倍于一般攻击的伤害值。","Tip":"腐蚀攻击 - [|cffffcc00等级 3|r]","Ubertip":"攻击目标会降低目标40点护甲。"}
+      },
+      "initialCarriers": [
+        "n242"
+      ],
+      "status": "bounded-Web-effect-defined",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "N127",
+      "family": "immolation",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 835,
+          "cells": {
+            "A835": "献祭塔Lv1<N>",
+            "B835": "n021",
+            "C835": "1",
+            "D835": "自带技能",
+            "E835": "献祭",
+            "F835": "N127",
+            "G835": "1",
+            "H835": "对周围敌人每秒造成60点法术伤害。",
+            "I835": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:N127",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          14480,
+          14486
+        ],
+        "fields": {"Art":"ReplaceableTextures\\PassiveButtons\\PASBTNImmolation.blp","Buttonpos":"3,2","Name":"献祭","Tip":"献祭 - [|cffffcc00等级 1|r]","Ubertip":"对周围敌人每秒造成60点法术伤害。"}
+      },
+      "initialCarriers": [
+        "n021"
+      ],
+      "status": "bounded-Web-effect-defined",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "N128",
+      "family": "immolation",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 836,
+          "cells": {
+            "A836": "献祭塔Lv2<N>",
+            "B836": "n022",
+            "C836": "1",
+            "D836": "自带技能",
+            "E836": "献祭",
+            "F836": "N128",
+            "G836": "1",
+            "H836": "对周围敌人每秒造成100点法术伤害。",
+            "I836": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:N128",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          14487,
+          14493
+        ],
+        "fields": {"Art":"ReplaceableTextures\\PassiveButtons\\PASBTNImmolation.blp","Buttonpos":"3,2","Name":"献祭","Tip":"献祭 - [|cffffcc00等级 2|r]","Ubertip":"对周围敌人每秒造成100点法术伤害。"}
+      },
+      "initialCarriers": [
+        "n022"
+      ],
+      "status": "bounded-Web-effect-defined",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "N129",
+      "family": "immolation",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 837,
+          "cells": {
+            "A837": "献祭塔Lv3<N>",
+            "B837": "n023",
+            "C837": "1",
+            "D837": "自带技能",
+            "E837": "献祭",
+            "F837": "N129",
+            "G837": "1",
+            "H837": "对周围敌人每秒造成150点法术伤害。",
+            "I837": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:N129",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          14494,
+          14500
+        ],
+        "fields": {"Art":"ReplaceableTextures\\PassiveButtons\\PASBTNImmolation.blp","Buttonpos":"3,2","Name":"献祭","Tip":"献祭 - [|cffffcc00等级 3|r]","Ubertip":"对周围敌人每秒造成150点法术伤害。"}
+      },
+      "initialCarriers": [
+        "n023"
+      ],
+      "status": "bounded-Web-effect-defined",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "N130",
+      "family": "immolation",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 838,
+          "cells": {
+            "A838": "献祭塔Lv4<N>",
+            "B838": "n024",
+            "C838": "1",
+            "D838": "自带技能",
+            "E838": "献祭",
+            "F838": "N130",
+            "G838": "1",
+            "H838": "对周围敌人每秒造成200点法术伤害。",
+            "I838": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:N130",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          14501,
+          14507
+        ],
+        "fields": {"Art":"ReplaceableTextures\\PassiveButtons\\PASBTNImmolation.blp","Buttonpos":"3,2","Name":"献祭","Tip":"献祭 - [|cffffcc00等级 4|r]","Ubertip":"对周围敌人每秒造成200点法术伤害。"}
+      },
+      "initialCarriers": [
+        "n024"
+      ],
+      "status": "bounded-Web-effect-defined",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "N131",
+      "family": "immolation",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 839,
+          "cells": {
+            "A839": "献祭塔Max<N>",
+            "B839": "n025",
+            "C839": "1",
+            "D839": "自带技能",
+            "E839": "献祭",
+            "F839": "N131",
+            "G839": "1",
+            "H839": "对周围敌人每秒造成300点法术伤害。",
+            "I839": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:N131",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          14508,
+          14514
+        ],
+        "fields": {"Art":"ReplaceableTextures\\PassiveButtons\\PASBTNImmolation.blp","Buttonpos":"3,2","Name":"献祭","Tip":"献祭 - [|cffffcc00等级 5|r]","Ubertip":"对周围敌人每秒造成300点法术伤害。"}
+      },
+      "initialCarriers": [
+        "n025"
+      ],
+      "status": "bounded-Web-effect-defined",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "N160",
+      "family": "frost",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 863,
+          "cells": {
+            "A863": "霜冻之塔Lv1<N>",
+            "B863": "n006",
+            "C863": "2",
+            "D863": "自带技能",
+            "E863": "霜冻之塔lv1（空技能）",
+            "F863": "N160",
+            "G863": "1",
+            "H863": "攻击会降低目标6%的移动速度，持续3秒。",
+            "I863": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:N160",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          14754,
+          14760
+        ],
+        "fields": {"Art":"ReplaceableTextures\\PassiveButtons\\PASBTNFrost.blp","Buttonpos":"3,2","Name":"霜冻之塔lv1（空技能）","Tip":"霜冻攻击 - [|cffffcc00等级 1|r]","Ubertip":"攻击会降低目标6%的移动速度，持续3秒。"}
+      },
+      "initialCarriers": [
+        "n006"
+      ],
+      "status": "bounded-Web-effect-defined",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "N161",
+      "family": "frost",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 865,
+          "cells": {
+            "A865": "霜冻之塔Lv2<N>",
+            "B865": "n007",
+            "C865": "2",
+            "D865": "自带技能",
+            "E865": "霜冻之塔lv2（空技能）",
+            "F865": "N161",
+            "G865": "1",
+            "H865": "攻击会降低目标8%的移动速度，持续3秒。",
+            "I865": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:N161",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          14761,
+          14767
+        ],
+        "fields": {"Art":"ReplaceableTextures\\PassiveButtons\\PASBTNFrost.blp","Buttonpos":"3,2","Name":"霜冻之塔lv2（空技能）","Tip":"霜冻攻击 - [|cffffcc00等级 2|r]","Ubertip":"攻击会降低目标8%的移动速度，持续3秒。"}
+      },
+      "initialCarriers": [
+        "n007"
+      ],
+      "status": "bounded-Web-effect-defined",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "N162",
+      "family": "frost",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 867,
+          "cells": {
+            "A867": "霜冻之塔Lv3<N>",
+            "B867": "n008",
+            "C867": "2",
+            "D867": "自带技能",
+            "E867": "霜冻之塔lv3（空技能）",
+            "F867": "N162",
+            "G867": "1",
+            "H867": "攻击会降低目标10%的移动速度，持续3秒。",
+            "I867": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:N162",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          14768,
+          14774
+        ],
+        "fields": {"Art":"ReplaceableTextures\\PassiveButtons\\PASBTNFrost.blp","Buttonpos":"3,2","Name":"霜冻之塔lv3（空技能）","Tip":"霜冻攻击 - [|cffffcc00等级 3|r]","Ubertip":"攻击会降低目标10%的移动速度，持续3秒。"}
+      },
+      "initialCarriers": [
+        "n008"
+      ],
+      "status": "bounded-Web-effect-defined",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "N163",
+      "family": "frost",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 869,
+          "cells": {
+            "A869": "霜冻之塔Lv4<N>",
+            "B869": "n009",
+            "C869": "2",
+            "D869": "自带技能",
+            "E869": "霜冻之塔lv4（空技能）",
+            "F869": "N163",
+            "G869": "1",
+            "H869": "攻击会降低目标12%的移动速度，持续3秒。",
+            "I869": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:N163",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          14775,
+          14781
+        ],
+        "fields": {"Art":"ReplaceableTextures\\PassiveButtons\\PASBTNFrost.blp","Buttonpos":"3,2","Name":"霜冻之塔lv4（空技能）","Tip":"霜冻攻击 - [|cffffcc00等级 4|r]","Ubertip":"攻击会降低目标12%的移动速度，持续3秒。"}
+      },
+      "initialCarriers": [
+        "n009"
+      ],
+      "status": "bounded-Web-effect-defined",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "N164",
+      "family": "frost",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 871,
+          "cells": {
+            "A871": "霜冻之塔Max<N>",
+            "B871": "n010",
+            "C871": "2",
+            "D871": "自带技能",
+            "E871": "霜冻之塔max（空技能）",
+            "F871": "N164",
+            "G871": "1",
+            "H871": "攻击会降低目标15%的移动速度，持续3秒。",
+            "I871": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:N164",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          14782,
+          14788
+        ],
+        "fields": {"Art":"ReplaceableTextures\\PassiveButtons\\PASBTNFrost.blp","Buttonpos":"3,2","Name":"霜冻之塔max（空技能）","Tip":"霜冻攻击 - [|cffffcc00等级 max|r]","Ubertip":"攻击会降低目标15%的移动速度，持续3秒。"}
+      },
+      "initialCarriers": [
+        "n010"
+      ],
+      "status": "bounded-Web-effect-defined",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "T292",
+      "family": "frost",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 862,
+          "cells": {
+            "A862": "霜冻之塔Lv1<N>",
+            "B862": "n006",
+            "C862": "1",
+            "D862": "自带技能",
+            "E862": "霜冻之塔lv1减速",
+            "F862": "T292",
+            "G862": "1",
+            "H862": "增加额外的攻击力，并能使目标减速，但是冰冻冷箭也会消耗一定的魔法值。",
+            "I862": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:T292",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          22813,
+          22830
+        ],
+        "fields": {"Animnames":"attack","Art":"ReplaceableTextures\\CommandButtons\\BTNColdArrowsOn.blp","Buttonpos":",-11","Hotkey":"C","Missilearc":"0.15","Missileart":"Abilities\\Weapons\\ZigguratFrostMissile\\ZigguratFrostMissile.mdl","MissileHoming":"1","Missilespeed":"1200","Name":"霜冻之塔lv1减速","Tip":"冰冻冷箭(|cffffcc00C|r)","Ubertip":"增加额外的攻击力，并能使目标减速，但是冰冻冷箭也会消耗一定的魔法值。","Unart":"ReplaceableTextures\\CommandButtons\\BTNColdArrowsOff.blp","UnButtonpos":",-11","Unhotkey":"C","Untip":"|cffc3dbff点击右键以激活自动施放功能。|r","Unubertip":"|cffc3dbff点击右键以取消自动施放功能。|r"}
+      },
+      "initialCarriers": [
+        "n006"
+      ],
+      "status": "bounded-Web-effect-defined",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "T293",
+      "family": "frost",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 864,
+          "cells": {
+            "A864": "霜冻之塔Lv2<N>",
+            "B864": "n007",
+            "C864": "1",
+            "D864": "自带技能",
+            "E864": "霜冻之塔lv2减速",
+            "F864": "T293",
+            "G864": "1",
+            "H864": "增加额外的攻击力，并能使目标减速，但是冰冻冷箭也会消耗一定的魔法值。",
+            "I864": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:T293",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          22831,
+          22848
+        ],
+        "fields": {"Animnames":"attack","Art":"ReplaceableTextures\\CommandButtons\\BTNColdArrowsOn.blp","Buttonpos":",-11","Hotkey":"C","Missilearc":"0.15","Missileart":"Abilities\\Weapons\\ZigguratFrostMissile\\ZigguratFrostMissile.mdl","MissileHoming":"1","Missilespeed":"1200","Name":"霜冻之塔lv2减速","Tip":"冰冻冷箭(|cffffcc00C|r)","Ubertip":"增加额外的攻击力，并能使目标减速，但是冰冻冷箭也会消耗一定的魔法值。","Unart":"ReplaceableTextures\\CommandButtons\\BTNColdArrowsOff.blp","UnButtonpos":",-11","Unhotkey":"C","Untip":"|cffc3dbff点击右键以激活自动施放功能。|r","Unubertip":"|cffc3dbff点击右键以取消自动施放功能。|r"}
+      },
+      "initialCarriers": [
+        "n007"
+      ],
+      "status": "bounded-Web-effect-defined",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "T294",
+      "family": "frost",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 866,
+          "cells": {
+            "A866": "霜冻之塔Lv3<N>",
+            "B866": "n008",
+            "C866": "1",
+            "D866": "自带技能",
+            "E866": "霜冻之塔lv3减速",
+            "F866": "T294",
+            "G866": "1",
+            "H866": "增加额外的攻击力，并能使目标减速，但是冰冻冷箭也会消耗一定的魔法值。",
+            "I866": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:T294",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          22849,
+          22866
+        ],
+        "fields": {"Animnames":"attack","Art":"ReplaceableTextures\\CommandButtons\\BTNColdArrowsOn.blp","Buttonpos":",-11","Hotkey":"C","Missilearc":"0.15","Missileart":"Abilities\\Weapons\\ZigguratFrostMissile\\ZigguratFrostMissile.mdl","MissileHoming":"1","Missilespeed":"1200","Name":"霜冻之塔lv3减速","Tip":"冰冻冷箭(|cffffcc00C|r)","Ubertip":"增加额外的攻击力，并能使目标减速，但是冰冻冷箭也会消耗一定的魔法值。","Unart":"ReplaceableTextures\\CommandButtons\\BTNColdArrowsOff.blp","UnButtonpos":",-11","Unhotkey":"C","Untip":"|cffc3dbff点击右键以激活自动施放功能。|r","Unubertip":"|cffc3dbff点击右键以取消自动施放功能。|r"}
+      },
+      "initialCarriers": [
+        "n008"
+      ],
+      "status": "bounded-Web-effect-defined",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "T295",
+      "family": "frost",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 868,
+          "cells": {
+            "A868": "霜冻之塔Lv4<N>",
+            "B868": "n009",
+            "C868": "1",
+            "D868": "自带技能",
+            "E868": "霜冻之塔lv4减速",
+            "F868": "T295",
+            "G868": "1",
+            "H868": "增加额外的攻击力，并能使目标减速，但是冰冻冷箭也会消耗一定的魔法值。",
+            "I868": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:T295",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          22867,
+          22884
+        ],
+        "fields": {"Animnames":"attack","Art":"ReplaceableTextures\\CommandButtons\\BTNColdArrowsOn.blp","Buttonpos":",-11","Hotkey":"C","Missilearc":"0.15","Missileart":"Abilities\\Weapons\\ZigguratFrostMissile\\ZigguratFrostMissile.mdl","MissileHoming":"1","Missilespeed":"1200","Name":"霜冻之塔lv4减速","Tip":"冰冻冷箭(|cffffcc00C|r)","Ubertip":"增加额外的攻击力，并能使目标减速，但是冰冻冷箭也会消耗一定的魔法值。","Unart":"ReplaceableTextures\\CommandButtons\\BTNColdArrowsOff.blp","UnButtonpos":",-11","Unhotkey":"C","Untip":"|cffc3dbff点击右键以激活自动施放功能。|r","Unubertip":"|cffc3dbff点击右键以取消自动施放功能。|r"}
+      },
+      "initialCarriers": [
+        "n009"
+      ],
+      "status": "bounded-Web-effect-defined",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "T296",
+      "family": "frost",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 870,
+          "cells": {
+            "A870": "霜冻之塔Max<N>",
+            "B870": "n010",
+            "C870": "1",
+            "D870": "自带技能",
+            "E870": "霜冻之塔max减速",
+            "F870": "T296",
+            "G870": "1",
+            "H870": "增加额外的攻击力，并能使目标减速，但是冰冻冷箭也会消耗一定的魔法值。",
+            "I870": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:T296",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          22885,
+          22902
+        ],
+        "fields": {"Animnames":"attack","Art":"ReplaceableTextures\\CommandButtons\\BTNColdArrowsOn.blp","Buttonpos":",-11","Hotkey":"C","Missilearc":"0.15","Missileart":"Abilities\\Weapons\\ZigguratFrostMissile\\ZigguratFrostMissile.mdl","MissileHoming":"1","Missilespeed":"1200","Name":"霜冻之塔max减速","Tip":"冰冻冷箭(|cffffcc00C|r)","Ubertip":"增加额外的攻击力，并能使目标减速，但是冰冻冷箭也会消耗一定的魔法值。","Unart":"ReplaceableTextures\\CommandButtons\\BTNColdArrowsOff.blp","UnButtonpos":",-11","Unhotkey":"C","Untip":"|cffc3dbff点击右键以激活自动施放功能。|r","Unubertip":"|cffc3dbff点击右键以取消自动施放功能。|r"}
+      },
+      "initialCarriers": [
+        "n010"
+      ],
+      "status": "bounded-Web-effect-defined",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "N094",
+      "family": "poison",
+      "workbook": [],
+      "object": "units_abilitydata.json:N094",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          14094,
+          14100
+        ],
+        "fields": {"Art":"ReplaceableTextures\\PassiveButtons\\PASBTNEnvenomedSpear.blp","Buttonpos":"3,2","Name":"浸毒武器","Tip":"浸毒武器 - [|cffffcc00等级 2|r]","Ubertip":"攻击使得目标中毒，每秒受到100点伤害和减速，持续5秒。"}
+      },
+      "initialCarriers": [],
+      "status": "auxiliary-unused-variant-located-not-added-to-play",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "T041",
+      "family": "corruption",
+      "workbook": [],
+      "object": "units_abilitydata.json:T041",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          19821,
+          19828
+        ],
+        "fields": {"Art":"ReplaceableTextures\\CommandButtons\\BTNOrbOfCorruption.blp","Missileart":"Abilities\\Spells\\Items\\OrbCorruption\\OrbCorruptionMissile.mdl","MissileHoming":"1","Name":"腐蚀攻击","Specialattach":"chest","Targetattach":"weapon"}
+      },
+      "initialCarriers": [
+        "n240"
+      ],
+      "status": "bounded-Web-effect-defined",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "T042",
+      "family": "corruption",
+      "workbook": [],
+      "object": "units_abilitydata.json:T042",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          19829,
+          19836
+        ],
+        "fields": {"Art":"ReplaceableTextures\\CommandButtons\\BTNOrbOfCorruption.blp","Missileart":"Abilities\\Spells\\Items\\OrbCorruption\\OrbCorruptionMissile.mdl","MissileHoming":"1","Name":"腐蚀攻击","Specialattach":"chest","Targetattach":"weapon"}
+      },
+      "initialCarriers": [
+        "n241"
+      ],
+      "status": "bounded-Web-effect-defined",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "T043",
+      "family": "corruption",
+      "workbook": [],
+      "object": "units_abilitydata.json:T043",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          19837,
+          19844
+        ],
+        "fields": {"Art":"ReplaceableTextures\\CommandButtons\\BTNOrbOfCorruption.blp","Missileart":"Abilities\\Spells\\Items\\OrbCorruption\\OrbCorruptionMissile.mdl","MissileHoming":"1","Name":"腐蚀攻击","Specialattach":"chest","Targetattach":"weapon"}
+      },
+      "initialCarriers": [
+        "n242"
+      ],
+      "status": "bounded-Web-effect-defined",
+      "nativeParity": "unproved"
+    }
+  ],
+  "objectData": {
+    "units_abilitydata.json:N089": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 25404,
+      "fields": {"alias":"N089","code":"Ablo","BuffID1":"Bblo","Cool1":2.0,"Cost1":30,"DataA1":0.2,"DataC1":0.2,"Dur1":5.0,"HeroDur1":5.0,"levels":1,"priority":11,"Rng1":1000.0,"targs1":"self,friend,invulnerable","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:N090": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 25422,
+      "fields": {"alias":"N090","code":"Ablo","BuffID1":"Bblo","Cool1":2.0,"Cost1":30,"DataA1":0.3,"DataC1":0.2,"Dur1":5.0,"HeroDur1":5.0,"levels":1,"priority":11,"Rng1":1000.0,"targs1":"self,friend,invulnerable","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:N091": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 25440,
+      "fields": {"alias":"N091","code":"Ablo","BuffID1":"Bblo","Cool1":2.0,"Cost1":30,"DataA1":0.4,"DataC1":0.2,"Dur1":5.0,"HeroDur1":5.0,"levels":1,"priority":11,"Rng1":1000.0,"targs1":"self,friend,invulnerable","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:N092": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 25458,
+      "fields": {"alias":"N092","code":"Ablo","BuffID1":"Bblo","Cool1":2.0,"Cost1":30,"DataA1":0.5,"DataC1":0.2,"Dur1":5.0,"HeroDur1":5.0,"levels":1,"priority":11,"Rng1":1000.0,"targs1":"self,friend,invulnerable","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:N093": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 25476,
+      "fields": {"alias":"N093","code":"Aven","BuffID1":"Bpoi,Bpsd","DataA1":50.0,"DataB1":0.2,"DataD1":1,"Dur1":5.0,"HeroDur1":5.0,"levels":1,"targs1":"air,ground,organic","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:N095": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 25506,
+      "fields": {"alias":"N095","code":"Aven","BuffID1":"Bpoi,Bpsd","DataA1":150.0,"DataB1":0.2,"DataD1":1,"Dur1":5.0,"HeroDur1":5.0,"levels":1,"targs1":"air,ground,organic","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:N105": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 25642,
+      "fields": {"alias":"N105","code":"AOcr","checkDep":1,"levels":1,"reqLevel":1,"targs1":"air,ground,enemy,neutral","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:N106": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 25653,
+      "fields": {"alias":"N106","code":"AOcr","checkDep":1,"levels":1,"reqLevel":1,"targs1":"air,ground,enemy,neutral","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:N107": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 25664,
+      "fields": {"alias":"N107","code":"AOcr","checkDep":1,"levels":1,"reqLevel":1,"targs1":"air,ground,enemy,neutral","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:N127": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 26072,
+      "fields": {"alias":"N127","code":"Apig","Area1":600.0,"BuffID1":"Bpig","DataA1":60.0,"Dur1":1.0,"HeroDur1":1.0,"levels":1,"targs1":"enemies","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:N128": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 26086,
+      "fields": {"alias":"N128","code":"Apig","Area1":600.0,"BuffID1":"Bpig","DataA1":100.0,"Dur1":1.0,"HeroDur1":1.0,"levels":1,"targs1":"enemies","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:N129": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 26100,
+      "fields": {"alias":"N129","code":"Apig","Area1":600.0,"BuffID1":"Bpig","DataA1":150.0,"Dur1":1.0,"HeroDur1":1.0,"levels":1,"targs1":"enemies","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:N130": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 26114,
+      "fields": {"alias":"N130","code":"Apig","Area1":600.0,"BuffID1":"Bpig","DataA1":200.0,"Dur1":1.0,"HeroDur1":1.0,"levels":1,"targs1":"enemies","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:N131": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 26128,
+      "fields": {"alias":"N131","code":"Apig","Area1":600.0,"BuffID1":"Bpig","DataA1":300.0,"Dur1":1.0,"HeroDur1":1.0,"levels":1,"targs1":"enemies","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:N160": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 26475,
+      "fields": {"alias":"N160","code":"Amgl","checkDep":1,"levels":1,"targs1":"_","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:N161": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 26485,
+      "fields": {"alias":"N161","code":"Amgl","checkDep":1,"levels":1,"targs1":"_","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:N162": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 26495,
+      "fields": {"alias":"N162","code":"Amgl","checkDep":1,"levels":1,"targs1":"_","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:N163": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 26505,
+      "fields": {"alias":"N163","code":"Amgl","checkDep":1,"levels":1,"targs1":"_","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:N164": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 26515,
+      "fields": {"alias":"N164","code":"Amgl","checkDep":1,"levels":1,"targs1":"_","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:T292": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 38063,
+      "fields": {"alias":"T292","code":"AHca","BuffID1":"BHca,Bfro,Bcsi","DataB1":0.06,"Dur1":3.0,"HeroDur1":3.0,"levels":1,"Rng1":1000.0,"targs1":"air,ground,enemy,neutral","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:T293": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 38077,
+      "fields": {"alias":"T293","code":"AHca","BuffID1":"BHca,Bfro,Bcsi","DataB1":0.08,"Dur1":3.0,"HeroDur1":3.0,"levels":1,"Rng1":1000.0,"targs1":"air,ground,enemy,neutral","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:T294": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 38091,
+      "fields": {"alias":"T294","code":"AHca","BuffID1":"BHca,Bfro,Bcsi","DataB1":0.1,"Dur1":3.0,"HeroDur1":3.0,"levels":1,"Rng1":1000.0,"targs1":"air,ground,enemy,neutral","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:T295": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 38105,
+      "fields": {"alias":"T295","code":"AHca","BuffID1":"BHca,Bfro,Bcsi","DataB1":0.12,"Dur1":3.0,"HeroDur1":3.0,"levels":1,"Rng1":1000.0,"targs1":"air,ground,enemy,neutral","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:T296": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 38119,
+      "fields": {"alias":"T296","code":"AHca","BuffID1":"BHca,Bfro,Bcsi","DataB1":0.15,"Dur1":3.0,"HeroDur1":3.0,"levels":1,"Rng1":1000.0,"targs1":"air,ground,enemy,neutral","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:N094": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 25491,
+      "fields": {"alias":"N094","code":"Aven","BuffID1":"Bpoi,Bpsd","DataA1":100.0,"DataB1":0.2,"DataD1":1,"Dur1":5.0,"HeroDur1":5.0,"levels":1,"targs1":"air,ground,organic","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:T041": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 33095,
+      "fields": {"alias":"T041","code":"AIcb","BuffID1":"BIcb","DataB1":10,"DataE1":2,"Dur1":5.0,"HeroDur1":5.0,"levels":1,"targs1":"ground,air,ward","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:T042": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 33109,
+      "fields": {"alias":"T042","code":"AIcb","BuffID1":"BIcb","DataB1":25,"DataE1":2,"Dur1":5.0,"HeroDur1":5.0,"levels":1,"targs1":"ground,air,ward","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:T043": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 33123,
+      "fields": {"alias":"T043","code":"AIcb","BuffID1":"BIcb","DataB1":40,"DataE1":2,"Dur1":5.0,"HeroDur1":5.0,"levels":1,"targs1":"ground,air,ward","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:Ablo": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 9473,
+      "fields": {"alias":"Ablo","code":"Ablo","BuffID1":"Bblo","checkDep":1,"Cool1":1.0,"Cost1":40,"DataA1":0.4,"DataB1":0.25,"DataC1":0.3,"Dur1":60.0,"HeroDur1":60.0,"levels":1,"priority":11,"Rng1":600.0,"targs1":"air,ground,friend,organic,self,neutral","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:Aven": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 13071,
+      "fields": {"alias":"Aven","code":"Aven","BuffID1":"Bpoi,Bpsd","checkDep":1,"DataA1":4.0,"DataD1":1,"Dur1":25.0,"HeroDur1":1.0,"levels":1,"targs1":"air,ground,organic","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:AIcb": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 3078,
+      "fields": {"alias":"AIcb","code":"AIcb","BuffID1":"BIcb","DataA1":5,"DataB1":5,"DataE1":2,"Dur1":5.0,"HeroDur1":5.0,"levels":1,"targs1":"ground,air,ward","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:Apig": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 11620,
+      "fields": {"alias":"Apig","code":"Apig","Area1":220.0,"BuffID1":"Bpig","DataA1":10.0,"Dur1":1.0,"HeroDur1":1.0,"levels":1,"targs1":"ground,enemy,neutral,organic","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:AHca": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 2372,
+      "fields": {"alias":"AHca","code":"AHca","BuffID1":"BHca,Bcsd,Bcsi","BuffID2":"BHca,Bcsd,Bcsi","BuffID3":"BHca,Bcsd,Bcsi","checkDep":1,"Cost1":8,"Cost2":8,"Cost3":8,"DataA1":5.0,"DataA2":10.0,"DataA3":15.0,"DataB1":0.3,"DataB2":0.5,"DataB3":0.7,"DataC1":0.3,"DataC2":0.5,"DataC3":0.7,"DataD1":7,"DataD2":7,"DataD3":7,"Dur1":6.0,"Dur2":6.0,"Dur3":6.0,"HeroDur1":1.0,"HeroDur2":1.0,"HeroDur3":1.0,"levels":3,"reqLevel":1,"Rng1":700.0,"Rng2":700.0,"Rng3":700.0,"targs1":"air,ground,enemy,neutral","targs2":"air,ground,enemy,neutral","targs3":"air,ground,enemy,neutral","targs4":"_"}
+    },
+    "units_unitabilities.json:n006": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 5850,
+      "fields": {"unitAbilID":"n006","abilList":"Avul,T033,T035,T292,N160","auto":"T292"}
+    },
+    "units_unitweapons.json:n006": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 30111,
+      "fields": {"unitWeapID":"n006","acquire":2000.0,"atkType1":"normal","atkType2":"normal","backSw1":0.5,"castbsw":0.51,"cool1":1.0,"dice1":1,"dmgplus1":9,"dmgpt1":0.5,"impactZ":120.0,"launchZ":145.0,"rangeN1":1000,"RngBuff1":3500.0,"showUI1":1,"showUI2":1,"sides1":5,"targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,air,item,ward","weapsOn":1,"weapTp1":"missile"}
+    },
+    "units_unitbalance.json:n006": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 33823,
+      "fields": {"unitBalanceID":"n006","bldtm":1,"collision":72.0,"def":5.0,"defType":"fort","defUp":1.0,"fused":5,"goldcost":100,"HP":500,"isbldg":1,"level":1,"nsight":800,"preventPlace":"unbuildable","Primary":"_","regenType":"none","reptm":2,"requirePlace":"_","sight":1600,"tilesets":"*","type":"undead,Mechanical"}
+    },
+    "units_unitdata.json:n006": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 17377,
+      "fields": {"unitID":"n006","buffRadius":15.0,"buffType":"buffer","canFlee":1,"death":3.0,"deathType":2,"pathTex":"PathTextures\\4x4SimpleSolid.tga","prio":3,"propWin":60.0,"race":"undead","targType":"ground,organic"}
+    },
+    "units_unitabilities.json:n007": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 5855,
+      "fields": {"unitAbilID":"n007","abilList":"Avul,T033,T035,T293,N161","auto":"T293"}
+    },
+    "units_unitweapons.json:n007": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 30135,
+      "fields": {"unitWeapID":"n007","acquire":2000.0,"atkType1":"normal","atkType2":"normal","backSw1":0.5,"castbsw":0.51,"cool1":1.0,"dice1":1,"dmgplus1":49,"dmgpt1":0.5,"impactZ":120.0,"launchZ":145.0,"rangeN1":1000,"RngBuff1":3500.0,"showUI1":1,"showUI2":1,"sides1":5,"targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,air,item,ward","weapsOn":1,"weapTp1":"missile"}
+    },
+    "units_unitbalance.json:n007": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 33845,
+      "fields": {"unitBalanceID":"n007","bldtm":1,"collision":72.0,"def":5.0,"defType":"fort","defUp":1.0,"fused":5,"goldcost":250,"HP":500,"isbldg":1,"level":2,"nsight":800,"preventPlace":"unbuildable","Primary":"_","regenType":"none","reptm":2,"requirePlace":"_","sight":1600,"tilesets":"*","type":"undead,Mechanical"}
+    },
+    "units_unitdata.json:n007": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 17390,
+      "fields": {"unitID":"n007","buffRadius":15.0,"buffType":"buffer","canFlee":1,"death":3.0,"deathType":2,"pathTex":"PathTextures\\4x4SimpleSolid.tga","points":350,"prio":3,"propWin":60.0,"race":"undead","targType":"ground,organic"}
+    },
+    "units_unitabilities.json:n008": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 5860,
+      "fields": {"unitAbilID":"n008","abilList":"Avul,T033,T035,T294,N162","auto":"T294"}
+    },
+    "units_unitweapons.json:n008": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 30159,
+      "fields": {"unitWeapID":"n008","acquire":2000.0,"atkType1":"normal","atkType2":"normal","backSw1":0.5,"castbsw":0.51,"cool1":1.0,"dice1":1,"dmgplus1":99,"dmgpt1":0.5,"impactZ":120.0,"launchZ":145.0,"rangeN1":1000,"RngBuff1":3500.0,"showUI1":1,"showUI2":1,"sides1":5,"targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,air,item,ward","weapsOn":1,"weapTp1":"missile"}
+    },
+    "units_unitbalance.json:n008": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 33867,
+      "fields": {"unitBalanceID":"n008","bldtm":1,"collision":72.0,"def":5.0,"defType":"fort","defUp":1.0,"fused":5,"goldcost":500,"HP":500,"isbldg":1,"level":3,"nsight":800,"preventPlace":"unbuildable","Primary":"_","regenType":"none","reptm":2,"requirePlace":"_","sight":1600,"tilesets":"*","type":"undead,Mechanical"}
+    },
+    "units_unitdata.json:n008": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 17404,
+      "fields": {"unitID":"n008","buffRadius":15.0,"buffType":"buffer","canFlee":1,"death":3.0,"deathType":2,"pathTex":"PathTextures\\4x4SimpleSolid.tga","points":850,"prio":3,"propWin":60.0,"race":"undead","targType":"ground,organic"}
+    },
+    "units_unitabilities.json:n009": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 5865,
+      "fields": {"unitAbilID":"n009","abilList":"Avul,T033,T035,T295,N163","auto":"T295"}
+    },
+    "units_unitweapons.json:n009": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 30183,
+      "fields": {"unitWeapID":"n009","acquire":2000.0,"atkType1":"normal","atkType2":"normal","backSw1":0.5,"castbsw":0.51,"cool1":1.0,"dice1":1,"dmgplus1":149,"dmgpt1":0.5,"impactZ":120.0,"launchZ":145.0,"rangeN1":1000,"RngBuff1":3500.0,"showUI1":1,"showUI2":1,"sides1":5,"targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,air,item,ward","weapsOn":1,"weapTp1":"missile"}
+    },
+    "units_unitbalance.json:n009": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 33889,
+      "fields": {"unitBalanceID":"n009","bldtm":1,"collision":72.0,"def":5.0,"defType":"fort","defUp":1.0,"fused":5,"goldcost":800,"HP":500,"isbldg":1,"level":4,"nsight":800,"preventPlace":"unbuildable","Primary":"_","regenType":"none","reptm":2,"requirePlace":"_","sight":1600,"tilesets":"*","type":"undead,Mechanical"}
+    },
+    "units_unitdata.json:n009": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 17418,
+      "fields": {"unitID":"n009","buffRadius":15.0,"buffType":"buffer","canFlee":1,"death":3.0,"deathType":2,"pathTex":"PathTextures\\4x4SimpleSolid.tga","points":1650,"prio":3,"propWin":60.0,"race":"undead","targType":"ground,organic"}
+    },
+    "units_unitabilities.json:n010": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 5870,
+      "fields": {"unitAbilID":"n010","abilList":"Avul,T033,T035,T296,N164","auto":"T296"}
+    },
+    "units_unitweapons.json:n010": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 30207,
+      "fields": {"unitWeapID":"n010","acquire":2000.0,"atkType1":"normal","atkType2":"normal","backSw1":0.5,"castbsw":0.51,"cool1":1.0,"dice1":1,"dmgplus1":199,"dmgpt1":0.5,"impactZ":120.0,"launchZ":145.0,"rangeN1":1000,"RngBuff1":3500.0,"showUI1":1,"showUI2":1,"sides1":5,"targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,air,item,ward","weapsOn":1,"weapTp1":"missile"}
+    },
+    "units_unitbalance.json:n010": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 33911,
+      "fields": {"unitBalanceID":"n010","bldtm":1,"collision":72.0,"def":5.0,"defType":"fort","defUp":1.0,"fused":5,"goldcost":1100,"HP":500,"isbldg":1,"level":5,"nsight":800,"preventPlace":"unbuildable","Primary":"_","regenType":"none","reptm":2,"requirePlace":"_","sight":1600,"tilesets":"*","type":"undead,Mechanical"}
+    },
+    "units_unitdata.json:n010": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 17432,
+      "fields": {"unitID":"n010","buffRadius":15.0,"buffType":"buffer","canFlee":1,"death":3.0,"deathType":2,"pathTex":"PathTextures\\4x4SimpleSolid.tga","points":2750,"prio":3,"propWin":60.0,"race":"undead","targType":"ground,organic"}
+    },
+    "units_unitabilities.json:n021": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 5900,
+      "fields": {"unitAbilID":"n021","abilList":"Avul,N127,T035,T033","auto":"_"}
+    },
+    "units_unitweapons.json:n021": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 30376,
+      "fields": {"unitWeapID":"n021","acquire":900.0,"atkType1":"pierce","atkType2":"normal","backSw1":0.3,"castbsw":0.51,"cool1":0.6,"dice1":1,"dmgplus1":15,"dmgpt1":0.3,"impactZ":120.0,"launchZ":135.0,"rangeN1":800,"RngBuff1":250.0,"showUI1":1,"showUI2":1,"sides1":3,"targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,air,item,ward","weapTp1":"missile"}
+    },
+    "units_unitbalance.json:n021": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 34039,
+      "fields": {"unitBalanceID":"n021","bldtm":1,"collision":72.0,"def":3.0,"defType":"large","defUp":1.0,"fused":5,"goldcost":100,"HP":500,"isbldg":1,"level":1,"nsight":800,"preventPlace":"unbuildable","Primary":"_","regenType":"none","reptm":2,"requirePlace":"_","sight":1600,"tilesets":"*","type":"Mechanical"}
+    },
+    "units_unitdata.json:n021": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 17515,
+      "fields": {"unitID":"n021","buffRadius":15.0,"buffType":"buffer","canFlee":1,"death":2.34,"deathType":2,"pathTex":"PathTextures\\4x4SimpleSolid.tga","prio":2,"propWin":60.0,"race":"orc","targType":"ground,organic"}
+    },
+    "units_unitabilities.json:n022": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 5905,
+      "fields": {"unitAbilID":"n022","abilList":"Avul,N128,T035,T033","auto":"_"}
+    },
+    "units_unitweapons.json:n022": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 30399,
+      "fields": {"unitWeapID":"n022","acquire":900.0,"atkType1":"pierce","atkType2":"normal","backSw1":0.3,"castbsw":0.51,"cool1":0.6,"dice1":1,"dmgplus1":15,"dmgpt1":0.3,"impactZ":120.0,"launchZ":135.0,"rangeN1":800,"RngBuff1":250.0,"showUI1":1,"showUI2":1,"sides1":3,"targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,air,item,ward","weapTp1":"missile"}
+    },
+    "units_unitbalance.json:n022": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 34061,
+      "fields": {"unitBalanceID":"n022","bldtm":1,"collision":72.0,"def":3.0,"defType":"large","defUp":1.0,"fused":5,"goldcost":320,"HP":500,"isbldg":1,"level":2,"nsight":800,"preventPlace":"_","Primary":"_","regenType":"none","reptm":2,"requirePlace":"_","sight":1600,"tilesets":"*","type":"Mechanical"}
+    },
+    "units_unitdata.json:n022": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 17528,
+      "fields": {"unitID":"n022","buffRadius":15.0,"buffType":"buffer","canFlee":1,"death":2.34,"deathType":2,"pathTex":"PathTextures\\4x4SimpleSolid.tga","points":420,"prio":2,"propWin":60.0,"race":"orc","targType":"ground,organic"}
+    },
+    "units_unitabilities.json:n023": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 5910,
+      "fields": {"unitAbilID":"n023","abilList":"Avul,N129,T035,T033","auto":"_"}
+    },
+    "units_unitweapons.json:n023": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 30422,
+      "fields": {"unitWeapID":"n023","acquire":900.0,"atkType1":"pierce","atkType2":"normal","backSw1":0.3,"castbsw":0.51,"cool1":0.6,"dice1":1,"dmgplus1":15,"dmgpt1":0.3,"impactZ":120.0,"launchZ":135.0,"rangeN1":800,"RngBuff1":250.0,"showUI1":1,"showUI2":1,"sides1":3,"targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,air,item,ward","weapTp1":"missile"}
+    },
+    "units_unitbalance.json:n023": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 34083,
+      "fields": {"unitBalanceID":"n023","bldtm":1,"collision":72.0,"def":3.0,"defType":"large","defUp":1.0,"fused":5,"goldcost":620,"HP":500,"isbldg":1,"level":3,"nsight":800,"preventPlace":"unbuildable","Primary":"_","regenType":"none","reptm":2,"requirePlace":"_","sight":1600,"tilesets":"*","type":"Mechanical"}
+    },
+    "units_unitdata.json:n023": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 17542,
+      "fields": {"unitID":"n023","buffRadius":15.0,"buffType":"buffer","canFlee":1,"death":2.34,"deathType":2,"pathTex":"PathTextures\\4x4SimpleSolid.tga","points":1040,"prio":2,"propWin":60.0,"race":"orc","targType":"ground,organic"}
+    },
+    "units_unitabilities.json:n024": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 5915,
+      "fields": {"unitAbilID":"n024","abilList":"Avul,N130,T035,T033","auto":"_"}
+    },
+    "units_unitweapons.json:n024": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 30445,
+      "fields": {"unitWeapID":"n024","acquire":900.0,"atkType1":"pierce","atkType2":"normal","backSw1":0.3,"castbsw":0.51,"cool1":0.6,"dice1":1,"dmgplus1":15,"dmgpt1":0.3,"impactZ":120.0,"launchZ":135.0,"rangeN1":800,"RngBuff1":250.0,"showUI1":1,"showUI2":1,"sides1":3,"targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,air,item,ward","weapTp1":"missile"}
+    },
+    "units_unitbalance.json:n024": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 34105,
+      "fields": {"unitBalanceID":"n024","bldtm":1,"collision":72.0,"def":3.0,"defType":"large","defUp":1.0,"fused":5,"goldcost":1050,"HP":500,"isbldg":1,"level":4,"nsight":800,"preventPlace":"unbuildable","Primary":"_","regenType":"none","reptm":2,"requirePlace":"_","sight":1600,"tilesets":"*","type":"Mechanical"}
+    },
+    "units_unitdata.json:n024": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 17556,
+      "fields": {"unitID":"n024","buffRadius":15.0,"buffType":"buffer","canFlee":1,"death":2.34,"deathType":2,"pathTex":"PathTextures\\4x4SimpleSolid.tga","points":2090,"prio":2,"propWin":60.0,"race":"orc","targType":"ground,organic"}
+    },
+    "units_unitabilities.json:n025": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 5920,
+      "fields": {"unitAbilID":"n025","abilList":"Avul,N131,T035,T033","auto":"_"}
+    },
+    "units_unitweapons.json:n025": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 30468,
+      "fields": {"unitWeapID":"n025","acquire":900.0,"atkType1":"pierce","atkType2":"normal","backSw1":0.3,"castbsw":0.51,"cool1":0.6,"dice1":1,"dmgplus1":15,"dmgpt1":0.3,"impactZ":120.0,"launchZ":135.0,"rangeN1":800,"RngBuff1":250.0,"showUI1":1,"showUI2":1,"sides1":3,"targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,air,item,ward","weapTp1":"missile"}
+    },
+    "units_unitbalance.json:n025": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 34127,
+      "fields": {"unitBalanceID":"n025","bldtm":1,"collision":72.0,"def":3.0,"defType":"large","defUp":1.0,"fused":5,"goldcost":1550,"HP":500,"isbldg":1,"level":5,"nsight":800,"preventPlace":"unbuildable","Primary":"_","regenType":"none","reptm":2,"requirePlace":"_","sight":1600,"tilesets":"*","type":"Mechanical"}
+    },
+    "units_unitdata.json:n025": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 17570,
+      "fields": {"unitID":"n025","buffRadius":15.0,"buffType":"buffer","canFlee":1,"death":2.34,"deathType":2,"pathTex":"PathTextures\\4x4SimpleSolid.tga","points":2590,"prio":2,"propWin":60.0,"race":"orc","targType":"ground,organic"}
+    },
+    "units_unitabilities.json:n214": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 6290,
+      "fields": {"unitAbilID":"n214","abilList":"Avul,T033,N089","auto":"Ablo"}
+    },
+    "units_unitweapons.json:n214": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 32783,
+      "fields": {"unitWeapID":"n214","acquire":2000.0,"atkType1":"normal","atkType2":"normal","backSw1":0.3,"castbsw":0.51,"castpt":0.56,"cool1":1.2,"dice1":2,"dmgplus1":42,"dmgpt1":0.3,"impactZ":100.0,"launchZ":60.0,"rangeN1":800,"RngBuff1":3500.0,"showUI1":1,"showUI2":1,"sides1":6,"targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,item,ward","weapsOn":1,"weapTp1":"normal","weapType1":"WoodMediumBash"}
+    },
+    "units_unitbalance.json:n214": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 36135,
+      "fields": {"unitBalanceID":"n214","bldtm":1,"bountydice":3,"bountyplus":17,"bountysides":3,"collision":72.0,"def":1.0,"defType":"large","defUp":2.0,"fused":5,"HP":860,"level":1,"mana0":400,"manaN":200,"nsight":800,"preventPlace":"_","Primary":"_","regenHP":0.5,"regenMana":1.0,"regenType":"always","reptm":2,"requirePlace":"_","sight":1400,"stockMax":1,"stockRegen":260,"stockStart":440,"tilesets":"L,F,W"}
+    },
+    "units_unitdata.json:n214": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 18740,
+      "fields": {"unitID":"n214","canFlee":1,"canSleep":1,"cargoSize":1,"death":3.0,"deathType":3,"movetp":"foot","orientInterp":1,"prio":5,"propWin":60.0,"race":"creeps","targType":"ground","turnRate":0.5}
+    },
+    "units_unitabilities.json:n215": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 6295,
+      "fields": {"unitAbilID":"n215","abilList":"Avul,T033,N090","auto":"Ablo"}
+    },
+    "units_unitweapons.json:n215": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 32809,
+      "fields": {"unitWeapID":"n215","acquire":2000.0,"atkType1":"normal","atkType2":"normal","backSw1":0.3,"castbsw":0.51,"castpt":0.56,"cool1":1.2,"dice1":2,"dmgplus1":73,"dmgpt1":0.3,"impactZ":100.0,"launchZ":60.0,"rangeN1":800,"RngBuff1":3500.0,"showUI1":1,"showUI2":1,"sides1":6,"targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,item,ward","weapsOn":1,"weapTp1":"normal","weapType1":"WoodMediumBash"}
+    },
+    "units_unitbalance.json:n215": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 36164,
+      "fields": {"unitBalanceID":"n215","bldtm":1,"bountydice":3,"bountyplus":17,"bountysides":3,"collision":72.0,"def":1.0,"defType":"large","defUp":2.0,"fused":5,"goldcost":720,"HP":1260,"level":2,"mana0":400,"manaN":250,"nsight":800,"preventPlace":"_","Primary":"_","regenHP":0.5,"regenMana":1.0,"regenType":"always","reptm":2,"requirePlace":"_","sight":1400,"stockMax":1,"stockRegen":260,"stockStart":440,"tilesets":"L,F,W"}
+    },
+    "units_unitdata.json:n215": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 18755,
+      "fields": {"unitID":"n215","canFlee":1,"canSleep":1,"cargoSize":1,"death":3.0,"deathType":3,"movetp":"foot","orientInterp":1,"points":720,"prio":5,"propWin":60.0,"race":"creeps","targType":"ground","turnRate":0.5}
+    },
+    "units_unitabilities.json:n216": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 6300,
+      "fields": {"unitAbilID":"n216","abilList":"Avul,T033,N091","auto":"Ablo"}
+    },
+    "units_unitweapons.json:n216": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 32835,
+      "fields": {"unitWeapID":"n216","acquire":2000.0,"atkType1":"normal","atkType2":"normal","backSw1":0.3,"castbsw":0.51,"castpt":0.56,"cool1":1.2,"dice1":2,"dmgplus1":112,"dmgpt1":0.3,"impactZ":100.0,"launchZ":60.0,"rangeN1":800,"RngBuff1":3500.0,"showUI1":1,"showUI2":1,"sides1":6,"targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,item,ward","weapsOn":1,"weapTp1":"normal","weapType1":"WoodMediumBash"}
+    },
+    "units_unitbalance.json:n216": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 36194,
+      "fields": {"unitBalanceID":"n216","bldtm":1,"bountydice":3,"bountyplus":17,"bountysides":3,"collision":72.0,"def":1.0,"defType":"large","defUp":2.0,"fused":5,"goldcost":820,"HP":1720,"level":3,"mana0":400,"manaN":300,"nsight":800,"preventPlace":"_","Primary":"_","regenHP":0.5,"regenMana":1.0,"regenType":"always","reptm":2,"requirePlace":"_","sight":1400,"stockMax":1,"stockRegen":260,"stockStart":440,"tilesets":"L,F,W"}
+    },
+    "units_unitdata.json:n216": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 18771,
+      "fields": {"unitID":"n216","canFlee":1,"canSleep":1,"cargoSize":1,"death":3.0,"deathType":3,"movetp":"foot","orientInterp":1,"points":1540,"prio":5,"propWin":60.0,"race":"creeps","targType":"ground","turnRate":0.5}
+    },
+    "units_unitabilities.json:n217": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 6305,
+      "fields": {"unitAbilID":"n217","abilList":"Avul,T033,N092","auto":"Ablo"}
+    },
+    "units_unitweapons.json:n217": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 32861,
+      "fields": {"unitWeapID":"n217","acquire":2000.0,"atkType1":"normal","atkType2":"normal","backSw1":0.3,"castbsw":0.51,"castpt":0.56,"cool1":1.0,"dice1":2,"dmgplus1":152,"dmgpt1":0.3,"impactZ":100.0,"launchZ":60.0,"rangeN1":800,"RngBuff1":3500.0,"showUI1":1,"showUI2":1,"sides1":6,"targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,item,ward","weapsOn":1,"weapTp1":"normal","weapType1":"WoodMediumBash"}
+    },
+    "units_unitbalance.json:n217": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 36224,
+      "fields": {"unitBalanceID":"n217","bldtm":1,"bountydice":3,"bountyplus":17,"bountysides":3,"collision":72.0,"def":1.0,"defType":"large","defUp":2.0,"fused":5,"goldcost":940,"HP":2240,"level":4,"mana0":400,"manaN":350,"nsight":800,"preventPlace":"_","Primary":"_","regenHP":0.5,"regenMana":1.0,"regenType":"always","reptm":2,"requirePlace":"_","sight":1400,"stockMax":1,"stockRegen":260,"stockStart":440,"tilesets":"L,F,W"}
+    },
+    "units_unitdata.json:n217": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 18787,
+      "fields": {"unitID":"n217","canFlee":1,"canSleep":1,"cargoSize":1,"death":3.0,"deathType":3,"movetp":"foot","orientInterp":1,"points":2480,"prio":5,"propWin":60.0,"race":"creeps","targType":"ground","turnRate":0.5}
+    },
+    "units_unitabilities.json:n219": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 6315,
+      "fields": {"unitAbilID":"n219","abilList":"Avul,T033,N093","auto":"_"}
+    },
+    "units_unitweapons.json:n219": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 32913,
+      "fields": {"unitWeapID":"n219","acquire":2000.0,"atkType1":"pierce","atkType2":"normal","backSw1":0.3,"castbsw":0.51,"castpt":0.5,"cool1":1.2,"dice1":2,"dmgplus1":56,"dmgpt1":0.4,"impactZ":60.0,"launchX":-20.0,"launchZ":40.0,"rangeN1":1000,"RngBuff1":3500.0,"showUI1":1,"showUI2":1,"sides1":3,"targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,air,item,ward","weapsOn":1,"weapTp1":"missile"}
+    },
+    "units_unitbalance.json:n219": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 36280,
+      "fields": {"unitBalanceID":"n219","bldtm":1,"bountydice":1,"bountyplus":7,"bountysides":3,"collision":72.0,"def":1.0,"defType":"medium","defUp":2.0,"fused":5,"goldcost":420,"HP":520,"level":2,"nsight":800,"preventPlace":"_","Primary":"_","regenHP":0.5,"regenType":"always","reptm":2,"requirePlace":"_","sight":1400,"stockMax":1,"stockRegen":160,"stockStart":440,"tilesets":"L,F,W"}
+    },
+    "units_unitdata.json:n219": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 18818,
+      "fields": {"unitID":"n219","canFlee":1,"canSleep":1,"cargoSize":1,"death":3.0,"deathType":3,"formation":2,"movetp":"foot","points":420,"prio":1,"propWin":60.0,"race":"creeps","targType":"ground","turnRate":0.5}
+    },
+    "units_unitabilities.json:n220": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 6320,
+      "fields": {"unitAbilID":"n220","abilList":"Avul,T033,N095,N135","auto":"_"}
+    },
+    "units_unitweapons.json:n220": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 32939,
+      "fields": {"unitWeapID":"n220","acquire":2000.0,"atkType1":"pierce","atkType2":"normal","backSw1":0.3,"castbsw":0.51,"castpt":0.5,"cool1":1.1,"dice1":2,"dmgplus1":134,"dmgpt1":0.4,"impactZ":60.0,"launchX":-20.0,"launchZ":40.0,"rangeN1":1000,"RngBuff1":3500.0,"showUI1":1,"showUI2":1,"sides1":3,"targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,air,item,ward","weapsOn":1,"weapTp1":"missile"}
+    },
+    "units_unitbalance.json:n220": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 36307,
+      "fields": {"unitBalanceID":"n220","bldtm":1,"bountydice":1,"bountyplus":7,"bountysides":3,"collision":72.0,"def":1.0,"defType":"medium","defUp":2.0,"fused":5,"goldcost":500,"HP":1000,"level":4,"nsight":800,"preventPlace":"_","Primary":"_","regenHP":0.5,"regenType":"always","reptm":2,"requirePlace":"_","sight":1400,"stockMax":1,"stockRegen":160,"stockStart":440,"tilesets":"L,F,W"}
+    },
+    "units_unitdata.json:n220": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 18834,
+      "fields": {"unitID":"n220","canFlee":1,"canSleep":1,"cargoSize":1,"death":3.0,"deathType":3,"formation":2,"movetp":"foot","points":1370,"prio":1,"propWin":60.0,"race":"creeps","targType":"ground","turnRate":0.5}
+    },
+    "units_unitabilities.json:n240": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 6420,
+      "fields": {"unitAbilID":"n240","abilList":"Avul,T033,N105,T041","auto":"_"}
+    },
+    "units_unitweapons.json:n240": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 33480,
+      "fields": {"unitWeapID":"n240","acquire":2000.0,"atkType1":"normal","atkType2":"normal","backSw1":0.64,"castbsw":0.51,"castpt":0.3,"cool1":1.2,"dice1":2,"dmgplus1":52,"dmgpt1":0.33,"impactZ":60.0,"launchZ":60.0,"rangeN1":800,"RngBuff1":3500.0,"showUI1":1,"showUI2":1,"sides1":4,"targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,item,ward","weapsOn":1,"weapTp1":"normal","weapType1":"WoodMediumBash"}
+    },
+    "units_unitbalance.json:n240": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 36824,
+      "fields": {"unitBalanceID":"n240","bldtm":1,"bountydice":6,"bountyplus":20,"bountysides":3,"collision":72.0,"def":2.0,"defType":"large","defUp":2.0,"fused":5,"HP":240,"level":1,"nsight":800,"preventPlace":"_","Primary":"_","regenHP":2.0,"regenType":"blight","reptm":2,"requirePlace":"_","sight":1200,"stockMax":3,"stockRegen":30,"tilesets":"*"}
+    },
+    "units_unitdata.json:n240": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 19113,
+      "fields": {"unitID":"n240","canFlee":1,"cargoSize":1,"death":3.03,"movetp":"foot","orientInterp":4,"prio":1,"propWin":60.0,"race":"undead","targType":"ground","turnRate":0.6}
+    },
+    "units_unitabilities.json:n241": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 6425,
+      "fields": {"unitAbilID":"n241","abilList":"Avul,T033,N106,T042","auto":"_"}
+    },
+    "units_unitweapons.json:n241": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 33506,
+      "fields": {"unitWeapID":"n241","acquire":2000.0,"atkType1":"normal","atkType2":"normal","backSw1":0.64,"castbsw":0.51,"castpt":0.3,"cool1":1.1,"dice1":2,"dmgplus1":104,"dmgpt1":0.33,"impactZ":60.0,"launchZ":60.0,"rangeN1":800,"RngBuff1":3500.0,"showUI1":1,"showUI2":1,"sides1":4,"targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,item,ward","weapsOn":1,"weapTp1":"normal","weapType1":"WoodMediumBash"}
+    },
+    "units_unitbalance.json:n241": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 36849,
+      "fields": {"unitBalanceID":"n241","bldtm":1,"bountydice":6,"bountyplus":20,"bountysides":3,"collision":72.0,"def":2.0,"defType":"large","defUp":2.0,"fused":5,"goldcost":620,"HP":520,"level":2,"nsight":800,"preventPlace":"_","Primary":"_","regenHP":2.0,"regenType":"blight","reptm":2,"requirePlace":"_","sight":1200,"stockMax":3,"stockRegen":30,"tilesets":"*"}
+    },
+    "units_unitdata.json:n241": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 19126,
+      "fields": {"unitID":"n241","canFlee":1,"cargoSize":1,"death":3.03,"movetp":"foot","orientInterp":4,"points":620,"prio":1,"propWin":60.0,"race":"undead","targType":"ground","turnRate":0.6}
+    },
+    "units_unitabilities.json:n242": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 6430,
+      "fields": {"unitAbilID":"n242","abilList":"Avul,T033,N107,T043","auto":"_"}
+    },
+    "units_unitweapons.json:n242": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 33532,
+      "fields": {"unitWeapID":"n242","acquire":2000.0,"atkType1":"normal","atkType2":"normal","backSw1":0.64,"castbsw":0.51,"castpt":0.3,"cool1":1.0,"dice1":2,"dmgplus1":154,"dmgpt1":0.33,"impactZ":60.0,"launchZ":60.0,"rangeN1":800,"RngBuff1":3500.0,"showUI1":1,"showUI2":1,"sides1":6,"targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,item,ward","weapsOn":1,"weapTp1":"normal","weapType1":"WoodMediumBash"}
+    },
+    "units_unitbalance.json:n242": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 36875,
+      "fields": {"unitBalanceID":"n242","bldtm":1,"bountydice":6,"bountyplus":20,"bountysides":3,"collision":72.0,"def":2.0,"defType":"large","defUp":2.0,"fused":5,"goldcost":920,"HP":740,"level":3,"nsight":800,"preventPlace":"_","Primary":"_","regenHP":2.0,"regenType":"blight","reptm":2,"requirePlace":"_","sight":1200,"stockMax":3,"stockRegen":30,"tilesets":"*"}
+    },
+    "units_unitdata.json:n242": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 19140,
+      "fields": {"unitID":"n242","canFlee":1,"cargoSize":1,"death":3.03,"movetp":"foot","orientInterp":4,"points":1540,"prio":1,"propWin":60.0,"race":"undead","targType":"ground","turnRate":0.6}
+    }
+  },
+  "unitObjectDeltas": [
+    {
+      "old": "n006",
+      "new": "\u0000\u0000\u0000\u0000",
+      "mods": [
+        {
+          "key": "uani",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "upgrade,second"
+        },
+        {
+          "key": "uico",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "ReplaceableTextures\\CommandButtons\\BTNFrostTower.blp"
+        },
+        {
+          "key": "uaap",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "medium"
+        },
+        {
+          "key": "ubsl",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "UndeadBuildingConstructionLoop"
+        },
+        {
+          "key": "ubpx",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 2
+        },
+        {
+          "key": "ubpy",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "uhot",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "N"
+        },
+        {
+          "key": "ulfi",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 512
+        },
+        {
+          "key": "ulfo",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 512
+        },
+        {
+          "key": "uma1",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.0
+        },
+        {
+          "key": "uma2",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.0
+        },
+        {
+          "key": "ua1m",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Abilities\\Weapons\\ZigguratFrostMissile\\ZigguratFrostMissile.mdl"
+        },
+        {
+          "key": "umh1",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 1
+        },
+        {
+          "key": "umh2",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ua1z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 1200
+        },
+        {
+          "key": "ua2z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "unam",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff66CD00霜冻之塔Lv1<N>|r"
+        },
+        {
+          "key": "upro",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff66CD00霜冻之塔Lv1<N>|r"
+        },
+        {
+          "key": "ureq",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": ""
+        },
+        {
+          "key": "urqc",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "urev",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "uspa",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Objects\\Spawnmodels\\Undead\\UCancelDeath\\UCancelDeath.mdl"
+        },
+        {
+          "key": "utip",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "建造|cff66CD00霜冻之塔Lv1<N>|r"
+        },
+        {
+          "key": "utub",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "特点：单体减速。"
+        },
+        {
+          "key": "uupt",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "n007"
+        }
+      ]
+    },
+    {
+      "old": "n007",
+      "new": "\u0000\u0000\u0000\u0000",
+      "mods": [
+        {
+          "key": "uani",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "upgrade,second"
+        },
+        {
+          "key": "uico",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "ReplaceableTextures\\CommandButtons\\BTNFrostTower.blp"
+        },
+        {
+          "key": "uaap",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "medium"
+        },
+        {
+          "key": "ubsl",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "UndeadBuildingConstructionLoop"
+        },
+        {
+          "key": "ubpx",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ubpy",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 1
+        },
+        {
+          "key": "uhot",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "N"
+        },
+        {
+          "key": "ulfi",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 512
+        },
+        {
+          "key": "ulfo",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 512
+        },
+        {
+          "key": "uma1",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.0
+        },
+        {
+          "key": "uma2",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.0
+        },
+        {
+          "key": "ua1m",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Abilities\\Weapons\\ZigguratFrostMissile\\ZigguratFrostMissile.mdl"
+        },
+        {
+          "key": "umh1",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 1
+        },
+        {
+          "key": "umh2",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ua1z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 1200
+        },
+        {
+          "key": "ua2z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "unam",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff66CD00霜冻之塔Lv2<N>|r"
+        },
+        {
+          "key": "upro",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff66CD00霜冻之塔Lv2<N>|r"
+        },
+        {
+          "key": "urqc",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "urev",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "uspa",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Objects\\Spawnmodels\\Undead\\UCancelDeath\\UCancelDeath.mdl"
+        },
+        {
+          "key": "utip",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "建造|cff66CD00霜冻之塔Lv2<N>|r"
+        },
+        {
+          "key": "utub",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "特点：单体减速。"
+        },
+        {
+          "key": "uupt",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "n008"
+        }
+      ]
+    },
+    {
+      "old": "n008",
+      "new": "\u0000\u0000\u0000\u0000",
+      "mods": [
+        {
+          "key": "uani",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "upgrade,second"
+        },
+        {
+          "key": "uico",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "ReplaceableTextures\\CommandButtons\\BTNFrostTower.blp"
+        },
+        {
+          "key": "uaap",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "medium"
+        },
+        {
+          "key": "ubsl",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "UndeadBuildingConstructionLoop"
+        },
+        {
+          "key": "ubpx",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ubpy",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 1
+        },
+        {
+          "key": "uhot",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "N"
+        },
+        {
+          "key": "ulfi",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 512
+        },
+        {
+          "key": "ulfo",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 512
+        },
+        {
+          "key": "uma1",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.0
+        },
+        {
+          "key": "uma2",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.0
+        },
+        {
+          "key": "ua1m",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Abilities\\Weapons\\ZigguratFrostMissile\\ZigguratFrostMissile.mdl"
+        },
+        {
+          "key": "umh1",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 1
+        },
+        {
+          "key": "umh2",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ua1z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 1200
+        },
+        {
+          "key": "ua2z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "unam",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff66CD00霜冻之塔Lv3<N>|r"
+        },
+        {
+          "key": "upro",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff66CD00霜冻之塔Lv3<N>|r"
+        },
+        {
+          "key": "urqc",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "urev",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "uspa",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Objects\\Spawnmodels\\Undead\\UCancelDeath\\UCancelDeath.mdl"
+        },
+        {
+          "key": "utip",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "建造|cff66CD00霜冻之塔Lv3<N>|r"
+        },
+        {
+          "key": "utub",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "特点：单体减速。"
+        },
+        {
+          "key": "uupt",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "n009"
+        }
+      ]
+    },
+    {
+      "old": "n009",
+      "new": "\u0000\u0000\u0000\u0000",
+      "mods": [
+        {
+          "key": "uani",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "upgrade,second"
+        },
+        {
+          "key": "uico",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "ReplaceableTextures\\CommandButtons\\BTNFrostTower.blp"
+        },
+        {
+          "key": "uaap",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "medium"
+        },
+        {
+          "key": "ubsl",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "UndeadBuildingConstructionLoop"
+        },
+        {
+          "key": "ubpx",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ubpy",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 1
+        },
+        {
+          "key": "uhot",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "N"
+        },
+        {
+          "key": "ulfi",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 512
+        },
+        {
+          "key": "ulfo",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 512
+        },
+        {
+          "key": "uma1",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.0
+        },
+        {
+          "key": "uma2",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.0
+        },
+        {
+          "key": "ua1m",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Abilities\\Weapons\\ZigguratFrostMissile\\ZigguratFrostMissile.mdl"
+        },
+        {
+          "key": "umh1",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 1
+        },
+        {
+          "key": "umh2",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ua1z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 1200
+        },
+        {
+          "key": "ua2z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "unam",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff66CD00霜冻之塔Lv4<N>|r"
+        },
+        {
+          "key": "upro",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff66CD00霜冻之塔Lv4<N>|r"
+        },
+        {
+          "key": "urqc",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "urev",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "uspa",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Objects\\Spawnmodels\\Undead\\UCancelDeath\\UCancelDeath.mdl"
+        },
+        {
+          "key": "utip",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "建造|cff66CD00霜冻之塔Lv4<N>|r"
+        },
+        {
+          "key": "utub",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "特点：单体减速。"
+        },
+        {
+          "key": "uupt",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "n010"
+        }
+      ]
+    },
+    {
+      "old": "n010",
+      "new": "\u0000\u0000\u0000\u0000",
+      "mods": [
+        {
+          "key": "uani",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "upgrade,second"
+        },
+        {
+          "key": "uico",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "ReplaceableTextures\\CommandButtons\\BTNFrostTower.blp"
+        },
+        {
+          "key": "uaap",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "medium"
+        },
+        {
+          "key": "ubsl",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "UndeadBuildingConstructionLoop"
+        },
+        {
+          "key": "ubpx",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ubpy",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 1
+        },
+        {
+          "key": "uhot",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "N"
+        },
+        {
+          "key": "ulfi",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 512
+        },
+        {
+          "key": "ulfo",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 512
+        },
+        {
+          "key": "uma1",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.0
+        },
+        {
+          "key": "uma2",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.0
+        },
+        {
+          "key": "ua1m",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Abilities\\Weapons\\ZigguratFrostMissile\\ZigguratFrostMissile.mdl"
+        },
+        {
+          "key": "umh1",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 1
+        },
+        {
+          "key": "umh2",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ua1z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 1200
+        },
+        {
+          "key": "ua2z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "unam",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff66CD00霜冻之塔Max<N>|r"
+        },
+        {
+          "key": "upro",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff66CD00霜冻之塔Max<N>|r"
+        },
+        {
+          "key": "urqc",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "urev",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "uspa",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Objects\\Spawnmodels\\Undead\\UCancelDeath\\UCancelDeath.mdl"
+        },
+        {
+          "key": "utip",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "建造|cff66CD00霜冻之塔Max<N>|r"
+        },
+        {
+          "key": "utub",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "特点：单体减速。"
+        },
+        {
+          "key": "uupt",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "old": "n021",
+      "new": "\u0000\u0000\u0000\u0000",
+      "mods": [
+        {
+          "key": "uico",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "ReplaceableTextures\\CommandButtons\\BTNOrcTower.blp"
+        },
+        {
+          "key": "uaap",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Alternate"
+        },
+        {
+          "key": "ubsl",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "OrcBuildingConstructionLoop"
+        },
+        {
+          "key": "ubpx",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ubpy",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "uhot",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "W"
+        },
+        {
+          "key": "ulfi",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 512
+        },
+        {
+          "key": "ulfo",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 512
+        },
+        {
+          "key": "uma1",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.15000000596046448
+        },
+        {
+          "key": "uma2",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.0
+        },
+        {
+          "key": "ua1m",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Abilities\\Weapons\\GuardTowerMissile\\GuardTowerMissile.mdl"
+        },
+        {
+          "key": "umh1",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "umh2",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ua1z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 1800
+        },
+        {
+          "key": "ua2z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "unam",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff66CD00献祭塔Lv1<N>|r"
+        },
+        {
+          "key": "upro",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff66CD00献祭塔Lv1<N>|r"
+        },
+        {
+          "key": "ureq",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": ""
+        },
+        {
+          "key": "urqc",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "urev",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "uspa",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Objects\\Spawnmodels\\Human\\HCancelDeath\\HCancelDeath.mdl"
+        },
+        {
+          "key": "utip",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "建造|cff66CD00献祭塔Lv1<N>|r"
+        },
+        {
+          "key": "utub",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "特点：法术伤害，无攻击力。"
+        },
+        {
+          "key": "uupt",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "n022"
+        }
+      ]
+    },
+    {
+      "old": "n022",
+      "new": "\u0000\u0000\u0000\u0000",
+      "mods": [
+        {
+          "key": "uico",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "ReplaceableTextures\\CommandButtons\\BTNOrcTower.blp"
+        },
+        {
+          "key": "uaap",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Alternate"
+        },
+        {
+          "key": "ubsl",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "OrcBuildingConstructionLoop"
+        },
+        {
+          "key": "ubpx",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ubpy",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 1
+        },
+        {
+          "key": "uhot",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "W"
+        },
+        {
+          "key": "ulfi",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 512
+        },
+        {
+          "key": "ulfo",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 512
+        },
+        {
+          "key": "uma1",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.15000000596046448
+        },
+        {
+          "key": "uma2",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.0
+        },
+        {
+          "key": "ua1m",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Abilities\\Weapons\\GuardTowerMissile\\GuardTowerMissile.mdl"
+        },
+        {
+          "key": "umh1",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "umh2",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ua1z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 1800
+        },
+        {
+          "key": "ua2z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "unam",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff66CD00献祭塔Lv2<N>|r"
+        },
+        {
+          "key": "upro",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff66CD00献祭塔Lv2<N>|r"
+        },
+        {
+          "key": "ureq",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": ""
+        },
+        {
+          "key": "urqc",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "urev",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "uspa",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Objects\\Spawnmodels\\Human\\HCancelDeath\\HCancelDeath.mdl"
+        },
+        {
+          "key": "utip",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "建造|cff66CD00献祭塔Lv2<N>|r"
+        },
+        {
+          "key": "utub",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "特点：法术伤害，无攻击力。"
+        },
+        {
+          "key": "uupt",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "n023"
+        }
+      ]
+    },
+    {
+      "old": "n023",
+      "new": "\u0000\u0000\u0000\u0000",
+      "mods": [
+        {
+          "key": "uico",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "ReplaceableTextures\\CommandButtons\\BTNOrcTower.blp"
+        },
+        {
+          "key": "uaap",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Alternate"
+        },
+        {
+          "key": "ubsl",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "OrcBuildingConstructionLoop"
+        },
+        {
+          "key": "ubpx",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ubpy",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 1
+        },
+        {
+          "key": "uhot",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "W"
+        },
+        {
+          "key": "ulfi",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 512
+        },
+        {
+          "key": "ulfo",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 512
+        },
+        {
+          "key": "uma1",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.15000000596046448
+        },
+        {
+          "key": "uma2",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.0
+        },
+        {
+          "key": "ua1m",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Abilities\\Weapons\\GuardTowerMissile\\GuardTowerMissile.mdl"
+        },
+        {
+          "key": "umh1",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "umh2",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ua1z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 1800
+        },
+        {
+          "key": "ua2z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "unam",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff66CD00献祭塔Lv3<N>|r"
+        },
+        {
+          "key": "upro",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff66CD00献祭塔Lv3<N>|r"
+        },
+        {
+          "key": "ureq",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": ""
+        },
+        {
+          "key": "urqc",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "urev",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "uspa",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Objects\\Spawnmodels\\Human\\HCancelDeath\\HCancelDeath.mdl"
+        },
+        {
+          "key": "utip",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "建造|cff66CD00献祭塔Lv3<N>|r"
+        },
+        {
+          "key": "utub",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "特点：法术伤害，无攻击力。"
+        },
+        {
+          "key": "uupt",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "n024"
+        }
+      ]
+    },
+    {
+      "old": "n024",
+      "new": "\u0000\u0000\u0000\u0000",
+      "mods": [
+        {
+          "key": "uico",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "ReplaceableTextures\\CommandButtons\\BTNOrcTower.blp"
+        },
+        {
+          "key": "uaap",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Alternate"
+        },
+        {
+          "key": "ubsl",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "OrcBuildingConstructionLoop"
+        },
+        {
+          "key": "ubpx",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ubpy",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 1
+        },
+        {
+          "key": "uhot",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "W"
+        },
+        {
+          "key": "ulfi",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 512
+        },
+        {
+          "key": "ulfo",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 512
+        },
+        {
+          "key": "uma1",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.15000000596046448
+        },
+        {
+          "key": "uma2",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.0
+        },
+        {
+          "key": "ua1m",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Abilities\\Weapons\\GuardTowerMissile\\GuardTowerMissile.mdl"
+        },
+        {
+          "key": "umh1",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "umh2",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ua1z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 1800
+        },
+        {
+          "key": "ua2z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "unam",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff66CD00献祭塔Lv4<N>|r"
+        },
+        {
+          "key": "upro",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff66CD00献祭塔Lv4<N>|r"
+        },
+        {
+          "key": "ureq",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": ""
+        },
+        {
+          "key": "urqc",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "urev",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "uspa",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Objects\\Spawnmodels\\Human\\HCancelDeath\\HCancelDeath.mdl"
+        },
+        {
+          "key": "utip",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "建造|cff66CD00献祭塔Lv4<N>|r"
+        },
+        {
+          "key": "utub",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "特点：法术伤害，无攻击力。"
+        },
+        {
+          "key": "uupt",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "n025"
+        }
+      ]
+    },
+    {
+      "old": "n025",
+      "new": "\u0000\u0000\u0000\u0000",
+      "mods": [
+        {
+          "key": "uico",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "ReplaceableTextures\\CommandButtons\\BTNOrcTower.blp"
+        },
+        {
+          "key": "uaap",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Alternate"
+        },
+        {
+          "key": "ubsl",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "OrcBuildingConstructionLoop"
+        },
+        {
+          "key": "ubpx",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ubpy",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 1
+        },
+        {
+          "key": "uhot",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "W"
+        },
+        {
+          "key": "ulfi",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 512
+        },
+        {
+          "key": "ulfo",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 512
+        },
+        {
+          "key": "uma1",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.15000000596046448
+        },
+        {
+          "key": "uma2",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.0
+        },
+        {
+          "key": "ua1m",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Abilities\\Weapons\\GuardTowerMissile\\GuardTowerMissile.mdl"
+        },
+        {
+          "key": "umh1",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "umh2",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ua1z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 1800
+        },
+        {
+          "key": "ua2z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "unam",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff66CD00献祭塔Max<N>|r"
+        },
+        {
+          "key": "upro",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff66CD00献祭塔Max<N>|r"
+        },
+        {
+          "key": "ureq",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": ""
+        },
+        {
+          "key": "urqc",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "urev",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "uspa",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Objects\\Spawnmodels\\Human\\HCancelDeath\\HCancelDeath.mdl"
+        },
+        {
+          "key": "utip",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "建造|cff66CD00献祭塔Max<N>|r"
+        },
+        {
+          "key": "utub",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "特点：法术伤害，无攻击力。"
+        },
+        {
+          "key": "uupt",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": ""
+        }
+      ]
+    }
+  ],
+  "unitProfiles": {
+    "n006": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": null,
+      "fields": {},
+      "profileAbsent": true
+    },
+    "n007": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": null,
+      "fields": {},
+      "profileAbsent": true
+    },
+    "n008": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": null,
+      "fields": {},
+      "profileAbsent": true
+    },
+    "n009": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": null,
+      "fields": {},
+      "profileAbsent": true
+    },
+    "n010": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": null,
+      "fields": {},
+      "profileAbsent": true
+    },
+    "n021": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": null,
+      "fields": {},
+      "profileAbsent": true
+    },
+    "n022": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": null,
+      "fields": {},
+      "profileAbsent": true
+    },
+    "n023": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": null,
+      "fields": {},
+      "profileAbsent": true
+    },
+    "n024": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": null,
+      "fields": {},
+      "profileAbsent": true
+    },
+    "n025": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": null,
+      "fields": {},
+      "profileAbsent": true
+    },
+    "n214": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": [
+        6860,
+        6871
+      ],
+      "fields": {"Art":"ReplaceableTextures\\CommandButtons\\BTNOgreMagi.blp","Attachmentanimprops":"medium","Hotkey":"G","Missilespeed":"1500,1500","Name":"|cff66CD00食人魔Lv1<N>|r","Propernames":"|cff66CD00食人魔Lv1<N>|r","Specialart":"Objects\\Spawnmodels\\Orc\\OrcLargeDeathExplode\\OrcLargeDeathExplode.mdl","Tip":"召唤|cff66CD00食人魔Lv1<N>|r","Ubertip":",","Upgrade":"n215"}
+    },
+    "n215": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": [
+        6872,
+        6884
+      ],
+      "fields": {"Art":"ReplaceableTextures\\CommandButtons\\BTNOgreMagi.blp","Attachmentanimprops":"medium","Buttonpos":",1","Hotkey":"G","Missilespeed":"1500,1500","Name":"|cff66CD00食人魔Lv2<N>|r","Propernames":"|cff66CD00食人魔Lv2<N>|r","Specialart":"Objects\\Spawnmodels\\Orc\\OrcLargeDeathExplode\\OrcLargeDeathExplode.mdl","Tip":"升级为|cff66CD00食人魔Lv2<N>|r","Ubertip":",","Upgrade":"n216"}
+    },
+    "n216": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": [
+        6885,
+        6897
+      ],
+      "fields": {"Art":"ReplaceableTextures\\CommandButtons\\BTNOgreMagi.blp","Attachmentanimprops":"medium","Buttonpos":",1","Hotkey":"G","Missilespeed":"1500,1500","Name":"|cff66CD00食人魔Lv3<N>|r","Propernames":"|cff66CD00食人魔Lv3<N>|r","Specialart":"Objects\\Spawnmodels\\Orc\\OrcLargeDeathExplode\\OrcLargeDeathExplode.mdl","Tip":"升级为|cff66CD00食人魔Lv3<N>|r","Ubertip":",","Upgrade":"n217"}
+    },
+    "n217": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": [
+        6898,
+        6910
+      ],
+      "fields": {"Art":"ReplaceableTextures\\CommandButtons\\BTNOgreMagi.blp","Attachmentanimprops":"medium","Buttonpos":",1","Hotkey":"G","Missilespeed":"1500,1500","Name":"|cff66CD00食人魔Max<N>|r","Propernames":"|cff66CD00食人魔Max<N>|r","Specialart":"Objects\\Spawnmodels\\Orc\\OrcLargeDeathExplode\\OrcLargeDeathExplode.mdl","Tip":"升级为|cff66CD00食人魔Max<N>|r","Ubertip":",","Upgrade":"H018"}
+    },
+    "n219": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": [
+        6924,
+        6937
+      ],
+      "fields": {"Art":"ReplaceableTextures\\CommandButtons\\BTNGnollArcher.blp","Buttonpos":",1","Hotkey":"S","Missilearc":"0.15","Missileart":"Abilities\\Weapons\\PoisonArrow\\PoisonArrowMissile.mdl","Missilespeed":"1500","Name":"|cff66CD00豺狼刺客Lv2<N>|r","Propernames":"|cff66CD00豺狼刺客Lv2<N>|r","Specialart":"Objects\\Spawnmodels\\Orc\\OrcSmallDeathExplode\\OrcSmallDeathExplode.mdl","Tip":"升级为|cff66CD00豺狼刺客Lv2<N>|r","Ubertip":",","Upgrade":"n220"}
+    },
+    "n220": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": [
+        6938,
+        6950
+      ],
+      "fields": {"Art":"ReplaceableTextures\\CommandButtons\\BTNGnollArcher.blp","Buttonpos":",1","Hotkey":"S","Missilearc":"0.15","Missileart":"Abilities\\Weapons\\PoisonArrow\\PoisonArrowMissile.mdl","Missilespeed":"1500","Name":"|cff66CD00豺狼刺客Max<N>|r","Propernames":"|cff66CD00豺狼刺客Max<N>|r","Specialart":"Objects\\Spawnmodels\\Orc\\OrcSmallDeathExplode\\OrcSmallDeathExplode.mdl","Tip":"升级为|cff66CD00豺狼刺客Max<N>|r","Ubertip":","}
+    },
+    "n240": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": [
+        7189,
+        7197
+      ],
+      "fields": {"Art":"ReplaceableTextures\\CommandButtons\\BTNCarrionScarabs.blp","Missilespeed":"1500,1500","Name":"|cff66CD00腐尸甲虫Lv1<N>|r","Propernames":"|cff66CD00腐尸甲虫Lv1<N>|r","Tip":"召唤|cff66CD00腐尸甲虫Lv1<N>|r","Ubertip":",","Upgrade":"n241"}
+    },
+    "n241": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": [
+        7198,
+        7207
+      ],
+      "fields": {"Art":"ReplaceableTextures\\CommandButtons\\BTNCarrionScarabs.blp","Buttonpos":",1","Missilespeed":"1500,1500","Name":"|cff66CD00腐尸甲虫Lv2<N>|r","Propernames":"|cff66CD00腐尸甲虫Lv2<N>|r","Tip":"升级为|cff66CD00腐尸甲虫Lv2<N>|r","Ubertip":",","Upgrade":"n242"}
+    },
+    "n242": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": [
+        7208,
+        7216
+      ],
+      "fields": {"Art":"ReplaceableTextures\\CommandButtons\\BTNCarrionScarabs.blp","Buttonpos":",1","Missilespeed":"1500,1500","Name":"|cff66CD00腐尸甲虫Max<N>|r","Propernames":"|cff66CD00腐尸甲虫Max<N>|r","Tip":"升级为|cff66CD00腐尸甲虫Max<N>|r","Ubertip":","}
+    }
+  },
+  "exactBytecodeReferences": {
+    "N089": [],
+    "N090": [],
+    "N091": [],
+    "N092": [],
+    "N093": [],
+    "N095": [],
+    "N105": [],
+    "N106": [],
+    "N107": [],
+    "N127": [],
+    "N128": [],
+    "N129": [],
+    "N130": [],
+    "N131": [],
+    "N160": [],
+    "N161": [],
+    "N162": [],
+    "N163": [],
+    "N164": [],
+    "T292": [],
+    "T293": [],
+    "T294": [],
+    "T295": [],
+    "T296": [],
+    "N094": [],
+    "T041": [],
+    "T042": [],
+    "T043": [],
+    "coldarrows": [
+      {
+        "function": "main/f291/f8",
+        "line": 167979,
+        "constant": "k11"
+      }
+    ],
+    "bloodluston": [],
+    "bloodlustoff": [
+      {
+        "function": "main/f24/f0",
+        "line": 62553,
+        "constant": "k15"
+      }
+    ]
+  },
+  "bytecode": [
+    {
+      "function": "main/f291/f8",
+      "pcRange": [
+        1,
+        52
+      ],
+      "sourceLines": [
+        168015,
+        168067
+      ],
+      "meaning": "construct/upgrade callback first generichandler then five typeOR and coldarrows",
+      "counts": {
+        "instructions": 52,
+        "conditions": 5,
+        "calls": 14,
+        "returns": 0
+      },
+      "conditions": [
+        {
+          "pc": 15,
+          "line": 168029,
+          "raw": "eq 1 r2 r3",
+          "trueNextPC": 49,
+          "falseNextPC": 17
+        },
+        {
+          "pc": 23,
+          "line": 168037,
+          "raw": "eq 1 r2 r3",
+          "trueNextPC": 49,
+          "falseNextPC": 25
+        },
+        {
+          "pc": 31,
+          "line": 168045,
+          "raw": "eq 1 r2 r3",
+          "trueNextPC": 49,
+          "falseNextPC": 33
+        },
+        {
+          "pc": 39,
+          "line": 168053,
+          "raw": "eq 1 r2 r3",
+          "trueNextPC": 49,
+          "falseNextPC": 41
+        },
+        {
+          "pc": 47,
+          "line": 168061,
+          "raw": "eq 0 r2 r3",
+          "trueNextPC": 49,
+          "falseNextPC": 53
+        }
+      ],
+      "returns": []
+    },
+    {
+      "function": "main/f291/f7",
+      "pcRange": [
+        1,
+        56
+      ],
+      "sourceLines": [
+        167818,
+        167876
+      ],
+      "meaning": "shared registration,userData,T033on,N032remove,hero move type,stop,currentmana=maxmana before frost order",
+      "counts": {
+        "instructions": 56,
+        "conditions": 3,
+        "calls": 14,
+        "returns": 0
+      },
+      "conditions": [
+        {
+          "pc": 15,
+          "line": 167832,
+          "raw": "lt 0 k3 r2",
+          "trueNextPC": 17,
+          "falseNextPC": 21
+        },
+        {
+          "pc": 27,
+          "line": 167845,
+          "raw": "lt 0 k3 r2",
+          "trueNextPC": 29,
+          "falseNextPC": 35
+        },
+        {
+          "pc": 39,
+          "line": 167858,
+          "raw": "test r2 0",
+          "trueNextPC": 41,
+          "falseNextPC": 45
+        }
+      ],
+      "returns": []
+    },
+    {
+      "function": "main/f291/f34",
+      "pcRange": [
+        1,
+        74
+      ],
+      "sourceLines": [
+        179652,
+        179725
+      ],
+      "meaning": "full event registration construct+upgrade finish forplayers0..3 -> anyBuildComplete",
+      "counts": {
+        "instructions": 74,
+        "conditions": 0,
+        "calls": 19,
+        "returns": 1
+      },
+      "conditions": [],
+      "returns": [
+        {
+          "pc": 74,
+          "line": 179725
+        }
+      ]
+    }
+  ],
+  "downstreamCallerBoundaries": [
+    {
+      "function": "main/f291/f7",
+      "pcRange": [
+        57,
+        70
+      ],
+      "sourceLines": [
+        167877,
+        167890
+      ],
+      "meaning": "native HERO or type n208 alone enters random P ability path; ordinary selected carriers skip toPC129 cleanup/130return. Random hero path not audited here."
+    },
+    {
+      "function": "main/f291/f8",
+      "pcRange": [
+        53,
+        250
+      ],
+      "sourceLines": [
+        168069,
+        168277
+      ],
+      "meaning": "aftercoldarrows noearlyreturn: n146-specificqualification, thenPC159–204 all-build ownednative-HERO count and Mall_ActivityTask_Update_Summer callback atcount4; then H032/H033/H022-specific branches; complete build/achievement behavior outside skill audit, not assumed absent"
+    }
+  ],
+  "primarySources": [
+    {
+      "url": "https://classic.battle.net/war3/orc/units/shaman.shtml",
+      "facts": "Bloodlust cast+autocast, organic allies/self, no magical immune/mechanical; custom mask invulnerability preserved"
+    },
+    {
+      "url": "https://classic.battle.net/war3/orc/units/windrider.shtml",
+      "facts": "Envenomed Spears attack-applied DOT, no mana; custom amount/duration from objects"
+    },
+    {
+      "url": "https://classic.battle.net/war3/basics/spellbasics.shtml",
+      "facts": "physical poison magicimmune allowed, ethereal excluded, magicdispelless; source-refresh/different poison sources; nonlethal2HP; autocast positive buff closest friendly in combat/self fallback; Purge slow magicdispelless"
+    },
+    {
+      "url": "https://classic.battle.net/war3/basics/heroitemspermanent.shtml",
+      "facts": "Orb of Corruption armor reduction5sec, not dispellable; Orbs affect magicimmune; stock values are not custom values"
+    },
+    {
+      "url": "https://classic.battle.net/war3/undead/units/infernal.shtml",
+      "facts": "Permanent Immolation passive/no mana/DPS; native stock grounded mask does not establish custom enemies mask"
+    },
+    {
+      "url": "https://classic.battle.net/war3/neutral/nagaseawitch.shtml",
+      "facts": "Frost Arrows attack orb and toggle; stockANfa mana/damage not proof AHca custom missing fields"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/Units/AbilityMetaData.slk",
+      "facts": "data slot mapping only"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/UI/WorldEditStrings.txt",
+      "facts": "labels, including Poison attack vs movement and Bloodlust visual scaling"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/UI/UnitEditorData.txt#L343",
+      "facts": "stackFlags bit positions0 damage,1 movement,2 attack rate,3 kill unit; DataD1 selects damage stacking not slow or Kill"
+    }
+  ],
+  "metadata": {
+    "pinnedCommit": "a69c315ebf2886ec54d66200707ab6e38bd3484d",
+    "mappings": [
+      {
+        "id": "Blo1",
+        "field": "DataA",
+        "meaning": "attack speed increase"
+      },
+      {
+        "id": "Blo2",
+        "field": "DataB",
+        "meaning": "movement speed increase"
+      },
+      {
+        "id": "Blo3",
+        "field": "DataC",
+        "meaning": "visual scaling factor"
+      },
+      {
+        "id": "Poi1",
+        "field": "DataA",
+        "meaning": "damage per second"
+      },
+      {
+        "id": "Poi2",
+        "field": "DataB",
+        "meaning": "attack speed factor"
+      },
+      {
+        "id": "Poi3",
+        "field": "DataC",
+        "meaning": "movement speed factor"
+      },
+      {
+        "id": "Poi4",
+        "field": "DataD",
+        "meaning": "stackFlags"
+      },
+      {
+        "id": "Iarp",
+        "field": "DataB",
+        "meaning": "armor penalty"
+      },
+      {
+        "id": "Iob5",
+        "field": "DataE",
+        "meaning": "enabled attack index"
+      },
+      {
+        "id": "Eim1",
+        "field": "DataA",
+        "meaning": "damage per interval"
+      },
+      {
+        "id": "Hca1",
+        "field": "DataA",
+        "meaning": "extra damage"
+      },
+      {
+        "id": "Hca2",
+        "field": "DataB",
+        "meaning": "movement speed factor"
+      },
+      {
+        "id": "Hca3",
+        "field": "DataC",
+        "meaning": "attack speed factor"
+      },
+      {
+        "id": "Hca4",
+        "field": "DataD",
+        "meaning": "stackFlags"
+      }
+    ],
+    "stackFlags": {
+      "source": "UI/UnitEditorData.txt:343–349",
+      "bitPositions": {
+        "0": "damage",
+        "1": "movement",
+        "2": "attack rate",
+        "3": "kill unit"
+      },
+      "Poi4_1": {
+        "damageStacks": true,
+        "moveStacks": false,
+        "attackRateStacks": false,
+        "killUnit": false
+      },
+      "qualification": "editor flag labels confirm configured bits; native same-caster identity and callback order still locally defined"
+    }
+  },
+  "common": {
+    "reused": [
+      "B03",
+      "B04",
+      "B05",
+      "attack-timing-v1",
+      "creep-native-next-v2 nonlethal-native-input and Purge dispel correction",
+      "native-critical-family-v1 no second ordinarycritical roll"
+    ],
+    "initialAbilityLevel": 1,
+    "resourceClock": "all costs/cooldowns/ticks use battleclock, paused on close, speed1–4x; snapshot pending cast+projectile+per-source DOTphase+Buffexpiry+nativeAutoToggle; no new account/sharedsource",
+    "nativeTargets": "ground/air from actual target category not movetp. Every packet actual S preserved, O resolved by original dispatcher; no replacement with owner tower",
+    "otherEffects": "N135 and other attached abilities not examined here; no automatic orb global compatibility choice"
+  },
+  "families": {
+    "bloodlust": {
+      "ids": [
+        "N089",
+        "N090",
+        "N091",
+        "N092"
+      ],
+      "attackRateBonus": [
+        0.2,
+        0.3,
+        0.4,
+        0.5
+      ],
+      "mana": 30,
+      "cooldown": 2,
+      "range": 1000,
+      "durationNormalAndHero": 5,
+      "buff": "Bblo",
+      "sourceVisualScale": 0.2,
+      "sourceMovementBonus": "absent",
+      "entry": "no literal ID/FourCC/script auto157 dispatch; unit auto=Ablo, native autocast plus manual target spell",
+      "Q24": {
+        "manaTiming": "existing local accept/windup/commit scheme; n214–217 explicit castpt.56; at effect recheck, pay30/startCD2, one AnySkillStart then apply; interrupted pre-effect no payment; event kills source cancels payload without refund",
+        "target": "self or visible friendly ground/air organic nonstructure/nonmechanical, incl invulnerable (explicit custom mask), no hidden/Aloc/magicimmune; ethereal allowed; no N535 friendlyblock",
+        "effect": "attackR additive .2/.3/.4/.5; DataB absent=>0 movement bonus local default. DataC.2=>visual scale factor1.2 with no collision/range/HP change",
+        "stack": "one Bblo slot for this local family; latest replaces amount+expiry even weaker; visual scale from base not multiplied repeatedly; different buff family bonuses remain distinct. Ordinary positive dispel, explicitremove,newmagicimmune,death/removal/expiry clears; source death does not remove committed buff",
+        "autoInitial": "auto=Ablo maps to unique attached Ablo-code skill, defaulton (explicit local alias mapping); independent bloodluston/off, not B012. No nonexistent skill created by auto string",
+        "autoTarget": "scan every.25 battle seconds from activation, only ready/source not in cast or attack windup/manual move or incompatible command. Consider eligible friends currently in a valid ordinary attack order, lacking Bblo; choose nearest other friendly, B04tie; self fallback only when no such other and self attacking. Do not prebuff idle units or passive-only immolation towers",
+        "autoRaces": "scan enqueues normal target order; original alreadyqueued same-time events precede scan; coalesce identical pending order; commit handles cost/CD competition",
+        "resources": "source unit mana0=400 but manaN=200/250/300/350; anyBuildCompleteHandler explicitly resets current to max, so casting uses live current max, not400 borrowed mana",
+        "rng": "none; no native SPELL_EFFECT for auto toggle itself"
+      }
+    },
+    "poison": {
+      "ids": [
+        "N093",
+        "N095"
+      ],
+      "auxiliaryVariant": "N094100DPS no workbook/no initialcarrier/no explicit script acquisition; not inserted into upgrade chain",
+      "DPS": [
+        50,
+        150
+      ],
+      "duration": 5,
+      "attackSlow": 0.2,
+      "moveSlow": "absent ->local0",
+      "stackFlags": 1,
+      "buffs": [
+        "Bpoi",
+        "Bpsd"
+      ],
+      "Q24": {
+        "entry": "nonillusion enabled source successful ordinary weapon primary hit; not ATTACKED/windup or arbitrary attack=true script packet; enemy organic ground/air nonstructure/nonmechanical, no Aloc/hidden/invul/ethereal; magicimmune allowed",
+        "apply": "after hit qualification before ordinary packet; one per logical caster,target pair across N093–95, refresh5sec and update DPS, preserve tick phase. Target killed by ordinary event clears poison",
+        "tick": "first at initial application+1s then1s, inclusive expiry endpoint; source-specific tracks tick separately B05/B04 and each runs B03. Same source refresh not extra stack; different logical caster tracks stack including same unit type (explicit interpretation of ambiguous official differing-unit examples); source removal cancels, death with live handle continues",
+        "packet": "source S,false,false,NORMAL/NORMAL physical raw DPS; after native reduction before map callback cap to min(max(0,reduced),max(0,currentLife-2)). Zero capped amount no new event; map damage changes/extra packets may kill, no final floor or reverse healing",
+        "slow": "all active poison tracks attackR decrease max(.2) once, not sum because DataD lacks attack-rate bit; DataC absent explicitly no movement slow; do not misread Poi2 as movement",
+        "remove": "ordinary magic/negative dispel no effect (physical poison); explicit remove Bpoi clears all local poison tracks+Bpsd; explicit Bpsd removes slow presentation/effect until next poison refresh, does not erase DOT; target death/removal/ineligible clears; newmagicimmune alone does not clear",
+        "costRng": "no mana/CD/SPELL_EFFECT/N535; one strongest poison ability per same caster hit if artificially coexist; no new RNG"
+      }
+    },
+    "corruption": {
+      "ids": [
+        "N105",
+        "N106",
+        "N107"
+      ],
+      "attachedNative": [
+        "T041",
+        "T042",
+        "T043"
+      ],
+      "armorPenalty": [
+        10,
+        25,
+        40
+      ],
+      "duration": 5,
+      "buff": "BIcb",
+      "enabledAttackIndex": 2,
+      "sourceExtraAttack": "absent (stockAIcb5 does not prove custom5)",
+      "Q24": {
+        "marker": "N105–107 reuse AOcr no-extra-native-contribution rule; actual armor effect follows attached T041–43, not an additional marker duplicate. Removing marker does not remove separately attached native ability",
+        "entry": "successful nonillusion enabled ordinary weapon hit; legal enemy ground/air/ward incl structures/mechanical, no Aloc/hidden/invul/ethereal, magicimmune allowed. Native attack legality remains weapon-specific",
+        "timing": "apply armor reduction before current hit native armor reduction, so triggering attack benefits; full normal B03 follows, no additional damage event. Explicit local ordering, not inferred from tooltip",
+        "stack": "one BIcb slot among T041–43; latest replaces penalty and5sec expiry, mayweaken, not stack multiple hits/casters; other independent armor modifiers sum as usual. No new RNG/CD/mana",
+        "remove": "magic/negative dispel cannot remove; explicit BIcb remove/death/removal/expiry clears; source death/removal does not cancel already applied debuff; magicimmune retains",
+        "missingBonus": "custom DataA absent=>local0 extra fixed attack; not add stock5. Original ordinary amount preserved. Metadata Iob5=2 enables weapon slot2 but does not supply absent attack profile",
+        "attack2": "record enabledslot2; source n240–242 weapon2 lacks range/damage/dice/target mask. Local no generated secondary weapon: an incomplete slot is unusable; do not clone slot1 or silently grant air attack. If a later independently audited transformation supplies valid slot2, ordinary weapon selector can use it",
+        "crossOrb": "this batch innate carriers have no second audited attack orb; future artificial multi-orb coexistence requires original acquisition/ability rules, not assumed globally exclusive or stacking"
+      }
+    },
+    "immolation": {
+      "ids": [
+        "N127",
+        "N128",
+        "N129",
+        "N130",
+        "N131"
+      ],
+      "rawPerInterval": [
+        60,
+        100,
+        150,
+        200,
+        300
+      ],
+      "radius": 600,
+      "interval": 1,
+      "buff": "Bpig",
+      "Q24": {
+        "entry": "enabled alive actual source continuous passive; no toggle/bluecost/cooldown/ATTACKED/SPELL_EFFECT/RNG. Suppressed while hidden/illusion/hex or underconstruction, normal silence/stun/pause do not by themselves disable passive",
+        "schedule": "activation records firsttick=activation+1s then every1s; per source clock, no extra instanttick on enemyentry. State/rank changes keep phase while same logical source persists, disabled/dead/removal cancels and a future fresh activation starts new phase. Upgrade continues old ability until transaction replaces ability; replacement rank uses current tick values without extra immediate tick",
+        "targets": "at each tick actual source current position, closed600 B04 snapshot, enemy ground/air/structure/mechanical from custom enemies mask; no hidden/Aloc/invul/magicimmune. Ordinary invisibility may be hit; ethereal permitted by spell damage and existing B03 modifier",
+        "damage": "one actual source false,false,NORMAL/MAGIC per target; complete B03, normal lethal allowed (not poison/disease2HP). If source removed/killed within nested event stop remaining current recipients; target state rechecked per packet",
+        "stack": "each source emits independent packets; no shared Bpig max rule; multiple abilities on same logical source choose largest magnitude once. No lingering DOT on targets after leavingcircle, source unavailable or current tick; Bpig only emitter/display state not transferable enemyinfection",
+        "weapon": "n021–25 weaponsOn missing, unit actual tooltip明确无攻击力; Q24 disabled ordinary weapon attacks (no slot activation invented from dormant dmgplus/dice), so passive alone cannot create ATTACKED or trigger Bloodlust combat autocast",
+        "resources": "no extra native permanent-immolation selfdamage or manadrain; geometry does not inherit area-damage-v1 broader targetmask implicitly"
+      }
+    },
+    "frost": {
+      "ids": [
+        "N160",
+        "N161",
+        "N162",
+        "N163",
+        "N164",
+        "T292",
+        "T293",
+        "T294",
+        "T295",
+        "T296"
+      ],
+      "pairs": [
+        [
+          "N160",
+          "T292",
+          "n006"
+        ],
+        [
+          "N161",
+          "T293",
+          "n007"
+        ],
+        [
+          "N162",
+          "T294",
+          "n008"
+        ],
+        [
+          "N163",
+          "T295",
+          "n009"
+        ],
+        [
+          "N164",
+          "T296",
+          "n010"
+        ]
+      ],
+      "movementSlow": [
+        0.06,
+        0.08,
+        0.1,
+        0.12,
+        0.15
+      ],
+      "durationNormalAndHero": 3,
+      "range": 1000,
+      "missileSpeed": 1200,
+      "homing": true,
+      "sourceMissing": [
+        "Cost1",
+        "Cool1",
+        "DataA1 extraDamage",
+        "DataC1 attackSlow",
+        "DataD1 stacking flags"
+      ],
+      "decision": {
+        "id": "Q45",
+        "supersedes": "M02",
+        "status": "confirmed",
+        "manaCost": 0,
+        "bonusDamage": 0,
+        "movementSlow": [
+          0.06,
+          0.08,
+          0.1,
+          0.12,
+          0.15
+        ],
+        "duration": 3,
+        "authority": "explicit user decision: ordinary attacks freely apply workbook slow, no extra damage",
+        "sourceCostField": "absent",
+        "sourceExtraDamageField": "absent",
+        "rule": "Web cost0 and bonus0 are user-selected; original absent fields remain absent, never described as source zero; no stock8/5 or new mana pool"
+      },
+      "sourceEntry": "actual unitauto=T292..296 + construct/upgrade finish handler explicitly issuescoldarrows after shared registration/stop/fullmana handler. Amgl N160–64 has no behavior/data; ordinary weapon missile, not mbounce",
+      "Q24Established": {
+        "pair": "one effect per pair: marker is description only, no extra bounce or second slow; actual T292–96 enabled by hidden nativeauto, UI button y=-11 is sourcefact",
+        "toggle": "initialon from unitauto; construct/upgrade coldarrows sets on idempotently; independent of B012. Upgrade swaps current rank and resets on via original handler; already launched shot keeps snapshotted rank. No visible manual toggle UI invented by hidden button",
+        "entry": "ordinary committed attack keeps weapon flags/type and one ATTACKED. Slow snapshotted at launch; apply on successful legal hit before maindamage. Miss/invalid target no slow; source death keeps committed projectile, deletion cancels. Range rechecked forlaunch notflight",
+        "target": "ordinary visible enemy ground/air incl mechanical/structure only where weapon legal; no hidden/Aloc/invul/ethereal. Magicimmune can take baseattack but slow skipped as local AHca choice; no N535",
+        "effect": "only movement slow at specified percent3s; DataC absent=>local0 attackslow; same local frostslot across5levels latest replaces magnitude/expiry even weaker. Slow state correlated BHca/Bfro/Bcsi, never tripleapply",
+        "remove": "negative dispel or explicit removal of local frost effect clears; death/deletion/newmagicimmune/expiry clears. No stacking durations. Native stacking flag omitted remains source absence; local latest rule not stockDataD7",
+        "event": "auto arrows no separate SPELL_EFFECT, native manual-arrow integration if later exposed requires one at commit; toggle itself no spell effect. Q45 confirmed cost0/extraDamage0, no independent skill cooldown beyond ordinary attack; zero mana still applies slow on a successful legal hit; original fields remain absent",
+        "ordinaryDamage": "normal underlying weapon10–14/50–54/100–104/150–154/200–204 from source dice remains; marker does not boost twice. Future ordinary critical onlyonce peroriginalattack"
+      }
+    }
+  },
+  "decisions": [
+    {
+      "id": "Q45",
+      "supersedes": "M02",
+      "status": "confirmed",
+      "manaCost": 0,
+      "bonusDamage": 0,
+      "movementSlow": [
+        0.06,
+        0.08,
+        0.1,
+        0.12,
+        0.15
+      ],
+      "duration": 3,
+      "authority": "explicit user decision: ordinary attacks freely apply workbook slow, no extra damage",
+      "sourceCostField": "absent",
+      "sourceExtraDamageField": "absent",
+      "rule": "Web cost0 and bonus0 are user-selected; original absent fields remain absent, never described as source zero; no stock8/5 or new mana pool"
+    }
+  ],
+  "remaining": [
+    "No native client execution; explicitly chosen local defaults and source identity/timing boundaries are Web rules.",
+    "Full item-orb coexistence, other ability effects, swap/illusion transactions and all damage callees remain external."
+  ],
+  "verification": {
+    "kind": "static originalSLK/workbook/object/bytecode reread, native-stub probes and bounded Web vectors; no Warcraft execution",
+    "originalSlkRows": 109,
+    "explicitValueOrAbsenceAssertions": 205,
+    "scriptJExactRawcodeMatches": 0,
+    "workbookCells": 216,
+    "abilityIdsW3aChecked": 28,
+    "abilityW3aOverrides": 0,
+    "unitW3uRecords": 10,
+    "profilesPresent": 37,
+    "unitProfilesAbsent": 10,
+    "bytecodeInstructionCount": 182,
+    "bytecodeConditions": 8,
+    "bytecodeReturnCount": 1,
+    "fullFunctions": [
+      "main/f291/f34"
+    ],
+    "partialFunctions": [
+      "main/f291/f7 PC1–56",
+      "main/f291/f8 PC1–52"
+    ],
+    "frostPrefixInstructionCoverage": 52,
+    "genericPrefixInstructionCoverage": 56,
+    "nativeStubProbes": [
+      {
+        "id": "frost_type_n006_False",
+        "expected": "handler before exactlyone coldarrows onlyfrost5; ignored false order; later nonfrost branches outside scope"
+      },
+      {
+        "id": "frost_type_n006_True",
+        "expected": "handler before exactlyone coldarrows onlyfrost5; ignored false order; later nonfrost branches outside scope"
+      },
+      {
+        "id": "frost_type_n007_False",
+        "expected": "handler before exactlyone coldarrows onlyfrost5; ignored false order; later nonfrost branches outside scope"
+      },
+      {
+        "id": "frost_type_n007_True",
+        "expected": "handler before exactlyone coldarrows onlyfrost5; ignored false order; later nonfrost branches outside scope"
+      },
+      {
+        "id": "frost_type_n008_False",
+        "expected": "handler before exactlyone coldarrows onlyfrost5; ignored false order; later nonfrost branches outside scope"
+      },
+      {
+        "id": "frost_type_n008_True",
+        "expected": "handler before exactlyone coldarrows onlyfrost5; ignored false order; later nonfrost branches outside scope"
+      },
+      {
+        "id": "frost_type_n009_False",
+        "expected": "handler before exactlyone coldarrows onlyfrost5; ignored false order; later nonfrost branches outside scope"
+      },
+      {
+        "id": "frost_type_n009_True",
+        "expected": "handler before exactlyone coldarrows onlyfrost5; ignored false order; later nonfrost branches outside scope"
+      },
+      {
+        "id": "frost_type_n010_False",
+        "expected": "handler before exactlyone coldarrows onlyfrost5; ignored false order; later nonfrost branches outside scope"
+      },
+      {
+        "id": "frost_type_n010_True",
+        "expected": "handler before exactlyone coldarrows onlyfrost5; ignored false order; later nonfrost branches outside scope"
+      },
+      {
+        "id": "frost_type_n214_False",
+        "expected": "handler before exactlyone coldarrows onlyfrost5; ignored false order; later nonfrost branches outside scope"
+      },
+      {
+        "id": "frost_type_n214_True",
+        "expected": "handler before exactlyone coldarrows onlyfrost5; ignored false order; later nonfrost branches outside scope"
+      },
+      {
+        "id": "frost_type_n021_False",
+        "expected": "handler before exactlyone coldarrows onlyfrost5; ignored false order; later nonfrost branches outside scope"
+      },
+      {
+        "id": "frost_type_n021_True",
+        "expected": "handler before exactlyone coldarrows onlyfrost5; ignored false order; later nonfrost branches outside scope"
+      },
+      {
+        "id": "build_mana_0",
+        "expected": 0
+      },
+      {
+        "id": "build_mana_200",
+        "expected": 200
+      },
+      {
+        "id": "build_mana_250",
+        "expected": 250
+      },
+      {
+        "id": "build_mana_300",
+        "expected": 300
+      },
+      {
+        "id": "build_mana_350",
+        "expected": 350
+      },
+      {
+        "id": "generic_prefix_False_False_False",
+        "expected": "registration,optionalshield,optionalremove,optionalheroMove,stop,maxmana in source order; downstream hero/random branches outside scope"
+      },
+      {
+        "id": "generic_prefix_False_False_True",
+        "expected": "registration,optionalshield,optionalremove,optionalheroMove,stop,maxmana in source order; downstream hero/random branches outside scope"
+      },
+      {
+        "id": "generic_prefix_False_True_False",
+        "expected": "registration,optionalshield,optionalremove,optionalheroMove,stop,maxmana in source order; downstream hero/random branches outside scope"
+      },
+      {
+        "id": "generic_prefix_False_True_True",
+        "expected": "registration,optionalshield,optionalremove,optionalheroMove,stop,maxmana in source order; downstream hero/random branches outside scope"
+      },
+      {
+        "id": "generic_prefix_True_False_False",
+        "expected": "registration,optionalshield,optionalremove,optionalheroMove,stop,maxmana in source order; downstream hero/random branches outside scope"
+      },
+      {
+        "id": "generic_prefix_True_False_True",
+        "expected": "registration,optionalshield,optionalremove,optionalheroMove,stop,maxmana in source order; downstream hero/random branches outside scope"
+      },
+      {
+        "id": "generic_prefix_True_True_False",
+        "expected": "registration,optionalshield,optionalremove,optionalheroMove,stop,maxmana in source order; downstream hero/random branches outside scope"
+      },
+      {
+        "id": "generic_prefix_True_True_True",
+        "expected": "registration,optionalshield,optionalremove,optionalheroMove,stop,maxmana in source order; downstream hero/random branches outside scope"
+      },
+      {
+        "id": "build_registration8events",
+        "expected": "construct+upgrade players0..3 once tobuildfn"
+      }
+    ],
+    "nativeStubProbeCount": 28,
+    "specCases": [
+      {
+        "id": "bloodlust_R_0.2",
+        "input": {
+          "R": 1,
+          "bonus": 0.2
+        },
+        "expected": 1.2
+      },
+      {
+        "id": "bloodlust_R_0.3",
+        "input": {
+          "R": 1,
+          "bonus": 0.3
+        },
+        "expected": 1.3
+      },
+      {
+        "id": "bloodlust_R_0.4",
+        "input": {
+          "R": 1,
+          "bonus": 0.4
+        },
+        "expected": 1.4
+      },
+      {
+        "id": "bloodlust_R_0.5",
+        "input": {
+          "R": 1,
+          "bonus": 0.5
+        },
+        "expected": 1.5
+      },
+      {
+        "id": "bloodlust_visual_not_movespeed",
+        "input": {
+          "DataC": 0.2,
+          "DataB": null
+        },
+        "expected": {
+          "visual": 1.2,
+          "moveBonus": 0
+        }
+      },
+      {
+        "id": "bloodlust_pay_0",
+        "input": {
+          "mana": 0,
+          "cost": 30
+        },
+        "expected": [
+          false,
+          0
+        ]
+      },
+      {
+        "id": "bloodlust_pay_29",
+        "input": {
+          "mana": 29,
+          "cost": 30
+        },
+        "expected": [
+          false,
+          29
+        ]
+      },
+      {
+        "id": "bloodlust_pay_30",
+        "input": {
+          "mana": 30,
+          "cost": 30
+        },
+        "expected": [
+          true,
+          0
+        ]
+      },
+      {
+        "id": "bloodlust_pay_31",
+        "input": {
+          "mana": 31,
+          "cost": 30
+        },
+        "expected": [
+          true,
+          1
+        ]
+      },
+      {
+        "id": "bloodlust_pay_200",
+        "input": {
+          "mana": 200,
+          "cost": 30
+        },
+        "expected": [
+          true,
+          170
+        ]
+      },
+      {
+        "id": "bloodlust_latest_weaker",
+        "input": {
+          "old": 0.5,
+          "new": 0.2,
+          "nowUs": 1000000
+        },
+        "expected": {
+          "bonus": 0.2,
+          "until": 6000000
+        }
+      },
+      {
+        "id": "bloodlust_no_exp_growth",
+        "input": {
+          "baseScale": 1,
+          "refreshes": 5
+        },
+        "expected": 1.2
+      },
+      {
+        "id": "bloodlust_nearest_B04tie",
+        "input": {
+          "targets": [
+            [
+              7,
+              100
+            ],
+            [
+              3,
+              100
+            ],
+            [
+              8,
+              20
+            ]
+          ]
+        },
+        "expected": 8
+      },
+      {
+        "id": "stackflags_0",
+        "input": {
+          "flag": 0
+        },
+        "expected": {
+          "damage": false,
+          "move": false,
+          "attack": false,
+          "kill": false
+        }
+      },
+      {
+        "id": "stackflags_1",
+        "input": {
+          "flag": 1
+        },
+        "expected": {
+          "damage": true,
+          "move": false,
+          "attack": false,
+          "kill": false
+        }
+      },
+      {
+        "id": "stackflags_7",
+        "input": {
+          "flag": 7
+        },
+        "expected": {
+          "damage": true,
+          "move": true,
+          "attack": true,
+          "kill": false
+        }
+      },
+      {
+        "id": "stackflags_8",
+        "input": {
+          "flag": 8
+        },
+        "expected": {
+          "damage": false,
+          "move": false,
+          "attack": false,
+          "kill": true
+        }
+      },
+      {
+        "id": "stackflags_15",
+        "input": {
+          "flag": 15
+        },
+        "expected": {
+          "damage": true,
+          "move": true,
+          "attack": true,
+          "kill": true
+        }
+      },
+      {
+        "id": "poison_five_ticks_50",
+        "input": {
+          "dps": 50,
+          "duration": 5,
+          "highHP": true
+        },
+        "expected": 250
+      },
+      {
+        "id": "poison_five_ticks_100",
+        "input": {
+          "dps": 100,
+          "duration": 5,
+          "highHP": true
+        },
+        "expected": 500
+      },
+      {
+        "id": "poison_five_ticks_150",
+        "input": {
+          "dps": 150,
+          "duration": 5,
+          "highHP": true
+        },
+        "expected": 750
+      },
+      {
+        "id": "poison_same_source_upgrade",
+        "input": {
+          "sameCaster": 7,
+          "old": 50,
+          "new": 150
+        },
+        "expected": [
+          1,
+          150
+        ]
+      },
+      {
+        "id": "poison_other_source",
+        "input": {
+          "tracks": {
+            "7": 150,
+            "8": 50
+          }
+        },
+        "expected": 200
+      },
+      {
+        "id": "poison_attackslow_not_sum",
+        "input": {
+          "sources": [
+            0.2,
+            0.2,
+            0.2
+          ]
+        },
+        "expected": 0.2
+      },
+      {
+        "id": "native_floor_100_50",
+        "input": {
+          "life": 100,
+          "nativeReduced": 50
+        },
+        "expected": 50
+      },
+      {
+        "id": "native_floor_30_50",
+        "input": {
+          "life": 30,
+          "nativeReduced": 50
+        },
+        "expected": 28
+      },
+      {
+        "id": "native_floor_2_50",
+        "input": {
+          "life": 2,
+          "nativeReduced": 50
+        },
+        "expected": 0
+      },
+      {
+        "id": "native_floor_1_50",
+        "input": {
+          "life": 1,
+          "nativeReduced": 50
+        },
+        "expected": 0
+      },
+      {
+        "id": "native_floor_2.5_150",
+        "input": {
+          "life": 2.5,
+          "nativeReduced": 150
+        },
+        "expected": 0.5
+      },
+      {
+        "id": "native_floor_5_0",
+        "input": {
+          "life": 5,
+          "nativeReduced": 0
+        },
+        "expected": 0
+      },
+      {
+        "id": "poison_callback_amplification",
+        "input": {
+          "HP": 20,
+          "nativeRaw": 50,
+          "afterNative": 25,
+          "callbackMultiplier": 2
+        },
+        "expected": 36
+      },
+      {
+        "id": "poison_reapply_retains_phase",
+        "input": {
+          "firstUs": 0,
+          "refreshUs": 500000,
+          "firstTickUs": 1000000
+        },
+        "expected": 1000000
+      },
+      {
+        "id": "corruption_negativearmor_10",
+        "input": {
+          "before": 5,
+          "penalty": 10
+        },
+        "expected": -5
+      },
+      {
+        "id": "corruption_negativearmor_25",
+        "input": {
+          "before": 5,
+          "penalty": 25
+        },
+        "expected": -20
+      },
+      {
+        "id": "corruption_negativearmor_40",
+        "input": {
+          "before": 5,
+          "penalty": 40
+        },
+        "expected": -35
+      },
+      {
+        "id": "corruption_latest_not_add",
+        "input": {
+          "old": 40,
+          "new": 10,
+          "base": 50
+        },
+        "expected": 40
+      },
+      {
+        "id": "corruption_samehit_armor",
+        "input": {
+          "armor": 30,
+          "reduction": 10,
+          "k": 0.018,
+          "raw": 100
+        },
+        "expected": 73.52941176
+      },
+      {
+        "id": "circle_600_0",
+        "input": {
+          "distance": 600,
+          "radius": 600
+        },
+        "expected": true
+      },
+      {
+        "id": "circle_600_0.001",
+        "input": {
+          "distance": 600.001,
+          "radius": 600
+        },
+        "expected": false
+      },
+      {
+        "id": "circle_1000_0",
+        "input": {
+          "distance": 1000,
+          "radius": 1000
+        },
+        "expected": true
+      },
+      {
+        "id": "circle_1000_0.001",
+        "input": {
+          "distance": 1000.001,
+          "radius": 1000
+        },
+        "expected": false
+      },
+      {
+        "id": "immolation3ticks_60",
+        "input": {
+          "dps": 60,
+          "elapsed": 3
+        },
+        "expected": 180
+      },
+      {
+        "id": "immolation3ticks_100",
+        "input": {
+          "dps": 100,
+          "elapsed": 3
+        },
+        "expected": 300
+      },
+      {
+        "id": "immolation3ticks_150",
+        "input": {
+          "dps": 150,
+          "elapsed": 3
+        },
+        "expected": 450
+      },
+      {
+        "id": "immolation3ticks_200",
+        "input": {
+          "dps": 200,
+          "elapsed": 3
+        },
+        "expected": 600
+      },
+      {
+        "id": "immolation3ticks_300",
+        "input": {
+          "dps": 300,
+          "elapsed": 3
+        },
+        "expected": 900
+      },
+      {
+        "id": "immolation_not_diseasefloor",
+        "input": {
+          "HP": 2,
+          "raw": 60
+        },
+        "expected": true
+      },
+      {
+        "id": "immolation_source_stack",
+        "input": {
+          "sources": [
+            60,
+            300
+          ]
+        },
+        "expected": 360
+      },
+      {
+        "id": "immolation_no_entryinstant",
+        "input": {
+          "activatedUs": 0,
+          "targetEnterUs": 250000
+        },
+        "expected": 1000000
+      },
+      {
+        "id": "frost_speed_0.06",
+        "input": {
+          "speed": 300,
+          "slow": 0.06
+        },
+        "expected": 282.0
+      },
+      {
+        "id": "frost_speed_0.08",
+        "input": {
+          "speed": 300,
+          "slow": 0.08
+        },
+        "expected": 276.0
+      },
+      {
+        "id": "frost_speed_0.1",
+        "input": {
+          "speed": 300,
+          "slow": 0.1
+        },
+        "expected": 270.0
+      },
+      {
+        "id": "frost_speed_0.12",
+        "input": {
+          "speed": 300,
+          "slow": 0.12
+        },
+        "expected": 264.0
+      },
+      {
+        "id": "frost_speed_0.15",
+        "input": {
+          "speed": 300,
+          "slow": 0.15
+        },
+        "expected": 255.0
+      },
+      {
+        "id": "frost_latest_weaker",
+        "input": {
+          "old": 0.15,
+          "new": 0.06
+        },
+        "expected": 0.06
+      },
+      {
+        "id": "frost_threebuffs_oneeffect",
+        "input": {
+          "buffs": [
+            "BHca",
+            "Bfro",
+            "Bcsi"
+          ],
+          "slow": 0.1
+        },
+        "expected": 270
+      },
+      {
+        "id": "frost_no_marker_bounce",
+        "input": {
+          "weapTp": "missile",
+          "marker": "Amgl"
+        },
+        "expected": 1
+      },
+      {
+        "id": "frost_flight",
+        "input": {
+          "distance": 1000,
+          "speed": 1200
+        },
+        "expected": 833333
+      },
+      {
+        "id": "frost_free_0",
+        "input": {
+          "mana": 0,
+          "cost": 0,
+          "authority": "Q45"
+        },
+        "expected": [
+          true,
+          0
+        ]
+      },
+      {
+        "id": "frost_free_1",
+        "input": {
+          "mana": 1,
+          "cost": 0,
+          "authority": "Q45"
+        },
+        "expected": [
+          true,
+          1
+        ]
+      },
+      {
+        "id": "frost_free_100",
+        "input": {
+          "mana": 100,
+          "cost": 0,
+          "authority": "Q45"
+        },
+        "expected": [
+          true,
+          100
+        ]
+      },
+      {
+        "id": "frost_no_extra_0_0",
+        "input": {
+          "rank": 1,
+          "ordinaryRaw": 0,
+          "authority": "Q45"
+        },
+        "expected": 0
+      },
+      {
+        "id": "frost_no_extra_0_10",
+        "input": {
+          "rank": 1,
+          "ordinaryRaw": 10,
+          "authority": "Q45"
+        },
+        "expected": 10
+      },
+      {
+        "id": "frost_no_extra_0_1000",
+        "input": {
+          "rank": 1,
+          "ordinaryRaw": 1000,
+          "authority": "Q45"
+        },
+        "expected": 1000
+      },
+      {
+        "id": "frost_no_extra_1_0",
+        "input": {
+          "rank": 2,
+          "ordinaryRaw": 0,
+          "authority": "Q45"
+        },
+        "expected": 0
+      },
+      {
+        "id": "frost_no_extra_1_10",
+        "input": {
+          "rank": 2,
+          "ordinaryRaw": 10,
+          "authority": "Q45"
+        },
+        "expected": 10
+      },
+      {
+        "id": "frost_no_extra_1_1000",
+        "input": {
+          "rank": 2,
+          "ordinaryRaw": 1000,
+          "authority": "Q45"
+        },
+        "expected": 1000
+      },
+      {
+        "id": "frost_no_extra_2_0",
+        "input": {
+          "rank": 3,
+          "ordinaryRaw": 0,
+          "authority": "Q45"
+        },
+        "expected": 0
+      },
+      {
+        "id": "frost_no_extra_2_10",
+        "input": {
+          "rank": 3,
+          "ordinaryRaw": 10,
+          "authority": "Q45"
+        },
+        "expected": 10
+      },
+      {
+        "id": "frost_no_extra_2_1000",
+        "input": {
+          "rank": 3,
+          "ordinaryRaw": 1000,
+          "authority": "Q45"
+        },
+        "expected": 1000
+      },
+      {
+        "id": "frost_no_extra_3_0",
+        "input": {
+          "rank": 4,
+          "ordinaryRaw": 0,
+          "authority": "Q45"
+        },
+        "expected": 0
+      },
+      {
+        "id": "frost_no_extra_3_10",
+        "input": {
+          "rank": 4,
+          "ordinaryRaw": 10,
+          "authority": "Q45"
+        },
+        "expected": 10
+      },
+      {
+        "id": "frost_no_extra_3_1000",
+        "input": {
+          "rank": 4,
+          "ordinaryRaw": 1000,
+          "authority": "Q45"
+        },
+        "expected": 1000
+      },
+      {
+        "id": "frost_no_extra_4_0",
+        "input": {
+          "rank": 5,
+          "ordinaryRaw": 0,
+          "authority": "Q45"
+        },
+        "expected": 0
+      },
+      {
+        "id": "frost_no_extra_4_10",
+        "input": {
+          "rank": 5,
+          "ordinaryRaw": 10,
+          "authority": "Q45"
+        },
+        "expected": 10
+      },
+      {
+        "id": "frost_no_extra_4_1000",
+        "input": {
+          "rank": 5,
+          "ordinaryRaw": 1000,
+          "authority": "Q45"
+        },
+        "expected": 1000
+      },
+      {
+        "id": "frost_source_absence_vs_Web_zero",
+        "input": {
+          "id": "T292",
+          "decision": "Q45"
+        },
+        "expected": [
+          null,
+          null,
+          0,
+          0
+        ]
+      }
+    ],
+    "specCaseCount": 77,
+    "relativeLinks": 51
+  },
+  "workbookSupplementalAudit": {
+    "sheet": "塔技能",
+    "source": "图鉴.xlsx/xl/worksheets/sheet5.xml",
+    "workbookSha256": "457c8f7e37e19412a0dd072ce941e95604b0b8910860b9e1eb9883e6b82bb6af",
+    "actualColumns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J"
+    ],
+    "extraColumns": [
+      "J"
+    ],
+    "headersRow4": {
+      "J4": "补充对象字段"
+    },
+    "rows": [
+      {
+        "row": 835,
+        "id": "N127",
+        "cells": {
+          "J835": ""
+        },
+        "xmlCellPresent": {
+          "J835": true
+        }
+      },
+      {
+        "row": 836,
+        "id": "N128",
+        "cells": {
+          "J836": ""
+        },
+        "xmlCellPresent": {
+          "J836": true
+        }
+      },
+      {
+        "row": 837,
+        "id": "N129",
+        "cells": {
+          "J837": ""
+        },
+        "xmlCellPresent": {
+          "J837": true
+        }
+      },
+      {
+        "row": 838,
+        "id": "N130",
+        "cells": {
+          "J838": ""
+        },
+        "xmlCellPresent": {
+          "J838": true
+        }
+      },
+      {
+        "row": 839,
+        "id": "N131",
+        "cells": {
+          "J839": ""
+        },
+        "xmlCellPresent": {
+          "J839": true
+        }
+      },
+      {
+        "row": 845,
+        "id": "N105",
+        "cells": {
+          "J845": ""
+        },
+        "xmlCellPresent": {
+          "J845": true
+        }
+      },
+      {
+        "row": 846,
+        "id": "N106",
+        "cells": {
+          "J846": ""
+        },
+        "xmlCellPresent": {
+          "J846": true
+        }
+      },
+      {
+        "row": 847,
+        "id": "N107",
+        "cells": {
+          "J847": ""
+        },
+        "xmlCellPresent": {
+          "J847": true
+        }
+      },
+      {
+        "row": 857,
+        "id": "N093",
+        "cells": {
+          "J857": ""
+        },
+        "xmlCellPresent": {
+          "J857": true
+        }
+      },
+      {
+        "row": 858,
+        "id": "N095",
+        "cells": {
+          "J858": ""
+        },
+        "xmlCellPresent": {
+          "J858": true
+        }
+      },
+      {
+        "row": 862,
+        "id": "T292",
+        "cells": {
+          "J862": ""
+        },
+        "xmlCellPresent": {
+          "J862": true
+        }
+      },
+      {
+        "row": 863,
+        "id": "N160",
+        "cells": {
+          "J863": ""
+        },
+        "xmlCellPresent": {
+          "J863": true
+        }
+      },
+      {
+        "row": 864,
+        "id": "T293",
+        "cells": {
+          "J864": ""
+        },
+        "xmlCellPresent": {
+          "J864": true
+        }
+      },
+      {
+        "row": 865,
+        "id": "N161",
+        "cells": {
+          "J865": ""
+        },
+        "xmlCellPresent": {
+          "J865": true
+        }
+      },
+      {
+        "row": 866,
+        "id": "T294",
+        "cells": {
+          "J866": ""
+        },
+        "xmlCellPresent": {
+          "J866": true
+        }
+      },
+      {
+        "row": 867,
+        "id": "N162",
+        "cells": {
+          "J867": ""
+        },
+        "xmlCellPresent": {
+          "J867": true
+        }
+      },
+      {
+        "row": 868,
+        "id": "T295",
+        "cells": {
+          "J868": ""
+        },
+        "xmlCellPresent": {
+          "J868": true
+        }
+      },
+      {
+        "row": 869,
+        "id": "N163",
+        "cells": {
+          "J869": ""
+        },
+        "xmlCellPresent": {
+          "J869": true
+        }
+      },
+      {
+        "row": 870,
+        "id": "T296",
+        "cells": {
+          "J870": ""
+        },
+        "xmlCellPresent": {
+          "J870": true
+        }
+      },
+      {
+        "row": 871,
+        "id": "N164",
+        "cells": {
+          "J871": ""
+        },
+        "xmlCellPresent": {
+          "J871": true
+        }
+      },
+      {
+        "row": 872,
+        "id": "N089",
+        "cells": {
+          "J872": ""
+        },
+        "xmlCellPresent": {
+          "J872": true
+        }
+      },
+      {
+        "row": 873,
+        "id": "N090",
+        "cells": {
+          "J873": ""
+        },
+        "xmlCellPresent": {
+          "J873": true
+        }
+      },
+      {
+        "row": 874,
+        "id": "N091",
+        "cells": {
+          "J874": ""
+        },
+        "xmlCellPresent": {
+          "J874": true
+        }
+      },
+      {
+        "row": 875,
+        "id": "N092",
+        "cells": {
+          "J875": ""
+        },
+        "xmlCellPresent": {
+          "J875": true
+        }
+      }
+    ],
+    "rowCount": 24,
+    "extraCellCount": 24,
+    "nonemptySupplementalCells": [],
+    "assessment": "All J cells in this scoped batch are explicitly empty; no supplemental numeric conflict and no rule changes. Empty is not zero. This does not establish other IDs or future columns as empty."
+  }
+}

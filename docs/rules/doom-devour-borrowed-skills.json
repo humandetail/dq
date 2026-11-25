@@ -1,0 +1,3324 @@
+{
+  "records": [
+    {
+      "id": "A164",
+      "status": "ready",
+      "rules": {
+        "activeRange": 1200,
+        "autoRange": 1100,
+        "mana": [
+          30,
+          35,
+          40,
+          45,
+          50,
+          55
+        ],
+        "cooldown": [
+          40,
+          36,
+          32,
+          28,
+          24,
+          20
+        ],
+        "backSwing": 0.1,
+        "castByTower": {
+          "H042": 0.75,
+          "G061": 0.3
+        },
+        "manaRestoreMaxFraction": [
+          0.15,
+          0.2,
+          0.25,
+          0.3,
+          0.35,
+          0.4
+        ],
+        "digestSeconds": "ceil(target.currentHP/(200*rank+.03*target.maxHP))",
+        "digestExclusion": "same persistent tower while pending",
+        "mapBoss": "N534>0 and SAPPER",
+        "defaultBossDivine": "200*targetLevel+.3*target.currentHP",
+        "exceptionBossHPFactor": 0.1,
+        "rewardFactorByTargetLevel": 140,
+        "steal": {
+          "active": "T329",
+          "activeOrder": "rainoffire",
+          "sharesDigestLock": false,
+          "killsTarget": false,
+          "roster": {
+            "m005": [
+              "T300"
+            ],
+            "m009": [
+              "T315"
+            ],
+            "m010": [
+              "T301"
+            ],
+            "m015": [
+              "T302"
+            ],
+            "m017": [
+              "T324"
+            ],
+            "m018": [
+              "T316"
+            ],
+            "m020": [
+              "T310"
+            ],
+            "m024": [
+              "T320"
+            ],
+            "m025": [
+              "T311"
+            ],
+            "m026": [
+              "T317",
+              "T318"
+            ],
+            "m027": [
+              "T323"
+            ],
+            "m028": [
+              "T319"
+            ],
+            "m030": [
+              "T304"
+            ],
+            "m031": [
+              "T314"
+            ],
+            "m033": [
+              "T321"
+            ],
+            "m034": [
+              "T307"
+            ],
+            "m035": [
+              "T313"
+            ],
+            "m037": [
+              "T303"
+            ],
+            "m040": [
+              "T312"
+            ],
+            "m045": [
+              "T322"
+            ],
+            "m048": [
+              "T326"
+            ],
+            "m052": [
+              "T327"
+            ],
+            "m053": [
+              "T328"
+            ],
+            "mBOS": [
+              "T325"
+            ]
+          },
+          "m026AltIfOverdraftStrictlyGreaterThan": 13,
+          "newRank": "uniform(1,4), unless already separately present in old-bound state",
+          "sameRank": "min(4,actualOldRank+1)",
+          "unlisted": "keep current borrowed slot; rebuild T329 at actual rank, resetting cooldown only"
+        },
+        "borrowed": {
+          "T300": {
+            "manaRecipient": [
+              300,
+              400,
+              "500+.05*caster.maxMana",
+              "600+.10*caster.maxMana"
+            ],
+            "autoFallback": "self only if initial target null or dead"
+          },
+          "T301": {
+            "radius": 600,
+            "movementLock": [
+              1.4,
+              1.6,
+              1.8,
+              2
+            ],
+            "poisonPerSecond": [
+              300,
+              500,
+              800,
+              1300
+            ],
+            "poisonSeconds": 10,
+            "decision": "Q71 dedicated tooltip",
+            "poisonProjectile": "q001:T174"
+          },
+          "T302": {
+            "eligibleHopRadius": 600,
+            "maxDistinctHits": 7,
+            "perHitMagic": "2000*liveRank*1-basedHitIndex",
+            "petrifyFactor": 2,
+            "interruption": 0.1,
+            "stealPerHit": "min(target.currentMana,100*liveRank)",
+            "return": "actual sum, once on valid T178 return arrival",
+            "separateCastState": true,
+            "missileSpeed": 800,
+            "decision": "Q54,Q79"
+          },
+          "T303": {
+            "stunRank": "uniform(1,castRank+1)",
+            "stunSeconds": "stunRank",
+            "magicOnHit": "max(0,2000*(liveRank+2-stunRank))",
+            "proxy": "q035:T200",
+            "proxyLife": 4
+          },
+          "T304": {
+            "critPercent": 10,
+            "critMultiplier": [
+              10,
+              14,
+              18,
+              22
+            ],
+            "heroA027Proc": false
+          },
+          "T307": {
+            "radius": 500,
+            "extraMagicDamagePercent": [
+              5,
+              10,
+              15,
+              20
+            ],
+            "recipient": "self and eligible allied units",
+            "stack": "strongest eligible emitter",
+            "phase": "B158 damage dispatch",
+            "decision": "Q71 dedicated tooltip"
+          },
+          "T310": {
+            "magic": [
+              300,
+              600,
+              900,
+              1200
+            ],
+            "radius": 1200,
+            "helper": "T109",
+            "helperRank": "floor(clamp(effectiveStrength/200,1,11))",
+            "stunSeconds": "ordinary 1+.3*(helperRank-1), native shortened 1+.2*(helperRank-1)"
+          },
+          "T311": {
+            "attackSpeedPercent": [
+              100,
+              150,
+              200,
+              250
+            ],
+            "seconds": [
+              2.5,
+              3,
+              3.5,
+              4
+            ],
+            "helper": "q001:T110",
+            "proxyLife": 0.5
+          },
+          "T312": {
+            "range": [
+              500,
+              1500,
+              2000,
+              2500
+            ],
+            "delay": 0.1,
+            "waypoint": "shared Blink placement, same actual entity"
+          },
+          "T313": {
+            "radius": 500,
+            "armorDelta": [
+              -20,
+              -30,
+              -40,
+              -60
+            ],
+            "seconds": 5,
+            "helper": "T124",
+            "replacementKey": "actual target"
+          },
+          "T314": {
+            "seconds": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "stun": 0.5,
+            "magic": "currentTargetHP*.01*liveRank",
+            "exceptionFactor": 0.5,
+            "cooldown": [
+              12,
+              10,
+              8,
+              3
+            ],
+            "replacementKey": "actual caster",
+            "decision": "Q61/Q71 dedicated tooltip"
+          },
+          "T315": {
+            "radius": 400,
+            "unitWeight": 1,
+            "bossWeight": 5,
+            "physical": "0.2*(S18+S19)*weight",
+            "emittedAttackType": "HERO",
+            "decision": "Q71 dedicated tooltip"
+          },
+          "T316": {
+            "attackedProcPercent": [
+              6,
+              8,
+              10,
+              12
+            ],
+            "attackSpeedPercent": 500,
+            "seconds": [
+              2,
+              2,
+              3,
+              3
+            ],
+            "helper": "q001:T144",
+            "decision": "Q61 exact tip"
+          },
+          "T317": {
+            "divineKillAttempt": "q025",
+            "manaFractionOfTargetMaxHp": [
+              0.04,
+              0.06,
+              0.08,
+              0.1
+            ],
+            "manaClamp": [
+              200,
+              3000
+            ],
+            "target": "native nonhero enemy, excluding map bosses"
+          },
+          "T318": {
+            "tickSeconds": [
+              1.5,
+              3,
+              4.5,
+              6
+            ],
+            "radius": 800,
+            "magicBase": [
+              300,
+              600,
+              900,
+              1200
+            ],
+            "intFactor": 2,
+            "scepterExtraIntFactor": 2,
+            "control": "T224/B173 20% for 2s",
+            "replacementKey": "actual caster",
+            "proxy": "q045"
+          },
+          "T319": {
+            "armorDelta": [
+              -20,
+              -30,
+              -40,
+              -50
+            ],
+            "seconds": 10,
+            "rewardRange": [
+              [
+                10,
+                50
+              ],
+              [
+                15,
+                60
+              ],
+              [
+                20,
+                70
+              ],
+              [
+                25,
+                80
+              ]
+            ],
+            "mapBossRewardFactor": 6,
+            "mode1RewardFactor": 0.5,
+            "noRewardIfMarkerLosesSkill": true,
+            "nilKillOwnerLeavesMark": true,
+            "replacementKey": "actual target"
+          },
+          "T320": {
+            "perOwnedKillMaxHP": [
+              4,
+              5,
+              6,
+              7
+            ],
+            "currentHPGain": 0,
+            "grantedGrowthPersists": true
+          },
+          "T321": {
+            "attackSpeedPercent": [
+              50,
+              60,
+              70,
+              80
+            ],
+            "seconds": 7,
+            "controlBuff": "Bblo"
+          },
+          "T322": {
+            "baseAttackIncreasePercent": [
+              400,
+              600,
+              800,
+              1000
+            ],
+            "seconds": 14,
+            "consume": "actual nonzero attack, before early return at main attack PC198–214"
+          },
+          "T323": {
+            "selectionRadius": 300,
+            "drainProxy": "q047:T058",
+            "spellPerTick": [
+              100,
+              200,
+              300,
+              400
+            ],
+            "drainSeconds": 5,
+            "interval": 1,
+            "intGain": [
+              5,
+              7,
+              10,
+              13
+            ],
+            "staffExtraInt": 10,
+            "endlessFactor": 2,
+            "intWindow": 8,
+            "windowReplacement": "first q047 created by new cast",
+            "existingDrains": "remain active; route into current caster window",
+            "nativeLifeReturnRecipient": "q047",
+            "liveRankZeroStaffStillApplies": true
+          },
+          "T324": {
+            "radius": 800,
+            "heroPhysical": [
+              260,
+              480,
+              700,
+              920
+            ],
+            "stun": [
+              1,
+              1.2,
+              1.4,
+              1.6
+            ],
+            "helper": "T034",
+            "decision": "Q71 dedicated tooltip"
+          },
+          "T325": {
+            "attackProcPercent": [
+              12,
+              13,
+              14,
+              15
+            ],
+            "radius": 600,
+            "chaosPhysical": "actual attacking caster.maxHP",
+            "decision": "Q61 exact tip"
+          },
+          "T326": {
+            "units": [
+              2,
+              3,
+              3,
+              3
+            ],
+            "templates": [
+              "b150",
+              "b151",
+              "b153",
+              "b154"
+            ],
+            "radius": 50,
+            "life": 25
+          },
+          "T327": {
+            "radius": 600,
+            "magic": [
+              500,
+              1500,
+              2500,
+              3500
+            ],
+            "divine": "floor(pre-packet currentHP*.05*rank)"
+          },
+          "T328": {
+            "primaryMagic": [
+              1000,
+              2000,
+              3000,
+              4000
+            ],
+            "primaryInterruption": 0.01,
+            "missileSpeed": 1400,
+            "secondProjectile": "q001:T230",
+            "secondProxyLife": 1,
+            "armorDelta": [
+              -20,
+              -30,
+              -40,
+              -50
+            ],
+            "moveSlow": 0.4,
+            "seconds": 4
+          }
+        }
+      },
+      "sourceRefs": {
+        "guide": [
+          {
+            "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+            "sheet": "塔技能",
+            "row": 60,
+            "columns": [
+              6
+            ]
+          },
+          {
+            "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+            "sheet": "塔技能",
+            "row": 65,
+            "columns": [
+              6
+            ]
+          },
+          {
+            "sourcePath": "图鉴.xlsx",
+            "sheet": "塔技能",
+            "row": 60,
+            "columns": [
+              6
+            ]
+          },
+          {
+            "sourcePath": "图鉴.xlsx",
+            "sheet": "塔技能",
+            "row": 65,
+            "columns": [
+              6
+            ]
+          }
+        ],
+        "catalog": [
+          "main/f291",
+          739,
+          885,
+          161638,
+          161784
+        ],
+        "functions": [
+          [
+            "main/f115",
+            88516,
+            88677
+          ],
+          [
+            "main/f115/f0",
+            88678,
+            88730
+          ],
+          [
+            "main/f115/f1",
+            88731,
+            88914
+          ],
+          [
+            "main/f115/f2",
+            88915,
+            88963
+          ],
+          [
+            "main/f115/f3",
+            88964,
+            89259
+          ],
+          [
+            "main/f115/f4",
+            89260,
+            89344
+          ],
+          [
+            "main/f115/f5",
+            89345,
+            89436
+          ],
+          [
+            "main/f115/f6",
+            89437,
+            89571
+          ],
+          [
+            "main/f115/f7",
+            89572,
+            89626
+          ],
+          [
+            "main/f115/f8",
+            89627,
+            89697
+          ],
+          [
+            "main/f115/f9",
+            89698,
+            89909
+          ],
+          [
+            "main/f115/f10",
+            89910,
+            90010
+          ],
+          [
+            "main/f115/f11",
+            90011,
+            90076
+          ],
+          [
+            "main/f115/f12",
+            90077,
+            90104
+          ],
+          [
+            "main/f115/f13",
+            90105,
+            90169
+          ],
+          [
+            "main/f115/f14",
+            90170,
+            90221
+          ],
+          [
+            "main/f115/f15",
+            90222,
+            90264
+          ],
+          [
+            "main/f115/f16",
+            90265,
+            90300
+          ],
+          [
+            "main/f115/f17",
+            90301,
+            90344
+          ],
+          [
+            "main/f115/f18",
+            90345,
+            90502
+          ],
+          [
+            "main/f115/f19",
+            90503,
+            90533
+          ],
+          [
+            "main/f115/f20",
+            90534,
+            90654
+          ],
+          [
+            "main/f115/f21",
+            90655,
+            90817
+          ],
+          [
+            "main/f115/f22",
+            90818,
+            90986
+          ],
+          [
+            "main/f115/f23",
+            90987,
+            91052
+          ],
+          [
+            "main/f115/f24",
+            91053,
+            91111
+          ],
+          [
+            "main/f115/f25",
+            91112,
+            91218
+          ],
+          [
+            "main/f115/f26",
+            91219,
+            91432
+          ],
+          [
+            "main/f115/f27",
+            91433,
+            91462
+          ],
+          [
+            "main/f115/f28",
+            91463,
+            91509
+          ],
+          [
+            "main/f115/f29",
+            91510,
+            91585
+          ],
+          [
+            "main/f115/f30",
+            91586,
+            91615
+          ],
+          [
+            "main/f115/f31",
+            91616,
+            91642
+          ],
+          [
+            "main/f115/f32",
+            91643,
+            91713
+          ],
+          [
+            "main/f115/f33",
+            91714,
+            91885
+          ],
+          [
+            "main/f115/f34",
+            91886,
+            91908
+          ],
+          [
+            "main/f115/f35",
+            91909,
+            91955
+          ],
+          [
+            "main/f115/f36",
+            91956,
+            91982
+          ],
+          [
+            "main/f115/f37",
+            91983,
+            92132
+          ],
+          [
+            "main/f115/f38",
+            92133,
+            92225
+          ],
+          [
+            "main/f115/f39",
+            92226,
+            92422
+          ],
+          [
+            "main/f115/f40",
+            92423,
+            92486
+          ],
+          [
+            "main/f115/f41",
+            92487,
+            92575
+          ],
+          [
+            "main/f115/f42",
+            92576,
+            92623
+          ],
+          [
+            "main/f115/f43",
+            92624,
+            92776
+          ]
+        ],
+        "objectsAndReferences": {
+          "A164": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 953,
+                "id": "A164",
+                "fields": {
+                  "alias": "A164",
+                  "code": "ANcl",
+                  "checkDep": 1,
+                  "Cool1": 40.0,
+                  "Cool2": 36.0,
+                  "Cool3": 32.0,
+                  "Cool4": 28.0,
+                  "Cost1": 30,
+                  "Cost2": 35,
+                  "Cost3": 40,
+                  "Cost4": 45,
+                  "DataB1": 1,
+                  "DataB2": 1,
+                  "DataB3": 1,
+                  "DataB4": 1,
+                  "DataC1": 1,
+                  "DataC2": 1,
+                  "DataC3": 1,
+                  "DataC4": 1,
+                  "DataF1": "channel",
+                  "DataF2": "channel",
+                  "DataF3": "channel",
+                  "DataF4": "channel",
+                  "levels": 6,
+                  "reqLevel": 1,
+                  "Rng1": 1200.0,
+                  "Rng2": 1200.0,
+                  "Rng3": 1200.0,
+                  "Rng4": 1200.0,
+                  "targs1": "enemies",
+                  "targs2": "enemies",
+                  "targs3": "enemies",
+                  "targs4": "enemies"
+                }
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f7",
+                562,
+                50047
+              ],
+              [
+                "main/f115/f0",
+                4,
+                88701
+              ],
+              [
+                "main/f115/f2",
+                13,
+                88952
+              ],
+              [
+                "main/f115/f3",
+                14,
+                89051
+              ],
+              [
+                "main/f291/f10",
+                229,
+                169283
+              ],
+              [
+                "main/f291/f14",
+                1043,
+                171141
+              ],
+              [
+                "main/f291/f27",
+                2475,
+                176724
+              ]
+            ],
+            "hintLine": 2356
+          },
+          "T329": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2195,
+                "id": "T329",
+                "fields": {
+                  "alias": "T329",
+                  "code": "ANcl",
+                  "checkDep": 1,
+                  "Cool1": 40.0,
+                  "Cool2": 36.0,
+                  "Cool3": 32.0,
+                  "Cool4": 28.0,
+                  "Cost1": 30,
+                  "Cost2": 35,
+                  "Cost3": 40,
+                  "Cost4": 45,
+                  "DataB1": 1,
+                  "DataB2": 1,
+                  "DataB3": 1,
+                  "DataB4": 1,
+                  "DataC1": 1,
+                  "DataC2": 1,
+                  "DataC3": 1,
+                  "DataC4": 1,
+                  "DataF1": "rainoffire",
+                  "DataF2": "rainoffire",
+                  "DataF3": "rainoffire",
+                  "DataF4": "rainoffire",
+                  "levels": 6,
+                  "reqLevel": 1,
+                  "Rng1": 1200.0,
+                  "Rng2": 1200.0,
+                  "Rng3": 1200.0,
+                  "Rng4": 1200.0,
+                  "targs1": "enemies",
+                  "targs2": "enemies",
+                  "targs3": "enemies",
+                  "targs4": "enemies"
+                }
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f7",
+                625,
+                50110
+              ],
+              [
+                "main/f115/f0",
+                12,
+                88709
+              ],
+              [
+                "main/f115/f0",
+                19,
+                88716
+              ],
+              [
+                "main/f115/f0",
+                26,
+                88724
+              ],
+              [
+                "main/f115/f1",
+                14,
+                88782
+              ],
+              [
+                "main/f115/f1",
+                114,
+                88889
+              ],
+              [
+                "main/f115/f1",
+                120,
+                88895
+              ],
+              [
+                "main/f115/f1",
+                127,
+                88902
+              ],
+              [
+                "main/f115/f1",
+                133,
+                88908
+              ],
+              [
+                "main/f291/f14",
+                1053,
+                171152
+              ]
+            ],
+            "hintLine": 23291
+          },
+          "T300": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2170,
+                "id": "T300",
+                "fields": {
+                  "code": "ANcl",
+                  "Cool1": 22.0,
+                  "Cool2": 21.0,
+                  "Cool3": 20.0,
+                  "Cool4": 19.0,
+                  "DataB1": 1,
+                  "DataB2": 1,
+                  "DataB3": 1,
+                  "DataB4": 1,
+                  "DataC1": 1,
+                  "DataC2": 1,
+                  "DataC3": 1,
+                  "DataC4": 1,
+                  "DataD1": 1.0,
+                  "DataD2": 1.0,
+                  "DataD3": 1.0,
+                  "DataD4": 1.0,
+                  "DataF1": "acolyteharvest",
+                  "DataF2": "acolyteharvest",
+                  "DataF3": "acolyteharvest",
+                  "DataF4": "acolyteharvest",
+                  "Dur1": 7.0,
+                  "Dur2": 7.0,
+                  "Dur3": 7.0,
+                  "Dur4": 7.0,
+                  "HeroDur1": 7.0,
+                  "HeroDur2": 7.0,
+                  "HeroDur3": 7.0,
+                  "HeroDur4": 7.0,
+                  "levels": 4,
+                  "Rng1": 9999.0,
+                  "Rng2": 9999.0,
+                  "Rng3": 9999.0,
+                  "Rng4": 9999.0,
+                  "targs1": "self,friend,invulnerable",
+                  "targs2": "self,friend,invulnerable",
+                  "targs3": "self,friend,invulnerable",
+                  "targs4": "self,friend,invulnerable"
+                }
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f115/f5",
+                10,
+                89389
+              ],
+              [
+                "main/f291",
+                742,
+                161641
+              ],
+              [
+                "main/f291/f14",
+                1558,
+                171706
+              ],
+              [
+                "main/f291/f27",
+                3868,
+                178211
+              ]
+            ],
+            "hintLine": 22937
+          },
+          "T301": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2171,
+                "id": "T301",
+                "fields": {
+                  "code": "AOws",
+                  "Area1": 600.0,
+                  "Area2": 600.0,
+                  "Area3": 600.0,
+                  "Area4": 600.0,
+                  "BuffID1": "B042",
+                  "BuffID2": "B042",
+                  "BuffID3": "B042",
+                  "BuffID4": "B042",
+                  "Cool1": 7.0,
+                  "Cool2": 7.0,
+                  "Cool3": 7.0,
+                  "Cool4": 7.0,
+                  "Cost1": 45,
+                  "Cost2": 60,
+                  "Cost3": 75,
+                  "Cost4": 90,
+                  "Dur1": 1.4,
+                  "Dur2": 1.6,
+                  "Dur3": 1.8,
+                  "Dur4": 2.0,
+                  "HeroDur1": 0.8,
+                  "HeroDur2": 1.0,
+                  "HeroDur3": 1.2,
+                  "HeroDur4": 1.4,
+                  "levels": 4,
+                  "targs1": "ground",
+                  "targs2": "_",
+                  "targs3": "_",
+                  "targs4": "_"
+                }
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f115/f6",
+                8,
+                89487
+              ],
+              [
+                "main/f291",
+                754,
+                161653
+              ],
+              [
+                "main/f291/f14",
+                1629,
+                171784
+              ],
+              [
+                "main/f291/f27",
+                4121,
+                178482
+              ]
+            ],
+            "hintLine": 22948
+          },
+          "T302": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2172,
+                "id": "T302",
+                "fields": {
+                  "code": "AOcl",
+                  "Area1": 500.0,
+                  "Area2": 500.0,
+                  "Area3": 500.0,
+                  "Area4": 500.0,
+                  "Cool1": 9.0,
+                  "Cool2": 9.0,
+                  "Cool3": 9.0,
+                  "Cool4": 9.0,
+                  "Cost1": 200,
+                  "Cost2": 300,
+                  "Cost3": 400,
+                  "Cost4": 500,
+                  "DataB1": 1,
+                  "DataB2": 1,
+                  "DataB3": 1,
+                  "DataB4": 1,
+                  "levels": 4,
+                  "Rng1": 600.0,
+                  "Rng2": 600.0,
+                  "Rng3": 600.0,
+                  "Rng4": 600.0,
+                  "targs1": "enemies",
+                  "targs2": "enemies",
+                  "targs3": "enemies",
+                  "targs4": "enemies"
+                }
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f115/f8",
+                4,
+                89660
+              ],
+              [
+                "main/f115/f9",
+                7,
+                89764
+              ],
+              [
+                "main/f291",
+                760,
+                161659
+              ],
+              [
+                "main/f291/f1",
+                2329,
+                164949
+              ],
+              [
+                "main/f291/f14",
+                1639,
+                171795
+              ],
+              [
+                "main/f291/f27",
+                3897,
+                178243
+              ]
+            ],
+            "hintLine": 22963
+          },
+          "T303": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2173,
+                "id": "T303",
+                "fields": {
+                  "code": "ANcl",
+                  "Cool1": 12.0,
+                  "Cool2": 12.0,
+                  "Cool3": 12.0,
+                  "Cool4": 12.0,
+                  "Cost1": 80,
+                  "Cost2": 100,
+                  "Cost3": 120,
+                  "Cost4": 140,
+                  "DataB1": 1,
+                  "DataB2": 1,
+                  "DataB3": 1,
+                  "DataB4": 1,
+                  "DataC1": 1,
+                  "DataC2": 1,
+                  "DataC3": 1,
+                  "DataC4": 1,
+                  "DataD1": 1.0,
+                  "DataD2": 1.0,
+                  "DataD3": 1.0,
+                  "DataD4": 1.0,
+                  "DataF1": "acolyteharvest",
+                  "DataF2": "acolyteharvest",
+                  "DataF3": "acolyteharvest",
+                  "DataF4": "acolyteharvest",
+                  "levels": 4,
+                  "Rng1": 900.0,
+                  "Rng2": 900.0,
+                  "Rng3": 900.0,
+                  "Rng4": 900.0,
+                  "targs1": "_",
+                  "targs2": "_",
+                  "targs3": "_",
+                  "targs4": "_"
+                }
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f115/f10",
+                11,
+                89952
+              ],
+              [
+                "main/f115/f11",
+                7,
+                90044
+              ],
+              [
+                "main/f291",
+                844,
+                161743
+              ],
+              [
+                "main/f291/f1",
+                2416,
+                165041
+              ],
+              [
+                "main/f291/f14",
+                1569,
+                171718
+              ],
+              [
+                "main/f291/f27",
+                3927,
+                178275
+              ]
+            ],
+            "hintLine": 22976
+          },
+          "T304": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2174,
+                "id": "T304",
+                "fields": {
+                  "code": "AOcr",
+                  "DataA1": 10.0,
+                  "DataA2": 10.0,
+                  "DataA3": 10.0,
+                  "DataA4": 10.0,
+                  "DataB1": 10.0,
+                  "DataB2": 14.0,
+                  "DataB3": 18.0,
+                  "DataB4": 22.0,
+                  "levels": 4,
+                  "targs1": "_",
+                  "targs2": "_",
+                  "targs3": "_",
+                  "targs4": "_"
+                }
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f291",
+                814,
+                161713
+              ]
+            ],
+            "hintLine": 22988
+          },
+          "T307": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2175,
+                "id": "T307",
+                "fields": {
+                  "code": "AHad",
+                  "Area1": 500.0,
+                  "Area2": 500.0,
+                  "Area3": 500.0,
+                  "Area4": 500.0,
+                  "BuffID1": "B158",
+                  "BuffID2": "B158",
+                  "BuffID3": "B158",
+                  "BuffID4": "B158",
+                  "levels": 4,
+                  "targs1": "invulnerable,self,friend",
+                  "targs2": "invulnerable,self,friend",
+                  "targs3": "invulnerable,self,friend",
+                  "targs4": "invulnerable,self,friend"
+                }
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f115/f12",
+                4,
+                90097
+              ],
+              [
+                "main/f291",
+                832,
+                161731
+              ]
+            ],
+            "hintLine": 22997
+          },
+          "T310": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2176,
+                "id": "T310",
+                "fields": {
+                  "code": "AHtc",
+                  "Area1": 1200.0,
+                  "Area2": 1200.0,
+                  "Area3": 1200.0,
+                  "Area4": 1200.0,
+                  "BuffID1": "BHtc",
+                  "BuffID2": "BHtc",
+                  "BuffID3": "BHtc",
+                  "BuffID4": "BHtc",
+                  "Cool1": 12.0,
+                  "Cool2": 11.0,
+                  "Cool3": 10.0,
+                  "Cool4": 9.0,
+                  "Cost1": 50,
+                  "Cost2": 70,
+                  "Cost3": 90,
+                  "Cost4": 110,
+                  "DataA1": 300.0,
+                  "DataA2": 600.0,
+                  "DataA3": 900.0,
+                  "DataA4": 1200.0,
+                  "Dur1": 0.1,
+                  "Dur2": 0.1,
+                  "Dur3": 0.1,
+                  "Dur4": 0.1,
+                  "HeroDur1": 0.1,
+                  "HeroDur2": 0.1,
+                  "HeroDur3": 0.1,
+                  "HeroDur4": 0.1,
+                  "levels": 4,
+                  "Rng1": 600.0,
+                  "Rng2": 600.0,
+                  "Rng3": 600.0,
+                  "Rng4": 600.0,
+                  "targs1": "enemies",
+                  "targs2": "enemies",
+                  "targs3": "enemies",
+                  "targs4": "enemies"
+                }
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f291",
+                778,
+                161677
+              ],
+              [
+                "main/f291/f14",
+                1580,
+                171730
+              ],
+              [
+                "main/f291/f27",
+                3957,
+                178307
+              ]
+            ],
+            "hintLine": 23014
+          },
+          "T311": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2177,
+                "id": "T311",
+                "fields": {
+                  "code": "ANcl",
+                  "Cool1": 12.0,
+                  "Cool2": 12.0,
+                  "Cool3": 12.0,
+                  "Cool4": 12.0,
+                  "Cost1": 40,
+                  "Cost2": 70,
+                  "Cost3": 100,
+                  "Cost4": 130,
+                  "DataC1": 1,
+                  "DataC2": 1,
+                  "DataC3": 1,
+                  "DataC4": 1,
+                  "DataD1": 1.0,
+                  "DataD2": 1.0,
+                  "DataD3": 1.0,
+                  "DataD4": 1.0,
+                  "DataF1": "acolyteharvest",
+                  "DataF2": "acolyteharvest",
+                  "DataF3": "acolyteharvest",
+                  "DataF4": "acolyteharvest",
+                  "HeroDur1": 2.5,
+                  "HeroDur2": 3.0,
+                  "HeroDur3": 3.5,
+                  "HeroDur4": 4.0,
+                  "levels": 4,
+                  "Rng1": 1000.0,
+                  "Rng2": 1000.0,
+                  "Rng3": 1000.0,
+                  "Rng4": 1000.0,
+                  "targs1": "self,invulnerable",
+                  "targs2": "self,invulnerable",
+                  "targs3": "self,invulnerable",
+                  "targs4": "self,invulnerable"
+                }
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f115/f14",
+                6,
+                90199
+              ],
+              [
+                "main/f291",
+                790,
+                161689
+              ],
+              [
+                "main/f291/f14",
+                1589,
+                171740
+              ],
+              [
+                "main/f291/f27",
+                4010,
+                178364
+              ]
+            ],
+            "hintLine": 23028
+          },
+          "T312": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2178,
+                "id": "T312",
+                "fields": {
+                  "code": "ANcl",
+                  "Cool1": 25.0,
+                  "Cool2": 20.0,
+                  "Cool3": 15.0,
+                  "Cool4": 10.0,
+                  "Cost1": 30,
+                  "Cost2": 40,
+                  "Cost3": 50,
+                  "Cost4": 60,
+                  "DataB1": 2,
+                  "DataB2": 2,
+                  "DataB3": 2,
+                  "DataB4": 2,
+                  "DataC1": 1,
+                  "DataC2": 1,
+                  "DataC3": 1,
+                  "DataC4": 1,
+                  "DataD1": 1.0,
+                  "DataD2": 1.0,
+                  "DataD3": 1.0,
+                  "DataD4": 1.0,
+                  "DataF1": "acolyteharvest",
+                  "DataF2": "acolyteharvest",
+                  "DataF3": "acolyteharvest",
+                  "DataF4": "acolyteharvest",
+                  "levels": 4,
+                  "Rng1": 500.0,
+                  "Rng2": 1500.0,
+                  "Rng3": 2000.0,
+                  "Rng4": 2500.0,
+                  "targs1": "_",
+                  "targs2": "_",
+                  "targs3": "_",
+                  "targs4": "_"
+                }
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f291",
+                850,
+                161749
+              ],
+              [
+                "main/f291/f14",
+                791,
+                170868
+              ]
+            ],
+            "hintLine": 23042
+          },
+          "T313": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2179,
+                "id": "T313",
+                "fields": {
+                  "code": "ANcl",
+                  "Area1": 500.0,
+                  "Area2": 500.0,
+                  "Area3": 500.0,
+                  "Area4": 500.0,
+                  "Cool1": 13.0,
+                  "Cool2": 12.0,
+                  "Cool3": 11.0,
+                  "Cool4": 10.0,
+                  "Cost1": 30,
+                  "Cost2": 40,
+                  "Cost3": 50,
+                  "Cost4": 60,
+                  "DataB1": 2,
+                  "DataB2": 2,
+                  "DataB3": 2,
+                  "DataB4": 2,
+                  "DataC1": 3,
+                  "DataC2": 3,
+                  "DataC3": 3,
+                  "DataC4": 3,
+                  "DataF1": "resurrection",
+                  "DataF2": "resurrection",
+                  "DataF3": "resurrection",
+                  "DataF4": "resurrection",
+                  "HeroDur1": 2.5,
+                  "HeroDur2": 3.0,
+                  "HeroDur3": 3.5,
+                  "HeroDur4": 4.0,
+                  "levels": 4,
+                  "Rng1": 1000.0,
+                  "Rng2": 1000.0,
+                  "Rng3": 1000.0,
+                  "Rng4": 1000.0,
+                  "targs1": "_",
+                  "targs2": "_",
+                  "targs3": "_",
+                  "targs4": "_"
+                }
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f115/f18",
+                12,
+                90405
+              ],
+              [
+                "main/f291",
+                838,
+                161737
+              ],
+              [
+                "main/f291/f14",
+                1598,
+                171750
+              ],
+              [
+                "main/f291/f27",
+                4023,
+                178378
+              ]
+            ],
+            "hintLine": 23056
+          },
+          "T314": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2180,
+                "id": "T314",
+                "fields": {
+                  "code": "ANcl",
+                  "Cool1": 12.0,
+                  "Cool2": 10.0,
+                  "Cool3": 8.0,
+                  "Cool4": 6.0,
+                  "Cost1": 10,
+                  "Cost2": 9,
+                  "Cost3": 8,
+                  "Cost4": 7,
+                  "DataB1": 1,
+                  "DataB2": 1,
+                  "DataB3": 1,
+                  "DataB4": 1,
+                  "DataC1": 1,
+                  "DataC2": 1,
+                  "DataC3": 1,
+                  "DataC4": 1,
+                  "DataD1": 1.0,
+                  "DataD2": 1.0,
+                  "DataD3": 1.0,
+                  "DataD4": 1.0,
+                  "DataF1": "acolyteharvest",
+                  "DataF2": "acolyteharvest",
+                  "DataF3": "acolyteharvest",
+                  "DataF4": "acolyteharvest",
+                  "HeroDur1": 2.5,
+                  "HeroDur2": 3.0,
+                  "HeroDur3": 3.5,
+                  "HeroDur4": 4.0,
+                  "levels": 4,
+                  "Rng1": 750.0,
+                  "Rng2": 750.0,
+                  "Rng3": 750.0,
+                  "Rng4": 750.0,
+                  "targs1": "enemies",
+                  "targs2": "enemies",
+                  "targs3": "enemies",
+                  "targs4": "enemies"
+                }
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f115/f20",
+                12,
+                90586
+              ],
+              [
+                "main/f115/f21",
+                14,
+                90724
+              ],
+              [
+                "main/f291",
+                820,
+                161719
+              ],
+              [
+                "main/f291/f14",
+                1608,
+                171761
+              ],
+              [
+                "main/f291/f27",
+                4057,
+                178414
+              ]
+            ],
+            "hintLine": 23070
+          },
+          "T315": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2181,
+                "id": "T315",
+                "fields": {
+                  "code": "AHbz",
+                  "Area1": 400.0,
+                  "Area2": 400.0,
+                  "Area3": 400.0,
+                  "Area4": 400.0,
+                  "BuffID2": "BHbd,BHbz",
+                  "BuffID3": "BHbd,BHbz",
+                  "BuffID4": "BHbd,BHbz",
+                  "Cast1": 1.0,
+                  "Cast2": 1.0,
+                  "Cast3": 1.0,
+                  "Cast4": 1.0,
+                  "Cool1": 12.0,
+                  "Cool2": 11.0,
+                  "Cool3": 10.0,
+                  "Cool4": 9.0,
+                  "Cost1": 10,
+                  "Cost2": 30,
+                  "Cost3": 50,
+                  "Cost4": 70,
+                  "DataC1": 1,
+                  "DataC2": 1,
+                  "DataC3": 1,
+                  "DataC4": 1,
+                  "HeroDur1": 2.0,
+                  "HeroDur2": 3.0,
+                  "HeroDur3": 4.0,
+                  "HeroDur4": 5.0,
+                  "levels": 4,
+                  "Rng1": 750.0,
+                  "Rng2": 750.0,
+                  "Rng3": 750.0,
+                  "Rng4": 750.0,
+                  "targs1": "enemies",
+                  "targs2": "enemies",
+                  "targs3": "enemies",
+                  "targs4": "enemies"
+                }
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f115/f22",
+                12,
+                90883
+              ],
+              [
+                "main/f291",
+                748,
+                161647
+              ],
+              [
+                "main/f291/f14",
+                1619,
+                171773
+              ],
+              [
+                "main/f291/f27",
+                4087,
+                178446
+              ]
+            ],
+            "hintLine": 23086
+          },
+          "T316": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2182,
+                "id": "T316",
+                "fields": {
+                  "code": "AHad",
+                  "Dur2": 4.0,
+                  "Dur3": 4.0,
+                  "Dur4": 4.0,
+                  "HeroDur2": 2.0,
+                  "HeroDur3": 2.0,
+                  "HeroDur4": 2.0,
+                  "levels": 4,
+                  "targs1": "_",
+                  "targs2": "_",
+                  "targs3": "_",
+                  "targs4": "_"
+                }
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f115/f23",
+                20,
+                91034
+              ],
+              [
+                "main/f115/f24",
+                4,
+                91080
+              ],
+              [
+                "main/f291",
+                772,
+                161671
+              ],
+              [
+                "main/f291/f2",
+                22,
+                167065
+              ],
+              [
+                "main/f291/f3",
+                84,
+                167230
+              ]
+            ],
+            "hintLine": 23100
+          },
+          "T317": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2183,
+                "id": "T317",
+                "fields": {
+                  "code": "ANcl",
+                  "Cool1": 30.0,
+                  "Cool2": 30.0,
+                  "Cool3": 30.0,
+                  "Cool4": 30.0,
+                  "DataB1": 1,
+                  "DataB2": 1,
+                  "DataB3": 1,
+                  "DataB4": 1,
+                  "DataC1": 1,
+                  "DataC2": 1,
+                  "DataC3": 1,
+                  "DataC4": 1,
+                  "DataF1": "acolyteharvest",
+                  "DataF2": "acolyteharvest",
+                  "DataF3": "acolyteharvest",
+                  "DataF4": "acolyteharvest",
+                  "levels": 4,
+                  "Rng1": 1000.0,
+                  "Rng2": 1000.0,
+                  "Rng3": 1000.0,
+                  "Rng4": 1000.0,
+                  "targs1": "enemies,nonhero",
+                  "targs2": "enemies,nonhero",
+                  "targs3": "enemies,nonhero",
+                  "targs4": "enemies,nonhero"
+                }
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f115/f25",
+                10,
+                91158
+              ],
+              [
+                "main/f291",
+                796,
+                161695
+              ],
+              [
+                "main/f291/f14",
+                1650,
+                171807
+              ],
+              [
+                "main/f291/f27",
+                4150,
+                178513
+              ]
+            ],
+            "hintLine": 23115
+          },
+          "T318": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2184,
+                "id": "T318",
+                "fields": {
+                  "code": "ANcl",
+                  "Cool1": 10.0,
+                  "Cool2": 10.0,
+                  "Cool3": 10.0,
+                  "Cool4": 10.0,
+                  "Cost1": 100,
+                  "Cost2": 120,
+                  "Cost3": 140,
+                  "Cost4": 160,
+                  "DataB1": 1,
+                  "DataB2": 1,
+                  "DataB3": 1,
+                  "DataB4": 1,
+                  "DataC1": 1,
+                  "DataC2": 1,
+                  "DataC3": 1,
+                  "DataC4": 1,
+                  "DataD1": 1.0,
+                  "DataD2": 1.0,
+                  "DataD3": 1.0,
+                  "DataD4": 1.0,
+                  "DataF1": "acolyteharvest",
+                  "DataF2": "acolyteharvest",
+                  "DataF3": "acolyteharvest",
+                  "DataF4": "acolyteharvest",
+                  "levels": 4,
+                  "Rng1": 1000.0,
+                  "Rng2": 1000.0,
+                  "Rng3": 1000.0,
+                  "Rng4": 1000.0,
+                  "targs1": "self,friend,invulnerable",
+                  "targs2": "self,friend,invulnerable",
+                  "targs3": "self,friend,invulnerable",
+                  "targs4": "self,friend,invulnerable"
+                }
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f115/f26",
+                18,
+                91296
+              ],
+              [
+                "main/f291",
+                797,
+                161696
+              ],
+              [
+                "main/f291/f14",
+                1660,
+                171818
+              ],
+              [
+                "main/f291/f27",
+                4180,
+                178545
+              ]
+            ],
+            "hintLine": 23128
+          },
+          "T319": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2185,
+                "id": "T319",
+                "fields": {
+                  "code": "Afae",
+                  "BuffID1": "B176",
+                  "BuffID2": "B176",
+                  "BuffID3": "B176",
+                  "BuffID4": "B176",
+                  "Cool1": 10.0,
+                  "Cool2": 9.0,
+                  "Cool3": 8.0,
+                  "Cool4": 7.0,
+                  "Cost1": 10,
+                  "Cost2": 15,
+                  "Cost3": 20,
+                  "Cost4": 25,
+                  "DataA1": 20,
+                  "DataA2": 30,
+                  "DataA3": 40,
+                  "DataA4": 50,
+                  "DataB1": 1,
+                  "DataB2": 1,
+                  "DataB3": 1,
+                  "DataB4": 1,
+                  "Dur1": 10.0,
+                  "Dur2": 10.0,
+                  "Dur3": 10.0,
+                  "Dur4": 10.0,
+                  "HeroDur1": 10.0,
+                  "HeroDur2": 10.0,
+                  "HeroDur3": 10.0,
+                  "HeroDur4": 10.0,
+                  "levels": 4,
+                  "Rng1": 1300.0,
+                  "Rng2": 1300.0,
+                  "Rng3": 1300.0,
+                  "Rng4": 1300.0,
+                  "targs1": "enemies",
+                  "targs2": "enemies",
+                  "targs3": "enemies",
+                  "targs4": "enemies"
+                }
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f115/f33",
+                15,
+                91784
+              ],
+              [
+                "main/f291",
+                808,
+                161707
+              ],
+              [
+                "main/f291/f14",
+                1671,
+                171830
+              ]
+            ],
+            "hintLine": 23144
+          },
+          "T320": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2186,
+                "id": "T320",
+                "fields": {
+                  "code": "AOcr",
+                  "levels": 4,
+                  "targs1": "air,ground,enemy,neutral",
+                  "targs2": "air,ground,enemy,neutral",
+                  "targs3": "air,ground,enemy,neutral",
+                  "targs4": "air,ground,enemy,neutral"
+                }
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f291",
+                784,
+                161683
+              ],
+              [
+                "main/f291/f9",
+                444,
+                168873
+              ],
+              [
+                "main/f291/f9",
+                452,
+                168881
+              ]
+            ],
+            "hintLine": 23161
+          },
+          "T321": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2187,
+                "id": "T321",
+                "fields": {
+                  "code": "Ablo",
+                  "BuffID1": "Bblo",
+                  "Cool1": 10.0,
+                  "Cool2": 9.0,
+                  "Cool3": 8.0,
+                  "Cool4": 7.0,
+                  "Cost1": 50,
+                  "Cost2": 50,
+                  "Cost3": 50,
+                  "Cost4": 50,
+                  "DataA1": 0.5,
+                  "DataA2": 0.6,
+                  "DataA3": 0.7,
+                  "DataA4": 0.8,
+                  "DataC1": 0.2,
+                  "DataC2": 0.2,
+                  "DataC3": 0.2,
+                  "DataC4": 0.2,
+                  "Dur1": 7.0,
+                  "Dur2": 7.0,
+                  "Dur3": 7.0,
+                  "Dur4": 7.0,
+                  "HeroDur1": 7.0,
+                  "HeroDur2": 7.0,
+                  "HeroDur3": 7.0,
+                  "HeroDur4": 7.0,
+                  "levels": 4,
+                  "Rng1": 1000.0,
+                  "Rng2": 1000.0,
+                  "Rng3": 1000.0,
+                  "Rng4": 1000.0,
+                  "targs1": "self,friend,invulnerable",
+                  "targs2": "self,friend,invulnerable",
+                  "targs3": "self,friend,invulnerable",
+                  "targs4": "self,friend,invulnerable"
+                }
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f291",
+                826,
+                161725
+              ]
+            ],
+            "hintLine": 23174
+          },
+          "T322": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2188,
+                "id": "T322",
+                "fields": {
+                  "code": "Aroa",
+                  "Area1": 100.0,
+                  "Area2": 100.0,
+                  "Area3": 100.0,
+                  "Area4": 100.0,
+                  "BuffID1": "B177",
+                  "BuffID2": "B177",
+                  "BuffID3": "B177",
+                  "BuffID4": "B177",
+                  "Cool1": 5.0,
+                  "Cool2": 5.0,
+                  "Cool3": 5.0,
+                  "Cool4": 5.0,
+                  "Cost1": 50,
+                  "Cost2": 50,
+                  "Cost3": 50,
+                  "Cost4": 50,
+                  "DataA1": 4.0,
+                  "DataA2": 6.0,
+                  "DataA3": 8.0,
+                  "DataA4": 10.0,
+                  "Dur1": 14.0,
+                  "Dur2": 14.0,
+                  "Dur3": 14.0,
+                  "Dur4": 14.0,
+                  "HeroDur1": 14.0,
+                  "HeroDur2": 14.0,
+                  "HeroDur3": 14.0,
+                  "HeroDur4": 14.0,
+                  "levels": 4,
+                  "targs1": "self,invulnerable",
+                  "targs2": "self,invulnerable",
+                  "targs3": "self,invulnerable",
+                  "targs4": "self,invulnerable"
+                }
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f291",
+                856,
+                161755
+              ],
+              [
+                "main/f291/f27",
+                4210,
+                178578
+              ]
+            ],
+            "hintLine": 23191
+          },
+          "T323": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2189,
+                "id": "T323",
+                "fields": {
+                  "code": "ANcl",
+                  "Area1": 300.0,
+                  "Area2": 300.0,
+                  "Area3": 300.0,
+                  "Area4": 300.0,
+                  "Cool1": 10.0,
+                  "Cool2": 10.0,
+                  "Cool3": 10.0,
+                  "Cool4": 10.0,
+                  "Cost1": 45,
+                  "Cost2": 60,
+                  "Cost3": 75,
+                  "Cost4": 90,
+                  "DataA1": 0.5,
+                  "DataA2": 0.5,
+                  "DataA3": 0.5,
+                  "DataA4": 0.5,
+                  "DataB1": 2,
+                  "DataB2": 2,
+                  "DataB3": 2,
+                  "DataB4": 2,
+                  "DataC1": 3,
+                  "DataC2": 3,
+                  "DataC3": 3,
+                  "DataC4": 3,
+                  "DataF1": "acolyteharvest",
+                  "DataF2": "acolyteharvest",
+                  "DataF3": "acolyteharvest",
+                  "DataF4": "acolyteharvest",
+                  "levels": 4,
+                  "Rng1": 850.0,
+                  "Rng2": 850.0,
+                  "Rng3": 850.0,
+                  "Rng4": 850.0,
+                  "targs1": "_",
+                  "targs2": "_",
+                  "targs3": "_",
+                  "targs4": "_"
+                }
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f115/f37",
+                10,
+                92041
+              ],
+              [
+                "main/f115/f38",
+                8,
+                92172
+              ],
+              [
+                "main/f291",
+                802,
+                161701
+              ],
+              [
+                "main/f291/f14",
+                1682,
+                171842
+              ],
+              [
+                "main/f291/f27",
+                4223,
+                178592
+              ]
+            ],
+            "hintLine": 23205
+          },
+          "T324": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2190,
+                "id": "T324",
+                "fields": {
+                  "code": "ANcl",
+                  "Cool1": 8.0,
+                  "Cool2": 8.0,
+                  "Cool3": 7.0,
+                  "Cool4": 7.0,
+                  "Cost1": 20,
+                  "Cost2": 40,
+                  "Cost3": 60,
+                  "Cost4": 90,
+                  "DataA1": 0.5,
+                  "DataA2": 0.5,
+                  "DataA3": 0.5,
+                  "DataA4": 0.5,
+                  "DataC1": 1,
+                  "DataC2": 1,
+                  "DataC3": 1,
+                  "DataC4": 1,
+                  "DataF1": "acolyteharvest",
+                  "DataF2": "acolyteharvest",
+                  "DataF3": "acolyteharvest",
+                  "DataF4": "acolyteharvest",
+                  "Dur1": 1.0,
+                  "Dur2": 1.2,
+                  "Dur3": 1.4,
+                  "Dur4": 1.6,
+                  "HeroDur1": 1.0,
+                  "HeroDur2": 1.1,
+                  "HeroDur3": 1.2,
+                  "HeroDur4": 1.3,
+                  "levels": 4,
+                  "Rng1": 500.0,
+                  "Rng2": 500.0,
+                  "Rng3": 500.0,
+                  "Rng4": 500.0,
+                  "targs1": "_",
+                  "targs2": "_",
+                  "targs3": "_",
+                  "targs4": "_"
+                }
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f115/f39",
+                9,
+                92294
+              ],
+              [
+                "main/f291",
+                766,
+                161665
+              ],
+              [
+                "main/f291/f14",
+                1692,
+                171853
+              ],
+              [
+                "main/f291/f27",
+                4257,
+                178628
+              ]
+            ],
+            "hintLine": 23220
+          },
+          "T325": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2191,
+                "id": "T325",
+                "fields": {
+                  "code": "AOcr",
+                  "levels": 4,
+                  "targs1": "air,ground,enemy,neutral",
+                  "targs2": "air,ground,enemy,neutral",
+                  "targs3": "air,ground,enemy,neutral",
+                  "targs4": "air,ground,enemy,neutral"
+                }
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f115/f41",
+                6,
+                92518
+              ],
+              [
+                "main/f291",
+                880,
+                161779
+              ],
+              [
+                "main/f291/f1",
+                1900,
+                164497
+              ]
+            ],
+            "hintLine": 23232
+          },
+          "T326": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2192,
+                "id": "T326",
+                "fields": {
+                  "code": "AOsf",
+                  "Area1": 50.0,
+                  "Area2": 50.0,
+                  "Area3": 50.0,
+                  "Area4": 50.0,
+                  "BuffID1": "BOsf",
+                  "BuffID2": "BOsf",
+                  "BuffID3": "BOsf",
+                  "BuffID4": "BOsf",
+                  "Cool1": 30.0,
+                  "Cool2": 30.0,
+                  "Cool3": 30.0,
+                  "Cool4": 30.0,
+                  "Cost1": 20,
+                  "Cost2": 40,
+                  "Cost3": 60,
+                  "Cost4": 80,
+                  "DataB1": 2,
+                  "DataB2": 3,
+                  "DataB3": 3,
+                  "DataB4": 3,
+                  "Dur1": 25.0,
+                  "Dur2": 25.0,
+                  "Dur3": 25.0,
+                  "Dur4": 25.0,
+                  "HeroDur1": 25.0,
+                  "HeroDur2": 25.0,
+                  "HeroDur3": 25.0,
+                  "HeroDur4": 25.0,
+                  "levels": 4,
+                  "Rng1": 800.0,
+                  "Rng2": 800.0,
+                  "Rng3": 800.0,
+                  "Rng4": 800.0,
+                  "targs1": "_",
+                  "targs2": "_",
+                  "targs3": "_",
+                  "targs4": "_"
+                }
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f291",
+                862,
+                161761
+              ],
+              [
+                "main/f291/f27",
+                3970,
+                178321
+              ]
+            ],
+            "hintLine": 23247
+          },
+          "T327": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2193,
+                "id": "T327",
+                "fields": {
+                  "code": "ANcl",
+                  "Cool1": 8.0,
+                  "Cool2": 8.0,
+                  "Cool3": 8.0,
+                  "Cool4": 8.0,
+                  "Cost1": 70,
+                  "Cost2": 80,
+                  "Cost3": 90,
+                  "Cost4": 100,
+                  "DataA1": 0.5,
+                  "DataA2": 0.5,
+                  "DataA3": 0.5,
+                  "DataA4": 0.5,
+                  "DataC1": 1,
+                  "DataC2": 1,
+                  "DataC3": 1,
+                  "DataC4": 1,
+                  "DataF1": "acolyteharvest",
+                  "DataF2": "acolyteharvest",
+                  "DataF3": "acolyteharvest",
+                  "DataF4": "acolyteharvest",
+                  "Dur1": 1.0,
+                  "Dur2": 1.2,
+                  "Dur3": 1.4,
+                  "Dur4": 1.6,
+                  "HeroDur1": 1.0,
+                  "HeroDur2": 1.1,
+                  "HeroDur3": 1.2,
+                  "HeroDur4": 1.3,
+                  "levels": 4,
+                  "Rng1": 500.0,
+                  "Rng2": 500.0,
+                  "Rng3": 500.0,
+                  "Rng4": 500.0,
+                  "targs1": "_",
+                  "targs2": "_",
+                  "targs3": "_",
+                  "targs4": "_"
+                }
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f115/f43",
+                6,
+                92676
+              ],
+              [
+                "main/f291",
+                868,
+                161767
+              ],
+              [
+                "main/f291/f14",
+                1712,
+                171875
+              ],
+              [
+                "main/f291/f27",
+                3983,
+                178335
+              ]
+            ],
+            "hintLine": 23262
+          },
+          "T328": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2194,
+                "id": "T328",
+                "fields": {
+                  "code": "AHtb",
+                  "BuffID1": "BPSE",
+                  "BuffID2": "BPSE",
+                  "BuffID3": "BPSE",
+                  "BuffID4": "BPSE",
+                  "Cool1": 12.0,
+                  "Cool2": 12.0,
+                  "Cool3": 12.0,
+                  "Cool4": 12.0,
+                  "Cost1": 120,
+                  "Cost2": 120,
+                  "Cost3": 120,
+                  "Cost4": 120,
+                  "DataA1": 1000.0,
+                  "DataA2": 2000.0,
+                  "DataA3": 3000.0,
+                  "DataA4": 4000.0,
+                  "Dur1": 0.01,
+                  "Dur2": 0.01,
+                  "Dur3": 0.01,
+                  "Dur4": 0.01,
+                  "HeroDur1": 0.01,
+                  "HeroDur2": 0.01,
+                  "HeroDur3": 0.01,
+                  "HeroDur4": 0.01,
+                  "levels": 4,
+                  "Rng1": 1200.0,
+                  "Rng2": 1200.0,
+                  "Rng3": 1200.0,
+                  "Rng4": 1200.0,
+                  "targs1": "enemies",
+                  "targs2": "enemies",
+                  "targs3": "enemies",
+                  "targs4": "enemies"
+                }
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f115/f42",
+                4,
+                92602
+              ],
+              [
+                "main/f291",
+                874,
+                161773
+              ],
+              [
+                "main/f291/f14",
+                1701,
+                171863
+              ],
+              [
+                "main/f291/f27",
+                3996,
+                178349
+              ]
+            ],
+            "hintLine": 23278
+          },
+          "T034": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 1911,
+                "id": "T034"
+              },
+              {
+                "sourcePath": "reference/map-6.25/war3map.w3a.json",
+                "jsonIndex": 182,
+                "id": "T034"
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f32/f0",
+                12,
+                64038
+              ],
+              [
+                "main/f115/f39",
+                18,
+                92303
+              ],
+              [
+                "main/f173/f0",
+                12,
+                112981
+              ],
+              [
+                "main/f174/f0",
+                6,
+                113026
+              ]
+            ],
+            "hintLine": 19760
+          },
+          "T058": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 1935,
+                "id": "T058"
+              },
+              {
+                "sourcePath": "reference/map-6.25/war3map.w3a.json",
+                "jsonIndex": 189,
+                "id": "T058"
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f57/f2",
+                31,
+                70652
+              ],
+              [
+                "main/f115/f37",
+                65,
+                92097
+              ]
+            ],
+            "hintLine": 20019
+          },
+          "T109": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 1986,
+                "id": "T109"
+              },
+              {
+                "sourcePath": "reference/map-6.25/war3map.w3a.json",
+                "jsonIndex": 206,
+                "id": "T109"
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f115/f13",
+                28,
+                90160
+              ]
+            ],
+            "hintLine": 20742
+          },
+          "T110": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 1987,
+                "id": "T110"
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f115/f14",
+                18,
+                90211
+              ]
+            ],
+            "hintLine": 20754
+          },
+          "T124": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2001,
+                "id": "T124"
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f115/f17",
+                16,
+                90337
+              ],
+              [
+                "main/f115/f18",
+                55,
+                90449
+              ],
+              [
+                "main/f115/f18",
+                61,
+                90455
+              ],
+              [
+                "main/f115/f18",
+                68,
+                90462
+              ],
+              [
+                "main/f115/f18",
+                74,
+                90468
+              ]
+            ],
+            "hintLine": null
+          },
+          "T139": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2016,
+                "id": "T139"
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f115/f21",
+                62,
+                90774
+              ]
+            ],
+            "hintLine": 21105
+          },
+          "T144": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2021,
+                "id": "T144"
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f115/f23",
+                16,
+                91030
+              ]
+            ],
+            "hintLine": 21174
+          },
+          "T174": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2047,
+                "id": "T174"
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f115/f6",
+                63,
+                89543
+              ]
+            ],
+            "hintLine": 21459
+          },
+          "T177": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2050,
+                "id": "T177"
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f115/f7",
+                15,
+                89611
+              ],
+              [
+                "main/f115/f9",
+                120,
+                89882
+              ]
+            ],
+            "hintLine": 21494
+          },
+          "T178": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2051,
+                "id": "T178"
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f115/f8",
+                13,
+                89669
+              ]
+            ],
+            "hintLine": 21511
+          },
+          "T200": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2071,
+                "id": "T200"
+              },
+              {
+                "sourcePath": "reference/map-6.25/war3map.w3a.json",
+                "jsonIndex": 245,
+                "id": "T200"
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f115/f10",
+                50,
+                89995
+              ],
+              [
+                "main/f115/f11",
+                13,
+                90050
+              ]
+            ],
+            "hintLine": 21786
+          },
+          "T224": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2095,
+                "id": "T224"
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f115/f26",
+                113,
+                91397
+              ],
+              [
+                "main/f144/f0",
+                123,
+                102493
+              ]
+            ],
+            "hintLine": 22119
+          },
+          "T230": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitydata.json",
+                "jsonIndex": 2100,
+                "id": "T230"
+              },
+              {
+                "sourcePath": "reference/map-6.25/war3map.w3a.json",
+                "jsonIndex": 254,
+                "id": "T230"
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f115/f42",
+                15,
+                92613
+              ]
+            ],
+            "hintLine": 22204
+          },
+          "q001": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_unitabilities.json",
+                "jsonIndex": 1315,
+                "id": "q001"
+              },
+              {
+                "sourcePath": "reference/map-6.25/units_unitbalance.json",
+                "jsonIndex": 1315,
+                "id": "q001"
+              },
+              {
+                "sourcePath": "reference/map-6.25/units_unitdata.json",
+                "jsonIndex": 1315,
+                "id": "q001"
+              },
+              {
+                "sourcePath": "reference/map-6.25/units_unitui.json",
+                "jsonIndex": 1315,
+                "id": "q001"
+              },
+              {
+                "sourcePath": "reference/map-6.25/units_unitweapons.json",
+                "jsonIndex": 1315,
+                "id": "q001"
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f7",
+                377,
+                49862
+              ],
+              [
+                "main/f7/f20",
+                3,
+                51478
+              ],
+              [
+                "main/f78/f1",
+                31,
+                77754
+              ],
+              [
+                "main/f136/f0",
+                19,
+                100097
+              ],
+              [
+                "main/f247/f0",
+                19,
+                128335
+              ],
+              [
+                "main/f271/f1",
+                30,
+                134629
+              ],
+              [
+                "main/f278/f5/f0",
+                6,
+                136602
+              ],
+              [
+                "main/f278/f6/f0",
+                6,
+                136717
+              ],
+              [
+                "main/f288/f1",
+                30,
+                153679
+              ]
+            ],
+            "hintLine": null
+          },
+          "q025": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_unitabilities.json",
+                "jsonIndex": 1339,
+                "id": "q025"
+              },
+              {
+                "sourcePath": "reference/map-6.25/units_unitbalance.json",
+                "jsonIndex": 1339,
+                "id": "q025"
+              },
+              {
+                "sourcePath": "reference/map-6.25/units_unitdata.json",
+                "jsonIndex": 1339,
+                "id": "q025"
+              },
+              {
+                "sourcePath": "reference/map-6.25/units_unitui.json",
+                "jsonIndex": 1339,
+                "id": "q025"
+              },
+              {
+                "sourcePath": "reference/map-6.25/units_unitweapons.json",
+                "jsonIndex": 1339,
+                "id": "q025"
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f7",
+                452,
+                49937
+              ],
+              [
+                "main/f7/f44",
+                6,
+                52417
+              ],
+              [
+                "main/f187/f0",
+                9,
+                114823
+              ],
+              [
+                "main/f291/f1",
+                2770,
+                165413
+              ],
+              [
+                "main/f291/f1",
+                3688,
+                166388
+              ],
+              [
+                "main/f291/f1",
+                3749,
+                166454
+              ],
+              [
+                "main/f291/f1",
+                3860,
+                166574
+              ],
+              [
+                "main/f291/f1",
+                3912,
+                166628
+              ],
+              [
+                "main/f291/f1",
+                4249,
+                166987
+              ]
+            ],
+            "hintLine": null
+          },
+          "q034": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_unitabilities.json",
+                "jsonIndex": 1347,
+                "id": "q034"
+              },
+              {
+                "sourcePath": "reference/map-6.25/units_unitbalance.json",
+                "jsonIndex": 1347,
+                "id": "q034"
+              },
+              {
+                "sourcePath": "reference/map-6.25/units_unitdata.json",
+                "jsonIndex": 1347,
+                "id": "q034"
+              },
+              {
+                "sourcePath": "reference/map-6.25/units_unitui.json",
+                "jsonIndex": 1347,
+                "id": "q034"
+              },
+              {
+                "sourcePath": "reference/map-6.25/units_unitweapons.json",
+                "jsonIndex": 1347,
+                "id": "q034"
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f7",
+                473,
+                49958
+              ],
+              [
+                "main/f115/f7",
+                18,
+                89614
+              ],
+              [
+                "main/f115/f9",
+                123,
+                89885
+              ],
+              [
+                "main/f291/f1",
+                2322,
+                164942
+              ]
+            ],
+            "hintLine": null
+          },
+          "q035": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_unitabilities.json",
+                "jsonIndex": 1348,
+                "id": "q035"
+              },
+              {
+                "sourcePath": "reference/map-6.25/units_unitbalance.json",
+                "jsonIndex": 1348,
+                "id": "q035"
+              },
+              {
+                "sourcePath": "reference/map-6.25/units_unitdata.json",
+                "jsonIndex": 1348,
+                "id": "q035"
+              },
+              {
+                "sourcePath": "reference/map-6.25/units_unitui.json",
+                "jsonIndex": 1348,
+                "id": "q035"
+              },
+              {
+                "sourcePath": "reference/map-6.25/units_unitweapons.json",
+                "jsonIndex": 1348,
+                "id": "q035"
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f7",
+                476,
+                49961
+              ],
+              [
+                "main/f115/f10",
+                53,
+                89998
+              ],
+              [
+                "main/f291/f1",
+                2409,
+                165034
+              ]
+            ],
+            "hintLine": null
+          },
+          "q045": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_unitabilities.json",
+                "jsonIndex": 1358,
+                "id": "q045"
+              },
+              {
+                "sourcePath": "reference/map-6.25/units_unitbalance.json",
+                "jsonIndex": 1358,
+                "id": "q045"
+              },
+              {
+                "sourcePath": "reference/map-6.25/units_unitdata.json",
+                "jsonIndex": 1358,
+                "id": "q045"
+              },
+              {
+                "sourcePath": "reference/map-6.25/units_unitui.json",
+                "jsonIndex": 1358,
+                "id": "q045"
+              },
+              {
+                "sourcePath": "reference/map-6.25/units_unitweapons.json",
+                "jsonIndex": 1358,
+                "id": "q045"
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f7",
+                506,
+                49991
+              ],
+              [
+                "main/f115/f26",
+                59,
+                91342
+              ],
+              [
+                "main/f144/f0",
+                69,
+                102438
+              ],
+              [
+                "main/f291/f1",
+                2343,
+                164964
+              ]
+            ],
+            "hintLine": null
+          },
+          "q047": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_unitabilities.json",
+                "jsonIndex": 1360,
+                "id": "q047"
+              },
+              {
+                "sourcePath": "reference/map-6.25/units_unitbalance.json",
+                "jsonIndex": 1360,
+                "id": "q047"
+              },
+              {
+                "sourcePath": "reference/map-6.25/units_unitdata.json",
+                "jsonIndex": 1360,
+                "id": "q047"
+              },
+              {
+                "sourcePath": "reference/map-6.25/units_unitui.json",
+                "jsonIndex": 1360,
+                "id": "q047"
+              },
+              {
+                "sourcePath": "reference/map-6.25/units_unitweapons.json",
+                "jsonIndex": 1360,
+                "id": "q047"
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f7",
+                512,
+                49997
+              ],
+              [
+                "main/f115/f37",
+                68,
+                92100
+              ],
+              [
+                "main/f291/f1",
+                879,
+                163418
+              ]
+            ],
+            "hintLine": null
+          },
+          "B043": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+                "jsonIndex": 287,
+                "id": "B043"
+              }
+            ],
+            "literalReferences": [],
+            "hintLine": null
+          },
+          "B067": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+                "jsonIndex": 311,
+                "id": "B067"
+              }
+            ],
+            "literalReferences": [],
+            "hintLine": null
+          },
+          "B158": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+                "jsonIndex": 378,
+                "id": "B158"
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f291/f1",
+                1471,
+                164044
+              ]
+            ],
+            "hintLine": null
+          },
+          "B173": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+                "jsonIndex": 393,
+                "id": "B173"
+              }
+            ],
+            "literalReferences": [],
+            "hintLine": null
+          },
+          "B176": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+                "jsonIndex": 395,
+                "id": "B176"
+              }
+            ],
+            "literalReferences": [],
+            "hintLine": null
+          },
+          "B177": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+                "jsonIndex": 396,
+                "id": "B177"
+              }
+            ],
+            "literalReferences": [
+              [
+                "main/f115/f34",
+                4,
+                91904
+              ],
+              [
+                "main/f291/f1",
+                206,
+                162710
+              ]
+            ],
+            "hintLine": null
+          },
+          "B178": {
+            "objectRows": [
+              {
+                "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+                "jsonIndex": 397,
+                "id": "B178"
+              }
+            ],
+            "literalReferences": [],
+            "hintLine": null
+          }
+        },
+        "disasmSha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+      },
+      "differences": {
+        "A164": "source fixed 50% max mana; dedicated active tooltip six ranks 15–40%",
+        "T301": "original native AOws stun and object poison channel vs explicit movement lock and per-second poison",
+        "T302": "raw T178 send immediately grants 100*rank*(n+1), without debit or valid return; Q79 actual stolen mana only on return",
+        "T307": "source checks own rank at .04/rank; Q71 uses real eligible strongest .05/rank emitter",
+        "T314": "original final CD6 and hero helper stun .3; active tooltip CD3 and .5 stun",
+        "T315": "raw radius500 damage with rank multiplier but radius400 count; dedicated radius400 and fixed factor",
+        "T316/T325": "raw < threshold in 0..100 inclusive; explicit percent",
+        "T324": "original helper normal/hero duration differ; active tooltip gives exact four tiers"
+      },
+      "unresolved": [],
+      "validation": {
+        "rawVM": {
+          "sameStealRanks": [
+            2,
+            3,
+            4,
+            4
+          ],
+          "m026RanksAt13And14": [
+            "T317:2",
+            "T318:2"
+          ],
+          "unlistedRefresh": "T329:6; retains T318:2",
+          "rawManaAtRank6": 600,
+          "rawBlockedCooldown": 0.1,
+          "normalKillAttempts": [
+            "m005"
+          ],
+          "rawDigestGoldByTime": [
+            [
+              6.9,
+              0
+            ],
+            [
+              7,
+              700
+            ]
+          ],
+          "rawBossDamageByClass": [
+            4000.0,
+            2000.0,
+            2000.0,
+            2000.0
+          ],
+          "T302": {
+            "initialCasterMana": 100,
+            "immediateAfterIssuingReturn": 700,
+            "targetManaUnchanged": [
+              250,
+              70
+            ],
+            "magicDamageByHit": [
+              4000,
+              16000
+            ]
+          }
+        },
+        "webBoundaryVectors": {
+          "Q79": {
+            "oldStolen": 250,
+            "newStolen": 160,
+            "beforeArrivalCasterMana": 200,
+            "failedNewReturnCredited": 0,
+            "oldManaAfterAcceptedReturnAndClamp": 400,
+            "oldRepeatedReturnCredit": 0
+          },
+          "Q61": {
+            "rank6ManaBefore": 100,
+            "rank6ManaAfter": 500.0
+          },
+          "Q71": {
+            "T307Rank4Magic1000": 1200.0,
+            "T315Rank4OneBossOneNormalAttack100": 120.00000000000001
+          }
+        },
+        "originalClient": "untested"
+      }
+    }
+  ],
+  "totals": {
+    "scope": 1,
+    "ready": 1,
+    "pending": 0,
+    "borrowedAuxiliary": 25,
+    "stealAuxiliary": 1
+  }
+}

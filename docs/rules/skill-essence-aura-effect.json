@@ -1,0 +1,3535 @@
+{
+  "schemaVersion": 1,
+  "baselineId": "essence-aura-effect-v1",
+  "status": "source facts and bounded Q24 Web adapter complete; no matching native runtime measurement",
+  "scope": [
+    "A084_Study",
+    "A084 automatic AHab aura grant/loss",
+    "A084 mana writes",
+    "direct related S292 max-mana subtraction only"
+  ],
+  "authority": {
+    "Q41": "confirmed exact30%; proc doc owns RNG/entries",
+    "Q24": "explicit unknown-native Web adapter",
+    "laterUserInstruction": "workbook wins numeric differences, no repeated numeric approval",
+    "heroTarget": "workbook explicit friendly hero or self; automatic grant only"
+  },
+  "workbook": {
+    "sheet": "塔技能",
+    "rows": {
+      "397": {
+        "A397": "殁境神蚀者<SR>",
+        "B397": "H026",
+        "C397": "2",
+        "D397": "学习技能",
+        "E397": "精气光环",
+        "F397": "A084",
+        "G397": "6",
+        "H397": "当附近友方英雄或殁境神蚀者自己使用技能时，有一定概率回复自身魔法上限一定百分比的魔法值。同时被动增加殁境神蚀者的魔法上限。一些没有冷却时间的技能和切换型的技能不能触发精气光环。范围:900\n被动",
+        "I397": "等级 1｜30%概率回复最大魔法值的5%，魔法上限增加500。\n等级 2｜30%概率回复最大魔法值的10%，魔法上限增加1000。\n等级 3｜30%概率回复最大魔法值的15%，魔法上限增加1500。\n等级 4｜30%概率回复最大魔法值的20%，魔法上限增加2000。\n等级 5｜30%概率回复最大魔法值的25%，魔法上限增加2500。\n等级 6｜30%概率回复最大魔法值的30%，魔法上限增加3000。",
+        "J397": ""
+      },
+      "621": {
+        "A621": "黑曜御灵者<SR>",
+        "B621": "G069",
+        "C621": "2",
+        "D621": "学习技能",
+        "E621": "精气光环",
+        "F621": "A084",
+        "G621": "6",
+        "H621": "当附近友方英雄或殁境神蚀者自己使用技能时，有一定概率回复自身魔法上限一定百分比的魔法值。同时被动增加殁境神蚀者的魔法上限。一些没有冷却时间的技能和切换型的技能不能触发精气光环。范围:900\n被动",
+        "I621": "等级 1｜30%概率回复最大魔法值的5%，魔法上限增加500。\n等级 2｜30%概率回复最大魔法值的10%，魔法上限增加1000。\n等级 3｜30%概率回复最大魔法值的15%，魔法上限增加1500。\n等级 4｜30%概率回复最大魔法值的20%，魔法上限增加2000。\n等级 5｜30%概率回复最大魔法值的25%，魔法上限增加2500。\n等级 6｜30%概率回复最大魔法值的30%，魔法上限增加3000。",
+        "J621": ""
+      }
+    }
+  },
+  "sourceFiles": [
+    {
+      "path": "reference/map-6.25/main.disasm",
+      "sha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+    },
+    {
+      "path": "reference/map-6.25/main.readable.lua",
+      "sha256": "d868f14d946f0780313468f5dd783fa4a6cbe39f5c7851d8e4094ef80aa618b9"
+    },
+    {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "sha256": "b772de42ebcfc1d3818298b35dbe81a35826892848c7cbfef70bf5097e481861"
+    },
+    {
+      "path": "reference/map-6.25/units_abilitydata.slk",
+      "sha256": "ba7657fe7942696310502e51ab349cc77ccd70016915dc26d92ffbcead7bb53d"
+    },
+    {
+      "path": "reference/map-6.25/war3map.w3a.json",
+      "sha256": "d2875f064b389bca471db97121ff7c810d46fbc962ae640ad128d1daa85931bb"
+    },
+    {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "sha256": "ebd8a6fd8410f593c5ecadf6bf7c4f6bbc5b4bb7183c5e986a4d2d77e1747133"
+    },
+    {
+      "path": "reference/map-6.25/units_abilitybuffdata.json",
+      "sha256": "c49954cfe19012e1b66cd2f24d8c0e3b3f483c02fd22c8f31057330968d6042a"
+    },
+    {
+      "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+      "sha256": "5240c99230cd441b4c376371a31a7987e65470feed736177473a206c55fbe8cc"
+    },
+    {
+      "path": "reference/map-6.25/units_commonabilitystrings.txt",
+      "sha256": "07e87948660b7ec5beea095716ddd66faa340bfacc38a7c8d9bc09b59df2c205"
+    },
+    {
+      "path": "reference/map-6.25/war3mapMisc.txt",
+      "sha256": "f13e268c2da3ad776b39f230cb55a8eb5721df2bcf1e62c78202236b3f5d3743"
+    },
+    {
+      "path": "图鉴.xlsx",
+      "sha256": "457c8f7e37e19412a0dd072ce941e95604b0b8910860b9e1eb9883e6b82bb6af"
+    }
+  ],
+  "objects": {
+    "A084": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 15909,
+      "record": {
+        "alias": "A084",
+        "code": "AHab",
+        "Area1": 900.0,
+        "Area2": 900.0,
+        "Area3": 900.0,
+        "Area4": 900.0,
+        "BuffID1": "B083",
+        "BuffID2": "B084",
+        "BuffID3": "B085",
+        "BuffID4": "B086",
+        "checkDep": 1,
+        "levels": 6,
+        "reqLevel": 1,
+        "targs1": "nonancient,invulnerable,self,friend",
+        "targs2": "nonancient,invulnerable,self,friend",
+        "targs3": "nonancient,invulnerable,self,friend",
+        "targs4": "nonancient,invulnerable,self,friend"
+      }
+    },
+    "rawSlk": {
+      "row": 884,
+      "fields": {
+        "alias": "A084",
+        "code": "AHab",
+        "Area1": 900.0,
+        "Area2": 900.0,
+        "Area3": 900.0,
+        "Area4": 900.0,
+        "BuffID1": "B083",
+        "BuffID2": "B084",
+        "BuffID3": "B085",
+        "BuffID4": "B086",
+        "checkDep": 1,
+        "levels": 6,
+        "reqLevel": 1,
+        "targs1": "nonancient,invulnerable,self,friend",
+        "targs2": "nonancient,invulnerable,self,friend",
+        "targs3": "nonancient,invulnerable,self,friend",
+        "targs4": "nonancient,invulnerable,self,friend"
+      },
+      "lines": {
+        "alias": 14232,
+        "code": 14233,
+        "Area1": 14234,
+        "Area2": 14235,
+        "Area3": 14236,
+        "Area4": 14237,
+        "BuffID1": 14238,
+        "BuffID2": 14239,
+        "BuffID3": 14240,
+        "BuffID4": 14241,
+        "checkDep": 14242,
+        "levels": 14243,
+        "reqLevel": 14244,
+        "targs1": 14245,
+        "targs2": 14246,
+        "targs3": 14247,
+        "targs4": 14248
+      }
+    },
+    "w3a": {
+      "sourcePath": "reference/map-6.25/war3map.w3a.json",
+      "sourceLines": [
+        1626,
+        1645
+      ],
+      "records": [
+        {
+          "old": "A084",
+          "new": "\u0000\u0000\u0000\u0000",
+          "mods": [
+            {
+              "key": "abuf",
+              "type": 3,
+              "level": 5,
+              "data": 0,
+              "value": "B087"
+            },
+            {
+              "key": "abuf",
+              "type": 3,
+              "level": 6,
+              "data": 0,
+              "value": "B088"
+            }
+          ]
+        }
+      ]
+    },
+    "units": [
+      {
+        "path": "reference/map-6.25/units_unitabilities.json",
+        "line": 4618,
+        "record": {
+          "unitAbilID": "H026",
+          "abilList": "Avul,AInv,T033,S291",
+          "auto": "_",
+          "heroAbilList": "A083,A084,A085,T000,P000"
+        }
+      },
+      {
+        "path": "reference/map-6.25/units_unitabilities.json",
+        "line": 4396,
+        "record": {
+          "unitAbilID": "G069",
+          "abilList": "Avul,AInv,T033",
+          "auto": "_",
+          "heroAbilList": "A083,A084,A085,T000,P000"
+        }
+      }
+    ],
+    "buffs": [
+      {
+        "path": "reference/map-6.25/units_abilitybuffdata.json",
+        "line": 954,
+        "record": {
+          "alias": "B083"
+        }
+      },
+      {
+        "path": "reference/map-6.25/units_abilitybuffdata.json",
+        "line": 957,
+        "record": {
+          "alias": "B084"
+        }
+      },
+      {
+        "path": "reference/map-6.25/units_abilitybuffdata.json",
+        "line": 960,
+        "record": {
+          "alias": "B085"
+        }
+      },
+      {
+        "path": "reference/map-6.25/units_abilitybuffdata.json",
+        "line": 963,
+        "record": {
+          "alias": "B086"
+        }
+      },
+      {
+        "path": "reference/map-6.25/units_abilitybuffdata.json",
+        "line": 966,
+        "record": {
+          "alias": "B087"
+        }
+      },
+      {
+        "path": "reference/map-6.25/units_abilitybuffdata.json",
+        "line": 969,
+        "record": {
+          "alias": "B088"
+        }
+      }
+    ],
+    "skin": [
+      {
+        "path": "reference/map-6.25/units_abilitydata.json",
+        "line": 31213,
+        "record": {
+          "alias": "S291",
+          "code": "Aspb",
+          "DataA1": "S292",
+          "DataC1": 11,
+          "DataD1": 11,
+          "DataE1": "spellbook",
+          "levels": 1,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      {
+        "path": "reference/map-6.25/units_abilitydata.json",
+        "line": 31226,
+        "record": {
+          "alias": "S292",
+          "code": "ANcl",
+          "checkDep": 1,
+          "Cool1": 1.0,
+          "DataC1": 1,
+          "DataF1": "mindrot",
+          "levels": 1,
+          "reqLevel": 1,
+          "Rng1": 500.0,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      {
+        "path": "reference/map-6.25/units_abilitydata.json",
+        "line": 29330,
+        "record": {
+          "alias": "R292",
+          "code": "Acha",
+          "checkDep": 1,
+          "levels": 1,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_",
+          "UnitID1": "G069"
+        }
+      }
+    ]
+  },
+  "bytecode": {
+    "study": {
+      "name": "A084_Study",
+      "function": "main/f73/f1",
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "sourceLines": [
+        76518,
+        76553
+      ],
+      "instructions": [
+        {
+          "pc": 1,
+          "sourceLine": 76535,
+          "raw": "gettabup      r1    u0    k0"
+        },
+        {
+          "pc": 2,
+          "sourceLine": 76536,
+          "raw": "move          r2    r0"
+        },
+        {
+          "pc": 3,
+          "sourceLine": 76537,
+          "raw": "gettabup      r3    u0    k1"
+        },
+        {
+          "pc": 4,
+          "sourceLine": 76538,
+          "raw": "gettabup      r4    u0    k2"
+        },
+        {
+          "pc": 5,
+          "sourceLine": 76539,
+          "raw": "move          r5    r0"
+        },
+        {
+          "pc": 6,
+          "sourceLine": 76540,
+          "raw": "gettabup      r6    u0    k1"
+        },
+        {
+          "pc": 7,
+          "sourceLine": 76541,
+          "raw": "call          r4     3     2"
+        },
+        {
+          "pc": 8,
+          "sourceLine": 76542,
+          "raw": "add           r4    r4    k3"
+        },
+        {
+          "pc": 9,
+          "sourceLine": 76543,
+          "raw": "call          r1     4     1"
+        },
+        {
+          "pc": 10,
+          "sourceLine": 76544,
+          "raw": "gettabup      r1    u0    k0"
+        },
+        {
+          "pc": 11,
+          "sourceLine": 76545,
+          "raw": "move          r2    r0"
+        },
+        {
+          "pc": 12,
+          "sourceLine": 76546,
+          "raw": "gettabup      r3    u0    k4"
+        },
+        {
+          "pc": 13,
+          "sourceLine": 76547,
+          "raw": "gettabup      r4    u0    k2"
+        },
+        {
+          "pc": 14,
+          "sourceLine": 76548,
+          "raw": "move          r5    r0"
+        },
+        {
+          "pc": 15,
+          "sourceLine": 76549,
+          "raw": "gettabup      r6    u0    k4"
+        },
+        {
+          "pc": 16,
+          "sourceLine": 76550,
+          "raw": "call          r4     3     2"
+        },
+        {
+          "pc": 17,
+          "sourceLine": 76551,
+          "raw": "add           r4    r4    k3"
+        },
+        {
+          "pc": 18,
+          "sourceLine": 76552,
+          "raw": "call          r1     4     1"
+        },
+        {
+          "pc": 19,
+          "sourceLine": 76553,
+          "raw": "return        r0     1"
+        }
+      ],
+      "constants": {
+        "k0": {
+          "value": "SetUnitState",
+          "sourceLine": 76529
+        },
+        "k1": {
+          "value": "UNIT_STATE_MAX_MANA",
+          "sourceLine": 76530
+        },
+        "k2": {
+          "value": "GetUnitState",
+          "sourceLine": 76531
+        },
+        "k3": {
+          "value": 500,
+          "sourceLine": 76532
+        },
+        "k4": {
+          "value": "UNIT_STATE_MANA",
+          "sourceLine": 76533
+        }
+      },
+      "labels": {},
+      "counts": {
+        "instructions": 19,
+        "conditions": 0,
+        "calls": 4,
+        "returns": 1
+      }
+    },
+    "learningPrefix": {
+      "name": "anyUnitLeartSkill through A084",
+      "function": "main/f291/f10",
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "sourceLines": [
+        168967,
+        169292
+      ],
+      "instructions": [
+        {
+          "pc": 1,
+          "sourceLine": 169032,
+          "raw": "gettabup      r0    u0    k0"
+        },
+        {
+          "pc": 2,
+          "sourceLine": 169033,
+          "raw": "call          r0     1     2"
+        },
+        {
+          "pc": 3,
+          "sourceLine": 169034,
+          "raw": "gettabup      r1    u0    k1"
+        },
+        {
+          "pc": 4,
+          "sourceLine": 169035,
+          "raw": "call          r1     1     2"
+        },
+        {
+          "pc": 5,
+          "sourceLine": 169036,
+          "raw": "eq             1    k2    r1"
+        },
+        {
+          "pc": 6,
+          "sourceLine": 169037,
+          "raw": "jmp            0   l12"
+        },
+        {
+          "pc": 7,
+          "sourceLine": 169038,
+          "raw": "gettabup      r2    u0    k3"
+        },
+        {
+          "pc": 8,
+          "sourceLine": 169039,
+          "raw": "move          r3    r1"
+        },
+        {
+          "pc": 9,
+          "sourceLine": 169040,
+          "raw": "call          r2     2     2"
+        },
+        {
+          "pc": 10,
+          "sourceLine": 169041,
+          "raw": "test          r2     0"
+        },
+        {
+          "pc": 11,
+          "sourceLine": 169042,
+          "raw": "jmp            0   l13"
+        },
+        {
+          "pc": 12,
+          "sourceLine": 169044,
+          "raw": "return        r0     1"
+        },
+        {
+          "pc": 13,
+          "sourceLine": 169046,
+          "raw": "gettabup      r2    u0    k4"
+        },
+        {
+          "pc": 14,
+          "sourceLine": 169047,
+          "raw": "loadk         r3    k5"
+        },
+        {
+          "pc": 15,
+          "sourceLine": 169048,
+          "raw": "call          r2     2     2"
+        },
+        {
+          "pc": 16,
+          "sourceLine": 169049,
+          "raw": "eq             0    r0    r2"
+        },
+        {
+          "pc": 17,
+          "sourceLine": 169050,
+          "raw": "jmp            0   l39"
+        },
+        {
+          "pc": 18,
+          "sourceLine": 169051,
+          "raw": "gettabup      r2    u0    k6"
+        },
+        {
+          "pc": 19,
+          "sourceLine": 169052,
+          "raw": "move          r3    r1"
+        },
+        {
+          "pc": 20,
+          "sourceLine": 169053,
+          "raw": "gettabup      r4    u0    k4"
+        },
+        {
+          "pc": 21,
+          "sourceLine": 169054,
+          "raw": "loadk         r5    k7"
+        },
+        {
+          "pc": 22,
+          "sourceLine": 169055,
+          "raw": "call          r4     2     0"
+        },
+        {
+          "pc": 23,
+          "sourceLine": 169056,
+          "raw": "call          r2     0     1"
+        },
+        {
+          "pc": 24,
+          "sourceLine": 169057,
+          "raw": "gettabup      r2    u0    k8"
+        },
+        {
+          "pc": 25,
+          "sourceLine": 169058,
+          "raw": "move          r3    r1"
+        },
+        {
+          "pc": 26,
+          "sourceLine": 169059,
+          "raw": "loadbool      r4     1     0"
+        },
+        {
+          "pc": 27,
+          "sourceLine": 169060,
+          "raw": "gettabup      r5    u0    k4"
+        },
+        {
+          "pc": 28,
+          "sourceLine": 169061,
+          "raw": "loadk         r6    k7"
+        },
+        {
+          "pc": 29,
+          "sourceLine": 169062,
+          "raw": "call          r5     2     0"
+        },
+        {
+          "pc": 30,
+          "sourceLine": 169063,
+          "raw": "call          r2     0     1"
+        },
+        {
+          "pc": 31,
+          "sourceLine": 169064,
+          "raw": "gettabup      r2    u0    k9"
+        },
+        {
+          "pc": 32,
+          "sourceLine": 169065,
+          "raw": "move          r3    r1"
+        },
+        {
+          "pc": 33,
+          "sourceLine": 169066,
+          "raw": "gettabup      r4    u0    k4"
+        },
+        {
+          "pc": 34,
+          "sourceLine": 169067,
+          "raw": "loadk         r5    k7"
+        },
+        {
+          "pc": 35,
+          "sourceLine": 169068,
+          "raw": "call          r4     2     2"
+        },
+        {
+          "pc": 36,
+          "sourceLine": 169069,
+          "raw": "loadk         r5   k10"
+        },
+        {
+          "pc": 37,
+          "sourceLine": 169070,
+          "raw": "call          r2     4     1"
+        },
+        {
+          "pc": 38,
+          "sourceLine": 169071,
+          "raw": "return        r0     1"
+        },
+        {
+          "pc": 39,
+          "sourceLine": 169073,
+          "raw": "gettabup      r2    u0    k4"
+        },
+        {
+          "pc": 40,
+          "sourceLine": 169074,
+          "raw": "loadk         r3   k11"
+        },
+        {
+          "pc": 41,
+          "sourceLine": 169075,
+          "raw": "call          r2     2     2"
+        },
+        {
+          "pc": 42,
+          "sourceLine": 169076,
+          "raw": "eq             0    r0    r2"
+        },
+        {
+          "pc": 43,
+          "sourceLine": 169077,
+          "raw": "jmp            0   l49"
+        },
+        {
+          "pc": 44,
+          "sourceLine": 169078,
+          "raw": "gettabup      r2    u0   k12"
+        },
+        {
+          "pc": 45,
+          "sourceLine": 169079,
+          "raw": "move          r3    r1"
+        },
+        {
+          "pc": 46,
+          "sourceLine": 169080,
+          "raw": "move          r4    r0"
+        },
+        {
+          "pc": 47,
+          "sourceLine": 169081,
+          "raw": "call          r2     3     1"
+        },
+        {
+          "pc": 48,
+          "sourceLine": 169082,
+          "raw": "return        r0     1"
+        },
+        {
+          "pc": 49,
+          "sourceLine": 169084,
+          "raw": "gettabup      r2    u0    k4"
+        },
+        {
+          "pc": 50,
+          "sourceLine": 169085,
+          "raw": "loadk         r3   k13"
+        },
+        {
+          "pc": 51,
+          "sourceLine": 169086,
+          "raw": "call          r2     2     2"
+        },
+        {
+          "pc": 52,
+          "sourceLine": 169087,
+          "raw": "eq             0    r0    r2"
+        },
+        {
+          "pc": 53,
+          "sourceLine": 169088,
+          "raw": "jmp            0   l58"
+        },
+        {
+          "pc": 54,
+          "sourceLine": 169089,
+          "raw": "gettabup      r2    u0   k14"
+        },
+        {
+          "pc": 55,
+          "sourceLine": 169090,
+          "raw": "move          r3    r1"
+        },
+        {
+          "pc": 56,
+          "sourceLine": 169091,
+          "raw": "call          r2     2     1"
+        },
+        {
+          "pc": 57,
+          "sourceLine": 169092,
+          "raw": "return        r0     1"
+        },
+        {
+          "pc": 58,
+          "sourceLine": 169094,
+          "raw": "gettabup      r2    u0    k4"
+        },
+        {
+          "pc": 59,
+          "sourceLine": 169095,
+          "raw": "loadk         r3   k15"
+        },
+        {
+          "pc": 60,
+          "sourceLine": 169096,
+          "raw": "call          r2     2     2"
+        },
+        {
+          "pc": 61,
+          "sourceLine": 169097,
+          "raw": "eq             0    r0    r2"
+        },
+        {
+          "pc": 62,
+          "sourceLine": 169098,
+          "raw": "jmp            0   l67"
+        },
+        {
+          "pc": 63,
+          "sourceLine": 169099,
+          "raw": "gettabup      r2    u0   k16"
+        },
+        {
+          "pc": 64,
+          "sourceLine": 169100,
+          "raw": "move          r3    r1"
+        },
+        {
+          "pc": 65,
+          "sourceLine": 169101,
+          "raw": "call          r2     2     1"
+        },
+        {
+          "pc": 66,
+          "sourceLine": 169102,
+          "raw": "return        r0     1"
+        }
+      ],
+      "constants": {
+        "k0": {
+          "value": "GetLearnedSkill",
+          "sourceLine": 168978
+        },
+        "k1": {
+          "value": "GetLearningUnit",
+          "sourceLine": 168979
+        },
+        "k2": {
+          "value": null,
+          "sourceLine": 168980
+        },
+        "k3": {
+          "value": "IsUnitIllusion",
+          "sourceLine": 168981
+        },
+        "k4": {
+          "value": "GetId",
+          "sourceLine": 168982
+        },
+        "k5": {
+          "value": "P000",
+          "sourceLine": 168983
+        },
+        "k6": {
+          "value": "UnitAddAbility",
+          "sourceLine": 168984
+        },
+        "k7": {
+          "value": "P200",
+          "sourceLine": 168985
+        },
+        "k8": {
+          "value": "UnitMakeAbilityPermanent",
+          "sourceLine": 168986
+        },
+        "k9": {
+          "value": "SetUnitAbilityLevel",
+          "sourceLine": 168987
+        },
+        "k10": {
+          "value": 1,
+          "sourceLine": 168988
+        },
+        "k11": {
+          "value": "A006",
+          "sourceLine": 168989
+        },
+        "k12": {
+          "value": "A006_Action",
+          "sourceLine": 168990
+        },
+        "k13": {
+          "value": "A072",
+          "sourceLine": 168991
+        },
+        "k14": {
+          "value": "A072_Action",
+          "sourceLine": 168992
+        },
+        "k15": {
+          "value": "A084",
+          "sourceLine": 168993
+        },
+        "k16": {
+          "value": "A084_Study",
+          "sourceLine": 168994
+        }
+      },
+      "labels": {
+        "l12": 12,
+        "l13": 13,
+        "l39": 39,
+        "l49": 49,
+        "l58": 58,
+        "l67": 67,
+        "l76": 76,
+        "l86": 86,
+        "l96": 96,
+        "l106": 106,
+        "l116": 116,
+        "l126": 126,
+        "l136": 136,
+        "l145": 145,
+        "l154": 154,
+        "l163": 163,
+        "l172": 172,
+        "l187": 187,
+        "l191": 191,
+        "l200": 200,
+        "l209": 209,
+        "l219": 219,
+        "l228": 228,
+        "l237": 237
+      },
+      "coverage": {
+        "firstPC": 1,
+        "lastPC": 66,
+        "completeFunction": false
+      },
+      "coveredSourceLines": [
+        169032,
+        169102
+      ],
+      "counts": {
+        "instructions": 66,
+        "conditions": 6,
+        "calls": 16,
+        "returns": 5
+      }
+    },
+    "learningRegistration": {
+      "name": "learning event registration",
+      "function": "main/f291/f33",
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "sourceLines": [
+        179562,
+        179626
+      ],
+      "instructions": [
+        {
+          "pc": 1,
+          "sourceLine": 179585,
+          "raw": "gettabup      r0    u0    k0"
+        },
+        {
+          "pc": 2,
+          "sourceLine": 179586,
+          "raw": "call          r0     1     2"
+        },
+        {
+          "pc": 3,
+          "sourceLine": 179587,
+          "raw": "gettabup      r1    u0    k1"
+        },
+        {
+          "pc": 4,
+          "sourceLine": 179588,
+          "raw": "move          r2    r0"
+        },
+        {
+          "pc": 5,
+          "sourceLine": 179589,
+          "raw": "gettabup      r3    u0    k2"
+        },
+        {
+          "pc": 6,
+          "sourceLine": 179590,
+          "raw": "loadk         r4    k3"
+        },
+        {
+          "pc": 7,
+          "sourceLine": 179591,
+          "raw": "call          r3     2     2"
+        },
+        {
+          "pc": 8,
+          "sourceLine": 179592,
+          "raw": "gettabup      r4    u0    k4"
+        },
+        {
+          "pc": 9,
+          "sourceLine": 179593,
+          "raw": "loadnil       r5     0"
+        },
+        {
+          "pc": 10,
+          "sourceLine": 179594,
+          "raw": "call          r1     5     1"
+        },
+        {
+          "pc": 11,
+          "sourceLine": 179595,
+          "raw": "gettabup      r1    u0    k1"
+        },
+        {
+          "pc": 12,
+          "sourceLine": 179596,
+          "raw": "move          r2    r0"
+        },
+        {
+          "pc": 13,
+          "sourceLine": 179597,
+          "raw": "gettabup      r3    u0    k2"
+        },
+        {
+          "pc": 14,
+          "sourceLine": 179598,
+          "raw": "loadk         r4    k5"
+        },
+        {
+          "pc": 15,
+          "sourceLine": 179599,
+          "raw": "call          r3     2     2"
+        },
+        {
+          "pc": 16,
+          "sourceLine": 179600,
+          "raw": "gettabup      r4    u0    k4"
+        },
+        {
+          "pc": 17,
+          "sourceLine": 179601,
+          "raw": "loadnil       r5     0"
+        },
+        {
+          "pc": 18,
+          "sourceLine": 179602,
+          "raw": "call          r1     5     1"
+        },
+        {
+          "pc": 19,
+          "sourceLine": 179603,
+          "raw": "gettabup      r1    u0    k1"
+        },
+        {
+          "pc": 20,
+          "sourceLine": 179604,
+          "raw": "move          r2    r0"
+        },
+        {
+          "pc": 21,
+          "sourceLine": 179605,
+          "raw": "gettabup      r3    u0    k2"
+        },
+        {
+          "pc": 22,
+          "sourceLine": 179606,
+          "raw": "loadk         r4    k6"
+        },
+        {
+          "pc": 23,
+          "sourceLine": 179607,
+          "raw": "call          r3     2     2"
+        },
+        {
+          "pc": 24,
+          "sourceLine": 179608,
+          "raw": "gettabup      r4    u0    k4"
+        },
+        {
+          "pc": 25,
+          "sourceLine": 179609,
+          "raw": "loadnil       r5     0"
+        },
+        {
+          "pc": 26,
+          "sourceLine": 179610,
+          "raw": "call          r1     5     1"
+        },
+        {
+          "pc": 27,
+          "sourceLine": 179611,
+          "raw": "gettabup      r1    u0    k1"
+        },
+        {
+          "pc": 28,
+          "sourceLine": 179612,
+          "raw": "move          r2    r0"
+        },
+        {
+          "pc": 29,
+          "sourceLine": 179613,
+          "raw": "gettabup      r3    u0    k2"
+        },
+        {
+          "pc": 30,
+          "sourceLine": 179614,
+          "raw": "loadk         r4    k7"
+        },
+        {
+          "pc": 31,
+          "sourceLine": 179615,
+          "raw": "call          r3     2     2"
+        },
+        {
+          "pc": 32,
+          "sourceLine": 179616,
+          "raw": "gettabup      r4    u0    k4"
+        },
+        {
+          "pc": 33,
+          "sourceLine": 179617,
+          "raw": "loadnil       r5     0"
+        },
+        {
+          "pc": 34,
+          "sourceLine": 179618,
+          "raw": "call          r1     5     1"
+        },
+        {
+          "pc": 35,
+          "sourceLine": 179619,
+          "raw": "gettabup      r1    u0    k8"
+        },
+        {
+          "pc": 36,
+          "sourceLine": 179620,
+          "raw": "move          r2    r0"
+        },
+        {
+          "pc": 37,
+          "sourceLine": 179621,
+          "raw": "gettabup      r3    u0    k9"
+        },
+        {
+          "pc": 38,
+          "sourceLine": 179622,
+          "raw": "gettabup      r4    u0   k10"
+        },
+        {
+          "pc": 39,
+          "sourceLine": 179623,
+          "raw": "call          r3     2     0"
+        },
+        {
+          "pc": 40,
+          "sourceLine": 179624,
+          "raw": "call          r1     0     1"
+        },
+        {
+          "pc": 41,
+          "sourceLine": 179625,
+          "raw": "loadnil       r0     0"
+        },
+        {
+          "pc": 42,
+          "sourceLine": 179626,
+          "raw": "return        r0     1"
+        }
+      ],
+      "constants": {
+        "k0": {
+          "value": "CreateTrigger",
+          "sourceLine": 179573
+        },
+        "k1": {
+          "value": "TriggerRegisterPlayerUnitEvent",
+          "sourceLine": 179574
+        },
+        "k2": {
+          "value": "Player",
+          "sourceLine": 179575
+        },
+        "k3": {
+          "value": 0,
+          "sourceLine": 179576
+        },
+        "k4": {
+          "value": "EVENT_PLAYER_HERO_SKILL",
+          "sourceLine": 179577
+        },
+        "k5": {
+          "value": 1,
+          "sourceLine": 179578
+        },
+        "k6": {
+          "value": 2,
+          "sourceLine": 179579
+        },
+        "k7": {
+          "value": 3,
+          "sourceLine": 179580
+        },
+        "k8": {
+          "value": "TriggerAddCondition",
+          "sourceLine": 179581
+        },
+        "k9": {
+          "value": "Condition",
+          "sourceLine": 179582
+        },
+        "k10": {
+          "value": "anyUnitLeartSkill",
+          "sourceLine": 179583
+        }
+      },
+      "labels": {},
+      "counts": {
+        "instructions": 42,
+        "conditions": 0,
+        "calls": 11,
+        "returns": 1
+      }
+    },
+    "S292": {
+      "name": "S292 branch including preceding item callback",
+      "function": "main/f291/f14",
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "sourceLines": [
+        169578,
+        172172
+      ],
+      "instructions": [
+        {
+          "pc": 66,
+          "sourceLine": 170068,
+          "raw": "gettabup      r3    u0   k20"
+        },
+        {
+          "pc": 67,
+          "sourceLine": 170069,
+          "raw": "call          r3     1     2"
+        },
+        {
+          "pc": 68,
+          "sourceLine": 170070,
+          "raw": "gettabup      r4    u0   k21"
+        },
+        {
+          "pc": 69,
+          "sourceLine": 170071,
+          "raw": "move          r5    r2"
+        },
+        {
+          "pc": 70,
+          "sourceLine": 170072,
+          "raw": "call          r4     2     1"
+        },
+        {
+          "pc": 71,
+          "sourceLine": 170073,
+          "raw": "gettabup      r4    u0   k22"
+        },
+        {
+          "pc": 72,
+          "sourceLine": 170074,
+          "raw": "call          r4     1     1"
+        },
+        {
+          "pc": 73,
+          "sourceLine": 170075,
+          "raw": "gettabup      r4    u0   k15"
+        },
+        {
+          "pc": 74,
+          "sourceLine": 170076,
+          "raw": "loadk         r5   k23"
+        },
+        {
+          "pc": 75,
+          "sourceLine": 170077,
+          "raw": "call          r4     2     2"
+        },
+        {
+          "pc": 76,
+          "sourceLine": 170078,
+          "raw": "eq             0    r0    r4"
+        },
+        {
+          "pc": 77,
+          "sourceLine": 170079,
+          "raw": "jmp            0  l102"
+        },
+        {
+          "pc": 78,
+          "sourceLine": 170080,
+          "raw": "gettabup      r4    u0   k25"
+        },
+        {
+          "pc": 79,
+          "sourceLine": 170081,
+          "raw": "move          r5    r1"
+        },
+        {
+          "pc": 80,
+          "sourceLine": 170082,
+          "raw": "gettabup      r6    u0   k15"
+        },
+        {
+          "pc": 81,
+          "sourceLine": 170083,
+          "raw": "loadk         r7   k26"
+        },
+        {
+          "pc": 82,
+          "sourceLine": 170084,
+          "raw": "call          r6     2     0"
+        },
+        {
+          "pc": 83,
+          "sourceLine": 170085,
+          "raw": "call          r4     0     2"
+        },
+        {
+          "pc": 84,
+          "sourceLine": 170086,
+          "raw": "lt             0   k24    r4"
+        },
+        {
+          "pc": 85,
+          "sourceLine": 170087,
+          "raw": "jmp            0  l102"
+        },
+        {
+          "pc": 86,
+          "sourceLine": 170088,
+          "raw": "gettabup      r4    u0   k25"
+        },
+        {
+          "pc": 87,
+          "sourceLine": 170089,
+          "raw": "move          r5    r1"
+        },
+        {
+          "pc": 88,
+          "sourceLine": 170090,
+          "raw": "gettabup      r6    u0   k15"
+        },
+        {
+          "pc": 89,
+          "sourceLine": 170091,
+          "raw": "loadk         r7   k26"
+        },
+        {
+          "pc": 90,
+          "sourceLine": 170092,
+          "raw": "call          r6     2     0"
+        },
+        {
+          "pc": 91,
+          "sourceLine": 170093,
+          "raw": "call          r4     0     2"
+        },
+        {
+          "pc": 92,
+          "sourceLine": 170094,
+          "raw": "mul           r4    r4   k27"
+        },
+        {
+          "pc": 93,
+          "sourceLine": 170095,
+          "raw": "gettabup      r5    u0   k28"
+        },
+        {
+          "pc": 94,
+          "sourceLine": 170096,
+          "raw": "move          r6    r1"
+        },
+        {
+          "pc": 95,
+          "sourceLine": 170097,
+          "raw": "gettabup      r7    u0   k29"
+        },
+        {
+          "pc": 96,
+          "sourceLine": 170098,
+          "raw": "gettabup      r8    u0   k30"
+        },
+        {
+          "pc": 97,
+          "sourceLine": 170099,
+          "raw": "move          r9    r1"
+        },
+        {
+          "pc": 98,
+          "sourceLine": 170100,
+          "raw": "gettabup     r10    u0   k29"
+        },
+        {
+          "pc": 99,
+          "sourceLine": 170101,
+          "raw": "call          r8     3     2"
+        },
+        {
+          "pc": 100,
+          "sourceLine": 170102,
+          "raw": "sub           r8    r8    r4"
+        },
+        {
+          "pc": 101,
+          "sourceLine": 170103,
+          "raw": "call          r5     4     1"
+        }
+      ],
+      "constants": {
+        "k15": {
+          "value": "GetId",
+          "sourceLine": 169604
+        },
+        "k20": {
+          "value": "GetSpellTargetLoc",
+          "sourceLine": 169609
+        },
+        "k21": {
+          "value": "Item_Skill_Action",
+          "sourceLine": 169610
+        },
+        "k22": {
+          "value": "WAbility_initAbility",
+          "sourceLine": 169611
+        },
+        "k23": {
+          "value": "S292",
+          "sourceLine": 169612
+        },
+        "k24": {
+          "value": 0,
+          "sourceLine": 169613
+        },
+        "k25": {
+          "value": "GetUnitAbilityLevel",
+          "sourceLine": 169614
+        },
+        "k26": {
+          "value": "A084",
+          "sourceLine": 169615
+        },
+        "k27": {
+          "value": 250,
+          "sourceLine": 169616
+        },
+        "k28": {
+          "value": "SetUnitState",
+          "sourceLine": 169617
+        },
+        "k29": {
+          "value": "UNIT_STATE_MAX_MANA",
+          "sourceLine": 169618
+        },
+        "k30": {
+          "value": "GetUnitState",
+          "sourceLine": 169619
+        }
+      },
+      "labels": {
+        "l40": 40,
+        "l65": 65,
+        "l66": 66,
+        "l102": 102,
+        "l110": 110,
+        "l119": 119,
+        "l128": 128,
+        "l138": 138,
+        "l143": 143,
+        "l152": 152,
+        "l162": 162,
+        "l170": 170,
+        "l179": 179,
+        "l188": 188,
+        "l198": 198,
+        "l206": 206,
+        "l221": 221,
+        "l226": 226,
+        "l236": 236,
+        "l246": 246,
+        "l256": 256,
+        "l267": 267,
+        "l276": 276,
+        "l284": 284,
+        "l293": 293,
+        "l301": 301,
+        "l315": 315,
+        "l324": 324,
+        "l333": 333,
+        "l341": 341,
+        "l350": 350,
+        "l358": 358,
+        "l367": 367,
+        "l377": 377,
+        "l385": 385,
+        "l393": 393,
+        "l402": 402,
+        "l411": 411,
+        "l420": 420,
+        "l428": 428,
+        "l437": 437,
+        "l447": 447,
+        "l458": 458,
+        "l467": 467,
+        "l482": 482,
+        "l486": 486,
+        "l494": 494,
+        "l504": 504,
+        "l507": 507,
+        "l517": 517,
+        "l527": 527,
+        "l537": 537,
+        "l547": 547,
+        "l557": 557,
+        "l566": 566,
+        "l576": 576,
+        "l596": 596,
+        "l600": 600,
+        "l609": 609,
+        "l627": 627,
+        "l628": 628,
+        "l638": 638,
+        "l648": 648,
+        "l658": 658,
+        "l668": 668,
+        "l678": 678,
+        "l683": 683,
+        "l693": 693,
+        "l703": 703,
+        "l712": 712,
+        "l722": 722,
+        "l731": 731,
+        "l741": 741,
+        "l756": 756,
+        "l760": 760,
+        "l786": 786,
+        "l789": 789,
+        "l790": 790,
+        "l819": 819,
+        "l823": 823,
+        "l824": 824,
+        "l834": 834,
+        "l844": 844,
+        "l853": 853,
+        "l863": 863,
+        "l879": 879,
+        "l888": 888,
+        "l898": 898,
+        "l908": 908,
+        "l939": 939,
+        "l949": 949,
+        "l988": 988,
+        "l992": 992,
+        "l993": 993,
+        "l1003": 1003,
+        "l1013": 1013,
+        "l1023": 1023,
+        "l1033": 1033,
+        "l1042": 1042,
+        "l1052": 1052,
+        "l1062": 1062,
+        "l1071": 1071,
+        "l1081": 1081,
+        "l1090": 1090,
+        "l1099": 1099,
+        "l1108": 1108,
+        "l1118": 1118,
+        "l1128": 1128,
+        "l1138": 1138,
+        "l1147": 1147,
+        "l1156": 1156,
+        "l1166": 1166,
+        "l1176": 1176,
+        "l1186": 1186,
+        "l1196": 1196,
+        "l1207": 1207,
+        "l1218": 1218,
+        "l1228": 1228,
+        "l1238": 1238,
+        "l1248": 1248,
+        "l1259": 1259,
+        "l1269": 1269,
+        "l1280": 1280,
+        "l1291": 1291,
+        "l1302": 1302,
+        "l1313": 1313,
+        "l1324": 1324,
+        "l1334": 1334,
+        "l1345": 1345,
+        "l1355": 1355,
+        "l1366": 1366,
+        "l1377": 1377,
+        "l1388": 1388,
+        "l1399": 1399,
+        "l1410": 1410,
+        "l1420": 1420,
+        "l1430": 1430,
+        "l1440": 1440,
+        "l1450": 1450,
+        "l1460": 1460,
+        "l1471": 1471,
+        "l1482": 1482,
+        "l1492": 1492,
+        "l1502": 1502,
+        "l1513": 1513,
+        "l1524": 1524,
+        "l1535": 1535,
+        "l1546": 1546,
+        "l1557": 1557,
+        "l1568": 1568,
+        "l1579": 1579,
+        "l1588": 1588,
+        "l1597": 1597,
+        "l1607": 1607,
+        "l1618": 1618,
+        "l1628": 1628,
+        "l1638": 1638,
+        "l1649": 1649,
+        "l1659": 1659,
+        "l1670": 1670,
+        "l1681": 1681,
+        "l1691": 1691,
+        "l1700": 1700,
+        "l1711": 1711,
+        "l1720": 1720,
+        "l1729": 1729,
+        "l1738": 1738,
+        "l1747": 1747,
+        "l1756": 1756,
+        "l1766": 1766,
+        "l1776": 1776,
+        "l1787": 1787,
+        "l1797": 1797,
+        "l1807": 1807,
+        "l1818": 1818,
+        "l1828": 1828,
+        "l1839": 1839,
+        "l1850": 1850,
+        "l1860": 1860,
+        "l1870": 1870,
+        "l1880": 1880,
+        "l1890": 1890,
+        "l1900": 1900,
+        "l1920": 1920,
+        "l1921": 1921,
+        "l1931": 1931,
+        "l1941": 1941,
+        "l1951": 1951,
+        "l1961": 1961
+      },
+      "coverage": {
+        "firstPC": 66,
+        "lastPC": 101,
+        "completeFunction": false
+      },
+      "coveredSourceLines": [
+        170068,
+        170103
+      ],
+      "counts": {
+        "instructions": 36,
+        "conditions": 2,
+        "calls": 10,
+        "returns": 0
+      }
+    },
+    "refundHelper": {
+      "name": "A084_Action",
+      "function": "main/f73/f0",
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "sourceLines": [
+        76378,
+        76516
+      ],
+      "instructions": [
+        {
+          "pc": 1,
+          "sourceLine": 76418,
+          "raw": "gettabup      r1    u0    k1"
+        },
+        {
+          "pc": 2,
+          "sourceLine": 76419,
+          "raw": "loadk         r2    k2"
+        },
+        {
+          "pc": 3,
+          "sourceLine": 76420,
+          "raw": "loadk         r3    k3"
+        },
+        {
+          "pc": 4,
+          "sourceLine": 76421,
+          "raw": "call          r1     3     2"
+        },
+        {
+          "pc": 5,
+          "sourceLine": 76422,
+          "raw": "lt             0    k0    r1"
+        },
+        {
+          "pc": 6,
+          "sourceLine": 76423,
+          "raw": "jmp            0    l8"
+        },
+        {
+          "pc": 7,
+          "sourceLine": 76424,
+          "raw": "return        r0     1"
+        },
+        {
+          "pc": 8,
+          "sourceLine": 76426,
+          "raw": "loadk         r1    k2"
+        },
+        {
+          "pc": 9,
+          "sourceLine": 76427,
+          "raw": "gettabup      r2    u0    k4"
+        },
+        {
+          "pc": 10,
+          "sourceLine": 76428,
+          "raw": "move          r3    r0"
+        },
+        {
+          "pc": 11,
+          "sourceLine": 76429,
+          "raw": "gettabup      r4    u0    k5"
+        },
+        {
+          "pc": 12,
+          "sourceLine": 76430,
+          "raw": "loadk         r5    k6"
+        },
+        {
+          "pc": 13,
+          "sourceLine": 76431,
+          "raw": "call          r4     2     0"
+        },
+        {
+          "pc": 14,
+          "sourceLine": 76432,
+          "raw": "call          r2     0     2"
+        },
+        {
+          "pc": 15,
+          "sourceLine": 76433,
+          "raw": "lt             0    k2    r2"
+        },
+        {
+          "pc": 16,
+          "sourceLine": 76434,
+          "raw": "jmp            0   l19"
+        },
+        {
+          "pc": 17,
+          "sourceLine": 76435,
+          "raw": "loadk         r1    k7"
+        },
+        {
+          "pc": 18,
+          "sourceLine": 76436,
+          "raw": "jmp            0   l68"
+        },
+        {
+          "pc": 19,
+          "sourceLine": 76438,
+          "raw": "gettabup      r2    u0    k4"
+        },
+        {
+          "pc": 20,
+          "sourceLine": 76439,
+          "raw": "move          r3    r0"
+        },
+        {
+          "pc": 21,
+          "sourceLine": 76440,
+          "raw": "gettabup      r4    u0    k5"
+        },
+        {
+          "pc": 22,
+          "sourceLine": 76441,
+          "raw": "loadk         r5    k8"
+        },
+        {
+          "pc": 23,
+          "sourceLine": 76442,
+          "raw": "call          r4     2     0"
+        },
+        {
+          "pc": 24,
+          "sourceLine": 76443,
+          "raw": "call          r2     0     2"
+        },
+        {
+          "pc": 25,
+          "sourceLine": 76444,
+          "raw": "lt             0    k2    r2"
+        },
+        {
+          "pc": 26,
+          "sourceLine": 76445,
+          "raw": "jmp            0   l29"
+        },
+        {
+          "pc": 27,
+          "sourceLine": 76446,
+          "raw": "loadk         r1    k9"
+        },
+        {
+          "pc": 28,
+          "sourceLine": 76447,
+          "raw": "jmp            0   l68"
+        },
+        {
+          "pc": 29,
+          "sourceLine": 76449,
+          "raw": "gettabup      r2    u0    k4"
+        },
+        {
+          "pc": 30,
+          "sourceLine": 76450,
+          "raw": "move          r3    r0"
+        },
+        {
+          "pc": 31,
+          "sourceLine": 76451,
+          "raw": "gettabup      r4    u0    k5"
+        },
+        {
+          "pc": 32,
+          "sourceLine": 76452,
+          "raw": "loadk         r5   k10"
+        },
+        {
+          "pc": 33,
+          "sourceLine": 76453,
+          "raw": "call          r4     2     0"
+        },
+        {
+          "pc": 34,
+          "sourceLine": 76454,
+          "raw": "call          r2     0     2"
+        },
+        {
+          "pc": 35,
+          "sourceLine": 76455,
+          "raw": "lt             0    k2    r2"
+        },
+        {
+          "pc": 36,
+          "sourceLine": 76456,
+          "raw": "jmp            0   l39"
+        },
+        {
+          "pc": 37,
+          "sourceLine": 76457,
+          "raw": "loadk         r1   k11"
+        },
+        {
+          "pc": 38,
+          "sourceLine": 76458,
+          "raw": "jmp            0   l68"
+        },
+        {
+          "pc": 39,
+          "sourceLine": 76460,
+          "raw": "gettabup      r2    u0    k4"
+        },
+        {
+          "pc": 40,
+          "sourceLine": 76461,
+          "raw": "move          r3    r0"
+        },
+        {
+          "pc": 41,
+          "sourceLine": 76462,
+          "raw": "gettabup      r4    u0    k5"
+        },
+        {
+          "pc": 42,
+          "sourceLine": 76463,
+          "raw": "loadk         r5   k12"
+        },
+        {
+          "pc": 43,
+          "sourceLine": 76464,
+          "raw": "call          r4     2     0"
+        },
+        {
+          "pc": 44,
+          "sourceLine": 76465,
+          "raw": "call          r2     0     2"
+        },
+        {
+          "pc": 45,
+          "sourceLine": 76466,
+          "raw": "lt             0    k2    r2"
+        },
+        {
+          "pc": 46,
+          "sourceLine": 76467,
+          "raw": "jmp            0   l49"
+        },
+        {
+          "pc": 47,
+          "sourceLine": 76468,
+          "raw": "loadk         r1   k13"
+        },
+        {
+          "pc": 48,
+          "sourceLine": 76469,
+          "raw": "jmp            0   l68"
+        },
+        {
+          "pc": 49,
+          "sourceLine": 76471,
+          "raw": "gettabup      r2    u0    k4"
+        },
+        {
+          "pc": 50,
+          "sourceLine": 76472,
+          "raw": "move          r3    r0"
+        },
+        {
+          "pc": 51,
+          "sourceLine": 76473,
+          "raw": "gettabup      r4    u0    k5"
+        },
+        {
+          "pc": 52,
+          "sourceLine": 76474,
+          "raw": "loadk         r5   k14"
+        },
+        {
+          "pc": 53,
+          "sourceLine": 76475,
+          "raw": "call          r4     2     0"
+        },
+        {
+          "pc": 54,
+          "sourceLine": 76476,
+          "raw": "call          r2     0     2"
+        },
+        {
+          "pc": 55,
+          "sourceLine": 76477,
+          "raw": "lt             0    k2    r2"
+        },
+        {
+          "pc": 56,
+          "sourceLine": 76478,
+          "raw": "jmp            0   l59"
+        },
+        {
+          "pc": 57,
+          "sourceLine": 76479,
+          "raw": "loadk         r1   k15"
+        },
+        {
+          "pc": 58,
+          "sourceLine": 76480,
+          "raw": "jmp            0   l68"
+        },
+        {
+          "pc": 59,
+          "sourceLine": 76482,
+          "raw": "gettabup      r2    u0    k4"
+        },
+        {
+          "pc": 60,
+          "sourceLine": 76483,
+          "raw": "move          r3    r0"
+        },
+        {
+          "pc": 61,
+          "sourceLine": 76484,
+          "raw": "gettabup      r4    u0    k5"
+        },
+        {
+          "pc": 62,
+          "sourceLine": 76485,
+          "raw": "loadk         r5   k16"
+        },
+        {
+          "pc": 63,
+          "sourceLine": 76486,
+          "raw": "call          r4     2     0"
+        },
+        {
+          "pc": 64,
+          "sourceLine": 76487,
+          "raw": "call          r2     0     2"
+        },
+        {
+          "pc": 65,
+          "sourceLine": 76488,
+          "raw": "lt             0    k2    r2"
+        },
+        {
+          "pc": 66,
+          "sourceLine": 76489,
+          "raw": "jmp            0   l68"
+        },
+        {
+          "pc": 67,
+          "sourceLine": 76490,
+          "raw": "loadk         r1   k17"
+        },
+        {
+          "pc": 68,
+          "sourceLine": 76492,
+          "raw": "gettabup      r2    u0   k19"
+        },
+        {
+          "pc": 69,
+          "sourceLine": 76493,
+          "raw": "eq             0   k18    r2"
+        },
+        {
+          "pc": 70,
+          "sourceLine": 76494,
+          "raw": "jmp            0   l77"
+        },
+        {
+          "pc": 71,
+          "sourceLine": 76495,
+          "raw": "gettabup      r2    u0   k20"
+        },
+        {
+          "pc": 72,
+          "sourceLine": 76496,
+          "raw": "loadk         r3   k21"
+        },
+        {
+          "pc": 73,
+          "sourceLine": 76497,
+          "raw": "move          r4    r0"
+        },
+        {
+          "pc": 74,
+          "sourceLine": 76498,
+          "raw": "loadk         r5   k22"
+        },
+        {
+          "pc": 75,
+          "sourceLine": 76499,
+          "raw": "loadk         r6   k23"
+        },
+        {
+          "pc": 76,
+          "sourceLine": 76500,
+          "raw": "call          r2     5     1"
+        },
+        {
+          "pc": 77,
+          "sourceLine": 76502,
+          "raw": "gettabup      r2    u0   k24"
+        },
+        {
+          "pc": 78,
+          "sourceLine": 76503,
+          "raw": "move          r3    r0"
+        },
+        {
+          "pc": 79,
+          "sourceLine": 76504,
+          "raw": "gettabup      r4    u0   k25"
+        },
+        {
+          "pc": 80,
+          "sourceLine": 76505,
+          "raw": "gettabup      r5    u0   k26"
+        },
+        {
+          "pc": 81,
+          "sourceLine": 76506,
+          "raw": "move          r6    r0"
+        },
+        {
+          "pc": 82,
+          "sourceLine": 76507,
+          "raw": "gettabup      r7    u0   k27"
+        },
+        {
+          "pc": 83,
+          "sourceLine": 76508,
+          "raw": "call          r5     3     2"
+        },
+        {
+          "pc": 84,
+          "sourceLine": 76509,
+          "raw": "mul           r5    r5    r1"
+        },
+        {
+          "pc": 85,
+          "sourceLine": 76510,
+          "raw": "gettabup      r6    u0   k26"
+        },
+        {
+          "pc": 86,
+          "sourceLine": 76511,
+          "raw": "move          r7    r0"
+        },
+        {
+          "pc": 87,
+          "sourceLine": 76512,
+          "raw": "gettabup      r8    u0   k25"
+        },
+        {
+          "pc": 88,
+          "sourceLine": 76513,
+          "raw": "call          r6     3     2"
+        },
+        {
+          "pc": 89,
+          "sourceLine": 76514,
+          "raw": "add           r5    r5    r6"
+        },
+        {
+          "pc": 90,
+          "sourceLine": 76515,
+          "raw": "call          r2     4     1"
+        },
+        {
+          "pc": 91,
+          "sourceLine": 76516,
+          "raw": "return        r0     1"
+        }
+      ],
+      "constants": {
+        "k0": {
+          "value": 3,
+          "sourceLine": 76389
+        },
+        "k1": {
+          "value": "GetRandomInt",
+          "sourceLine": 76390
+        },
+        "k2": {
+          "value": 0,
+          "sourceLine": 76391
+        },
+        "k3": {
+          "value": 10,
+          "sourceLine": 76392
+        },
+        "k4": {
+          "value": "GetUnitAbilityLevel",
+          "sourceLine": 76393
+        },
+        "k5": {
+          "value": "GetId",
+          "sourceLine": 76394
+        },
+        "k6": {
+          "value": "B088",
+          "sourceLine": 76395
+        },
+        "k7": {
+          "value": 0.3,
+          "sourceLine": 76396
+        },
+        "k8": {
+          "value": "B087",
+          "sourceLine": 76397
+        },
+        "k9": {
+          "value": 0.25,
+          "sourceLine": 76398
+        },
+        "k10": {
+          "value": "B086",
+          "sourceLine": 76399
+        },
+        "k11": {
+          "value": 0.2,
+          "sourceLine": 76400
+        },
+        "k12": {
+          "value": "B085",
+          "sourceLine": 76401
+        },
+        "k13": {
+          "value": 0.15,
+          "sourceLine": 76402
+        },
+        "k14": {
+          "value": "B084",
+          "sourceLine": 76403
+        },
+        "k15": {
+          "value": 0.1,
+          "sourceLine": 76404
+        },
+        "k16": {
+          "value": "B083",
+          "sourceLine": 76405
+        },
+        "k17": {
+          "value": 0.05,
+          "sourceLine": 76406
+        },
+        "k18": {
+          "value": true,
+          "sourceLine": 76407
+        },
+        "k19": {
+          "value": "TxShow",
+          "sourceLine": 76408
+        },
+        "k20": {
+          "value": "CreateEffByUnit",
+          "sourceLine": 76409
+        },
+        "k21": {
+          "value": "Abilities\\Spells\\Undead\\ReplenishMana\\ReplenishManaCasterOverhead.mdl",
+          "sourceLine": 76410
+        },
+        "k22": {
+          "value": "overhead",
+          "sourceLine": 76411
+        },
+        "k23": {
+          "value": 1,
+          "sourceLine": 76412
+        },
+        "k24": {
+          "value": "SetUnitState",
+          "sourceLine": 76413
+        },
+        "k25": {
+          "value": "UNIT_STATE_MANA",
+          "sourceLine": 76414
+        },
+        "k26": {
+          "value": "GetUnitState",
+          "sourceLine": 76415
+        },
+        "k27": {
+          "value": "UNIT_STATE_MAX_MANA",
+          "sourceLine": 76416
+        }
+      },
+      "labels": {
+        "l8": 8,
+        "l19": 19,
+        "l29": 29,
+        "l39": 39,
+        "l49": 49,
+        "l59": 59,
+        "l68": 68,
+        "l77": 77
+      },
+      "counts": {
+        "instructions": 91,
+        "conditions": 8,
+        "calls": 17,
+        "returns": 2
+      }
+    }
+  },
+  "facts": {
+    "study": "MAX_MANA=currentMax+500 then MANA=post-first-write-current+500; no level read or rollback",
+    "learning": "players0,1,2,3 HERO_SKILL, nil/illusion early return, A084 invokes Study then return",
+    "S292": "Item_Skill_Action then WAbility_initAbility then if spellS292 and A084>0: max-=250*actualLevel; no MANA write, no Study, no success check for later Acha",
+    "implicitSourceFieldZero": false,
+    "sourceTargets": "nonancient,invulnerable,self,friend; no hero token",
+    "sourceNoNaturalRegenValue": true
+  },
+  "primarySources": [
+    {
+      "url": "https://classic.battle.net/war3/basics/spellbasics.shtml",
+      "supports": "self aura, same aura nonstacking, pulses, friendly magic immunity, invisible source suppression; not exact custom AHab cadence"
+    },
+    {
+      "url": "https://classic.battle.net/war3/human/units/archmage.shtml",
+      "supports": "ordinary Brilliance identity only; no value imported"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/Units/AbilityMetaData.slk#L1536",
+      "supports": "Hab1/Hab2 metadata DataA/DataB"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/UI/WorldEditStrings.txt#L5880",
+      "supports": "Mana Regeneration Increase label"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/Units/MiscGame.txt#L26",
+      "supports": "external default emission suppression flags; selected locally, not matching-client proof"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Plugin/Warcraft3/yd_jass_api/UnitState.cpp#L405",
+      "supports": "MAX_MANA hook writes field; MANA default delegates to native, no full clipping proof"
+    }
+  ],
+  "webAdapter": {
+    "source": {
+      "levelRange": [
+        1,
+        6
+      ],
+      "requires": [
+        "exists",
+        "alive",
+        "notHidden",
+        "enabled"
+      ],
+      "suppressed": [
+        "illusion",
+        "invisibleOrShadowmeld",
+        "hex",
+        "burrow",
+        "animatedCorpse",
+        "flyingNativeHero"
+      ],
+      "notSuppressedBy": [
+        "ordinaryStun",
+        "silence",
+        "unitPause"
+      ]
+    },
+    "recipient": {
+      "requires": [
+        "exists",
+        "alive",
+        "notHidden",
+        "notAncient",
+        "sameOwnerOrDirectedFriend",
+        "nativeHeroOrSameEntityAsSource"
+      ],
+      "customUnitIsHeroIsNotNativeHero": true,
+      "magicImmuneInvulnerableEtherealInvisibleAllowed": true,
+      "illusionCanReceiveOnlyIfActualNativeHero": true
+    },
+    "radius": {
+      "allLevels": 900,
+      "geometry": "2d center squared closed circle",
+      "includeCollision": false
+    },
+    "selection": {
+      "group": "A084 only",
+      "highestLevel": true,
+      "tie": "minimum stable creation sequence",
+      "oneAutomaticBuff": true,
+      "retainLowerCandidates": true,
+      "doNotEraseExplicitExternalBuffSources": true,
+      "externalBuffHelperOrder": "B088..B083 as proc"
+    },
+    "extraNaturalRegenPerSecond": {
+      "selectedValue": 0,
+      "sourceFieldValue": null,
+      "classification": "Q24 no extra effect supported by workbook; not missing->zero inference"
+    },
+    "autoAuraMaxManaBonus": 0,
+    "naturalRegenPercentMode": "not used; no A084 continuous regen channel",
+    "selfStudyBonusPerActualCallback": 500,
+    "studyAlsoAddsCurrentMana": 500,
+    "grantedBuffLevelMap": {
+      "1": "B083",
+      "2": "B084",
+      "3": "B085",
+      "4": "B086",
+      "5": "B087",
+      "6": "B088"
+    },
+    "lifecycle": {
+      "recompute": "immediately at committed eligibility/position/ability/owner/lifecycle changes before next observable operation",
+      "lingerSeconds": 0,
+      "scanTimer": null,
+      "randomDraws": 0,
+      "ordinaryDispel": "universal aura retained",
+      "explicitBuffRemoval": "remove contribution; recompute managed aura immediately; external contribution not resurrected",
+      "saveLoad": "restore resource/processed-event state; rebuild automatic buffs; do not invoke Study"
+    },
+    "mana": {
+      "setMax": "max=max(0,request); mana=clamp(oldAbsoluteMana,0,max)",
+      "setCurrent": "mana=clamp(request,0,max) immediately",
+      "rounding": "none, preserve fractional values",
+      "overflow": "discard",
+      "nonFinite": "content error",
+      "nilDeletedHandle": "local Q24 only: reads0 and writes no-op; not a global native-interface policy",
+      "deadValidHandle": "no extra alive gate",
+      "applicationScope": "this module Study/refund/S292; does not assert every other native skill uses same semantics"
+    },
+    "S292": "preserve explicit decrement; no inferred compensation; model-conversion final resource merge not claimed here",
+    "ordering": "B05 same-time insertion order; no added zero timer; proc then Q29; no alteration to A083"
+  },
+  "knownBoundaries": [
+    "actual client native AHab scan/linger/default DataA/B and generic recipient filter unmeasured",
+    "Acha full conversion resource recomputation outside bounded module; direct S292 subtraction preserved",
+    "no full A083 effect or blanket illusion item/ability inheritance",
+    "helper gates unchanged even for explicit external buff on nonhero"
+  ],
+  "verification": {
+    "originalClientRun": false,
+    "webGameRun": false,
+    "instructionCount": 254,
+    "caseCount": 74,
+    "cases": [
+      {
+        "name": "Study (1000, 100)",
+        "kind": "web_native_adapter",
+        "actual": {
+          "maxMana": 1500,
+          "mana": 600
+        },
+        "expected": {
+          "maxMana": 1500,
+          "mana": 600
+        },
+        "trace": [
+          [
+            "get",
+            "maxMana",
+            1000
+          ],
+          [
+            "request",
+            "maxMana",
+            1500
+          ],
+          [
+            "visible",
+            {
+              "maxMana": 1500,
+              "mana": 100
+            }
+          ],
+          [
+            "get",
+            "mana",
+            100
+          ],
+          [
+            "request",
+            "mana",
+            600
+          ],
+          [
+            "visible",
+            {
+              "maxMana": 1500,
+              "mana": 600
+            }
+          ]
+        ]
+      },
+      {
+        "name": "Study (1000, 1000)",
+        "kind": "web_native_adapter",
+        "actual": {
+          "maxMana": 1500,
+          "mana": 1500
+        },
+        "expected": {
+          "maxMana": 1500,
+          "mana": 1500
+        },
+        "trace": [
+          [
+            "get",
+            "maxMana",
+            1000
+          ],
+          [
+            "request",
+            "maxMana",
+            1500
+          ],
+          [
+            "visible",
+            {
+              "maxMana": 1500,
+              "mana": 1000
+            }
+          ],
+          [
+            "get",
+            "mana",
+            1000
+          ],
+          [
+            "request",
+            "mana",
+            1500
+          ],
+          [
+            "visible",
+            {
+              "maxMana": 1500,
+              "mana": 1500
+            }
+          ]
+        ]
+      },
+      {
+        "name": "Study (0, 0)",
+        "kind": "web_native_adapter",
+        "actual": {
+          "maxMana": 500,
+          "mana": 500
+        },
+        "expected": {
+          "maxMana": 500,
+          "mana": 500
+        },
+        "trace": [
+          [
+            "get",
+            "maxMana",
+            0
+          ],
+          [
+            "request",
+            "maxMana",
+            500
+          ],
+          [
+            "visible",
+            {
+              "maxMana": 500,
+              "mana": 0
+            }
+          ],
+          [
+            "get",
+            "mana",
+            0
+          ],
+          [
+            "request",
+            "mana",
+            500
+          ],
+          [
+            "visible",
+            {
+              "maxMana": 500,
+              "mana": 500
+            }
+          ]
+        ]
+      },
+      {
+        "name": "Study (1000.5, 123.25)",
+        "kind": "web_native_adapter",
+        "actual": {
+          "maxMana": 1500.5,
+          "mana": 623.25
+        },
+        "expected": {
+          "maxMana": 1500.5,
+          "mana": 623.25
+        },
+        "trace": [
+          [
+            "get",
+            "maxMana",
+            1000.5
+          ],
+          [
+            "request",
+            "maxMana",
+            1500.5
+          ],
+          [
+            "visible",
+            {
+              "maxMana": 1500.5,
+              "mana": 123.25
+            }
+          ],
+          [
+            "get",
+            "mana",
+            123.25
+          ],
+          [
+            "request",
+            "mana",
+            623.25
+          ],
+          [
+            "visible",
+            {
+              "maxMana": 1500.5,
+              "mana": 623.25
+            }
+          ]
+        ]
+      },
+      {
+        "name": "six studies level 1",
+        "kind": "web_native_adapter",
+        "actual": {
+          "maxMana": 1500,
+          "mana": 600
+        },
+        "expected": {
+          "maxMana": 1500,
+          "mana": 600
+        }
+      },
+      {
+        "name": "six studies level 2",
+        "kind": "web_native_adapter",
+        "actual": {
+          "maxMana": 2000,
+          "mana": 1100
+        },
+        "expected": {
+          "maxMana": 2000,
+          "mana": 1100
+        }
+      },
+      {
+        "name": "six studies level 3",
+        "kind": "web_native_adapter",
+        "actual": {
+          "maxMana": 2500,
+          "mana": 1600
+        },
+        "expected": {
+          "maxMana": 2500,
+          "mana": 1600
+        }
+      },
+      {
+        "name": "six studies level 4",
+        "kind": "web_native_adapter",
+        "actual": {
+          "maxMana": 3000,
+          "mana": 2100
+        },
+        "expected": {
+          "maxMana": 3000,
+          "mana": 2100
+        }
+      },
+      {
+        "name": "six studies level 5",
+        "kind": "web_native_adapter",
+        "actual": {
+          "maxMana": 3500,
+          "mana": 2600
+        },
+        "expected": {
+          "maxMana": 3500,
+          "mana": 2600
+        }
+      },
+      {
+        "name": "six studies level 6",
+        "kind": "web_native_adapter",
+        "actual": {
+          "maxMana": 4000,
+          "mana": 3100
+        },
+        "expected": {
+          "maxMana": 4000,
+          "mana": 3100
+        }
+      },
+      {
+        "name": "forced seventh actual Study still adds",
+        "kind": "web_native_adapter",
+        "actual": {
+          "maxMana": 4500,
+          "mana": 3600
+        },
+        "expected": {
+          "maxMana": 4500,
+          "mana": 3600
+        }
+      },
+      {
+        "name": "load restores resource state without Study",
+        "kind": "web_native_adapter",
+        "actual": {
+          "maxMana": 4500,
+          "mana": 3600
+        },
+        "expected": {
+          "maxMana": 4500,
+          "mana": 3600
+        }
+      },
+      {
+        "name": "learn exists=False illusion=False skill=A084",
+        "kind": "source_bytecode_with_native_stubs",
+        "actual": {
+          "maxMana": 1000,
+          "mana": 100
+        },
+        "expected": {
+          "maxMana": 1000,
+          "mana": 100
+        }
+      },
+      {
+        "name": "learn exists=False illusion=False skill=OTHER",
+        "kind": "source_bytecode_with_native_stubs",
+        "actual": {
+          "maxMana": 1000,
+          "mana": 100
+        },
+        "expected": {
+          "maxMana": 1000,
+          "mana": 100
+        }
+      },
+      {
+        "name": "learn exists=False illusion=True skill=A084",
+        "kind": "source_bytecode_with_native_stubs",
+        "actual": {
+          "maxMana": 1000,
+          "mana": 100
+        },
+        "expected": {
+          "maxMana": 1000,
+          "mana": 100
+        }
+      },
+      {
+        "name": "learn exists=False illusion=True skill=OTHER",
+        "kind": "source_bytecode_with_native_stubs",
+        "actual": {
+          "maxMana": 1000,
+          "mana": 100
+        },
+        "expected": {
+          "maxMana": 1000,
+          "mana": 100
+        }
+      },
+      {
+        "name": "learn exists=True illusion=False skill=A084",
+        "kind": "source_bytecode_with_native_stubs",
+        "actual": {
+          "maxMana": 1500,
+          "mana": 600
+        },
+        "expected": {
+          "maxMana": 1500,
+          "mana": 600
+        }
+      },
+      {
+        "name": "learn exists=True illusion=False skill=OTHER",
+        "kind": "source_bytecode_with_native_stubs",
+        "actual": {
+          "maxMana": 1000,
+          "mana": 100
+        },
+        "expected": {
+          "maxMana": 1000,
+          "mana": 100
+        }
+      },
+      {
+        "name": "learn exists=True illusion=True skill=A084",
+        "kind": "source_bytecode_with_native_stubs",
+        "actual": {
+          "maxMana": 1000,
+          "mana": 100
+        },
+        "expected": {
+          "maxMana": 1000,
+          "mana": 100
+        }
+      },
+      {
+        "name": "learn exists=True illusion=True skill=OTHER",
+        "kind": "source_bytecode_with_native_stubs",
+        "actual": {
+          "maxMana": 1000,
+          "mana": 100
+        },
+        "expected": {
+          "maxMana": 1000,
+          "mana": 100
+        }
+      },
+      {
+        "name": "S292 max=4000 mana=3800 level=6 ability=S292",
+        "kind": "web_native_adapter",
+        "actual": {
+          "maxMana": 2500,
+          "mana": 2500
+        },
+        "expected": {
+          "maxMana": 2500,
+          "mana": 2500
+        },
+        "trace": [
+          [
+            "Item_Skill_Action"
+          ],
+          [
+            "WAbility_initAbility"
+          ],
+          [
+            "get",
+            "maxMana",
+            4000
+          ],
+          [
+            "request",
+            "maxMana",
+            2500
+          ],
+          [
+            "visible",
+            {
+              "maxMana": 2500,
+              "mana": 2500
+            }
+          ]
+        ]
+      },
+      {
+        "name": "S292 max=4000 mana=1000 level=6 ability=S292",
+        "kind": "web_native_adapter",
+        "actual": {
+          "maxMana": 2500,
+          "mana": 1000
+        },
+        "expected": {
+          "maxMana": 2500,
+          "mana": 1000
+        },
+        "trace": [
+          [
+            "Item_Skill_Action"
+          ],
+          [
+            "WAbility_initAbility"
+          ],
+          [
+            "get",
+            "maxMana",
+            4000
+          ],
+          [
+            "request",
+            "maxMana",
+            2500
+          ],
+          [
+            "visible",
+            {
+              "maxMana": 2500,
+              "mana": 1000
+            }
+          ]
+        ]
+      },
+      {
+        "name": "S292 max=1000 mana=900 level=6 ability=S292",
+        "kind": "web_native_adapter",
+        "actual": {
+          "maxMana": 0,
+          "mana": 0
+        },
+        "expected": {
+          "maxMana": 0,
+          "mana": 0
+        },
+        "trace": [
+          [
+            "Item_Skill_Action"
+          ],
+          [
+            "WAbility_initAbility"
+          ],
+          [
+            "get",
+            "maxMana",
+            1000
+          ],
+          [
+            "request",
+            "maxMana",
+            -500
+          ],
+          [
+            "visible",
+            {
+              "maxMana": 0,
+              "mana": 0
+            }
+          ]
+        ]
+      },
+      {
+        "name": "S292 max=1000 mana=100 level=0 ability=S292",
+        "kind": "web_native_adapter",
+        "actual": {
+          "maxMana": 1000,
+          "mana": 100
+        },
+        "expected": {
+          "maxMana": 1000,
+          "mana": 100
+        },
+        "trace": [
+          [
+            "Item_Skill_Action"
+          ],
+          [
+            "WAbility_initAbility"
+          ]
+        ]
+      },
+      {
+        "name": "S292 max=1000 mana=100 level=6 ability=OTHER",
+        "kind": "web_native_adapter",
+        "actual": {
+          "maxMana": 1000,
+          "mana": 100
+        },
+        "expected": {
+          "maxMana": 1000,
+          "mana": 100
+        },
+        "trace": [
+          [
+            "Item_Skill_Action"
+          ],
+          [
+            "WAbility_initAbility"
+          ]
+        ]
+      },
+      {
+        "name": "S292 max=1000.5 mana=700.25 level=1 ability=S292",
+        "kind": "web_native_adapter",
+        "actual": {
+          "maxMana": 750.5,
+          "mana": 700.25
+        },
+        "expected": {
+          "maxMana": 750.5,
+          "mana": 700.25
+        },
+        "trace": [
+          [
+            "Item_Skill_Action"
+          ],
+          [
+            "WAbility_initAbility"
+          ],
+          [
+            "get",
+            "maxMana",
+            1000.5
+          ],
+          [
+            "request",
+            "maxMana",
+            750.5
+          ],
+          [
+            "visible",
+            {
+              "maxMana": 750.5,
+              "mana": 700.25
+            }
+          ]
+        ]
+      },
+      {
+        "name": "refund (1000, 950, ['B088'], 1)",
+        "kind": "web_native_adapter",
+        "actual": 1000,
+        "expected": 1000,
+        "trace": [
+          [
+            "roll",
+            1,
+            100,
+            1
+          ],
+          [
+            "get",
+            "maxMana",
+            1000
+          ],
+          [
+            "get",
+            "mana",
+            950
+          ],
+          [
+            "request",
+            "mana",
+            1250.0
+          ],
+          [
+            "visible",
+            {
+              "maxMana": 1000,
+              "mana": 1000
+            }
+          ]
+        ],
+        "subsequentQ29VisibleMana": 1000
+      },
+      {
+        "name": "refund (1000, 1000, ['B088'], 30)",
+        "kind": "web_native_adapter",
+        "actual": 1000,
+        "expected": 1000,
+        "trace": [
+          [
+            "roll",
+            1,
+            100,
+            30
+          ],
+          [
+            "get",
+            "maxMana",
+            1000
+          ],
+          [
+            "get",
+            "mana",
+            1000
+          ],
+          [
+            "request",
+            "mana",
+            1300.0
+          ],
+          [
+            "visible",
+            {
+              "maxMana": 1000,
+              "mana": 1000
+            }
+          ]
+        ],
+        "subsequentQ29VisibleMana": 1000
+      },
+      {
+        "name": "refund (1000, 950, ['B088'], 31)",
+        "kind": "web_native_adapter",
+        "actual": 950,
+        "expected": 950,
+        "trace": [
+          [
+            "roll",
+            1,
+            100,
+            31
+          ]
+        ],
+        "subsequentQ29VisibleMana": 950
+      },
+      {
+        "name": "refund (1200, 100, ['B088'], 1)",
+        "kind": "web_native_adapter",
+        "actual": 460.0,
+        "expected": 460,
+        "trace": [
+          [
+            "roll",
+            1,
+            100,
+            1
+          ],
+          [
+            "get",
+            "maxMana",
+            1200
+          ],
+          [
+            "get",
+            "mana",
+            100
+          ],
+          [
+            "request",
+            "mana",
+            460.0
+          ],
+          [
+            "visible",
+            {
+              "maxMana": 1200,
+              "mana": 460.0
+            }
+          ]
+        ],
+        "subsequentQ29VisibleMana": 460.0
+      },
+      {
+        "name": "refund (0, 0, ['B088'], 1)",
+        "kind": "web_native_adapter",
+        "actual": 0,
+        "expected": 0,
+        "trace": [
+          [
+            "roll",
+            1,
+            100,
+            1
+          ],
+          [
+            "get",
+            "maxMana",
+            0
+          ],
+          [
+            "get",
+            "mana",
+            0
+          ],
+          [
+            "request",
+            "mana",
+            0.0
+          ],
+          [
+            "visible",
+            {
+              "maxMana": 0,
+              "mana": 0
+            }
+          ]
+        ],
+        "subsequentQ29VisibleMana": 0
+      },
+      {
+        "name": "refund (1000, 100, [], 1)",
+        "kind": "web_native_adapter",
+        "actual": 100,
+        "expected": 100,
+        "trace": [
+          [
+            "roll",
+            1,
+            100,
+            1
+          ],
+          [
+            "get",
+            "maxMana",
+            1000
+          ],
+          [
+            "get",
+            "mana",
+            100
+          ],
+          [
+            "request",
+            "mana",
+            100
+          ],
+          [
+            "visible",
+            {
+              "maxMana": 1000,
+              "mana": 100
+            }
+          ]
+        ],
+        "subsequentQ29VisibleMana": 100
+      },
+      {
+        "name": "refund (1000.5, 100.25, ['B083'], 1)",
+        "kind": "web_native_adapter",
+        "actual": 150.275,
+        "expected": 150.275,
+        "trace": [
+          [
+            "roll",
+            1,
+            100,
+            1
+          ],
+          [
+            "get",
+            "maxMana",
+            1000.5
+          ],
+          [
+            "get",
+            "mana",
+            100.25
+          ],
+          [
+            "request",
+            "mana",
+            150.275
+          ],
+          [
+            "visible",
+            {
+              "maxMana": 1000.5,
+              "mana": 150.275
+            }
+          ]
+        ],
+        "subsequentQ29VisibleMana": 150.275
+      },
+      {
+        "name": "negative mana request",
+        "kind": "web_native_adapter",
+        "actual": 0,
+        "expected": 0
+      },
+      {
+        "name": "deleted handle Study is no-op",
+        "kind": "web_native_adapter",
+        "actual": {
+          "maxMana": 1000,
+          "mana": 100
+        },
+        "expected": {
+          "maxMana": 1000,
+          "mana": 100
+        }
+      },
+      {
+        "name": "radius 899.99",
+        "kind": "web_native_adapter",
+        "actual": true,
+        "expected": true
+      },
+      {
+        "name": "radius 900",
+        "kind": "web_native_adapter",
+        "actual": true,
+        "expected": true
+      },
+      {
+        "name": "radius 900.0001",
+        "kind": "web_native_adapter",
+        "actual": false,
+        "expected": false
+      },
+      {
+        "name": "source suppressed illusion",
+        "kind": "web_native_adapter",
+        "actual": null,
+        "expected": null
+      },
+      {
+        "name": "source suppressed invisible",
+        "kind": "web_native_adapter",
+        "actual": null,
+        "expected": null
+      },
+      {
+        "name": "source suppressed hex",
+        "kind": "web_native_adapter",
+        "actual": null,
+        "expected": null
+      },
+      {
+        "name": "source suppressed burrow",
+        "kind": "web_native_adapter",
+        "actual": null,
+        "expected": null
+      },
+      {
+        "name": "source suppressed animated",
+        "kind": "web_native_adapter",
+        "actual": null,
+        "expected": null
+      },
+      {
+        "name": "source suppressed flying",
+        "kind": "web_native_adapter",
+        "actual": null,
+        "expected": null
+      },
+      {
+        "name": "source suppressed hidden",
+        "kind": "web_native_adapter",
+        "actual": null,
+        "expected": null
+      },
+      {
+        "name": "source disabled exists",
+        "kind": "web_native_adapter",
+        "actual": null,
+        "expected": null
+      },
+      {
+        "name": "source disabled alive",
+        "kind": "web_native_adapter",
+        "actual": null,
+        "expected": null
+      },
+      {
+        "name": "source disabled enabled",
+        "kind": "web_native_adapter",
+        "actual": null,
+        "expected": null
+      },
+      {
+        "name": "target excluded ancient",
+        "kind": "web_native_adapter",
+        "actual": null,
+        "expected": null
+      },
+      {
+        "name": "target excluded hidden",
+        "kind": "web_native_adapter",
+        "actual": null,
+        "expected": null
+      },
+      {
+        "name": "target false exists",
+        "kind": "web_native_adapter",
+        "actual": null,
+        "expected": null
+      },
+      {
+        "name": "target false alive",
+        "kind": "web_native_adapter",
+        "actual": null,
+        "expected": null
+      },
+      {
+        "name": "target false nativeHero",
+        "kind": "web_native_adapter",
+        "actual": null,
+        "expected": null
+      },
+      {
+        "name": "custom UnitIsHero cannot substitute native HERO",
+        "kind": "web_native_adapter",
+        "actual": null,
+        "expected": null
+      },
+      {
+        "name": "source self exemption from native HERO",
+        "kind": "web_native_adapter",
+        "actual": {
+          "source": 1,
+          "buff": "B083",
+          "level": 1
+        },
+        "expected": {
+          "source": 1,
+          "buff": "B083",
+          "level": 1
+        }
+      },
+      {
+        "name": "eligible hero target allows illusion",
+        "kind": "web_native_adapter",
+        "actual": {
+          "source": 1,
+          "buff": "B083",
+          "level": 1
+        },
+        "expected": {
+          "source": 1,
+          "buff": "B083",
+          "level": 1
+        }
+      },
+      {
+        "name": "eligible hero target allows invisible",
+        "kind": "web_native_adapter",
+        "actual": {
+          "source": 1,
+          "buff": "B083",
+          "level": 1
+        },
+        "expected": {
+          "source": 1,
+          "buff": "B083",
+          "level": 1
+        }
+      },
+      {
+        "name": "eligible hero target allows flying",
+        "kind": "web_native_adapter",
+        "actual": {
+          "source": 1,
+          "buff": "B083",
+          "level": 1
+        },
+        "expected": {
+          "source": 1,
+          "buff": "B083",
+          "level": 1
+        }
+      },
+      {
+        "name": "eligible hero target allows customHero",
+        "kind": "web_native_adapter",
+        "actual": {
+          "source": 1,
+          "buff": "B083",
+          "level": 1
+        },
+        "expected": {
+          "source": 1,
+          "buff": "B083",
+          "level": 1
+        }
+      },
+      {
+        "name": "enemy target",
+        "kind": "web_native_adapter",
+        "actual": null,
+        "expected": null
+      },
+      {
+        "name": "directed friendly relation",
+        "kind": "web_native_adapter",
+        "actual": {
+          "source": 1,
+          "buff": "B083",
+          "level": 1
+        },
+        "expected": {
+          "source": 1,
+          "buff": "B083",
+          "level": 1
+        }
+      },
+      {
+        "name": "reverse-only alliance insufficient",
+        "kind": "web_native_adapter",
+        "actual": null,
+        "expected": null
+      },
+      {
+        "name": "highest of mixed sources",
+        "kind": "web_native_adapter",
+        "actual": {
+          "source": 2,
+          "buff": "B088",
+          "level": 6
+        },
+        "expected": {
+          "source": 2,
+          "buff": "B088",
+          "level": 6
+        }
+      },
+      {
+        "name": "equal highest tie",
+        "kind": "web_native_adapter",
+        "actual": {
+          "source": 1,
+          "buff": "B088",
+          "level": 6
+        },
+        "expected": {
+          "source": 1,
+          "buff": "B088",
+          "level": 6
+        }
+      },
+      {
+        "name": "highest leaves fallback",
+        "kind": "web_native_adapter",
+        "actual": {
+          "source": 1,
+          "buff": "B083",
+          "level": 1
+        },
+        "expected": {
+          "source": 1,
+          "buff": "B083",
+          "level": 1
+        }
+      },
+      {
+        "name": "highest returns",
+        "kind": "web_native_adapter",
+        "actual": {
+          "source": 2,
+          "buff": "B088",
+          "level": 6
+        },
+        "expected": {
+          "source": 2,
+          "buff": "B088",
+          "level": 6
+        }
+      },
+      {
+        "name": "last source dies",
+        "kind": "web_native_adapter",
+        "actual": null,
+        "expected": null
+      },
+      {
+        "name": "source revives fresh selection",
+        "kind": "web_native_adapter",
+        "actual": {
+          "source": 2,
+          "buff": "B088",
+          "level": 6
+        },
+        "expected": {
+          "source": 2,
+          "buff": "B088",
+          "level": 6
+        }
+      },
+      {
+        "name": "same timestamp exit,spell",
+        "kind": "web_native_adapter",
+        "actual": 0,
+        "expected": 0
+      },
+      {
+        "name": "same timestamp spell,exit",
+        "kind": "web_native_adapter",
+        "actual": 1,
+        "expected": 1
+      },
+      {
+        "name": "ordinary dispel aura recalculates",
+        "kind": "web_native_adapter",
+        "actual": {
+          "source": 2,
+          "buff": "B088",
+          "level": 6
+        },
+        "expected": {
+          "source": 2,
+          "buff": "B088",
+          "level": 6
+        }
+      },
+      {
+        "name": "ability removed loses automatic buff",
+        "kind": "web_native_adapter",
+        "actual": null,
+        "expected": null
+      },
+      {
+        "name": "source disabled then restored",
+        "kind": "web_native_adapter",
+        "actual": {
+          "source": 2,
+          "buff": "B088",
+          "level": 6
+        },
+        "expected": {
+          "source": 2,
+          "buff": "B088",
+          "level": 6
+        }
+      },
+      {
+        "name": "zero mana does not affect eligibility",
+        "kind": "web_native_adapter",
+        "actual": {
+          "source": 1,
+          "buff": "B083",
+          "level": 1
+        },
+        "expected": {
+          "source": 1,
+          "buff": "B083",
+          "level": 1
+        }
+      }
+    ],
+    "Q41PriorCases": {
+      "allOutcomes": 100,
+      "entryBoundaryCases": 16,
+      "originalHelper": 1408,
+      "spellPrefix": 64,
+      "attackEntry": 17
+    },
+    "objectSlkParity": true,
+    "sourceHashCount": 11,
+    "pendingDecisionIds": []
+  }
+}

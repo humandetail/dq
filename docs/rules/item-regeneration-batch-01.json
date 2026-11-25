@@ -1,0 +1,1108 @@
+{
+  "baselineId": "item-regeneration-batch-01",
+  "status": "bounded_source_audit_and_Q24_Web_selection",
+  "dependencies": [
+    "item-lifecycle-v1",
+    "hero-attribute-interface-v1",
+    "night-state-and-regeneration",
+    "mana-auras"
+  ],
+  "sheet": "装备与道具",
+  "coverage": {
+    "workbookItemRowsCompared": 243,
+    "aliases": 11,
+    "aliasesByCode": {
+      "AIrm": 6,
+      "AHab": 2,
+      "Aoar": 3
+    },
+    "items": 24,
+    "mounts": 26,
+    "recipeBooks": 17
+  },
+  "aliases": {
+    "I101": {
+      "jsonIndex": 1039,
+      "code": "AIrm",
+      "DataA1": 0.2,
+      "targs1": "_",
+      "levels": 1,
+      "occurrences": 2
+    },
+    "I102": {
+      "jsonIndex": 1040,
+      "code": "AIrm",
+      "DataA1": 0.5,
+      "targs1": "_",
+      "levels": 1,
+      "occurrences": 5
+    },
+    "I103": {
+      "jsonIndex": 1041,
+      "code": "AIrm",
+      "DataA1": 0.7,
+      "targs1": "_",
+      "levels": 1,
+      "occurrences": 5
+    },
+    "I104": {
+      "jsonIndex": 1042,
+      "code": "AIrm",
+      "DataA1": 1.0,
+      "targs1": "_",
+      "levels": 1,
+      "occurrences": 1
+    },
+    "I105": {
+      "jsonIndex": 1043,
+      "code": "AIrm",
+      "DataA1": 1.5,
+      "targs1": "_",
+      "levels": 1,
+      "occurrences": 4
+    },
+    "I106": {
+      "jsonIndex": 1044,
+      "code": "AIrm",
+      "DataA1": 2.0,
+      "targs1": "_",
+      "levels": 1,
+      "occurrences": 4
+    },
+    "I169": {
+      "jsonIndex": 1101,
+      "code": "AHab",
+      "DataA1": 3.0,
+      "Area1": 1000.0,
+      "BuffID1": "B021",
+      "targs1": "nonancient,invulnerable,self,friend",
+      "levels": 1,
+      "occurrences": 1
+    },
+    "I198": {
+      "jsonIndex": 1121,
+      "code": "AHab",
+      "DataA1": 10.0,
+      "Area1": 1000.0,
+      "BuffID1": "B021",
+      "targs1": "nonancient,invulnerable,self,friend",
+      "levels": 1,
+      "occurrences": 1
+    },
+    "I249": {
+      "jsonIndex": 1172,
+      "code": "Aoar",
+      "DataA1": 0.04,
+      "DataB1": 1,
+      "Area1": 50.0,
+      "BuffID1": "B092",
+      "targs1": "invulnerable,self",
+      "checkDep": 1,
+      "levels": 1,
+      "occurrences": 1
+    },
+    "I250": {
+      "jsonIndex": 1173,
+      "code": "Aoar",
+      "DataA1": 10.0,
+      "Area1": 50.0,
+      "BuffID1": "B096",
+      "targs1": "invulnerable,self",
+      "checkDep": 1,
+      "levels": 1,
+      "occurrences": 1
+    },
+    "I281": {
+      "jsonIndex": 1204,
+      "code": "Aoar",
+      "DataA1": 0.04,
+      "DataB1": 1,
+      "Area1": 50.0,
+      "BuffID1": "B166",
+      "targs1": "invulnerable,self",
+      "checkDep": 1,
+      "levels": 1,
+      "occurrences": 1
+    }
+  },
+  "items": [
+    {
+      "id": "i101",
+      "name": "艺人面罩",
+      "workbookCell": "装备与道具!H11",
+      "workbook": {
+        "manaPercent": 20
+      },
+      "objectJsonIndex": 304,
+      "objectAbilList": "I101",
+      "mounts": [
+        {
+          "alias": "I101",
+          "position": 1
+        }
+      ],
+      "w3tTooltip": {
+        "manaPercent": 20
+      },
+      "objectContribution": {
+        "manaPercent": 20
+      },
+      "web": {
+        "manaPercent": 20
+      }
+    },
+    {
+      "id": "i104",
+      "name": "圣殿指环",
+      "workbookCell": "装备与道具!H14",
+      "workbook": {
+        "manaPercent": 50
+      },
+      "objectJsonIndex": 307,
+      "objectAbilList": "I112,I102",
+      "mounts": [
+        {
+          "alias": "I102",
+          "position": 2
+        }
+      ],
+      "w3tTooltip": {
+        "manaPercent": 50
+      },
+      "objectContribution": {
+        "manaPercent": 50
+      },
+      "web": {
+        "manaPercent": 50
+      }
+    },
+    {
+      "id": "i119",
+      "name": "EUL的神圣法杖",
+      "workbookCell": "装备与道具!H29",
+      "workbook": {
+        "manaPercent": 70
+      },
+      "objectJsonIndex": 322,
+      "objectAbilList": "I103,I156,I155,I153",
+      "mounts": [
+        {
+          "alias": "I103",
+          "position": 1
+        }
+      ],
+      "w3tTooltip": {
+        "manaPercent": 70
+      },
+      "objectContribution": {
+        "manaPercent": 70
+      },
+      "web": {
+        "manaPercent": 70
+      }
+    },
+    {
+      "id": "i121",
+      "name": "虚无宝石",
+      "workbookCell": "装备与道具!H31",
+      "workbook": {
+        "manaPercent": 50
+      },
+      "objectJsonIndex": 324,
+      "objectAbilList": "I102",
+      "mounts": [
+        {
+          "alias": "I102",
+          "position": 1
+        }
+      ],
+      "w3tTooltip": {
+        "manaPercent": 50
+      },
+      "objectContribution": {
+        "manaPercent": 50
+      },
+      "web": {
+        "manaPercent": 50
+      }
+    },
+    {
+      "id": "i129",
+      "name": "天鹰戒指",
+      "workbookCell": "装备与道具!H39",
+      "workbook": {
+        "manaPercent": 50,
+        "manaAuraPerSecond": 3
+      },
+      "objectJsonIndex": 332,
+      "objectAbilList": "I102,I169,I113",
+      "mounts": [
+        {
+          "alias": "I102",
+          "position": 1
+        },
+        {
+          "alias": "I169",
+          "position": 2
+        }
+      ],
+      "w3tTooltip": null,
+      "objectContribution": {
+        "manaPercent": 50,
+        "manaAuraPerSecond": 3.0
+      },
+      "web": {
+        "manaPercent": 50,
+        "manaAuraPerSecond": 3
+      }
+    },
+    {
+      "id": "i134",
+      "name": "完美的妖刀竹光",
+      "workbookCell": "装备与道具!H44",
+      "workbook": {
+        "manaPercent": 150
+      },
+      "objectJsonIndex": 337,
+      "objectAbilList": "I158,I105",
+      "mounts": [
+        {
+          "alias": "I105",
+          "position": 2
+        }
+      ],
+      "w3tTooltip": {
+        "manaPercent": 150
+      },
+      "objectContribution": {
+        "manaPercent": 150
+      },
+      "web": {
+        "manaPercent": 150
+      }
+    },
+    {
+      "id": "i145",
+      "name": "恐鳌之心",
+      "workbookCell": "装备与道具!H55",
+      "workbook": {
+        "lifePercentPerSecond": 4
+      },
+      "objectJsonIndex": 348,
+      "objectAbilList": "I249,I189,I190",
+      "mounts": [
+        {
+          "alias": "I249",
+          "position": 1
+        }
+      ],
+      "w3tTooltip": {
+        "lifePercentPerSecond": 4
+      },
+      "objectContribution": {
+        "lifePercentPerSecond": 4
+      },
+      "web": {
+        "lifePercentPerSecond": 4
+      }
+    },
+    {
+      "id": "i147",
+      "name": "掠夺者之斧",
+      "workbookCell": "装备与道具!H57",
+      "workbook": {},
+      "objectJsonIndex": 350,
+      "objectAbilList": "I250, I145",
+      "mounts": [
+        {
+          "alias": "I250",
+          "position": 1
+        }
+      ],
+      "w3tTooltip": {},
+      "objectContribution": {
+        "lifeFlatPerSecond": 10.0
+      },
+      "web": {
+        "lifeFlatPerSecond": 10.0
+      }
+    },
+    {
+      "id": "i161",
+      "name": "大法师之戒",
+      "workbookCell": "装备与道具!H71",
+      "workbook": {
+        "manaPercent": 200,
+        "manaAuraPerSecond": 10
+      },
+      "objectJsonIndex": 364,
+      "objectAbilList": "I106,I161,I199,I198",
+      "mounts": [
+        {
+          "alias": "I106",
+          "position": 1
+        },
+        {
+          "alias": "I198",
+          "position": 4
+        }
+      ],
+      "w3tTooltip": {
+        "manaPercent": 200,
+        "manaAuraPerSecond": 10
+      },
+      "objectContribution": {
+        "manaPercent": 200,
+        "manaAuraPerSecond": 10.0
+      },
+      "web": {
+        "manaPercent": 200,
+        "manaAuraPerSecond": 10
+      }
+    },
+    {
+      "id": "i198",
+      "name": "吸血鬼的祭品",
+      "workbookCell": "装备与道具!H108",
+      "workbook": {
+        "manaPercent": 70
+      },
+      "objectJsonIndex": 401,
+      "objectAbilList": "I208,I103,I111,I111",
+      "mounts": [
+        {
+          "alias": "I103",
+          "position": 2
+        }
+      ],
+      "w3tTooltip": {
+        "manaPercent": 70
+      },
+      "objectContribution": {
+        "manaPercent": 70
+      },
+      "web": {
+        "manaPercent": 70
+      }
+    },
+    {
+      "id": "i202",
+      "name": "邪恶镰刀",
+      "workbookCell": "装备与道具!H112",
+      "workbook": {
+        "manaPercent": 200
+      },
+      "objectJsonIndex": 405,
+      "objectAbilList": "I209,I162,I161,I106",
+      "mounts": [
+        {
+          "alias": "I106",
+          "position": 4
+        }
+      ],
+      "w3tTooltip": {
+        "manaPercent": 200
+      },
+      "objectContribution": {
+        "manaPercent": 200
+      },
+      "web": {
+        "manaPercent": 200
+      }
+    },
+    {
+      "id": "i209",
+      "name": "大狂战斧",
+      "workbookCell": "装备与道具!H119",
+      "workbook": {
+        "manaPercent": 100
+      },
+      "objectJsonIndex": 412,
+      "objectAbilList": "I212,I213,I113,I104",
+      "mounts": [
+        {
+          "alias": "I104",
+          "position": 4
+        }
+      ],
+      "w3tTooltip": {
+        "manaPercent": 100
+      },
+      "objectContribution": {
+        "manaPercent": 100
+      },
+      "web": {
+        "manaPercent": 100
+      }
+    },
+    {
+      "id": "i218",
+      "name": "振魂石",
+      "workbookCell": "装备与道具!H128",
+      "workbook": {
+        "manaPercent": 50
+      },
+      "objectJsonIndex": 421,
+      "objectAbilList": "I102,I191,I194,I115",
+      "mounts": [
+        {
+          "alias": "I102",
+          "position": 1
+        }
+      ],
+      "w3tTooltip": {
+        "manaPercent": 50
+      },
+      "objectContribution": {
+        "manaPercent": 50
+      },
+      "web": {
+        "manaPercent": 50
+      }
+    },
+    {
+      "id": "i220",
+      "name": "血精石",
+      "workbookCell": "装备与道具!H130",
+      "workbook": {
+        "manaPercent": 150
+      },
+      "objectJsonIndex": 423,
+      "objectAbilList": "I116,I105,I191,I191",
+      "mounts": [
+        {
+          "alias": "I105",
+          "position": 2
+        }
+      ],
+      "w3tTooltip": {
+        "manaPercent": 150
+      },
+      "objectContribution": {
+        "manaPercent": 150
+      },
+      "web": {
+        "manaPercent": 150
+      }
+    },
+    {
+      "id": "i222",
+      "name": "空明杖",
+      "workbookCell": "装备与道具!H132",
+      "workbook": {
+        "manaPercent": 70
+      },
+      "objectJsonIndex": 425,
+      "objectAbilList": "I134,I156,I103,I122",
+      "mounts": [
+        {
+          "alias": "I103",
+          "position": 3
+        }
+      ],
+      "w3tTooltip": {
+        "manaPercent": 70
+      },
+      "objectContribution": {
+        "manaPercent": 70
+      },
+      "web": {
+        "manaPercent": 70
+      }
+    },
+    {
+      "id": "i224",
+      "name": "紫苑",
+      "workbookCell": "装备与道具!H134",
+      "workbook": {
+        "manaPercent": 150
+      },
+      "objectJsonIndex": 427,
+      "objectAbilList": "I219,I105,I199,I201",
+      "mounts": [
+        {
+          "alias": "I105",
+          "position": 2
+        }
+      ],
+      "w3tTooltip": {
+        "manaPercent": 150
+      },
+      "objectContribution": {
+        "manaPercent": 150
+      },
+      "web": {
+        "manaPercent": 150
+      }
+    },
+    {
+      "id": "i226",
+      "name": "血棘",
+      "workbookCell": "装备与道具!H136",
+      "workbook": {
+        "manaPercent": 150
+      },
+      "objectJsonIndex": 429,
+      "objectAbilList": "I220,I105,I200,I213",
+      "mounts": [
+        {
+          "alias": "I105",
+          "position": 2
+        }
+      ],
+      "w3tTooltip": {
+        "manaPercent": 150
+      },
+      "objectContribution": {
+        "manaPercent": 150
+      },
+      "web": {
+        "manaPercent": 150
+      }
+    },
+    {
+      "id": "i228",
+      "name": "韧鼓",
+      "workbookCell": "装备与道具!H138",
+      "workbook": {
+        "manaPercent": 70
+      },
+      "objectJsonIndex": 431,
+      "objectAbilList": "I221,I162,I103,I231",
+      "mounts": [
+        {
+          "alias": "I103",
+          "position": 3
+        }
+      ],
+      "w3tTooltip": {
+        "manaPercent": 70
+      },
+      "objectContribution": {
+        "manaPercent": 70
+      },
+      "web": {
+        "manaPercent": 70
+      }
+    },
+    {
+      "id": "i238",
+      "name": "灵魂之戒",
+      "workbookCell": "装备与道具!H148",
+      "workbook": {
+        "manaPercent": 70
+      },
+      "objectJsonIndex": 441,
+      "objectAbilList": "I245,I103",
+      "mounts": [
+        {
+          "alias": "I103",
+          "position": 2
+        }
+      ],
+      "w3tTooltip": {
+        "manaPercent": 70
+      },
+      "objectContribution": {
+        "manaPercent": 70
+      },
+      "web": {
+        "manaPercent": 70
+      }
+    },
+    {
+      "id": "i301",
+      "name": "海神三叉戟",
+      "workbookCell": "装备与道具!H194",
+      "workbook": {
+        "manaPercent": 200
+      },
+      "objectJsonIndex": 487,
+      "objectAbilList": "I209,I162,I161,I106",
+      "mounts": [
+        {
+          "alias": "I106",
+          "position": 4
+        }
+      ],
+      "w3tTooltip": null,
+      "objectContribution": {
+        "manaPercent": 200
+      },
+      "web": {
+        "manaPercent": 200
+      }
+    },
+    {
+      "id": "i325",
+      "name": "雪落法杖",
+      "workbookCell": "装备与道具!H218",
+      "workbook": {
+        "manaPercent": 200
+      },
+      "objectJsonIndex": 511,
+      "objectAbilList": "I243,I242,I196,I106",
+      "mounts": [
+        {
+          "alias": "I106",
+          "position": 4
+        }
+      ],
+      "w3tTooltip": null,
+      "objectContribution": {
+        "manaPercent": 200
+      },
+      "web": {
+        "manaPercent": 200
+      }
+    },
+    {
+      "id": "i326",
+      "name": "小净化",
+      "workbookCell": "装备与道具!H219",
+      "workbook": {
+        "manaPercent": 20
+      },
+      "objectJsonIndex": 512,
+      "objectAbilList": "I248,I101",
+      "mounts": [
+        {
+          "alias": "I101",
+          "position": 2
+        }
+      ],
+      "w3tTooltip": null,
+      "objectContribution": {
+        "manaPercent": 20
+      },
+      "web": {
+        "manaPercent": 20
+      }
+    },
+    {
+      "id": "i327",
+      "name": "玲珑心",
+      "workbookCell": "装备与道具!H220",
+      "workbook": {
+        "manaPercent": 50
+      },
+      "objectJsonIndex": 513,
+      "objectAbilList": "I102,I257,I115,I258",
+      "mounts": [
+        {
+          "alias": "I102",
+          "position": 1
+        }
+      ],
+      "w3tTooltip": null,
+      "objectContribution": {
+        "manaPercent": 50
+      },
+      "web": {
+        "manaPercent": 50
+      }
+    },
+    {
+      "id": "i332",
+      "name": "魔焰之心(关闭的)",
+      "workbookCell": "装备与道具!H225",
+      "workbook": {
+        "lifePercentPerSecond": 4
+      },
+      "objectJsonIndex": 518,
+      "objectAbilList": "I274,I280,I281",
+      "mounts": [
+        {
+          "alias": "I281",
+          "position": 3
+        }
+      ],
+      "w3tTooltip": null,
+      "objectContribution": {
+        "lifePercentPerSecond": 4
+      },
+      "web": {
+        "lifePercentPerSecond": 4
+      }
+    }
+  ],
+  "recipeBooks": [
+    {
+      "id": "i103",
+      "name": "制作书-圣殿指环",
+      "workbookCell": "装备与道具!H13",
+      "workbook": {
+        "manaPercent": 50
+      },
+      "objectJsonIndex": 306,
+      "objectAbilList": null,
+      "product": "i104",
+      "recipeSourceLines": [
+        141817,
+        141830
+      ],
+      "webFinishedItemPreview": {
+        "manaPercent": 50
+      },
+      "web": {}
+    },
+    {
+      "id": "i120",
+      "name": "制作书-EUL的神圣法杖",
+      "workbookCell": "装备与道具!H30",
+      "workbook": {
+        "manaPercent": 70
+      },
+      "objectJsonIndex": 323,
+      "objectAbilList": null,
+      "product": "i119",
+      "recipeSourceLines": [
+        142418,
+        142434
+      ],
+      "webFinishedItemPreview": {
+        "manaPercent": 70
+      },
+      "web": {}
+    },
+    {
+      "id": "i130",
+      "name": "制作书-天鹰戒指",
+      "workbookCell": "装备与道具!H40",
+      "workbook": {
+        "manaPercent": 50,
+        "manaAuraPerSecond": 3
+      },
+      "objectJsonIndex": 333,
+      "objectAbilList": null,
+      "product": "i129",
+      "recipeSourceLines": [
+        141377,
+        141387
+      ],
+      "webFinishedItemPreview": {
+        "manaPercent": 50,
+        "manaAuraPerSecond": 3
+      },
+      "web": {}
+    },
+    {
+      "id": "i146",
+      "name": "制作书-恐鳌之心",
+      "workbookCell": "装备与道具!H56",
+      "workbook": {
+        "lifePercentPerSecond": 4
+      },
+      "objectJsonIndex": 349,
+      "objectAbilList": null,
+      "product": "i145",
+      "recipeSourceLines": [
+        142384,
+        142400
+      ],
+      "webFinishedItemPreview": {
+        "lifePercentPerSecond": 4
+      },
+      "web": {}
+    },
+    {
+      "id": "i162",
+      "name": "制作书-大法师之戒",
+      "workbookCell": "装备与道具!H72",
+      "workbook": {
+        "manaPercent": 200,
+        "manaAuraPerSecond": 10
+      },
+      "objectJsonIndex": 365,
+      "objectAbilList": null,
+      "product": "i161",
+      "recipeSourceLines": [
+        142333,
+        142349
+      ],
+      "webFinishedItemPreview": {
+        "manaPercent": 200,
+        "manaAuraPerSecond": 10
+      },
+      "web": {}
+    },
+    {
+      "id": "i199",
+      "name": "制作书-吸血鬼的祭品",
+      "workbookCell": "装备与道具!H109",
+      "workbook": {
+        "manaPercent": 70
+      },
+      "objectJsonIndex": 402,
+      "objectAbilList": null,
+      "product": "i198",
+      "recipeSourceLines": [
+        141498,
+        141508
+      ],
+      "webFinishedItemPreview": {
+        "manaPercent": 70
+      },
+      "web": {}
+    },
+    {
+      "id": "i203",
+      "name": "制作书-邪恶镰刀",
+      "workbookCell": "装备与道具!H113",
+      "workbook": {
+        "manaPercent": 200
+      },
+      "objectJsonIndex": 406,
+      "objectAbilList": null,
+      "product": "i202",
+      "recipeSourceLines": [
+        142282,
+        142298
+      ],
+      "webFinishedItemPreview": {
+        "manaPercent": 200
+      },
+      "web": {}
+    },
+    {
+      "id": "i210",
+      "name": "制作书-大狂战斧",
+      "workbookCell": "装备与道具!H120",
+      "workbook": {
+        "manaPercent": 100
+      },
+      "objectJsonIndex": 413,
+      "objectAbilList": null,
+      "product": "i209",
+      "recipeSourceLines": [
+        141747,
+        141760
+      ],
+      "webFinishedItemPreview": {
+        "manaPercent": 100
+      },
+      "web": {}
+    },
+    {
+      "id": "i219",
+      "name": "制作书-振魂石",
+      "workbookCell": "装备与道具!H129",
+      "workbook": {
+        "manaPercent": 50
+      },
+      "objectJsonIndex": 422,
+      "objectAbilList": null,
+      "product": "i218",
+      "recipeSourceLines": [
+        142452,
+        142468
+      ],
+      "webFinishedItemPreview": {
+        "manaPercent": 50
+      },
+      "web": {}
+    },
+    {
+      "id": "i221",
+      "name": "制作书-血精石",
+      "workbookCell": "装备与道具!H131",
+      "workbook": {
+        "manaPercent": 150
+      },
+      "objectJsonIndex": 424,
+      "objectAbilList": null,
+      "product": "i220",
+      "recipeSourceLines": [
+        142265,
+        142281
+      ],
+      "webFinishedItemPreview": {
+        "manaPercent": 150
+      },
+      "web": {}
+    },
+    {
+      "id": "i223",
+      "name": "制作书-空明杖",
+      "workbookCell": "装备与道具!H133",
+      "workbook": {
+        "manaPercent": 70
+      },
+      "objectJsonIndex": 426,
+      "objectAbilList": null,
+      "product": "i222",
+      "recipeSourceLines": [
+        142248,
+        142264
+      ],
+      "webFinishedItemPreview": {
+        "manaPercent": 70
+      },
+      "web": {}
+    },
+    {
+      "id": "i225",
+      "name": "制作书-紫苑",
+      "workbookCell": "装备与道具!H135",
+      "workbook": {
+        "manaPercent": 150
+      },
+      "objectJsonIndex": 428,
+      "objectAbilList": null,
+      "product": "i224",
+      "recipeSourceLines": [
+        141972,
+        141985
+      ],
+      "webFinishedItemPreview": {
+        "manaPercent": 150
+      },
+      "web": {}
+    },
+    {
+      "id": "i227",
+      "name": "制作书-血棘",
+      "workbookCell": "装备与道具!H137",
+      "workbook": {
+        "manaPercent": 150
+      },
+      "objectJsonIndex": 430,
+      "objectAbilList": null,
+      "product": "i226",
+      "recipeSourceLines": [
+        141986,
+        141999
+      ],
+      "webFinishedItemPreview": {
+        "manaPercent": 150
+      },
+      "web": {}
+    },
+    {
+      "id": "i229",
+      "name": "制作书-韧鼓",
+      "workbookCell": "装备与道具!H139",
+      "workbook": {
+        "manaPercent": 70
+      },
+      "objectJsonIndex": 432,
+      "objectAbilList": null,
+      "product": "i228",
+      "recipeSourceLines": [
+        142231,
+        142247
+      ],
+      "webFinishedItemPreview": {
+        "manaPercent": 70
+      },
+      "web": {}
+    },
+    {
+      "id": "i239",
+      "name": "制作书-灵魂之戒",
+      "workbookCell": "装备与道具!H149",
+      "workbook": {
+        "manaPercent": 70
+      },
+      "objectJsonIndex": 442,
+      "objectAbilList": null,
+      "product": "i238",
+      "recipeSourceLines": [
+        141677,
+        141690
+      ],
+      "webFinishedItemPreview": {
+        "manaPercent": 70
+      },
+      "web": {}
+    },
+    {
+      "id": "i324",
+      "name": "制作书-雪落法杖",
+      "workbookCell": "装备与道具!H217",
+      "workbook": {
+        "manaPercent": 200
+      },
+      "objectJsonIndex": 510,
+      "objectAbilList": null,
+      "product": "i325",
+      "recipeSourceLines": [
+        142042,
+        142055
+      ],
+      "webFinishedItemPreview": {
+        "manaPercent": 200
+      },
+      "web": {}
+    },
+    {
+      "id": "i328",
+      "name": "制作书-玲珑心",
+      "workbookCell": "装备与道具!H221",
+      "workbook": {
+        "manaPercent": 50
+      },
+      "objectJsonIndex": 514,
+      "objectAbilList": null,
+      "product": "i327",
+      "recipeSourceLines": [
+        142560,
+        142573
+      ],
+      "webFinishedItemPreview": {
+        "manaPercent": 50
+      },
+      "web": {}
+    }
+  ],
+  "sourceSupplement": {
+    "item": "i147",
+    "alias": "I250",
+    "workbook": null,
+    "webLifePerSecond": 10,
+    "rule": "Fixed default for the missing percent flag; the mounted named effect supplies a workbook omission."
+  },
+  "web": {
+    "mana": "baseManaPerSecond * (1 + sum AIrm per held instance) + max B021 candidates + A018 + I230",
+    "life": "baseLifePerSecond + max B096 fixed candidates + maxLife * (max B092 + max B166)",
+    "settlement": "Use the old rate to the event time; immediately derive the new rate before the next observable operation. Restored mounts reconstruct the rates without elapsed or duplicate regeneration."
+  },
+  "deferred": [
+    {
+      "item": "i326",
+      "alias": "I248",
+      "code": "AIrg",
+      "objectJsonIndex": 1171,
+      "sourceLine": 50095,
+      "scope": "Activated buff, charge consumption, interruption, recast and spell dispatch."
+    }
+  ],
+  "pendingMechanismInPassiveScope": [],
+  "originalClientTested": false,
+  "verification": [
+    {
+      "name": "AIrm adds across instances, fixed auras use highest B021 without the multiplier",
+      "actual": [
+        38.0,
+        26.0,
+        32.0
+      ],
+      "expected": [
+        38,
+        26,
+        32
+      ]
+    },
+    {
+      "name": "distinct life buffs, duplicate heart, then replacement by opening fire heart",
+      "actual": [
+        95.0,
+        55.0
+      ],
+      "expected": [
+        95,
+        55
+      ]
+    }
+  ]
+}

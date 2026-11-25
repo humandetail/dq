@@ -1,0 +1,2989 @@
+{
+  "version": "focus-fire-native-v1",
+  "status": "Q24 explicit Web adaptation of researched native gaps; original source facts retained; not original-client or game-runtime tests",
+  "scope": [
+    "A163 ANcl admission/windup/commit/recovery",
+    "T171 synchronous temporary Bloodlust adapter",
+    "B060 lifecycle independent of script timer",
+    "forced repeated effects, orphan timer lookups and invalid handles"
+  ],
+  "notModified": [
+    "skill-focus-fire.md/json",
+    "attack-timing.md/json",
+    "overpower-effect-v1",
+    "source snapshots",
+    "workbook",
+    "indexes"
+  ],
+  "newUserConflicts": [],
+  "baseRules": [
+    "focus-fire-v1",
+    "attack-timing-v1",
+    "overpower-effect-v1",
+    "B03",
+    "B05"
+  ],
+  "rawFields": [
+    {
+      "object": "G072",
+      "field": "castbsw",
+      "value": 0.51,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 22393
+      }
+    },
+    {
+      "object": "G072",
+      "field": "castpt",
+      "value": 0.3,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 22394
+      }
+    },
+    {
+      "object": "H041",
+      "field": "castbsw",
+      "value": 0.51,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 24111
+      }
+    },
+    {
+      "object": "H041",
+      "field": "castpt",
+      "value": 0.3,
+      "source": {
+        "file": "reference/map-6.25/units_unitweapons.json",
+        "line": 24112
+      }
+    },
+    {
+      "object": "q001",
+      "field": "abilList",
+      "value": "Avul,Aloc",
+      "source": {
+        "file": "reference/map-6.25/units_unitabilities.json",
+        "line": 6556
+      }
+    },
+    {
+      "object": "q001",
+      "field": "auto",
+      "value": "_",
+      "source": {
+        "file": "reference/map-6.25/units_unitabilities.json",
+        "line": 6557
+      }
+    },
+    {
+      "object": "q001",
+      "field": "mana0",
+      "value": 1000,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 37586
+      }
+    },
+    {
+      "object": "q001",
+      "field": "manaN",
+      "value": 1000,
+      "source": {
+        "file": "reference/map-6.25/units_unitbalance.json",
+        "line": 37587
+      }
+    },
+    {
+      "object": "ANcl",
+      "field": "alias",
+      "value": "ANcl",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 5857
+      }
+    },
+    {
+      "object": "ANcl",
+      "field": "code",
+      "value": "ANcl",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 5858
+      }
+    },
+    {
+      "object": "ANcl",
+      "field": "checkDep",
+      "value": 1,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 5859
+      }
+    },
+    {
+      "object": "ANcl",
+      "field": "DataA1",
+      "value": 180.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 5860
+      }
+    },
+    {
+      "object": "ANcl",
+      "field": "DataA2",
+      "value": 180.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 5861
+      }
+    },
+    {
+      "object": "ANcl",
+      "field": "DataA3",
+      "value": 180.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 5862
+      }
+    },
+    {
+      "object": "ANcl",
+      "field": "DataD1",
+      "value": 0.98,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 5863
+      }
+    },
+    {
+      "object": "ANcl",
+      "field": "DataD2",
+      "value": 0.98,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 5864
+      }
+    },
+    {
+      "object": "ANcl",
+      "field": "DataD3",
+      "value": 0.98,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 5865
+      }
+    },
+    {
+      "object": "ANcl",
+      "field": "DataE1",
+      "value": 1,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 5866
+      }
+    },
+    {
+      "object": "ANcl",
+      "field": "DataE2",
+      "value": 1,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 5867
+      }
+    },
+    {
+      "object": "ANcl",
+      "field": "DataE3",
+      "value": 1,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 5868
+      }
+    },
+    {
+      "object": "ANcl",
+      "field": "DataF1",
+      "value": "channel",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 5869
+      }
+    },
+    {
+      "object": "ANcl",
+      "field": "levels",
+      "value": 3,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 5870
+      }
+    },
+    {
+      "object": "ANcl",
+      "field": "reqLevel",
+      "value": 1,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 5871
+      }
+    },
+    {
+      "object": "ANcl",
+      "field": "Rng1",
+      "value": 500.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 5872
+      }
+    },
+    {
+      "object": "ANcl",
+      "field": "Rng2",
+      "value": 500.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 5873
+      }
+    },
+    {
+      "object": "ANcl",
+      "field": "Rng3",
+      "value": 500.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 5874
+      }
+    },
+    {
+      "object": "ANcl",
+      "field": "targs1",
+      "value": "_",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 5875
+      }
+    },
+    {
+      "object": "ANcl",
+      "field": "targs2",
+      "value": "_",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 5876
+      }
+    },
+    {
+      "object": "ANcl",
+      "field": "targs3",
+      "value": "_",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 5877
+      }
+    },
+    {
+      "object": "ANcl",
+      "field": "targs4",
+      "value": "_",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 5878
+      }
+    },
+    {
+      "object": "Ablo",
+      "field": "alias",
+      "value": "Ablo",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 9473
+      }
+    },
+    {
+      "object": "Ablo",
+      "field": "code",
+      "value": "Ablo",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 9474
+      }
+    },
+    {
+      "object": "Ablo",
+      "field": "BuffID1",
+      "value": "Bblo",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 9475
+      }
+    },
+    {
+      "object": "Ablo",
+      "field": "checkDep",
+      "value": 1,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 9476
+      }
+    },
+    {
+      "object": "Ablo",
+      "field": "Cool1",
+      "value": 1.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 9477
+      }
+    },
+    {
+      "object": "Ablo",
+      "field": "Cost1",
+      "value": 40,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 9478
+      }
+    },
+    {
+      "object": "Ablo",
+      "field": "DataA1",
+      "value": 0.4,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 9479
+      }
+    },
+    {
+      "object": "Ablo",
+      "field": "DataB1",
+      "value": 0.25,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 9480
+      }
+    },
+    {
+      "object": "Ablo",
+      "field": "DataC1",
+      "value": 0.3,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 9481
+      }
+    },
+    {
+      "object": "Ablo",
+      "field": "Dur1",
+      "value": 60.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 9482
+      }
+    },
+    {
+      "object": "Ablo",
+      "field": "HeroDur1",
+      "value": 60.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 9483
+      }
+    },
+    {
+      "object": "Ablo",
+      "field": "levels",
+      "value": 1,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 9484
+      }
+    },
+    {
+      "object": "Ablo",
+      "field": "priority",
+      "value": 11,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 9485
+      }
+    },
+    {
+      "object": "Ablo",
+      "field": "Rng1",
+      "value": 600.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 9486
+      }
+    },
+    {
+      "object": "Ablo",
+      "field": "targs1",
+      "value": "air,ground,friend,organic,self,neutral",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 9487
+      }
+    },
+    {
+      "object": "Ablo",
+      "field": "targs2",
+      "value": "_",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 9488
+      }
+    },
+    {
+      "object": "Ablo",
+      "field": "targs3",
+      "value": "_",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 9489
+      }
+    },
+    {
+      "object": "Ablo",
+      "field": "targs4",
+      "value": "_",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 9490
+      }
+    },
+    {
+      "object": "A163",
+      "field": "alias",
+      "value": "A163",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 17991
+      }
+    },
+    {
+      "object": "A163",
+      "field": "code",
+      "value": "ANcl",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 17992
+      }
+    },
+    {
+      "object": "A163",
+      "field": "checkDep",
+      "value": 1,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 17993
+      }
+    },
+    {
+      "object": "A163",
+      "field": "Cool1",
+      "value": 12.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 17994
+      }
+    },
+    {
+      "object": "A163",
+      "field": "Cool2",
+      "value": 12.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 17995
+      }
+    },
+    {
+      "object": "A163",
+      "field": "Cool3",
+      "value": 12.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 17996
+      }
+    },
+    {
+      "object": "A163",
+      "field": "Cool4",
+      "value": 12.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 17997
+      }
+    },
+    {
+      "object": "A163",
+      "field": "Cost1",
+      "value": 40,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 17998
+      }
+    },
+    {
+      "object": "A163",
+      "field": "Cost2",
+      "value": 70,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 17999
+      }
+    },
+    {
+      "object": "A163",
+      "field": "Cost3",
+      "value": 100,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 18000
+      }
+    },
+    {
+      "object": "A163",
+      "field": "Cost4",
+      "value": 130,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 18001
+      }
+    },
+    {
+      "object": "A163",
+      "field": "DataC1",
+      "value": 1,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 18002
+      }
+    },
+    {
+      "object": "A163",
+      "field": "DataC2",
+      "value": 1,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 18003
+      }
+    },
+    {
+      "object": "A163",
+      "field": "DataC3",
+      "value": 1,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 18004
+      }
+    },
+    {
+      "object": "A163",
+      "field": "DataC4",
+      "value": 1,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 18005
+      }
+    },
+    {
+      "object": "A163",
+      "field": "DataD1",
+      "value": 1.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 18006
+      }
+    },
+    {
+      "object": "A163",
+      "field": "DataD2",
+      "value": 1.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 18007
+      }
+    },
+    {
+      "object": "A163",
+      "field": "DataD3",
+      "value": 1.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 18008
+      }
+    },
+    {
+      "object": "A163",
+      "field": "DataD4",
+      "value": 1.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 18009
+      }
+    },
+    {
+      "object": "A163",
+      "field": "DataF1",
+      "value": "evileye",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 18010
+      }
+    },
+    {
+      "object": "A163",
+      "field": "DataF2",
+      "value": "evileye",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 18011
+      }
+    },
+    {
+      "object": "A163",
+      "field": "DataF3",
+      "value": "evileye",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 18012
+      }
+    },
+    {
+      "object": "A163",
+      "field": "DataF4",
+      "value": "evileye",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 18013
+      }
+    },
+    {
+      "object": "A163",
+      "field": "HeroDur1",
+      "value": 3.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 18014
+      }
+    },
+    {
+      "object": "A163",
+      "field": "HeroDur2",
+      "value": 3.5,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 18015
+      }
+    },
+    {
+      "object": "A163",
+      "field": "HeroDur3",
+      "value": 4.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 18016
+      }
+    },
+    {
+      "object": "A163",
+      "field": "HeroDur4",
+      "value": 4.5,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 18017
+      }
+    },
+    {
+      "object": "A163",
+      "field": "levels",
+      "value": 6,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 18018
+      }
+    },
+    {
+      "object": "A163",
+      "field": "reqLevel",
+      "value": 1,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 18019
+      }
+    },
+    {
+      "object": "A163",
+      "field": "Rng1",
+      "value": 1000.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 18020
+      }
+    },
+    {
+      "object": "A163",
+      "field": "Rng2",
+      "value": 1000.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 18021
+      }
+    },
+    {
+      "object": "A163",
+      "field": "Rng3",
+      "value": 1000.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 18022
+      }
+    },
+    {
+      "object": "A163",
+      "field": "Rng4",
+      "value": 1000.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 18023
+      }
+    },
+    {
+      "object": "A163",
+      "field": "targs1",
+      "value": "self,invulnerable",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 18024
+      }
+    },
+    {
+      "object": "A163",
+      "field": "targs2",
+      "value": "self,invulnerable",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 18025
+      }
+    },
+    {
+      "object": "A163",
+      "field": "targs3",
+      "value": "self,invulnerable",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 18026
+      }
+    },
+    {
+      "object": "A163",
+      "field": "targs4",
+      "value": "self,invulnerable",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 18027
+      }
+    },
+    {
+      "object": "T171",
+      "field": "alias",
+      "value": "T171",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 35788
+      }
+    },
+    {
+      "object": "T171",
+      "field": "code",
+      "value": "Ablo",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 35789
+      }
+    },
+    {
+      "object": "T171",
+      "field": "BuffID1",
+      "value": "B060",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 35790
+      }
+    },
+    {
+      "object": "T171",
+      "field": "BuffID2",
+      "value": "B060",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 35791
+      }
+    },
+    {
+      "object": "T171",
+      "field": "BuffID3",
+      "value": "B060",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 35792
+      }
+    },
+    {
+      "object": "T171",
+      "field": "BuffID4",
+      "value": "B060",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 35793
+      }
+    },
+    {
+      "object": "T171",
+      "field": "checkDep",
+      "value": 1,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 35794
+      }
+    },
+    {
+      "object": "T171",
+      "field": "Cool1",
+      "value": 1.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 35795
+      }
+    },
+    {
+      "object": "T171",
+      "field": "DataA1",
+      "value": 5.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 35796
+      }
+    },
+    {
+      "object": "T171",
+      "field": "DataA2",
+      "value": 5.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 35797
+      }
+    },
+    {
+      "object": "T171",
+      "field": "DataA3",
+      "value": 5.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 35798
+      }
+    },
+    {
+      "object": "T171",
+      "field": "DataA4",
+      "value": 5.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 35799
+      }
+    },
+    {
+      "object": "T171",
+      "field": "Dur1",
+      "value": 60.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 35800
+      }
+    },
+    {
+      "object": "T171",
+      "field": "HeroDur1",
+      "value": 3.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 35801
+      }
+    },
+    {
+      "object": "T171",
+      "field": "HeroDur2",
+      "value": 3.5,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 35802
+      }
+    },
+    {
+      "object": "T171",
+      "field": "HeroDur3",
+      "value": 4.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 35803
+      }
+    },
+    {
+      "object": "T171",
+      "field": "HeroDur4",
+      "value": 4.5,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 35804
+      }
+    },
+    {
+      "object": "T171",
+      "field": "levels",
+      "value": 6,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 35805
+      }
+    },
+    {
+      "object": "T171",
+      "field": "priority",
+      "value": 11,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 35806
+      }
+    },
+    {
+      "object": "T171",
+      "field": "Rng1",
+      "value": 600.0,
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 35807
+      }
+    },
+    {
+      "object": "T171",
+      "field": "targs1",
+      "value": "friend,invulnerable",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 35808
+      }
+    },
+    {
+      "object": "T171",
+      "field": "targs2",
+      "value": "friend,invulnerable",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 35809
+      }
+    },
+    {
+      "object": "T171",
+      "field": "targs3",
+      "value": "friend,invulnerable",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 35810
+      }
+    },
+    {
+      "object": "T171",
+      "field": "targs4",
+      "value": "friend,invulnerable",
+      "source": {
+        "file": "reference/map-6.25/units_abilitydata.json",
+        "line": 35811
+      }
+    }
+  ],
+  "fieldEvidenceLimits": {
+    "A163MissingKeys": [
+      "DataA1..4",
+      "DataB1..4",
+      "DataE1..4"
+    ],
+    "baseANclRowNotAssumedInherited": true,
+    "DataDMeaning": "art duration, not cast time or channel duration",
+    "T171MissingFieldsNotAssumedBaseAbloValues": [
+      "Cost",
+      "DataB",
+      "DataC"
+    ],
+    "q001SpellTimingNotExplicitInMap": true
+  },
+  "primarySources": [
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/Units/AbilityMetaData.slk#L14669",
+      "sha256": "891109928d7f34fc5f4e33eb53b807513ae54107b13dea0dde5ce75bbe063246",
+      "evidence": "Ncl1..6 map to DataA..F; fields scoped to ANcl",
+      "physicalLines": [
+        14669,
+        14792
+      ],
+      "nativeClientIdentityProven": false
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/UI/WorldEditStrings.txt#L6453",
+      "sha256": "b0e9a709df79c7b1190f43e621c95ad3babc469d1ecf96e2aa576e74c17e2aa0",
+      "evidence": "Follow Through / Target Type / Options / Art Duration / Disable Other Abilities / Base Order ID",
+      "physicalLines": [
+        6453,
+        6458
+      ],
+      "nativeClientIdentityProven": false
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Plugin/Warcraft3/yd_jass_api/UnitState.cpp#L200",
+      "sha256": "cce69daa88a376177c31dacf52901e30f9bb37fd28cfb3abfbabe112a3d139a8",
+      "evidence": "invalid unit object getter returns 0 at200..204; setter no-ops at427..431",
+      "physicalLines": [
+        200,
+        204,
+        427,
+        431
+      ],
+      "nativeClientIdentityProven": false
+    },
+    {
+      "url": "https://classic.battle.net/war3/orc/units/shaman.shtml",
+      "evidence": "ordinary Bloodlust is friendly buff and cannot target magic-immune units; custom values and target masks differ",
+      "doesNotSupply": [
+        "custom T171 cost",
+        "custom duration",
+        "custom stacking or current client event timing"
+      ]
+    }
+  ],
+  "scriptEvidence": {
+    "autoIssueAndContinue": {
+      "file": "reference/map-6.25/main.disasm",
+      "line": 176314,
+      "endLine": 176325
+    },
+    "effectiveSpellDispatch": {
+      "file": "reference/map-6.25/main.disasm",
+      "line": 171130,
+      "endLine": 171139
+    },
+    "normalSpellPreludeAndTempEarlyReturn": {
+      "file": "reference/map-6.25/main.disasm",
+      "line": 170000,
+      "endLine": 170075
+    },
+    "A163Apply": {
+      "file": "reference/map-6.25/main.disasm",
+      "line": 88362,
+      "endLine": 88500
+    },
+    "A163Expire": {
+      "file": "reference/map-6.25/main.disasm",
+      "line": 88310,
+      "endLine": 88361
+    },
+    "createTemporaryUnit": {
+      "file": "reference/map-6.25/main.disasm",
+      "line": 51457,
+      "endLine": 51510
+    },
+    "IsInTable": {
+      "file": "reference/map-6.25/main.disasm",
+      "line": 50776,
+      "endLine": 50810
+    },
+    "HasAItem": {
+      "file": "reference/map-6.25/main.disasm",
+      "line": 50812,
+      "endLine": 50855
+    },
+    "attackPenalty": {
+      "file": "reference/map-6.25/main.disasm",
+      "line": 163478,
+      "endLine": 163507
+    },
+    "muramasaPenalty": {
+      "file": "reference/map-6.25/main.disasm",
+      "line": 126827,
+      "endLine": 126864
+    }
+  },
+  "F01": {
+    "classification": "Q24 Web choice; uses authored unit casting timings, does not claim matched native event timing",
+    "ability": "A163",
+    "order": "evileye",
+    "targetMode": "no-target, implicit self",
+    "regularSupportedTemplates": [
+      "G072",
+      "H041",
+      "instances retaining these native hero templates"
+    ],
+    "castPointSeconds": 0.3,
+    "castBackswingSeconds": 0.51,
+    "castTimingScaledByAttackSpeed": false,
+    "followThroughSeconds": 0,
+    "followThroughValueProvenance": "explicit Web selection for absent A163 DataA; no inheritance of base ANcl 180",
+    "disableOtherAbilitiesAfterCommit": false,
+    "disableValueProvenance": "explicit Web selection for absent DataE",
+    "artDurationSeconds": 1,
+    "artDurationBlocksActions": false,
+    "admission": [
+      "caster exists and alive",
+      "A163 enabled, level1..6",
+      "not paused/stunned/silenced or otherwise explicitly disabled from casting",
+      "remaining cooldown zero",
+      "mana >= current-level cost"
+    ],
+    "invulnerabilityAllowed": true,
+    "selfMagicImmunityBlocksPreparation": false,
+    "enemyOrRangePrerequisite": false,
+    "rejectedOrder": "no pending cast, spend, cooldown or cancellation of previous action",
+    "acceptedOrder": "replace conflicting unsubmitted action; store new cast generation; queue current+0.3 under B05; no spend yet",
+    "attackInteraction": "accepted A163 cancels an unsubmitted ordinary attack windup; old attack-start event not undone; committed attack/projectile unaffected; existing attack cooldown continues; automatic attack cannot preempt casting",
+    "preCommitCancel": [
+      "later accepted replacing order",
+      "death or removal",
+      "ability removal/disable",
+      "pause/stun/silence"
+    ],
+    "rejectedLaterOrderCancels": false,
+    "commitRecheck": "pending generation and all admission predicates, using current level/mana/cooldown",
+    "commitOrder": [
+      "mark transaction submitted once",
+      "spend current-level mana once",
+      "set cooldown end to now+12",
+      "push spell event context and synchronously execute original full AnySkillStart once",
+      "restore outer spell event context",
+      "enter cancellable0.51s recovery unless replaced/invalidated during submitted callbacks"
+    ],
+    "levels": [
+      {
+        "level": 1,
+        "durationSeconds": 3.0,
+        "manaCost": 40,
+        "cooldownSeconds": 12,
+        "attackSpeedBonus": 5,
+        "baseIntervalDeltaSeconds": -0.2,
+        "nativeBuff": "B060",
+        "timerPolicy": "one shot; no existing-timer cancellation in module"
+      },
+      {
+        "level": 2,
+        "durationSeconds": 3.5,
+        "manaCost": 70,
+        "cooldownSeconds": 12,
+        "attackSpeedBonus": 5,
+        "baseIntervalDeltaSeconds": -0.2,
+        "nativeBuff": "B060",
+        "timerPolicy": "one shot; no existing-timer cancellation in module"
+      },
+      {
+        "level": 3,
+        "durationSeconds": 4.0,
+        "manaCost": 100,
+        "cooldownSeconds": 12,
+        "attackSpeedBonus": 5,
+        "baseIntervalDeltaSeconds": -0.2,
+        "nativeBuff": "B060",
+        "timerPolicy": "one shot; no existing-timer cancellation in module"
+      },
+      {
+        "level": 4,
+        "durationSeconds": 4.5,
+        "manaCost": 130,
+        "cooldownSeconds": 12,
+        "attackSpeedBonus": 5,
+        "baseIntervalDeltaSeconds": -0.2,
+        "nativeBuff": "B060",
+        "timerPolicy": "one shot; no existing-timer cancellation in module"
+      },
+      {
+        "level": 5,
+        "durationSeconds": 5.0,
+        "manaCost": 160,
+        "cooldownSeconds": 12,
+        "attackSpeedBonus": 5,
+        "baseIntervalDeltaSeconds": -0.2,
+        "nativeBuff": "B060",
+        "timerPolicy": "one shot; no existing-timer cancellation in module"
+      },
+      {
+        "level": 6,
+        "durationSeconds": 6.0,
+        "manaCost": 200,
+        "cooldownSeconds": 12,
+        "attackSpeedBonus": 5,
+        "baseIntervalDeltaSeconds": -0.2,
+        "nativeBuff": "B060",
+        "timerPolicy": "one shot; no existing-timer cancellation in module"
+      }
+    ],
+    "failureBeforeCommit": "no spend, no cooldown, no C change, no dummy",
+    "failureAfterCommit": "no implicit resource refund or skill-effect rollback",
+    "recovery": "automatic attack resumes after0.51 if no accepted new order; accepted new order interrupts recovery without undoing effects; usual attack-ready gates still apply",
+    "cooldownReset": "respect explicit external reset; no added B060-active prohibition",
+    "noExtraActiveBuffRecastGuard": true
+  },
+  "F02": {
+    "classification": "Q24 Web choice aligned with existing temporary Bloodlust adapter, preserving original command sequence",
+    "ability": "T171",
+    "dummy": "q001",
+    "timedLifeSeconds": 0.5,
+    "dummyManaAtCreation": 1000,
+    "dummyManaCost": 0,
+    "dummyCastPointSeconds": 0,
+    "dummyCastBackswingSeconds": 0,
+    "dummyCooldownSeconds": 1,
+    "zeroTimingAndCostProvenance": "explicit Web choice, not missing map field converted to source zero",
+    "initialAutocast": false,
+    "extraAutomaticCasts": false,
+    "bloodlustoffIssued": false,
+    "casterChecks": [
+      "exists",
+      "alive",
+      "can cast",
+      "T171 enabled at level1..6",
+      "cooldown zero"
+    ],
+    "command": "synchronous IssueTargetOrder bloodlust",
+    "eligibleTarget": [
+      "exists",
+      "alive",
+      "friendly",
+      "center distance<=600",
+      "not magic immune"
+    ],
+    "invulnerableAllowed": true,
+    "extraOrganicOnlyFilter": false,
+    "failure": "false, leave previous B060 unchanged; keep A163 spend/cooldown/C subtraction/timer; dummy retains timed life",
+    "successOrder": [
+      "start dummy T171 cooldown1",
+      "install/refresh B060",
+      "emit temporary unit spell effect synchronously; IsTemp early return",
+      "restore outer spell context"
+    ],
+    "contextStackFields": [
+      "triggerUnit",
+      "spellAbilityId",
+      "targetUnit",
+      "targetPoint",
+      "castTransactionId"
+    ],
+    "rollbackOrdinaryScriptGlobals": false,
+    "buff": {
+      "id": "B060",
+      "classification": "positive dispellable magical buff",
+      "uniqueBy": "target handle and Buff ID",
+      "rawAttackSpeedContribution": 5,
+      "heroDurationSeconds": [
+        3,
+        3.5,
+        4,
+        4.5,
+        5,
+        6
+      ],
+      "normalDurationSeconds": 60,
+      "normalDurationProvenance": "explicit Dur1=60 with prior last-item level extension, not custom Boss predicate",
+      "snapshot": "successful T171 level and source",
+      "refresh": "replace generation and expiry with now+current-level duration, even if shorter; no additional speed stack",
+      "failedRefresh": "no mutation",
+      "coexistWithB003": true,
+      "coexistProvenance": "explicit Q24 separate-Buff-ID choice, not proof of native Ablo stacking",
+      "removeOn": [
+        "expiry",
+        "appropriate dispel",
+        "target death",
+        "target removal"
+      ],
+      "doNotAutomaticallyRemoveOn": [
+        "dummy death/removal",
+        "target gaining magic immunity",
+        "silence",
+        "A163 ability removal"
+      ],
+      "removalDoesNotAffect": [
+        "script C timer",
+        "A163 cooldown",
+        "spent mana",
+        "other Buff IDs or speed contributions"
+      ]
+    },
+    "qualification": "Has_A_Item read dynamically at each existing penalty call; not snapshotted in buff; source predicates and B03 unchanged",
+    "unitPause": "does not stop independent Buff/script timers; global pause stops battle time"
+  },
+  "F03": {
+    "classification": "literal script table flow plus Q24 invalid-handle adapter based on original extension author code",
+    "normalSourceOrder": [
+      "create C restore timer",
+      "store timers[index] and A163_unit[index]",
+      "C -=0.2",
+      "create dummy timed life",
+      "attempt T171 and then schedule B060 expiry if success"
+    ],
+    "forceRepeatedEffect": "create another timer; overwrite maps[index]; subtract C again; do not destroy old timer or add hidden refresh guard",
+    "expiration": [
+      "i=IsInTable(expiredTimer,timers)",
+      "S=A163_unit[i]",
+      "destroy expiredTimer",
+      "Set37(S,Get37(S)+0.2)",
+      "clear timers[i] and A163_unit[i]"
+    ],
+    "invalidHandleGet37": 0,
+    "invalidHandleSet37": "no-op",
+    "invalidHandleChoiceNotMissingConfigDefault": true,
+    "deadExistingHandle": "still has properties; C restoration applies",
+    "removedHandle": "invalid; do not redirect to newer unit at same Tower_ALL index",
+    "missingLookupIndex": -1,
+    "earlyReturnForMinusOne": false,
+    "minusOneEntryIfPresent": "literal read and modification of that entry, then clear -1 keys",
+    "orphanTimerNoCompensation": true,
+    "mayLeaveExtraCSubtraction": true,
+    "saveOrphanTimersEvenWithoutMapReference": true,
+    "serializeNegativeOneKeys": true,
+    "destroyedTimerDuplicateDelivery": "ignore invalid queue generation; no double callback",
+    "forcedDirectEffectResources": "no extra charge; resource transaction belongs only to F01 successful cast commit"
+  },
+  "saveFields": [
+    "rules versions",
+    "mana/current ability cooldown deadline",
+    "pending cast generation and cast/recovery deadlines",
+    "original unit handle validity and alive state",
+    "raw C and raw R contributions/J",
+    "all timer objects including orphans and B05 queue sequence",
+    "timers and A163_unit maps including -1",
+    "B060 generation/level/source/expiry/contribution",
+    "dummy identity and timed life"
+  ],
+  "acceptanceCases": [
+    {
+      "id": "normal_level1",
+      "classification": "explicit Web specification model, not original-client behavior",
+      "snapshots": {
+        "0.299": {
+          "time": 0.299,
+          "C": 1.2,
+          "rawR": 1.0,
+          "K": 1.0,
+          "buff": null,
+          "mana": 100,
+          "cooldownUntil": 0.0,
+          "valid": true,
+          "alive": true,
+          "timerMap": {}
+        },
+        "0.3": {
+          "time": 0.3,
+          "C": 1.0,
+          "rawR": 6.0,
+          "K": 5.0,
+          "buff": {
+            "level": 1,
+            "expires": 3.3
+          },
+          "mana": 60,
+          "cooldownUntil": 12.3,
+          "valid": true,
+          "alive": true,
+          "timerMap": {
+            "1": "T1"
+          }
+        },
+        "0.8": {
+          "time": 0.8,
+          "C": 1.0,
+          "rawR": 6.0,
+          "K": 5.0,
+          "buff": {
+            "level": 1,
+            "expires": 3.3
+          },
+          "mana": 60,
+          "cooldownUntil": 12.3,
+          "valid": true,
+          "alive": true,
+          "timerMap": {
+            "1": "T1"
+          }
+        },
+        "0.81": {
+          "time": 0.81,
+          "C": 1.0,
+          "rawR": 6.0,
+          "K": 5.0,
+          "buff": {
+            "level": 1,
+            "expires": 3.3
+          },
+          "mana": 60,
+          "cooldownUntil": 12.3,
+          "valid": true,
+          "alive": true,
+          "timerMap": {
+            "1": "T1"
+          }
+        },
+        "3.3": {
+          "time": 3.3,
+          "C": 1.2,
+          "rawR": 1.0,
+          "K": 1.0,
+          "buff": null,
+          "mana": 60,
+          "cooldownUntil": 12.3,
+          "valid": true,
+          "alive": true,
+          "timerMap": {}
+        }
+      },
+      "expected": {
+        "0.299": {
+          "C": 1.2,
+          "mana": 100
+        },
+        "0.3": {
+          "C": 1.0,
+          "mana": 60,
+          "rawR": 6.0,
+          "cooldownUntil": 12.3
+        },
+        "3.3": {
+          "C": 1.2,
+          "rawR": 1.0,
+          "buff": null
+        }
+      },
+      "events": [
+        {
+          "time": 0.0,
+          "event": "order accepted",
+          "unit": "u"
+        },
+        {
+          "time": 0.3,
+          "event": "cast committed",
+          "unit": "u"
+        },
+        {
+          "time": 0.3,
+          "event": "A163 effect",
+          "unit": "u",
+          "timer": "T1",
+          "C": 1.0
+        },
+        {
+          "time": 0.3,
+          "event": "B060 applied",
+          "unit": "u",
+          "level": 1,
+          "expires": 3.3
+        },
+        {
+          "time": 0.8,
+          "event": "dummy expired",
+          "unit": "u",
+          "timer": "T1"
+        },
+        {
+          "time": 0.81,
+          "event": "cast recovery finished",
+          "unit": "u"
+        },
+        {
+          "time": 3.3,
+          "event": "C timer expired",
+          "timer": "T1",
+          "lookupIndex": 1,
+          "target": "u",
+          "beforeC": 1.0,
+          "afterC": 1.2
+        },
+        {
+          "time": 3.3,
+          "event": "buff removed",
+          "unit": "u"
+        }
+      ]
+    },
+    {
+      "id": "insufficient_at_admission",
+      "classification": "explicit Web specification model, not original-client behavior",
+      "snapshots": {
+        "0.3": {
+          "time": 0.3,
+          "C": 1.2,
+          "rawR": 1.0,
+          "K": 1.0,
+          "buff": null,
+          "mana": 39,
+          "cooldownUntil": 0.0,
+          "valid": true,
+          "alive": true,
+          "timerMap": {}
+        }
+      },
+      "expected": {
+        "0.3": {
+          "C": 1.2,
+          "mana": 39,
+          "cooldownUntil": 0.0,
+          "buff": null
+        }
+      },
+      "events": [
+        {
+          "time": 0.0,
+          "event": "order rejected",
+          "unit": "u"
+        }
+      ]
+    },
+    {
+      "id": "insufficient_at_commit",
+      "classification": "explicit Web specification model, not original-client behavior",
+      "snapshots": {
+        "0.3": {
+          "time": 0.3,
+          "C": 1.2,
+          "rawR": 1.0,
+          "K": 1.0,
+          "buff": null,
+          "mana": 39,
+          "cooldownUntil": 0.0,
+          "valid": true,
+          "alive": true,
+          "timerMap": {}
+        }
+      },
+      "expected": {
+        "0.3": {
+          "C": 1.2,
+          "mana": 39,
+          "cooldownUntil": 0.0,
+          "buff": null
+        }
+      },
+      "events": [
+        {
+          "time": 0.0,
+          "event": "order accepted",
+          "unit": "u"
+        },
+        {
+          "time": 0.3,
+          "event": "commit rejected",
+          "unit": "u"
+        }
+      ]
+    },
+    {
+      "id": "replacement_true",
+      "classification": "explicit Web specification model, not original-client behavior",
+      "snapshots": {
+        "0.3": {
+          "time": 0.3,
+          "C": 1.2,
+          "rawR": 1.0,
+          "K": 1.0,
+          "buff": null,
+          "mana": 100,
+          "cooldownUntil": 0.0,
+          "valid": true,
+          "alive": true,
+          "timerMap": {}
+        }
+      },
+      "expected": {
+        "0.3": {
+          "C": 1.2,
+          "mana": 100,
+          "cooldownUntil": 0.0
+        }
+      },
+      "events": [
+        {
+          "time": 0.0,
+          "event": "order accepted",
+          "unit": "u"
+        },
+        {
+          "time": 0.2,
+          "event": "other order accepted",
+          "unit": "u"
+        }
+      ]
+    },
+    {
+      "id": "replacement_false",
+      "classification": "explicit Web specification model, not original-client behavior",
+      "snapshots": {
+        "0.3": {
+          "time": 0.3,
+          "C": 1.0,
+          "rawR": 6.0,
+          "K": 5.0,
+          "buff": {
+            "level": 1,
+            "expires": 3.3
+          },
+          "mana": 60,
+          "cooldownUntil": 12.3,
+          "valid": true,
+          "alive": true,
+          "timerMap": {
+            "1": "T1"
+          }
+        }
+      },
+      "expected": {
+        "0.3": {
+          "C": 1.0,
+          "mana": 60,
+          "cooldownUntil": 12.3
+        }
+      },
+      "events": [
+        {
+          "time": 0.0,
+          "event": "order accepted",
+          "unit": "u"
+        },
+        {
+          "time": 0.2,
+          "event": "other order rejected",
+          "unit": "u"
+        },
+        {
+          "time": 0.3,
+          "event": "cast committed",
+          "unit": "u"
+        },
+        {
+          "time": 0.3,
+          "event": "A163 effect",
+          "unit": "u",
+          "timer": "T1",
+          "C": 1.0
+        },
+        {
+          "time": 0.3,
+          "event": "B060 applied",
+          "unit": "u",
+          "level": 1,
+          "expires": 3.3
+        }
+      ]
+    },
+    {
+      "id": "level_change_before_commit",
+      "classification": "explicit Web specification model, not original-client behavior",
+      "snapshots": {
+        "0.3": {
+          "time": 0.3,
+          "C": 1.0,
+          "rawR": 6.0,
+          "K": 5.0,
+          "buff": {
+            "level": 2,
+            "expires": 3.8
+          },
+          "mana": 30,
+          "cooldownUntil": 12.3,
+          "valid": true,
+          "alive": true,
+          "timerMap": {
+            "1": "T1"
+          }
+        }
+      },
+      "expected": {
+        "0.3": {
+          "mana": 30,
+          "buff": {
+            "level": 2,
+            "expires": 3.8
+          }
+        }
+      },
+      "events": [
+        {
+          "time": 0.0,
+          "event": "order accepted",
+          "unit": "u"
+        },
+        {
+          "time": 0.3,
+          "event": "cast committed",
+          "unit": "u"
+        },
+        {
+          "time": 0.3,
+          "event": "A163 effect",
+          "unit": "u",
+          "timer": "T1",
+          "C": 1.0
+        },
+        {
+          "time": 0.3,
+          "event": "B060 applied",
+          "unit": "u",
+          "level": 2,
+          "expires": 3.8
+        }
+      ]
+    },
+    {
+      "id": "T171_failure_keeps_C",
+      "classification": "explicit Web specification model, not original-client behavior",
+      "snapshots": {
+        "0.3": {
+          "time": 0.3,
+          "C": 1.0,
+          "rawR": 1.0,
+          "K": 1.0,
+          "buff": null,
+          "mana": 60,
+          "cooldownUntil": 12.3,
+          "valid": true,
+          "alive": true,
+          "timerMap": {
+            "1": "T1"
+          }
+        },
+        "3.3": {
+          "time": 3.3,
+          "C": 1.2,
+          "rawR": 1.0,
+          "K": 1.0,
+          "buff": null,
+          "mana": 60,
+          "cooldownUntil": 12.3,
+          "valid": true,
+          "alive": true,
+          "timerMap": {}
+        }
+      },
+      "expected": {
+        "0.3": {
+          "C": 1.0,
+          "rawR": 1.0,
+          "mana": 60,
+          "buff": null
+        },
+        "3.3": {
+          "C": 1.2
+        }
+      },
+      "events": [
+        {
+          "time": 0.0,
+          "event": "order accepted",
+          "unit": "u"
+        },
+        {
+          "time": 0.3,
+          "event": "cast committed",
+          "unit": "u"
+        },
+        {
+          "time": 0.3,
+          "event": "A163 effect",
+          "unit": "u",
+          "timer": "T1",
+          "C": 1.0
+        },
+        {
+          "time": 0.3,
+          "event": "T171 failed",
+          "unit": "u"
+        },
+        {
+          "time": 0.8,
+          "event": "dummy expired",
+          "unit": "u",
+          "timer": "T1"
+        },
+        {
+          "time": 0.81,
+          "event": "cast recovery finished",
+          "unit": "u"
+        },
+        {
+          "time": 3.3,
+          "event": "C timer expired",
+          "timer": "T1",
+          "lookupIndex": 1,
+          "target": "u",
+          "beforeC": 1.0,
+          "afterC": 1.2
+        }
+      ]
+    },
+    {
+      "id": "dispel_independent",
+      "classification": "explicit Web specification model, not original-client behavior",
+      "snapshots": {
+        "1": {
+          "time": 1.0,
+          "C": 1.0,
+          "rawR": 1.0,
+          "K": 1.0,
+          "buff": null,
+          "mana": 60,
+          "cooldownUntil": 12.3,
+          "valid": true,
+          "alive": true,
+          "timerMap": {
+            "1": "T1"
+          }
+        },
+        "3.3": {
+          "time": 3.3,
+          "C": 1.2,
+          "rawR": 1.0,
+          "K": 1.0,
+          "buff": null,
+          "mana": 60,
+          "cooldownUntil": 12.3,
+          "valid": true,
+          "alive": true,
+          "timerMap": {}
+        }
+      },
+      "expected": {
+        "1": {
+          "C": 1.0,
+          "rawR": 1.0,
+          "buff": null
+        },
+        "3.3": {
+          "C": 1.2
+        }
+      },
+      "events": [
+        {
+          "time": 0.0,
+          "event": "order accepted",
+          "unit": "u"
+        },
+        {
+          "time": 0.3,
+          "event": "cast committed",
+          "unit": "u"
+        },
+        {
+          "time": 0.3,
+          "event": "A163 effect",
+          "unit": "u",
+          "timer": "T1",
+          "C": 1.0
+        },
+        {
+          "time": 0.3,
+          "event": "B060 applied",
+          "unit": "u",
+          "level": 1,
+          "expires": 3.3
+        },
+        {
+          "time": 0.8,
+          "event": "dummy expired",
+          "unit": "u",
+          "timer": "T1"
+        },
+        {
+          "time": 0.81,
+          "event": "cast recovery finished",
+          "unit": "u"
+        },
+        {
+          "time": 1.0,
+          "event": "buff removed",
+          "unit": "u"
+        },
+        {
+          "time": 3.3,
+          "event": "C timer expired",
+          "timer": "T1",
+          "lookupIndex": 1,
+          "target": "u",
+          "beforeC": 1.0,
+          "afterC": 1.2
+        },
+        {
+          "time": 3.3,
+          "event": "stale B060 expiration",
+          "unit": "u"
+        }
+      ]
+    },
+    {
+      "id": "dead_handle_restored",
+      "classification": "explicit Web specification model, not original-client behavior",
+      "snapshots": {
+        "1": {
+          "time": 1.0,
+          "C": 1.0,
+          "rawR": 1.0,
+          "K": 1.0,
+          "buff": null,
+          "mana": 60,
+          "cooldownUntil": 12.3,
+          "valid": true,
+          "alive": false,
+          "timerMap": {
+            "1": "T1"
+          }
+        },
+        "3.3": {
+          "time": 3.3,
+          "C": 1.2,
+          "rawR": 1.0,
+          "K": 1.0,
+          "buff": null,
+          "mana": 60,
+          "cooldownUntil": 12.3,
+          "valid": true,
+          "alive": false,
+          "timerMap": {}
+        }
+      },
+      "expected": {
+        "1": {
+          "C": 1.0,
+          "alive": false,
+          "valid": true,
+          "buff": null
+        },
+        "3.3": {
+          "C": 1.2,
+          "alive": false
+        }
+      },
+      "events": [
+        {
+          "time": 0.0,
+          "event": "order accepted",
+          "unit": "u"
+        },
+        {
+          "time": 0.3,
+          "event": "cast committed",
+          "unit": "u"
+        },
+        {
+          "time": 0.3,
+          "event": "A163 effect",
+          "unit": "u",
+          "timer": "T1",
+          "C": 1.0
+        },
+        {
+          "time": 0.3,
+          "event": "B060 applied",
+          "unit": "u",
+          "level": 1,
+          "expires": 3.3
+        },
+        {
+          "time": 0.8,
+          "event": "dummy expired",
+          "unit": "u",
+          "timer": "T1"
+        },
+        {
+          "time": 0.81,
+          "event": "cast recovery finished",
+          "unit": "u"
+        },
+        {
+          "time": 1.0,
+          "event": "buff removed",
+          "unit": "u"
+        },
+        {
+          "time": 1.0,
+          "event": "unit died",
+          "unit": "u"
+        },
+        {
+          "time": 3.3,
+          "event": "C timer expired",
+          "timer": "T1",
+          "lookupIndex": 1,
+          "target": "u",
+          "beforeC": 1.0,
+          "afterC": 1.2
+        },
+        {
+          "time": 3.3,
+          "event": "stale B060 expiration",
+          "unit": "u"
+        }
+      ]
+    },
+    {
+      "id": "removed_handle_not_redirected",
+      "classification": "explicit Web specification model, not original-client behavior",
+      "snapshots": {
+        "old": {
+          "time": 3.3,
+          "C": 1.0,
+          "rawR": 1.0,
+          "K": 1.0,
+          "buff": null,
+          "mana": 60,
+          "cooldownUntil": 12.3,
+          "valid": false,
+          "alive": false,
+          "timerMap": {}
+        },
+        "replacement": {
+          "time": 3.3,
+          "C": 1.2,
+          "rawR": 1.0,
+          "K": 1.0,
+          "buff": null,
+          "mana": 100,
+          "cooldownUntil": 0.0,
+          "valid": true,
+          "alive": true,
+          "timerMap": {}
+        }
+      },
+      "expected": {
+        "old": {
+          "C": 1.0,
+          "valid": false
+        },
+        "replacement": {
+          "C": 1.2
+        }
+      },
+      "events": [
+        {
+          "time": 0.0,
+          "event": "order accepted",
+          "unit": "u"
+        },
+        {
+          "time": 0.3,
+          "event": "cast committed",
+          "unit": "u"
+        },
+        {
+          "time": 0.3,
+          "event": "A163 effect",
+          "unit": "u",
+          "timer": "T1",
+          "C": 1.0
+        },
+        {
+          "time": 0.3,
+          "event": "B060 applied",
+          "unit": "u",
+          "level": 1,
+          "expires": 3.3
+        },
+        {
+          "time": 0.8,
+          "event": "dummy expired",
+          "unit": "u",
+          "timer": "T1"
+        },
+        {
+          "time": 0.81,
+          "event": "cast recovery finished",
+          "unit": "u"
+        },
+        {
+          "time": 1.0,
+          "event": "buff removed",
+          "unit": "u"
+        },
+        {
+          "time": 1.0,
+          "event": "unit removed",
+          "unit": "u"
+        },
+        {
+          "time": 3.3,
+          "event": "C timer expired",
+          "timer": "T1",
+          "lookupIndex": 1,
+          "target": "u",
+          "beforeC": null,
+          "afterC": null
+        },
+        {
+          "time": 3.3,
+          "event": "stale B060 expiration",
+          "unit": "u"
+        }
+      ]
+    },
+    {
+      "id": "overlap_equal_level",
+      "classification": "explicit Web specification model, not original-client behavior",
+      "snapshots": {
+        "1": {
+          "time": 1.0,
+          "C": 0.8,
+          "rawR": 6.0,
+          "K": 5.0,
+          "buff": {
+            "level": 1,
+            "expires": 4.0
+          },
+          "mana": 100,
+          "cooldownUntil": 0.0,
+          "valid": true,
+          "alive": true,
+          "timerMap": {
+            "1": "T2"
+          }
+        },
+        "3": {
+          "time": 3.0,
+          "C": 0.8,
+          "rawR": 6.0,
+          "K": 5.0,
+          "buff": {
+            "level": 1,
+            "expires": 4.0
+          },
+          "mana": 100,
+          "cooldownUntil": 0.0,
+          "valid": true,
+          "alive": true,
+          "timerMap": {
+            "1": "T2"
+          }
+        },
+        "4": {
+          "time": 4.0,
+          "C": 1.0,
+          "rawR": 1.0,
+          "K": 1.0,
+          "buff": null,
+          "mana": 100,
+          "cooldownUntil": 0.0,
+          "valid": true,
+          "alive": true,
+          "timerMap": {}
+        },
+        "6": {
+          "time": 6.0,
+          "C": 1.0,
+          "rawR": 1.0,
+          "K": 1.0,
+          "buff": null,
+          "mana": 100,
+          "cooldownUntil": 0.0,
+          "valid": true,
+          "alive": true,
+          "timerMap": {}
+        }
+      },
+      "expected": {
+        "1": {
+          "C": 0.8,
+          "rawR": 6.0,
+          "buff": {
+            "level": 1,
+            "expires": 4.0
+          }
+        },
+        "4": {
+          "C": 1.0,
+          "buff": null
+        },
+        "6": {
+          "C": 1.0,
+          "rawR": 1.0
+        }
+      },
+      "events": [
+        {
+          "time": 0.0,
+          "event": "A163 effect",
+          "unit": "u",
+          "timer": "T1",
+          "C": 1.0
+        },
+        {
+          "time": 0.0,
+          "event": "B060 applied",
+          "unit": "u",
+          "level": 1,
+          "expires": 3.0
+        },
+        {
+          "time": 0.5,
+          "event": "dummy expired",
+          "unit": "u",
+          "timer": "T1"
+        },
+        {
+          "time": 1.0,
+          "event": "A163 effect",
+          "unit": "u",
+          "timer": "T2",
+          "C": 0.8
+        },
+        {
+          "time": 1.0,
+          "event": "B060 applied",
+          "unit": "u",
+          "level": 1,
+          "expires": 4.0
+        },
+        {
+          "time": 1.5,
+          "event": "dummy expired",
+          "unit": "u",
+          "timer": "T2"
+        },
+        {
+          "time": 3.0,
+          "event": "C timer expired",
+          "timer": "T1",
+          "lookupIndex": -1,
+          "target": null,
+          "beforeC": null,
+          "afterC": null
+        },
+        {
+          "time": 3.0,
+          "event": "stale B060 expiration",
+          "unit": "u"
+        },
+        {
+          "time": 4.0,
+          "event": "C timer expired",
+          "timer": "T2",
+          "lookupIndex": 1,
+          "target": "u",
+          "beforeC": 0.8,
+          "afterC": 1.0
+        },
+        {
+          "time": 4.0,
+          "event": "buff removed",
+          "unit": "u"
+        }
+      ]
+    },
+    {
+      "id": "overlap_shortens_duration",
+      "classification": "explicit Web specification model, not original-client behavior",
+      "snapshots": {
+        "1": {
+          "time": 1.0,
+          "C": 0.8,
+          "rawR": 6.0,
+          "K": 5.0,
+          "buff": {
+            "level": 1,
+            "expires": 4.0
+          },
+          "mana": 100,
+          "cooldownUntil": 0.0,
+          "valid": true,
+          "alive": true,
+          "timerMap": {
+            "1": "T2"
+          }
+        },
+        "3": {
+          "time": 3.0,
+          "C": 0.8,
+          "rawR": 6.0,
+          "K": 5.0,
+          "buff": {
+            "level": 1,
+            "expires": 4.0
+          },
+          "mana": 100,
+          "cooldownUntil": 0.0,
+          "valid": true,
+          "alive": true,
+          "timerMap": {
+            "1": "T2"
+          }
+        },
+        "4": {
+          "time": 4.0,
+          "C": 1.0,
+          "rawR": 1.0,
+          "K": 1.0,
+          "buff": null,
+          "mana": 100,
+          "cooldownUntil": 0.0,
+          "valid": true,
+          "alive": true,
+          "timerMap": {}
+        },
+        "6": {
+          "time": 6.0,
+          "C": 1.0,
+          "rawR": 1.0,
+          "K": 1.0,
+          "buff": null,
+          "mana": 100,
+          "cooldownUntil": 0.0,
+          "valid": true,
+          "alive": true,
+          "timerMap": {}
+        }
+      },
+      "expected": {
+        "1": {
+          "C": 0.8,
+          "rawR": 6.0,
+          "buff": {
+            "level": 1,
+            "expires": 4.0
+          }
+        },
+        "4": {
+          "C": 1.0,
+          "buff": null
+        },
+        "6": {
+          "C": 1.0,
+          "rawR": 1.0
+        }
+      },
+      "events": [
+        {
+          "time": 0.0,
+          "event": "A163 effect",
+          "unit": "u",
+          "timer": "T1",
+          "C": 1.0
+        },
+        {
+          "time": 0.0,
+          "event": "B060 applied",
+          "unit": "u",
+          "level": 6,
+          "expires": 6.0
+        },
+        {
+          "time": 0.5,
+          "event": "dummy expired",
+          "unit": "u",
+          "timer": "T1"
+        },
+        {
+          "time": 1.0,
+          "event": "A163 effect",
+          "unit": "u",
+          "timer": "T2",
+          "C": 0.8
+        },
+        {
+          "time": 1.0,
+          "event": "B060 applied",
+          "unit": "u",
+          "level": 1,
+          "expires": 4.0
+        },
+        {
+          "time": 1.5,
+          "event": "dummy expired",
+          "unit": "u",
+          "timer": "T2"
+        },
+        {
+          "time": 4.0,
+          "event": "C timer expired",
+          "timer": "T2",
+          "lookupIndex": 1,
+          "target": "u",
+          "beforeC": 0.8,
+          "afterC": 1.0
+        },
+        {
+          "time": 4.0,
+          "event": "buff removed",
+          "unit": "u"
+        },
+        {
+          "time": 6.0,
+          "event": "C timer expired",
+          "timer": "T1",
+          "lookupIndex": -1,
+          "target": null,
+          "beforeC": null,
+          "afterC": null
+        },
+        {
+          "time": 6.0,
+          "event": "stale B060 expiration",
+          "unit": "u"
+        }
+      ]
+    },
+    {
+      "id": "same_clock_recast_first_false",
+      "classification": "explicit Web specification model, not original-client behavior",
+      "snapshots": {
+        "6": {
+          "time": 6.0,
+          "C": 1.2,
+          "rawR": 1.0,
+          "K": 1.0,
+          "buff": null,
+          "mana": 100,
+          "cooldownUntil": 0.0,
+          "valid": true,
+          "alive": true,
+          "timerMap": {}
+        }
+      },
+      "expected": {
+        "6": {
+          "C": 1.2,
+          "buff": null
+        }
+      },
+      "events": [
+        {
+          "time": 0.0,
+          "event": "A163 effect",
+          "unit": "u",
+          "timer": "T1",
+          "C": 1.0
+        },
+        {
+          "time": 0.0,
+          "event": "B060 applied",
+          "unit": "u",
+          "level": 1,
+          "expires": 3.0
+        },
+        {
+          "time": 0.5,
+          "event": "dummy expired",
+          "unit": "u",
+          "timer": "T1"
+        },
+        {
+          "time": 3.0,
+          "event": "C timer expired",
+          "timer": "T1",
+          "lookupIndex": 1,
+          "target": "u",
+          "beforeC": 1.0,
+          "afterC": 1.2
+        },
+        {
+          "time": 3.0,
+          "event": "buff removed",
+          "unit": "u"
+        },
+        {
+          "time": 3.0,
+          "event": "A163 effect",
+          "unit": "u",
+          "timer": "T2",
+          "C": 1.0
+        },
+        {
+          "time": 3.0,
+          "event": "B060 applied",
+          "unit": "u",
+          "level": 1,
+          "expires": 6.0
+        },
+        {
+          "time": 3.5,
+          "event": "dummy expired",
+          "unit": "u",
+          "timer": "T2"
+        },
+        {
+          "time": 6.0,
+          "event": "C timer expired",
+          "timer": "T2",
+          "lookupIndex": 1,
+          "target": "u",
+          "beforeC": 1.0,
+          "afterC": 1.2
+        },
+        {
+          "time": 6.0,
+          "event": "buff removed",
+          "unit": "u"
+        }
+      ]
+    },
+    {
+      "id": "same_clock_recast_first_true",
+      "classification": "explicit Web specification model, not original-client behavior",
+      "snapshots": {
+        "6": {
+          "time": 6.0,
+          "C": 1.0,
+          "rawR": 1.0,
+          "K": 1.0,
+          "buff": null,
+          "mana": 100,
+          "cooldownUntil": 0.0,
+          "valid": true,
+          "alive": true,
+          "timerMap": {}
+        }
+      },
+      "expected": {
+        "6": {
+          "C": 1.0,
+          "buff": null
+        }
+      },
+      "events": [
+        {
+          "time": 0.0,
+          "event": "A163 effect",
+          "unit": "u",
+          "timer": "T1",
+          "C": 1.0
+        },
+        {
+          "time": 0.0,
+          "event": "B060 applied",
+          "unit": "u",
+          "level": 1,
+          "expires": 3.0
+        },
+        {
+          "time": 0.5,
+          "event": "dummy expired",
+          "unit": "u",
+          "timer": "T1"
+        },
+        {
+          "time": 3.0,
+          "event": "A163 effect",
+          "unit": "u",
+          "timer": "T2",
+          "C": 0.8
+        },
+        {
+          "time": 3.0,
+          "event": "B060 applied",
+          "unit": "u",
+          "level": 1,
+          "expires": 6.0
+        },
+        {
+          "time": 3.0,
+          "event": "C timer expired",
+          "timer": "T1",
+          "lookupIndex": -1,
+          "target": null,
+          "beforeC": null,
+          "afterC": null
+        },
+        {
+          "time": 3.0,
+          "event": "stale B060 expiration",
+          "unit": "u"
+        },
+        {
+          "time": 3.5,
+          "event": "dummy expired",
+          "unit": "u",
+          "timer": "T2"
+        },
+        {
+          "time": 6.0,
+          "event": "C timer expired",
+          "timer": "T2",
+          "lookupIndex": 1,
+          "target": "u",
+          "beforeC": 0.8,
+          "afterC": 1.0
+        },
+        {
+          "time": 6.0,
+          "event": "buff removed",
+          "unit": "u"
+        }
+      ]
+    },
+    {
+      "id": "B003_and_B060",
+      "classification": "explicit Web specification model, not original-client behavior",
+      "snapshots": {
+        "0": {
+          "time": 0.0,
+          "C": 1.0,
+          "rawR": 11.0,
+          "K": 5.0,
+          "buff": {
+            "level": 1,
+            "expires": 3.0
+          },
+          "mana": 100,
+          "cooldownUntil": 0.0,
+          "valid": true,
+          "alive": true,
+          "timerMap": {
+            "1": "T1"
+          }
+        },
+        "dispel": {
+          "time": 0.0,
+          "C": 1.0,
+          "rawR": 6.0,
+          "K": 5.0,
+          "buff": null,
+          "mana": 100,
+          "cooldownUntil": 0.0,
+          "valid": true,
+          "alive": true,
+          "timerMap": {
+            "1": "T1"
+          }
+        }
+      },
+      "expected": {
+        "0": {
+          "rawR": 11.0,
+          "K": 5.0
+        },
+        "dispel": {
+          "rawR": 6.0,
+          "K": 5.0
+        }
+      },
+      "events": [
+        {
+          "time": 0.0,
+          "event": "A163 effect",
+          "unit": "u",
+          "timer": "T1",
+          "C": 1.0
+        },
+        {
+          "time": 0.0,
+          "event": "B060 applied",
+          "unit": "u",
+          "level": 1,
+          "expires": 3.0
+        },
+        {
+          "time": 0.0,
+          "event": "buff removed",
+          "unit": "u"
+        }
+      ]
+    },
+    {
+      "id": "failed_refresh_preserves_buff",
+      "classification": "explicit Web specification model, not original-client behavior",
+      "snapshots": {
+        "1": {
+          "time": 1.0,
+          "C": 1.0,
+          "rawR": 6.0,
+          "K": 5.0,
+          "buff": {
+            "level": 1,
+            "expires": 3.0
+          },
+          "mana": 100,
+          "cooldownUntil": 0.0,
+          "valid": true,
+          "alive": true,
+          "timerMap": {
+            "1": "T1"
+          }
+        },
+        "3": {
+          "time": 3.0,
+          "C": 1.2,
+          "rawR": 1.0,
+          "K": 1.0,
+          "buff": null,
+          "mana": 100,
+          "cooldownUntil": 0.0,
+          "valid": true,
+          "alive": true,
+          "timerMap": {}
+        }
+      },
+      "expected": {
+        "1": {
+          "buff": {
+            "level": 1,
+            "expires": 3.0
+          }
+        },
+        "3": {
+          "buff": null,
+          "C": 1.2
+        }
+      },
+      "events": [
+        {
+          "time": 0.0,
+          "event": "A163 effect",
+          "unit": "u",
+          "timer": "T1",
+          "C": 1.0
+        },
+        {
+          "time": 0.0,
+          "event": "B060 applied",
+          "unit": "u",
+          "level": 1,
+          "expires": 3.0
+        },
+        {
+          "time": 0.5,
+          "event": "dummy expired",
+          "unit": "u",
+          "timer": "T1"
+        },
+        {
+          "time": 1.0,
+          "event": "T171 failed",
+          "unit": "u"
+        },
+        {
+          "time": 3.0,
+          "event": "C timer expired",
+          "timer": "T1",
+          "lookupIndex": 1,
+          "target": "u",
+          "beforeC": 1.0,
+          "afterC": 1.2
+        },
+        {
+          "time": 3.0,
+          "event": "buff removed",
+          "unit": "u"
+        }
+      ]
+    },
+    {
+      "id": "negative_one_key_collision",
+      "classification": "explicit Web specification model, not original-client behavior",
+      "snapshots": {
+        "u": {
+          "time": 3.0,
+          "C": 0.8,
+          "rawR": 6.0,
+          "K": 5.0,
+          "buff": {
+            "level": 1,
+            "expires": 5.0
+          },
+          "mana": 100,
+          "cooldownUntil": 0.0,
+          "valid": true,
+          "alive": true,
+          "timerMap": {
+            "1": "T3"
+          }
+        },
+        "foreign": {
+          "time": 3.0,
+          "C": 1.2,
+          "rawR": 6.0,
+          "K": 5.0,
+          "buff": {
+            "level": 1,
+            "expires": 4.0
+          },
+          "mana": 100,
+          "cooldownUntil": 0.0,
+          "valid": true,
+          "alive": true,
+          "timerMap": {
+            "1": "T3"
+          }
+        }
+      },
+      "expected": {
+        "u": {
+          "C": 0.8
+        },
+        "foreign": {
+          "C": 1.2
+        }
+      },
+      "events": [
+        {
+          "time": 0.0,
+          "event": "A163 effect",
+          "unit": "u",
+          "timer": "T1",
+          "C": 1.0
+        },
+        {
+          "time": 0.0,
+          "event": "B060 applied",
+          "unit": "u",
+          "level": 1,
+          "expires": 3.0
+        },
+        {
+          "time": 0.5,
+          "event": "dummy expired",
+          "unit": "u",
+          "timer": "T1"
+        },
+        {
+          "time": 1.0,
+          "event": "A163 effect",
+          "unit": "foreign",
+          "timer": "T2",
+          "C": 1.0
+        },
+        {
+          "time": 1.0,
+          "event": "B060 applied",
+          "unit": "foreign",
+          "level": 1,
+          "expires": 4.0
+        },
+        {
+          "time": 1.5,
+          "event": "dummy expired",
+          "unit": "foreign",
+          "timer": "T2"
+        },
+        {
+          "time": 2.0,
+          "event": "A163 effect",
+          "unit": "u",
+          "timer": "T3",
+          "C": 0.8
+        },
+        {
+          "time": 2.0,
+          "event": "B060 applied",
+          "unit": "u",
+          "level": 1,
+          "expires": 5.0
+        },
+        {
+          "time": 2.5,
+          "event": "dummy expired",
+          "unit": "u",
+          "timer": "T3"
+        },
+        {
+          "time": 3.0,
+          "event": "C timer expired",
+          "timer": "T1",
+          "lookupIndex": -1,
+          "target": "foreign",
+          "beforeC": 1.0,
+          "afterC": 1.2
+        },
+        {
+          "time": 3.0,
+          "event": "stale B060 expiration",
+          "unit": "u"
+        }
+      ]
+    },
+    {
+      "id": "duplicate_expiration_no_second_restore",
+      "classification": "explicit Web specification model, not original-client behavior",
+      "snapshots": {
+        "3": {
+          "time": 3.0,
+          "C": 1.2,
+          "rawR": 1.0,
+          "K": 1.0,
+          "buff": null,
+          "mana": 100,
+          "cooldownUntil": 0.0,
+          "valid": true,
+          "alive": true,
+          "timerMap": {}
+        }
+      },
+      "expected": {
+        "3": {
+          "C": 1.2
+        }
+      },
+      "events": [
+        {
+          "time": 0.0,
+          "event": "A163 effect",
+          "unit": "u",
+          "timer": "T1",
+          "C": 1.0
+        },
+        {
+          "time": 0.0,
+          "event": "B060 applied",
+          "unit": "u",
+          "level": 1,
+          "expires": 3.0
+        },
+        {
+          "time": 0.5,
+          "event": "dummy expired",
+          "unit": "u",
+          "timer": "T1"
+        },
+        {
+          "time": 3.0,
+          "event": "C timer expired",
+          "timer": "T1",
+          "lookupIndex": 1,
+          "target": "u",
+          "beforeC": 1.0,
+          "afterC": 1.2
+        },
+        {
+          "time": 3.0,
+          "event": "buff removed",
+          "unit": "u"
+        }
+      ]
+    }
+  ],
+  "evidenceBoundary": {
+    "matchedOriginalClientTested": false,
+    "otherEngineCodeUsedAsNativeProof": false,
+    "WebGameRuntimeImplementedOrTested": false,
+    "modelScope": "deterministic timeline model checks specified resource/interval/buff/lookup behaviors; not a full game engine or all spell dispatch hooks",
+    "nativeUnknownsRetained": [
+      "ANcl actual admission/preemption timing",
+      "Ablo stacking/removal on exact original client",
+      "binary identity matching referenced YDWE invalid-handle implementation"
+    ]
+  },
+  "validation": {
+    "modelCasesPassed": 18,
+    "expectedTimeArithmetic": "exact fractions; schedule follows B05 order",
+    "staticSourceAndLinkCheck": {
+      "sourceObjects": 119,
+      "rawFieldValues": 109,
+      "localMarkdownLinks": 11,
+      "externalSourceHashes": 3,
+      "passed": true
+    },
+    "probabilityAdded": false,
+    "newUserDecisionsRequired": false
+  }
+}

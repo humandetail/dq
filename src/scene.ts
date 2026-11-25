@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { map, type SiteId } from "./game/content.ts";
 import type { Hit } from "./game/battle.ts";
+import { loadM1Models, type UnitModel } from "./m1-models.ts";
 import type { MatchState } from "./game/state.ts";
 
 export type Pick = { site: SiteId } | { enemyId: number };
@@ -25,7 +26,8 @@ function paintedMaterial(color: string, accent: string) {
   return new THREE.MeshStandardMaterial({ map: texture, roughness: 0.76 });
 }
 
-export function createScene(canvas: HTMLCanvasElement, select: (pick: Pick) => void) {
+export async function createScene(canvas: HTMLCanvasElement, select: (pick: Pick) => void) {
+  const models = await loadM1Models();
   const scene = new THREE.Scene();
   scene.background = new THREE.Color("#102934");
   const camera = new THREE.OrthographicCamera();
@@ -40,10 +42,6 @@ export function createScene(canvas: HTMLCanvasElement, select: (pick: Pick) => v
 
   const stone = paintedMaterial("#354d54", "#668185");
   const inlay = paintedMaterial("#2f554e", "#487269");
-  const beacon = paintedMaterial("#e6a346", "#ffdf8d");
-  const prism = paintedMaterial("#4a9ba2", "#aafde9");
-  const skimmer = paintedMaterial("#b94336", "#f79667");
-  const shell = paintedMaterial("#82458d", "#e7a4e9");
   const dark = new THREE.MeshStandardMaterial({ color: "#243c45", roughness: 0.9 });
   const glass = new THREE.MeshStandardMaterial({ color: "#ffde83", emissive: "#d79926", emissiveIntensity: 0.8 });
   const water = new THREE.MeshStandardMaterial({ color: "#1b4655", roughness: 0.52 });
@@ -78,13 +76,8 @@ export function createScene(canvas: HTMLCanvasElement, select: (pick: Pick) => v
     pads.set(site, pad);
   }
 
-  const towerMeshes = new Map<number, { body: THREE.Group; rotor: THREE.Mesh }>();
-  const enemyMeshes = new Map<number, THREE.Mesh>();
-  const baseGeometry = new THREE.CylinderGeometry(0.39, 0.55, 0.78, 6);
-  const beaconGeometry = new THREE.CylinderGeometry(0.33, 0.42, 0.45, 6);
-  const prismGeometry = new THREE.OctahedronGeometry(0.46);
-  const skimmerGeometry = new THREE.BoxGeometry(0.48, 0.38, 0.58);
-  const shellGeometry = new THREE.DodecahedronGeometry(0.43);
+  const towerMeshes = new Map<number, UnitModel>();
+  const enemyMeshes = new Map<number, UnitModel>();
   const flashes = new Map<number, { mesh: THREE.Line; end: number }>();
   const rayMaterial = new THREE.LineBasicMaterial({ color: "#ffd883" });
   const raycaster = new THREE.Raycaster();
@@ -114,7 +107,7 @@ export function createScene(canvas: HTMLCanvasElement, select: (pick: Pick) => v
       (event.clientX - rect.left) / rect.width * 2 - 1,
       1 - (event.clientY - rect.top) / rect.height * 2,
     ), camera);
-    const objects = [...pads.values(), ...Array.from(towerMeshes.values(), tower => tower.body), ...enemyMeshes.values()];
+    const objects = [...pads.values(), ...Array.from(towerMeshes.values(), tower => tower.body), ...Array.from(enemyMeshes.values(), enemy => enemy.body)];
     const hit = raycaster.intersectObjects(objects, true)[0];
     if (hit) {
       const pick = hit.object.userData.pick ?? hit.object.parent?.userData.pick;
@@ -131,40 +124,31 @@ export function createScene(canvas: HTMLCanvasElement, select: (pick: Pick) => v
     for (const tower of state.towers) {
       let model = towerMeshes.get(tower.id);
       if (!model) {
-        const body = new THREE.Group();
-        const base = new THREE.Mesh(baseGeometry, stone);
-        base.position.y = 0.47;
-        const rotor = new THREE.Mesh(
-          tower.type === "beacon" ? beaconGeometry : prismGeometry,
-          tower.type === "beacon" ? beacon : prism,
-        );
-        rotor.position.y = 1.08;
-        body.add(base, rotor);
-        body.userData.pick = { site: tower.site } satisfies Pick;
-        scene.add(body);
-        model = { body, rotor };
+        model = models.get(tower.type)!();
+        model.body.userData.pick = { site: tower.site } satisfies Pick;
+        scene.add(model.body);
         towerMeshes.set(tower.id, model);
       }
       const { x, y } = map.buildSites[tower.site];
       model.body.position.set(x, 0, y);
-      model.rotor.scale.setScalar(tower.level > 1 ? 1.24 : 1);
+      model.body.scale.setScalar(tower.level > 1 ? 1.24 : 1);
     }
     for (const [id, mesh] of enemyMeshes) {
       if (state.enemies.some(enemy => enemy.id === id)) continue;
-      scene.remove(mesh);
+      scene.remove(mesh.body);
       enemyMeshes.delete(id);
     }
     for (const enemy of state.enemies) {
       let mesh = enemyMeshes.get(enemy.id);
       if (!mesh) {
-        mesh = new THREE.Mesh(enemy.type === "skimmer" ? skimmerGeometry : shellGeometry, enemy.type === "skimmer" ? skimmer : shell);
-        mesh.userData.pick = { enemyId: enemy.id } satisfies Pick;
-        scene.add(mesh);
+        mesh = models.get(enemy.type)!();
+        mesh.body.userData.pick = { enemyId: enemy.id } satisfies Pick;
+        scene.add(mesh.body);
         enemyMeshes.set(enemy.id, mesh);
       }
-      mesh.position.set(enemy.position.x, enemy.type === "skimmer" ? 0.22 : 0.43, enemy.position.y);
+      mesh.body.position.set(enemy.position.x, 0, enemy.position.y);
       const waypoint = map.route[enemy.nextWaypoint];
-      mesh.rotation.y = Math.atan2(waypoint.x - enemy.position.x, waypoint.y - enemy.position.y);
+      mesh.body.rotation.y = Math.atan2(waypoint.x - enemy.position.x, waypoint.y - enemy.position.y);
     }
     for (const [id, pad] of pads) pad.material = id === site ? selectedPad : dark;
     dirty = true;
@@ -173,6 +157,7 @@ export function createScene(canvas: HTMLCanvasElement, select: (pick: Pick) => v
   function animate(hit: Hit, now: number) {
     const tower = towerMeshes.get(hit.towerId);
     if (!tower) return;
+    tower.attack(now);
     const previous = flashes.get(hit.towerId);
     if (previous) {
       scene.remove(previous.mesh);
@@ -186,13 +171,16 @@ export function createScene(canvas: HTMLCanvasElement, select: (pick: Pick) => v
     flashes.set(hit.towerId, { mesh: ray, end: now + 220 });
   }
 
+  function animateEnemy(id: number, now: number) {
+    enemyMeshes.get(id)?.attack(now);
+  }
+
   function draw(now: number) {
+    for (const unit of towerMeshes.values()) dirty = unit.draw(now) || dirty;
+    for (const unit of enemyMeshes.values()) dirty = unit.draw(now) || dirty;
     if (!dirty && !flashes.size) return;
     for (const [id, flash] of flashes) {
-      const tower = towerMeshes.get(id);
-      const remaining = Math.max(0, (flash.end - now) / 220);
-      if (tower) tower.rotor.position.y = 1.08 + Math.sin(remaining * Math.PI) * 0.23;
-      if (remaining) continue;
+      if (now < flash.end) continue;
       scene.remove(flash.mesh);
       flash.mesh.geometry.dispose();
       flashes.delete(id);
@@ -201,5 +189,5 @@ export function createScene(canvas: HTMLCanvasElement, select: (pick: Pick) => v
     dirty = false;
   }
 
-  return { sync, animate, draw };
+  return { sync, animate, animateEnemy, draw };
 }

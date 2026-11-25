@@ -1,0 +1,176 @@
+{
+  "id": "A166",
+  "status": "ready",
+  "rules": {
+    "duration": 10,
+    "radius": 800,
+    "maxTargets": 1,
+    "mana": [
+      170,
+      190,
+      210,
+      230,
+      250,
+      270
+    ],
+    "damagePerTick": [
+      2000,
+      2500,
+      3000,
+      3500,
+      4000,
+      5000
+    ],
+    "cooldown": [
+      17,
+      16,
+      15,
+      14,
+      13,
+      12
+    ],
+    "spec": "doom.md",
+    "nativeDeathSummons": 0,
+    "shieldFirst": true,
+    "bossPredicate": "N534 and SAPPER",
+    "magicImmuneBossStatusAllowed": true,
+    "damageGate": "B03",
+    "endlessT176": {
+      "decision": "Q67",
+      "formula": "D*(1-(1-r)/2)*k",
+      "r": "EndLess_Damage_Reduce/100",
+      "mode": 1,
+      "skipSource": "q025",
+      "k": {
+        "phy": 1.8,
+        "magic": 3.2,
+        "other": 1.2
+      }
+    }
+  },
+  "sourceRefs": {
+    "workbookRowsOnBoth": [
+      62,
+      67
+    ],
+    "objectIndex": 955,
+    "w3aIndex": 97,
+    "hintLine": 2387,
+    "buffLine": 917,
+    "n534BossesWithoutSapper": [
+      "m521",
+      "m522",
+      "m523",
+      "mw04"
+    ],
+    "bossTemplateCountWithoutAmim": 51,
+    "disasmSha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+    "moduleRanges": [
+      [
+        "main/f117",
+        93076,
+        93119
+      ],
+      [
+        "main/f117/f0",
+        93120,
+        93281
+      ],
+      [
+        "main/f117/f1",
+        93282,
+        93308
+      ],
+      [
+        "main/f117/f2",
+        93309,
+        93390
+      ]
+    ],
+    "effect": [
+      "main/f291/f14",
+      1071,
+      1080
+    ],
+    "auto": [
+      "main/f291/f27",
+      2543,
+      2572
+    ],
+    "endless": [
+      "main/f291/f1",
+      3742,
+      3806
+    ],
+    "mapBoss": [
+      "main/f7/f45",
+      1,
+      16
+    ]
+  },
+  "differences": [
+    "Source has nba2 unit type but no explicit summon count or duration; Q24 count 0",
+    "Map Boss original predicate requires both mounted N534 and native SAPPER",
+    "Source outright removes seven ability IDs and re-adds at nominal rank 1; selected control is temporary suppression",
+    "Source T176 multiplies remaining damage by min(2.5,1/r); Q67 halves the current damage reduction rate"
+  ],
+  "unresolved": [],
+  "auxiliary": [
+    "T176",
+    "B151",
+    "nba2",
+    "N524",
+    "T017",
+    "N533",
+    "N535",
+    "N579",
+    "N536",
+    "N525"
+  ],
+  "validation": {
+    "sourceVM": {
+      "sourceRestoredSyntheticRanksAtRecast": [
+        1,
+        1
+      ],
+      "oldTimerCancelled": true,
+      "noScepterBlockInAbyss": true,
+      "sourceDeadTargetIsNotRestored": true,
+      "sourceModeA100And300Magic": [
+        320.0,
+        42.56
+      ],
+      "q025BypassesEndless": true,
+      "mapBossCasesN534AndSapper": [
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    "selectedAndComparison": {
+      "shieldStopsBeforeSuppression": true,
+      "replacementAndStaleEnd": true,
+      "scepterModeGate": true,
+      "sourceMultiplierBeforeType": [
+        1,
+        0.133
+      ],
+      "webModeA100And300Magic": [
+        269.504,
+        168.512
+      ],
+      "webLowestRMagic": 160.016,
+      "q025AndModeBypass": true,
+      "recastPulses": [
+        4,
+        10
+      ],
+      "replacementLastPulse": [
+        14.5,
+        3500
+      ]
+    },
+    "originalClientTested": false
+  }
+}

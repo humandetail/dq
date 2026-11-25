@@ -1,0 +1,1293 @@
+{
+  "baselineId": "item-resources-batch-01",
+  "status": "bounded_source_audit_and_Q24_Web_selection",
+  "pendingMechanism": [],
+  "originalClientTested": false,
+  "dependencies": [
+    "item-lifecycle-v1/L01-L09",
+    "hero-attribute-interface-v1",
+    "item-attributes-v1",
+    "night-state-and-regeneration-v1"
+  ],
+  "resources": [
+    "MAX_LIFE",
+    "MAX_MANA"
+  ],
+  "coverage": {
+    "workbookItemRowsCompared": 243,
+    "aliases": 15,
+    "aliasesByCode": {
+      "AImm": 9,
+      "AIml": 6
+    },
+    "equipmentAndComponents": 18,
+    "directOccurrences": 26,
+    "indirectOccurrences": 2,
+    "recipeBooks": 14
+  },
+  "objectLocations": {
+    "itemAbilList": "reference/map-6.25/units_itemdata.json (line)",
+    "abilityData": "reference/map-6.25/units_abilitydata.json (zero-based array index)"
+  },
+  "aliases": {
+    "I111": {
+      "code": "AImm",
+      "DataA1": 150,
+      "levels": 1,
+      "jsonIndex": 1046,
+      "occurrences": 6
+    },
+    "I112": {
+      "code": "AImm",
+      "DataA1": 250,
+      "levels": 1,
+      "jsonIndex": 1047,
+      "occurrences": 1
+    },
+    "I113": {
+      "code": "AImm",
+      "DataA1": 350,
+      "levels": 1,
+      "jsonIndex": 1048,
+      "occurrences": 3
+    },
+    "I115": {
+      "code": "AImm",
+      "DataA1": 550,
+      "levels": 1,
+      "jsonIndex": 1050,
+      "occurrences": 2
+    },
+    "I116": {
+      "code": "AImm",
+      "DataA1": 750,
+      "levels": 1,
+      "jsonIndex": 1051,
+      "occurrences": 1
+    },
+    "I118": {
+      "code": "AImm",
+      "DataA1": 1150,
+      "levels": 1,
+      "jsonIndex": 1053,
+      "occurrences": 1
+    },
+    "I119": {
+      "code": "AImm",
+      "DataA1": 2000,
+      "levels": 1,
+      "jsonIndex": 1054,
+      "occurrences": 1
+    },
+    "I190": {
+      "code": "AIml",
+      "DataA1": 1400,
+      "levels": 1,
+      "jsonIndex": 1113,
+      "occurrences": 1
+    },
+    "I191": {
+      "code": "AIml",
+      "DataA1": 500,
+      "levels": 1,
+      "jsonIndex": 1114,
+      "occurrences": 4
+    },
+    "I192": {
+      "code": "AIml",
+      "DataA1": 400,
+      "levels": 1,
+      "jsonIndex": 1115,
+      "occurrences": 1
+    },
+    "I193": {
+      "code": "AImm",
+      "DataA1": 300,
+      "levels": 1,
+      "jsonIndex": 1116,
+      "occurrences": 1
+    },
+    "I194": {
+      "code": "AIml",
+      "DataA1": 300,
+      "levels": 1,
+      "jsonIndex": 1117,
+      "occurrences": 2
+    },
+    "I195": {
+      "code": "AImm",
+      "DataA1": 200,
+      "levels": 1,
+      "jsonIndex": 1118,
+      "occurrences": 1
+    },
+    "I257": {
+      "code": "AIml",
+      "DataA1": 600,
+      "levels": 1,
+      "jsonIndex": 1180,
+      "occurrences": 1
+    },
+    "I276": {
+      "code": "AIml",
+      "DataA1": 3000,
+      "levels": 1,
+      "jsonIndex": 1199,
+      "occurrences": 2
+    }
+  },
+  "spellBookWrappers": {
+    "I280": {
+      "code": "Aspb",
+      "DataA1": "I275,I276,I278",
+      "levels": 1,
+      "jsonIndex": 1203
+    }
+  },
+  "items": [
+    {
+      "id": "i102",
+      "name": "能量之球",
+      "workbookCell": "装备与道具!H12",
+      "workbookStatic": [
+        0,
+        150
+      ],
+      "objectAbilListLine": 6624,
+      "objectAbilList": "I111",
+      "w3tTooltipStatic": [
+        0,
+        150
+      ],
+      "mounts": [
+        {
+          "path": [
+            "I111"
+          ],
+          "itemListPosition": 1
+        }
+      ],
+      "objectOccurrenceSum": [
+        0,
+        150
+      ],
+      "webStats": [
+        0,
+        150
+      ]
+    },
+    {
+      "id": "i104",
+      "name": "圣殿指环",
+      "workbookCell": "装备与道具!H14",
+      "workbookStatic": [
+        0,
+        250
+      ],
+      "objectAbilListLine": 6669,
+      "objectAbilList": "I112,I102",
+      "w3tTooltipStatic": [
+        0,
+        250
+      ],
+      "mounts": [
+        {
+          "path": [
+            "I112"
+          ],
+          "itemListPosition": 1
+        }
+      ],
+      "objectOccurrenceSum": [
+        0,
+        250
+      ],
+      "webStats": [
+        0,
+        250
+      ]
+    },
+    {
+      "id": "i129",
+      "name": "天鹰戒指",
+      "workbookCell": "装备与道具!H39",
+      "workbookStatic": [
+        0,
+        350
+      ],
+      "objectAbilListLine": 7240,
+      "objectAbilList": "I102,I169,I113",
+      "w3tTooltipStatic": null,
+      "mounts": [
+        {
+          "path": [
+            "I113"
+          ],
+          "itemListPosition": 3
+        }
+      ],
+      "objectOccurrenceSum": [
+        0,
+        350
+      ],
+      "webStats": [
+        0,
+        350
+      ]
+    },
+    {
+      "id": "i145",
+      "name": "恐鳌之心",
+      "workbookCell": "装备与道具!H55",
+      "workbookStatic": [
+        1400,
+        0
+      ],
+      "objectAbilListLine": 7599,
+      "objectAbilList": "I249,I189,I190",
+      "w3tTooltipStatic": [
+        1400,
+        0
+      ],
+      "mounts": [
+        {
+          "path": [
+            "I190"
+          ],
+          "itemListPosition": 3
+        }
+      ],
+      "objectOccurrenceSum": [
+        1400,
+        0
+      ],
+      "webStats": [
+        1400,
+        0
+      ]
+    },
+    {
+      "id": "i148",
+      "name": "活力之球",
+      "workbookCell": "装备与道具!H58",
+      "workbookStatic": [
+        500,
+        0
+      ],
+      "objectAbilListLine": 7667,
+      "objectAbilList": "I191",
+      "w3tTooltipStatic": [
+        500,
+        0
+      ],
+      "mounts": [
+        {
+          "path": [
+            "I191"
+          ],
+          "itemListPosition": 1
+        }
+      ],
+      "objectOccurrenceSum": [
+        500,
+        0
+      ],
+      "webStats": [
+        500,
+        0
+      ]
+    },
+    {
+      "id": "i149",
+      "name": "冰霜之眼",
+      "workbookCell": "装备与道具!H59",
+      "workbookStatic": [
+        400,
+        300
+      ],
+      "objectAbilListLine": 7690,
+      "objectAbilList": "I162,I161,I192,I193",
+      "w3tTooltipStatic": [
+        400,
+        300
+      ],
+      "mounts": [
+        {
+          "path": [
+            "I192"
+          ],
+          "itemListPosition": 3
+        },
+        {
+          "path": [
+            "I193"
+          ],
+          "itemListPosition": 4
+        }
+      ],
+      "objectOccurrenceSum": [
+        400,
+        300
+      ],
+      "webStats": [
+        400,
+        300
+      ]
+    },
+    {
+      "id": "i151",
+      "name": "精气之球",
+      "workbookCell": "装备与道具!H61",
+      "workbookStatic": [
+        300,
+        200
+      ],
+      "objectAbilListLine": 7735,
+      "objectAbilList": "I194,I195",
+      "w3tTooltipStatic": [
+        300,
+        200
+      ],
+      "mounts": [
+        {
+          "path": [
+            "I194"
+          ],
+          "itemListPosition": 1
+        },
+        {
+          "path": [
+            "I195"
+          ],
+          "itemListPosition": 2
+        }
+      ],
+      "objectOccurrenceSum": [
+        300,
+        200
+      ],
+      "webStats": [
+        300,
+        200
+      ]
+    },
+    {
+      "id": "i191",
+      "name": "阿托斯",
+      "workbookCell": "装备与道具!H101",
+      "workbookStatic": [
+        0,
+        300
+      ],
+      "objectAbilListLine": 8643,
+      "objectAbilList": "I161,I156,I111,I111",
+      "w3tTooltipStatic": [
+        0,
+        300
+      ],
+      "mounts": [
+        {
+          "path": [
+            "I111"
+          ],
+          "itemListPosition": 3
+        },
+        {
+          "path": [
+            "I111"
+          ],
+          "itemListPosition": 4
+        }
+      ],
+      "objectOccurrenceSum": [
+        0,
+        300
+      ],
+      "webStats": [
+        0,
+        300
+      ]
+    },
+    {
+      "id": "i198",
+      "name": "吸血鬼的祭品",
+      "workbookCell": "装备与道具!H108",
+      "workbookStatic": [
+        0,
+        300
+      ],
+      "objectAbilListLine": 8794,
+      "objectAbilList": "I208,I103,I111,I111",
+      "w3tTooltipStatic": [
+        0,
+        300
+      ],
+      "mounts": [
+        {
+          "path": [
+            "I111"
+          ],
+          "itemListPosition": 3
+        },
+        {
+          "path": [
+            "I111"
+          ],
+          "itemListPosition": 4
+        }
+      ],
+      "objectOccurrenceSum": [
+        0,
+        300
+      ],
+      "webStats": [
+        0,
+        300
+      ]
+    },
+    {
+      "id": "i200",
+      "name": "纷争面纱",
+      "workbookCell": "装备与道具!H110",
+      "workbookStatic": [
+        0,
+        500
+      ],
+      "objectAbilListLine": 8839,
+      "objectAbilList": "I113,I111,I156,I155",
+      "w3tTooltipStatic": [
+        0,
+        500
+      ],
+      "mounts": [
+        {
+          "path": [
+            "I113"
+          ],
+          "itemListPosition": 1
+        },
+        {
+          "path": [
+            "I111"
+          ],
+          "itemListPosition": 2
+        }
+      ],
+      "objectOccurrenceSum": [
+        0,
+        500
+      ],
+      "webStats": [
+        0,
+        500
+      ]
+    },
+    {
+      "id": "i209",
+      "name": "大狂战斧",
+      "workbookCell": "装备与道具!H119",
+      "workbookStatic": [
+        0,
+        350
+      ],
+      "objectAbilListLine": 9043,
+      "objectAbilList": "I212,I213,I113,I104",
+      "w3tTooltipStatic": [
+        0,
+        350
+      ],
+      "mounts": [
+        {
+          "path": [
+            "I113"
+          ],
+          "itemListPosition": 3
+        }
+      ],
+      "objectOccurrenceSum": [
+        0,
+        350
+      ],
+      "webStats": [
+        0,
+        350
+      ]
+    },
+    {
+      "id": "i218",
+      "name": "振魂石",
+      "workbookCell": "装备与道具!H128",
+      "workbookStatic": [
+        800,
+        550
+      ],
+      "objectAbilListLine": 9246,
+      "objectAbilList": "I102,I191,I194,I115",
+      "w3tTooltipStatic": [
+        800,
+        550
+      ],
+      "mounts": [
+        {
+          "path": [
+            "I191"
+          ],
+          "itemListPosition": 2
+        },
+        {
+          "path": [
+            "I194"
+          ],
+          "itemListPosition": 3
+        },
+        {
+          "path": [
+            "I115"
+          ],
+          "itemListPosition": 4
+        }
+      ],
+      "objectOccurrenceSum": [
+        800,
+        550
+      ],
+      "webStats": [
+        800,
+        550
+      ]
+    },
+    {
+      "id": "i220",
+      "name": "血精石",
+      "workbookCell": "装备与道具!H130",
+      "workbookStatic": [
+        1000,
+        750
+      ],
+      "objectAbilListLine": 9291,
+      "objectAbilList": "I116,I105,I191,I191",
+      "w3tTooltipStatic": [
+        1000,
+        750
+      ],
+      "mounts": [
+        {
+          "path": [
+            "I116"
+          ],
+          "itemListPosition": 1
+        },
+        {
+          "path": [
+            "I191"
+          ],
+          "itemListPosition": 3
+        },
+        {
+          "path": [
+            "I191"
+          ],
+          "itemListPosition": 4
+        }
+      ],
+      "objectOccurrenceSum": [
+        1000,
+        750
+      ],
+      "webStats": [
+        1000,
+        750
+      ]
+    },
+    {
+      "id": "i265",
+      "name": "邪念法杖",
+      "workbookCell": "装备与道具!H175",
+      "workbookStatic": [
+        0,
+        2000
+      ],
+      "objectAbilListLine": 10329,
+      "objectAbilList": "I119,I261",
+      "w3tTooltipStatic": [
+        0,
+        2000
+      ],
+      "mounts": [
+        {
+          "path": [
+            "I119"
+          ],
+          "itemListPosition": 1
+        }
+      ],
+      "objectOccurrenceSum": [
+        0,
+        2000
+      ],
+      "webStats": [
+        0,
+        2000
+      ]
+    },
+    {
+      "id": "i308",
+      "name": "怨念魔杖",
+      "workbookCell": "装备与道具!H201",
+      "workbookStatic": [
+        0,
+        1150
+      ],
+      "objectAbilListLine": 10922,
+      "objectAbilList": "I118,I157,I157",
+      "w3tTooltipStatic": null,
+      "mounts": [
+        {
+          "path": [
+            "I118"
+          ],
+          "itemListPosition": 1
+        }
+      ],
+      "objectOccurrenceSum": [
+        0,
+        1150
+      ],
+      "webStats": [
+        0,
+        1150
+      ]
+    },
+    {
+      "id": "i327",
+      "name": "玲珑心",
+      "workbookCell": "装备与道具!H220",
+      "workbookStatic": [
+        800,
+        550
+      ],
+      "objectAbilListLine": 11354,
+      "objectAbilList": "I102,I257,I115,I258",
+      "w3tTooltipStatic": null,
+      "mounts": [
+        {
+          "path": [
+            "I257"
+          ],
+          "itemListPosition": 2
+        },
+        {
+          "path": [
+            "I115"
+          ],
+          "itemListPosition": 3
+        }
+      ],
+      "objectOccurrenceSum": [
+        600,
+        550
+      ],
+      "webStats": [
+        800,
+        550
+      ]
+    },
+    {
+      "id": "i330",
+      "name": "魔焰之心(开启的)",
+      "workbookCell": "装备与道具!H223",
+      "workbookStatic": [
+        3000,
+        0
+      ],
+      "objectAbilListLine": 11420,
+      "objectAbilList": "I274,I280",
+      "w3tTooltipStatic": null,
+      "mounts": [
+        {
+          "path": [
+            "I280",
+            "I276"
+          ],
+          "itemListPosition": 2,
+          "spellBookPosition": 2
+        }
+      ],
+      "objectOccurrenceSum": [
+        3000,
+        0
+      ],
+      "webStats": [
+        3000,
+        0
+      ]
+    },
+    {
+      "id": "i332",
+      "name": "魔焰之心(关闭的)",
+      "workbookCell": "装备与道具!H225",
+      "workbookStatic": [
+        3000,
+        0
+      ],
+      "objectAbilListLine": 11465,
+      "objectAbilList": "I274,I280,I281",
+      "w3tTooltipStatic": null,
+      "mounts": [
+        {
+          "path": [
+            "I280",
+            "I276"
+          ],
+          "itemListPosition": 2,
+          "spellBookPosition": 2
+        }
+      ],
+      "objectOccurrenceSum": [
+        3000,
+        0
+      ],
+      "webStats": [
+        3000,
+        0
+      ]
+    }
+  ],
+  "recipeBooks": [
+    {
+      "id": "i103",
+      "name": "制作书-圣殿指环",
+      "workbookCell": "装备与道具!H13",
+      "workbookStatic": [
+        0,
+        250
+      ],
+      "objectAbilListLine": null,
+      "objectAbilList": null,
+      "w3tTooltipStatic": [
+        0,
+        250
+      ],
+      "webStats": [
+        0,
+        0
+      ],
+      "product": "i104",
+      "recipeSourceLines": [
+        141817,
+        141830
+      ],
+      "webFinishedItemPreview": [
+        0,
+        250
+      ]
+    },
+    {
+      "id": "i130",
+      "name": "制作书-天鹰戒指",
+      "workbookCell": "装备与道具!H40",
+      "workbookStatic": [
+        0,
+        350
+      ],
+      "objectAbilListLine": null,
+      "objectAbilList": null,
+      "w3tTooltipStatic": null,
+      "webStats": [
+        0,
+        0
+      ],
+      "product": "i129",
+      "recipeSourceLines": [
+        141377,
+        141387
+      ],
+      "webFinishedItemPreview": [
+        0,
+        350
+      ]
+    },
+    {
+      "id": "i146",
+      "name": "制作书-恐鳌之心",
+      "workbookCell": "装备与道具!H56",
+      "workbookStatic": [
+        1400,
+        0
+      ],
+      "objectAbilListLine": null,
+      "objectAbilList": null,
+      "w3tTooltipStatic": [
+        1400,
+        0
+      ],
+      "webStats": [
+        0,
+        0
+      ],
+      "product": "i145",
+      "recipeSourceLines": [
+        142384,
+        142400
+      ],
+      "webFinishedItemPreview": [
+        1400,
+        0
+      ]
+    },
+    {
+      "id": "i150",
+      "name": "制作书-冰霜之眼",
+      "workbookCell": "装备与道具!H60",
+      "workbookStatic": [
+        400,
+        300
+      ],
+      "objectAbilListLine": null,
+      "objectAbilList": null,
+      "w3tTooltipStatic": [
+        400,
+        300
+      ],
+      "webStats": [
+        0,
+        0
+      ],
+      "product": "i149",
+      "recipeSourceLines": [
+        141887,
+        141900
+      ],
+      "webFinishedItemPreview": [
+        400,
+        300
+      ]
+    },
+    {
+      "id": "i192",
+      "name": "制作书-阿托斯",
+      "workbookCell": "装备与道具!H102",
+      "workbookStatic": [
+        0,
+        300
+      ],
+      "objectAbilListLine": null,
+      "objectAbilList": null,
+      "w3tTooltipStatic": [
+        0,
+        300
+      ],
+      "webStats": [
+        0,
+        0
+      ],
+      "product": "i191",
+      "recipeSourceLines": [
+        141761,
+        141774
+      ],
+      "webFinishedItemPreview": [
+        0,
+        300
+      ]
+    },
+    {
+      "id": "i199",
+      "name": "制作书-吸血鬼的祭品",
+      "workbookCell": "装备与道具!H109",
+      "workbookStatic": [
+        0,
+        300
+      ],
+      "objectAbilListLine": null,
+      "objectAbilList": null,
+      "w3tTooltipStatic": [
+        0,
+        300
+      ],
+      "webStats": [
+        0,
+        0
+      ],
+      "product": "i198",
+      "recipeSourceLines": [
+        141498,
+        141508
+      ],
+      "webFinishedItemPreview": [
+        0,
+        300
+      ]
+    },
+    {
+      "id": "i201",
+      "name": "制作书-纷争面纱",
+      "workbookCell": "装备与道具!H111",
+      "workbookStatic": [
+        0,
+        500
+      ],
+      "objectAbilListLine": null,
+      "objectAbilList": null,
+      "w3tTooltipStatic": [
+        0,
+        500
+      ],
+      "webStats": [
+        0,
+        0
+      ],
+      "product": "i200",
+      "recipeSourceLines": [
+        142299,
+        142315
+      ],
+      "webFinishedItemPreview": [
+        0,
+        500
+      ]
+    },
+    {
+      "id": "i210",
+      "name": "制作书-大狂战斧",
+      "workbookCell": "装备与道具!H120",
+      "workbookStatic": [
+        0,
+        300
+      ],
+      "objectAbilListLine": null,
+      "objectAbilList": null,
+      "w3tTooltipStatic": [
+        0,
+        300
+      ],
+      "webStats": [
+        0,
+        0
+      ],
+      "product": "i209",
+      "recipeSourceLines": [
+        141747,
+        141760
+      ],
+      "webFinishedItemPreview": [
+        0,
+        350
+      ]
+    },
+    {
+      "id": "i219",
+      "name": "制作书-振魂石",
+      "workbookCell": "装备与道具!H129",
+      "workbookStatic": [
+        800,
+        550
+      ],
+      "objectAbilListLine": null,
+      "objectAbilList": null,
+      "w3tTooltipStatic": [
+        800,
+        550
+      ],
+      "webStats": [
+        0,
+        0
+      ],
+      "product": "i218",
+      "recipeSourceLines": [
+        142452,
+        142468
+      ],
+      "webFinishedItemPreview": [
+        800,
+        550
+      ]
+    },
+    {
+      "id": "i221",
+      "name": "制作书-血精石",
+      "workbookCell": "装备与道具!H131",
+      "workbookStatic": [
+        1000,
+        750
+      ],
+      "objectAbilListLine": null,
+      "objectAbilList": null,
+      "w3tTooltipStatic": [
+        1000,
+        750
+      ],
+      "webStats": [
+        0,
+        0
+      ],
+      "product": "i220",
+      "recipeSourceLines": [
+        142265,
+        142281
+      ],
+      "webFinishedItemPreview": [
+        1000,
+        750
+      ]
+    },
+    {
+      "id": "i266",
+      "name": "制作书-邪念法杖",
+      "workbookCell": "装备与道具!H176",
+      "workbookStatic": [
+        0,
+        2000
+      ],
+      "objectAbilListLine": null,
+      "objectAbilList": null,
+      "w3tTooltipStatic": [
+        0,
+        2000
+      ],
+      "webStats": [
+        0,
+        0
+      ],
+      "product": "i265",
+      "recipeSourceLines": [
+        141652,
+        141662
+      ],
+      "webFinishedItemPreview": [
+        0,
+        2000
+      ]
+    },
+    {
+      "id": "i309",
+      "name": "制作书-怨念魔杖",
+      "workbookCell": "装备与道具!H202",
+      "workbookStatic": [
+        0,
+        1150
+      ],
+      "objectAbilListLine": null,
+      "objectAbilList": null,
+      "w3tTooltipStatic": null,
+      "webStats": [
+        0,
+        0
+      ],
+      "product": "i308",
+      "recipeSourceLines": [
+        142000,
+        142013
+      ],
+      "webFinishedItemPreview": [
+        0,
+        1150
+      ]
+    },
+    {
+      "id": "i328",
+      "name": "制作书-玲珑心",
+      "workbookCell": "装备与道具!H221",
+      "workbookStatic": [
+        800,
+        550
+      ],
+      "objectAbilListLine": null,
+      "objectAbilList": null,
+      "w3tTooltipStatic": null,
+      "webStats": [
+        0,
+        0
+      ],
+      "product": "i327",
+      "recipeSourceLines": [
+        142560,
+        142573
+      ],
+      "webFinishedItemPreview": [
+        800,
+        550
+      ]
+    },
+    {
+      "id": "i331",
+      "name": "制作书-魔焰之心",
+      "workbookCell": "装备与道具!H224",
+      "workbookStatic": [
+        3000,
+        0
+      ],
+      "objectAbilListLine": null,
+      "objectAbilList": null,
+      "w3tTooltipStatic": null,
+      "webStats": [
+        0,
+        0
+      ],
+      "product": "i332",
+      "recipeSourceLines": [
+        141663,
+        141676
+      ],
+      "webFinishedItemPreview": [
+        3000,
+        0
+      ]
+    }
+  ],
+  "numericDecisions": {
+    "items": [
+      "i327"
+    ],
+    "recipeBooks": [
+      "i210"
+    ]
+  },
+  "scriptScan": {
+    "disassemblyConstantAndJassLiteralOrRawcodeHits": 0,
+    "sharedMutationEvidence": "item-flat-attack.json/scriptScan"
+  },
+  "webRule": {
+    "contribution": "Sum per-instance workbook-selected flat resource vectors on eligible native hero mounts.",
+    "ordering": "L01 mount before PICKUP and withdraw before DROP. Apply actual max delta to current once per passive change with the hero resource floors and preservation of death. Script max setters maintain a separate offset and preserve current before clamping.",
+    "restore": "L07 rebuild the mount ledger from restored instances and retain absolute resources and script offsets."
+  },
+  "verification": {
+    "kind": "Q24 resource contract probes; original event and setter sites use existing evidence",
+    "cases": [
+      {
+        "name": "i327 fixed resources, INT and charge remain separate on PICKUP and DROP",
+        "actual": [
+          [
+            [
+              1800,
+              1150
+            ],
+            [
+              1890,
+              1490
+            ]
+          ],
+          [
+            [
+              1800,
+              1150
+            ],
+            [
+              1905,
+              1490
+            ]
+          ],
+          [
+            [
+              1000,
+              350
+            ],
+            [
+              515,
+              100
+            ]
+          ],
+          [
+            [
+              1000,
+              350
+            ],
+            [
+              500,
+              100
+            ]
+          ]
+        ],
+        "expected": [
+          [
+            [
+              1800,
+              1150
+            ],
+            [
+              1890,
+              1490
+            ]
+          ],
+          [
+            [
+              1800,
+              1150
+            ],
+            [
+              1905,
+              1490
+            ]
+          ],
+          [
+            [
+              1000,
+              350
+            ],
+            [
+              515,
+              100
+            ]
+          ],
+          [
+            [
+              1000,
+              350
+            ],
+            [
+              500,
+              100
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "i220 repeated alias contributes once at its per-item summed amount, death stays at zero",
+        "actual": [
+          [
+            2000,
+            0
+          ],
+          [
+            1250,
+            1150
+          ]
+        ],
+        "expected": [
+          [
+            2000,
+            0
+          ],
+          [
+            1250,
+            1150
+          ]
+        ]
+      },
+      {
+        "name": "loss clamps low living life and mana at their different floors",
+        "actual": [
+          [
+            1000,
+            1
+          ],
+          [
+            500,
+            0
+          ]
+        ],
+        "expected": [
+          [
+            1000,
+            1
+          ],
+          [
+            500,
+            0
+          ]
+        ]
+      }
+    ]
+  }
+}

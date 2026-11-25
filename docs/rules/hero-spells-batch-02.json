@@ -1,0 +1,3610 @@
+{
+  "baseline": "hero-spells-batch-02-v1",
+  "source": {
+    "path": "reference/map-6.25/main.disasm",
+    "sha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+  },
+  "skills": {
+    "A050": {
+      "status": "ready",
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 151,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "先知<SR>",
+            "H015",
+            2,
+            "学习技能",
+            "传送",
+            "A050",
+            6,
+            "将自己传送至地图上任意的地区。",
+            "等级 1｜冷却15秒。 耗蓝 10点。\n等级 2｜冷却13秒。 耗蓝 20点。\n等级 3｜冷却11秒。 耗蓝 30点。\n等级 4｜冷却9秒。 耗蓝 40点。\n等级 5｜冷却7秒。 耗蓝 50点。\n等级 6｜冷却5秒。 耗蓝 60点。",
+            "冷却 7.0／5.0；耗蓝 50／60"
+          ]
+        },
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 502,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "玛法里奥<SR>",
+            "G055",
+            2,
+            "学习技能",
+            "传送",
+            "A050",
+            6,
+            "将自己传送至地图上任意的地区。",
+            "等级 1｜冷却15秒。 耗蓝 10点。\n等级 2｜冷却13秒。 耗蓝 20点。\n等级 3｜冷却11秒。 耗蓝 30点。\n等级 4｜冷却9秒。 耗蓝 40点。\n等级 5｜冷却7秒。 耗蓝 50点。\n等级 6｜冷却5秒。 耗蓝 60点。",
+            "冷却 7.0／5.0；耗蓝 50／60"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 151,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "先知<SR>",
+            "H015",
+            2,
+            "学习技能",
+            "传送",
+            "A050",
+            6,
+            "将自己传送至地图上任意的地区。",
+            "等级 1｜冷却15秒。 耗蓝 10点。\n等级 2｜冷却13秒。 耗蓝 20点。\n等级 3｜冷却11秒。 耗蓝 30点。\n等级 4｜冷却9秒。 耗蓝 40点。\n等级 5｜冷却7秒。 耗蓝 50点。\n等级 6｜冷却5秒。 耗蓝 60点。",
+            "冷却 7.0／5.0；耗蓝 50／60"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 502,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "玛法里奥<SR>",
+            "G055",
+            2,
+            "学习技能",
+            "传送",
+            "A050",
+            6,
+            "将自己传送至地图上任意的地区。",
+            "等级 1｜冷却15秒。 耗蓝 10点。\n等级 2｜冷却13秒。 耗蓝 20点。\n等级 3｜冷却11秒。 耗蓝 30点。\n等级 4｜冷却9秒。 耗蓝 40点。\n等级 5｜冷却7秒。 耗蓝 50点。\n等级 6｜冷却5秒。 耗蓝 60点。",
+            "冷却 7.0／5.0；耗蓝 50／60"
+          ]
+        }
+      ],
+      "shell": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 848,
+          "id": "A050",
+          "fields": {
+            "alias": "A050",
+            "code": "ANcl",
+            "checkDep": 1,
+            "Cool1": 15.0,
+            "Cool2": 13.0,
+            "Cool3": 11.0,
+            "Cool4": 9.0,
+            "Cost1": 10,
+            "Cost2": 20,
+            "Cost3": 30,
+            "Cost4": 40,
+            "DataB1": 2,
+            "DataB2": 2,
+            "DataB3": 2,
+            "DataB4": 2,
+            "DataC1": 1,
+            "DataC2": 1,
+            "DataC3": 1,
+            "DataC4": 1,
+            "DataD1": 1.0,
+            "DataD2": 1.0,
+            "DataD3": 1.0,
+            "DataD4": 1.0,
+            "DataF1": "possession",
+            "DataF2": "possession",
+            "DataF3": "possession",
+            "DataF4": "possession",
+            "levels": 6,
+            "reqLevel": 1,
+            "Rng1": 9999999.0,
+            "Rng2": 9999999.0,
+            "Rng3": 9999999.0,
+            "Rng4": 9999999.0,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 26,
+          "id": "A050",
+          "fields": {
+            "old": "A050",
+            "new": "\u0000\u0000\u0000\u0000",
+            "mods": [
+              {
+                "key": "acdn",
+                "type": 2,
+                "level": 5,
+                "data": 0,
+                "value": 7.0
+              },
+              {
+                "key": "acdn",
+                "type": 2,
+                "level": 6,
+                "data": 0,
+                "value": 5.0
+              },
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 5,
+                "data": 0,
+                "value": 50
+              },
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 6,
+                "data": 0,
+                "value": 60
+              }
+            ]
+          }
+        }
+      ],
+      "objects": {},
+      "unitCast": {
+        "G055": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 885,
+            "id": "G055",
+            "fields": {
+              "castpt": 0.3,
+              "castbsw": 0.1
+            }
+          }
+        ],
+        "H015": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 925,
+            "id": "H015",
+            "fields": {
+              "castpt": 0.3,
+              "castbsw": 0.1
+            }
+          }
+        ]
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k87",
+          "constantLine": 169676,
+          "pc": 359,
+          "sourceLine": 170390,
+          "instruction": "loadk r5 k87"
+        }
+      ],
+      "functions": {
+        "main/f45": [
+          67193,
+          67218
+        ],
+        "main/f45/f0": [
+          67219,
+          67279
+        ],
+        "main/f45/f1": [
+          67280,
+          67343
+        ]
+      },
+      "web": {
+        "delay": 0.1,
+        "recast": "replace",
+        "destination": "capturedPoint",
+        "caster": "currentLogicalSlot",
+        "mana": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60
+        ],
+        "cooldown": [
+          15,
+          13,
+          11,
+          9,
+          7,
+          5
+        ],
+        "auto": null,
+        "range": 9999999,
+        "order": "possession",
+        "cast": 0.3
+      }
+    },
+    "A079": {
+      "status": "pendingFormation",
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 22,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "孙悟空<SSR>",
+            "H024",
+            3,
+            "学习技能",
+            "猴子猴孙",
+            "A079",
+            6,
+            "齐天大圣变出圆形的猴子猴孙阵列,把周围的敌人打的晕头转向(猴子猴孙继承齐天大圣的攻击力),持续13秒。冷却时间：20秒。",
+            "等级 1｜猴子猴孙继承齐天大圣的50%攻击力。 耗蓝 50点。\n等级 2｜猴子猴孙继承齐天大圣的60%攻击力。 耗蓝 60点。\n等级 3｜猴子猴孙继承齐天大圣的70%攻击力。 耗蓝 70点。\n等级 4｜猴子猴孙继承齐天大圣的80%攻击力。 耗蓝 80点。\n等级 5｜猴子猴孙继承齐天大圣的90%攻击力。 耗蓝 90点。\n等级 6｜猴子猴孙继承齐天大圣的100%攻击力。 耗蓝 100点。",
+            "耗蓝 90／100"
+          ]
+        },
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 142,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "齐天大圣<SSR>",
+            "G036",
+            3,
+            "学习技能",
+            "猴子猴孙",
+            "A079",
+            6,
+            "齐天大圣变出圆形的猴子猴孙阵列,把周围的敌人打的晕头转向(猴子猴孙继承齐天大圣的攻击力),持续13秒。冷却时间：20秒。",
+            "等级 1｜猴子猴孙继承齐天大圣的50%攻击力。 耗蓝 50点。\n等级 2｜猴子猴孙继承齐天大圣的60%攻击力。 耗蓝 60点。\n等级 3｜猴子猴孙继承齐天大圣的70%攻击力。 耗蓝 70点。\n等级 4｜猴子猴孙继承齐天大圣的80%攻击力。 耗蓝 80点。\n等级 5｜猴子猴孙继承齐天大圣的90%攻击力。 耗蓝 90点。\n等级 6｜猴子猴孙继承齐天大圣的100%攻击力。 耗蓝 100点。",
+            "耗蓝 90／100"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 22,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "孙悟空<SSR>",
+            "H024",
+            3,
+            "学习技能",
+            "猴子猴孙",
+            "A079",
+            6,
+            "齐天大圣变出圆形的猴子猴孙阵列,把周围的敌人打的晕头转向(猴子猴孙继承齐天大圣的攻击力),持续13秒。冷却时间：20秒。",
+            "等级 1｜猴子猴孙继承齐天大圣的50%攻击力。 耗蓝 50点。\n等级 2｜猴子猴孙继承齐天大圣的60%攻击力。 耗蓝 60点。\n等级 3｜猴子猴孙继承齐天大圣的70%攻击力。 耗蓝 70点。\n等级 4｜猴子猴孙继承齐天大圣的80%攻击力。 耗蓝 80点。\n等级 5｜猴子猴孙继承齐天大圣的90%攻击力。 耗蓝 90点。\n等级 6｜猴子猴孙继承齐天大圣的100%攻击力。 耗蓝 100点。",
+            "耗蓝 90／100"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 142,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "齐天大圣<SSR>",
+            "G036",
+            3,
+            "学习技能",
+            "猴子猴孙",
+            "A079",
+            6,
+            "齐天大圣变出圆形的猴子猴孙阵列,把周围的敌人打的晕头转向(猴子猴孙继承齐天大圣的攻击力),持续13秒。冷却时间：20秒。",
+            "等级 1｜猴子猴孙继承齐天大圣的50%攻击力。 耗蓝 50点。\n等级 2｜猴子猴孙继承齐天大圣的60%攻击力。 耗蓝 60点。\n等级 3｜猴子猴孙继承齐天大圣的70%攻击力。 耗蓝 70点。\n等级 4｜猴子猴孙继承齐天大圣的80%攻击力。 耗蓝 80点。\n等级 5｜猴子猴孙继承齐天大圣的90%攻击力。 耗蓝 90点。\n等级 6｜猴子猴孙继承齐天大圣的100%攻击力。 耗蓝 100点。",
+            "耗蓝 90／100"
+          ]
+        }
+      ],
+      "shell": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 877,
+          "id": "A079",
+          "fields": {
+            "alias": "A079",
+            "code": "ANcl",
+            "Area1": 800.0,
+            "Area2": 800.0,
+            "Area3": 800.0,
+            "Area4": 800.0,
+            "checkDep": 1,
+            "Cool1": 20.0,
+            "Cool2": 20.0,
+            "Cool3": 20.0,
+            "Cool4": 20.0,
+            "Cost1": 50,
+            "Cost2": 60,
+            "Cost3": 70,
+            "Cost4": 80,
+            "DataB1": 2,
+            "DataB2": 2,
+            "DataB3": 2,
+            "DataB4": 2,
+            "DataC1": 3,
+            "DataC2": 3,
+            "DataC3": 3,
+            "DataC4": 3,
+            "DataF1": "repair",
+            "DataF2": "repair",
+            "DataF3": "repair",
+            "DataF4": "repair",
+            "Dur1": 2.0,
+            "Dur2": 2.0,
+            "Dur3": 2.0,
+            "Dur4": 2.0,
+            "HeroDur1": 0.4,
+            "HeroDur2": 0.4,
+            "HeroDur3": 0.4,
+            "HeroDur4": 0.4,
+            "levels": 6,
+            "reqLevel": 1,
+            "Rng1": 800.0,
+            "Rng2": 800.0,
+            "Rng3": 800.0,
+            "Rng4": 800.0,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 46,
+          "id": "A079",
+          "fields": {
+            "old": "A079",
+            "new": "\u0000\u0000\u0000\u0000",
+            "mods": [
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 5,
+                "data": 0,
+                "value": 90
+              },
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 6,
+                "data": 0,
+                "value": 100
+              }
+            ]
+          }
+        }
+      ],
+      "objects": {
+        "b117": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 992,
+            "id": "b117",
+            "fields": {
+              "unitWeapID": "b117",
+              "acquire": 700.0,
+              "atkType1": "hero",
+              "atkType2": "normal",
+              "backSw1": 0.77,
+              "castbsw": 0.51,
+              "castpt": 0.3,
+              "cool1": 1.3,
+              "dice1": 2,
+              "dmgpt1": 0.4,
+              "Farea1": 25,
+              "Harea1": 50,
+              "Hfact1": 0.5,
+              "impactZ": 120.0,
+              "launchZ": 60.0,
+              "Qarea1": 75,
+              "Qfact1": 0.25,
+              "rangeN1": 700,
+              "RngBuff1": 800.0,
+              "showUI1": 1,
+              "showUI2": 1,
+              "sides1": 5,
+              "splashTargs1": "enemy,ground",
+              "targCount1": 1,
+              "targCount2": 1,
+              "targs1": "ground,structure,air,debris,item,ward",
+              "weapsOn": 1,
+              "weapTp1": "normal"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitabilities.json",
+            "jsonIndex": 992,
+            "id": "b117",
+            "fields": {
+              "unitAbilID": "b117",
+              "abilList": "T061,Avul,Aloc",
+              "auto": "_"
+            }
+          }
+        ],
+        "b118": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 993,
+            "id": "b118",
+            "fields": {
+              "unitWeapID": "b118",
+              "acquire": 700.0,
+              "atkType1": "hero",
+              "atkType2": "normal",
+              "backSw1": 0.77,
+              "castbsw": 0.51,
+              "castpt": 0.3,
+              "cool1": 1.3,
+              "dice1": 2,
+              "dmgpt1": 0.4,
+              "Farea1": 25,
+              "Harea1": 50,
+              "Hfact1": 0.5,
+              "impactZ": 120.0,
+              "launchZ": 60.0,
+              "Qarea1": 75,
+              "Qfact1": 0.25,
+              "rangeN1": 700,
+              "RngBuff1": 800.0,
+              "showUI1": 1,
+              "showUI2": 1,
+              "sides1": 5,
+              "splashTargs1": "enemy,ground",
+              "targCount1": 1,
+              "targCount2": 1,
+              "targs1": "ground,structure,air,debris,item,ward",
+              "weapsOn": 1,
+              "weapTp1": "normal"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitabilities.json",
+            "jsonIndex": 993,
+            "id": "b118",
+            "fields": {
+              "unitAbilID": "b118",
+              "abilList": "T061,Avul,Aloc",
+              "auto": "_"
+            }
+          }
+        ],
+        "b139": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 1010,
+            "id": "b139",
+            "fields": {
+              "unitWeapID": "b139",
+              "acquire": 800.0,
+              "atkType1": "hero",
+              "atkType2": "normal",
+              "backSw1": 0.77,
+              "castbsw": 0.51,
+              "castpt": 0.3,
+              "cool1": 1.0,
+              "dice1": 2,
+              "dmgpt1": 0.4,
+              "Farea1": 25,
+              "Harea1": 50,
+              "Hfact1": 0.5,
+              "impactZ": 120.0,
+              "launchZ": 60.0,
+              "Qarea1": 75,
+              "Qfact1": 0.25,
+              "rangeN1": 800,
+              "RngBuff1": 900.0,
+              "showUI1": 1,
+              "showUI2": 1,
+              "sides1": 5,
+              "splashTargs1": "enemy,ground",
+              "targCount1": 1,
+              "targCount2": 1,
+              "targs1": "ground,structure,air,debris,item,ward",
+              "weapsOn": 1,
+              "weapTp1": "normal"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitabilities.json",
+            "jsonIndex": 1010,
+            "id": "b139",
+            "fields": {
+              "unitAbilID": "b139",
+              "abilList": "T061,Avul,Aloc",
+              "auto": "_"
+            }
+          }
+        ],
+        "b140": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 1011,
+            "id": "b140",
+            "fields": {
+              "unitWeapID": "b140",
+              "acquire": 800.0,
+              "atkType1": "hero",
+              "atkType2": "normal",
+              "backSw1": 0.77,
+              "castbsw": 0.51,
+              "castpt": 0.3,
+              "cool1": 1.0,
+              "dice1": 2,
+              "dmgpt1": 0.4,
+              "Farea1": 25,
+              "Harea1": 50,
+              "Hfact1": 0.5,
+              "impactZ": 120.0,
+              "launchZ": 60.0,
+              "Qarea1": 75,
+              "Qfact1": 0.25,
+              "rangeN1": 800,
+              "RngBuff1": 900.0,
+              "showUI1": 1,
+              "showUI2": 1,
+              "sides1": 5,
+              "splashTargs1": "enemy,ground",
+              "targCount1": 1,
+              "targCount2": 1,
+              "targs1": "ground,structure,air,debris,item,ward",
+              "weapsOn": 1,
+              "weapTp1": "normal"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitabilities.json",
+            "jsonIndex": 1011,
+            "id": "b140",
+            "fields": {
+              "unitAbilID": "b140",
+              "abilList": "T061,Avul,Aloc",
+              "auto": "_"
+            }
+          }
+        ]
+      },
+      "unitCast": {
+        "G036": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 866,
+            "id": "G036",
+            "fields": {
+              "castpt": 0.3,
+              "castbsw": 0.1
+            }
+          }
+        ],
+        "H024": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 934,
+            "id": "H024",
+            "fields": {
+              "castpt": 0.3,
+              "castbsw": 0.1
+            }
+          }
+        ]
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f7",
+          "key": "k65",
+          "constantLine": 49259,
+          "pc": 188,
+          "sourceLine": 49673,
+          "instruction": "loadk r34 k65"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f68/f1",
+          "key": "k4",
+          "constantLine": 74593,
+          "pc": 8,
+          "sourceLine": 74627,
+          "instruction": "loadk r6 k4"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k126",
+          "constantLine": 169715,
+          "pc": 538,
+          "sourceLine": 170589,
+          "instruction": "loadk r5 k126"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k106",
+          "constantLine": 173878,
+          "pc": 1257,
+          "sourceLine": 175428,
+          "instruction": "loadk r14 k106"
+        }
+      ],
+      "functions": {
+        "main/f68": [
+          74389,
+          74411
+        ],
+        "main/f68/f0": [
+          74412,
+          74571
+        ],
+        "main/f68/f1": [
+          74572,
+          74730
+        ]
+      },
+      "web": {
+        "lifetime": 13,
+        "rings": [
+          [
+            400,
+            5,
+            72
+          ],
+          [
+            800,
+            9,
+            40
+          ]
+        ],
+        "bookAttackPercent": [
+          50,
+          60,
+          70,
+          80,
+          90,
+          100
+        ],
+        "pending": "template staff carryover, inherited attack slots, hero damage and A077",
+        "mana": [
+          50,
+          60,
+          70,
+          80,
+          90,
+          100
+        ],
+        "cooldown": [
+          20,
+          20,
+          20,
+          20,
+          20,
+          20
+        ],
+        "auto": 600,
+        "range": 800,
+        "order": "repair",
+        "cast": 0.3
+      }
+    },
+    "A080": {
+      "status": "ready",
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 512,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "白胡子<SR>",
+            "G042",
+            1,
+            "学习技能",
+            "洪流",
+            "A080",
+            6,
+            "船长召唤喷涌的洪流，将敌人冲上天，眩晕2秒。",
+            "等级 1｜受到300点伤害。 耗蓝 15点。冷却 16秒。\n等级 2｜受到600点伤害。 耗蓝 30点。冷却 15秒。\n等级 3｜受到900点伤害。 耗蓝 45点。冷却 14秒。\n等级 4｜受到1200点伤害。 耗蓝 60点。冷却 13秒。\n等级 5｜受到1500点伤害。 耗蓝 75点。冷却 12秒。\n等级 6｜受到1800点伤害。 耗蓝 90点。冷却 11秒。\n伤害类型 法术伤害",
+            "冷却 12.0／11.0；耗蓝 75／90"
+          ]
+        },
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 550,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "舰队统帅<SR>",
+            "H025",
+            1,
+            "学习技能",
+            "洪流",
+            "A080",
+            6,
+            "船长召唤喷涌的洪流，将敌人冲上天，眩晕2秒。",
+            "等级 1｜受到300点伤害。 耗蓝 15点。冷却 16秒。\n等级 2｜受到600点伤害。 耗蓝 30点。冷却 15秒。\n等级 3｜受到900点伤害。 耗蓝 45点。冷却 14秒。\n等级 4｜受到1200点伤害。 耗蓝 60点。冷却 13秒。\n等级 5｜受到1500点伤害。 耗蓝 75点。冷却 12秒。\n等级 6｜受到1800点伤害。 耗蓝 90点。冷却 11秒。\n伤害类型 法术伤害",
+            "冷却 12.0／11.0；耗蓝 75／90"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 512,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "白胡子<SR>",
+            "G042",
+            1,
+            "学习技能",
+            "洪流",
+            "A080",
+            6,
+            "船长召唤喷涌的洪流，将敌人冲上天，眩晕2秒。",
+            "等级 1｜受到300点伤害。 耗蓝 15点。冷却 16秒。\n等级 2｜受到600点伤害。 耗蓝 30点。冷却 15秒。\n等级 3｜受到900点伤害。 耗蓝 45点。冷却 14秒。\n等级 4｜受到1200点伤害。 耗蓝 60点。冷却 13秒。\n等级 5｜受到1500点伤害。 耗蓝 75点。冷却 12秒。\n等级 6｜受到1800点伤害。 耗蓝 90点。冷却 11秒。\n伤害类型 法术伤害",
+            "冷却 12.0／11.0；耗蓝 75／90"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 550,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "舰队统帅<SR>",
+            "H025",
+            1,
+            "学习技能",
+            "洪流",
+            "A080",
+            6,
+            "船长召唤喷涌的洪流，将敌人冲上天，眩晕2秒。",
+            "等级 1｜受到300点伤害。 耗蓝 15点。冷却 16秒。\n等级 2｜受到600点伤害。 耗蓝 30点。冷却 15秒。\n等级 3｜受到900点伤害。 耗蓝 45点。冷却 14秒。\n等级 4｜受到1200点伤害。 耗蓝 60点。冷却 13秒。\n等级 5｜受到1500点伤害。 耗蓝 75点。冷却 12秒。\n等级 6｜受到1800点伤害。 耗蓝 90点。冷却 11秒。\n伤害类型 法术伤害",
+            "冷却 12.0／11.0；耗蓝 75／90"
+          ]
+        }
+      ],
+      "shell": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 878,
+          "id": "A080",
+          "fields": {
+            "alias": "A080",
+            "code": "ANcl",
+            "Area1": 350.0,
+            "Area2": 350.0,
+            "Area3": 350.0,
+            "Area4": 350.0,
+            "checkDep": 1,
+            "Cool1": 16.0,
+            "Cool2": 15.0,
+            "Cool3": 14.0,
+            "Cool4": 13.0,
+            "Cost1": 15,
+            "Cost2": 30,
+            "Cost3": 45,
+            "Cost4": 60,
+            "DataB1": 2,
+            "DataB2": 2,
+            "DataB3": 2,
+            "DataB4": 2,
+            "DataC1": 3,
+            "DataC2": 3,
+            "DataC3": 3,
+            "DataC4": 3,
+            "DataF1": "unburrow",
+            "DataF2": "unburrow",
+            "DataF3": "unburrow",
+            "DataF4": "unburrow",
+            "Dur1": 2.0,
+            "Dur2": 2.0,
+            "Dur3": 2.0,
+            "Dur4": 2.0,
+            "HeroDur1": 2.0,
+            "HeroDur2": 2.0,
+            "HeroDur3": 2.0,
+            "HeroDur4": 2.0,
+            "levels": 6,
+            "reqLevel": 1,
+            "Rng1": 1200.0,
+            "Rng2": 1200.0,
+            "Rng3": 1200.0,
+            "Rng4": 1200.0,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 47,
+          "id": "A080",
+          "fields": {
+            "old": "A080",
+            "new": "\u0000\u0000\u0000\u0000",
+            "mods": [
+              {
+                "key": "acdn",
+                "type": 2,
+                "level": 5,
+                "data": 0,
+                "value": 12.0
+              },
+              {
+                "key": "acdn",
+                "type": 2,
+                "level": 6,
+                "data": 0,
+                "value": 11.0
+              },
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 5,
+                "data": 0,
+                "value": 75
+              },
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 6,
+                "data": 0,
+                "value": 90
+              }
+            ]
+          }
+        }
+      ],
+      "objects": {
+        "T212": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 2083,
+            "id": "T212",
+            "fields": {
+              "alias": "T212",
+              "code": "AOcr",
+              "checkDep": 1,
+              "DataA1": 15.0,
+              "DataB1": 2.0,
+              "levels": 1,
+              "reqLevel": 1,
+              "targs1": "air,ground,enemy,neutral",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ]
+      },
+      "unitCast": {
+        "G042": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 872,
+            "id": "G042",
+            "fields": {
+              "castpt": 0.5,
+              "castbsw": 0.1
+            }
+          }
+        ],
+        "H025": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 935,
+            "id": "H025",
+            "fields": {
+              "castpt": 0.5,
+              "castbsw": 0.1
+            }
+          }
+        ]
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f69/f1",
+          "key": "k6",
+          "constantLine": 74927,
+          "pc": 14,
+          "sourceLine": 74985,
+          "instruction": "loadk r10 k6"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k128",
+          "constantLine": 169717,
+          "pc": 548,
+          "sourceLine": 170600,
+          "instruction": "loadk r5 k128"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k108",
+          "constantLine": 173880,
+          "pc": 1291,
+          "sourceLine": 175464,
+          "instruction": "loadk r14 k108"
+        }
+      ],
+      "functions": {
+        "main/f69": [
+          74731,
+          74764
+        ],
+        "main/f69/f0": [
+          74765,
+          74907
+        ],
+        "main/f69/f1": [
+          74908,
+          75121
+        ]
+      },
+      "web": {
+        "radius": 350,
+        "damage": [
+          300,
+          600,
+          900,
+          1200,
+          1500,
+          1800
+        ],
+        "sourcePeriod": 0.02,
+        "webPeriod": 0.025,
+        "hold": 2,
+        "releaseStep": 80,
+        "firstDescendingStep": 41,
+        "verticalStep": 20,
+        "mark": "T212",
+        "mana": [
+          15,
+          30,
+          45,
+          60,
+          75,
+          90
+        ],
+        "cooldown": [
+          16,
+          15,
+          14,
+          13,
+          12,
+          11
+        ],
+        "auto": 800,
+        "range": 1200,
+        "order": "unburrow",
+        "cast": 0.5
+      }
+    },
+    "A082": {
+      "status": "pendingFleet",
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 514,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "白胡子<SR>",
+            "G042",
+            3,
+            "学习技能",
+            "幽灵船",
+            "A082",
+            6,
+            "舰队统帅召唤出神秘的幽灵船S.S.椰子号，横越战场，直到撞成粉碎，会对撞到的敌方单位造成伤害和1.5秒眩晕。每撞到一个敌方单位，会增加舰队统帅以及周围600范围友方单位5%的攻击速度。施法距离:1000。",
+            "等级 1｜幽灵船造成1000伤害。 耗蓝 40点。冷却 17秒。\n等级 2｜幽灵船造成2000伤害。 耗蓝 55点。冷却 16秒。\n等级 3｜幽灵船造成3000伤害。 耗蓝 70点。冷却 15秒。\n等级 4｜幽灵船造成4000伤害。 耗蓝 85点。冷却 14秒。\n等级 5｜幽灵船造成5000伤害。 耗蓝 100点。冷却 13秒。\n等级 6｜幽灵船造成6000伤害。 耗蓝 120点。冷却 12秒。\n伤害类型 法术伤害",
+            "冷却 13.0／12.0；耗蓝 100／120"
+          ]
+        },
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 552,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "舰队统帅<SR>",
+            "H025",
+            3,
+            "学习技能",
+            "幽灵船",
+            "A082",
+            6,
+            "舰队统帅召唤出神秘的幽灵船S.S.椰子号，横越战场，直到撞成粉碎，会对撞到的敌方单位造成伤害和1.5秒眩晕。每撞到一个敌方单位，会增加舰队统帅以及周围600范围友方单位5%的攻击速度。施法距离:1000。",
+            "等级 1｜幽灵船造成1000伤害。 耗蓝 40点。冷却 17秒。\n等级 2｜幽灵船造成2000伤害。 耗蓝 55点。冷却 16秒。\n等级 3｜幽灵船造成3000伤害。 耗蓝 70点。冷却 15秒。\n等级 4｜幽灵船造成4000伤害。 耗蓝 85点。冷却 14秒。\n等级 5｜幽灵船造成5000伤害。 耗蓝 100点。冷却 13秒。\n等级 6｜幽灵船造成6000伤害。 耗蓝 120点。冷却 12秒。\n伤害类型 法术伤害",
+            "冷却 13.0／12.0；耗蓝 100／120"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 514,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "白胡子<SR>",
+            "G042",
+            3,
+            "学习技能",
+            "幽灵船",
+            "A082",
+            6,
+            "舰队统帅召唤出神秘的幽灵船S.S.椰子号，横越战场，直到撞成粉碎，会对撞到的敌方单位造成伤害和1.5秒眩晕。每撞到一个敌方单位，会增加舰队统帅以及周围600范围友方单位5%的攻击速度。施法距离:1000。",
+            "等级 1｜幽灵船造成1000伤害。 耗蓝 40点。冷却 17秒。\n等级 2｜幽灵船造成2000伤害。 耗蓝 55点。冷却 16秒。\n等级 3｜幽灵船造成3000伤害。 耗蓝 70点。冷却 15秒。\n等级 4｜幽灵船造成4000伤害。 耗蓝 85点。冷却 14秒。\n等级 5｜幽灵船造成5000伤害。 耗蓝 100点。冷却 13秒。\n等级 6｜幽灵船造成6000伤害。 耗蓝 120点。冷却 12秒。\n伤害类型 法术伤害",
+            "冷却 13.0／12.0；耗蓝 100／120"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 552,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "舰队统帅<SR>",
+            "H025",
+            3,
+            "学习技能",
+            "幽灵船",
+            "A082",
+            6,
+            "舰队统帅召唤出神秘的幽灵船S.S.椰子号，横越战场，直到撞成粉碎，会对撞到的敌方单位造成伤害和1.5秒眩晕。每撞到一个敌方单位，会增加舰队统帅以及周围600范围友方单位5%的攻击速度。施法距离:1000。",
+            "等级 1｜幽灵船造成1000伤害。 耗蓝 40点。冷却 17秒。\n等级 2｜幽灵船造成2000伤害。 耗蓝 55点。冷却 16秒。\n等级 3｜幽灵船造成3000伤害。 耗蓝 70点。冷却 15秒。\n等级 4｜幽灵船造成4000伤害。 耗蓝 85点。冷却 14秒。\n等级 5｜幽灵船造成5000伤害。 耗蓝 100点。冷却 13秒。\n等级 6｜幽灵船造成6000伤害。 耗蓝 120点。冷却 12秒。\n伤害类型 法术伤害",
+            "冷却 13.0／12.0；耗蓝 100／120"
+          ]
+        }
+      ],
+      "shell": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 880,
+          "id": "A082",
+          "fields": {
+            "alias": "A082",
+            "code": "ANcl",
+            "Area1": 425.0,
+            "Area2": 425.0,
+            "Area3": 425.0,
+            "Area4": 425.0,
+            "checkDep": 1,
+            "Cool1": 17.0,
+            "Cool2": 16.0,
+            "Cool3": 15.0,
+            "Cool4": 14.0,
+            "Cost1": 40,
+            "Cost2": 55,
+            "Cost3": 70,
+            "Cost4": 85,
+            "DataA1": 0.5,
+            "DataA2": 0.5,
+            "DataA3": 0.5,
+            "DataA4": 0.5,
+            "DataB1": 2,
+            "DataB2": 2,
+            "DataB3": 2,
+            "DataB4": 2,
+            "DataC1": 3,
+            "DataC2": 3,
+            "DataC3": 3,
+            "DataC4": 3,
+            "DataF1": "revive",
+            "DataF2": "revive",
+            "DataF3": "revive",
+            "DataF4": "revive",
+            "HeroDur1": 1.0,
+            "HeroDur2": 1.0,
+            "HeroDur3": 1.0,
+            "HeroDur4": 1.0,
+            "levels": 6,
+            "reqLevel": 1,
+            "Rng1": 1100.0,
+            "Rng2": 1100.0,
+            "Rng3": 1100.0,
+            "Rng4": 1100.0,
+            "targs1": "enemies",
+            "targs2": "enemies",
+            "targs3": "enemies",
+            "targs4": "enemies"
+          }
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 48,
+          "id": "A082",
+          "fields": {
+            "old": "A082",
+            "new": "\u0000\u0000\u0000\u0000",
+            "mods": [
+              {
+                "key": "acdn",
+                "type": 2,
+                "level": 5,
+                "data": 0,
+                "value": 13.0
+              },
+              {
+                "key": "acdn",
+                "type": 2,
+                "level": 6,
+                "data": 0,
+                "value": 12.0
+              },
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 5,
+                "data": 0,
+                "value": 100
+              },
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 6,
+                "data": 0,
+                "value": 120
+              }
+            ]
+          }
+        }
+      ],
+      "objects": {
+        "q022": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 1336,
+            "id": "q022",
+            "fields": {
+              "unitWeapID": "q022",
+              "acquire": 900.0,
+              "atkType1": "spells",
+              "atkType2": "normal",
+              "cool1": 1.0,
+              "dice1": 1,
+              "dmgplus1": 12,
+              "rangeN1": 10,
+              "RngBuff1": 250.0,
+              "showUI1": 1,
+              "showUI2": 1,
+              "sides1": 2,
+              "targCount1": 1,
+              "targCount2": 1,
+              "targs1": "ground,debris,air,item",
+              "weapTp1": "missile"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitabilities.json",
+            "jsonIndex": 1336,
+            "id": "q022",
+            "fields": {
+              "unitAbilID": "q022",
+              "abilList": "Avul,Aloc",
+              "auto": "_"
+            }
+          }
+        ],
+        "T079": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1956,
+            "id": "T079",
+            "fields": {
+              "alias": "T079",
+              "code": "AUcs",
+              "Area1": 425.0,
+              "Area2": 425.0,
+              "Area3": 425.0,
+              "Area4": 425.0,
+              "BuffID1": "BUcs",
+              "BuffID2": "BUcs",
+              "BuffID3": "BUcs",
+              "BuffID4": "BUcs",
+              "checkDep": 1,
+              "DataA1": 1000.0,
+              "DataA2": 2000.0,
+              "DataA3": 3000.0,
+              "DataA4": 4000.0,
+              "DataB1": 9999999.0,
+              "DataB2": 9999999.0,
+              "DataB3": 9999999.0,
+              "DataB4": 9999999.0,
+              "DataC1": 1400.0,
+              "DataC2": 1400.0,
+              "DataC3": 1400.0,
+              "DataC4": 1400.0,
+              "DataD1": 425.0,
+              "DataD2": 425.0,
+              "DataD3": 425.0,
+              "DataD4": 425.0,
+              "levels": 6,
+              "reqLevel": 1,
+              "Rng1": 5000.0,
+              "Rng2": 5000.0,
+              "Rng3": 5000.0,
+              "Rng4": 5000.0,
+              "targs1": "enemies",
+              "targs2": "enemies",
+              "targs3": "enemies",
+              "targs4": "enemies"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/war3map.w3a.json",
+            "jsonIndex": 193,
+            "id": "T079",
+            "fields": {
+              "old": "T079",
+              "new": "\u0000\u0000\u0000\u0000",
+              "mods": [
+                {
+                  "key": "Ucs1",
+                  "type": 2,
+                  "level": 5,
+                  "data": 1,
+                  "value": 5000.0
+                },
+                {
+                  "key": "Ucs1",
+                  "type": 2,
+                  "level": 6,
+                  "data": 1,
+                  "value": 6000.0
+                }
+              ]
+            }
+          }
+        ],
+        "T080": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1957,
+            "id": "T080",
+            "fields": {
+              "alias": "T080",
+              "code": "AUcs",
+              "Area1": 425.0,
+              "Area2": 425.0,
+              "Area3": 425.0,
+              "Area4": 425.0,
+              "BuffID1": "BUcs",
+              "BuffID2": "BUcs",
+              "BuffID3": "BUcs",
+              "BuffID4": "BUcs",
+              "checkDep": 1,
+              "DataA1": 1000.0,
+              "DataA2": 2000.0,
+              "DataA3": 3000.0,
+              "DataA4": 4000.0,
+              "DataB1": 9999999.0,
+              "DataB2": 9999999.0,
+              "DataB3": 9999999.0,
+              "DataB4": 9999999.0,
+              "DataC1": 1400.0,
+              "DataC2": 1400.0,
+              "DataC3": 1400.0,
+              "DataC4": 1400.0,
+              "DataD1": 425.0,
+              "DataD2": 425.0,
+              "DataD3": 425.0,
+              "DataD4": 425.0,
+              "levels": 6,
+              "reqLevel": 1,
+              "Rng1": 5000.0,
+              "Rng2": 5000.0,
+              "Rng3": 5000.0,
+              "Rng4": 5000.0,
+              "targs1": "enemies",
+              "targs2": "enemies",
+              "targs3": "enemies",
+              "targs4": "enemies"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/war3map.w3a.json",
+            "jsonIndex": 194,
+            "id": "T080",
+            "fields": {
+              "old": "T080",
+              "new": "\u0000\u0000\u0000\u0000",
+              "mods": [
+                {
+                  "key": "Ucs1",
+                  "type": 2,
+                  "level": 5,
+                  "data": 1,
+                  "value": 5000.0
+                },
+                {
+                  "key": "Ucs1",
+                  "type": 2,
+                  "level": 6,
+                  "data": 1,
+                  "value": 6000.0
+                }
+              ]
+            }
+          }
+        ],
+        "T081": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1958,
+            "id": "T081",
+            "fields": {
+              "alias": "T081",
+              "code": "AHtb",
+              "BuffID1": "BPSE",
+              "checkDep": 1,
+              "Cool1": 1.0,
+              "Dur1": 1.0,
+              "HeroDur1": 0.4,
+              "levels": 1,
+              "reqLevel": 1,
+              "Rng1": 1000.0,
+              "targs1": "enemies",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ],
+        "T222": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 2093,
+            "id": "T222",
+            "fields": {
+              "alias": "T222",
+              "code": "AOae",
+              "Area1": 600.0,
+              "Area2": 600.0,
+              "Area3": 600.0,
+              "Area4": 600.0,
+              "BuffID1": "B172",
+              "BuffID2": "B172",
+              "BuffID3": "B172",
+              "BuffID4": "B172",
+              "checkDep": 1,
+              "DataB1": 0.05,
+              "DataB2": 0.1,
+              "DataB3": 0.15,
+              "DataB4": 0.2,
+              "levels": 15,
+              "reqLevel": 1,
+              "targs1": "self,friend,invulnerable",
+              "targs2": "self,friend,invulnerable",
+              "targs3": "self,friend,invulnerable",
+              "targs4": "self,friend,invulnerable"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/war3map.w3a.json",
+            "jsonIndex": 253,
+            "id": "T222",
+            "fields": {
+              "old": "T222",
+              "new": "\u0000\u0000\u0000\u0000",
+              "mods": [
+                {
+                  "key": "Oae2",
+                  "type": 2,
+                  "level": 5,
+                  "data": 2,
+                  "value": 0.25
+                },
+                {
+                  "key": "Oae2",
+                  "type": 2,
+                  "level": 6,
+                  "data": 2,
+                  "value": 0.30000001192092896
+                },
+                {
+                  "key": "Oae2",
+                  "type": 2,
+                  "level": 7,
+                  "data": 2,
+                  "value": 0.3499999940395355
+                },
+                {
+                  "key": "Oae2",
+                  "type": 2,
+                  "level": 8,
+                  "data": 2,
+                  "value": 0.4000000059604645
+                },
+                {
+                  "key": "Oae2",
+                  "type": 2,
+                  "level": 9,
+                  "data": 2,
+                  "value": 0.44999998807907104
+                },
+                {
+                  "key": "Oae2",
+                  "type": 2,
+                  "level": 10,
+                  "data": 2,
+                  "value": 0.5
+                },
+                {
+                  "key": "Oae2",
+                  "type": 2,
+                  "level": 11,
+                  "data": 2,
+                  "value": 0.550000011920929
+                },
+                {
+                  "key": "Oae2",
+                  "type": 2,
+                  "level": 12,
+                  "data": 2,
+                  "value": 0.6000000238418579
+                },
+                {
+                  "key": "Oae2",
+                  "type": 2,
+                  "level": 13,
+                  "data": 2,
+                  "value": 0.6499999761581421
+                },
+                {
+                  "key": "Oae2",
+                  "type": 2,
+                  "level": 14,
+                  "data": 2,
+                  "value": 0.699999988079071
+                },
+                {
+                  "key": "Oae2",
+                  "type": 2,
+                  "level": 15,
+                  "data": 2,
+                  "value": 0.75
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "unitCast": {
+        "G042": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 872,
+            "id": "G042",
+            "fields": {
+              "castpt": 0.5,
+              "castbsw": 0.1
+            }
+          }
+        ],
+        "H025": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 935,
+            "id": "H025",
+            "fields": {
+              "castpt": 0.5,
+              "castbsw": 0.1
+            }
+          }
+        ]
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f7",
+          "key": "k67",
+          "constantLine": 49261,
+          "pc": 194,
+          "sourceLine": 49679,
+          "instruction": "loadk r36 k67"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f71/f0",
+          "key": "k27",
+          "constantLine": 75657,
+          "pc": 74,
+          "sourceLine": 75745,
+          "instruction": "loadk r19 k27"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k132",
+          "constantLine": 169721,
+          "pc": 567,
+          "sourceLine": 170621,
+          "instruction": "loadk r5 k132"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k110",
+          "constantLine": 173882,
+          "pc": 1325,
+          "sourceLine": 175500,
+          "instruction": "loadk r14 k110"
+        }
+      ],
+      "functions": {
+        "main/f71": [
+          75579,
+          75613
+        ],
+        "main/f71/f0": [
+          75614,
+          75793
+        ],
+        "main/f71/f1": [
+          75794,
+          75842
+        ],
+        "main/f71/f2": [
+          75843,
+          75995
+        ],
+        "main/f71/f3": [
+          75996,
+          76046
+        ]
+      },
+      "web": {
+        "damage": [
+          1000,
+          2000,
+          3000,
+          4000,
+          5000,
+          6000
+        ],
+        "damageRadius": 425,
+        "stun": 1.5,
+        "aura": [
+          0.05,
+          600,
+          5
+        ],
+        "pending": "ship position and live waveform, fleet reentry/overlap, T222 first/full-stack expiry",
+        "mana": [
+          40,
+          55,
+          70,
+          85,
+          100,
+          120
+        ],
+        "cooldown": [
+          17,
+          16,
+          15,
+          14,
+          13,
+          12
+        ],
+        "auto": 800,
+        "range": 1000,
+        "order": "revive",
+        "cast": 0.5
+      }
+    },
+    "A085": {
+      "status": "ready",
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 398,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "殁境神蚀者<SR>",
+            "H026",
+            3,
+            "学习技能",
+            "神智之蚀",
+            "A085",
+            6,
+            "释放出一道神智冲击波，对范围敌人造成与殁境神蚀者的智力有关的伤害。范围：550。冷却 16秒。",
+            "等级 1｜对敌人造成智力6倍的法术伤害。 耗蓝 100点。\n等级 2｜对敌人造成智力10倍的法术伤害。 耗蓝 140点。\n等级 3｜对敌人造成智力14倍的法术伤害。 耗蓝 180点。\n等级 4｜对敌人造成智力18倍的法术伤害。 耗蓝 220点。\n等级 5｜对敌人造成智力22倍的法术伤害。 耗蓝 260点。\n等级 6｜对敌人造成智力30倍的法术伤害。 耗蓝 300点。\n伤害类型 法术伤害",
+            "耗蓝 260／300"
+          ]
+        },
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 622,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "黑曜御灵者<SR>",
+            "G069",
+            3,
+            "学习技能",
+            "神智之蚀",
+            "A085",
+            6,
+            "释放出一道神智冲击波，对范围敌人造成与殁境神蚀者的智力有关的伤害。范围：550。冷却 16秒。",
+            "等级 1｜对敌人造成智力6倍的法术伤害。 耗蓝 100点。\n等级 2｜对敌人造成智力10倍的法术伤害。 耗蓝 140点。\n等级 3｜对敌人造成智力14倍的法术伤害。 耗蓝 180点。\n等级 4｜对敌人造成智力18倍的法术伤害。 耗蓝 220点。\n等级 5｜对敌人造成智力22倍的法术伤害。 耗蓝 260点。\n等级 6｜对敌人造成智力30倍的法术伤害。 耗蓝 300点。\n伤害类型 法术伤害",
+            "耗蓝 260／300"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 398,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "殁境神蚀者<SR>",
+            "H026",
+            3,
+            "学习技能",
+            "神智之蚀",
+            "A085",
+            6,
+            "释放出一道神智冲击波，对范围敌人造成与殁境神蚀者的智力有关的伤害。范围：550。冷却 16秒。",
+            "等级 1｜对敌人造成智力6倍的法术伤害。 耗蓝 100点。\n等级 2｜对敌人造成智力10倍的法术伤害。 耗蓝 140点。\n等级 3｜对敌人造成智力14倍的法术伤害。 耗蓝 180点。\n等级 4｜对敌人造成智力18倍的法术伤害。 耗蓝 220点。\n等级 5｜对敌人造成智力22倍的法术伤害。 耗蓝 260点。\n等级 6｜对敌人造成智力30倍的法术伤害。 耗蓝 300点。\n伤害类型 法术伤害",
+            "耗蓝 260／300"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 622,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "黑曜御灵者<SR>",
+            "G069",
+            3,
+            "学习技能",
+            "神智之蚀",
+            "A085",
+            6,
+            "释放出一道神智冲击波，对范围敌人造成与殁境神蚀者的智力有关的伤害。范围：550。冷却 16秒。",
+            "等级 1｜对敌人造成智力6倍的法术伤害。 耗蓝 100点。\n等级 2｜对敌人造成智力10倍的法术伤害。 耗蓝 140点。\n等级 3｜对敌人造成智力14倍的法术伤害。 耗蓝 180点。\n等级 4｜对敌人造成智力18倍的法术伤害。 耗蓝 220点。\n等级 5｜对敌人造成智力22倍的法术伤害。 耗蓝 260点。\n等级 6｜对敌人造成智力30倍的法术伤害。 耗蓝 300点。\n伤害类型 法术伤害",
+            "耗蓝 260／300"
+          ]
+        }
+      ],
+      "shell": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 883,
+          "id": "A085",
+          "fields": {
+            "alias": "A085",
+            "code": "ANcl",
+            "Area1": 550.0,
+            "Area2": 550.0,
+            "Area3": 550.0,
+            "Area4": 550.0,
+            "checkDep": 1,
+            "Cool1": 16.0,
+            "Cool2": 16.0,
+            "Cool3": 16.0,
+            "Cool4": 16.0,
+            "Cost1": 100,
+            "Cost2": 140,
+            "Cost3": 180,
+            "Cost4": 220,
+            "DataB1": 2,
+            "DataB2": 2,
+            "DataB3": 2,
+            "DataB4": 2,
+            "DataC1": 3,
+            "DataC2": 3,
+            "DataC3": 3,
+            "DataC4": 3,
+            "DataF1": "web",
+            "DataF2": "web",
+            "DataF3": "web",
+            "DataF4": "web",
+            "levels": 6,
+            "reqLevel": 1,
+            "Rng1": 800.0,
+            "Rng2": 800.0,
+            "Rng3": 800.0,
+            "Rng4": 800.0,
+            "targs1": "enemies",
+            "targs2": "enemies",
+            "targs3": "enemies",
+            "targs4": "enemies"
+          }
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 51,
+          "id": "A085",
+          "fields": {
+            "old": "A085",
+            "new": "\u0000\u0000\u0000\u0000",
+            "mods": [
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 5,
+                "data": 0,
+                "value": 260
+              },
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 6,
+                "data": 0,
+                "value": 300
+              }
+            ]
+          }
+        }
+      ],
+      "objects": {},
+      "unitCast": {
+        "G069": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 899,
+            "id": "G069",
+            "fields": {
+              "castpt": 0.53,
+              "castbsw": 0.1
+            }
+          }
+        ],
+        "H026": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 936,
+            "id": "H026",
+            "fields": {
+              "castpt": 0.53,
+              "castbsw": 0.1
+            }
+          }
+        ]
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f7",
+          "key": "k69",
+          "constantLine": 49263,
+          "pc": 200,
+          "sourceLine": 49685,
+          "instruction": "loadk r38 k69"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f74/f0",
+          "key": "k4",
+          "constantLine": 76596,
+          "pc": 6,
+          "sourceLine": 76655,
+          "instruction": "loadk r7 k4"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k42",
+          "constantLine": 169631,
+          "pc": 153,
+          "sourceLine": 170162,
+          "instruction": "loadk r5 k42"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k87",
+          "constantLine": 173859,
+          "pc": 878,
+          "sourceLine": 175024,
+          "instruction": "loadk r14 k87"
+        }
+      ],
+      "functions": {
+        "main/f74": [
+          76555,
+          76580
+        ],
+        "main/f74/f0": [
+          76581,
+          76847
+        ],
+        "main/f74/f1": [
+          76848,
+          76928
+        ]
+      },
+      "web": {
+        "radius": 550,
+        "intelligenceFactor": [
+          6,
+          10,
+          14,
+          18,
+          22,
+          30
+        ],
+        "scepter": {
+          "intelligencePerLiveP11": "current A083 rank",
+          "expiry": 70,
+          "recast": "independentDeltas"
+        },
+        "mana": [
+          100,
+          140,
+          180,
+          220,
+          260,
+          300
+        ],
+        "cooldown": [
+          16,
+          16,
+          16,
+          16,
+          16,
+          16
+        ],
+        "auto": 700,
+        "range": 800,
+        "order": "web",
+        "cast": 0.53
+      }
+    },
+    "A087": {
+      "status": "ready",
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 206,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "半人马酋长<SR>",
+            "H027",
+            2,
+            "学习技能",
+            "双刃剑",
+            "A087",
+            6,
+            "半人马酋长聚集起内在的力量进行一次威力巨大的攻击，对自己造成自身当前血量相关的伤害，目标周围400范围内敌人会受到双倍伤害。",
+            "等级 1｜当前生命值10%的伤害。冷却 15秒。\n等级 2｜当前生命值20%的伤害。冷却 14秒。\n等级 3｜当前生命值30%的伤害。冷却 13秒。\n等级 4｜当前生命值40%的伤害。冷却 12秒。\n等级 5｜当前生命值50%的伤害。冷却 11秒。\n等级 6｜当前生命值60%的伤害。冷却 10秒。\n伤害类型 神圣伤害",
+            "冷却 11.0／10.0"
+          ]
+        },
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 316,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "恶灵骑士<SR>",
+            "G045",
+            2,
+            "学习技能",
+            "双刃剑",
+            "A087",
+            6,
+            "半人马酋长聚集起内在的力量进行一次威力巨大的攻击，对自己造成自身当前血量相关的伤害，目标周围400范围内敌人会受到双倍伤害。",
+            "等级 1｜当前生命值10%的伤害。冷却 15秒。\n等级 2｜当前生命值20%的伤害。冷却 14秒。\n等级 3｜当前生命值30%的伤害。冷却 13秒。\n等级 4｜当前生命值40%的伤害。冷却 12秒。\n等级 5｜当前生命值50%的伤害。冷却 11秒。\n等级 6｜当前生命值60%的伤害。冷却 10秒。\n伤害类型 神圣伤害",
+            "冷却 11.0／10.0"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 206,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "半人马酋长<SR>",
+            "H027",
+            2,
+            "学习技能",
+            "双刃剑",
+            "A087",
+            6,
+            "半人马酋长聚集起内在的力量进行一次威力巨大的攻击，对自己造成自身当前血量相关的伤害，目标周围400范围内敌人会受到双倍伤害。",
+            "等级 1｜当前生命值10%的伤害。冷却 15秒。\n等级 2｜当前生命值20%的伤害。冷却 14秒。\n等级 3｜当前生命值30%的伤害。冷却 13秒。\n等级 4｜当前生命值40%的伤害。冷却 12秒。\n等级 5｜当前生命值50%的伤害。冷却 11秒。\n等级 6｜当前生命值60%的伤害。冷却 10秒。\n伤害类型 神圣伤害",
+            "冷却 11.0／10.0"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 316,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "恶灵骑士<SR>",
+            "G045",
+            2,
+            "学习技能",
+            "双刃剑",
+            "A087",
+            6,
+            "半人马酋长聚集起内在的力量进行一次威力巨大的攻击，对自己造成自身当前血量相关的伤害，目标周围400范围内敌人会受到双倍伤害。",
+            "等级 1｜当前生命值10%的伤害。冷却 15秒。\n等级 2｜当前生命值20%的伤害。冷却 14秒。\n等级 3｜当前生命值30%的伤害。冷却 13秒。\n等级 4｜当前生命值40%的伤害。冷却 12秒。\n等级 5｜当前生命值50%的伤害。冷却 11秒。\n等级 6｜当前生命值60%的伤害。冷却 10秒。\n伤害类型 神圣伤害",
+            "冷却 11.0／10.0"
+          ]
+        }
+      ],
+      "shell": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 885,
+          "id": "A087",
+          "fields": {
+            "alias": "A087",
+            "code": "ANcl",
+            "checkDep": 1,
+            "Cool1": 15.0,
+            "Cool2": 14.0,
+            "Cool3": 13.0,
+            "Cool4": 12.0,
+            "DataB1": 1,
+            "DataB2": 1,
+            "DataB3": 1,
+            "DataB4": 1,
+            "DataC1": 1,
+            "DataC2": 1,
+            "DataC3": 1,
+            "DataC4": 1,
+            "DataF1": "militia",
+            "DataF2": "militia",
+            "DataF3": "militia",
+            "DataF4": "militia",
+            "levels": 6,
+            "reqLevel": 1,
+            "Rng1": 800.0,
+            "Rng2": 800.0,
+            "Rng3": 800.0,
+            "Rng4": 800.0,
+            "targs1": "enemies",
+            "targs2": "enemies",
+            "targs3": "enemies",
+            "targs4": "enemies"
+          }
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 53,
+          "id": "A087",
+          "fields": {
+            "old": "A087",
+            "new": "\u0000\u0000\u0000\u0000",
+            "mods": [
+              {
+                "key": "acdn",
+                "type": 2,
+                "level": 5,
+                "data": 0,
+                "value": 11.0
+              },
+              {
+                "key": "acdn",
+                "type": 2,
+                "level": 6,
+                "data": 0,
+                "value": 10.0
+              }
+            ]
+          }
+        }
+      ],
+      "objects": {},
+      "unitCast": {
+        "G045": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 875,
+            "id": "G045",
+            "fields": {
+              "castpt": 0.5,
+              "castbsw": 0.1
+            }
+          }
+        ],
+        "H027": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 937,
+            "id": "H027",
+            "fields": {
+              "castpt": 0.5,
+              "castbsw": 0.1
+            }
+          }
+        ]
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f76/f0",
+          "key": "k3",
+          "constantLine": 77049,
+          "pc": 6,
+          "sourceLine": 77092,
+          "instruction": "loadk r5 k3"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k139",
+          "constantLine": 169728,
+          "pc": 601,
+          "sourceLine": 170658,
+          "instruction": "loadk r5 k139"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k121",
+          "constantLine": 173893,
+          "pc": 1519,
+          "sourceLine": 175707,
+          "instruction": "loadk r14 k121"
+        }
+      ],
+      "functions": {
+        "main/f76": [
+          77014,
+          77034
+        ],
+        "main/f76/f0": [
+          77035,
+          77220
+        ]
+      },
+      "web": {
+        "radius": 400,
+        "selfFraction": [
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6
+        ],
+        "baseRemainingFloor": 0.2,
+        "enemyFactor": 2,
+        "selfWrite": "min(postChildCurrentLife, snapshotPostCostFloor)",
+        "mana": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cooldown": [
+          15,
+          14,
+          13,
+          12,
+          11,
+          10
+        ],
+        "auto": 700,
+        "range": 800,
+        "order": "militia",
+        "cast": 0.5
+      }
+    },
+    "A101": {
+      "status": "ready",
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 230,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "吸血鬼伯爵<SR>",
+            "G060",
+            1,
+            "学习技能",
+            "幽冥爆轰",
+            "A101",
+            6,
+            "对目标500范围内造法术成伤害。",
+            "等级 1｜造成600伤害。冷却 10秒。 耗蓝 30点。\n等级 2｜造成1000伤害。冷却 9秒。 耗蓝 60点。\n等级 3｜造成1400伤害。冷却 8秒。 耗蓝 90点。\n等级 4｜造成1800伤害。冷却 7秒。 耗蓝 120点。\n等级 5｜造成2200伤害。冷却 6秒。 耗蓝 150点。\n等级 6｜造成2600伤害。冷却 5秒。 耗蓝 180点。\n伤害类型 法术伤害",
+            "冷却 6.0／5.0；耗蓝 150／180"
+          ]
+        },
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 565,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "遗忘法师<SR>",
+            "H030",
+            1,
+            "学习技能",
+            "幽冥爆轰",
+            "A101",
+            6,
+            "对目标500范围内造法术成伤害。",
+            "等级 1｜造成600伤害。冷却 10秒。 耗蓝 30点。\n等级 2｜造成1000伤害。冷却 9秒。 耗蓝 60点。\n等级 3｜造成1400伤害。冷却 8秒。 耗蓝 90点。\n等级 4｜造成1800伤害。冷却 7秒。 耗蓝 120点。\n等级 5｜造成2200伤害。冷却 6秒。 耗蓝 150点。\n等级 6｜造成2600伤害。冷却 5秒。 耗蓝 180点。\n伤害类型 法术伤害",
+            "冷却 6.0／5.0；耗蓝 150／180"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 230,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "吸血鬼伯爵<SR>",
+            "G060",
+            1,
+            "学习技能",
+            "幽冥爆轰",
+            "A101",
+            6,
+            "对目标500范围内造法术成伤害。",
+            "等级 1｜造成600伤害。冷却 10秒。 耗蓝 30点。\n等级 2｜造成1000伤害。冷却 9秒。 耗蓝 60点。\n等级 3｜造成1400伤害。冷却 8秒。 耗蓝 90点。\n等级 4｜造成1800伤害。冷却 7秒。 耗蓝 120点。\n等级 5｜造成2200伤害。冷却 6秒。 耗蓝 150点。\n等级 6｜造成2600伤害。冷却 5秒。 耗蓝 180点。\n伤害类型 法术伤害",
+            "冷却 6.0／5.0；耗蓝 150／180"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 565,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "遗忘法师<SR>",
+            "H030",
+            1,
+            "学习技能",
+            "幽冥爆轰",
+            "A101",
+            6,
+            "对目标500范围内造法术成伤害。",
+            "等级 1｜造成600伤害。冷却 10秒。 耗蓝 30点。\n等级 2｜造成1000伤害。冷却 9秒。 耗蓝 60点。\n等级 3｜造成1400伤害。冷却 8秒。 耗蓝 90点。\n等级 4｜造成1800伤害。冷却 7秒。 耗蓝 120点。\n等级 5｜造成2200伤害。冷却 6秒。 耗蓝 150点。\n等级 6｜造成2600伤害。冷却 5秒。 耗蓝 180点。\n伤害类型 法术伤害",
+            "冷却 6.0／5.0；耗蓝 150／180"
+          ]
+        }
+      ],
+      "shell": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 899,
+          "id": "A101",
+          "fields": {
+            "alias": "A101",
+            "code": "ANcl",
+            "Area1": 500.0,
+            "Area2": 500.0,
+            "Area3": 500.0,
+            "Area4": 500.0,
+            "checkDep": 1,
+            "Cool1": 10.0,
+            "Cool2": 9.0,
+            "Cool3": 8.0,
+            "Cool4": 7.0,
+            "Cost1": 30,
+            "Cost2": 60,
+            "Cost3": 90,
+            "Cost4": 120,
+            "DataB1": 2,
+            "DataB2": 2,
+            "DataB3": 2,
+            "DataB4": 2,
+            "DataC1": 3,
+            "DataC2": 3,
+            "DataC3": 3,
+            "DataC4": 3,
+            "DataF1": "absorb",
+            "DataF2": "absorb",
+            "DataF3": "absorb",
+            "DataF4": "absorb",
+            "levels": 6,
+            "reqLevel": 1,
+            "Rng1": 800.0,
+            "Rng2": 800.0,
+            "Rng3": 800.0,
+            "Rng4": 800.0,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 62,
+          "id": "A101",
+          "fields": {
+            "old": "A101",
+            "new": "\u0000\u0000\u0000\u0000",
+            "mods": [
+              {
+                "key": "acdn",
+                "type": 2,
+                "level": 5,
+                "data": 0,
+                "value": 6.0
+              },
+              {
+                "key": "acdn",
+                "type": 2,
+                "level": 6,
+                "data": 0,
+                "value": 5.0
+              },
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 5,
+                "data": 0,
+                "value": 150
+              },
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 6,
+                "data": 0,
+                "value": 180
+              }
+            ]
+          }
+        }
+      ],
+      "objects": {},
+      "unitCast": {
+        "G060": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 890,
+            "id": "G060",
+            "fields": {
+              "castpt": 0.3,
+              "castbsw": 0.1
+            }
+          }
+        ],
+        "H030": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 940,
+            "id": "H030",
+            "fields": {
+              "castpt": 0.3,
+              "castbsw": 0.1
+            }
+          }
+        ]
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f81/f0",
+          "key": "k4",
+          "constantLine": 78442,
+          "pc": 10,
+          "sourceLine": 78472,
+          "instruction": "loadk r7 k4"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k147",
+          "constantLine": 169736,
+          "pc": 649,
+          "sourceLine": 170711,
+          "instruction": "loadk r5 k147"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k125",
+          "constantLine": 173897,
+          "pc": 1622,
+          "sourceLine": 175817,
+          "instruction": "loadk r14 k125"
+        }
+      ],
+      "functions": {
+        "main/f81": [
+          78406,
+          78426
+        ],
+        "main/f81/f0": [
+          78427,
+          78517
+        ]
+      },
+      "web": {
+        "radius": 500,
+        "damage": [
+          600,
+          1000,
+          1400,
+          1800,
+          2200,
+          2600
+        ],
+        "delay": {
+          "G060": 0.2,
+          "default": 0.8
+        },
+        "mana": [
+          30,
+          60,
+          90,
+          120,
+          150,
+          180
+        ],
+        "cooldown": [
+          10,
+          9,
+          8,
+          7,
+          6,
+          5
+        ],
+        "auto": 700,
+        "range": 800,
+        "order": "absorb",
+        "cast": 0.3
+      }
+    },
+    "A102": {
+      "status": "ready",
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 231,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "吸血鬼伯爵<SR>",
+            "G060",
+            2,
+            "学习技能",
+            "衰老",
+            "A102",
+            6,
+            "将目标300范围内敌方单位暂时放逐到冥界，受到的物理伤害减少50%，法术伤害提升50%。",
+            "等级 1｜冷却时间：13秒。 耗蓝 20点。\n等级 2｜冷却时间：12秒。 耗蓝 30点。\n等级 3｜冷却时间：11秒。 耗蓝 40点。\n等级 4｜冷却时间：10秒。 耗蓝 50点。\n等级 5｜冷却时间：9秒。 耗蓝 60点。\n等级 6｜冷却时间：8秒。 耗蓝 70点。",
+            "冷却 9.0／8.0；耗蓝 60／70"
+          ]
+        },
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 566,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "遗忘法师<SR>",
+            "H030",
+            2,
+            "学习技能",
+            "衰老",
+            "A102",
+            6,
+            "将目标300范围内敌方单位暂时放逐到冥界，受到的物理伤害减少50%，法术伤害提升50%。",
+            "等级 1｜冷却时间：13秒。 耗蓝 20点。\n等级 2｜冷却时间：12秒。 耗蓝 30点。\n等级 3｜冷却时间：11秒。 耗蓝 40点。\n等级 4｜冷却时间：10秒。 耗蓝 50点。\n等级 5｜冷却时间：9秒。 耗蓝 60点。\n等级 6｜冷却时间：8秒。 耗蓝 70点。",
+            "冷却 9.0／8.0；耗蓝 60／70"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 231,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "吸血鬼伯爵<SR>",
+            "G060",
+            2,
+            "学习技能",
+            "衰老",
+            "A102",
+            6,
+            "将目标300范围内敌方单位暂时放逐到冥界，受到的物理伤害减少50%，法术伤害提升50%。",
+            "等级 1｜冷却时间：13秒。 耗蓝 20点。\n等级 2｜冷却时间：12秒。 耗蓝 30点。\n等级 3｜冷却时间：11秒。 耗蓝 40点。\n等级 4｜冷却时间：10秒。 耗蓝 50点。\n等级 5｜冷却时间：9秒。 耗蓝 60点。\n等级 6｜冷却时间：8秒。 耗蓝 70点。",
+            "冷却 9.0／8.0；耗蓝 60／70"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 566,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "遗忘法师<SR>",
+            "H030",
+            2,
+            "学习技能",
+            "衰老",
+            "A102",
+            6,
+            "将目标300范围内敌方单位暂时放逐到冥界，受到的物理伤害减少50%，法术伤害提升50%。",
+            "等级 1｜冷却时间：13秒。 耗蓝 20点。\n等级 2｜冷却时间：12秒。 耗蓝 30点。\n等级 3｜冷却时间：11秒。 耗蓝 40点。\n等级 4｜冷却时间：10秒。 耗蓝 50点。\n等级 5｜冷却时间：9秒。 耗蓝 60点。\n等级 6｜冷却时间：8秒。 耗蓝 70点。",
+            "冷却 9.0／8.0；耗蓝 60／70"
+          ]
+        }
+      ],
+      "shell": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 900,
+          "id": "A102",
+          "fields": {
+            "alias": "A102",
+            "code": "ANcl",
+            "Area1": 300.0,
+            "Area2": 300.0,
+            "Area3": 300.0,
+            "Area4": 300.0,
+            "checkDep": 1,
+            "Cool1": 13.0,
+            "Cool2": 12.0,
+            "Cool3": 11.0,
+            "Cool4": 10.0,
+            "Cost1": 20,
+            "Cost2": 30,
+            "Cost3": 40,
+            "Cost4": 50,
+            "DataB1": 2,
+            "DataB2": 2,
+            "DataB3": 2,
+            "DataB4": 2,
+            "DataC1": 3,
+            "DataC2": 3,
+            "DataC3": 3,
+            "DataC4": 3,
+            "DataF1": "web",
+            "DataF2": "web",
+            "DataF3": "web",
+            "DataF4": "web",
+            "Dur1": 5.0,
+            "Dur2": 5.0,
+            "Dur3": 5.0,
+            "Dur4": 5.0,
+            "HeroDur1": 5.0,
+            "HeroDur2": 5.0,
+            "HeroDur3": 5.0,
+            "HeroDur4": 5.0,
+            "levels": 6,
+            "reqLevel": 1,
+            "Rng1": 800.0,
+            "Rng2": 800.0,
+            "Rng3": 800.0,
+            "Rng4": 800.0,
+            "targs1": "enemies",
+            "targs2": "enemies",
+            "targs3": "enemies",
+            "targs4": "enemies"
+          }
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 63,
+          "id": "A102",
+          "fields": {
+            "old": "A102",
+            "new": "\u0000\u0000\u0000\u0000",
+            "mods": [
+              {
+                "key": "acdn",
+                "type": 2,
+                "level": 5,
+                "data": 0,
+                "value": 9.0
+              },
+              {
+                "key": "acdn",
+                "type": 2,
+                "level": 6,
+                "data": 0,
+                "value": 8.0
+              },
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 5,
+                "data": 0,
+                "value": 60
+              },
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 6,
+                "data": 0,
+                "value": 70
+              }
+            ]
+          }
+        }
+      ],
+      "objects": {
+        "T098": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1975,
+            "id": "T098",
+            "fields": {
+              "alias": "T098",
+              "code": "Aslo",
+              "BuffID1": "B100",
+              "checkDep": 1,
+              "Cool1": 10.0,
+              "Cost1": 200,
+              "DataA1": 0.5,
+              "Dur1": 5.0,
+              "HeroDur1": 5.0,
+              "levels": 1,
+              "priority": 3,
+              "Rng1": 500.0,
+              "targs1": "enemies",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ],
+        "B100": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+            "jsonIndex": 334,
+            "id": "B100",
+            "fields": {
+              "alias": "B100"
+            }
+          }
+        ]
+      },
+      "unitCast": {
+        "G060": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 890,
+            "id": "G060",
+            "fields": {
+              "castpt": 0.3,
+              "castbsw": 0.1
+            }
+          }
+        ],
+        "H030": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 940,
+            "id": "H030",
+            "fields": {
+              "castpt": 0.3,
+              "castbsw": 0.1
+            }
+          }
+        ]
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f82/f0",
+          "key": "k2",
+          "constantLine": 78552,
+          "pc": 4,
+          "sourceLine": 78586,
+          "instruction": "loadk r5 k2"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k149",
+          "constantLine": 169738,
+          "pc": 659,
+          "sourceLine": 170722,
+          "instruction": "loadk r5 k149"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k124",
+          "constantLine": 173896,
+          "pc": 1592,
+          "sourceLine": 175785,
+          "instruction": "loadk r14 k124"
+        }
+      ],
+      "functions": {
+        "main/f82": [
+          78518,
+          78538
+        ],
+        "main/f82/f0": [
+          78539,
+          78672
+        ]
+      },
+      "web": {
+        "radius": 300,
+        "carrierLifetime": 2,
+        "status": "B100",
+        "duration": 5,
+        "moveSlow": 0.5,
+        "physicalFactor": 0.5,
+        "spellFactor": 1.5,
+        "sourceSpellFactor": 1.4,
+        "mana": [
+          20,
+          30,
+          40,
+          50,
+          60,
+          70
+        ],
+        "cooldown": [
+          13,
+          12,
+          11,
+          10,
+          9,
+          8
+        ],
+        "auto": 750,
+        "range": 800,
+        "order": "web",
+        "cast": 0.3
+      }
+    },
+    "A108": {
+      "status": "ready",
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 80,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "炼金术士<SSR>",
+            "E010",
+            1,
+            "学习技能",
+            "酸性喷雾",
+            "A108",
+            6,
+            "在目标区域形成高腐蚀性的酸性雾气，持续5秒。逗留被腐蚀区域的敌方单位将持续受到伤害，护甲同时被降低。(同时附加一个与自身金币相关的伤害，伤害存在上限)",
+            "等级 1｜造成150点每秒的基础伤害。冷却 15秒。 耗蓝 30点。\n等级 2｜造成300点每秒的基础伤害。冷却 14秒。 耗蓝 60点。\n等级 3｜造成450点每秒的基础伤害。冷却 13秒。 耗蓝 95点。\n等级 4｜造成600点每秒的基础伤害。冷却 11秒。 耗蓝 140点。\n等级 5｜造成750点每秒的基础伤害。冷却 10秒。 耗蓝 170点。\n等级 6｜造成900点每秒的基础伤害。冷却 9秒。 耗蓝 210点。\n伤害类型 物理伤害",
+            "冷却 10.0／9.0；耗蓝 170／210"
+          ]
+        },
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 85,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "炼金术士<SSR>",
+            "E011",
+            1,
+            "学习技能",
+            "酸性喷雾",
+            "A108",
+            6,
+            "在目标区域形成高腐蚀性的酸性雾气，持续5秒。逗留被腐蚀区域的敌方单位将持续受到伤害，护甲同时被降低。(同时附加一个与自身金币相关的伤害，伤害存在上限)",
+            "等级 1｜造成150点每秒的基础伤害。冷却 15秒。 耗蓝 30点。\n等级 2｜造成300点每秒的基础伤害。冷却 14秒。 耗蓝 60点。\n等级 3｜造成450点每秒的基础伤害。冷却 13秒。 耗蓝 95点。\n等级 4｜造成600点每秒的基础伤害。冷却 11秒。 耗蓝 140点。\n等级 5｜造成750点每秒的基础伤害。冷却 10秒。 耗蓝 170点。\n等级 6｜造成900点每秒的基础伤害。冷却 9秒。 耗蓝 210点。\n伤害类型 物理伤害",
+            "冷却 10.0／9.0；耗蓝 170／210"
+          ]
+        },
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 90,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "炼金术士<SSR>",
+            "E012",
+            1,
+            "学习技能",
+            "酸性喷雾",
+            "A108",
+            6,
+            "在目标区域形成高腐蚀性的酸性雾气，持续5秒。逗留被腐蚀区域的敌方单位将持续受到伤害，护甲同时被降低。(同时附加一个与自身金币相关的伤害，伤害存在上限)",
+            "等级 1｜造成150点每秒的基础伤害。冷却 15秒。 耗蓝 30点。\n等级 2｜造成300点每秒的基础伤害。冷却 14秒。 耗蓝 60点。\n等级 3｜造成450点每秒的基础伤害。冷却 13秒。 耗蓝 95点。\n等级 4｜造成600点每秒的基础伤害。冷却 11秒。 耗蓝 140点。\n等级 5｜造成750点每秒的基础伤害。冷却 10秒。 耗蓝 170点。\n等级 6｜造成900点每秒的基础伤害。冷却 9秒。 耗蓝 210点。\n伤害类型 物理伤害",
+            "冷却 10.0／9.0；耗蓝 170／210"
+          ]
+        },
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 95,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "炼金术士<SSR>",
+            "E013",
+            1,
+            "学习技能",
+            "酸性喷雾",
+            "A108",
+            6,
+            "在目标区域形成高腐蚀性的酸性雾气，持续5秒。逗留被腐蚀区域的敌方单位将持续受到伤害，护甲同时被降低。(同时附加一个与自身金币相关的伤害，伤害存在上限)",
+            "等级 1｜造成150点每秒的基础伤害。冷却 15秒。 耗蓝 30点。\n等级 2｜造成300点每秒的基础伤害。冷却 14秒。 耗蓝 60点。\n等级 3｜造成450点每秒的基础伤害。冷却 13秒。 耗蓝 95点。\n等级 4｜造成600点每秒的基础伤害。冷却 11秒。 耗蓝 140点。\n等级 5｜造成750点每秒的基础伤害。冷却 10秒。 耗蓝 170点。\n等级 6｜造成900点每秒的基础伤害。冷却 9秒。 耗蓝 210点。\n伤害类型 物理伤害",
+            "冷却 10.0／9.0；耗蓝 170／210"
+          ]
+        },
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 100,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "炼金术士<SSR>",
+            "E014",
+            1,
+            "学习技能",
+            "酸性喷雾",
+            "A108",
+            6,
+            "在目标区域形成高腐蚀性的酸性雾气，持续5秒。逗留被腐蚀区域的敌方单位将持续受到伤害，护甲同时被降低。(同时附加一个与自身金币相关的伤害，伤害存在上限)",
+            "等级 1｜造成150点每秒的基础伤害。冷却 15秒。 耗蓝 30点。\n等级 2｜造成300点每秒的基础伤害。冷却 14秒。 耗蓝 60点。\n等级 3｜造成450点每秒的基础伤害。冷却 13秒。 耗蓝 95点。\n等级 4｜造成600点每秒的基础伤害。冷却 11秒。 耗蓝 140点。\n等级 5｜造成750点每秒的基础伤害。冷却 10秒。 耗蓝 170点。\n等级 6｜造成900点每秒的基础伤害。冷却 9秒。 耗蓝 210点。\n伤害类型 物理伤害",
+            "冷却 10.0／9.0；耗蓝 170／210"
+          ]
+        },
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 105,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "炼金术士<SSR>",
+            "E015",
+            1,
+            "学习技能",
+            "酸性喷雾",
+            "A108",
+            6,
+            "在目标区域形成高腐蚀性的酸性雾气，持续5秒。逗留被腐蚀区域的敌方单位将持续受到伤害，护甲同时被降低。(同时附加一个与自身金币相关的伤害，伤害存在上限)",
+            "等级 1｜造成150点每秒的基础伤害。冷却 15秒。 耗蓝 30点。\n等级 2｜造成300点每秒的基础伤害。冷却 14秒。 耗蓝 60点。\n等级 3｜造成450点每秒的基础伤害。冷却 13秒。 耗蓝 95点。\n等级 4｜造成600点每秒的基础伤害。冷却 11秒。 耗蓝 140点。\n等级 5｜造成750点每秒的基础伤害。冷却 10秒。 耗蓝 170点。\n等级 6｜造成900点每秒的基础伤害。冷却 9秒。 耗蓝 210点。\n伤害类型 物理伤害",
+            "冷却 10.0／9.0；耗蓝 170／210"
+          ]
+        },
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 110,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "炼金术士<SSR>",
+            "H032",
+            1,
+            "学习技能",
+            "酸性喷雾",
+            "A108",
+            6,
+            "在目标区域形成高腐蚀性的酸性雾气，持续5秒。逗留被腐蚀区域的敌方单位将持续受到伤害，护甲同时被降低。(同时附加一个与自身金币相关的伤害，伤害存在上限)",
+            "等级 1｜造成150点每秒的基础伤害。冷却 15秒。 耗蓝 30点。\n等级 2｜造成300点每秒的基础伤害。冷却 14秒。 耗蓝 60点。\n等级 3｜造成450点每秒的基础伤害。冷却 13秒。 耗蓝 95点。\n等级 4｜造成600点每秒的基础伤害。冷却 11秒。 耗蓝 140点。\n等级 5｜造成750点每秒的基础伤害。冷却 10秒。 耗蓝 170点。\n等级 6｜造成900点每秒的基础伤害。冷却 9秒。 耗蓝 210点。\n伤害类型 物理伤害",
+            "冷却 10.0／9.0；耗蓝 170／210"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 80,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "炼金术士<SSR>",
+            "E010",
+            1,
+            "学习技能",
+            "酸性喷雾",
+            "A108",
+            6,
+            "在目标区域形成高腐蚀性的酸性雾气，持续5秒。逗留被腐蚀区域的敌方单位将持续受到伤害，护甲同时被降低。(同时附加一个与自身金币相关的伤害，伤害存在上限)",
+            "等级 1｜造成150点每秒的基础伤害。冷却 15秒。 耗蓝 30点。\n等级 2｜造成300点每秒的基础伤害。冷却 14秒。 耗蓝 60点。\n等级 3｜造成450点每秒的基础伤害。冷却 13秒。 耗蓝 95点。\n等级 4｜造成600点每秒的基础伤害。冷却 11秒。 耗蓝 140点。\n等级 5｜造成750点每秒的基础伤害。冷却 10秒。 耗蓝 170点。\n等级 6｜造成900点每秒的基础伤害。冷却 9秒。 耗蓝 210点。\n伤害类型 物理伤害",
+            "冷却 10.0／9.0；耗蓝 170／210"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 85,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "炼金术士<SSR>",
+            "E011",
+            1,
+            "学习技能",
+            "酸性喷雾",
+            "A108",
+            6,
+            "在目标区域形成高腐蚀性的酸性雾气，持续5秒。逗留被腐蚀区域的敌方单位将持续受到伤害，护甲同时被降低。(同时附加一个与自身金币相关的伤害，伤害存在上限)",
+            "等级 1｜造成150点每秒的基础伤害。冷却 15秒。 耗蓝 30点。\n等级 2｜造成300点每秒的基础伤害。冷却 14秒。 耗蓝 60点。\n等级 3｜造成450点每秒的基础伤害。冷却 13秒。 耗蓝 95点。\n等级 4｜造成600点每秒的基础伤害。冷却 11秒。 耗蓝 140点。\n等级 5｜造成750点每秒的基础伤害。冷却 10秒。 耗蓝 170点。\n等级 6｜造成900点每秒的基础伤害。冷却 9秒。 耗蓝 210点。\n伤害类型 物理伤害",
+            "冷却 10.0／9.0；耗蓝 170／210"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 90,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "炼金术士<SSR>",
+            "E012",
+            1,
+            "学习技能",
+            "酸性喷雾",
+            "A108",
+            6,
+            "在目标区域形成高腐蚀性的酸性雾气，持续5秒。逗留被腐蚀区域的敌方单位将持续受到伤害，护甲同时被降低。(同时附加一个与自身金币相关的伤害，伤害存在上限)",
+            "等级 1｜造成150点每秒的基础伤害。冷却 15秒。 耗蓝 30点。\n等级 2｜造成300点每秒的基础伤害。冷却 14秒。 耗蓝 60点。\n等级 3｜造成450点每秒的基础伤害。冷却 13秒。 耗蓝 95点。\n等级 4｜造成600点每秒的基础伤害。冷却 11秒。 耗蓝 140点。\n等级 5｜造成750点每秒的基础伤害。冷却 10秒。 耗蓝 170点。\n等级 6｜造成900点每秒的基础伤害。冷却 9秒。 耗蓝 210点。\n伤害类型 物理伤害",
+            "冷却 10.0／9.0；耗蓝 170／210"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 95,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "炼金术士<SSR>",
+            "E013",
+            1,
+            "学习技能",
+            "酸性喷雾",
+            "A108",
+            6,
+            "在目标区域形成高腐蚀性的酸性雾气，持续5秒。逗留被腐蚀区域的敌方单位将持续受到伤害，护甲同时被降低。(同时附加一个与自身金币相关的伤害，伤害存在上限)",
+            "等级 1｜造成150点每秒的基础伤害。冷却 15秒。 耗蓝 30点。\n等级 2｜造成300点每秒的基础伤害。冷却 14秒。 耗蓝 60点。\n等级 3｜造成450点每秒的基础伤害。冷却 13秒。 耗蓝 95点。\n等级 4｜造成600点每秒的基础伤害。冷却 11秒。 耗蓝 140点。\n等级 5｜造成750点每秒的基础伤害。冷却 10秒。 耗蓝 170点。\n等级 6｜造成900点每秒的基础伤害。冷却 9秒。 耗蓝 210点。\n伤害类型 物理伤害",
+            "冷却 10.0／9.0；耗蓝 170／210"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 100,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "炼金术士<SSR>",
+            "E014",
+            1,
+            "学习技能",
+            "酸性喷雾",
+            "A108",
+            6,
+            "在目标区域形成高腐蚀性的酸性雾气，持续5秒。逗留被腐蚀区域的敌方单位将持续受到伤害，护甲同时被降低。(同时附加一个与自身金币相关的伤害，伤害存在上限)",
+            "等级 1｜造成150点每秒的基础伤害。冷却 15秒。 耗蓝 30点。\n等级 2｜造成300点每秒的基础伤害。冷却 14秒。 耗蓝 60点。\n等级 3｜造成450点每秒的基础伤害。冷却 13秒。 耗蓝 95点。\n等级 4｜造成600点每秒的基础伤害。冷却 11秒。 耗蓝 140点。\n等级 5｜造成750点每秒的基础伤害。冷却 10秒。 耗蓝 170点。\n等级 6｜造成900点每秒的基础伤害。冷却 9秒。 耗蓝 210点。\n伤害类型 物理伤害",
+            "冷却 10.0／9.0；耗蓝 170／210"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 105,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "炼金术士<SSR>",
+            "E015",
+            1,
+            "学习技能",
+            "酸性喷雾",
+            "A108",
+            6,
+            "在目标区域形成高腐蚀性的酸性雾气，持续5秒。逗留被腐蚀区域的敌方单位将持续受到伤害，护甲同时被降低。(同时附加一个与自身金币相关的伤害，伤害存在上限)",
+            "等级 1｜造成150点每秒的基础伤害。冷却 15秒。 耗蓝 30点。\n等级 2｜造成300点每秒的基础伤害。冷却 14秒。 耗蓝 60点。\n等级 3｜造成450点每秒的基础伤害。冷却 13秒。 耗蓝 95点。\n等级 4｜造成600点每秒的基础伤害。冷却 11秒。 耗蓝 140点。\n等级 5｜造成750点每秒的基础伤害。冷却 10秒。 耗蓝 170点。\n等级 6｜造成900点每秒的基础伤害。冷却 9秒。 耗蓝 210点。\n伤害类型 物理伤害",
+            "冷却 10.0／9.0；耗蓝 170／210"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 110,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "炼金术士<SSR>",
+            "H032",
+            1,
+            "学习技能",
+            "酸性喷雾",
+            "A108",
+            6,
+            "在目标区域形成高腐蚀性的酸性雾气，持续5秒。逗留被腐蚀区域的敌方单位将持续受到伤害，护甲同时被降低。(同时附加一个与自身金币相关的伤害，伤害存在上限)",
+            "等级 1｜造成150点每秒的基础伤害。冷却 15秒。 耗蓝 30点。\n等级 2｜造成300点每秒的基础伤害。冷却 14秒。 耗蓝 60点。\n等级 3｜造成450点每秒的基础伤害。冷却 13秒。 耗蓝 95点。\n等级 4｜造成600点每秒的基础伤害。冷却 11秒。 耗蓝 140点。\n等级 5｜造成750点每秒的基础伤害。冷却 10秒。 耗蓝 170点。\n等级 6｜造成900点每秒的基础伤害。冷却 9秒。 耗蓝 210点。\n伤害类型 物理伤害",
+            "冷却 10.0／9.0；耗蓝 170／210"
+          ]
+        }
+      ],
+      "shell": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 906,
+          "id": "A108",
+          "fields": {
+            "alias": "A108",
+            "code": "ANcl",
+            "Area1": 500.0,
+            "Area2": 500.0,
+            "Area3": 500.0,
+            "Area4": 500.0,
+            "checkDep": 1,
+            "Cool1": 15.0,
+            "Cool2": 14.0,
+            "Cool3": 13.0,
+            "Cool4": 11.0,
+            "Cost1": 30,
+            "Cost2": 60,
+            "Cost3": 95,
+            "Cost4": 140,
+            "DataB1": 2,
+            "DataB2": 2,
+            "DataB3": 2,
+            "DataB4": 2,
+            "DataC1": 3,
+            "DataC2": 3,
+            "DataC3": 3,
+            "DataC4": 3,
+            "DataF1": "absorb",
+            "DataF2": "absorb",
+            "DataF3": "absorb",
+            "DataF4": "absorb",
+            "levels": 6,
+            "reqLevel": 1,
+            "Rng1": 800.0,
+            "Rng2": 800.0,
+            "Rng3": 800.0,
+            "Rng4": 800.0,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 67,
+          "id": "A108",
+          "fields": {
+            "old": "A108",
+            "new": "\u0000\u0000\u0000\u0000",
+            "mods": [
+              {
+                "key": "acdn",
+                "type": 2,
+                "level": 5,
+                "data": 0,
+                "value": 10.0
+              },
+              {
+                "key": "acdn",
+                "type": 2,
+                "level": 6,
+                "data": 0,
+                "value": 9.0
+              },
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 5,
+                "data": 0,
+                "value": 170
+              },
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 6,
+                "data": 0,
+                "value": 210
+              }
+            ]
+          }
+        }
+      ],
+      "objects": {
+        "T102": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1979,
+            "id": "T102",
+            "fields": {
+              "alias": "T102",
+              "code": "AHad",
+              "Area1": 550.0,
+              "Area2": 550.0,
+              "Area3": 550.0,
+              "Area4": 550.0,
+              "BuffID1": "B101",
+              "BuffID2": "B101",
+              "BuffID3": "B101",
+              "BuffID4": "B101",
+              "checkDep": 1,
+              "DataA1": -30.0,
+              "DataA2": -35.0,
+              "DataA3": -40.0,
+              "DataA4": -45.0,
+              "Dur2": 4.0,
+              "Dur3": 4.0,
+              "Dur4": 4.0,
+              "HeroDur2": 2.0,
+              "HeroDur3": 2.0,
+              "HeroDur4": 2.0,
+              "levels": 6,
+              "reqLevel": 1,
+              "targs1": "enemies",
+              "targs2": "enemies",
+              "targs3": "enemies",
+              "targs4": "enemies"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/war3map.w3a.json",
+            "jsonIndex": 204,
+            "id": "T102",
+            "fields": {
+              "old": "T102",
+              "new": "\u0000\u0000\u0000\u0000",
+              "mods": [
+                {
+                  "key": "Had1",
+                  "type": 2,
+                  "level": 5,
+                  "data": 1,
+                  "value": -50.0
+                },
+                {
+                  "key": "Had1",
+                  "type": 2,
+                  "level": 6,
+                  "data": 1,
+                  "value": -60.0
+                }
+              ]
+            }
+          }
+        ],
+        "B101": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+            "jsonIndex": 335,
+            "id": "B101",
+            "fields": {
+              "alias": "B101"
+            }
+          }
+        ]
+      },
+      "unitCast": {
+        "E010": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 842,
+            "id": "E010",
+            "fields": {
+              "castpt": 0.4,
+              "castbsw": 0.1
+            }
+          }
+        ],
+        "E011": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 843,
+            "id": "E011",
+            "fields": {
+              "castpt": 0.4,
+              "castbsw": 0.1
+            }
+          }
+        ],
+        "E012": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 844,
+            "id": "E012",
+            "fields": {
+              "castpt": 0.4,
+              "castbsw": 0.1
+            }
+          }
+        ],
+        "E013": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 845,
+            "id": "E013",
+            "fields": {
+              "castpt": 0.4,
+              "castbsw": 0.1
+            }
+          }
+        ],
+        "E014": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 846,
+            "id": "E014",
+            "fields": {
+              "castpt": 0.4,
+              "castbsw": 0.1
+            }
+          }
+        ],
+        "E015": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 847,
+            "id": "E015",
+            "fields": {
+              "castpt": 0.4,
+              "castbsw": 0.1
+            }
+          }
+        ],
+        "H032": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 942,
+            "id": "H032",
+            "fields": {
+              "castpt": 0.4,
+              "castbsw": 0.1
+            }
+          }
+        ]
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f87/f0",
+          "key": "k5",
+          "constantLine": 79919,
+          "pc": 13,
+          "sourceLine": 79962,
+          "instruction": "loadk r8 k5"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k160",
+          "constantLine": 169749,
+          "pc": 713,
+          "sourceLine": 170782,
+          "instruction": "loadk r5 k160"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k134",
+          "constantLine": 173906,
+          "pc": 1841,
+          "sourceLine": 176050,
+          "instruction": "loadk r14 k134"
+        }
+      ],
+      "functions": {
+        "main/f87": [
+          79886,
+          79902
+        ],
+        "main/f87/f0": [
+          79903,
+          80055
+        ]
+      },
+      "web": {
+        "damageRadius": 500,
+        "auraRadius": 550,
+        "auraLifetime": 5,
+        "damageDelays": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "baseDamage": [
+          150,
+          300,
+          450,
+          600,
+          750,
+          900
+        ],
+        "goldDivisor": [
+          10,
+          9,
+          8,
+          7,
+          6,
+          4
+        ],
+        "countMin": 1,
+        "maxDamage": 60000,
+        "armorDelta": [
+          -30,
+          -35,
+          -40,
+          -45,
+          -50,
+          -60
+        ],
+        "mana": [
+          30,
+          60,
+          95,
+          140,
+          170,
+          210
+        ],
+        "cooldown": [
+          15,
+          14,
+          13,
+          11,
+          10,
+          9
+        ],
+        "auto": 650,
+        "range": 800,
+        "order": "absorb",
+        "cast": 0.4
+      }
+    },
+    "A117": {
+      "status": "ready",
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 529,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "神灵武士<SR>",
+            "H034",
+            3,
+            "学习技能",
+            "牺牲",
+            "A117",
+            6,
+            "神灵武士以自己的生命为代价对对方造成(10 + 神灵武士最大生命值/1000)%的法术伤害和50%减速(肉山和深渊BOSS伤害减半)。",
+            "等级 1｜对目标造成当前生命最高15%法术伤害和50%的减速。\n等级 2｜对目标造成当前生命最高20%法术伤害和50%的减速。\n等级 3｜对目标造成当前生命最高25%法术伤害和50%的减速。\n等级 4｜对目标造成当前生命最高30%法术伤害和50%的减速。\n等级 5｜对目标造成当前生命最高35%法术伤害和50%的减速。\n等级 6｜对目标造成当前生命最高40%法术伤害和50%的减速。\n伤害类型 法术伤害",
+            null
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 529,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "神灵武士<SR>",
+            "H034",
+            3,
+            "学习技能",
+            "牺牲",
+            "A117",
+            6,
+            "神灵武士以自己的生命为代价对对方造成(10 + 神灵武士最大生命值/1000)%的法术伤害和50%减速(肉山和深渊BOSS伤害减半)。",
+            "等级 1｜对目标造成当前生命最高15%法术伤害和50%的减速。\n等级 2｜对目标造成当前生命最高20%法术伤害和50%的减速。\n等级 3｜对目标造成当前生命最高25%法术伤害和50%的减速。\n等级 4｜对目标造成当前生命最高30%法术伤害和50%的减速。\n等级 5｜对目标造成当前生命最高35%法术伤害和50%的减速。\n等级 6｜对目标造成当前生命最高40%法术伤害和50%的减速。\n伤害类型 法术伤害",
+            null
+          ]
+        }
+      ],
+      "shell": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 915,
+          "id": "A117",
+          "fields": {
+            "alias": "A117",
+            "code": "ANcl",
+            "checkDep": 1,
+            "Cool1": 15.0,
+            "Cool2": 15.0,
+            "Cool3": 15.0,
+            "Cool4": 15.0,
+            "DataB1": 1,
+            "DataB2": 1,
+            "DataB3": 1,
+            "DataB4": 1,
+            "DataC1": 1,
+            "DataC2": 1,
+            "DataC3": 1,
+            "DataC4": 1,
+            "DataF1": "spiritlink",
+            "DataF2": "spiritlink",
+            "DataF3": "spiritlink",
+            "DataF4": "spiritlink",
+            "levels": 6,
+            "reqLevel": 1,
+            "Rng1": 600.0,
+            "Rng2": 600.0,
+            "Rng3": 600.0,
+            "Rng4": 600.0,
+            "targs1": "enemies",
+            "targs2": "enemies",
+            "targs3": "enemies",
+            "targs4": "enemies"
+          }
+        }
+      ],
+      "objects": {
+        "T119": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1996,
+            "id": "T119",
+            "fields": {
+              "alias": "T119",
+              "code": "Aslo",
+              "BuffID1": "B127",
+              "checkDep": 1,
+              "Cool1": 10.0,
+              "Cost1": 200,
+              "DataA1": 0.5,
+              "Dur1": 5.0,
+              "HeroDur1": 5.0,
+              "levels": 1,
+              "priority": 3,
+              "Rng1": 500.0,
+              "targs1": "enemies",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ],
+        "B127": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+            "jsonIndex": 350,
+            "id": "B127",
+            "fields": {
+              "alias": "B127"
+            }
+          }
+        ]
+      },
+      "unitCast": {
+        "H034": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 944,
+            "id": "H034",
+            "fields": {
+              "castpt": 0.3,
+              "castbsw": 0.1
+            }
+          }
+        ]
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f7",
+          "key": "k76",
+          "constantLine": 49270,
+          "pc": 224,
+          "sourceLine": 49709,
+          "instruction": "loadk r46 k76"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f94/f0",
+          "key": "k16",
+          "constantLine": 82835,
+          "pc": 36,
+          "sourceLine": 82903,
+          "instruction": "loadk r8 k16"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k183",
+          "constantLine": 169772,
+          "pc": 825,
+          "sourceLine": 170905,
+          "instruction": "loadk r5 k183"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k137",
+          "constantLine": 173909,
+          "pc": 1901,
+          "sourceLine": 176114,
+          "instruction": "loadk r14 k137"
+        }
+      ],
+      "functions": {
+        "main/f94": [
+          82787,
+          82807
+        ],
+        "main/f94/f0": [
+          82808,
+          83006
+        ]
+      },
+      "web": {
+        "selfCost": [
+          0.55,
+          0.5,
+          0.45,
+          0.4,
+          0.35,
+          0.3
+        ],
+        "maxTargetCurrentLifeFactor": [
+          0.15,
+          0.2,
+          0.25,
+          0.3,
+          0.35,
+          0.4
+        ],
+        "factor": "min((10+casterMaxLife/1000)/100,rankMax)",
+        "scepterFactor": 1.2,
+        "bossFactor": 0.5,
+        "slow": [
+          0.5,
+          5
+        ],
+        "nativeSourceBossFactor": 0.1,
+        "mana": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cooldown": [
+          15,
+          15,
+          15,
+          15,
+          15,
+          15
+        ],
+        "auto": 500,
+        "range": 600,
+        "order": "spiritlink",
+        "cast": 0.3
+      }
+    }
+  },
+  "probes": [
+    "A050 old explicit replacement timer does not move original or current unit",
+    "A050 later cast uses saved point and resolved live slot",
+    "A080 existing lifted unit can take a new damage pulse without extending or stacking its hold",
+    "A080 step 79 descends to height 20 before graph duration ends",
+    "A080 step 80 unlocks, removes T212, resets default and clears mark",
+    "A085 same cast damage samples INT after its own grant and reentrants accumulate independent deltas",
+    "A085 first expiry removes only its own prior amount",
+    "A085 second expiry releases exact second contribution",
+    "A087 source snapshots base 3, dispatches divine 6, then writes 20 from the lower current 10",
+    "A087 Web no-heal correction applies the old floor with a current-life ceiling",
+    "A102 source magical B100 multiplier is 1.4",
+    "A102 graph uses 1.5 in the same B100 stage",
+    "A108 six raw delay requests use same snapshotted gold/rank denominator, then grant the five-second aura",
+    "A117 original mishandled percentage caps 3000 HP and reduces an ordinary abyss target to one tenth",
+    "A117 selected percent yields 156 against ordinary target or 78 against specified boss with 660 self cost"
+  ]
+}

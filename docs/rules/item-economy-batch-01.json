@@ -1,0 +1,242 @@
+{
+  "baselineId": "item-economy-batch-01",
+  "coverage": {
+    "itemsReady": 5,
+    "itemsRemaining": 0,
+    "mountedAliasesReady": 3,
+    "aliaslessItems": 2
+  },
+  "items": {
+    "i256": {
+      "name": "点金手",
+      "alias": "I247",
+      "workbookCell": "装备与道具!H166",
+      "componentReady": true,
+      "sourceItemJsonIndex": 459,
+      "callback": "Item_Get",
+      "sourcePickupLines": [
+        144701,
+        144794
+      ],
+      "sourceAbility": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1170,
+        "id": "I247",
+        "fields": {
+          "alias": "I247",
+          "code": "ANcl",
+          "checkDep": 1,
+          "Cool1": 300.0,
+          "DataA2": 180.0,
+          "DataA3": 180.0,
+          "DataB1": 1,
+          "DataC1": 1,
+          "DataD2": 0.98,
+          "DataD3": 0.98,
+          "DataE2": 1,
+          "DataE3": 1,
+          "DataF1": "healingward",
+          "levels": 3,
+          "reqLevel": 1,
+          "Rng1": 500.0,
+          "Rng2": 500.0,
+          "Rng3": 500.0,
+          "targs1": "enemies,nonhero",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      }
+    },
+    "i261": {
+      "name": "购买木材",
+      "alias": "I256",
+      "workbookCell": "装备与道具!H171",
+      "componentReady": true,
+      "sourceItemJsonIndex": 464,
+      "callback": null,
+      "sourcePickupLines": [],
+      "sourceAbility": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1179,
+        "id": "I256",
+        "fields": {
+          "alias": "I256",
+          "code": "AIlu",
+          "DataA1": 100,
+          "levels": 1,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      "lumber": 100,
+      "directShop": "w002",
+      "price": 3000
+    },
+    "i421": {
+      "name": "金元宝",
+      "alias": null,
+      "workbookCell": "装备与道具!H235",
+      "componentReady": true,
+      "sourceItemJsonIndex": 529,
+      "callback": "Item_Get",
+      "sourcePickupLines": [
+        144658
+      ]
+    },
+    "i422": {
+      "name": "皮肤碎片",
+      "alias": null,
+      "workbookCell": "装备与道具!H236",
+      "componentReady": true,
+      "sourceItemJsonIndex": 530,
+      "callback": "Item_Get",
+      "sourcePickupLines": [
+        144667
+      ]
+    },
+    "i423": {
+      "name": "购买木材",
+      "alias": "I283",
+      "workbookCell": "装备与道具!H237",
+      "componentReady": true,
+      "sourceItemJsonIndex": 531,
+      "callback": null,
+      "sourcePickupLines": [],
+      "sourceAbility": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1205,
+        "id": "I283",
+        "fields": {
+          "alias": "I283",
+          "code": "AIlu",
+          "DataA1": 500,
+          "levels": 1,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      "lumber": 500,
+      "directShop": "w002",
+      "price": 15000
+    }
+  },
+  "web": {
+    "i256": {
+      "legalBearer": "worker",
+      "creditPerUnitLevel": 300,
+      "cooldown": 300,
+      "range": 500,
+      "mana": 0,
+      "activityCategory": 6
+    },
+    "i421": {
+      "goldDrawInclusive": [
+        100,
+        300
+      ],
+      "oneDrawShared": true,
+      "unreferencedAutoAbsorption": "main/f290/f4"
+    },
+    "i422": {
+      "shards": 1,
+      "persistImmediately": true,
+      "endlessSoloDropChance": "1/75"
+    }
+  },
+  "sourceLines": {
+    "transmute": 129393,
+    "workerPickup": 144701,
+    "goldPickup": 144658,
+    "goldAward": 157519,
+    "goldGroundDrop": 157730,
+    "shardsPickup": 144667,
+    "shardsWorkerDrop": 168645,
+    "templeStock": 14730
+  },
+  "verification": {
+    "transmute": [
+      [
+        "kill",
+        "mob"
+      ],
+      [
+        "set",
+        "buyer",
+        "gold",
+        1219
+      ],
+      [
+        "progress",
+        "buyer",
+        6,
+        1
+      ]
+    ],
+    "ingot": [
+      [
+        "roll",
+        100,
+        300
+      ],
+      [
+        "notice",
+        3
+      ],
+      [
+        "set",
+        0,
+        "gold",
+        319
+      ],
+      [
+        "set",
+        1,
+        "gold",
+        319
+      ],
+      [
+        "set",
+        2,
+        "gold",
+        319
+      ],
+      [
+        "set",
+        3,
+        "gold",
+        319
+      ]
+    ],
+    "shards": [
+      [
+        "notice",
+        3
+      ],
+      [
+        "shards",
+        0,
+        1
+      ],
+      [
+        "shards",
+        1,
+        1
+      ],
+      [
+        "shards",
+        2,
+        1
+      ],
+      [
+        "shards",
+        3,
+        1
+      ]
+    ]
+  }
+}

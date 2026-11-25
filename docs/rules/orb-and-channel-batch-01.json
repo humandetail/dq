@@ -1,0 +1,777 @@
+{
+  "scope": "orb-and-channel-batch-01",
+  "initialBatch": {
+    "processed": 8,
+    "ready": 5
+  },
+  "ready": 6,
+  "skills": [
+    {
+      "id": "A040",
+      "status": "ready",
+      "rules": {
+        "manualRange": 1300,
+        "autoWeaponRange": 1200,
+        "mana": 3,
+        "shotBonus": [
+          500,
+          700,
+          900,
+          1100,
+          1300,
+          1500
+        ],
+        "learnOrdersAutoOn": true,
+        "affectsMagicImmune": true
+      },
+      "sourceRefs": {
+        "workbookRows": [
+          125
+        ],
+        "unitIds": [
+          "H012"
+        ],
+        "objectIndex": 838,
+        "hintLine": 538,
+        "dispatch": [
+          {
+            "function": "main/f291/f10",
+            "pc": 97,
+            "line": 169137
+          },
+          {
+            "function": "main/f291/f14",
+            "pc": 51,
+            "line": 170051
+          }
+        ],
+        "functions": [
+          [
+            "main/f38",
+            65310,
+            65326
+          ],
+          [
+            "main/f38/f0",
+            65327,
+            65346
+          ]
+        ],
+        "auxiliaryIndexes": {
+          "flamingarrows": []
+        }
+      },
+      "differences": [
+        "Physical fixed bonus joins the ordinary packet; paid arrow ignores magic immunity"
+      ],
+      "unresolved": [],
+      "validation": {
+        "sourceVM": "flamingarrows",
+        "selectedWeb": {
+          "cancelledVersusLaunchedAtThreeMana": [
+            3,
+            0
+          ]
+        },
+        "originalClientTested": false
+      }
+    },
+    {
+      "id": "A070",
+      "status": "ready",
+      "rules": {
+        "actualSkinAbility": "A210",
+        "range": 1200,
+        "mana": 3,
+        "moveSlow": [
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6
+        ],
+        "normalDuration": [
+          1,
+          1,
+          2,
+          2,
+          3,
+          3
+        ],
+        "heroDuration": [
+          0.5,
+          1,
+          1.5,
+          2,
+          2.5,
+          3
+        ],
+        "nativeDamage": 0,
+        "attackSlow": 0
+      },
+      "sourceRefs": {
+        "workbookRows": [
+          250,
+          285,
+          610
+        ],
+        "unitIds": [
+          "G073",
+          "G066",
+          "H022"
+        ],
+        "objectIndex": 868,
+        "hintLine": 1017,
+        "dispatch": [
+          {
+            "function": "main/f291/f14",
+            "pc": 56,
+            "line": 170056
+          }
+        ],
+        "functions": [],
+        "auxiliaryIndexes": {
+          "A210": [
+            [
+              "reference/map-6.25/units_abilitydata.json",
+              999
+            ],
+            [
+              "reference/map-6.25/war3map.w3a.json",
+              135
+            ]
+          ]
+        }
+      },
+      "differences": [
+        "Separate actual native hero-duration series, ordinary values agree with atlas"
+      ],
+      "unresolved": [],
+      "validation": {
+        "sourceVM": null,
+        "selectedWeb": {
+          "heroLevel1Duration": 0.5,
+          "regularLevel1Duration": 1,
+          "weakerColdArrowReplaces": {
+            "slow": 0.1,
+            "until": 1.5
+          }
+        },
+        "originalClientTested": false
+      }
+    },
+    {
+      "id": "A083",
+      "status": "ready",
+      "rules": {
+        "manaCost": [
+          100,
+          150,
+          200,
+          250,
+          300,
+          350
+        ],
+        "poisonMarkerDuration": 0.01,
+        "intContributionDuration": 70,
+        "intGain": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "manaDamageRate": [
+          0.07,
+          0.08,
+          0.09,
+          0.1,
+          0.11,
+          0.12
+        ],
+        "scepterArea": 285,
+        "sourceExternalBpsdAccepted": true,
+        "sameShotPaymentRequired": true,
+        "decision": "Q66"
+      },
+      "sourceRefs": {
+        "workbookRows": [
+          396,
+          620
+        ],
+        "unitIds": [
+          "H026",
+          "G069"
+        ],
+        "objectIndex": 881,
+        "hintLine": 1224,
+        "dispatch": [
+          {
+            "function": "main/f291/f1",
+            "pc": 593,
+            "line": 163116
+          }
+        ],
+        "functions": [
+          [
+            "main/f72",
+            76047,
+            76079
+          ],
+          [
+            "main/f72/f0",
+            76080,
+            76204
+          ],
+          [
+            "main/f72/f1",
+            76205,
+            76276
+          ],
+          [
+            "main/f72/f2",
+            76277,
+            76357
+          ]
+        ],
+        "auxiliaryIndexes": {
+          "Bpsd": [],
+          "A084": [
+            [
+              "reference/map-6.25/units_abilitydata.json",
+              882
+            ],
+            [
+              "reference/map-6.25/war3map.w3a.json",
+              50
+            ]
+          ]
+        }
+      },
+      "differences": [
+        "Original grants source intelligence without reducing victim intelligence",
+        "Q66 requires payment for the same shot; borrowed Bpsd alone is insufficient"
+      ],
+      "unresolved": [],
+      "validation": {
+        "sourceVM": {
+          "unpaidAttackWithBorrowedBpsd": [
+            "A083",
+            "A084"
+          ],
+          "readsPostIntMana": 35.84,
+          "scepterArea": 285,
+          "expiredInOrder": true
+        },
+        "selectedWeb": {
+          "unpaidExternalPoisonChain": [],
+          "paidOwnShotChain": [
+            "A083",
+            "A084"
+          ],
+          "onlyOncePerShot": true,
+          "paidShotNeedsBpsdAtImpact": true
+        },
+        "originalClientTested": false
+      }
+    },
+    {
+      "id": "A093",
+      "status": "ready",
+      "rules": {
+        "period": 1,
+        "duration": 3,
+        "primaryRange": 600,
+        "secondaryRange": 2000,
+        "secondaryCenter": "primaryTarget",
+        "secondaryRadius": 600,
+        "secondaryTimedLife": 4,
+        "mana": [
+          20,
+          40,
+          60,
+          80,
+          100,
+          120
+        ],
+        "cooldown": [
+          17,
+          16,
+          15,
+          14,
+          13,
+          12
+        ],
+        "damagePerTick": [
+          100,
+          200,
+          300,
+          400,
+          500,
+          600
+        ]
+      },
+      "sourceRefs": {
+        "workbookRows": [
+          347
+        ],
+        "unitIds": [
+          "H029"
+        ],
+        "objectIndex": 891,
+        "hintLine": 1393,
+        "dispatch": [
+          {
+            "function": "main/f291/f14",
+            "pc": 629,
+            "line": 170689
+          },
+          {
+            "function": "main/f291/f27",
+            "pc": 1431,
+            "line": 175613
+          }
+        ],
+        "functions": [
+          [
+            "main/f80",
+            78241,
+            78257
+          ],
+          [
+            "main/f80/f0",
+            78258,
+            78405
+          ]
+        ],
+        "auxiliaryIndexes": {
+          "T093": [
+            [
+              "reference/map-6.25/units_abilitydata.json",
+              1970
+            ],
+            [
+              "reference/map-6.25/war3map.w3a.json",
+              200
+            ]
+          ],
+          "q001": [
+            [
+              "reference/map-6.25/units_unitabilities.json",
+              1315
+            ]
+          ],
+          "Bmlc": [],
+          "Bmlt": []
+        }
+      },
+      "differences": [
+        "Lua secondary area centers caster; atlas Q64 centers primary target"
+      ],
+      "unresolved": [],
+      "validation": {
+        "sourceVM": {
+          "sourceSecondaryTargets": [
+            -600,
+            300
+          ],
+          "carrier": "T093@caster"
+        },
+        "selectedWeb": {
+          "targetCenteredSecondaryPositions": [
+            300,
+            1200
+          ],
+          "primaryPulsesIfInterruptedAt1_5": [
+            1
+          ],
+          "independentSecondaryPulses": [
+            1,
+            2,
+            3
+          ]
+        },
+        "originalClientTested": false
+      }
+    },
+    {
+      "id": "A103",
+      "status": "pending",
+      "rules": {
+        "actualSkinAbility": "A176",
+        "duration": 8,
+        "period": 0.5,
+        "range": 800,
+        "maintainRange": 1000,
+        "health": [
+          100,
+          200,
+          300,
+          400,
+          500,
+          600
+        ],
+        "mana": [
+          50,
+          80,
+          110,
+          140,
+          170,
+          200
+        ],
+        "cooldown": 12
+      },
+      "sourceRefs": {
+        "workbookRows": [
+          232,
+          567
+        ],
+        "unitIds": [
+          "G060",
+          "H030"
+        ],
+        "objectIndex": 901,
+        "hintLine": 1543,
+        "dispatch": [
+          {
+            "function": "main/f291/f14",
+            "pc": 669,
+            "line": 170733
+          },
+          {
+            "function": "main/f291/f15",
+            "pc": 20,
+            "line": 172217
+          },
+          {
+            "function": "main/f291/f27",
+            "pc": 1656,
+            "line": 175853
+          }
+        ],
+        "functions": [
+          [
+            "main/f83",
+            78673,
+            78698
+          ],
+          [
+            "main/f83/f0",
+            78699,
+            78803
+          ],
+          [
+            "main/f83/f1",
+            78804,
+            78841
+          ]
+        ],
+        "auxiliaryIndexes": {
+          "A176": [
+            [
+              "reference/map-6.25/units_abilitydata.json",
+              965
+            ],
+            [
+              "reference/map-6.25/war3map.w3a.json",
+              107
+            ]
+          ],
+          "T099": [
+            [
+              "reference/map-6.25/units_abilitydata.json",
+              1976
+            ],
+            [
+              "reference/map-6.25/war3map.w3a.json",
+              202
+            ]
+          ],
+          "q026": [
+            [
+              "reference/map-6.25/units_unitabilities.json",
+              1340
+            ]
+          ],
+          "B100": []
+        }
+      },
+      "differences": [
+        "Tooltip more mode damage than source coefficient, A176 native helper gets boolean in original"
+      ],
+      "unresolved": [
+        "q026/T099 native heal and base drain",
+        "A176 boolean ability level",
+        "B100 conversion and owner-target scope"
+      ],
+      "validation": {
+        "sourceVM": {
+          "skinRank5PassedToNative": true,
+          "sameTargetDeniedWhileOldChannel": true,
+          "stopReleasesTarget": true
+        },
+        "selectedWeb": null,
+        "originalClientTested": false
+      }
+    },
+    {
+      "id": "A158",
+      "status": "ready",
+      "rules": {
+        "baseManaBurnPerRank": 30,
+        "scepterTargetMaxManaRate": 0.01,
+        "directLifeDamage": 0
+      },
+      "sourceRefs": {
+        "workbookRows": [
+          330,
+          590
+        ],
+        "unitIds": [
+          "H040",
+          "G068"
+        ],
+        "objectIndex": 947,
+        "hintLine": 2256,
+        "dispatch": [
+          {
+            "function": "main/f291/f1",
+            "pc": 680,
+            "line": 163207
+          },
+          {
+            "function": "main/f291/f1",
+            "pc": 712,
+            "line": 163240
+          }
+        ],
+        "functions": [
+          [
+            "main/f109",
+            87181,
+            87197
+          ],
+          [
+            "main/f109/f0",
+            87198,
+            87294
+          ]
+        ],
+        "auxiliaryIndexes": {}
+      },
+      "differences": [
+        "Scepter 1% target max mana does not contribute to A159"
+      ],
+      "unresolved": [],
+      "validation": {
+        "sourceVM": {
+          "rank2ScepterDrain": 70
+        },
+        "selectedWeb": null,
+        "originalClientTested": false
+      }
+    },
+    {
+      "id": "A159",
+      "status": "ready",
+      "rules": {
+        "effectiveBaseManaBurnFactors": [
+          0.1,
+          0.12,
+          0.15,
+          0.2,
+          0.28,
+          0.4
+        ],
+        "otherActualSourceFactor": 0.5,
+        "duration": 4,
+        "includesScepterManaBurn": false
+      },
+      "sourceRefs": {
+        "workbookRows": [
+          331,
+          591
+        ],
+        "unitIds": [
+          "H040",
+          "G068"
+        ],
+        "objectIndex": 948,
+        "hintLine": 2269,
+        "dispatch": [
+          {
+            "function": "main/f291/f1",
+            "pc": 688,
+            "line": 163215
+          }
+        ],
+        "functions": [
+          [
+            "main/f110",
+            87295,
+            87316
+          ],
+          [
+            "main/f110/f0",
+            87317,
+            87479
+          ],
+          [
+            "main/f110/f1",
+            87480,
+            87556
+          ]
+        ],
+        "auxiliaryIndexes": {
+          "A158": [
+            [
+              "reference/map-6.25/units_abilitydata.json",
+              947
+            ]
+          ]
+        }
+      },
+      "differences": [
+        "Original contribution before A158 mana update and no scepter bonus"
+      ],
+      "unresolved": [],
+      "validation": {
+        "sourceVM": {
+          "firstGain": 24,
+          "peerGain": 6,
+          "expiresSeparately": true
+        },
+        "selectedWeb": null,
+        "originalClientTested": false
+      }
+    },
+    {
+      "id": "A166",
+      "status": "pending",
+      "rules": {
+        "duration": 10,
+        "sourceDebuff": "B151",
+        "mana": [
+          170,
+          190,
+          210,
+          230,
+          250,
+          270
+        ],
+        "cooldown": [
+          17,
+          16,
+          15,
+          14,
+          13,
+          12
+        ],
+        "damagePerSecond": [
+          2000,
+          2500,
+          3000,
+          3500,
+          4000,
+          5000
+        ],
+        "scepterRemovedAbilities": [
+          "N524",
+          "T017",
+          "N533",
+          "N535",
+          "N579",
+          "N536",
+          "N525"
+        ]
+      },
+      "sourceRefs": {
+        "workbookRows": [
+          62,
+          67
+        ],
+        "unitIds": [
+          "H042",
+          "G061"
+        ],
+        "objectIndex": 955,
+        "hintLine": 2387,
+        "dispatch": [
+          {
+            "function": "main/f291/f14",
+            "pc": 1072,
+            "line": 171173
+          },
+          {
+            "function": "main/f291/f27",
+            "pc": 2546,
+            "line": 176799
+          }
+        ],
+        "functions": [
+          [
+            "main/f117",
+            93076,
+            93119
+          ],
+          [
+            "main/f117/f0",
+            93120,
+            93281
+          ],
+          [
+            "main/f117/f1",
+            93282,
+            93308
+          ],
+          [
+            "main/f117/f2",
+            93309,
+            93390
+          ]
+        ],
+        "auxiliaryIndexes": {
+          "T176": [
+            [
+              "reference/map-6.25/units_abilitydata.json",
+              2049
+            ]
+          ],
+          "B151": [],
+          "nba2": [
+            [
+              "reference/map-6.25/units_unitabilities.json",
+              186
+            ]
+          ]
+        }
+      },
+      "differences": [
+        "T176 source modifier differs from halving damage reduction, and native unit type is present"
+      ],
+      "unresolved": [
+        "Death summon nba2",
+        "scepter reduction arithmetic and native shield/blacklist restoration"
+      ],
+      "validation": {
+        "sourceVM": {
+          "sourceScepterRanksBeforeAndAfter": [
+            [
+              3,
+              2
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "unrelatedPassiveUntouched": true
+        },
+        "selectedWeb": null,
+        "originalClientTested": false
+      }
+    }
+  ]
+}

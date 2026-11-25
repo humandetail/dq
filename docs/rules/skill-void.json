@@ -1,0 +1,3507 @@
+{
+  "schemaVersion": 1,
+  "baselineId": "void-effect-v1",
+  "scope": "complete A192 action and direct slow adapter; other native sources/statuses remain external",
+  "sourceFunction": {
+    "function": "main/f137/f0",
+    "lines": [
+      100382,
+      100662
+    ],
+    "constants": {
+      "k0": "GetUnitUserData",
+      "k1": "GetUnitAbilityLevel",
+      "k2": "GetId",
+      "k3": "A192",
+      "k4": 6,
+      "k5": 5000,
+      "k6": 5,
+      "k7": 4200,
+      "k8": 4,
+      "k9": 3400,
+      "k10": 3,
+      "k11": 2600,
+      "k12": 2,
+      "k13": 1800,
+      "k14": 1000,
+      "k15": "GetUnitState",
+      "k16": "UNIT_STATE_MAX_LIFE",
+      "k17": 0.13,
+      "k18": "GetUnitLoc",
+      "k19": "IsYeMoNightBuff",
+      "k20": "GetUnitX",
+      "k21": "GetUnitY",
+      "k22": 350,
+      "k23": "SetPhyDamagePoint",
+      "k24": "delaytime",
+      "k25": "GetUnitTypeId",
+      "k26": "G071",
+      "k27": "CreateEffAtLoc",
+      "k28": "T659.mdx",
+      "k29": 1.5,
+      "k30": "devilslam.mdx",
+      "k31": 1,
+      "k32": "CreateGroup",
+      "k33": "GroupEnumUnitsInRange",
+      "k34": "null",
+      "k35": "_loop_",
+      "k36": "FirstOfGroup",
+      "k37": null,
+      "k38": "GroupRemoveUnit",
+      "k39": "IsUnitOwnedByPlayer",
+      "k40": "Player",
+      "k41": 11,
+      "k42": 0,
+      "k43": "UNIT_STATE_LIFE",
+      "k44": "CreateTempAndSetAbilityLv",
+      "k45": "GetOwningPlayer",
+      "k46": "T213",
+      "k47": "SetUnitUserData",
+      "k48": "IssueTargetOrder",
+      "k49": "slow",
+      "k50": "GroupClear",
+      "k51": "DestroyGroup",
+      "k52": "SetPhyDamage",
+      "k53": "CreateEffByUnit",
+      "k54": "warpdarkcaster.mdx",
+      "k55": "orign",
+      "k56": "Abilities\\Spells\\Undead\\DeathPact\\DeathPactTarget.mdl",
+      "k57": "overhead"
+    },
+    "labels": {
+      "l15": 15,
+      "l19": 19,
+      "l23": 23,
+      "l27": 27,
+      "l31": 31,
+      "l32": 32,
+      "l77": 77,
+      "l83": 83,
+      "l96": 96,
+      "l140": 140,
+      "l142": 142,
+      "l149": 149,
+      "l169": 169,
+      "l175": 175,
+      "l195": 195
+    },
+    "instructions": [
+      {
+        "pc": 1,
+        "line": 100452,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k0"
+        ]
+      },
+      {
+        "pc": 2,
+        "line": 100453,
+        "op": "move",
+        "args": [
+          "r3",
+          "r0"
+        ]
+      },
+      {
+        "pc": 3,
+        "line": 100454,
+        "op": "call",
+        "args": [
+          "r2",
+          "2",
+          "2"
+        ]
+      },
+      {
+        "pc": 4,
+        "line": 100455,
+        "op": "gettabup",
+        "args": [
+          "r3",
+          "u0",
+          "k1"
+        ]
+      },
+      {
+        "pc": 5,
+        "line": 100456,
+        "op": "move",
+        "args": [
+          "r4",
+          "r0"
+        ]
+      },
+      {
+        "pc": 6,
+        "line": 100457,
+        "op": "gettabup",
+        "args": [
+          "r5",
+          "u0",
+          "k2"
+        ]
+      },
+      {
+        "pc": 7,
+        "line": 100458,
+        "op": "loadk",
+        "args": [
+          "r6",
+          "k3"
+        ]
+      },
+      {
+        "pc": 8,
+        "line": 100459,
+        "op": "call",
+        "args": [
+          "r5",
+          "2",
+          "0"
+        ]
+      },
+      {
+        "pc": 9,
+        "line": 100460,
+        "op": "call",
+        "args": [
+          "r3",
+          "0",
+          "2"
+        ]
+      },
+      {
+        "pc": 10,
+        "line": 100461,
+        "op": "loadnil",
+        "args": [
+          "r4",
+          "0"
+        ]
+      },
+      {
+        "pc": 11,
+        "line": 100462,
+        "op": "eq",
+        "args": [
+          "0",
+          "r3",
+          "k4"
+        ]
+      },
+      {
+        "pc": 12,
+        "line": 100463,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l15"
+        ]
+      },
+      {
+        "pc": 13,
+        "line": 100464,
+        "op": "loadk",
+        "args": [
+          "r4",
+          "k5"
+        ]
+      },
+      {
+        "pc": 14,
+        "line": 100465,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l32"
+        ]
+      },
+      {
+        "pc": 15,
+        "line": 100467,
+        "op": "eq",
+        "args": [
+          "0",
+          "r3",
+          "k6"
+        ]
+      },
+      {
+        "pc": 16,
+        "line": 100468,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l19"
+        ]
+      },
+      {
+        "pc": 17,
+        "line": 100469,
+        "op": "loadk",
+        "args": [
+          "r4",
+          "k7"
+        ]
+      },
+      {
+        "pc": 18,
+        "line": 100470,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l32"
+        ]
+      },
+      {
+        "pc": 19,
+        "line": 100472,
+        "op": "eq",
+        "args": [
+          "0",
+          "r3",
+          "k8"
+        ]
+      },
+      {
+        "pc": 20,
+        "line": 100473,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l23"
+        ]
+      },
+      {
+        "pc": 21,
+        "line": 100474,
+        "op": "loadk",
+        "args": [
+          "r4",
+          "k9"
+        ]
+      },
+      {
+        "pc": 22,
+        "line": 100475,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l32"
+        ]
+      },
+      {
+        "pc": 23,
+        "line": 100477,
+        "op": "eq",
+        "args": [
+          "0",
+          "r3",
+          "k10"
+        ]
+      },
+      {
+        "pc": 24,
+        "line": 100478,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l27"
+        ]
+      },
+      {
+        "pc": 25,
+        "line": 100479,
+        "op": "loadk",
+        "args": [
+          "r4",
+          "k11"
+        ]
+      },
+      {
+        "pc": 26,
+        "line": 100480,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l32"
+        ]
+      },
+      {
+        "pc": 27,
+        "line": 100482,
+        "op": "eq",
+        "args": [
+          "0",
+          "r3",
+          "k12"
+        ]
+      },
+      {
+        "pc": 28,
+        "line": 100483,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l31"
+        ]
+      },
+      {
+        "pc": 29,
+        "line": 100484,
+        "op": "loadk",
+        "args": [
+          "r4",
+          "k13"
+        ]
+      },
+      {
+        "pc": 30,
+        "line": 100485,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l32"
+        ]
+      },
+      {
+        "pc": 31,
+        "line": 100487,
+        "op": "loadk",
+        "args": [
+          "r4",
+          "k14"
+        ]
+      },
+      {
+        "pc": 32,
+        "line": 100489,
+        "op": "gettabup",
+        "args": [
+          "r5",
+          "u0",
+          "k15"
+        ]
+      },
+      {
+        "pc": 33,
+        "line": 100490,
+        "op": "move",
+        "args": [
+          "r6",
+          "r0"
+        ]
+      },
+      {
+        "pc": 34,
+        "line": 100491,
+        "op": "gettabup",
+        "args": [
+          "r7",
+          "u0",
+          "k16"
+        ]
+      },
+      {
+        "pc": 35,
+        "line": 100492,
+        "op": "call",
+        "args": [
+          "r5",
+          "3",
+          "2"
+        ]
+      },
+      {
+        "pc": 36,
+        "line": 100493,
+        "op": "mul",
+        "args": [
+          "r5",
+          "r5",
+          "k17"
+        ]
+      },
+      {
+        "pc": 37,
+        "line": 100494,
+        "op": "add",
+        "args": [
+          "r4",
+          "r4",
+          "r5"
+        ]
+      },
+      {
+        "pc": 38,
+        "line": 100495,
+        "op": "gettabup",
+        "args": [
+          "r5",
+          "u0",
+          "k18"
+        ]
+      },
+      {
+        "pc": 39,
+        "line": 100496,
+        "op": "move",
+        "args": [
+          "r6",
+          "r1"
+        ]
+      },
+      {
+        "pc": 40,
+        "line": 100497,
+        "op": "call",
+        "args": [
+          "r5",
+          "2",
+          "2"
+        ]
+      },
+      {
+        "pc": 41,
+        "line": 100498,
+        "op": "loadnil",
+        "args": [
+          "r6",
+          "0"
+        ]
+      },
+      {
+        "pc": 42,
+        "line": 100499,
+        "op": "gettabup",
+        "args": [
+          "r7",
+          "u0",
+          "k19"
+        ]
+      },
+      {
+        "pc": 43,
+        "line": 100500,
+        "op": "move",
+        "args": [
+          "r8",
+          "r0"
+        ]
+      },
+      {
+        "pc": 44,
+        "line": 100501,
+        "op": "call",
+        "args": [
+          "r7",
+          "2",
+          "2"
+        ]
+      },
+      {
+        "pc": 45,
+        "line": 100502,
+        "op": "test",
+        "args": [
+          "r7",
+          "0"
+        ]
+      },
+      {
+        "pc": 46,
+        "line": 100503,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l149"
+        ]
+      },
+      {
+        "pc": 47,
+        "line": 100504,
+        "op": "gettabup",
+        "args": [
+          "r7",
+          "u0",
+          "k20"
+        ]
+      },
+      {
+        "pc": 48,
+        "line": 100505,
+        "op": "move",
+        "args": [
+          "r8",
+          "r1"
+        ]
+      },
+      {
+        "pc": 49,
+        "line": 100506,
+        "op": "call",
+        "args": [
+          "r7",
+          "2",
+          "2"
+        ]
+      },
+      {
+        "pc": 50,
+        "line": 100507,
+        "op": "gettabup",
+        "args": [
+          "r8",
+          "u0",
+          "k21"
+        ]
+      },
+      {
+        "pc": 51,
+        "line": 100508,
+        "op": "move",
+        "args": [
+          "r9",
+          "r1"
+        ]
+      },
+      {
+        "pc": 52,
+        "line": 100509,
+        "op": "call",
+        "args": [
+          "r8",
+          "2",
+          "2"
+        ]
+      },
+      {
+        "pc": 53,
+        "line": 100510,
+        "op": "loadk",
+        "args": [
+          "r9",
+          "k22"
+        ]
+      },
+      {
+        "pc": 54,
+        "line": 100511,
+        "op": "gettabup",
+        "args": [
+          "r10",
+          "u0",
+          "k23"
+        ]
+      },
+      {
+        "pc": 55,
+        "line": 100512,
+        "op": "move",
+        "args": [
+          "r11",
+          "r0"
+        ]
+      },
+      {
+        "pc": 56,
+        "line": 100513,
+        "op": "gettabup",
+        "args": [
+          "r12",
+          "u0",
+          "k24"
+        ]
+      },
+      {
+        "pc": 57,
+        "line": 100514,
+        "op": "move",
+        "args": [
+          "r13",
+          "r9"
+        ]
+      },
+      {
+        "pc": 58,
+        "line": 100515,
+        "op": "move",
+        "args": [
+          "r14",
+          "r7"
+        ]
+      },
+      {
+        "pc": 59,
+        "line": 100516,
+        "op": "move",
+        "args": [
+          "r15",
+          "r8"
+        ]
+      },
+      {
+        "pc": 60,
+        "line": 100517,
+        "op": "move",
+        "args": [
+          "r16",
+          "r4"
+        ]
+      },
+      {
+        "pc": 61,
+        "line": 100518,
+        "op": "call",
+        "args": [
+          "r10",
+          "7",
+          "1"
+        ]
+      },
+      {
+        "pc": 62,
+        "line": 100519,
+        "op": "gettabup",
+        "args": [
+          "r10",
+          "u0",
+          "k25"
+        ]
+      },
+      {
+        "pc": 63,
+        "line": 100520,
+        "op": "move",
+        "args": [
+          "r11",
+          "r0"
+        ]
+      },
+      {
+        "pc": 64,
+        "line": 100521,
+        "op": "call",
+        "args": [
+          "r10",
+          "2",
+          "2"
+        ]
+      },
+      {
+        "pc": 65,
+        "line": 100522,
+        "op": "gettabup",
+        "args": [
+          "r11",
+          "u0",
+          "k2"
+        ]
+      },
+      {
+        "pc": 66,
+        "line": 100523,
+        "op": "loadk",
+        "args": [
+          "r12",
+          "k26"
+        ]
+      },
+      {
+        "pc": 67,
+        "line": 100524,
+        "op": "call",
+        "args": [
+          "r11",
+          "2",
+          "2"
+        ]
+      },
+      {
+        "pc": 68,
+        "line": 100525,
+        "op": "eq",
+        "args": [
+          "0",
+          "r10",
+          "r11"
+        ]
+      },
+      {
+        "pc": 69,
+        "line": 100526,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l77"
+        ]
+      },
+      {
+        "pc": 70,
+        "line": 100527,
+        "op": "gettabup",
+        "args": [
+          "r10",
+          "u0",
+          "k27"
+        ]
+      },
+      {
+        "pc": 71,
+        "line": 100528,
+        "op": "loadk",
+        "args": [
+          "r11",
+          "k28"
+        ]
+      },
+      {
+        "pc": 72,
+        "line": 100529,
+        "op": "move",
+        "args": [
+          "r12",
+          "r5"
+        ]
+      },
+      {
+        "pc": 73,
+        "line": 100530,
+        "op": "loadk",
+        "args": [
+          "r13",
+          "k29"
+        ]
+      },
+      {
+        "pc": 74,
+        "line": 100531,
+        "op": "loadk",
+        "args": [
+          "r14",
+          "k29"
+        ]
+      },
+      {
+        "pc": 75,
+        "line": 100532,
+        "op": "call",
+        "args": [
+          "r10",
+          "5",
+          "1"
+        ]
+      },
+      {
+        "pc": 76,
+        "line": 100533,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l83"
+        ]
+      },
+      {
+        "pc": 77,
+        "line": 100535,
+        "op": "gettabup",
+        "args": [
+          "r10",
+          "u0",
+          "k27"
+        ]
+      },
+      {
+        "pc": 78,
+        "line": 100536,
+        "op": "loadk",
+        "args": [
+          "r11",
+          "k30"
+        ]
+      },
+      {
+        "pc": 79,
+        "line": 100537,
+        "op": "move",
+        "args": [
+          "r12",
+          "r5"
+        ]
+      },
+      {
+        "pc": 80,
+        "line": 100538,
+        "op": "loadk",
+        "args": [
+          "r13",
+          "k29"
+        ]
+      },
+      {
+        "pc": 81,
+        "line": 100539,
+        "op": "loadk",
+        "args": [
+          "r14",
+          "k31"
+        ]
+      },
+      {
+        "pc": 82,
+        "line": 100540,
+        "op": "call",
+        "args": [
+          "r10",
+          "5",
+          "1"
+        ]
+      },
+      {
+        "pc": 83,
+        "line": 100542,
+        "op": "gettabup",
+        "args": [
+          "r10",
+          "u0",
+          "k32"
+        ]
+      },
+      {
+        "pc": 84,
+        "line": 100543,
+        "op": "call",
+        "args": [
+          "r10",
+          "1",
+          "2"
+        ]
+      },
+      {
+        "pc": 85,
+        "line": 100544,
+        "op": "loadnil",
+        "args": [
+          "r11",
+          "0"
+        ]
+      },
+      {
+        "pc": 86,
+        "line": 100545,
+        "op": "gettabup",
+        "args": [
+          "r12",
+          "u0",
+          "k33"
+        ]
+      },
+      {
+        "pc": 87,
+        "line": 100546,
+        "op": "move",
+        "args": [
+          "r13",
+          "r10"
+        ]
+      },
+      {
+        "pc": 88,
+        "line": 100547,
+        "op": "move",
+        "args": [
+          "r14",
+          "r7"
+        ]
+      },
+      {
+        "pc": 89,
+        "line": 100548,
+        "op": "move",
+        "args": [
+          "r15",
+          "r8"
+        ]
+      },
+      {
+        "pc": 90,
+        "line": 100549,
+        "op": "move",
+        "args": [
+          "r16",
+          "r9"
+        ]
+      },
+      {
+        "pc": 91,
+        "line": 100550,
+        "op": "gettabup",
+        "args": [
+          "r17",
+          "u0",
+          "k34"
+        ]
+      },
+      {
+        "pc": 92,
+        "line": 100551,
+        "op": "call",
+        "args": [
+          "r12",
+          "6",
+          "1"
+        ]
+      },
+      {
+        "pc": 93,
+        "line": 100552,
+        "op": "gettabup",
+        "args": [
+          "r12",
+          "u0",
+          "k35"
+        ]
+      },
+      {
+        "pc": 94,
+        "line": 100553,
+        "op": "call",
+        "args": [
+          "r12",
+          "1",
+          "4"
+        ]
+      },
+      {
+        "pc": 95,
+        "line": 100554,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l140"
+        ]
+      },
+      {
+        "pc": 96,
+        "line": 100556,
+        "op": "gettabup",
+        "args": [
+          "r16",
+          "u0",
+          "k36"
+        ]
+      },
+      {
+        "pc": 97,
+        "line": 100557,
+        "op": "move",
+        "args": [
+          "r17",
+          "r10"
+        ]
+      },
+      {
+        "pc": 98,
+        "line": 100558,
+        "op": "call",
+        "args": [
+          "r16",
+          "2",
+          "2"
+        ]
+      },
+      {
+        "pc": 99,
+        "line": 100559,
+        "op": "move",
+        "args": [
+          "r11",
+          "r16"
+        ]
+      },
+      {
+        "pc": 100,
+        "line": 100560,
+        "op": "eq",
+        "args": [
+          "1",
+          "k37",
+          "r11"
+        ]
+      },
+      {
+        "pc": 101,
+        "line": 100561,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l142"
+        ]
+      },
+      {
+        "pc": 102,
+        "line": 100562,
+        "op": "gettabup",
+        "args": [
+          "r16",
+          "u0",
+          "k38"
+        ]
+      },
+      {
+        "pc": 103,
+        "line": 100563,
+        "op": "move",
+        "args": [
+          "r17",
+          "r10"
+        ]
+      },
+      {
+        "pc": 104,
+        "line": 100564,
+        "op": "move",
+        "args": [
+          "r18",
+          "r11"
+        ]
+      },
+      {
+        "pc": 105,
+        "line": 100565,
+        "op": "call",
+        "args": [
+          "r16",
+          "3",
+          "1"
+        ]
+      },
+      {
+        "pc": 106,
+        "line": 100566,
+        "op": "gettabup",
+        "args": [
+          "r16",
+          "u0",
+          "k39"
+        ]
+      },
+      {
+        "pc": 107,
+        "line": 100567,
+        "op": "move",
+        "args": [
+          "r17",
+          "r11"
+        ]
+      },
+      {
+        "pc": 108,
+        "line": 100568,
+        "op": "gettabup",
+        "args": [
+          "r18",
+          "u0",
+          "k40"
+        ]
+      },
+      {
+        "pc": 109,
+        "line": 100569,
+        "op": "loadk",
+        "args": [
+          "r19",
+          "k41"
+        ]
+      },
+      {
+        "pc": 110,
+        "line": 100570,
+        "op": "call",
+        "args": [
+          "r18",
+          "2",
+          "0"
+        ]
+      },
+      {
+        "pc": 111,
+        "line": 100571,
+        "op": "call",
+        "args": [
+          "r16",
+          "0",
+          "2"
+        ]
+      },
+      {
+        "pc": 112,
+        "line": 100572,
+        "op": "test",
+        "args": [
+          "r16",
+          "0"
+        ]
+      },
+      {
+        "pc": 113,
+        "line": 100573,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l140"
+        ]
+      },
+      {
+        "pc": 114,
+        "line": 100574,
+        "op": "gettabup",
+        "args": [
+          "r16",
+          "u0",
+          "k15"
+        ]
+      },
+      {
+        "pc": 115,
+        "line": 100575,
+        "op": "move",
+        "args": [
+          "r17",
+          "r11"
+        ]
+      },
+      {
+        "pc": 116,
+        "line": 100576,
+        "op": "gettabup",
+        "args": [
+          "r18",
+          "u0",
+          "k43"
+        ]
+      },
+      {
+        "pc": 117,
+        "line": 100577,
+        "op": "call",
+        "args": [
+          "r16",
+          "3",
+          "2"
+        ]
+      },
+      {
+        "pc": 118,
+        "line": 100578,
+        "op": "lt",
+        "args": [
+          "0",
+          "k42",
+          "r16"
+        ]
+      },
+      {
+        "pc": 119,
+        "line": 100579,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l140"
+        ]
+      },
+      {
+        "pc": 120,
+        "line": 100580,
+        "op": "gettabup",
+        "args": [
+          "r16",
+          "u0",
+          "k44"
+        ]
+      },
+      {
+        "pc": 121,
+        "line": 100581,
+        "op": "gettabup",
+        "args": [
+          "r17",
+          "u0",
+          "k45"
+        ]
+      },
+      {
+        "pc": 122,
+        "line": 100582,
+        "op": "move",
+        "args": [
+          "r18",
+          "r0"
+        ]
+      },
+      {
+        "pc": 123,
+        "line": 100583,
+        "op": "call",
+        "args": [
+          "r17",
+          "2",
+          "2"
+        ]
+      },
+      {
+        "pc": 124,
+        "line": 100584,
+        "op": "move",
+        "args": [
+          "r18",
+          "r5"
+        ]
+      },
+      {
+        "pc": 125,
+        "line": 100585,
+        "op": "loadk",
+        "args": [
+          "r19",
+          "k42"
+        ]
+      },
+      {
+        "pc": 126,
+        "line": 100586,
+        "op": "loadk",
+        "args": [
+          "r20",
+          "k46"
+        ]
+      },
+      {
+        "pc": 127,
+        "line": 100587,
+        "op": "loadk",
+        "args": [
+          "r21",
+          "k31"
+        ]
+      },
+      {
+        "pc": 128,
+        "line": 100588,
+        "op": "loadk",
+        "args": [
+          "r22",
+          "k12"
+        ]
+      },
+      {
+        "pc": 129,
+        "line": 100589,
+        "op": "call",
+        "args": [
+          "r16",
+          "7",
+          "2"
+        ]
+      },
+      {
+        "pc": 130,
+        "line": 100590,
+        "op": "move",
+        "args": [
+          "r6",
+          "r16"
+        ]
+      },
+      {
+        "pc": 131,
+        "line": 100591,
+        "op": "gettabup",
+        "args": [
+          "r16",
+          "u0",
+          "k47"
+        ]
+      },
+      {
+        "pc": 132,
+        "line": 100592,
+        "op": "move",
+        "args": [
+          "r17",
+          "r6"
+        ]
+      },
+      {
+        "pc": 133,
+        "line": 100593,
+        "op": "move",
+        "args": [
+          "r18",
+          "r2"
+        ]
+      },
+      {
+        "pc": 134,
+        "line": 100594,
+        "op": "call",
+        "args": [
+          "r16",
+          "3",
+          "1"
+        ]
+      },
+      {
+        "pc": 135,
+        "line": 100595,
+        "op": "gettabup",
+        "args": [
+          "r16",
+          "u0",
+          "k48"
+        ]
+      },
+      {
+        "pc": 136,
+        "line": 100596,
+        "op": "move",
+        "args": [
+          "r17",
+          "r6"
+        ]
+      },
+      {
+        "pc": 137,
+        "line": 100597,
+        "op": "loadk",
+        "args": [
+          "r18",
+          "k49"
+        ]
+      },
+      {
+        "pc": 138,
+        "line": 100598,
+        "op": "move",
+        "args": [
+          "r19",
+          "r11"
+        ]
+      },
+      {
+        "pc": 139,
+        "line": 100599,
+        "op": "call",
+        "args": [
+          "r16",
+          "4",
+          "1"
+        ]
+      },
+      {
+        "pc": 140,
+        "line": 100601,
+        "op": "tforcall",
+        "args": [
+          "r12",
+          "1"
+        ]
+      },
+      {
+        "pc": 141,
+        "line": 100602,
+        "op": "tforloop",
+        "args": [
+          "r14",
+          "l96"
+        ]
+      },
+      {
+        "pc": 142,
+        "line": 100604,
+        "op": "gettabup",
+        "args": [
+          "r12",
+          "u0",
+          "k50"
+        ]
+      },
+      {
+        "pc": 143,
+        "line": 100605,
+        "op": "move",
+        "args": [
+          "r13",
+          "r10"
+        ]
+      },
+      {
+        "pc": 144,
+        "line": 100606,
+        "op": "call",
+        "args": [
+          "r12",
+          "2",
+          "1"
+        ]
+      },
+      {
+        "pc": 145,
+        "line": 100607,
+        "op": "gettabup",
+        "args": [
+          "r12",
+          "u0",
+          "k51"
+        ]
+      },
+      {
+        "pc": 146,
+        "line": 100608,
+        "op": "move",
+        "args": [
+          "r13",
+          "r10"
+        ]
+      },
+      {
+        "pc": 147,
+        "line": 100609,
+        "op": "call",
+        "args": [
+          "r12",
+          "2",
+          "1"
+        ]
+      },
+      {
+        "pc": 148,
+        "line": 100610,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l195"
+        ]
+      },
+      {
+        "pc": 149,
+        "line": 100612,
+        "op": "gettabup",
+        "args": [
+          "r7",
+          "u0",
+          "k52"
+        ]
+      },
+      {
+        "pc": 150,
+        "line": 100613,
+        "op": "move",
+        "args": [
+          "r8",
+          "r0"
+        ]
+      },
+      {
+        "pc": 151,
+        "line": 100614,
+        "op": "move",
+        "args": [
+          "r9",
+          "r1"
+        ]
+      },
+      {
+        "pc": 152,
+        "line": 100615,
+        "op": "move",
+        "args": [
+          "r10",
+          "r4"
+        ]
+      },
+      {
+        "pc": 153,
+        "line": 100616,
+        "op": "call",
+        "args": [
+          "r7",
+          "4",
+          "1"
+        ]
+      },
+      {
+        "pc": 154,
+        "line": 100617,
+        "op": "gettabup",
+        "args": [
+          "r7",
+          "u0",
+          "k25"
+        ]
+      },
+      {
+        "pc": 155,
+        "line": 100618,
+        "op": "move",
+        "args": [
+          "r8",
+          "r0"
+        ]
+      },
+      {
+        "pc": 156,
+        "line": 100619,
+        "op": "call",
+        "args": [
+          "r7",
+          "2",
+          "2"
+        ]
+      },
+      {
+        "pc": 157,
+        "line": 100620,
+        "op": "gettabup",
+        "args": [
+          "r8",
+          "u0",
+          "k2"
+        ]
+      },
+      {
+        "pc": 158,
+        "line": 100621,
+        "op": "loadk",
+        "args": [
+          "r9",
+          "k26"
+        ]
+      },
+      {
+        "pc": 159,
+        "line": 100622,
+        "op": "call",
+        "args": [
+          "r8",
+          "2",
+          "2"
+        ]
+      },
+      {
+        "pc": 160,
+        "line": 100623,
+        "op": "eq",
+        "args": [
+          "0",
+          "r7",
+          "r8"
+        ]
+      },
+      {
+        "pc": 161,
+        "line": 100624,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l169"
+        ]
+      },
+      {
+        "pc": 162,
+        "line": 100625,
+        "op": "gettabup",
+        "args": [
+          "r7",
+          "u0",
+          "k53"
+        ]
+      },
+      {
+        "pc": 163,
+        "line": 100626,
+        "op": "loadk",
+        "args": [
+          "r8",
+          "k54"
+        ]
+      },
+      {
+        "pc": 164,
+        "line": 100627,
+        "op": "move",
+        "args": [
+          "r9",
+          "r1"
+        ]
+      },
+      {
+        "pc": 165,
+        "line": 100628,
+        "op": "loadk",
+        "args": [
+          "r10",
+          "k55"
+        ]
+      },
+      {
+        "pc": 166,
+        "line": 100629,
+        "op": "loadk",
+        "args": [
+          "r11",
+          "k31"
+        ]
+      },
+      {
+        "pc": 167,
+        "line": 100630,
+        "op": "call",
+        "args": [
+          "r7",
+          "5",
+          "1"
+        ]
+      },
+      {
+        "pc": 168,
+        "line": 100631,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l175"
+        ]
+      },
+      {
+        "pc": 169,
+        "line": 100633,
+        "op": "gettabup",
+        "args": [
+          "r7",
+          "u0",
+          "k53"
+        ]
+      },
+      {
+        "pc": 170,
+        "line": 100634,
+        "op": "loadk",
+        "args": [
+          "r8",
+          "k56"
+        ]
+      },
+      {
+        "pc": 171,
+        "line": 100635,
+        "op": "move",
+        "args": [
+          "r9",
+          "r1"
+        ]
+      },
+      {
+        "pc": 172,
+        "line": 100636,
+        "op": "loadk",
+        "args": [
+          "r10",
+          "k57"
+        ]
+      },
+      {
+        "pc": 173,
+        "line": 100637,
+        "op": "loadk",
+        "args": [
+          "r11",
+          "k31"
+        ]
+      },
+      {
+        "pc": 174,
+        "line": 100638,
+        "op": "call",
+        "args": [
+          "r7",
+          "5",
+          "1"
+        ]
+      },
+      {
+        "pc": 175,
+        "line": 100640,
+        "op": "gettabup",
+        "args": [
+          "r7",
+          "u0",
+          "k44"
+        ]
+      },
+      {
+        "pc": 176,
+        "line": 100641,
+        "op": "gettabup",
+        "args": [
+          "r8",
+          "u0",
+          "k45"
+        ]
+      },
+      {
+        "pc": 177,
+        "line": 100642,
+        "op": "move",
+        "args": [
+          "r9",
+          "r0"
+        ]
+      },
+      {
+        "pc": 178,
+        "line": 100643,
+        "op": "call",
+        "args": [
+          "r8",
+          "2",
+          "2"
+        ]
+      },
+      {
+        "pc": 179,
+        "line": 100644,
+        "op": "move",
+        "args": [
+          "r9",
+          "r5"
+        ]
+      },
+      {
+        "pc": 180,
+        "line": 100645,
+        "op": "loadk",
+        "args": [
+          "r10",
+          "k42"
+        ]
+      },
+      {
+        "pc": 181,
+        "line": 100646,
+        "op": "loadk",
+        "args": [
+          "r11",
+          "k46"
+        ]
+      },
+      {
+        "pc": 182,
+        "line": 100647,
+        "op": "loadk",
+        "args": [
+          "r12",
+          "k31"
+        ]
+      },
+      {
+        "pc": 183,
+        "line": 100648,
+        "op": "loadk",
+        "args": [
+          "r13",
+          "k31"
+        ]
+      },
+      {
+        "pc": 184,
+        "line": 100649,
+        "op": "call",
+        "args": [
+          "r7",
+          "7",
+          "2"
+        ]
+      },
+      {
+        "pc": 185,
+        "line": 100650,
+        "op": "move",
+        "args": [
+          "r6",
+          "r7"
+        ]
+      },
+      {
+        "pc": 186,
+        "line": 100651,
+        "op": "gettabup",
+        "args": [
+          "r7",
+          "u0",
+          "k47"
+        ]
+      },
+      {
+        "pc": 187,
+        "line": 100652,
+        "op": "move",
+        "args": [
+          "r8",
+          "r6"
+        ]
+      },
+      {
+        "pc": 188,
+        "line": 100653,
+        "op": "move",
+        "args": [
+          "r9",
+          "r2"
+        ]
+      },
+      {
+        "pc": 189,
+        "line": 100654,
+        "op": "call",
+        "args": [
+          "r7",
+          "3",
+          "1"
+        ]
+      },
+      {
+        "pc": 190,
+        "line": 100655,
+        "op": "gettabup",
+        "args": [
+          "r7",
+          "u0",
+          "k48"
+        ]
+      },
+      {
+        "pc": 191,
+        "line": 100656,
+        "op": "move",
+        "args": [
+          "r8",
+          "r6"
+        ]
+      },
+      {
+        "pc": 192,
+        "line": 100657,
+        "op": "loadk",
+        "args": [
+          "r9",
+          "k49"
+        ]
+      },
+      {
+        "pc": 193,
+        "line": 100658,
+        "op": "move",
+        "args": [
+          "r10",
+          "r1"
+        ]
+      },
+      {
+        "pc": 194,
+        "line": 100659,
+        "op": "call",
+        "args": [
+          "r7",
+          "4",
+          "1"
+        ]
+      },
+      {
+        "pc": 195,
+        "line": 100661,
+        "op": "return",
+        "args": [
+          "r0",
+          "1"
+        ]
+      }
+    ]
+  },
+  "workbookEvidence": "night-workbook-check.json",
+  "objects": {
+    "A192": {
+      "slk": {
+        "alias": "A192",
+        "code": "ANcl",
+        "checkDep": 1,
+        "Cool1": 8.0,
+        "Cool2": 8.0,
+        "Cool3": 8.0,
+        "Cool4": 8.0,
+        "Cost1": 20,
+        "Cost2": 35,
+        "Cost3": 50,
+        "Cost4": 65,
+        "DataB1": 1,
+        "DataB2": 1,
+        "DataB3": 1,
+        "DataB4": 1,
+        "DataC1": 1,
+        "DataC2": 1,
+        "DataC3": 1,
+        "DataC4": 1,
+        "DataF1": "thunderbolt",
+        "DataF2": "thunderbolt",
+        "DataF3": "thunderbolt",
+        "DataF4": "thunderbolt",
+        "levels": 6,
+        "reqLevel": 1,
+        "Rng1": 1000.0,
+        "Rng2": 1000.0,
+        "Rng3": 1000.0,
+        "Rng4": 1000.0,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "overrides": [
+        {
+          "old": "A192",
+          "new": "\u0000\u0000\u0000\u0000",
+          "mods": [
+            {
+              "key": "amcs",
+              "type": 0,
+              "level": 5,
+              "data": 0,
+              "value": 80
+            },
+            {
+              "key": "amcs",
+              "type": 0,
+              "level": 6,
+              "data": 0,
+              "value": 100
+            }
+          ]
+        }
+      ]
+    },
+    "T213": {
+      "slk": {
+        "alias": "T213",
+        "code": "Aslo",
+        "BuffID1": "B168",
+        "checkDep": 1,
+        "Cool1": 10.0,
+        "Cost1": 10,
+        "DataA1": 0.5,
+        "Dur1": 3.0,
+        "HeroDur1": 3.0,
+        "levels": 1,
+        "priority": 3,
+        "Rng1": 500.0,
+        "targs1": "enemies",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "overrides": []
+    }
+  },
+  "sourceEntry": {
+    "function": "main/f291/f14",
+    "pc": [
+      1207,
+      1217
+    ],
+    "lines": [
+      171322,
+      171332
+    ]
+  },
+  "autocast": {
+    "priority": 97,
+    "abilityIds": [
+      "A192"
+    ],
+    "readiness": "any-ready-in-listed-order",
+    "extraCondition": null,
+    "selection": "H→M",
+    "selectionHelpers": [
+      "hasHero",
+      "hasMon"
+    ],
+    "searchRadius": 1000,
+    "searchCenter": "attacker-position-sampled-on-entry",
+    "command": "thunderbolt",
+    "commandApi": "target",
+    "delaySeconds": 0,
+    "delaySemantics": "native-single-timer",
+    "endSkillScanAfterCommand": true,
+    "endSkillScanWithoutCommand": false,
+    "source": {
+      "luaFile": "reference/map-6.25/main.readable.lua",
+      "luaLines": [
+        122809,
+        122858
+      ],
+      "bytecodeFile": "reference/map-6.25/main.disasm",
+      "function": "main/f291/f27",
+      "bytecodeLines": [
+        177266,
+        177317
+      ],
+      "pcRange": [
+        2983,
+        3032
+      ]
+    },
+    "controlFlowPaths": [
+      {
+        "conditions": {
+          "truth(Unit_Ability_Has_Cool_Down(attacker, \"A192\"))": true,
+          "nil == hasHero(1000)": true,
+          "nil == hasMon(1000)": true
+        },
+        "commands": [],
+        "exit": "continue-next-block",
+        "exitPc": 3033
+      },
+      {
+        "conditions": {
+          "truth(Unit_Ability_Has_Cool_Down(attacker, \"A192\"))": true,
+          "nil == hasHero(1000)": true,
+          "nil == hasMon(1000)": false
+        },
+        "commands": [
+          {
+            "function": "deferTarget0",
+            "arguments": [
+              "attacker",
+              "\"thunderbolt\"",
+              "hasMon(1000)"
+            ],
+            "pc": 3028,
+            "bytecodeLine": 177312
+          }
+        ],
+        "exit": "end-skill-scan",
+        "exitPc": 4833
+      },
+      {
+        "conditions": {
+          "truth(Unit_Ability_Has_Cool_Down(attacker, \"A192\"))": true,
+          "nil == hasHero(1000)": false
+        },
+        "commands": [
+          {
+            "function": "deferTarget0",
+            "arguments": [
+              "attacker",
+              "\"thunderbolt\"",
+              "hasHero(1000)"
+            ],
+            "pc": 3008,
+            "bytecodeLine": 177291
+          }
+        ],
+        "exit": "end-skill-scan",
+        "exitPc": 4833
+      },
+      {
+        "conditions": {
+          "truth(Unit_Ability_Has_Cool_Down(attacker, \"A192\"))": false
+        },
+        "commands": [],
+        "exit": "continue-next-block",
+        "exitPc": 3033
+      }
+    ]
+  },
+  "selected": {
+    "damage": [
+      1000,
+      1800,
+      2600,
+      3400,
+      4200,
+      5000
+    ],
+    "maxLifeRatio": 0.13,
+    "mana": [
+      20,
+      35,
+      50,
+      65,
+      80,
+      100
+    ],
+    "cooldown": 8,
+    "castPoint": 0.3,
+    "range": 1000,
+    "nightRadius": 350,
+    "sourceDamageType": {
+      "attack": false,
+      "ranged": false,
+      "attackType": "HERO",
+      "damageType": "NORMAL",
+      "weaponType": "WHOKNOWS"
+    },
+    "delay": "source reads _ENV.delaytime and forwards unchanged; no static assignment found. Q24 missing real delay argument is normalized to0 only at this native call boundary; finite nonnegative supplied value is preserved. Not a claim that original binding accepts nil.",
+    "ordering": "amount and target location captured before night predicate; nighttime area fully settles at delay0 before visual and independent owner11/life>0 slow enumeration; daytime direct damage then visual then unconditional slow order; later invalid native order may reject",
+    "slow": {
+      "ability": "T213",
+      "level": 1,
+      "cost": 10,
+      "castPoint": 0,
+      "range": 500,
+      "duration": 3,
+      "moveReduction": 0.5,
+      "attackReduction": 0,
+      "buff": "B168",
+      "nativeChoice": "Q24 ordinary targeted slow on visible enemy air/ground, no building/Aloc/invulnerable/magicimmune; zero cast point queued via B05; no missile; N535 screen consumes entire slow, damage already happened; latest refresh replaces same B168, no stacking; ordinary negative dispel/death/removal/magic immunity clear; unit pause does not stop buff time",
+      "dummy": "source q001 at original target location, slot9 in probes; actual userdata copied before order; lifespan1sec day2sec night; cost10 from q001 initial1000, no bonus attack-speed reduction inferred from template tooltip"
+    },
+    "cast": "Q24 existing alive enabled rank1..6, self has sufficient mana/cooldown0/no spell lock; target exists alive visible enemy unit, not Aloc/invulnerable; ground/air/building/magicimmune accepted for physical core; range1000 rechecked at .3sec commit; cancel before commit free; pay/CD then once AnySkillStart, no refunds for failed childslow; ANcl has no second native payload"
+  },
+  "validation": {
+    "completeInstructions": 195,
+    "sourceStubCases": 114,
+    "cases": [
+      {
+        "rank": 0,
+        "night": false,
+        "type": "H050",
+        "accepted": false,
+        "targetKilledDuringDamage": false,
+        "damage": 2300,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 0,
+        "night": false,
+        "type": "H050",
+        "accepted": false,
+        "targetKilledDuringDamage": true,
+        "damage": 2300,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 0,
+        "night": false,
+        "type": "H050",
+        "accepted": true,
+        "targetKilledDuringDamage": false,
+        "damage": 2300,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 0,
+        "night": false,
+        "type": "H050",
+        "accepted": true,
+        "targetKilledDuringDamage": true,
+        "damage": 2300,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 0,
+        "night": false,
+        "type": "G071",
+        "accepted": false,
+        "targetKilledDuringDamage": false,
+        "damage": 2300,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 0,
+        "night": false,
+        "type": "G071",
+        "accepted": false,
+        "targetKilledDuringDamage": true,
+        "damage": 2300,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 0,
+        "night": false,
+        "type": "G071",
+        "accepted": true,
+        "targetKilledDuringDamage": false,
+        "damage": 2300,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 0,
+        "night": false,
+        "type": "G071",
+        "accepted": true,
+        "targetKilledDuringDamage": true,
+        "damage": 2300,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 0,
+        "night": true,
+        "type": "H050",
+        "accepted": false,
+        "targetKilledDuringDamage": false,
+        "damage": 2300,
+        "slowOrders": [
+          "target",
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 0,
+        "night": true,
+        "type": "H050",
+        "accepted": false,
+        "targetKilledDuringDamage": true,
+        "damage": 2300,
+        "slowOrders": [
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 0,
+        "night": true,
+        "type": "H050",
+        "accepted": true,
+        "targetKilledDuringDamage": false,
+        "damage": 2300,
+        "slowOrders": [
+          "target",
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 0,
+        "night": true,
+        "type": "H050",
+        "accepted": true,
+        "targetKilledDuringDamage": true,
+        "damage": 2300,
+        "slowOrders": [
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 0,
+        "night": true,
+        "type": "G071",
+        "accepted": false,
+        "targetKilledDuringDamage": false,
+        "damage": 2300,
+        "slowOrders": [
+          "target",
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 0,
+        "night": true,
+        "type": "G071",
+        "accepted": false,
+        "targetKilledDuringDamage": true,
+        "damage": 2300,
+        "slowOrders": [
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 0,
+        "night": true,
+        "type": "G071",
+        "accepted": true,
+        "targetKilledDuringDamage": false,
+        "damage": 2300,
+        "slowOrders": [
+          "target",
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 0,
+        "night": true,
+        "type": "G071",
+        "accepted": true,
+        "targetKilledDuringDamage": true,
+        "damage": 2300,
+        "slowOrders": [
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 1,
+        "night": false,
+        "type": "H050",
+        "accepted": false,
+        "targetKilledDuringDamage": false,
+        "damage": 2300,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 1,
+        "night": false,
+        "type": "H050",
+        "accepted": false,
+        "targetKilledDuringDamage": true,
+        "damage": 2300,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 1,
+        "night": false,
+        "type": "H050",
+        "accepted": true,
+        "targetKilledDuringDamage": false,
+        "damage": 2300,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 1,
+        "night": false,
+        "type": "H050",
+        "accepted": true,
+        "targetKilledDuringDamage": true,
+        "damage": 2300,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 1,
+        "night": false,
+        "type": "G071",
+        "accepted": false,
+        "targetKilledDuringDamage": false,
+        "damage": 2300,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 1,
+        "night": false,
+        "type": "G071",
+        "accepted": false,
+        "targetKilledDuringDamage": true,
+        "damage": 2300,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 1,
+        "night": false,
+        "type": "G071",
+        "accepted": true,
+        "targetKilledDuringDamage": false,
+        "damage": 2300,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 1,
+        "night": false,
+        "type": "G071",
+        "accepted": true,
+        "targetKilledDuringDamage": true,
+        "damage": 2300,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 1,
+        "night": true,
+        "type": "H050",
+        "accepted": false,
+        "targetKilledDuringDamage": false,
+        "damage": 2300,
+        "slowOrders": [
+          "target",
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 1,
+        "night": true,
+        "type": "H050",
+        "accepted": false,
+        "targetKilledDuringDamage": true,
+        "damage": 2300,
+        "slowOrders": [
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 1,
+        "night": true,
+        "type": "H050",
+        "accepted": true,
+        "targetKilledDuringDamage": false,
+        "damage": 2300,
+        "slowOrders": [
+          "target",
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 1,
+        "night": true,
+        "type": "H050",
+        "accepted": true,
+        "targetKilledDuringDamage": true,
+        "damage": 2300,
+        "slowOrders": [
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 1,
+        "night": true,
+        "type": "G071",
+        "accepted": false,
+        "targetKilledDuringDamage": false,
+        "damage": 2300,
+        "slowOrders": [
+          "target",
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 1,
+        "night": true,
+        "type": "G071",
+        "accepted": false,
+        "targetKilledDuringDamage": true,
+        "damage": 2300,
+        "slowOrders": [
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 1,
+        "night": true,
+        "type": "G071",
+        "accepted": true,
+        "targetKilledDuringDamage": false,
+        "damage": 2300,
+        "slowOrders": [
+          "target",
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 1,
+        "night": true,
+        "type": "G071",
+        "accepted": true,
+        "targetKilledDuringDamage": true,
+        "damage": 2300,
+        "slowOrders": [
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 2,
+        "night": false,
+        "type": "H050",
+        "accepted": false,
+        "targetKilledDuringDamage": false,
+        "damage": 3100,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 2,
+        "night": false,
+        "type": "H050",
+        "accepted": false,
+        "targetKilledDuringDamage": true,
+        "damage": 3100,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 2,
+        "night": false,
+        "type": "H050",
+        "accepted": true,
+        "targetKilledDuringDamage": false,
+        "damage": 3100,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 2,
+        "night": false,
+        "type": "H050",
+        "accepted": true,
+        "targetKilledDuringDamage": true,
+        "damage": 3100,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 2,
+        "night": false,
+        "type": "G071",
+        "accepted": false,
+        "targetKilledDuringDamage": false,
+        "damage": 3100,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 2,
+        "night": false,
+        "type": "G071",
+        "accepted": false,
+        "targetKilledDuringDamage": true,
+        "damage": 3100,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 2,
+        "night": false,
+        "type": "G071",
+        "accepted": true,
+        "targetKilledDuringDamage": false,
+        "damage": 3100,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 2,
+        "night": false,
+        "type": "G071",
+        "accepted": true,
+        "targetKilledDuringDamage": true,
+        "damage": 3100,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 2,
+        "night": true,
+        "type": "H050",
+        "accepted": false,
+        "targetKilledDuringDamage": false,
+        "damage": 3100,
+        "slowOrders": [
+          "target",
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 2,
+        "night": true,
+        "type": "H050",
+        "accepted": false,
+        "targetKilledDuringDamage": true,
+        "damage": 3100,
+        "slowOrders": [
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 2,
+        "night": true,
+        "type": "H050",
+        "accepted": true,
+        "targetKilledDuringDamage": false,
+        "damage": 3100,
+        "slowOrders": [
+          "target",
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 2,
+        "night": true,
+        "type": "H050",
+        "accepted": true,
+        "targetKilledDuringDamage": true,
+        "damage": 3100,
+        "slowOrders": [
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 2,
+        "night": true,
+        "type": "G071",
+        "accepted": false,
+        "targetKilledDuringDamage": false,
+        "damage": 3100,
+        "slowOrders": [
+          "target",
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 2,
+        "night": true,
+        "type": "G071",
+        "accepted": false,
+        "targetKilledDuringDamage": true,
+        "damage": 3100,
+        "slowOrders": [
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 2,
+        "night": true,
+        "type": "G071",
+        "accepted": true,
+        "targetKilledDuringDamage": false,
+        "damage": 3100,
+        "slowOrders": [
+          "target",
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 2,
+        "night": true,
+        "type": "G071",
+        "accepted": true,
+        "targetKilledDuringDamage": true,
+        "damage": 3100,
+        "slowOrders": [
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 3,
+        "night": false,
+        "type": "H050",
+        "accepted": false,
+        "targetKilledDuringDamage": false,
+        "damage": 3900,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 3,
+        "night": false,
+        "type": "H050",
+        "accepted": false,
+        "targetKilledDuringDamage": true,
+        "damage": 3900,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 3,
+        "night": false,
+        "type": "H050",
+        "accepted": true,
+        "targetKilledDuringDamage": false,
+        "damage": 3900,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 3,
+        "night": false,
+        "type": "H050",
+        "accepted": true,
+        "targetKilledDuringDamage": true,
+        "damage": 3900,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 3,
+        "night": false,
+        "type": "G071",
+        "accepted": false,
+        "targetKilledDuringDamage": false,
+        "damage": 3900,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 3,
+        "night": false,
+        "type": "G071",
+        "accepted": false,
+        "targetKilledDuringDamage": true,
+        "damage": 3900,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 3,
+        "night": false,
+        "type": "G071",
+        "accepted": true,
+        "targetKilledDuringDamage": false,
+        "damage": 3900,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 3,
+        "night": false,
+        "type": "G071",
+        "accepted": true,
+        "targetKilledDuringDamage": true,
+        "damage": 3900,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 3,
+        "night": true,
+        "type": "H050",
+        "accepted": false,
+        "targetKilledDuringDamage": false,
+        "damage": 3900,
+        "slowOrders": [
+          "target",
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 3,
+        "night": true,
+        "type": "H050",
+        "accepted": false,
+        "targetKilledDuringDamage": true,
+        "damage": 3900,
+        "slowOrders": [
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 3,
+        "night": true,
+        "type": "H050",
+        "accepted": true,
+        "targetKilledDuringDamage": false,
+        "damage": 3900,
+        "slowOrders": [
+          "target",
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 3,
+        "night": true,
+        "type": "H050",
+        "accepted": true,
+        "targetKilledDuringDamage": true,
+        "damage": 3900,
+        "slowOrders": [
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 3,
+        "night": true,
+        "type": "G071",
+        "accepted": false,
+        "targetKilledDuringDamage": false,
+        "damage": 3900,
+        "slowOrders": [
+          "target",
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 3,
+        "night": true,
+        "type": "G071",
+        "accepted": false,
+        "targetKilledDuringDamage": true,
+        "damage": 3900,
+        "slowOrders": [
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 3,
+        "night": true,
+        "type": "G071",
+        "accepted": true,
+        "targetKilledDuringDamage": false,
+        "damage": 3900,
+        "slowOrders": [
+          "target",
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 3,
+        "night": true,
+        "type": "G071",
+        "accepted": true,
+        "targetKilledDuringDamage": true,
+        "damage": 3900,
+        "slowOrders": [
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 4,
+        "night": false,
+        "type": "H050",
+        "accepted": false,
+        "targetKilledDuringDamage": false,
+        "damage": 4700,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 4,
+        "night": false,
+        "type": "H050",
+        "accepted": false,
+        "targetKilledDuringDamage": true,
+        "damage": 4700,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 4,
+        "night": false,
+        "type": "H050",
+        "accepted": true,
+        "targetKilledDuringDamage": false,
+        "damage": 4700,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 4,
+        "night": false,
+        "type": "H050",
+        "accepted": true,
+        "targetKilledDuringDamage": true,
+        "damage": 4700,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 4,
+        "night": false,
+        "type": "G071",
+        "accepted": false,
+        "targetKilledDuringDamage": false,
+        "damage": 4700,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 4,
+        "night": false,
+        "type": "G071",
+        "accepted": false,
+        "targetKilledDuringDamage": true,
+        "damage": 4700,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 4,
+        "night": false,
+        "type": "G071",
+        "accepted": true,
+        "targetKilledDuringDamage": false,
+        "damage": 4700,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 4,
+        "night": false,
+        "type": "G071",
+        "accepted": true,
+        "targetKilledDuringDamage": true,
+        "damage": 4700,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 4,
+        "night": true,
+        "type": "H050",
+        "accepted": false,
+        "targetKilledDuringDamage": false,
+        "damage": 4700,
+        "slowOrders": [
+          "target",
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 4,
+        "night": true,
+        "type": "H050",
+        "accepted": false,
+        "targetKilledDuringDamage": true,
+        "damage": 4700,
+        "slowOrders": [
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 4,
+        "night": true,
+        "type": "H050",
+        "accepted": true,
+        "targetKilledDuringDamage": false,
+        "damage": 4700,
+        "slowOrders": [
+          "target",
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 4,
+        "night": true,
+        "type": "H050",
+        "accepted": true,
+        "targetKilledDuringDamage": true,
+        "damage": 4700,
+        "slowOrders": [
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 4,
+        "night": true,
+        "type": "G071",
+        "accepted": false,
+        "targetKilledDuringDamage": false,
+        "damage": 4700,
+        "slowOrders": [
+          "target",
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 4,
+        "night": true,
+        "type": "G071",
+        "accepted": false,
+        "targetKilledDuringDamage": true,
+        "damage": 4700,
+        "slowOrders": [
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 4,
+        "night": true,
+        "type": "G071",
+        "accepted": true,
+        "targetKilledDuringDamage": false,
+        "damage": 4700,
+        "slowOrders": [
+          "target",
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 4,
+        "night": true,
+        "type": "G071",
+        "accepted": true,
+        "targetKilledDuringDamage": true,
+        "damage": 4700,
+        "slowOrders": [
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 5,
+        "night": false,
+        "type": "H050",
+        "accepted": false,
+        "targetKilledDuringDamage": false,
+        "damage": 5500,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 5,
+        "night": false,
+        "type": "H050",
+        "accepted": false,
+        "targetKilledDuringDamage": true,
+        "damage": 5500,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 5,
+        "night": false,
+        "type": "H050",
+        "accepted": true,
+        "targetKilledDuringDamage": false,
+        "damage": 5500,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 5,
+        "night": false,
+        "type": "H050",
+        "accepted": true,
+        "targetKilledDuringDamage": true,
+        "damage": 5500,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 5,
+        "night": false,
+        "type": "G071",
+        "accepted": false,
+        "targetKilledDuringDamage": false,
+        "damage": 5500,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 5,
+        "night": false,
+        "type": "G071",
+        "accepted": false,
+        "targetKilledDuringDamage": true,
+        "damage": 5500,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 5,
+        "night": false,
+        "type": "G071",
+        "accepted": true,
+        "targetKilledDuringDamage": false,
+        "damage": 5500,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 5,
+        "night": false,
+        "type": "G071",
+        "accepted": true,
+        "targetKilledDuringDamage": true,
+        "damage": 5500,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 5,
+        "night": true,
+        "type": "H050",
+        "accepted": false,
+        "targetKilledDuringDamage": false,
+        "damage": 5500,
+        "slowOrders": [
+          "target",
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 5,
+        "night": true,
+        "type": "H050",
+        "accepted": false,
+        "targetKilledDuringDamage": true,
+        "damage": 5500,
+        "slowOrders": [
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 5,
+        "night": true,
+        "type": "H050",
+        "accepted": true,
+        "targetKilledDuringDamage": false,
+        "damage": 5500,
+        "slowOrders": [
+          "target",
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 5,
+        "night": true,
+        "type": "H050",
+        "accepted": true,
+        "targetKilledDuringDamage": true,
+        "damage": 5500,
+        "slowOrders": [
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 5,
+        "night": true,
+        "type": "G071",
+        "accepted": false,
+        "targetKilledDuringDamage": false,
+        "damage": 5500,
+        "slowOrders": [
+          "target",
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 5,
+        "night": true,
+        "type": "G071",
+        "accepted": false,
+        "targetKilledDuringDamage": true,
+        "damage": 5500,
+        "slowOrders": [
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 5,
+        "night": true,
+        "type": "G071",
+        "accepted": true,
+        "targetKilledDuringDamage": false,
+        "damage": 5500,
+        "slowOrders": [
+          "target",
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 5,
+        "night": true,
+        "type": "G071",
+        "accepted": true,
+        "targetKilledDuringDamage": true,
+        "damage": 5500,
+        "slowOrders": [
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 6,
+        "night": false,
+        "type": "H050",
+        "accepted": false,
+        "targetKilledDuringDamage": false,
+        "damage": 6300,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 6,
+        "night": false,
+        "type": "H050",
+        "accepted": false,
+        "targetKilledDuringDamage": true,
+        "damage": 6300,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 6,
+        "night": false,
+        "type": "H050",
+        "accepted": true,
+        "targetKilledDuringDamage": false,
+        "damage": 6300,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 6,
+        "night": false,
+        "type": "H050",
+        "accepted": true,
+        "targetKilledDuringDamage": true,
+        "damage": 6300,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 6,
+        "night": false,
+        "type": "G071",
+        "accepted": false,
+        "targetKilledDuringDamage": false,
+        "damage": 6300,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 6,
+        "night": false,
+        "type": "G071",
+        "accepted": false,
+        "targetKilledDuringDamage": true,
+        "damage": 6300,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 6,
+        "night": false,
+        "type": "G071",
+        "accepted": true,
+        "targetKilledDuringDamage": false,
+        "damage": 6300,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 6,
+        "night": false,
+        "type": "G071",
+        "accepted": true,
+        "targetKilledDuringDamage": true,
+        "damage": 6300,
+        "slowOrders": [
+          "target"
+        ]
+      },
+      {
+        "rank": 6,
+        "night": true,
+        "type": "H050",
+        "accepted": false,
+        "targetKilledDuringDamage": false,
+        "damage": 6300,
+        "slowOrders": [
+          "target",
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 6,
+        "night": true,
+        "type": "H050",
+        "accepted": false,
+        "targetKilledDuringDamage": true,
+        "damage": 6300,
+        "slowOrders": [
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 6,
+        "night": true,
+        "type": "H050",
+        "accepted": true,
+        "targetKilledDuringDamage": false,
+        "damage": 6300,
+        "slowOrders": [
+          "target",
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 6,
+        "night": true,
+        "type": "H050",
+        "accepted": true,
+        "targetKilledDuringDamage": true,
+        "damage": 6300,
+        "slowOrders": [
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 6,
+        "night": true,
+        "type": "G071",
+        "accepted": false,
+        "targetKilledDuringDamage": false,
+        "damage": 6300,
+        "slowOrders": [
+          "target",
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 6,
+        "night": true,
+        "type": "G071",
+        "accepted": false,
+        "targetKilledDuringDamage": true,
+        "damage": 6300,
+        "slowOrders": [
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 6,
+        "night": true,
+        "type": "G071",
+        "accepted": true,
+        "targetKilledDuringDamage": false,
+        "damage": 6300,
+        "slowOrders": [
+          "target",
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "rank": 6,
+        "night": true,
+        "type": "G071",
+        "accepted": true,
+        "targetKilledDuringDamage": true,
+        "damage": 6300,
+        "slowOrders": [
+          "edge",
+          "immune"
+        ]
+      },
+      {
+        "sourceDelayPassthrough": 0
+      },
+      {
+        "sourceDelayPassthrough": 0.5
+      }
+    ],
+    "clientRun": false,
+    "webGameRun": false
+  },
+  "remaining": [
+    "generic skin/illusion/removed-handle lifecycle",
+    "all shared damage pipeline callees",
+    "native same-Buff emitters outside T213 scope"
+  ]
+}

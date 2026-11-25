@@ -1,0 +1,3359 @@
+{
+  "schemaVersion": 1,
+  "ruleVersion": "coup-de-grace-native-v1",
+  "scope": "A027 native weapon critical and bounded illusion/item interactions; existing extra-kill probabilities and Q26 unchanged",
+  "sourceFiles": [
+    {
+      "path": "reference/map-6.25/main.disasm",
+      "sha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+    },
+    {
+      "path": "reference/map-6.25/main.readable.lua",
+      "sha256": "d868f14d946f0780313468f5dd783fa4a6cbe39f5c7851d8e4094ef80aa618b9"
+    },
+    {
+      "path": "reference/map-6.25/units_abilitydata.slk",
+      "sha256": "ba7657fe7942696310502e51ab349cc77ccd70016915dc26d92ffbcead7bb53d"
+    },
+    {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "sha256": "b772de42ebcfc1d3818298b35dbe81a35826892848c7cbfef70bf5097e481861"
+    },
+    {
+      "path": "reference/map-6.25/war3map.w3a.json",
+      "sha256": "d2875f064b389bca471db97121ff7c810d46fbc962ae640ad128d1daa85931bb"
+    },
+    {
+      "path": "reference/map-6.25/war3map.w3t.json",
+      "sha256": "9ac88a8911d0d4b164a1f27c75c550f62f4dd22380173ffd643757fa7fff1306"
+    },
+    {
+      "path": "reference/map-6.25/war3map.w3u.json",
+      "sha256": "4d599edcf9784748cb7d8f07d873331de37393c9dec20d55b8551a924e6946c1"
+    },
+    {
+      "path": "reference/map-6.25/units_itemdata.json",
+      "sha256": "569b41f4be3caf8844a0ac7184fef0076f75118faf60fdb3e14b157aa992e113"
+    },
+    {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "sha256": "ebd8a6fd8410f593c5ecadf6bf7c4f6bbc5b4bb7183c5e986a4d2d77e1747133"
+    },
+    {
+      "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+      "sha256": "5240c99230cd441b4c376371a31a7987e65470feed736177473a206c55fbe8cc"
+    },
+    {
+      "path": "reference/map-6.25/war3mapMisc.txt",
+      "sha256": "f13e268c2da3ad776b39f230cb55a8eb5721df2bcf1e62c78202236b3f5d3743"
+    },
+    {
+      "path": "图鉴.xlsx",
+      "sha256": "457c8f7e37e19412a0dd072ce941e95604b0b8910860b9e1eb9883e6b82bb6af"
+    }
+  ],
+  "workbook": {
+    "塔技能!32": {
+      "A32": "幻影刺客<SSR>",
+      "B32": "H007",
+      "C32": "3",
+      "D32": "学习技能",
+      "E32": "恩赐解脱",
+      "F32": "A027",
+      "G32": "6",
+      "H32": "幻影刺客的攻击有概率暴击，甚至无视一切瞬间秒杀目标！\n被动",
+      "I32": "等级 1｜10%概率造成10倍暴击。\n等级 2｜10%概率造成14倍暴击。\n等级 3｜10%概率造成18倍暴击。\n等级 4｜10%概率造成22倍暴击。\n等级 5｜10%概率造成25倍暴击。\n等级 6｜10%概率造成30倍暴击，并且有小概率可以直接秒杀单位！（进入无尽后秒杀概率大幅度提升，进入深渊后无效）。",
+      "J32": ""
+    },
+    "塔技能!57": {
+      "A57": "无双魅影<SSR>",
+      "B57": "G052",
+      "C57": "3",
+      "D57": "学习技能",
+      "E57": "恩赐解脱",
+      "F57": "A027",
+      "G57": "6",
+      "H57": "幻影刺客的攻击有概率暴击，甚至无视一切瞬间秒杀目标！\n被动",
+      "I57": "等级 1｜10%概率造成10倍暴击。\n等级 2｜10%概率造成14倍暴击。\n等级 3｜10%概率造成18倍暴击。\n等级 4｜10%概率造成22倍暴击。\n等级 5｜10%概率造成25倍暴击。\n等级 6｜10%概率造成30倍暴击，并且有小概率可以直接秒杀单位！（进入无尽后秒杀概率大幅度提升，进入深渊后无效）。",
+      "J57": ""
+    },
+    "装备与道具!51": {
+      "A51": "金箍棒",
+      "B51": "i141",
+      "C51": "局内装备／组件",
+      "D51": "8100",
+      "E51": "",
+      "F51": "制作书-金箍棒 + 恶魔刀锋 + 标枪 ×2",
+      "G51": "成品商店、合成",
+      "H51": "属性：\n增加115点攻击力。\n克敌机先：\n攻击有70%的概率不会丢失，并且有30%的概率额外造成400点物理伤害。"
+    },
+    "装备与道具!123": {
+      "A123": "水晶剑",
+      "B123": "i213",
+      "C123": "局内装备／组件",
+      "D123": "2500",
+      "E123": "",
+      "F123": "攻击之爪 + 制作书-水晶剑 + 阔剑",
+      "G123": "合成",
+      "H123": "属性：\n增加36点攻击力。\n致命一击：\n攻击时有20%概率对目标造成2倍伤害。"
+    },
+    "装备与道具!125": {
+      "A125": "暴雪弩炮",
+      "B125": "i215",
+      "C125": "局内装备／组件",
+      "D125": "8300",
+      "E125": "",
+      "F125": "制作书-暴雪弩炮 + 水晶剑 + 恶魔刀锋",
+      "G125": "成品商店、合成",
+      "H125": "属性：\n增加100点攻击力。\n致命一击：\n攻击时有25%概率对目标造成3.8倍伤害。"
+    },
+    "装备与道具!182": {
+      "A182": "幻影斧",
+      "B182": "i272",
+      "C182": "局内装备／组件",
+      "D182": "10300",
+      "E182": "",
+      "F182": "制作书-幻影斧 + 幻影匕首 + 极限法球",
+      "G182": "成品商店、合成",
+      "H182": "属性：\n增加24点力量。\n增加40点敏捷。\n增加24点智力。\n增加自身20%的攻速。\n镜像：\n制造2个你的幻象，继承本体50%的攻击力，持续7秒，冷却时间15秒。"
+    },
+    "装备与道具!184": {
+      "A184": "幻影匕首",
+      "B184": "i274",
+      "C184": "局内装备／组件",
+      "D184": "5000",
+      "E184": "",
+      "F184": "制作书-幻影匕首 + 夜叉 + 极限法球",
+      "G184": "合成",
+      "H184": "属性：\n增加12点力量。\n增加28点敏捷。\n增加12点智力。\n增加自身12%的攻速。\n镜像：\n制造1个你的幻象，继承本体30%的攻击力，持续7秒，冷却时间15秒。"
+    },
+    "装备与道具!199": {
+      "A199": "裁决之剑",
+      "B199": "i306",
+      "C199": "局内装备／组件",
+      "D199": "8400",
+      "E199": "",
+      "F199": "制作书-裁决之剑 + 标枪 + 散华",
+      "G199": "合成",
+      "H199": "属性：\n增加50点力量。\n增加45%攻击速度。\n克敌机先：\n攻击有50%的概率不会丢失。\n传说中的贴吧大神铸造的武器。"
+    },
+    "装备与道具!215": {
+      "A215": "遗物之刃",
+      "B215": "i322",
+      "C215": "局内装备／组件",
+      "D215": "20900",
+      "E215": "",
+      "F215": "制作书-遗物之刃 + 金箍棒 + 银月之晶",
+      "G215": "合成",
+      "H215": "属性：\n增加180点攻击\n增加90%攻击速度。\n奇锋：\n每攻击10次将会对前方直线敌人造成神圣伤害，攻速越快，伤害越高。近战并且敏捷最高时有效。\n克敌机先：\n攻击有70%的概率不会丢失。\n注：每个单位最多只能携带一把‘遗物之刃’。\n这把武器散发着翡翠色的刀光。"
+    }
+  },
+  "A027": {
+    "slk": {
+      "sourcePath": "reference/map-6.25/units_abilitydata.json",
+      "sourceLine": 14234,
+      "record": {
+        "alias": "A027",
+        "code": "AOcr",
+        "checkDep": 1,
+        "DataA1": 10.0,
+        "DataA2": 10.0,
+        "DataA3": 10.0,
+        "DataA4": 10.0,
+        "DataB1": 10.0,
+        "DataB2": 14.0,
+        "DataB3": 18.0,
+        "DataB4": 22.0,
+        "levels": 6,
+        "reqLevel": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "rawSlkRow": 827,
+    "rawSlkFileLines": [
+      12671,
+      12687
+    ],
+    "w3a": {
+      "sourceLines": [
+        363,
+        382
+      ],
+      "records": [
+        {
+          "old": "A027",
+          "new": "\u0000\u0000\u0000\u0000",
+          "mods": [
+            {
+              "key": "Ocr2",
+              "type": 2,
+              "level": 5,
+              "data": 2,
+              "value": 25.0
+            },
+            {
+              "key": "Ocr2",
+              "type": 2,
+              "level": 6,
+              "data": 2,
+              "value": 30.0
+            }
+          ]
+        }
+      ]
+    },
+    "levels": [
+      {
+        "level": 1,
+        "probabilityNumerator": 10,
+        "probabilityDenominator": 100,
+        "multiplier": 10,
+        "probabilityEvidence": "SLK DataA1",
+        "multiplierEvidence": "SLK DataB1",
+        "expectedMultiplier": "19/10"
+      },
+      {
+        "level": 2,
+        "probabilityNumerator": 10,
+        "probabilityDenominator": 100,
+        "multiplier": 14,
+        "probabilityEvidence": "SLK DataA2",
+        "multiplierEvidence": "SLK DataB2",
+        "expectedMultiplier": "23/10"
+      },
+      {
+        "level": 3,
+        "probabilityNumerator": 10,
+        "probabilityDenominator": 100,
+        "multiplier": 18,
+        "probabilityEvidence": "SLK DataA3",
+        "multiplierEvidence": "SLK DataB3",
+        "expectedMultiplier": "27/10"
+      },
+      {
+        "level": 4,
+        "probabilityNumerator": 10,
+        "probabilityDenominator": 100,
+        "multiplier": 22,
+        "probabilityEvidence": "SLK DataA4",
+        "multiplierEvidence": "SLK DataB4",
+        "expectedMultiplier": "31/10"
+      },
+      {
+        "level": 5,
+        "probabilityNumerator": 10,
+        "probabilityDenominator": 100,
+        "multiplier": 25,
+        "probabilityEvidence": "workbook I32/I57 and actual Ubertip; client missing-field fill algorithm not asserted",
+        "multiplierEvidence": "w3a Ocr2/level5",
+        "expectedMultiplier": "17/5"
+      },
+      {
+        "level": 6,
+        "probabilityNumerator": 10,
+        "probabilityDenominator": 100,
+        "multiplier": 30,
+        "probabilityEvidence": "workbook I32/I57 and actual Ubertip; client missing-field fill algorithm not asserted",
+        "multiplierEvidence": "w3a Ocr2/level6",
+        "expectedMultiplier": "39/10"
+      }
+    ],
+    "missingNativeFields": [
+      "DataA5",
+      "DataA6",
+      "DataC1..6",
+      "DataD1..6",
+      "DataE1..6",
+      "BuffID1..6",
+      "Dur1..6",
+      "HeroDur1..6",
+      "Cost1..6",
+      "Cool1..6"
+    ],
+    "targetsRaw": [
+      "_",
+      "_",
+      "_",
+      "_"
+    ],
+    "missingIsNotConfirmedClientZero": true
+  },
+  "unitRecords": [
+    {
+      "sourcePath": "reference/map-6.25/units_unitabilities.json",
+      "sourceLine": 4504,
+      "record": {
+        "unitAbilID": "H007",
+        "abilList": "Avul,AInv,T033,S151",
+        "auto": "_",
+        "heroAbilList": "A025,A026,A027,T000,P000"
+      }
+    },
+    {
+      "sourcePath": "reference/map-6.25/units_unitabilities.json",
+      "sourceLine": 4294,
+      "record": {
+        "unitAbilID": "G052",
+        "abilList": "Avul,AInv,T033",
+        "auto": "_",
+        "heroAbilList": "A025,A026,A027,T000,P000"
+      }
+    },
+    {
+      "sourcePath": "reference/map-6.25/units_unitabilities.json",
+      "sourceLine": 6675,
+      "record": {
+        "unitAbilID": "q025",
+        "abilList": "Avul,Aloc",
+        "auto": "_"
+      }
+    }
+  ],
+  "bytecode": {
+    "effect": {
+      "function": "main/f29/f0",
+      "name": "A027_Action",
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "sourceLines": [
+        63370,
+        63490
+      ],
+      "constants": {
+        "k0": {
+          "value": "GetTriggerUnit",
+          "sourceLine": 63382
+        },
+        "k1": {
+          "value": "CreateTextTagByUnit",
+          "sourceLine": 63383
+        },
+        "k2": {
+          "value": "恩赐解脱",
+          "sourceLine": 63384
+        },
+        "k3": {
+          "value": 0.03,
+          "sourceLine": 63385
+        },
+        "k4": {
+          "value": "UnitKillUnit",
+          "sourceLine": 63386
+        },
+        "k5": {
+          "value": true,
+          "sourceLine": 63387
+        },
+        "k6": {
+          "value": "TxShow",
+          "sourceLine": 63388
+        },
+        "k7": {
+          "value": "GetUnitTypeId",
+          "sourceLine": 63389
+        },
+        "k8": {
+          "value": "GetId",
+          "sourceLine": 63390
+        },
+        "k9": {
+          "value": "G052",
+          "sourceLine": 63391
+        },
+        "k10": {
+          "value": "GetUnitLoc",
+          "sourceLine": 63392
+        },
+        "k11": {
+          "value": "CreateEffAtLoc",
+          "sourceLine": 63393
+        },
+        "k12": {
+          "value": "PhantomAssassin_C1.mdx",
+          "sourceLine": 63394
+        },
+        "k13": {
+          "value": 4,
+          "sourceLine": 63395
+        },
+        "k14": {
+          "value": 1.2,
+          "sourceLine": 63396
+        },
+        "k15": {
+          "value": "AngleBetweenPoints",
+          "sourceLine": 63397
+        },
+        "k16": {
+          "value": "EXEffectMatRotateZ",
+          "sourceLine": 63398
+        },
+        "k17": {
+          "value": "PhantomAssassin_C2.mdx",
+          "sourceLine": 63399
+        },
+        "k18": {
+          "value": "PhantomAssassin_C3A.mdx",
+          "sourceLine": 63400
+        },
+        "k19": {
+          "value": "CreateEffByUnit",
+          "sourceLine": 63401
+        },
+        "k20": {
+          "value": "AZ_PA_C.mdx",
+          "sourceLine": 63402
+        },
+        "k21": {
+          "value": "weapon",
+          "sourceLine": 63403
+        },
+        "k22": {
+          "value": 0.7,
+          "sourceLine": 63404
+        },
+        "k23": {
+          "value": "Abilities\\Spells\\NightElf\\Taunt\\TauntCaster.mdl",
+          "sourceLine": 63405
+        },
+        "k24": {
+          "value": "origin",
+          "sourceLine": 63406
+        },
+        "k25": {
+          "value": 2,
+          "sourceLine": 63407
+        },
+        "k26": {
+          "value": 1,
+          "sourceLine": 63408
+        }
+      },
+      "labels": {
+        "l72": 72,
+        "l79": 79
+      },
+      "instructions": [
+        {
+          "pc": 1,
+          "sourceLine": 63410,
+          "raw": "gettabup      r1    u0    k0"
+        },
+        {
+          "pc": 2,
+          "sourceLine": 63411,
+          "raw": "call          r1     1     2"
+        },
+        {
+          "pc": 3,
+          "sourceLine": 63412,
+          "raw": "gettabup      r2    u0    k1"
+        },
+        {
+          "pc": 4,
+          "sourceLine": 63413,
+          "raw": "loadk         r3    k2"
+        },
+        {
+          "pc": 5,
+          "sourceLine": 63414,
+          "raw": "loadk         r4    k3"
+        },
+        {
+          "pc": 6,
+          "sourceLine": 63415,
+          "raw": "move          r5    r1"
+        },
+        {
+          "pc": 7,
+          "sourceLine": 63416,
+          "raw": "call          r2     4     1"
+        },
+        {
+          "pc": 8,
+          "sourceLine": 63417,
+          "raw": "gettabup      r2    u0    k4"
+        },
+        {
+          "pc": 9,
+          "sourceLine": 63418,
+          "raw": "move          r3    r0"
+        },
+        {
+          "pc": 10,
+          "sourceLine": 63419,
+          "raw": "move          r4    r1"
+        },
+        {
+          "pc": 11,
+          "sourceLine": 63420,
+          "raw": "call          r2     3     1"
+        },
+        {
+          "pc": 12,
+          "sourceLine": 63421,
+          "raw": "gettabup      r2    u0    k6"
+        },
+        {
+          "pc": 13,
+          "sourceLine": 63422,
+          "raw": "eq             0    k5    r2"
+        },
+        {
+          "pc": 14,
+          "sourceLine": 63423,
+          "raw": "jmp            0   l79"
+        },
+        {
+          "pc": 15,
+          "sourceLine": 63424,
+          "raw": "gettabup      r2    u0    k7"
+        },
+        {
+          "pc": 16,
+          "sourceLine": 63425,
+          "raw": "move          r3    r0"
+        },
+        {
+          "pc": 17,
+          "sourceLine": 63426,
+          "raw": "call          r2     2     2"
+        },
+        {
+          "pc": 18,
+          "sourceLine": 63427,
+          "raw": "gettabup      r3    u0    k8"
+        },
+        {
+          "pc": 19,
+          "sourceLine": 63428,
+          "raw": "loadk         r4    k9"
+        },
+        {
+          "pc": 20,
+          "sourceLine": 63429,
+          "raw": "call          r3     2     2"
+        },
+        {
+          "pc": 21,
+          "sourceLine": 63430,
+          "raw": "eq             0    r2    r3"
+        },
+        {
+          "pc": 22,
+          "sourceLine": 63431,
+          "raw": "jmp            0   l72"
+        },
+        {
+          "pc": 23,
+          "sourceLine": 63432,
+          "raw": "gettabup      r2    u0   k10"
+        },
+        {
+          "pc": 24,
+          "sourceLine": 63433,
+          "raw": "move          r3    r1"
+        },
+        {
+          "pc": 25,
+          "sourceLine": 63434,
+          "raw": "call          r2     2     2"
+        },
+        {
+          "pc": 26,
+          "sourceLine": 63435,
+          "raw": "gettabup      r3    u0   k11"
+        },
+        {
+          "pc": 27,
+          "sourceLine": 63436,
+          "raw": "loadk         r4   k12"
+        },
+        {
+          "pc": 28,
+          "sourceLine": 63437,
+          "raw": "move          r5    r2"
+        },
+        {
+          "pc": 29,
+          "sourceLine": 63438,
+          "raw": "loadk         r6   k13"
+        },
+        {
+          "pc": 30,
+          "sourceLine": 63439,
+          "raw": "loadk         r7   k14"
+        },
+        {
+          "pc": 31,
+          "sourceLine": 63440,
+          "raw": "call          r3     5     2"
+        },
+        {
+          "pc": 32,
+          "sourceLine": 63441,
+          "raw": "gettabup      r4    u0   k15"
+        },
+        {
+          "pc": 33,
+          "sourceLine": 63442,
+          "raw": "gettabup      r5    u0   k10"
+        },
+        {
+          "pc": 34,
+          "sourceLine": 63443,
+          "raw": "move          r6    r0"
+        },
+        {
+          "pc": 35,
+          "sourceLine": 63444,
+          "raw": "call          r5     2     2"
+        },
+        {
+          "pc": 36,
+          "sourceLine": 63445,
+          "raw": "move          r6    r2"
+        },
+        {
+          "pc": 37,
+          "sourceLine": 63446,
+          "raw": "call          r4     3     2"
+        },
+        {
+          "pc": 38,
+          "sourceLine": 63447,
+          "raw": "gettabup      r5    u1   k16"
+        },
+        {
+          "pc": 39,
+          "sourceLine": 63448,
+          "raw": "move          r6    r3"
+        },
+        {
+          "pc": 40,
+          "sourceLine": 63449,
+          "raw": "move          r7    r4"
+        },
+        {
+          "pc": 41,
+          "sourceLine": 63450,
+          "raw": "call          r5     3     1"
+        },
+        {
+          "pc": 42,
+          "sourceLine": 63451,
+          "raw": "gettabup      r5    u0   k11"
+        },
+        {
+          "pc": 43,
+          "sourceLine": 63452,
+          "raw": "loadk         r6   k17"
+        },
+        {
+          "pc": 44,
+          "sourceLine": 63453,
+          "raw": "move          r7    r2"
+        },
+        {
+          "pc": 45,
+          "sourceLine": 63454,
+          "raw": "loadk         r8   k13"
+        },
+        {
+          "pc": 46,
+          "sourceLine": 63455,
+          "raw": "loadk         r9   k14"
+        },
+        {
+          "pc": 47,
+          "sourceLine": 63456,
+          "raw": "call          r5     5     2"
+        },
+        {
+          "pc": 48,
+          "sourceLine": 63457,
+          "raw": "move          r3    r5"
+        },
+        {
+          "pc": 49,
+          "sourceLine": 63458,
+          "raw": "gettabup      r5    u1   k16"
+        },
+        {
+          "pc": 50,
+          "sourceLine": 63459,
+          "raw": "move          r6    r3"
+        },
+        {
+          "pc": 51,
+          "sourceLine": 63460,
+          "raw": "move          r7    r4"
+        },
+        {
+          "pc": 52,
+          "sourceLine": 63461,
+          "raw": "call          r5     3     1"
+        },
+        {
+          "pc": 53,
+          "sourceLine": 63462,
+          "raw": "gettabup      r5    u0   k11"
+        },
+        {
+          "pc": 54,
+          "sourceLine": 63463,
+          "raw": "loadk         r6   k18"
+        },
+        {
+          "pc": 55,
+          "sourceLine": 63464,
+          "raw": "move          r7    r2"
+        },
+        {
+          "pc": 56,
+          "sourceLine": 63465,
+          "raw": "loadk         r8   k13"
+        },
+        {
+          "pc": 57,
+          "sourceLine": 63466,
+          "raw": "loadk         r9   k14"
+        },
+        {
+          "pc": 58,
+          "sourceLine": 63467,
+          "raw": "call          r5     5     2"
+        },
+        {
+          "pc": 59,
+          "sourceLine": 63468,
+          "raw": "move          r3    r5"
+        },
+        {
+          "pc": 60,
+          "sourceLine": 63469,
+          "raw": "gettabup      r5    u1   k16"
+        },
+        {
+          "pc": 61,
+          "sourceLine": 63470,
+          "raw": "move          r6    r3"
+        },
+        {
+          "pc": 62,
+          "sourceLine": 63471,
+          "raw": "move          r7    r4"
+        },
+        {
+          "pc": 63,
+          "sourceLine": 63472,
+          "raw": "call          r5     3     1"
+        },
+        {
+          "pc": 64,
+          "sourceLine": 63473,
+          "raw": "gettabup      r5    u0   k19"
+        },
+        {
+          "pc": 65,
+          "sourceLine": 63474,
+          "raw": "loadk         r6   k20"
+        },
+        {
+          "pc": 66,
+          "sourceLine": 63475,
+          "raw": "move          r7    r0"
+        },
+        {
+          "pc": 67,
+          "sourceLine": 63476,
+          "raw": "loadk         r8   k21"
+        },
+        {
+          "pc": 68,
+          "sourceLine": 63477,
+          "raw": "loadk         r9   k13"
+        },
+        {
+          "pc": 69,
+          "sourceLine": 63478,
+          "raw": "loadk        r10   k22"
+        },
+        {
+          "pc": 70,
+          "sourceLine": 63479,
+          "raw": "call          r5     6     1"
+        },
+        {
+          "pc": 71,
+          "sourceLine": 63480,
+          "raw": "jmp            0   l79"
+        },
+        {
+          "pc": 72,
+          "sourceLine": 63482,
+          "raw": "gettabup      r2    u0   k19"
+        },
+        {
+          "pc": 73,
+          "sourceLine": 63483,
+          "raw": "loadk         r3   k23"
+        },
+        {
+          "pc": 74,
+          "sourceLine": 63484,
+          "raw": "move          r4    r1"
+        },
+        {
+          "pc": 75,
+          "sourceLine": 63485,
+          "raw": "loadk         r5   k24"
+        },
+        {
+          "pc": 76,
+          "sourceLine": 63486,
+          "raw": "loadk         r6   k25"
+        },
+        {
+          "pc": 77,
+          "sourceLine": 63487,
+          "raw": "loadk         r7   k26"
+        },
+        {
+          "pc": 78,
+          "sourceLine": 63488,
+          "raw": "call          r2     6     1"
+        },
+        {
+          "pc": 79,
+          "sourceLine": 63490,
+          "raw": "return        r0     1"
+        }
+      ],
+      "counts": {
+        "instructions": 79,
+        "conditions": 2,
+        "calls": 16,
+        "returnInstructions": 1
+      }
+    },
+    "originalExtraKillProbability": {
+      "function": "main/f29/f1",
+      "name": "A027_Get_probability",
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "sourceLines": [
+        63492,
+        63535
+      ],
+      "constants": {
+        "k0": {
+          "value": 2,
+          "sourceLine": 63503
+        },
+        "k1": {
+          "value": 1,
+          "sourceLine": 63504
+        },
+        "k2": {
+          "value": "Game_Mode",
+          "sourceLine": 63505
+        },
+        "k3": {
+          "value": 4,
+          "sourceLine": 63506
+        },
+        "k4": {
+          "value": "IsUnitIllusion",
+          "sourceLine": 63507
+        },
+        "k5": {
+          "value": "GetRandomInt",
+          "sourceLine": 63508
+        },
+        "k6": {
+          "value": 0,
+          "sourceLine": 63509
+        },
+        "k7": {
+          "value": 1000,
+          "sourceLine": 63510
+        }
+      },
+      "labels": {
+        "l6": 6,
+        "l12": 12,
+        "l19": 19
+      },
+      "instructions": [
+        {
+          "pc": 1,
+          "sourceLine": 63512,
+          "raw": "loadk         r1    k0"
+        },
+        {
+          "pc": 2,
+          "sourceLine": 63513,
+          "raw": "gettabup      r2    u0    k2"
+        },
+        {
+          "pc": 3,
+          "sourceLine": 63514,
+          "raw": "eq             0    k1    r2"
+        },
+        {
+          "pc": 4,
+          "sourceLine": 63515,
+          "raw": "jmp            0    l6"
+        },
+        {
+          "pc": 5,
+          "sourceLine": 63516,
+          "raw": "loadk         r1    k3"
+        },
+        {
+          "pc": 6,
+          "sourceLine": 63518,
+          "raw": "gettabup      r2    u0    k4"
+        },
+        {
+          "pc": 7,
+          "sourceLine": 63519,
+          "raw": "move          r3    r0"
+        },
+        {
+          "pc": 8,
+          "sourceLine": 63520,
+          "raw": "call          r2     2     2"
+        },
+        {
+          "pc": 9,
+          "sourceLine": 63521,
+          "raw": "test          r2     0"
+        },
+        {
+          "pc": 10,
+          "sourceLine": 63522,
+          "raw": "jmp            0   l12"
+        },
+        {
+          "pc": 11,
+          "sourceLine": 63523,
+          "raw": "loadk         r1    k1"
+        },
+        {
+          "pc": 12,
+          "sourceLine": 63525,
+          "raw": "gettabup      r2    u0    k5"
+        },
+        {
+          "pc": 13,
+          "sourceLine": 63526,
+          "raw": "loadk         r3    k6"
+        },
+        {
+          "pc": 14,
+          "sourceLine": 63527,
+          "raw": "loadk         r4    k7"
+        },
+        {
+          "pc": 15,
+          "sourceLine": 63528,
+          "raw": "call          r2     3     2"
+        },
+        {
+          "pc": 16,
+          "sourceLine": 63529,
+          "raw": "lt             1    r2    r1"
+        },
+        {
+          "pc": 17,
+          "sourceLine": 63530,
+          "raw": "jmp            0   l19"
+        },
+        {
+          "pc": 18,
+          "sourceLine": 63531,
+          "raw": "loadbool      r2     0     1"
+        },
+        {
+          "pc": 19,
+          "sourceLine": 63533,
+          "raw": "loadbool      r2     1     0"
+        },
+        {
+          "pc": 20,
+          "sourceLine": 63534,
+          "raw": "return        r2     2"
+        },
+        {
+          "pc": 21,
+          "sourceLine": 63535,
+          "raw": "return        r0     1"
+        }
+      ],
+      "counts": {
+        "instructions": 21,
+        "conditions": 3,
+        "calls": 2,
+        "returnInstructions": 2
+      }
+    },
+    "originalExtraKillEntry": {
+      "function": "main/f291/f1",
+      "name": "anyUnitDamaged:A027 entry",
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "sourceLines": [
+        163033,
+        163072
+      ],
+      "constants": {
+        "k1": {
+          "value": "GetUnitTypeId",
+          "sourceLine": 161993
+        },
+        "k2": {
+          "value": "GetId",
+          "sourceLine": 161994
+        },
+        "k6": {
+          "value": 0,
+          "sourceLine": 161998
+        },
+        "k15": {
+          "value": "m999",
+          "sourceLine": 162007
+        },
+        "k16": {
+          "value": "m998",
+          "sourceLine": 162008
+        },
+        "k27": {
+          "value": "GetUnitAbilityLevel",
+          "sourceLine": 162019
+        },
+        "k31": {
+          "value": "EXGetEventDamageData",
+          "sourceLine": 162023
+        },
+        "k32": {
+          "value": 2,
+          "sourceLine": 162024
+        },
+        "k85": {
+          "value": 6,
+          "sourceLine": 162077
+        },
+        "k86": {
+          "value": "A027",
+          "sourceLine": 162078
+        },
+        "k87": {
+          "value": "A027_Get_probability",
+          "sourceLine": 162079
+        },
+        "k88": {
+          "value": "Game_Mode",
+          "sourceLine": 162080
+        },
+        "k89": {
+          "value": "A027_Action",
+          "sourceLine": 162081
+        }
+      },
+      "labels": {
+        "l553": "continue next independent branch"
+      },
+      "instructions": [
+        {
+          "pc": 513,
+          "sourceLine": 163033,
+          "raw": "gettabup      r4    u0   k27"
+        },
+        {
+          "pc": 514,
+          "sourceLine": 163034,
+          "raw": "move          r5    r0"
+        },
+        {
+          "pc": 515,
+          "sourceLine": 163035,
+          "raw": "gettabup      r6    u0    k2"
+        },
+        {
+          "pc": 516,
+          "sourceLine": 163036,
+          "raw": "loadk         r7   k86"
+        },
+        {
+          "pc": 517,
+          "sourceLine": 163037,
+          "raw": "call          r6     2     0"
+        },
+        {
+          "pc": 518,
+          "sourceLine": 163038,
+          "raw": "call          r4     0     2"
+        },
+        {
+          "pc": 519,
+          "sourceLine": 163039,
+          "raw": "eq             0   k85    r4"
+        },
+        {
+          "pc": 520,
+          "sourceLine": 163040,
+          "raw": "jmp            0  l553"
+        },
+        {
+          "pc": 521,
+          "sourceLine": 163041,
+          "raw": "gettabup      r4    u1   k31"
+        },
+        {
+          "pc": 522,
+          "sourceLine": 163042,
+          "raw": "loadk         r5   k32"
+        },
+        {
+          "pc": 523,
+          "sourceLine": 163043,
+          "raw": "call          r4     2     2"
+        },
+        {
+          "pc": 524,
+          "sourceLine": 163044,
+          "raw": "eq             1    k6    r4"
+        },
+        {
+          "pc": 525,
+          "sourceLine": 163045,
+          "raw": "jmp            0  l553"
+        },
+        {
+          "pc": 526,
+          "sourceLine": 163046,
+          "raw": "gettabup      r4    u0   k87"
+        },
+        {
+          "pc": 527,
+          "sourceLine": 163047,
+          "raw": "move          r5    r0"
+        },
+        {
+          "pc": 528,
+          "sourceLine": 163048,
+          "raw": "call          r4     2     2"
+        },
+        {
+          "pc": 529,
+          "sourceLine": 163049,
+          "raw": "test          r4     0"
+        },
+        {
+          "pc": 530,
+          "sourceLine": 163050,
+          "raw": "jmp            0  l553"
+        },
+        {
+          "pc": 531,
+          "sourceLine": 163051,
+          "raw": "gettabup      r4    u0    k1"
+        },
+        {
+          "pc": 532,
+          "sourceLine": 163052,
+          "raw": "move          r5    r1"
+        },
+        {
+          "pc": 533,
+          "sourceLine": 163053,
+          "raw": "call          r4     2     2"
+        },
+        {
+          "pc": 534,
+          "sourceLine": 163054,
+          "raw": "gettabup      r5    u0    k2"
+        },
+        {
+          "pc": 535,
+          "sourceLine": 163055,
+          "raw": "loadk         r6   k15"
+        },
+        {
+          "pc": 536,
+          "sourceLine": 163056,
+          "raw": "call          r5     2     2"
+        },
+        {
+          "pc": 537,
+          "sourceLine": 163057,
+          "raw": "eq             1    r4    r5"
+        },
+        {
+          "pc": 538,
+          "sourceLine": 163058,
+          "raw": "jmp            0  l553"
+        },
+        {
+          "pc": 539,
+          "sourceLine": 163059,
+          "raw": "gettabup      r4    u0    k1"
+        },
+        {
+          "pc": 540,
+          "sourceLine": 163060,
+          "raw": "move          r5    r1"
+        },
+        {
+          "pc": 541,
+          "sourceLine": 163061,
+          "raw": "call          r4     2     2"
+        },
+        {
+          "pc": 542,
+          "sourceLine": 163062,
+          "raw": "gettabup      r5    u0    k2"
+        },
+        {
+          "pc": 543,
+          "sourceLine": 163063,
+          "raw": "loadk         r6   k16"
+        },
+        {
+          "pc": 544,
+          "sourceLine": 163064,
+          "raw": "call          r5     2     2"
+        },
+        {
+          "pc": 545,
+          "sourceLine": 163065,
+          "raw": "eq             1    r4    r5"
+        },
+        {
+          "pc": 546,
+          "sourceLine": 163066,
+          "raw": "jmp            0  l553"
+        },
+        {
+          "pc": 547,
+          "sourceLine": 163067,
+          "raw": "gettabup      r4    u0   k88"
+        },
+        {
+          "pc": 548,
+          "sourceLine": 163068,
+          "raw": "eq             1   k32    r4"
+        },
+        {
+          "pc": 549,
+          "sourceLine": 163069,
+          "raw": "jmp            0  l553"
+        },
+        {
+          "pc": 550,
+          "sourceLine": 163070,
+          "raw": "gettabup      r4    u0   k89"
+        },
+        {
+          "pc": 551,
+          "sourceLine": 163071,
+          "raw": "move          r5    r0"
+        },
+        {
+          "pc": 552,
+          "sourceLine": 163072,
+          "raw": "call          r4     2     1"
+        }
+      ],
+      "counts": {
+        "instructions": 40,
+        "conditions": 6,
+        "calls": 9,
+        "returnInstructions": 0
+      },
+      "coverage": "PC513..552 only"
+    },
+    "BIilHandlerPrefix": {
+      "function": "main/f291/f20",
+      "name": "UnitBeComeEventHandler",
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "sourceLines": [
+        173119,
+        173542
+      ],
+      "constants": {
+        "k0": {
+          "value": "IsInTable",
+          "sourceLine": 173131
+        },
+        "k1": {
+          "value": "Tower_ALL",
+          "sourceLine": 173132
+        },
+        "k2": {
+          "value": "IsTemp",
+          "sourceLine": 173133
+        },
+        "k3": {
+          "value": "GetUnitUserData",
+          "sourceLine": 173134
+        },
+        "k4": {
+          "value": "GetUnitAbilityLevel",
+          "sourceLine": 173135
+        },
+        "k5": {
+          "value": "GetId",
+          "sourceLine": 173136
+        },
+        "k6": {
+          "value": "BIil",
+          "sourceLine": 173137
+        },
+        "k7": {
+          "value": 0,
+          "sourceLine": 173138
+        },
+        "k8": {
+          "value": "SetUnitPosition",
+          "sourceLine": 173139
+        },
+        "k9": {
+          "value": "GetUnitX",
+          "sourceLine": 173140
+        },
+        "k10": {
+          "value": "GetUnitY",
+          "sourceLine": 173141
+        },
+        "k11": {
+          "value": "SetUnitUserData",
+          "sourceLine": 173142
+        },
+        "k12": {
+          "value": "A123",
+          "sourceLine": 173143
+        },
+        "k13": {
+          "value": "A123_Add_HeroAgi",
+          "sourceLine": 173144
+        },
+        "k14": {
+          "value": "GetUnitTypeId",
+          "sourceLine": 173145
+        },
+        "k15": {
+          "value": "q030",
+          "sourceLine": 173146
+        },
+        "k16": {
+          "value": "Add_Vision",
+          "sourceLine": 173147
+        },
+        "k17": {
+          "value": "A230",
+          "sourceLine": 173148
+        },
+        "k18": {
+          "value": "A230_Add_Arr",
+          "sourceLine": 173149
+        },
+        "k19": {
+          "value": "Player",
+          "sourceLine": 173150
+        },
+        "k20": {
+          "value": 11,
+          "sourceLine": 173151
+        },
+        "k21": {
+          "value": "GetOwningPlayer",
+          "sourceLine": 173152
+        },
+        "k22": {
+          "value": false,
+          "sourceLine": 173153
+        },
+        "k23": {
+          "value": "IsUnitType",
+          "sourceLine": 173154
+        },
+        "k24": {
+          "value": "UNIT_TYPE_HERO",
+          "sourceLine": 173155
+        },
+        "k25": {
+          "value": "AddArrAny",
+          "sourceLine": 173156
+        },
+        "k26": {
+          "value": "mon_arr",
+          "sourceLine": 173157
+        },
+        "k27": {
+          "value": "MonKeepMove",
+          "sourceLine": 173158
+        },
+        "k28": {
+          "value": "CreateDamageTrig",
+          "sourceLine": 173159
+        },
+        "k29": {
+          "value": -1,
+          "sourceLine": 173160
+        },
+        "k30": {
+          "value": "i240_254_Action",
+          "sourceLine": 173161
+        },
+        "k31": {
+          "value": "A168",
+          "sourceLine": 173162
+        },
+        "k32": {
+          "value": "A168_Action",
+          "sourceLine": 173163
+        },
+        "k33": {
+          "value": "A216",
+          "sourceLine": 173164
+        },
+        "k34": {
+          "value": "A216_Action",
+          "sourceLine": 173165
+        },
+        "k35": {
+          "value": "A209_DeathGuard",
+          "sourceLine": 173166
+        },
+        "k36": {
+          "value": "A209_Action",
+          "sourceLine": 173167
+        },
+        "k37": {
+          "value": "b110",
+          "sourceLine": 173168
+        },
+        "k38": {
+          "value": "b109",
+          "sourceLine": 173169
+        },
+        "k39": {
+          "value": "b108",
+          "sourceLine": 173170
+        },
+        "k40": {
+          "value": "b107",
+          "sourceLine": 173171
+        },
+        "k41": {
+          "value": "b107_b110_Action",
+          "sourceLine": 173172
+        },
+        "k42": {
+          "value": "IsXiongLingHuoBan",
+          "sourceLine": 173173
+        },
+        "k43": {
+          "value": "A125_Action",
+          "sourceLine": 173174
+        },
+        "k44": {
+          "value": 0.4,
+          "sourceLine": 173175
+        },
+        "k45": {
+          "value": "HasItem",
+          "sourceLine": 173176
+        },
+        "k46": {
+          "value": "i240",
+          "sourceLine": 173177
+        },
+        "k47": {
+          "value": "i243",
+          "sourceLine": 173178
+        },
+        "k48": {
+          "value": "i245",
+          "sourceLine": 173179
+        },
+        "k49": {
+          "value": "i247",
+          "sourceLine": 173180
+        },
+        "k50": {
+          "value": "i249",
+          "sourceLine": 173181
+        },
+        "k51": {
+          "value": "i250",
+          "sourceLine": 173182
+        },
+        "k52": {
+          "value": "i251",
+          "sourceLine": 173183
+        },
+        "k53": {
+          "value": "i252",
+          "sourceLine": 173184
+        },
+        "k54": {
+          "value": "i253",
+          "sourceLine": 173185
+        },
+        "k55": {
+          "value": "i254",
+          "sourceLine": 173186
+        },
+        "k56": {
+          "value": null,
+          "sourceLine": 173187
+        },
+        "k57": {
+          "value": 0.2,
+          "sourceLine": 173188
+        },
+        "k58": {
+          "value": "GetHeroStr",
+          "sourceLine": 173189
+        },
+        "k59": {
+          "value": "GetHeroAgi",
+          "sourceLine": 173190
+        },
+        "k60": {
+          "value": "GetHeroInt",
+          "sourceLine": 173191
+        },
+        "k61": {
+          "value": "SetUnitState",
+          "sourceLine": 173192
+        },
+        "k62": {
+          "value": "ConvertUnitState",
+          "sourceLine": 173193
+        },
+        "k63": {
+          "value": 18,
+          "sourceLine": 173194
+        },
+        "k64": {
+          "value": "GetUnitState",
+          "sourceLine": 173195
+        },
+        "k65": {
+          "value": 2,
+          "sourceLine": 173196
+        },
+        "k66": {
+          "value": "Game_Mode",
+          "sourceLine": 173197
+        },
+        "k67": {
+          "value": "EXSetUnitMoveType",
+          "sourceLine": 173198
+        },
+        "k68": {
+          "value": 1,
+          "sourceLine": 173199
+        }
+      },
+      "labels": {
+        "l16": 16,
+        "l63": 63,
+        "l74": 74,
+        "l75": 75,
+        "l90": 90,
+        "l119": 119,
+        "l139": 139,
+        "l155": 155,
+        "l164": 164,
+        "l184": 184,
+        "l193": 193,
+        "l203": 203,
+        "l282": 282,
+        "l285": 285,
+        "l319": 319,
+        "l326": 326
+      },
+      "instructions": [
+        {
+          "pc": 1,
+          "sourceLine": 173201,
+          "raw": "gettabup      r2    u0    k0"
+        },
+        {
+          "pc": 2,
+          "sourceLine": 173202,
+          "raw": "move          r3    r0"
+        },
+        {
+          "pc": 3,
+          "sourceLine": 173203,
+          "raw": "gettabup      r4    u0    k1"
+        },
+        {
+          "pc": 4,
+          "sourceLine": 173204,
+          "raw": "call          r2     3     2"
+        },
+        {
+          "pc": 5,
+          "sourceLine": 173205,
+          "raw": "move          r3    r0"
+        },
+        {
+          "pc": 6,
+          "sourceLine": 173206,
+          "raw": "gettabup      r4    u0    k2"
+        },
+        {
+          "pc": 7,
+          "sourceLine": 173207,
+          "raw": "move          r5    r0"
+        },
+        {
+          "pc": 8,
+          "sourceLine": 173208,
+          "raw": "call          r4     2     2"
+        },
+        {
+          "pc": 9,
+          "sourceLine": 173209,
+          "raw": "test          r4     0"
+        },
+        {
+          "pc": 10,
+          "sourceLine": 173210,
+          "raw": "jmp            0   l16"
+        },
+        {
+          "pc": 11,
+          "sourceLine": 173211,
+          "raw": "gettabup      r4    u0    k1"
+        },
+        {
+          "pc": 12,
+          "sourceLine": 173212,
+          "raw": "gettabup      r5    u0    k3"
+        },
+        {
+          "pc": 13,
+          "sourceLine": 173213,
+          "raw": "move          r6    r0"
+        },
+        {
+          "pc": 14,
+          "sourceLine": 173214,
+          "raw": "call          r5     2     2"
+        },
+        {
+          "pc": 15,
+          "sourceLine": 173215,
+          "raw": "gettable      r3    r4    r5"
+        },
+        {
+          "pc": 16,
+          "sourceLine": 173217,
+          "raw": "gettabup      r4    u0    k4"
+        },
+        {
+          "pc": 17,
+          "sourceLine": 173218,
+          "raw": "move          r5    r1"
+        },
+        {
+          "pc": 18,
+          "sourceLine": 173219,
+          "raw": "gettabup      r6    u0    k5"
+        },
+        {
+          "pc": 19,
+          "sourceLine": 173220,
+          "raw": "loadk         r7    k6"
+        },
+        {
+          "pc": 20,
+          "sourceLine": 173221,
+          "raw": "call          r6     2     0"
+        },
+        {
+          "pc": 21,
+          "sourceLine": 173222,
+          "raw": "call          r4     0     2"
+        },
+        {
+          "pc": 22,
+          "sourceLine": 173223,
+          "raw": "lt             0    k7    r4"
+        },
+        {
+          "pc": 23,
+          "sourceLine": 173224,
+          "raw": "jmp            0   l75"
+        },
+        {
+          "pc": 24,
+          "sourceLine": 173225,
+          "raw": "gettabup      r4    u0    k8"
+        },
+        {
+          "pc": 25,
+          "sourceLine": 173226,
+          "raw": "move          r5    r1"
+        },
+        {
+          "pc": 26,
+          "sourceLine": 173227,
+          "raw": "gettabup      r6    u0    k9"
+        },
+        {
+          "pc": 27,
+          "sourceLine": 173228,
+          "raw": "move          r7    r0"
+        },
+        {
+          "pc": 28,
+          "sourceLine": 173229,
+          "raw": "call          r6     2     2"
+        },
+        {
+          "pc": 29,
+          "sourceLine": 173230,
+          "raw": "gettabup      r7    u0   k10"
+        },
+        {
+          "pc": 30,
+          "sourceLine": 173231,
+          "raw": "move          r8    r0"
+        },
+        {
+          "pc": 31,
+          "sourceLine": 173232,
+          "raw": "call          r7     2     0"
+        },
+        {
+          "pc": 32,
+          "sourceLine": 173233,
+          "raw": "call          r4     0     1"
+        },
+        {
+          "pc": 33,
+          "sourceLine": 173234,
+          "raw": "gettabup      r4    u0   k11"
+        },
+        {
+          "pc": 34,
+          "sourceLine": 173235,
+          "raw": "move          r5    r1"
+        },
+        {
+          "pc": 35,
+          "sourceLine": 173236,
+          "raw": "gettabup      r6    u0    k0"
+        },
+        {
+          "pc": 36,
+          "sourceLine": 173237,
+          "raw": "move          r7    r3"
+        },
+        {
+          "pc": 37,
+          "sourceLine": 173238,
+          "raw": "gettabup      r8    u0    k1"
+        },
+        {
+          "pc": 38,
+          "sourceLine": 173239,
+          "raw": "call          r6     3     0"
+        },
+        {
+          "pc": 39,
+          "sourceLine": 173240,
+          "raw": "call          r4     0     1"
+        },
+        {
+          "pc": 40,
+          "sourceLine": 173241,
+          "raw": "gettabup      r4    u0    k4"
+        },
+        {
+          "pc": 41,
+          "sourceLine": 173242,
+          "raw": "move          r5    r1"
+        },
+        {
+          "pc": 42,
+          "sourceLine": 173243,
+          "raw": "gettabup      r6    u0    k5"
+        },
+        {
+          "pc": 43,
+          "sourceLine": 173244,
+          "raw": "loadk         r7   k12"
+        },
+        {
+          "pc": 44,
+          "sourceLine": 173245,
+          "raw": "call          r6     2     0"
+        },
+        {
+          "pc": 45,
+          "sourceLine": 173246,
+          "raw": "call          r4     0     2"
+        },
+        {
+          "pc": 46,
+          "sourceLine": 173247,
+          "raw": "lt             0    k7    r4"
+        },
+        {
+          "pc": 47,
+          "sourceLine": 173248,
+          "raw": "jmp            0   l63"
+        },
+        {
+          "pc": 48,
+          "sourceLine": 173249,
+          "raw": "gettabup      r4    u0   k13"
+        },
+        {
+          "pc": 49,
+          "sourceLine": 173250,
+          "raw": "move          r5    r3"
+        },
+        {
+          "pc": 50,
+          "sourceLine": 173251,
+          "raw": "call          r4     2     1"
+        },
+        {
+          "pc": 51,
+          "sourceLine": 173252,
+          "raw": "gettabup      r4    u0   k14"
+        },
+        {
+          "pc": 52,
+          "sourceLine": 173253,
+          "raw": "move          r5    r0"
+        },
+        {
+          "pc": 53,
+          "sourceLine": 173254,
+          "raw": "call          r4     2     2"
+        },
+        {
+          "pc": 54,
+          "sourceLine": 173255,
+          "raw": "gettabup      r5    u0    k5"
+        },
+        {
+          "pc": 55,
+          "sourceLine": 173256,
+          "raw": "loadk         r6   k15"
+        },
+        {
+          "pc": 56,
+          "sourceLine": 173257,
+          "raw": "call          r5     2     2"
+        },
+        {
+          "pc": 57,
+          "sourceLine": 173258,
+          "raw": "eq             0    r4    r5"
+        },
+        {
+          "pc": 58,
+          "sourceLine": 173259,
+          "raw": "jmp            0   l63"
+        },
+        {
+          "pc": 59,
+          "sourceLine": 173260,
+          "raw": "gettabup      r4    u0   k16"
+        },
+        {
+          "pc": 60,
+          "sourceLine": 173261,
+          "raw": "move          r5    r3"
+        },
+        {
+          "pc": 61,
+          "sourceLine": 173262,
+          "raw": "move          r6    r1"
+        },
+        {
+          "pc": 62,
+          "sourceLine": 173263,
+          "raw": "call          r4     3     1"
+        },
+        {
+          "pc": 63,
+          "sourceLine": 173265,
+          "raw": "gettabup      r4    u0    k4"
+        },
+        {
+          "pc": 64,
+          "sourceLine": 173266,
+          "raw": "move          r5    r1"
+        },
+        {
+          "pc": 65,
+          "sourceLine": 173267,
+          "raw": "gettabup      r6    u0    k5"
+        },
+        {
+          "pc": 66,
+          "sourceLine": 173268,
+          "raw": "loadk         r7   k17"
+        },
+        {
+          "pc": 67,
+          "sourceLine": 173269,
+          "raw": "call          r6     2     0"
+        },
+        {
+          "pc": 68,
+          "sourceLine": 173270,
+          "raw": "call          r4     0     2"
+        },
+        {
+          "pc": 69,
+          "sourceLine": 173271,
+          "raw": "lt             0    k7    r4"
+        },
+        {
+          "pc": 70,
+          "sourceLine": 173272,
+          "raw": "jmp            0   l74"
+        },
+        {
+          "pc": 71,
+          "sourceLine": 173273,
+          "raw": "gettabup      r4    u0   k18"
+        },
+        {
+          "pc": 72,
+          "sourceLine": 173274,
+          "raw": "move          r5    r1"
+        },
+        {
+          "pc": 73,
+          "sourceLine": 173275,
+          "raw": "call          r4     2     1"
+        },
+        {
+          "pc": 74,
+          "sourceLine": 173277,
+          "raw": "return        r0     1"
+        }
+      ],
+      "counts": {
+        "instructions": 74,
+        "conditions": 5,
+        "calls": 19,
+        "returnInstructions": 1
+      },
+      "coverage": "PC1..74 only: origin resolution and complete BIil branch; rest excluded",
+      "coveredSourceLines": [
+        173201,
+        173277
+      ]
+    },
+    "UnitKillUnit": {
+      "function": "main/f7/f44",
+      "name": "UnitKillUnit",
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "sourceLines": [
+        52387,
+        52442
+      ],
+      "constants": {
+        "k0": {
+          "value": "CreateUnitAtLoc",
+          "sourceLine": 52398
+        },
+        "k1": {
+          "value": "GetOwningPlayer",
+          "sourceLine": 52399
+        },
+        "k2": {
+          "value": "GetId",
+          "sourceLine": 52400
+        },
+        "k3": {
+          "value": "q025",
+          "sourceLine": 52401
+        },
+        "k4": {
+          "value": "GetUnitLoc",
+          "sourceLine": 52402
+        },
+        "k5": {
+          "value": 0,
+          "sourceLine": 52403
+        },
+        "k6": {
+          "value": "UnitApplyTimedLife",
+          "sourceLine": 52404
+        },
+        "k7": {
+          "value": "BHwe",
+          "sourceLine": 52405
+        },
+        "k8": {
+          "value": 0.5,
+          "sourceLine": 52406
+        },
+        "k9": {
+          "value": "SetUnitUserData",
+          "sourceLine": 52407
+        },
+        "k10": {
+          "value": "GetUnitUserData",
+          "sourceLine": 52408
+        },
+        "k11": {
+          "value": "SetRealDamage",
+          "sourceLine": 52409
+        },
+        "k12": {
+          "value": 10000000,
+          "sourceLine": 52410
+        }
+      },
+      "labels": {},
+      "instructions": [
+        {
+          "pc": 1,
+          "sourceLine": 52412,
+          "raw": "gettabup      r2    u0    k0"
+        },
+        {
+          "pc": 2,
+          "sourceLine": 52413,
+          "raw": "gettabup      r3    u0    k1"
+        },
+        {
+          "pc": 3,
+          "sourceLine": 52414,
+          "raw": "move          r4    r0"
+        },
+        {
+          "pc": 4,
+          "sourceLine": 52415,
+          "raw": "call          r3     2     2"
+        },
+        {
+          "pc": 5,
+          "sourceLine": 52416,
+          "raw": "gettabup      r4    u0    k2"
+        },
+        {
+          "pc": 6,
+          "sourceLine": 52417,
+          "raw": "loadk         r5    k3"
+        },
+        {
+          "pc": 7,
+          "sourceLine": 52418,
+          "raw": "call          r4     2     2"
+        },
+        {
+          "pc": 8,
+          "sourceLine": 52419,
+          "raw": "gettabup      r5    u0    k4"
+        },
+        {
+          "pc": 9,
+          "sourceLine": 52420,
+          "raw": "move          r6    r0"
+        },
+        {
+          "pc": 10,
+          "sourceLine": 52421,
+          "raw": "call          r5     2     2"
+        },
+        {
+          "pc": 11,
+          "sourceLine": 52422,
+          "raw": "loadk         r6    k5"
+        },
+        {
+          "pc": 12,
+          "sourceLine": 52423,
+          "raw": "call          r2     5     2"
+        },
+        {
+          "pc": 13,
+          "sourceLine": 52424,
+          "raw": "gettabup      r3    u0    k6"
+        },
+        {
+          "pc": 14,
+          "sourceLine": 52425,
+          "raw": "move          r4    r2"
+        },
+        {
+          "pc": 15,
+          "sourceLine": 52426,
+          "raw": "gettabup      r5    u0    k2"
+        },
+        {
+          "pc": 16,
+          "sourceLine": 52427,
+          "raw": "loadk         r6    k7"
+        },
+        {
+          "pc": 17,
+          "sourceLine": 52428,
+          "raw": "call          r5     2     2"
+        },
+        {
+          "pc": 18,
+          "sourceLine": 52429,
+          "raw": "loadk         r6    k8"
+        },
+        {
+          "pc": 19,
+          "sourceLine": 52430,
+          "raw": "call          r3     4     1"
+        },
+        {
+          "pc": 20,
+          "sourceLine": 52431,
+          "raw": "gettabup      r3    u0    k9"
+        },
+        {
+          "pc": 21,
+          "sourceLine": 52432,
+          "raw": "move          r4    r2"
+        },
+        {
+          "pc": 22,
+          "sourceLine": 52433,
+          "raw": "gettabup      r5    u0   k10"
+        },
+        {
+          "pc": 23,
+          "sourceLine": 52434,
+          "raw": "move          r6    r0"
+        },
+        {
+          "pc": 24,
+          "sourceLine": 52435,
+          "raw": "call          r5     2     0"
+        },
+        {
+          "pc": 25,
+          "sourceLine": 52436,
+          "raw": "call          r3     0     1"
+        },
+        {
+          "pc": 26,
+          "sourceLine": 52437,
+          "raw": "gettabup      r3    u0   k11"
+        },
+        {
+          "pc": 27,
+          "sourceLine": 52438,
+          "raw": "move          r4    r2"
+        },
+        {
+          "pc": 28,
+          "sourceLine": 52439,
+          "raw": "move          r5    r1"
+        },
+        {
+          "pc": 29,
+          "sourceLine": 52440,
+          "raw": "loadk         r6   k12"
+        },
+        {
+          "pc": 30,
+          "sourceLine": 52441,
+          "raw": "call          r3     4     1"
+        },
+        {
+          "pc": 31,
+          "sourceLine": 52442,
+          "raw": "return        r0     1"
+        }
+      ],
+      "counts": {
+        "instructions": 31,
+        "conditions": 0,
+        "calls": 9,
+        "returnInstructions": 1
+      }
+    },
+    "SetRealDamage": {
+      "function": "main/f7/f35",
+      "name": "SetRealDamage",
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "sourceLines": [
+        52090,
+        52116
+      ],
+      "constants": {
+        "k0": {
+          "value": "UnitDamageTarget",
+          "sourceLine": 52101
+        },
+        "k1": {
+          "value": "ATTACK_TYPE_CHAOS",
+          "sourceLine": 52102
+        },
+        "k2": {
+          "value": "DAMAGE_TYPE_DIVINE",
+          "sourceLine": 52103
+        },
+        "k3": {
+          "value": "WEAPON_TYPE_WHOKNOWS",
+          "sourceLine": 52104
+        }
+      },
+      "labels": {},
+      "instructions": [
+        {
+          "pc": 1,
+          "sourceLine": 52106,
+          "raw": "gettabup      r3    u0    k0"
+        },
+        {
+          "pc": 2,
+          "sourceLine": 52107,
+          "raw": "move          r4    r0"
+        },
+        {
+          "pc": 3,
+          "sourceLine": 52108,
+          "raw": "move          r5    r1"
+        },
+        {
+          "pc": 4,
+          "sourceLine": 52109,
+          "raw": "move          r6    r2"
+        },
+        {
+          "pc": 5,
+          "sourceLine": 52110,
+          "raw": "loadbool      r7     0     0"
+        },
+        {
+          "pc": 6,
+          "sourceLine": 52111,
+          "raw": "loadbool      r8     0     0"
+        },
+        {
+          "pc": 7,
+          "sourceLine": 52112,
+          "raw": "gettabup      r9    u0    k1"
+        },
+        {
+          "pc": 8,
+          "sourceLine": 52113,
+          "raw": "gettabup     r10    u0    k2"
+        },
+        {
+          "pc": 9,
+          "sourceLine": 52114,
+          "raw": "gettabup     r11    u0    k3"
+        },
+        {
+          "pc": 10,
+          "sourceLine": 52115,
+          "raw": "call          r3     9     1"
+        },
+        {
+          "pc": 11,
+          "sourceLine": 52116,
+          "raw": "return        r0     1"
+        }
+      ],
+      "counts": {
+        "instructions": 11,
+        "conditions": 0,
+        "calls": 1,
+        "returnInstructions": 1
+      }
+    }
+  },
+  "itemProfiles": [
+    {
+      "item": {
+        "sourcePath": "reference/map-6.25/units_itemdata.json",
+        "sourceLine": 9132,
+        "record": {
+          "itemID": "i213",
+          "abilList": "I201,I214",
+          "armor": "Wood",
+          "class": "Permanent",
+          "colorB": 255,
+          "colorG": 255,
+          "colorR": 255,
+          "cooldownID": "AIrm",
+          "droppable": 1,
+          "file": "Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl",
+          "goldcost": 2500,
+          "HP": 75,
+          "Level": 3,
+          "oldLevel": 4,
+          "pawnable": 1,
+          "pickRandom": 1,
+          "prio": 64,
+          "scale": 1.0,
+          "sellable": 1,
+          "stockMax": 1,
+          "stockRegen": 1
+        }
+      },
+      "ability": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "sourceLine": 21850,
+        "record": {
+          "alias": "I214",
+          "code": "AOcr",
+          "checkDep": 1,
+          "DataA1": 20.0,
+          "DataB1": 2.0,
+          "levels": 1,
+          "reqLevel": 1,
+          "targs1": "air,ground,enemy,neutral",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      "w3aMatches": [],
+      "w3tMatches": [
+        {
+          "old": "i213",
+          "new": "\u0000\u0000\u0000\u0000",
+          "mods": [
+            {
+              "key": "iico",
+              "type": 3,
+              "level": null,
+              "data": null,
+              "value": "ReplaceableTextures\\CommandButtons\\BTNThoriumMelee.blp"
+            },
+            {
+              "key": "ides",
+              "type": 3,
+              "level": null,
+              "data": null,
+              "value": ""
+            },
+            {
+              "key": "uhot",
+              "type": 3,
+              "level": null,
+              "data": null,
+              "value": "B"
+            },
+            {
+              "key": "unam",
+              "type": 3,
+              "level": null,
+              "data": null,
+              "value": "|cff5CACEE水晶剑|r"
+            },
+            {
+              "key": "utip",
+              "type": 3,
+              "level": null,
+              "data": null,
+              "value": "购买|cff5CACEE水晶剑|r"
+            },
+            {
+              "key": "utub",
+              "type": 3,
+              "level": null,
+              "data": null,
+              "value": "|cffffcc00属性：|r|n-增加36点攻击力。|n|cffffcc00致命一击：|r|n-攻击时有20%概率对目标造成2倍伤害。"
+            }
+          ]
+        }
+      ],
+      "webLocalProfile": {
+        "probability": 0.2,
+        "multiplier": 2.0,
+        "flatBonus": 0,
+        "neverMiss": false,
+        "missingValuesAreExplicitQ24ChoicesNotNativeFacts": true,
+        "instances": "each accepted currently effective item instance; charges do not multiply chances"
+      }
+    },
+    {
+      "item": {
+        "sourcePath": "reference/map-6.25/units_itemdata.json",
+        "sourceLine": 9177,
+        "record": {
+          "itemID": "i215",
+          "abilList": "I136,I215",
+          "armor": "Wood",
+          "class": "Permanent",
+          "colorB": 255,
+          "colorG": 255,
+          "colorR": 255,
+          "cooldownID": "AIrm",
+          "droppable": 1,
+          "file": "Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl",
+          "goldcost": 8300,
+          "HP": 75,
+          "Level": 4,
+          "oldLevel": 4,
+          "pawnable": 1,
+          "pickRandom": 1,
+          "prio": 64,
+          "scale": 1.0,
+          "sellable": 1,
+          "stockMax": 1,
+          "stockRegen": 1
+        }
+      },
+      "ability": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "sourceLine": 21863,
+        "record": {
+          "alias": "I215",
+          "code": "AOcr",
+          "checkDep": 1,
+          "DataA1": 25.0,
+          "DataB1": 3.8,
+          "DataE1": 1,
+          "levels": 1,
+          "reqLevel": 1,
+          "targs1": "air,ground,enemy,neutral",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      "w3aMatches": [],
+      "w3tMatches": [
+        {
+          "old": "i215",
+          "new": "\u0000\u0000\u0000\u0000",
+          "mods": [
+            {
+              "key": "iico",
+              "type": 3,
+              "level": null,
+              "data": null,
+              "value": "dapao.blp"
+            },
+            {
+              "key": "ubpx",
+              "type": 0,
+              "level": null,
+              "data": null,
+              "value": 0
+            },
+            {
+              "key": "ubpy",
+              "type": 0,
+              "level": null,
+              "data": null,
+              "value": 0
+            },
+            {
+              "key": "ides",
+              "type": 3,
+              "level": null,
+              "data": null,
+              "value": ""
+            },
+            {
+              "key": "uhot",
+              "type": 3,
+              "level": null,
+              "data": null,
+              "value": "B"
+            },
+            {
+              "key": "unam",
+              "type": 3,
+              "level": null,
+              "data": null,
+              "value": "|cffEE7621暴雪弩炮|r"
+            },
+            {
+              "key": "utip",
+              "type": 3,
+              "level": null,
+              "data": null,
+              "value": "购买|cffEE7621暴雪弩炮|r"
+            },
+            {
+              "key": "utub",
+              "type": 3,
+              "level": null,
+              "data": null,
+              "value": "|cffffcc00属性：|r|n-增加100点攻击力。|n|cffffcc00致命一击：|r|n-攻击时有25%概率对目标造成3.8倍伤害。"
+            }
+          ]
+        }
+      ],
+      "webLocalProfile": {
+        "probability": 0.25,
+        "multiplier": 3.8,
+        "flatBonus": 0,
+        "neverMiss": true,
+        "missingValuesAreExplicitQ24ChoicesNotNativeFacts": true,
+        "instances": "each accepted currently effective item instance; charges do not multiply chances"
+      }
+    },
+    {
+      "item": {
+        "sourcePath": "reference/map-6.25/units_itemdata.json",
+        "sourceLine": 7507,
+        "record": {
+          "itemID": "i141",
+          "abilList": "I185,I187",
+          "armor": "Wood",
+          "class": "Permanent",
+          "colorB": 255,
+          "colorG": 255,
+          "colorR": 255,
+          "cooldownID": "AIrm",
+          "droppable": 1,
+          "file": "Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl",
+          "goldcost": 8100,
+          "HP": 75,
+          "Level": 4,
+          "oldLevel": 4,
+          "pawnable": 1,
+          "pickRandom": 1,
+          "prio": 64,
+          "scale": 1.0,
+          "sellable": 1,
+          "stockMax": 1,
+          "stockRegen": 1
+        }
+      },
+      "ability": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "sourceLine": 21475,
+        "record": {
+          "alias": "I185",
+          "code": "AOcr",
+          "checkDep": 1,
+          "DataA1": 70.0,
+          "DataA2": 15.0,
+          "DataA3": 15.0,
+          "DataB2": 3.0,
+          "DataB3": 4.0,
+          "DataC1": 1.0,
+          "DataE1": 1,
+          "levels": 3,
+          "reqLevel": 1,
+          "targs1": "air,ground,enemy,neutral",
+          "targs2": "air,ground,enemy,neutral",
+          "targs3": "air,ground,enemy,neutral",
+          "targs4": "_"
+        }
+      },
+      "w3aMatches": [],
+      "w3tMatches": [
+        {
+          "old": "i141",
+          "new": "\u0000\u0000\u0000\u0000",
+          "mods": [
+            {
+              "key": "iico",
+              "type": 3,
+              "level": null,
+              "data": null,
+              "value": "JinGuBang.blp"
+            },
+            {
+              "key": "ides",
+              "type": 3,
+              "level": null,
+              "data": null,
+              "value": ""
+            },
+            {
+              "key": "uhot",
+              "type": 3,
+              "level": null,
+              "data": null,
+              "value": "B"
+            },
+            {
+              "key": "unam",
+              "type": 3,
+              "level": null,
+              "data": null,
+              "value": "|cffEE7621金箍棒|r"
+            },
+            {
+              "key": "utip",
+              "type": 3,
+              "level": null,
+              "data": null,
+              "value": "购买|cffEE7621金箍棒|r"
+            },
+            {
+              "key": "utub",
+              "type": 3,
+              "level": null,
+              "data": null,
+              "value": "|cffffcc00属性：|r|n-增加115点攻击力。|n|cffffcc00克敌机先：|r|n-攻击有70%的概率不会丢失，并且有30%的概率额外造成400点物理伤害。"
+            }
+          ]
+        }
+      ],
+      "webLocalProfile": {
+        "probability": 0.7,
+        "multiplier": 1,
+        "flatBonus": 1.0,
+        "neverMiss": true,
+        "missingValuesAreExplicitQ24ChoicesNotNativeFacts": true,
+        "instances": "each accepted currently effective item instance; charges do not multiply chances"
+      }
+    },
+    {
+      "item": {
+        "sourcePath": "reference/map-6.25/units_itemdata.json",
+        "sourceLine": 10876,
+        "record": {
+          "itemID": "i306",
+          "abilList": "I286,I229,I284",
+          "armor": "Wood",
+          "class": "Permanent",
+          "colorB": 255,
+          "colorG": 255,
+          "colorR": 255,
+          "cooldownID": "AIrm",
+          "droppable": 1,
+          "file": "Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl",
+          "goldcost": 8400,
+          "HP": 75,
+          "Level": 4,
+          "oldLevel": 4,
+          "pawnable": 1,
+          "pickRandom": 1,
+          "prio": 64,
+          "scale": 1.0,
+          "sellable": 1,
+          "stockMax": 1,
+          "stockRegen": 1
+        }
+      },
+      "ability": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "sourceLine": 22911,
+        "record": {
+          "alias": "I284",
+          "code": "AOcr",
+          "checkDep": 1,
+          "DataA1": 50.0,
+          "DataA2": 15.0,
+          "DataA3": 15.0,
+          "DataB2": 3.0,
+          "DataB3": 4.0,
+          "DataC1": 1.0,
+          "DataE1": 1,
+          "levels": 3,
+          "reqLevel": 1,
+          "targs1": "air,ground,enemy,neutral",
+          "targs2": "air,ground,enemy,neutral",
+          "targs3": "air,ground,enemy,neutral",
+          "targs4": "_"
+        }
+      },
+      "w3aMatches": [],
+      "w3tMatches": [],
+      "webLocalProfile": {
+        "probability": 0.5,
+        "multiplier": 1,
+        "flatBonus": 1.0,
+        "neverMiss": true,
+        "missingValuesAreExplicitQ24ChoicesNotNativeFacts": true,
+        "instances": "each accepted currently effective item instance; charges do not multiply chances"
+      }
+    },
+    {
+      "item": {
+        "sourcePath": "reference/map-6.25/units_itemdata.json",
+        "sourceLine": 11238,
+        "record": {
+          "itemID": "i322",
+          "abilList": "I252,I126,I251",
+          "armor": "Wood",
+          "class": "Permanent",
+          "colorB": 255,
+          "colorG": 255,
+          "colorR": 255,
+          "cooldownID": "AIrm",
+          "droppable": 1,
+          "file": "Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl",
+          "goldcost": 20900,
+          "HP": 75,
+          "Level": 5,
+          "oldLevel": 4,
+          "pawnable": 1,
+          "pickRandom": 1,
+          "prio": 64,
+          "scale": 1.0,
+          "sellable": 1,
+          "stockMax": 1,
+          "stockRegen": 1
+        }
+      },
+      "ability": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "sourceLine": 22465,
+        "record": {
+          "alias": "I251",
+          "code": "AOcr",
+          "checkDep": 1,
+          "DataA1": 70.0,
+          "DataA2": 15.0,
+          "DataA3": 15.0,
+          "DataB2": 3.0,
+          "DataB3": 4.0,
+          "DataC1": 1.0,
+          "DataE1": 1,
+          "levels": 3,
+          "reqLevel": 1,
+          "targs1": "air,ground,enemy,neutral",
+          "targs2": "air,ground,enemy,neutral",
+          "targs3": "air,ground,enemy,neutral",
+          "targs4": "_"
+        }
+      },
+      "w3aMatches": [],
+      "w3tMatches": [],
+      "webLocalProfile": {
+        "probability": 0.7,
+        "multiplier": 1,
+        "flatBonus": 1.0,
+        "neverMiss": true,
+        "missingValuesAreExplicitQ24ChoicesNotNativeFacts": true,
+        "instances": "each accepted currently effective item instance; charges do not multiply chances"
+      }
+    }
+  ],
+  "illusionSourceRecords": [
+    {
+      "sourcePath": "reference/map-6.25/units_abilitydata.json",
+      "sourceLine": 22037,
+      "record": {
+        "alias": "I225",
+        "code": "AIil",
+        "Area1": 30.0,
+        "BuffID1": "BIil",
+        "DataA1": 0.3,
+        "DataB1": 2.0,
+        "Dur1": 10.0,
+        "HeroDur1": 10.0,
+        "levels": 1,
+        "Rng1": 99999.0,
+        "targs1": "ground,vulnerable,air,invulnerable,friend",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    {
+      "sourcePath": "reference/map-6.25/units_abilitydata.json",
+      "sourceLine": 35667,
+      "record": {
+        "alias": "T165",
+        "code": "AIil",
+        "BuffID1": "BIil",
+        "DataA1": 0.5,
+        "DataB1": 1.0,
+        "Dur1": 7.0,
+        "HeroDur1": 7.0,
+        "levels": 1,
+        "Rng1": 99999.0,
+        "targs1": "ground,vulnerable,air,invulnerable,friend",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    {
+      "sourcePath": "reference/map-6.25/units_abilitydata.json",
+      "sourceLine": 35682,
+      "record": {
+        "alias": "T166",
+        "code": "AIil",
+        "BuffID1": "BIil",
+        "DataA1": 0.3,
+        "DataB1": 1.0,
+        "Dur1": 7.0,
+        "HeroDur1": 7.0,
+        "levels": 1,
+        "Rng1": 99999.0,
+        "targs1": "ground,vulnerable,air,invulnerable,friend",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    }
+  ],
+  "illusionCommandEvidence": [
+    {
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "lines": [
+        132516,
+        132533
+      ],
+      "ability": "T165",
+      "orderId": 852274,
+      "issuedCount": 2,
+      "nativeAcceptanceProven": false
+    },
+    {
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "lines": [
+        132623,
+        132635
+      ],
+      "ability": "T166",
+      "orderId": 852274,
+      "issuedCount": 1,
+      "nativeAcceptanceProven": false
+    },
+    {
+      "sourcePath": "reference/map-6.25/main.disasm",
+      "lines": [
+        136732,
+        136739
+      ],
+      "ability": "I225",
+      "orderId": 852274,
+      "nativeAcceptanceProven": false
+    }
+  ],
+  "primarySources": [
+    {
+      "url": "https://classic.battle.net/war3/orc/units/blademaster.shtml",
+      "supports": "stock passive attack multiplier and original zero-damage mirror presentation; does not prove custom A027 or damaging AIil behavior"
+    },
+    {
+      "url": "https://github.com/Cokemonkey11/wc3-ability-doc/blob/main/sources/screwthetrees-wc3-editor-ability-insight-document/2023-11-14.md#L1037",
+      "supports": "author tests labelled1.36; multiplier and highest successful multiplier reference; not matching client proof"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/Units/AbilityMetaData.slk#L1730",
+      "supports": "Ocr1..5 maps DataA..E"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/UI/WorldEditStrings.txt#L8118",
+      "supports": "Ocr5 means Never Miss"
+    }
+  ],
+  "webSelections": {
+    "authorization": "Q24; no new user probability decision",
+    "nativeTrigger": "actual ordinary weapon main-target resolution, after normal attack legality and before hit check; not arbitrary script attack=true damage",
+    "A027Probability": "independent uniform integer1..100<=10; no PRD",
+    "A027ProbabilityDrawOrder": "before effective item instances; items sorted by stable instance creation sequence; all roll even when larger multiplier already succeeded",
+    "A027Targets": "same legal ordinary attack target; includes buildings/air if weapon permits, explicit Q24 departure from stock-only documentation, not source fact",
+    "damageComposition": "raw=(R*max(1,successful multipliers)+sum(successful flat bonuses))*illusionOutgoingFactor; each ordinary packet once",
+    "hit": "A027 itself neverMiss=false; OR successful effective item neverMiss flags; otherwise unchanged normal hit; misses produce no attack damage event",
+    "itemInstances": "each currently effective accepted item instance independent; multiple charges not extra instances; retain existing exclusion groups including i322 single-item group",
+    "I215": "DataE1=1 retained, grants never-miss on its successful proc even if A027 wins multiplier",
+    "I251": "existing70% and+1 unchanged; add1 after selected multiplier, before ordinary damage reductions; no second roll for wave",
+    "missingA027Fields": "no additional flat damage/evasion/never-miss/buff/control; not asserted native defaults",
+    "illusionSnapshot": {
+      "time": "successful native-style illusion creation, before summon handler",
+      "A027Level": "copy actual source A027 level at creation; no level if unlearned; later parent changes do not sync",
+      "itemScope": [
+        "I214",
+        "I215",
+        "I185",
+        "I284",
+        "I251"
+      ],
+      "items": "copy only actual effective item-instance contributions from copied target at creation; virtual nontradable contributions, no pickup/crafting/charge mutation",
+      "otherAbilitiesItemsBuffs": "not specified or assumed inherited",
+      "effect": "real critical damage, not cosmetic only",
+      "postCreationExplicitMutations": "honored",
+      "extraKillThreshold": "original illusion1/1001 only when own actual A027level==6 and original entry gates pass"
+    },
+    "extraKill": "original interval/comparison/entry order and10000000 separate child package preserved; no native multiplier or illusion fraction applied again",
+    "Q26": "unchanged original dispatch position; native crit already in incoming ordinary damage",
+    "save": [
+      "ruleVersion",
+      "PRNGstate",
+      "pendingAttackSnapshot",
+      "illusionA027Level",
+      "virtualEffectiveItemInstances",
+      "stableCreationSequence"
+    ],
+    "nativeUnknownsKept": [
+      "actual-client critical distribution/PRD",
+      "missing field inheritance beyond level4",
+      "same item ability instance stacking",
+      "damaging illusion native ability and item copying",
+      "native pre-hit snapshot timing and target filter specifics"
+    ]
+  },
+  "newWorkbookConflicts": [],
+  "verification": {
+    "levelRollCases": 600,
+    "originalProbabilityBytecodeCases": 6006,
+    "originalProbabilityCases": [
+      {
+        "mode": 0,
+        "illusion": false,
+        "originalThreshold": 2,
+        "trueRolls": [
+          0,
+          1
+        ],
+        "trueCount": 2,
+        "totalRolls": 1001,
+        "mode2EffectStillRejectedByOuterEntry": false
+      },
+      {
+        "mode": 0,
+        "illusion": true,
+        "originalThreshold": 1,
+        "trueRolls": [
+          0
+        ],
+        "trueCount": 1,
+        "totalRolls": 1001,
+        "mode2EffectStillRejectedByOuterEntry": false
+      },
+      {
+        "mode": 1,
+        "illusion": false,
+        "originalThreshold": 4,
+        "trueRolls": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "trueCount": 4,
+        "totalRolls": 1001,
+        "mode2EffectStillRejectedByOuterEntry": false
+      },
+      {
+        "mode": 1,
+        "illusion": true,
+        "originalThreshold": 1,
+        "trueRolls": [
+          0
+        ],
+        "trueCount": 1,
+        "totalRolls": 1001,
+        "mode2EffectStillRejectedByOuterEntry": false
+      },
+      {
+        "mode": 2,
+        "illusion": false,
+        "originalThreshold": 2,
+        "trueRolls": [
+          0,
+          1
+        ],
+        "trueCount": 2,
+        "totalRolls": 1001,
+        "mode2EffectStillRejectedByOuterEntry": true
+      },
+      {
+        "mode": 2,
+        "illusion": true,
+        "originalThreshold": 1,
+        "trueRolls": [
+          0
+        ],
+        "trueCount": 1,
+        "totalRolls": 1001,
+        "mode2EffectStillRejectedByOuterEntry": true
+      }
+    ],
+    "specificationCaseCount": 24,
+    "specificationCases": [
+      {
+        "id": "maximum_not_product",
+        "input": {
+          "level": 6,
+          "A027": true,
+          "I214": true,
+          "I215": true,
+          "raw": 100
+        },
+        "expected": {
+          "multiplier": 30,
+          "flatBonus": 0,
+          "neverMiss": true,
+          "hit": true,
+          "rawIfHit": 3000.0
+        },
+        "verifiedAs": "specification calculation or source-based control-flow check, not client execution"
+      },
+      {
+        "id": "item_win_when_A027_fails",
+        "input": {
+          "A027": false,
+          "I214": true,
+          "I215": true,
+          "raw": 100
+        },
+        "expected": {
+          "multiplier": 3.8,
+          "flatBonus": 0,
+          "neverMiss": true,
+          "hit": true,
+          "rawIfHit": 380.0
+        },
+        "verifiedAs": "specification calculation or source-based control-flow check, not client execution"
+      },
+      {
+        "id": "A027_not_never_miss",
+        "input": {
+          "A027": true,
+          "normalHit": false
+        },
+        "expected": {
+          "multiplier": 30,
+          "flatBonus": 0,
+          "neverMiss": false,
+          "hit": false,
+          "rawIfHit": null,
+          "extraKillRolls": 0
+        },
+        "verifiedAs": "specification calculation or source-based control-flow check, not client execution"
+      },
+      {
+        "id": "I215_never_miss_even_if_lower",
+        "input": {
+          "A027": true,
+          "I215": true,
+          "normalHit": false
+        },
+        "expected": {
+          "multiplier": 30,
+          "flatBonus": 0,
+          "neverMiss": true,
+          "hit": true,
+          "rawIfHit": 3000.0
+        },
+        "verifiedAs": "specification calculation or source-based control-flow check, not client execution"
+      },
+      {
+        "id": "I251_bonus_after_crit",
+        "input": {
+          "level": 6,
+          "raw": 100,
+          "A027": true,
+          "I251": true
+        },
+        "expected": {
+          "multiplier": 30,
+          "flatBonus": 1,
+          "neverMiss": true,
+          "hit": true,
+          "rawIfHit": 3001.0,
+          "afterReduction0_5": 1500.5
+        },
+        "verifiedAs": "specification calculation or source-based control-flow check, not client execution"
+      },
+      {
+        "id": "illusion_factor_once",
+        "input": {
+          "level": 6,
+          "rawBeforeIllusion": 100,
+          "factor": "1/2",
+          "A027": true,
+          "I251": true
+        },
+        "expected": {
+          "multiplier": 30,
+          "flatBonus": 1,
+          "neverMiss": true,
+          "hit": true,
+          "rawIfHit": 1500.5,
+          "extraKillRaw": 10000000,
+          "extraKillThreshold": "1/1001"
+        },
+        "verifiedAs": "specification calculation or source-based control-flow check, not client execution"
+      },
+      {
+        "id": "snapshot_level5_parent_levels6",
+        "input": {
+          "copiedLevel": 5,
+          "parentLaterLevel": 6,
+          "factor": "1/2",
+          "raw": 100,
+          "A027": true
+        },
+        "expected": {
+          "multiplier": 25,
+          "flatBonus": 0,
+          "neverMiss": false,
+          "hit": true,
+          "rawIfHit": 1250.0,
+          "illusionLevel": 5,
+          "extraKillRolls": 0
+        },
+        "verifiedAs": "specification calculation or source-based control-flow check, not client execution"
+      },
+      {
+        "id": "new_illusion_takes_new_level",
+        "input": {
+          "copiedLevelNow": 6,
+          "oldIllusionLevel": 5
+        },
+        "expected": {
+          "newIllusionLevel": 6,
+          "oldIllusionLevel": 5
+        },
+        "verifiedAs": "specification calculation or source-based control-flow check, not client execution"
+      },
+      {
+        "id": "unlearned_no_A027",
+        "input": {
+          "copyTargetA027Level": 0
+        },
+        "expected": {
+          "illusionA027Level": 0,
+          "A027Rolls": 0
+        },
+        "verifiedAs": "specification calculation or source-based control-flow check, not client execution"
+      },
+      {
+        "id": "inventory_snapshot_only_effective",
+        "input": {
+          "held": [
+            "i213",
+            "i215"
+          ],
+          "warehouse": [
+            "i322"
+          ],
+          "effective": [
+            "i215"
+          ]
+        },
+        "expected": {
+          "copiedVirtualProfiles": [
+            "I215"
+          ],
+          "physicalItemsCreated": 0
+        },
+        "verifiedAs": "specification calculation or source-based control-flow check, not client execution"
+      },
+      {
+        "id": "parent_drops_item_no_sync",
+        "input": {
+          "copiedVirtualProfiles": [
+            "I214"
+          ],
+          "parentLaterDrops": "i213"
+        },
+        "expected": {
+          "oldIllusionVirtualProfiles": [
+            "I214"
+          ],
+          "newIllusionVirtualProfiles": []
+        },
+        "verifiedAs": "specification calculation or source-based control-flow check, not client execution"
+      },
+      {
+        "id": "no_script_damage_native_reroll",
+        "input": {
+          "packet": "q025 or direct script attack-flagged damage"
+        },
+        "expected": {
+          "A027NativeCritRolls": 0,
+          "scriptA027ExtraKillEntry": "retains original attack flag and level checks"
+        },
+        "verifiedAs": "specification calculation or source-based control-flow check, not client execution"
+      },
+      {
+        "id": "extra_kill_without_native_crit",
+        "input": {
+          "level": 6,
+          "A027NativeCrit": false,
+          "ordinaryHit": true,
+          "mode": 0,
+          "killRoll": 0
+        },
+        "expected": {
+          "extraKillHelperCalled": true
+        },
+        "verifiedAs": "specification calculation or source-based control-flow check, not client execution"
+      },
+      {
+        "id": "extra_kill_after_normal_crit",
+        "input": {
+          "level": 6,
+          "A027NativeCrit": true,
+          "ordinaryHit": true,
+          "mode": 0,
+          "killRoll": 5
+        },
+        "expected": {
+          "ordinaryCritMultiplier": 30,
+          "extraKillHelperCalled": false
+        },
+        "verifiedAs": "specification calculation or source-based control-flow check, not client execution"
+      },
+      {
+        "id": "mode2_and_gold_consume_original_kill_roll",
+        "input": {
+          "level": 6,
+          "attack": true,
+          "target": "m999",
+          "mode": 2
+        },
+        "expected": {
+          "killRandomCalls": 1,
+          "killEffectCalls": 0
+        },
+        "verifiedAs": "specification calculation or source-based control-flow check, not client execution"
+      },
+      {
+        "id": "no_A027_roll_on_invalid_attack",
+        "input": {
+          "ordinaryAttackLegal": false
+        },
+        "expected": {
+          "nativeA027Rolls": 0,
+          "itemNativeRolls": 0
+        },
+        "verifiedAs": "specification calculation or source-based control-flow check, not client execution"
+      },
+      {
+        "id": "target_type_local_Q24",
+        "input": {
+          "ordinaryAttackLegal": true,
+          "targetType": "building",
+          "sourceA027Level": 1
+        },
+        "expected": {
+          "A027Participates": true,
+          "assertedOriginalClientBehavior": false
+        },
+        "verifiedAs": "specification calculation or source-based control-flow check, not client execution"
+      },
+      {
+        "id": "duplicate_item_independent",
+        "input": {
+          "instances": [
+            "i213#1",
+            "i213#2"
+          ]
+        },
+        "expected": {
+          "atLeastOneProc": "9/25",
+          "maxMultiplier": 2,
+          "rolls": 2
+        },
+        "verifiedAs": "specification calculation or source-based control-flow check, not client execution"
+      },
+      {
+        "id": "mixed_distribution",
+        "input": {
+          "level": 6,
+          "oneI214": true,
+          "oneI215": true
+        },
+        "expected": {
+          "distribution": {
+            "1": "27/50",
+            "19/5": "9/40",
+            "2": "27/200",
+            "30": "1/10"
+          },
+          "expectedMultiplier": "933/200",
+          "decimal": 4.665,
+          "ignoresHitAndExtraKill": true
+        },
+        "verifiedAs": "specification calculation or source-based control-flow check, not client execution"
+      },
+      {
+        "id": "Q26_preserved",
+        "input": {
+          "raw": 3000,
+          "armor": 100,
+          "A026Level": 6,
+          "mode": 0
+        },
+        "expected": {
+          "damage": 1327.4336283185842,
+          "exact": "150000/113",
+          "armorAfter": 100
+        },
+        "verifiedAs": "specification calculation or source-based control-flow check, not client execution"
+      },
+      {
+        "id": "all_instance_rolls_even_after_A027_success",
+        "input": {
+          "A027Roll": 1,
+          "effectiveItemInstanceOrder": [
+            7,
+            12
+          ]
+        },
+        "expected": {
+          "randomDrawOrder": [
+            "A027",
+            "item#7",
+            "item#12"
+          ],
+          "skipLowerMultiplierRolls": false
+        },
+        "verifiedAs": "specification calculation or source-based control-flow check, not client execution"
+      },
+      {
+        "id": "item_charge_not_extra_instances",
+        "input": {
+          "i213InstanceCount": 1,
+          "charges": 10
+        },
+        "expected": {
+          "I214Rolls": 1
+        },
+        "verifiedAs": "specification calculation or source-based control-flow check, not client execution"
+      },
+      {
+        "id": "I251_exclusion_preserved",
+        "input": {
+          "normalInventory": "pickup second i322"
+        },
+        "expected": {
+          "usesExistingEquipmentExclusion": true,
+          "noNewBypass": true
+        },
+        "verifiedAs": "specification calculation or source-based control-flow check, not client execution"
+      },
+      {
+        "id": "no_false_zero_defaults",
+        "input": {
+          "missingRequiredInput": "ordinary attack R or current effective ability state"
+        },
+        "expected": {
+          "result": "integration error, not numeric0"
+        },
+        "verifiedAs": "specification calculation or source-based control-flow check, not client execution"
+      }
+    ],
+    "originalClientRun": false,
+    "webGameRun": false,
+    "sourceInstructionCount": 256
+  },
+  "excluded": [
+    "full illusion creation acceptance/count/timing",
+    "full illusion stats and buff/dispel lifecycle",
+    "global native critical engine for all heroes",
+    "other equipment script effects",
+    "normal hit probability/ballistics/thorns",
+    "any change to Q26 or existing probability choices"
+  ]
+}

@@ -1,0 +1,351 @@
+{
+  "status": "ready",
+  "abilities": {
+    "N541": {
+      "host": {
+        "sourcePath": "reference/map-6.25/units_unitabilities.json",
+        "jsonIndex": 1152,
+        "id": "ma04",
+        "fields": {
+          "abilList": "N535,N536,N540,N559,N541,N542,T016,N534"
+        }
+      },
+      "object": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1505,
+        "id": "N541",
+        "fields": {
+          "alias": "N541",
+          "code": "AOcr",
+          "checkDep": 1,
+          "levels": 1,
+          "reqLevel": 1,
+          "targs1": "air,ground,enemy,neutral",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      "routes": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f3",
+          "key": "k31",
+          "constantLine": 167127,
+          "pc": 154,
+          "sourceLine": 167305,
+          "instruction": "loadk r5 k31"
+        }
+      ],
+      "web": {
+        "sample": [
+          0,
+          100,
+          14
+        ],
+        "trigger": "ATTACKED",
+        "duration": 1,
+        "marker": "T069",
+        "blockedBy": [
+          "magic immune",
+          "existing N540 mark"
+        ]
+      }
+    },
+    "N553": {
+      "host": {
+        "sourcePath": "reference/map-6.25/units_unitabilities.json",
+        "jsonIndex": 1151,
+        "id": "ma03",
+        "fields": {
+          "abilList": "N535,N536,N550,N551,N552,N553,T016,N534"
+        }
+      },
+      "object": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1517,
+        "id": "N553",
+        "fields": {
+          "alias": "N553",
+          "code": "AOae",
+          "Area1": 1000.0,
+          "BuffID1": "B065",
+          "checkDep": 1,
+          "DataA1": -0.2,
+          "DataB1": -0.3,
+          "levels": 1,
+          "reqLevel": 1,
+          "targs1": "enemies,invulnerable",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      "routes": [],
+      "web": {
+        "radius": 1000,
+        "movement": -0.2,
+        "attackSpeed": -0.3,
+        "buff": "B065"
+      }
+    },
+    "N544": {
+      "host": {
+        "sourcePath": "reference/map-6.25/units_unitabilities.json",
+        "jsonIndex": 987,
+        "id": "b112",
+        "fields": {
+          "abilList": "N544,N547"
+        }
+      },
+      "object": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1508,
+        "id": "N544",
+        "fields": {
+          "alias": "N544",
+          "code": "Aoar",
+          "Area1": 999999.0,
+          "DataA1": 0.006,
+          "DataB1": 1,
+          "levels": 1,
+          "targs1": "friend,self",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      "routes": [],
+      "web": {
+        "radius": 999999,
+        "maxLifeRegenPerSec": 0.006
+      }
+    },
+    "N545": {
+      "host": {
+        "sourcePath": "reference/map-6.25/units_unitabilities.json",
+        "jsonIndex": 988,
+        "id": "b113",
+        "fields": {
+          "abilList": "N545"
+        }
+      },
+      "object": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1509,
+        "id": "N545",
+        "fields": {
+          "alias": "N545",
+          "code": "AOae",
+          "Area1": 999999.0,
+          "BuffID1": "B025",
+          "checkDep": 1,
+          "DataA1": 0.2,
+          "levels": 1,
+          "reqLevel": 1,
+          "targs1": "friend,self",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      "routes": [],
+      "web": {
+        "radius": 999999,
+        "movement": 0.2,
+        "attackSpeed": 0,
+        "buff": "B025"
+      }
+    },
+    "N546": {
+      "host": {
+        "sourcePath": "reference/map-6.25/units_unitabilities.json",
+        "jsonIndex": 989,
+        "id": "b114",
+        "fields": {
+          "abilList": "N546"
+        }
+      },
+      "object": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1510,
+        "id": "N546",
+        "fields": {
+          "alias": "N546",
+          "code": "AHad",
+          "Area1": 999999.0,
+          "BuffID1": "B026",
+          "checkDep": 1,
+          "DataA1": 300.0,
+          "levels": 1,
+          "reqLevel": 1,
+          "targs1": "friend,self",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      "routes": [],
+      "web": {
+        "radius": 999999,
+        "flatArmor": 300,
+        "buff": "B026"
+      }
+    },
+    "N547": {
+      "host": {
+        "sourcePath": "reference/map-6.25/units_unitabilities.json",
+        "jsonIndex": 987,
+        "id": "b112",
+        "fields": {
+          "abilList": "N544,N547"
+        }
+      },
+      "object": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1511,
+        "id": "N547",
+        "fields": {
+          "alias": "N547",
+          "code": "AUau",
+          "Area1": 999999.0,
+          "BuffID1": "B024",
+          "checkDep": 1,
+          "levels": 1,
+          "reqLevel": 1,
+          "targs1": "friend,self",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      "routes": [],
+      "web": {
+        "radius": 999999,
+        "movement": 0,
+        "healthRegen": 0,
+        "buff": "B024"
+      }
+    },
+    "N556": {
+      "host": {
+        "sourcePath": "reference/map-6.25/units_unitabilities.json",
+        "jsonIndex": 990,
+        "id": "b115",
+        "fields": {
+          "abilList": "N556"
+        }
+      },
+      "object": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1520,
+        "id": "N556",
+        "fields": {
+          "alias": "N556",
+          "code": "AHab",
+          "Area1": 9999999.0,
+          "BuffID1": "B066",
+          "checkDep": 1,
+          "DataA1": -0.03,
+          "DataB1": 1,
+          "levels": 1,
+          "reqLevel": 1,
+          "targs1": "enemies,invulnerable",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      "routes": [],
+      "web": {
+        "radius": 9999999,
+        "maxManaPerSec": -0.03,
+        "capture": "recipient maxMana at grant, source identity",
+        "buff": "B066"
+      }
+    },
+    "T044": {
+      "host": {
+        "sourcePath": "reference/map-6.25/units_unitabilities.json",
+        "jsonIndex": 1079,
+        "id": "m013",
+        "fields": {
+          "abilList": "T044"
+        }
+      },
+      "object": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1921,
+        "id": "T044",
+        "fields": {
+          "alias": "T044",
+          "code": "ANpi",
+          "Area1": 220.0,
+          "BuffID1": "B019",
+          "Dur1": 1.0,
+          "HeroDur1": 1.0,
+          "levels": 1,
+          "targs1": "ground,enemy,neutral,organic",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      "routes": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f151/f1",
+          "key": "k5",
+          "constantLine": 105121,
+          "pc": 13,
+          "sourceLine": 105144,
+          "instruction": "loadk r7 k5"
+        }
+      ],
+      "web": {
+        "radius": 220,
+        "damage": 0,
+        "duration": 1,
+        "buff": "B019"
+      }
+    },
+    "T045": {
+      "host": {
+        "sourcePath": "reference/map-6.25/units_unitabilities.json",
+        "jsonIndex": 1101,
+        "id": "m035",
+        "fields": {
+          "abilList": "N521,T045,T014,N534"
+        }
+      },
+      "object": {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1922,
+        "id": "T045",
+        "fields": {
+          "alias": "T045",
+          "code": "Atau",
+          "Area1": 450.0,
+          "checkDep": 1,
+          "Cool1": 1.0,
+          "levels": 1,
+          "targs1": "air,ground,enemy,vuln,invu",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      "routes": [],
+      "web": {
+        "evidence": "npc-mainline-abilities-01.md",
+        "maxTargets": 0
+      }
+    }
+  },
+  "source": "reference/map-6.25/main.disasm",
+  "probes": [
+    "N541 original excludes magic immunity and N540 membership",
+    "N541 repeat does not postpone one-second release",
+    "N556 additive captured-max mana drain underflow is clamped"
+  ]
+}

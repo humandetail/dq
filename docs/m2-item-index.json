@@ -1,0 +1,5206 @@
+{
+  "version": "m2-config-1",
+  "status": "planning-index-not-runtime-content",
+  "sourceRefs": [
+    "docs/rules/economy-data.json",
+    "docs/rules/item-effect-coverage.json",
+    "docs/rules/item-lifecycle.json",
+    "docs/rules/item-reward-packs-batch-01.json",
+    "docs/rules/workbook-coverage-readiness.json",
+    "docs/rules/session-and-task-state.json",
+    "图鉴.xlsx"
+  ],
+  "notes": [
+    "Source workbook acquisition text is retained verbatim; later rule closures and M2 configuration govern unknown entries.",
+    "Entry wave is a channel-opening lower bound, not a guaranteed acquisition wave.",
+    "Recursive material totals use original object prices, not finished-item object value; rewards, stock and challenge wins are additional conditions."
+  ],
+  "counts": {
+    "items": 202,
+    "recipes": 72,
+    "kinds": {
+      "局内道具": 33,
+      "局内装备／组件": 112,
+      "制作书": 57
+    },
+    "excludedWorkbookItems": 41
+  },
+  "items": [
+    {
+      "id": "i001",
+      "name": "蓝色卡片",
+      "kind": "局内道具",
+      "itemLevel": 21,
+      "objectGold": 1000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B5",
+      "sourceAcquisitionText": "祈祷神庙",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i401奖项",
+        "i402奖项",
+        "i402奖项",
+        "i403奖项",
+        "prayerShop"
+      ],
+      "effectRules": [
+        "item-reward-packs-batch-01"
+      ]
+    },
+    {
+      "id": "i002",
+      "name": "橙色卡片",
+      "kind": "局内道具",
+      "itemLevel": 21,
+      "objectGold": 2500,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B6",
+      "sourceAcquisitionText": "祈祷神庙",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i402奖项",
+        "i403奖项",
+        "waveRewards"
+      ],
+      "effectRules": [
+        "item-reward-packs-batch-01"
+      ]
+    },
+    {
+      "id": "i003",
+      "name": "红色卡片",
+      "kind": "局内道具",
+      "itemLevel": 21,
+      "objectGold": 5000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B7",
+      "sourceAcquisitionText": "祈祷神庙",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i403奖项",
+        "i404奖项",
+        "prayerShop"
+      ],
+      "effectRules": [
+        "item-reward-packs-batch-01"
+      ]
+    },
+    {
+      "id": "i004",
+      "name": "特制橙色卡片",
+      "kind": "局内道具",
+      "itemLevel": 4,
+      "objectGold": null,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B8",
+      "sourceAcquisitionText": "获取入口未确认",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "openingAndGrowth"
+      ],
+      "effectRules": [
+        "item-reward-packs-batch-01"
+      ]
+    },
+    {
+      "id": "i005",
+      "name": "黑色卡片",
+      "kind": "局内道具",
+      "itemLevel": 21,
+      "objectGold": 13000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B9",
+      "sourceAcquisitionText": "祈祷神庙",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i404奖项",
+        "prayerShop"
+      ],
+      "effectRules": [
+        "item-reward-packs-batch-01"
+      ]
+    },
+    {
+      "id": "i006",
+      "name": "新手礼包",
+      "kind": "局内道具",
+      "itemLevel": 1,
+      "objectGold": null,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B10",
+      "sourceAcquisitionText": "获取入口未确认",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "openingAndGrowth"
+      ],
+      "effectRules": [
+        "item-reward-packs-batch-01"
+      ]
+    },
+    {
+      "id": "i101",
+      "name": "艺人面罩",
+      "kind": "局内装备／组件",
+      "itemLevel": 1,
+      "objectGold": 625,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B11",
+      "sourceAcquisitionText": "饰品店一",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i104",
+        "配方:i119",
+        "配方:i222",
+        "配方:i228"
+      ],
+      "effectRules": [
+        "item-regeneration-batch-01"
+      ]
+    },
+    {
+      "id": "i102",
+      "name": "能量之球",
+      "kind": "局内装备／组件",
+      "itemLevel": 1,
+      "objectGold": 425,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B12",
+      "sourceAcquisitionText": "饰品店二",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i104",
+        "配方:i200",
+        "配方:i218"
+      ],
+      "effectRules": [
+        "item-resources-batch-01"
+      ]
+    },
+    {
+      "id": "i103",
+      "name": "制作书-圣殿指环",
+      "kind": "制作书",
+      "itemLevel": 2,
+      "objectGold": 120,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B13",
+      "sourceAcquisitionText": "制作书一",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i104"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i104",
+      "name": "圣殿指环",
+      "kind": "局内装备／组件",
+      "itemLevel": 2,
+      "objectGold": 1165,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B14",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i401奖项",
+        "i402奖项",
+        "配方:i104",
+        "配方:i129",
+        "配方:i198"
+      ],
+      "effectRules": [
+        "item-regeneration-batch-01",
+        "item-resources-batch-01"
+      ],
+      "recipeIndex": 43,
+      "materialsInSourceOrder": [
+        "i101",
+        "i102",
+        "i103"
+      ],
+      "recursiveMaterialQuantities": {
+        "i101": 1,
+        "i102": 1,
+        "i103": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 1170,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i105",
+      "name": "精灵皮靴",
+      "kind": "局内装备／组件",
+      "itemLevel": 1,
+      "objectGold": 300,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B15",
+      "sourceAcquisitionText": "饰品店一",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i108"
+      ],
+      "effectRules": [
+        "item-attributes"
+      ]
+    },
+    {
+      "id": "i106",
+      "name": "欢欣之刃",
+      "kind": "局内装备／组件",
+      "itemLevel": 1,
+      "objectGold": 700,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B16",
+      "sourceAcquisitionText": "武器铺一",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i108",
+        "配方:i267",
+        "配方:i310"
+      ],
+      "effectRules": [
+        "item-attributes"
+      ]
+    },
+    {
+      "id": "i107",
+      "name": "制作书-夜叉",
+      "kind": "制作书",
+      "itemLevel": 2,
+      "objectGold": 450,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B17",
+      "sourceAcquisitionText": "制作书一",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i108"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i108",
+      "name": "夜叉",
+      "kind": "局内装备／组件",
+      "itemLevel": 2,
+      "objectGold": 1450,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B18",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i401奖项",
+        "i402奖项",
+        "配方:i108",
+        "配方:i114"
+      ],
+      "effectRules": [
+        "item-attack-speed-batch-01",
+        "item-attributes"
+      ],
+      "recipeIndex": 44,
+      "materialsInSourceOrder": [
+        "i107",
+        "i106",
+        "i105"
+      ],
+      "recursiveMaterialQuantities": {
+        "i105": 1,
+        "i106": 1,
+        "i107": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 1450,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i109",
+      "name": "巨人力量腰带",
+      "kind": "局内装备／组件",
+      "itemLevel": 1,
+      "objectGold": 300,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B19",
+      "sourceAcquisitionText": "饰品店一",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i112"
+      ],
+      "effectRules": [
+        "item-attributes"
+      ]
+    },
+    {
+      "id": "i110",
+      "name": "食人魔之斧",
+      "kind": "局内装备／组件",
+      "itemLevel": 1,
+      "objectGold": 700,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B20",
+      "sourceAcquisitionText": "武器铺一",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i112",
+        "配方:i310"
+      ],
+      "effectRules": [
+        "item-attributes"
+      ]
+    },
+    {
+      "id": "i111",
+      "name": "制作书-散华",
+      "kind": "制作书",
+      "itemLevel": 2,
+      "objectGold": 450,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B21",
+      "sourceAcquisitionText": "制作书一",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i112"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i112",
+      "name": "散华",
+      "kind": "局内装备／组件",
+      "itemLevel": 2,
+      "objectGold": 1450,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B22",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i401奖项",
+        "i402奖项",
+        "配方:i112",
+        "配方:i114",
+        "配方:i306",
+        "配方:i316"
+      ],
+      "effectRules": [
+        "item-attack-speed-batch-01",
+        "item-attributes"
+      ],
+      "recipeIndex": 45,
+      "materialsInSourceOrder": [
+        "i111",
+        "i110",
+        "i109"
+      ],
+      "recursiveMaterialQuantities": {
+        "i109": 1,
+        "i110": 1,
+        "i111": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 1450,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i113",
+      "name": "制作书-散夜对剑",
+      "kind": "制作书",
+      "itemLevel": 3,
+      "objectGold": 1150,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B23",
+      "sourceAcquisitionText": "制作书二",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i114"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i114",
+      "name": "散夜对剑",
+      "kind": "局内装备／组件",
+      "itemLevel": 3,
+      "objectGold": 4050,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B24",
+      "sourceAcquisitionText": "成品商店、合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i402奖项",
+        "i403奖项",
+        "配方:i114",
+        "配方:i316"
+      ],
+      "effectRules": [
+        "item-attack-speed-batch-01",
+        "item-attributes"
+      ],
+      "recipeIndex": 46,
+      "materialsInSourceOrder": [
+        "i108",
+        "i112",
+        "i113"
+      ],
+      "recursiveMaterialQuantities": {
+        "i105": 1,
+        "i106": 1,
+        "i107": 1,
+        "i109": 1,
+        "i110": 1,
+        "i111": 1,
+        "i113": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 4050,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i115",
+      "name": "狂战斧",
+      "kind": "局内装备／组件",
+      "itemLevel": 3,
+      "objectGold": 3570,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B25",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i402奖项",
+        "i403奖项",
+        "配方:i115",
+        "配方:i209"
+      ],
+      "effectRules": [
+        "item-damage-effects",
+        "item-flat-attack"
+      ],
+      "recipeIndex": 47,
+      "materialsInSourceOrder": [
+        "i116",
+        "i117",
+        "i118"
+      ],
+      "recursiveMaterialQuantities": {
+        "i116": 1,
+        "i117": 1,
+        "i118": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 3570,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i116",
+      "name": "制作书-狂战斧",
+      "kind": "制作书",
+      "itemLevel": 3,
+      "objectGold": 1750,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B26",
+      "sourceAcquisitionText": "制作书二",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i115"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i117",
+      "name": "阔剑",
+      "kind": "局内装备／组件",
+      "itemLevel": 1,
+      "objectGold": 820,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B27",
+      "sourceAcquisitionText": "武器铺一",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i115",
+        "配方:i188",
+        "配方:i213"
+      ],
+      "effectRules": [
+        "item-flat-attack"
+      ]
+    },
+    {
+      "id": "i118",
+      "name": "大剑",
+      "kind": "局内装备／组件",
+      "itemLevel": 1,
+      "objectGold": 1000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B28",
+      "sourceAcquisitionText": "武器铺一",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i115"
+      ],
+      "effectRules": [
+        "item-flat-attack"
+      ]
+    },
+    {
+      "id": "i119",
+      "name": "EUL的神圣法杖",
+      "kind": "局内装备／组件",
+      "itemLevel": 3,
+      "objectGold": 2760,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B29",
+      "sourceAcquisitionText": "成品商店、合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i402奖项",
+        "i403奖项",
+        "配方:i119",
+        "配方:i161",
+        "配方:i325"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-damage-dispatch",
+        "item-regeneration-batch-01"
+      ],
+      "recipeIndex": 82,
+      "materialsInSourceOrder": [
+        "i120",
+        "i121",
+        "i122",
+        "i101"
+      ],
+      "recursiveMaterialQuantities": {
+        "i101": 1,
+        "i120": 1,
+        "i121": 1,
+        "i122": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 2735,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i120",
+      "name": "制作书-EUL的神圣法杖",
+      "kind": "制作书",
+      "itemLevel": 3,
+      "objectGold": 460,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B30",
+      "sourceAcquisitionText": "制作书三",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i119"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i121",
+      "name": "虚无宝石",
+      "kind": "局内装备／组件",
+      "itemLevel": 1,
+      "objectGold": 950,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B31",
+      "sourceAcquisitionText": "饰品店一",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i119",
+        "配方:i202",
+        "配方:i220"
+      ],
+      "effectRules": [
+        "item-regeneration-batch-01"
+      ]
+    },
+    {
+      "id": "i122",
+      "name": "魔力法杖",
+      "kind": "局内装备／组件",
+      "itemLevel": 1,
+      "objectGold": 700,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B32",
+      "sourceAcquisitionText": "武器铺一",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i119",
+        "配方:i179",
+        "配方:i193",
+        "配方:i279",
+        "配方:i310"
+      ],
+      "effectRules": [
+        "item-attributes"
+      ]
+    },
+    {
+      "id": "i123",
+      "name": "蝴蝶",
+      "kind": "局内装备／组件",
+      "itemLevel": 4,
+      "objectGold": 7400,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B33",
+      "sourceAcquisitionText": "成品商店、合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i404奖项",
+        "配方:i123",
+        "配方:i302"
+      ],
+      "effectRules": [
+        "item-attack-speed-batch-01",
+        "item-attributes",
+        "item-flat-attack"
+      ],
+      "recipeIndex": 83,
+      "materialsInSourceOrder": [
+        "i124",
+        "i125",
+        "i125",
+        "i126"
+      ],
+      "recursiveMaterialQuantities": {
+        "i124": 1,
+        "i125": 2,
+        "i126": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 7400,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i124",
+      "name": "制作书-蝴蝶",
+      "kind": "制作书",
+      "itemLevel": 4,
+      "objectGold": 2000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B34",
+      "sourceAcquisitionText": "制作书四",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i123"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i125",
+      "name": "短棍",
+      "kind": "局内装备／组件",
+      "itemLevel": 1,
+      "objectGold": 900,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B35",
+      "sourceAcquisitionText": "武器铺一",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i123",
+        "配方:i222"
+      ],
+      "effectRules": [
+        "item-attack-speed-batch-01",
+        "item-flat-attack"
+      ]
+    },
+    {
+      "id": "i126",
+      "name": "角鹰弓",
+      "kind": "局内装备／组件",
+      "itemLevel": 2,
+      "objectGold": 3600,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B36",
+      "sourceAcquisitionText": "武器铺二",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i401奖项",
+        "i402奖项",
+        "配方:i123",
+        "配方:i204"
+      ],
+      "effectRules": [
+        "item-attributes"
+      ]
+    },
+    {
+      "id": "i127",
+      "name": "经验书",
+      "kind": "局内道具",
+      "itemLevel": 4,
+      "objectGold": 800,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B37",
+      "sourceAcquisitionText": "祈祷神庙",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i401奖项",
+        "i402奖项",
+        "prayerShop",
+        "配方:i312"
+      ],
+      "effectRules": [
+        "item-targeted-books-batch-01"
+      ]
+    },
+    {
+      "id": "i128",
+      "name": "能量书",
+      "kind": "局内道具",
+      "itemLevel": 4,
+      "objectGold": 2500,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B38",
+      "sourceAcquisitionText": "祈祷神庙",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i402奖项",
+        "prayerShop",
+        "配方:i312"
+      ],
+      "effectRules": [
+        "item-targeted-books-batch-01"
+      ]
+    },
+    {
+      "id": "i129",
+      "name": "天鹰戒指",
+      "kind": "局内装备／组件",
+      "itemLevel": 3,
+      "objectGold": 1950,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B39",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i402奖项",
+        "i403奖项",
+        "配方:i129",
+        "配方:i161"
+      ],
+      "effectRules": [
+        "item-regeneration-batch-01",
+        "item-resources-batch-01"
+      ],
+      "recipeIndex": 6,
+      "materialsInSourceOrder": [
+        "i104",
+        "i130"
+      ],
+      "recursiveMaterialQuantities": {
+        "i101": 1,
+        "i102": 1,
+        "i103": 1,
+        "i130": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 1955,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i130",
+      "name": "制作书-天鹰戒指",
+      "kind": "制作书",
+      "itemLevel": 3,
+      "objectGold": 785,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B40",
+      "sourceAcquisitionText": "制作书二",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i129"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i131",
+      "name": "破损的妖刀村正",
+      "kind": "局内装备／组件",
+      "itemLevel": 2,
+      "objectGold": 2000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B41",
+      "sourceAcquisitionText": "武器铺二、能量圈养刀材料",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i401奖项",
+        "i402奖项",
+        "openingAndGrowth"
+      ],
+      "effectRules": [
+        "item-growth-batch-01"
+      ]
+    },
+    {
+      "id": "i132",
+      "name": "完美的妖刀村正",
+      "kind": "局内装备／组件",
+      "itemLevel": 4,
+      "objectGold": 4000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B42",
+      "sourceAcquisitionText": "获取入口未确认",
+      "entryWaveLowerBound": 1,
+      "includedBy": [
+        "i404奖项",
+        "openingAndGrowth"
+      ],
+      "effectRules": [
+        "item-attack-speed-batch-01",
+        "item-attributes",
+        "item-muramasa-takemitsu"
+      ]
+    },
+    {
+      "id": "i133",
+      "name": "破损的妖刀竹光",
+      "kind": "局内装备／组件",
+      "itemLevel": 2,
+      "objectGold": 2000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B43",
+      "sourceAcquisitionText": "武器铺二、能量圈养刀材料",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i401奖项",
+        "i402奖项",
+        "openingAndGrowth"
+      ],
+      "effectRules": [
+        "item-growth-batch-01"
+      ]
+    },
+    {
+      "id": "i134",
+      "name": "完美的妖刀竹光",
+      "kind": "局内装备／组件",
+      "itemLevel": 4,
+      "objectGold": 4000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B44",
+      "sourceAcquisitionText": "获取入口未确认",
+      "entryWaveLowerBound": 1,
+      "includedBy": [
+        "i404奖项",
+        "openingAndGrowth"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-muramasa-takemitsu",
+        "item-regeneration-batch-01"
+      ]
+    },
+    {
+      "id": "i135",
+      "name": "辉耀Lv1",
+      "kind": "局内装备／组件",
+      "itemLevel": 3,
+      "objectGold": 4900,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B45",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i135",
+        "配方:i136"
+      ],
+      "effectRules": [
+        "item-flat-attack",
+        "item-immolation-batch-01"
+      ],
+      "recipeIndex": 2,
+      "materialsInSourceOrder": [
+        "i139",
+        "i140"
+      ],
+      "recursiveMaterialQuantities": {
+        "i139": 1,
+        "i140": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 4900,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i136",
+      "name": "辉耀Lv2",
+      "kind": "局内装备／组件",
+      "itemLevel": 3,
+      "objectGold": 6500,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B46",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i136",
+        "配方:i137"
+      ],
+      "effectRules": [
+        "item-flat-attack",
+        "item-immolation-batch-01"
+      ],
+      "recipeIndex": 3,
+      "materialsInSourceOrder": [
+        "i139",
+        "i135"
+      ],
+      "recursiveMaterialQuantities": {
+        "i139": 2,
+        "i140": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 6500,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i137",
+      "name": "辉耀Lv3",
+      "kind": "局内装备／组件",
+      "itemLevel": 3,
+      "objectGold": 8100,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B47",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i403奖项",
+        "i404奖项",
+        "配方:i137",
+        "配方:i138"
+      ],
+      "effectRules": [
+        "item-flat-attack",
+        "item-immolation-batch-01"
+      ],
+      "recipeIndex": 4,
+      "materialsInSourceOrder": [
+        "i139",
+        "i136"
+      ],
+      "recursiveMaterialQuantities": {
+        "i139": 3,
+        "i140": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 8100,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i138",
+      "name": "辉耀Max",
+      "kind": "局内装备／组件",
+      "itemLevel": 4,
+      "objectGold": 9700,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B48",
+      "sourceAcquisitionText": "成品商店、合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i404奖项",
+        "配方:i138",
+        "配方:i276",
+        "配方:i332"
+      ],
+      "effectRules": [
+        "item-flat-attack",
+        "item-immolation-batch-01"
+      ],
+      "recipeIndex": 5,
+      "materialsInSourceOrder": [
+        "i139",
+        "i137"
+      ],
+      "recursiveMaterialQuantities": {
+        "i139": 4,
+        "i140": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 9700,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i139",
+      "name": "制作书-辉耀",
+      "kind": "制作书",
+      "itemLevel": 3,
+      "objectGold": 1600,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B49",
+      "sourceAcquisitionText": "制作书三",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i402奖项",
+        "i403奖项",
+        "配方:i135",
+        "配方:i136",
+        "配方:i137",
+        "配方:i138"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i140",
+      "name": "圣者遗物",
+      "kind": "局内装备／组件",
+      "itemLevel": 2,
+      "objectGold": 3300,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B50",
+      "sourceAcquisitionText": "武器铺二",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i401奖项",
+        "i402奖项",
+        "配方:i135",
+        "配方:i304"
+      ],
+      "effectRules": [
+        "item-flat-attack"
+      ]
+    },
+    {
+      "id": "i141",
+      "name": "金箍棒",
+      "kind": "局内装备／组件",
+      "itemLevel": 4,
+      "objectGold": 8100,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B51",
+      "sourceAcquisitionText": "成品商店、合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i404奖项",
+        "配方:i141",
+        "配方:i322"
+      ],
+      "effectRules": [
+        "item-attack-procs-batch-01",
+        "item-flat-attack",
+        "skill-coup-de-grace"
+      ],
+      "recipeIndex": 81,
+      "materialsInSourceOrder": [
+        "i142",
+        "i143",
+        "i144",
+        "i144"
+      ],
+      "recursiveMaterialQuantities": {
+        "i142": 1,
+        "i143": 1,
+        "i144": 2
+      },
+      "materialObjectPriceSum": {
+        "gold": 8100,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i142",
+      "name": "制作书-金箍棒",
+      "kind": "制作书",
+      "itemLevel": 4,
+      "objectGold": 1300,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B52",
+      "sourceAcquisitionText": "制作书四",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i402奖项",
+        "i403奖项",
+        "配方:i141"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i143",
+      "name": "恶魔刀锋",
+      "kind": "局内装备／组件",
+      "itemLevel": 2,
+      "objectGold": 2800,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B53",
+      "sourceAcquisitionText": "武器铺二",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i401奖项",
+        "i402奖项",
+        "配方:i141",
+        "配方:i215",
+        "配方:i267",
+        "配方:i304"
+      ],
+      "effectRules": [
+        "item-flat-attack"
+      ]
+    },
+    {
+      "id": "i144",
+      "name": "标枪",
+      "kind": "局内装备／组件",
+      "itemLevel": 1,
+      "objectGold": 2000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B54",
+      "sourceAcquisitionText": "武器铺一",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i141",
+        "配方:i306"
+      ],
+      "effectRules": [
+        "item-attack-procs-batch-01",
+        "item-flat-attack"
+      ]
+    },
+    {
+      "id": "i145",
+      "name": "恐鳌之心",
+      "kind": "局内装备／组件",
+      "itemLevel": 4,
+      "objectGold": 7200,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B55",
+      "sourceAcquisitionText": "成品商店、合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i404奖项",
+        "配方:i145",
+        "配方:i332"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-regeneration-batch-01",
+        "item-resources-batch-01"
+      ],
+      "recipeIndex": 80,
+      "materialsInSourceOrder": [
+        "i146",
+        "i147",
+        "i148",
+        "i148"
+      ],
+      "recursiveMaterialQuantities": {
+        "i146": 1,
+        "i147": 1,
+        "i148": 2
+      },
+      "materialObjectPriceSum": {
+        "gold": 7200,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i146",
+      "name": "制作书-恐鳌之心",
+      "kind": "制作书",
+      "itemLevel": 4,
+      "objectGold": 2300,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B56",
+      "sourceAcquisitionText": "制作书四",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i402奖项",
+        "i403奖项",
+        "配方:i145"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i147",
+      "name": "掠夺者之斧",
+      "kind": "局内装备／组件",
+      "itemLevel": 2,
+      "objectGold": 3400,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B57",
+      "sourceAcquisitionText": "武器铺二",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i401奖项",
+        "i402奖项",
+        "配方:i145"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-regeneration-batch-01"
+      ]
+    },
+    {
+      "id": "i148",
+      "name": "活力之球",
+      "kind": "局内装备／组件",
+      "itemLevel": 1,
+      "objectGold": 750,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B58",
+      "sourceAcquisitionText": "饰品店二",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i145",
+        "配方:i218"
+      ],
+      "effectRules": [
+        "item-resources-batch-01"
+      ]
+    },
+    {
+      "id": "i149",
+      "name": "冰霜之眼",
+      "kind": "局内装备／组件",
+      "itemLevel": 3,
+      "objectGold": 3550,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B59",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i403奖项",
+        "i404奖项",
+        "配方:i149",
+        "配方:i153",
+        "配方:i155"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-resources-batch-01",
+        "item-weapon-effects-batch-01"
+      ],
+      "recipeIndex": 48,
+      "materialsInSourceOrder": [
+        "i150",
+        "i151",
+        "i152"
+      ],
+      "recursiveMaterialQuantities": {
+        "i150": 1,
+        "i151": 1,
+        "i152": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 3550,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i150",
+      "name": "制作书-冰霜之眼",
+      "kind": "制作书",
+      "itemLevel": 3,
+      "objectGold": 350,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B60",
+      "sourceAcquisitionText": "制作书三",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i149"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i151",
+      "name": "精气之球",
+      "kind": "局内装备／组件",
+      "itemLevel": 1,
+      "objectGold": 900,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B61",
+      "sourceAcquisitionText": "饰品店二",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i149",
+        "配方:i218",
+        "配方:i310"
+      ],
+      "effectRules": [
+        "item-resources-batch-01"
+      ]
+    },
+    {
+      "id": "i152",
+      "name": "极限法球",
+      "kind": "局内装备／组件",
+      "itemLevel": 2,
+      "objectGold": 2300,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B62",
+      "sourceAcquisitionText": "饰品店二",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i401奖项",
+        "i402奖项",
+        "i402奖项",
+        "i403奖项",
+        "配方:i149",
+        "配方:i153",
+        "配方:i202",
+        "配方:i270"
+      ],
+      "effectRules": [
+        "item-attributes"
+      ]
+    },
+    {
+      "id": "i153",
+      "name": "斯嘉蒂之眼",
+      "kind": "局内装备／组件",
+      "itemLevel": 4,
+      "objectGold": 12000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B63",
+      "sourceAcquisitionText": "成品商店、合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i404奖项",
+        "配方:i153"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-weapon-effects-batch-01"
+      ],
+      "recipeIndex": 79,
+      "materialsInSourceOrder": [
+        "i154",
+        "i152",
+        "i152",
+        "i149"
+      ],
+      "recursiveMaterialQuantities": {
+        "i150": 1,
+        "i151": 1,
+        "i152": 3,
+        "i154": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 12000,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i154",
+      "name": "制作书-斯嘉蒂之眼",
+      "kind": "制作书",
+      "itemLevel": 4,
+      "objectGold": 3850,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B64",
+      "sourceAcquisitionText": "制作书四",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i402奖项",
+        "i403奖项",
+        "配方:i153"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i155",
+      "name": "西瓦的守护",
+      "kind": "局内装备／组件",
+      "itemLevel": 4,
+      "objectGold": 13500,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B65",
+      "sourceAcquisitionText": "成品商店、合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i404奖项",
+        "配方:i155"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-auras-batch-01"
+      ],
+      "recipeIndex": 78,
+      "materialsInSourceOrder": [
+        "i156",
+        "i157",
+        "i157",
+        "i149"
+      ],
+      "recursiveMaterialQuantities": {
+        "i150": 1,
+        "i151": 1,
+        "i152": 1,
+        "i156": 1,
+        "i157": 2
+      },
+      "materialObjectPriceSum": {
+        "gold": 13200,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i156",
+      "name": "制作书-西瓦的守护",
+      "kind": "制作书",
+      "itemLevel": 4,
+      "objectGold": 2650,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B66",
+      "sourceAcquisitionText": "制作书四",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i402奖项",
+        "i403奖项",
+        "配方:i155"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i157",
+      "name": "神秘法杖",
+      "kind": "局内装备／组件",
+      "itemLevel": 2,
+      "objectGold": 3500,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B67",
+      "sourceAcquisitionText": "武器铺二",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i401奖项",
+        "i402奖项",
+        "配方:i155",
+        "配方:i202",
+        "配方:i318",
+        "配方:i327"
+      ],
+      "effectRules": [
+        "item-attributes"
+      ]
+    },
+    {
+      "id": "i158",
+      "name": "银月之晶",
+      "kind": "局内装备／组件",
+      "itemLevel": 3,
+      "objectGold": 4900,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B68",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i403奖项",
+        "i404奖项",
+        "配方:i158",
+        "配方:i322"
+      ],
+      "effectRules": [
+        "item-attack-speed-batch-01"
+      ],
+      "recipeIndex": 49,
+      "materialsInSourceOrder": [
+        "i159",
+        "i160",
+        "i160"
+      ],
+      "recursiveMaterialQuantities": {
+        "i159": 1,
+        "i160": 2
+      },
+      "materialObjectPriceSum": {
+        "gold": 4900,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i159",
+      "name": "制作书-银月之晶",
+      "kind": "制作书",
+      "itemLevel": 3,
+      "objectGold": 500,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B69",
+      "sourceAcquisitionText": "制作书三",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i158"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i160",
+      "name": "振奋宝石",
+      "kind": "局内装备／组件",
+      "itemLevel": 2,
+      "objectGold": 2200,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B70",
+      "sourceAcquisitionText": "饰品店二",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i401奖项",
+        "i402奖项",
+        "配方:i158",
+        "配方:i177",
+        "配方:i217"
+      ],
+      "effectRules": [
+        "item-attack-speed-batch-01"
+      ]
+    },
+    {
+      "id": "i161",
+      "name": "大法师之戒",
+      "kind": "局内装备／组件",
+      "itemLevel": 4,
+      "objectGold": 7910,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B71",
+      "sourceAcquisitionText": "成品商店、合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i404奖项",
+        "配方:i161"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-damage-dispatch",
+        "item-regeneration-batch-01"
+      ],
+      "recipeIndex": 77,
+      "materialsInSourceOrder": [
+        "i162",
+        "i163",
+        "i129",
+        "i119"
+      ],
+      "recursiveMaterialQuantities": {
+        "i101": 2,
+        "i102": 1,
+        "i103": 1,
+        "i120": 1,
+        "i121": 1,
+        "i122": 1,
+        "i130": 1,
+        "i162": 1,
+        "i164": 1,
+        "i171": 1,
+        "i172": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 7890,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i162",
+      "name": "制作书-大法师之戒",
+      "kind": "制作书",
+      "itemLevel": 4,
+      "objectGold": 2200,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B72",
+      "sourceAcquisitionText": "制作书四",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i402奖项",
+        "i403奖项",
+        "配方:i161"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i163",
+      "name": "空灵挂件",
+      "kind": "局内装备／组件",
+      "itemLevel": 2,
+      "objectGold": 1000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B73",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i401奖项",
+        "i402奖项",
+        "配方:i161",
+        "配方:i163",
+        "配方:i179",
+        "配方:i191"
+      ],
+      "effectRules": [
+        "item-attributes"
+      ],
+      "recipeIndex": 42,
+      "materialsInSourceOrder": [
+        "i164",
+        "i171",
+        "i172"
+      ],
+      "recursiveMaterialQuantities": {
+        "i164": 1,
+        "i171": 1,
+        "i172": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 1000,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i164",
+      "name": "制作书-空灵挂件",
+      "kind": "制作书",
+      "itemLevel": 2,
+      "objectGold": 450,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B74",
+      "sourceAcquisitionText": "制作书一",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i163"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i165",
+      "name": "幽灵系带",
+      "kind": "局内装备／组件",
+      "itemLevel": 2,
+      "objectGold": 1000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B75",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i401奖项",
+        "i402奖项",
+        "配方:i165"
+      ],
+      "effectRules": [
+        "item-attributes"
+      ],
+      "recipeIndex": 41,
+      "materialsInSourceOrder": [
+        "i166",
+        "i170",
+        "i172"
+      ],
+      "recursiveMaterialQuantities": {
+        "i166": 1,
+        "i170": 1,
+        "i172": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 1000,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i166",
+      "name": "制作书-幽灵系带",
+      "kind": "制作书",
+      "itemLevel": 2,
+      "objectGold": 450,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B76",
+      "sourceAcquisitionText": "制作书一",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i165"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i167",
+      "name": "力量护腕",
+      "kind": "局内装备／组件",
+      "itemLevel": 2,
+      "objectGold": 1000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B77",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i401奖项",
+        "i402奖项",
+        "配方:i167",
+        "配方:i228"
+      ],
+      "effectRules": [
+        "item-attributes"
+      ],
+      "recipeIndex": 40,
+      "materialsInSourceOrder": [
+        "i168",
+        "i169",
+        "i172"
+      ],
+      "recursiveMaterialQuantities": {
+        "i168": 1,
+        "i169": 1,
+        "i172": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 1000,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i168",
+      "name": "制作书-力量护腕",
+      "kind": "制作书",
+      "itemLevel": 2,
+      "objectGold": 450,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B78",
+      "sourceAcquisitionText": "制作书一",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i167"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i169",
+      "name": "力量手套",
+      "kind": "局内装备／组件",
+      "itemLevel": 1,
+      "objectGold": 200,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B79",
+      "sourceAcquisitionText": "饰品店一",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i167"
+      ],
+      "effectRules": [
+        "item-attributes"
+      ]
+    },
+    {
+      "id": "i170",
+      "name": "敏捷便鞋",
+      "kind": "局内装备／组件",
+      "itemLevel": 1,
+      "objectGold": 200,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B80",
+      "sourceAcquisitionText": "饰品店一",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i165"
+      ],
+      "effectRules": [
+        "item-attributes"
+      ]
+    },
+    {
+      "id": "i171",
+      "name": "智力斗篷",
+      "kind": "局内装备／组件",
+      "itemLevel": 1,
+      "objectGold": 200,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B81",
+      "sourceAcquisitionText": "饰品店一",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i163"
+      ],
+      "effectRules": [
+        "item-attributes"
+      ]
+    },
+    {
+      "id": "i172",
+      "name": "贵族圆环",
+      "kind": "局内装备／组件",
+      "itemLevel": 1,
+      "objectGold": 350,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B82",
+      "sourceAcquisitionText": "饰品店一",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i163",
+        "配方:i165",
+        "配方:i167"
+      ],
+      "effectRules": [
+        "item-attributes"
+      ]
+    },
+    {
+      "id": "i173",
+      "name": "漩涡",
+      "kind": "局内装备／组件",
+      "itemLevel": 3,
+      "objectGold": 3600,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B83",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i403奖项",
+        "i404奖项",
+        "配方:i173",
+        "配方:i177"
+      ],
+      "effectRules": [
+        "item-attack-speed-batch-01",
+        "item-flat-attack",
+        "item-weapon-effects-batch-01"
+      ],
+      "recipeIndex": 50,
+      "materialsInSourceOrder": [
+        "i174",
+        "i175",
+        "i176"
+      ],
+      "recursiveMaterialQuantities": {
+        "i174": 1,
+        "i175": 1,
+        "i176": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 3600,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i174",
+      "name": "制作书-漩涡",
+      "kind": "制作书",
+      "itemLevel": 3,
+      "objectGold": 1300,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B84",
+      "sourceAcquisitionText": "制作书三",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i173"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i175",
+      "name": "加速手套",
+      "kind": "局内装备／组件",
+      "itemLevel": 1,
+      "objectGold": 850,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B85",
+      "sourceAcquisitionText": "饰品店一",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i173",
+        "配方:i256"
+      ],
+      "effectRules": [
+        "item-attack-speed-batch-01"
+      ]
+    },
+    {
+      "id": "i176",
+      "name": "秘银锤",
+      "kind": "局内装备／组件",
+      "itemLevel": 1,
+      "objectGold": 1450,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B86",
+      "sourceAcquisitionText": "武器铺一",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i173",
+        "配方:i186",
+        "配方:i188",
+        "配方:i267"
+      ],
+      "effectRules": [
+        "item-flat-attack"
+      ]
+    },
+    {
+      "id": "i177",
+      "name": "雷神之锤",
+      "kind": "局内装备／组件",
+      "itemLevel": 4,
+      "objectGold": 8100,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B87",
+      "sourceAcquisitionText": "成品商店、合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i404奖项",
+        "配方:i177"
+      ],
+      "effectRules": [
+        "item-attack-speed-batch-01",
+        "item-flat-attack",
+        "item-weapon-effects-batch-01"
+      ],
+      "recipeIndex": 51,
+      "materialsInSourceOrder": [
+        "i178",
+        "i173",
+        "i160"
+      ],
+      "recursiveMaterialQuantities": {
+        "i160": 1,
+        "i174": 1,
+        "i175": 1,
+        "i176": 1,
+        "i178": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 8100,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i178",
+      "name": "制作书-雷神之锤",
+      "kind": "制作书",
+      "itemLevel": 4,
+      "objectGold": 2300,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B88",
+      "sourceAcquisitionText": "制作书五",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i402奖项",
+        "i403奖项",
+        "waveRewards",
+        "配方:i177"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i179",
+      "name": "达贡之神力Lv1",
+      "kind": "局内装备／组件",
+      "itemLevel": 3,
+      "objectGold": 2900,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B89",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i179",
+        "配方:i180"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-damage-effects"
+      ],
+      "recipeIndex": 52,
+      "materialsInSourceOrder": [
+        "i185",
+        "i163",
+        "i122"
+      ],
+      "recursiveMaterialQuantities": {
+        "i122": 1,
+        "i164": 1,
+        "i171": 1,
+        "i172": 1,
+        "i185": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 2900,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i180",
+      "name": "达贡之神力Lv2",
+      "kind": "局内装备／组件",
+      "itemLevel": 3,
+      "objectGold": 4100,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B90",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i403奖项",
+        "i404奖项",
+        "配方:i180",
+        "配方:i181"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-damage-effects"
+      ],
+      "recipeIndex": 7,
+      "materialsInSourceOrder": [
+        "i179",
+        "i185"
+      ],
+      "recursiveMaterialQuantities": {
+        "i122": 1,
+        "i164": 1,
+        "i171": 1,
+        "i172": 1,
+        "i185": 2
+      },
+      "materialObjectPriceSum": {
+        "gold": 4100,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i181",
+      "name": "达贡之神力Lv3",
+      "kind": "局内装备／组件",
+      "itemLevel": 3,
+      "objectGold": 5300,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B91",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i403奖项",
+        "i404奖项",
+        "配方:i181",
+        "配方:i182"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-damage-effects"
+      ],
+      "recipeIndex": 8,
+      "materialsInSourceOrder": [
+        "i180",
+        "i185"
+      ],
+      "recursiveMaterialQuantities": {
+        "i122": 1,
+        "i164": 1,
+        "i171": 1,
+        "i172": 1,
+        "i185": 3
+      },
+      "materialObjectPriceSum": {
+        "gold": 5300,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i182",
+      "name": "达贡之神力Lv4",
+      "kind": "局内装备／组件",
+      "itemLevel": 3,
+      "objectGold": 6500,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B92",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i182",
+        "配方:i183"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-damage-effects"
+      ],
+      "recipeIndex": 9,
+      "materialsInSourceOrder": [
+        "i181",
+        "i185"
+      ],
+      "recursiveMaterialQuantities": {
+        "i122": 1,
+        "i164": 1,
+        "i171": 1,
+        "i172": 1,
+        "i185": 4
+      },
+      "materialObjectPriceSum": {
+        "gold": 6500,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i183",
+      "name": "达贡之神力Lv5",
+      "kind": "局内装备／组件",
+      "itemLevel": 3,
+      "objectGold": 7700,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B93",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i183",
+        "配方:i184"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-damage-effects"
+      ],
+      "recipeIndex": 10,
+      "materialsInSourceOrder": [
+        "i182",
+        "i185"
+      ],
+      "recursiveMaterialQuantities": {
+        "i122": 1,
+        "i164": 1,
+        "i171": 1,
+        "i172": 1,
+        "i185": 5
+      },
+      "materialObjectPriceSum": {
+        "gold": 7700,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i184",
+      "name": "达贡之神力Max",
+      "kind": "局内装备／组件",
+      "itemLevel": 4,
+      "objectGold": 8900,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B94",
+      "sourceAcquisitionText": "成品商店、合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i404奖项",
+        "配方:i184"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-damage-effects"
+      ],
+      "recipeIndex": 11,
+      "materialsInSourceOrder": [
+        "i183",
+        "i185"
+      ],
+      "recursiveMaterialQuantities": {
+        "i122": 1,
+        "i164": 1,
+        "i171": 1,
+        "i172": 1,
+        "i185": 6
+      },
+      "materialObjectPriceSum": {
+        "gold": 8900,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i185",
+      "name": "制作书-达贡之神力",
+      "kind": "制作书",
+      "itemLevel": 3,
+      "objectGold": 1200,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B95",
+      "sourceAcquisitionText": "制作书三",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i402奖项",
+        "i403奖项",
+        "配方:i179",
+        "配方:i180",
+        "配方:i181",
+        "配方:i182",
+        "配方:i183",
+        "配方:i184"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i186",
+      "name": "黯灭",
+      "kind": "局内装备／组件",
+      "itemLevel": 3,
+      "objectGold": 2600,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B96",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i402奖项",
+        "i403奖项",
+        "配方:i186",
+        "配方:i188",
+        "配方:i217"
+      ],
+      "effectRules": [
+        "item-flat-attack",
+        "item-weapon-effects-batch-01"
+      ],
+      "recipeIndex": 12,
+      "materialsInSourceOrder": [
+        "i176",
+        "i187"
+      ],
+      "recursiveMaterialQuantities": {
+        "i176": 1,
+        "i187": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 2600,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i187",
+      "name": "制作书-黯灭",
+      "kind": "制作书",
+      "itemLevel": 3,
+      "objectGold": 1150,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B97",
+      "sourceAcquisitionText": "制作书三",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i186"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i188",
+      "name": "大黯灭",
+      "kind": "局内装备／组件",
+      "itemLevel": 4,
+      "objectGold": 6820,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B98",
+      "sourceAcquisitionText": "成品商店、合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i404奖项",
+        "配方:i188"
+      ],
+      "effectRules": [
+        "item-flat-attack",
+        "item-weapon-effects-batch-01"
+      ],
+      "recipeIndex": 76,
+      "materialsInSourceOrder": [
+        "i189",
+        "i176",
+        "i117",
+        "i186"
+      ],
+      "recursiveMaterialQuantities": {
+        "i117": 1,
+        "i176": 2,
+        "i187": 1,
+        "i189": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 6820,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i189",
+      "name": "制作书-大黯灭",
+      "kind": "制作书",
+      "itemLevel": 4,
+      "objectGold": 1950,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B99",
+      "sourceAcquisitionText": "制作书五",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i402奖项",
+        "i403奖项",
+        "配方:i188"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i190",
+      "name": "法师长袍",
+      "kind": "局内装备／组件",
+      "itemLevel": 1,
+      "objectGold": 300,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B100",
+      "sourceAcquisitionText": "饰品店一",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i191",
+        "配方:i200",
+        "配方:i222",
+        "配方:i228"
+      ],
+      "effectRules": [
+        "item-attributes"
+      ]
+    },
+    {
+      "id": "i191",
+      "name": "阿托斯",
+      "kind": "局内装备／组件",
+      "itemLevel": 2,
+      "objectGold": 1500,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B101",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i401奖项",
+        "i402奖项",
+        "配方:i191",
+        "配方:i308"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-resources-batch-01"
+      ],
+      "recipeIndex": 39,
+      "materialsInSourceOrder": [
+        "i192",
+        "i190",
+        "i163"
+      ],
+      "recursiveMaterialQuantities": {
+        "i164": 1,
+        "i171": 1,
+        "i172": 1,
+        "i190": 1,
+        "i192": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 1500,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i192",
+      "name": "制作书-阿托斯",
+      "kind": "制作书",
+      "itemLevel": 2,
+      "objectGold": 200,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B102",
+      "sourceAcquisitionText": "制作书一",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i191"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i193",
+      "name": "死灵书Lv1",
+      "kind": "局内装备／组件",
+      "itemLevel": 2,
+      "objectGold": 2100,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B103",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i402奖项",
+        "i403奖项",
+        "配方:i193",
+        "配方:i194"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-summons-batch-01"
+      ],
+      "recipeIndex": 13,
+      "materialsInSourceOrder": [
+        "i197",
+        "i122"
+      ],
+      "recursiveMaterialQuantities": {
+        "i122": 1,
+        "i197": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 2100,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i194",
+      "name": "死灵书Lv2",
+      "kind": "局内装备／组件",
+      "itemLevel": 2,
+      "objectGold": 3500,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B104",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i194",
+        "配方:i195"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-summons-batch-01"
+      ],
+      "recipeIndex": 14,
+      "materialsInSourceOrder": [
+        "i197",
+        "i193"
+      ],
+      "recursiveMaterialQuantities": {
+        "i122": 1,
+        "i197": 2
+      },
+      "materialObjectPriceSum": {
+        "gold": 3500,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i195",
+      "name": "死灵书Lv3",
+      "kind": "局内装备／组件",
+      "itemLevel": 2,
+      "objectGold": 4900,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B105",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i195",
+        "配方:i196"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-summons-batch-01"
+      ],
+      "recipeIndex": 15,
+      "materialsInSourceOrder": [
+        "i197",
+        "i194"
+      ],
+      "recursiveMaterialQuantities": {
+        "i122": 1,
+        "i197": 3
+      },
+      "materialObjectPriceSum": {
+        "gold": 4900,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i196",
+      "name": "死灵书Max",
+      "kind": "局内装备／组件",
+      "itemLevel": 3,
+      "objectGold": 6300,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B106",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i403奖项",
+        "i404奖项",
+        "配方:i196"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-summons-batch-01"
+      ],
+      "recipeIndex": 16,
+      "materialsInSourceOrder": [
+        "i197",
+        "i195"
+      ],
+      "recursiveMaterialQuantities": {
+        "i122": 1,
+        "i197": 4
+      },
+      "materialObjectPriceSum": {
+        "gold": 6300,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i197",
+      "name": "制作书-死灵书",
+      "kind": "制作书",
+      "itemLevel": 2,
+      "objectGold": 1400,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B107",
+      "sourceAcquisitionText": "制作书一",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i193",
+        "配方:i194",
+        "配方:i195",
+        "配方:i196"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i198",
+      "name": "吸血鬼的祭品",
+      "kind": "局内装备／组件",
+      "itemLevel": 3,
+      "objectGold": 2065,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B108",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i402奖项",
+        "i403奖项",
+        "配方:i198",
+        "配方:i209"
+      ],
+      "effectRules": [
+        "item-auras-batch-01",
+        "item-regeneration-batch-01",
+        "item-resources-batch-01"
+      ],
+      "recipeIndex": 17,
+      "materialsInSourceOrder": [
+        "i199",
+        "i104"
+      ],
+      "recursiveMaterialQuantities": {
+        "i101": 1,
+        "i102": 1,
+        "i103": 1,
+        "i199": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 2070,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i199",
+      "name": "制作书-吸血鬼的祭品",
+      "kind": "制作书",
+      "itemLevel": 3,
+      "objectGold": 900,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B109",
+      "sourceAcquisitionText": "制作书二",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i198"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i200",
+      "name": "纷争面纱",
+      "kind": "局内装备／组件",
+      "itemLevel": 3,
+      "objectGold": 2200,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B110",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i402奖项",
+        "i403奖项",
+        "配方:i200",
+        "配方:i308"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-resources-batch-01",
+        "item-spell-output-batch-01"
+      ],
+      "recipeIndex": 75,
+      "materialsInSourceOrder": [
+        "i201",
+        "i102",
+        "i102",
+        "i190"
+      ],
+      "recursiveMaterialQuantities": {
+        "i102": 2,
+        "i190": 1,
+        "i201": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 2200,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i201",
+      "name": "制作书-纷争面纱",
+      "kind": "制作书",
+      "itemLevel": 3,
+      "objectGold": 1050,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B111",
+      "sourceAcquisitionText": "制作书二",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i200"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i202",
+      "name": "邪恶镰刀",
+      "kind": "局内装备／组件",
+      "itemLevel": 4,
+      "objectGold": 9400,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B112",
+      "sourceAcquisitionText": "成品商店、合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i404奖项",
+        "配方:i202",
+        "配方:i325"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-regeneration-batch-01",
+        "item-spell-control-batch-01"
+      ],
+      "recipeIndex": 74,
+      "materialsInSourceOrder": [
+        "i203",
+        "i121",
+        "i157",
+        "i152"
+      ],
+      "recursiveMaterialQuantities": {
+        "i121": 1,
+        "i152": 1,
+        "i157": 1,
+        "i203": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 9400,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i203",
+      "name": "制作书-邪恶镰刀",
+      "kind": "制作书",
+      "itemLevel": 4,
+      "objectGold": 2650,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B113",
+      "sourceAcquisitionText": "制作书五",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i402奖项",
+        "i403奖项",
+        "配方:i202"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i204",
+      "name": "精灵木弓",
+      "kind": "局内装备／组件",
+      "itemLevel": 3,
+      "objectGold": 4200,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B114",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i204",
+        "配方:i302"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-weapon-effects-batch-01"
+      ],
+      "recipeIndex": 18,
+      "materialsInSourceOrder": [
+        "i205",
+        "i126"
+      ],
+      "recursiveMaterialQuantities": {
+        "i126": 1,
+        "i205": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 4200,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i205",
+      "name": "制作书-精灵木弓",
+      "kind": "制作书",
+      "itemLevel": 3,
+      "objectGold": 600,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B115",
+      "sourceAcquisitionText": "制作书二",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i204"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i206",
+      "name": "显形宝石",
+      "kind": "局内装备／组件",
+      "itemLevel": 1,
+      "objectGold": 2900,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B116",
+      "sourceAcquisitionText": "杂货铺",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "utilityAndTask"
+      ],
+      "effectRules": [
+        "item-utility-batch-01"
+      ]
+    },
+    {
+      "id": "i209",
+      "name": "大狂战斧",
+      "kind": "局内装备／组件",
+      "itemLevel": 4,
+      "objectGold": 8235,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B119",
+      "sourceAcquisitionText": "成品商店、合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i404奖项",
+        "配方:i209"
+      ],
+      "effectRules": [
+        "item-auras-batch-01",
+        "item-damage-effects",
+        "item-flat-attack",
+        "item-regeneration-batch-01",
+        "item-resources-batch-01"
+      ],
+      "recipeIndex": 38,
+      "materialsInSourceOrder": [
+        "i210",
+        "i115",
+        "i198"
+      ],
+      "recursiveMaterialQuantities": {
+        "i101": 1,
+        "i102": 1,
+        "i103": 1,
+        "i116": 1,
+        "i117": 1,
+        "i118": 1,
+        "i199": 1,
+        "i210": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 8240,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i210",
+      "name": "制作书-大狂战斧",
+      "kind": "制作书",
+      "itemLevel": 4,
+      "objectGold": 2600,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B120",
+      "sourceAcquisitionText": "制作书五",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i402奖项",
+        "配方:i209"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i211",
+      "name": "攻击之爪",
+      "kind": "局内装备／组件",
+      "itemLevel": 1,
+      "objectGold": 450,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B121",
+      "sourceAcquisitionText": "武器铺一",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i213"
+      ],
+      "effectRules": [
+        "item-flat-attack"
+      ]
+    },
+    {
+      "id": "i212",
+      "name": "制作书-水晶剑",
+      "kind": "制作书",
+      "itemLevel": 3,
+      "objectGold": 1230,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B122",
+      "sourceAcquisitionText": "制作书二",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i401奖项",
+        "配方:i213"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i213",
+      "name": "水晶剑",
+      "kind": "局内装备／组件",
+      "itemLevel": 3,
+      "objectGold": 2500,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B123",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i401奖项",
+        "配方:i213",
+        "配方:i215"
+      ],
+      "effectRules": [
+        "item-flat-attack",
+        "skill-coup-de-grace"
+      ],
+      "recipeIndex": 37,
+      "materialsInSourceOrder": [
+        "i211",
+        "i212",
+        "i117"
+      ],
+      "recursiveMaterialQuantities": {
+        "i117": 1,
+        "i211": 1,
+        "i212": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 2500,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i214",
+      "name": "制作书-暴雪弩炮",
+      "kind": "制作书",
+      "itemLevel": 4,
+      "objectGold": 3000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B124",
+      "sourceAcquisitionText": "制作书五",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i402奖项",
+        "配方:i215"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i215",
+      "name": "暴雪弩炮",
+      "kind": "局内装备／组件",
+      "itemLevel": 4,
+      "objectGold": 8300,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B125",
+      "sourceAcquisitionText": "成品商店、合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i404奖项",
+        "配方:i215"
+      ],
+      "effectRules": [
+        "item-flat-attack",
+        "skill-coup-de-grace"
+      ],
+      "recipeIndex": 53,
+      "materialsInSourceOrder": [
+        "i214",
+        "i213",
+        "i143"
+      ],
+      "recursiveMaterialQuantities": {
+        "i117": 1,
+        "i143": 1,
+        "i211": 1,
+        "i212": 1,
+        "i214": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 8300,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i216",
+      "name": "制作书-强袭胸甲",
+      "kind": "制作书",
+      "itemLevel": 4,
+      "objectGold": 2000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B126",
+      "sourceAcquisitionText": "制作书五",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i402奖项",
+        "配方:i217"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i217",
+      "name": "强袭胸甲",
+      "kind": "局内装备／组件",
+      "itemLevel": 4,
+      "objectGold": 6800,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B127",
+      "sourceAcquisitionText": "成品商店、合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i403奖项",
+        "i404奖项",
+        "配方:i217"
+      ],
+      "effectRules": [
+        "item-attack-speed-batch-01",
+        "item-auras-batch-01",
+        "item-flat-attack"
+      ],
+      "recipeIndex": 36,
+      "materialsInSourceOrder": [
+        "i216",
+        "i186",
+        "i160"
+      ],
+      "recursiveMaterialQuantities": {
+        "i160": 1,
+        "i176": 1,
+        "i187": 1,
+        "i216": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 6800,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i218",
+      "name": "振魂石",
+      "kind": "局内装备／组件",
+      "itemLevel": 3,
+      "objectGold": 4000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B128",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i218",
+        "配方:i220",
+        "配方:i327"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-regeneration-batch-01",
+        "item-resources-batch-01"
+      ],
+      "recipeIndex": 84,
+      "materialsInSourceOrder": [
+        "i219",
+        "i102",
+        "i151",
+        "i148"
+      ],
+      "recursiveMaterialQuantities": {
+        "i102": 1,
+        "i148": 1,
+        "i151": 1,
+        "i219": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 3000,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i219",
+      "name": "制作书-振魂石",
+      "kind": "制作书",
+      "itemLevel": 3,
+      "objectGold": 925,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B129",
+      "sourceAcquisitionText": "制作书三",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i218"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i220",
+      "name": "血精石",
+      "kind": "局内装备／组件",
+      "itemLevel": 4,
+      "objectGold": 8200,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B130",
+      "sourceAcquisitionText": "成品商店、合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i404奖项",
+        "配方:i220"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-regeneration-batch-01",
+        "item-resources-batch-01"
+      ],
+      "recipeIndex": 73,
+      "materialsInSourceOrder": [
+        "i221",
+        "i218",
+        "i121",
+        "i121"
+      ],
+      "recursiveMaterialQuantities": {
+        "i102": 1,
+        "i121": 2,
+        "i148": 1,
+        "i151": 1,
+        "i219": 1,
+        "i221": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 7200,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i221",
+      "name": "制作书-血精石",
+      "kind": "制作书",
+      "itemLevel": 4,
+      "objectGold": 2300,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B131",
+      "sourceAcquisitionText": "制作书五",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i402奖项",
+        "配方:i220"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i222",
+      "name": "空明杖",
+      "kind": "局内装备／组件",
+      "itemLevel": 2,
+      "objectGold": 2000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B132",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i401奖项",
+        "配方:i222"
+      ],
+      "effectRules": [
+        "item-attack-speed-batch-01",
+        "item-attributes",
+        "item-flat-attack",
+        "item-regeneration-batch-01"
+      ],
+      "recipeIndex": 72,
+      "materialsInSourceOrder": [
+        "i223",
+        "i125",
+        "i190",
+        "i101"
+      ],
+      "recursiveMaterialQuantities": {
+        "i101": 1,
+        "i125": 1,
+        "i190": 1,
+        "i223": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 2000,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i223",
+      "name": "制作书-空明杖",
+      "kind": "制作书",
+      "itemLevel": 2,
+      "objectGold": 175,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B133",
+      "sourceAcquisitionText": "制作书二",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i222"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i228",
+      "name": "韧鼓",
+      "kind": "局内装备／组件",
+      "itemLevel": 3,
+      "objectGold": 2925,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B138",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i401奖项",
+        "配方:i228"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-auras-batch-01",
+        "item-regeneration-batch-01"
+      ],
+      "recipeIndex": 71,
+      "materialsInSourceOrder": [
+        "i229",
+        "i101",
+        "i167",
+        "i190"
+      ],
+      "recursiveMaterialQuantities": {
+        "i101": 1,
+        "i168": 1,
+        "i169": 1,
+        "i172": 1,
+        "i190": 1,
+        "i229": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 2925,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i229",
+      "name": "制作书-韧鼓",
+      "kind": "制作书",
+      "itemLevel": 3,
+      "objectGold": 1000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B139",
+      "sourceAcquisitionText": "制作书三",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i228"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i235",
+      "name": "侦查守卫",
+      "kind": "局内道具",
+      "itemLevel": 1,
+      "objectGold": 1000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B145",
+      "sourceAcquisitionText": "神秘商店奖池（条件解锁）",
+      "entryWaveLowerBound": 21,
+      "includedBy": [
+        "mysteryShop"
+      ],
+      "effectRules": [
+        "item-utility-batch-01"
+      ]
+    },
+    {
+      "id": "i240",
+      "name": "提尔的祝福",
+      "kind": "局内装备／组件",
+      "itemLevel": 2,
+      "objectGold": 1800,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B150",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i240",
+        "配方:i270"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-summon-contracts-batch-01"
+      ],
+      "recipeIndex": 23,
+      "materialsInSourceOrder": [
+        "i241",
+        "i242"
+      ],
+      "recursiveMaterialQuantities": {
+        "i241": 1,
+        "i242": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 1800,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i241",
+      "name": "制作书-提尔的祝福",
+      "kind": "制作书",
+      "itemLevel": 2,
+      "objectGold": 850,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B151",
+      "sourceAcquisitionText": "制作书一",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i240"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i242",
+      "name": "精神宝石",
+      "kind": "局内装备／组件",
+      "itemLevel": 1,
+      "objectGold": 950,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B152",
+      "sourceAcquisitionText": "饰品店二",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i240"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-summon-contracts-batch-01"
+      ]
+    },
+    {
+      "id": "i255",
+      "name": "古尔丹之颅",
+      "kind": "局内装备／组件",
+      "itemLevel": 4,
+      "objectGold": null,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B165",
+      "sourceAcquisitionText": "获取入口未确认",
+      "entryWaveLowerBound": 1,
+      "includedBy": [
+        "mainlineDropsAndRunes"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-final-batch-01"
+      ]
+    },
+    {
+      "id": "i256",
+      "name": "点金手",
+      "kind": "局内装备／组件",
+      "itemLevel": 4,
+      "objectGold": 2900,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B166",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "utilityAndTask",
+        "配方:i256"
+      ],
+      "effectRules": [
+        "item-economy-batch-01"
+      ],
+      "recipeIndex": 30,
+      "materialsInSourceOrder": [
+        "i257",
+        "i175"
+      ],
+      "recursiveMaterialQuantities": {
+        "i175": 1,
+        "i257": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 2900,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i257",
+      "name": "制作书-点金手",
+      "kind": "制作书",
+      "itemLevel": 4,
+      "objectGold": 2050,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B167",
+      "sourceAcquisitionText": "制作书一",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "utilityAndTask",
+        "配方:i256"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i258",
+      "name": "神能之书",
+      "kind": "局内道具",
+      "itemLevel": 21,
+      "objectGold": null,
+      "objectLumber": 150,
+      "sourceCell": "装备与道具!B168",
+      "sourceAcquisitionText": "祈祷神庙",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "waveRewards"
+      ],
+      "effectRules": [
+        "divine-books"
+      ]
+    },
+    {
+      "id": "i259",
+      "name": "神能结晶",
+      "kind": "局内道具",
+      "itemLevel": 21,
+      "objectGold": null,
+      "objectLumber": 400,
+      "sourceCell": "装备与道具!B169",
+      "sourceAcquisitionText": "祈祷神庙",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "prayerShop"
+      ],
+      "effectRules": [
+        "divine-books"
+      ]
+    },
+    {
+      "id": "i260",
+      "name": "神书之羽",
+      "kind": "局内道具",
+      "itemLevel": 21,
+      "objectGold": null,
+      "objectLumber": 300,
+      "sourceCell": "装备与道具!B170",
+      "sourceAcquisitionText": "祈祷神庙",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "prayerShop"
+      ],
+      "effectRules": [
+        "divine-books"
+      ]
+    },
+    {
+      "id": "i261",
+      "name": "购买木材",
+      "kind": "局内道具",
+      "itemLevel": 1,
+      "objectGold": 3000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B171",
+      "sourceAcquisitionText": "祈祷神庙",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "prayerShop"
+      ],
+      "effectRules": [
+        "item-economy-batch-01"
+      ]
+    },
+    {
+      "id": "i262",
+      "name": "破损的妖刀鬼切",
+      "kind": "局内装备／组件",
+      "itemLevel": 2,
+      "objectGold": 2000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B172",
+      "sourceAcquisitionText": "武器铺二、能量圈养刀材料",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i401奖项",
+        "i402奖项",
+        "openingAndGrowth"
+      ],
+      "effectRules": [
+        "item-growth-batch-01"
+      ]
+    },
+    {
+      "id": "i263",
+      "name": "完美的妖刀鬼切",
+      "kind": "局内装备／组件",
+      "itemLevel": 4,
+      "objectGold": 4000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B173",
+      "sourceAcquisitionText": "获取入口未确认",
+      "entryWaveLowerBound": 1,
+      "includedBy": [
+        "i404奖项",
+        "openingAndGrowth"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-damage-effects"
+      ]
+    },
+    {
+      "id": "i264",
+      "name": "神能宝石",
+      "kind": "局内装备／组件",
+      "itemLevel": 21,
+      "objectGold": null,
+      "objectLumber": 800,
+      "sourceCell": "装备与道具!B174",
+      "sourceAcquisitionText": "挑战商店奖池",
+      "entryWaveLowerBound": 11,
+      "includedBy": [
+        "challengeShop"
+      ],
+      "effectRules": [
+        "divine-books"
+      ]
+    },
+    {
+      "id": "i265",
+      "name": "邪念法杖",
+      "kind": "局内装备／组件",
+      "itemLevel": 6,
+      "objectGold": 27600,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B175",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 21,
+      "includedBy": [
+        "配方:i265"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-resources-batch-01",
+        "item-spell-output-batch-01"
+      ],
+      "recipeIndex": 31,
+      "materialsInSourceOrder": [
+        "i266",
+        "i308"
+      ],
+      "recursiveMaterialQuantities": {
+        "i102": 2,
+        "i164": 1,
+        "i171": 1,
+        "i172": 1,
+        "i190": 2,
+        "i192": 1,
+        "i201": 1,
+        "i266": 1,
+        "i309": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 27600,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i266",
+      "name": "制作书-邪念法杖",
+      "kind": "制作书",
+      "itemLevel": 6,
+      "objectGold": 18600,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B176",
+      "sourceAcquisitionText": "挑战商店奖池",
+      "entryWaveLowerBound": 11,
+      "includedBy": [
+        "challengeShop",
+        "配方:i265"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i267",
+      "name": "刺客之刃",
+      "kind": "局内装备／组件",
+      "itemLevel": 6,
+      "objectGold": 27450,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B177",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 11,
+      "includedBy": [
+        "配方:i267"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-damage-dispatch",
+        "item-flat-attack"
+      ],
+      "recipeIndex": 85,
+      "materialsInSourceOrder": [
+        "i268",
+        "i176",
+        "i106",
+        "i143"
+      ],
+      "recursiveMaterialQuantities": {
+        "i106": 1,
+        "i143": 1,
+        "i176": 1,
+        "i268": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 27450,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i268",
+      "name": "制作书-刺客之刃",
+      "kind": "制作书",
+      "itemLevel": 6,
+      "objectGold": 22500,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B178",
+      "sourceAcquisitionText": "挑战商店奖池",
+      "entryWaveLowerBound": 11,
+      "includedBy": [
+        "challengeShop",
+        "配方:i267"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i269",
+      "name": "鱼人鳞甲",
+      "kind": "局内装备／组件",
+      "itemLevel": 6,
+      "objectGold": 27000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B179",
+      "sourceAcquisitionText": "挑战商店奖池",
+      "entryWaveLowerBound": 11,
+      "includedBy": [
+        "challengeShop"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-auras-batch-01"
+      ]
+    },
+    {
+      "id": "i270",
+      "name": "战争指挥官的旗帜",
+      "kind": "局内装备／组件",
+      "itemLevel": 6,
+      "objectGold": 30000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B180",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 11,
+      "includedBy": [
+        "配方:i270"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-auras-batch-01"
+      ],
+      "recipeIndex": 86,
+      "materialsInSourceOrder": [
+        "i271",
+        "i240",
+        "i152",
+        "i152"
+      ],
+      "recursiveMaterialQuantities": {
+        "i152": 2,
+        "i241": 1,
+        "i242": 1,
+        "i271": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 30400,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i271",
+      "name": "制作书-战争指挥官的旗帜",
+      "kind": "制作书",
+      "itemLevel": 6,
+      "objectGold": 24000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B181",
+      "sourceAcquisitionText": "挑战商店奖池",
+      "entryWaveLowerBound": 11,
+      "includedBy": [
+        "challengeShop",
+        "配方:i270"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i276",
+      "name": "琥珀净瓶",
+      "kind": "局内装备／组件",
+      "itemLevel": 6,
+      "objectGold": 36000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B186",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 11,
+      "includedBy": [
+        "配方:i276"
+      ],
+      "effectRules": [
+        "item-flat-attack",
+        "item-immolation-batch-01",
+        "item-spell-control-batch-01"
+      ],
+      "recipeIndex": 91,
+      "materialsInSourceOrder": [
+        "i277",
+        "i138"
+      ],
+      "recursiveMaterialQuantities": {
+        "i139": 4,
+        "i140": 1,
+        "i277": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 36000,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i277",
+      "name": "制作书-琥珀净瓶",
+      "kind": "制作书",
+      "itemLevel": 6,
+      "objectGold": 26300,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B187",
+      "sourceAcquisitionText": "挑战商店奖池",
+      "entryWaveLowerBound": 11,
+      "includedBy": [
+        "challengeShop",
+        "配方:i276"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i278",
+      "name": "地精家族的护身符",
+      "kind": "局内装备／组件",
+      "itemLevel": 6,
+      "objectGold": 32500,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B188",
+      "sourceAcquisitionText": "获取入口未确认",
+      "entryWaveLowerBound": 45,
+      "includedBy": [
+        "waveRewards"
+      ],
+      "effectRules": [
+        "item-final-batch-01"
+      ]
+    },
+    {
+      "id": "i279",
+      "name": "慧光法杖",
+      "kind": "局内装备／组件",
+      "itemLevel": 3,
+      "objectGold": 4000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B189",
+      "sourceAcquisitionText": "成品商店、合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i403奖项",
+        "i404奖项",
+        "配方:i279",
+        "配方:i318"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-spell-control-batch-01"
+      ],
+      "recipeIndex": 66,
+      "materialsInSourceOrder": [
+        "i280",
+        "i122",
+        "i122",
+        "i122"
+      ],
+      "recursiveMaterialQuantities": {
+        "i122": 3,
+        "i280": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 4000,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i280",
+      "name": "制作书-慧光法杖",
+      "kind": "制作书",
+      "itemLevel": 3,
+      "objectGold": 1900,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B190",
+      "sourceAcquisitionText": "制作书三",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "配方:i279"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i281",
+      "name": "冥火诅咒",
+      "kind": "局内装备／组件",
+      "itemLevel": 6,
+      "objectGold": 34500,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B191",
+      "sourceAcquisitionText": "挑战商店奖池",
+      "entryWaveLowerBound": 11,
+      "includedBy": [
+        "challengeShop"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-spell-control-batch-01"
+      ]
+    },
+    {
+      "id": "i302",
+      "name": "索利达尔-群星之怒",
+      "kind": "局内装备／组件",
+      "itemLevel": 5,
+      "objectGold": 20600,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B195",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 21,
+      "includedBy": [
+        "配方:i302"
+      ],
+      "effectRules": [
+        "item-attack-procs-batch-01",
+        "item-attack-speed-batch-01",
+        "item-attributes"
+      ],
+      "recipeIndex": 35,
+      "materialsInSourceOrder": [
+        "i303",
+        "i204",
+        "i123"
+      ],
+      "recursiveMaterialQuantities": {
+        "i124": 1,
+        "i125": 2,
+        "i126": 2,
+        "i205": 1,
+        "i303": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 20600,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i303",
+      "name": "制作书-索利达尔-群星之怒",
+      "kind": "制作书",
+      "itemLevel": 5,
+      "objectGold": 9000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B196",
+      "sourceAcquisitionText": "神秘商店奖池",
+      "entryWaveLowerBound": 21,
+      "includedBy": [
+        "mysteryShop",
+        "配方:i302"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i304",
+      "name": "圣剑",
+      "kind": "局内装备／组件",
+      "itemLevel": 5,
+      "objectGold": 24000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B197",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 21,
+      "includedBy": [
+        "配方:i304"
+      ],
+      "effectRules": [
+        "item-final-batch-01",
+        "item-flat-attack"
+      ],
+      "recipeIndex": 88,
+      "materialsInSourceOrder": [
+        "i305",
+        "i140",
+        "i143",
+        "i140",
+        "i143"
+      ],
+      "recursiveMaterialQuantities": {
+        "i140": 2,
+        "i143": 2,
+        "i305": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 24000,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i305",
+      "name": "制作书-圣剑",
+      "kind": "制作书",
+      "itemLevel": 5,
+      "objectGold": 11800,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B198",
+      "sourceAcquisitionText": "神秘商店奖池",
+      "entryWaveLowerBound": 21,
+      "includedBy": [
+        "mysteryShop",
+        "配方:i304"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i306",
+      "name": "裁决之剑",
+      "kind": "局内装备／组件",
+      "itemLevel": 4,
+      "objectGold": 8400,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B199",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 21,
+      "includedBy": [
+        "配方:i306"
+      ],
+      "effectRules": [
+        "item-attack-speed-batch-01",
+        "item-attributes",
+        "skill-coup-de-grace"
+      ],
+      "recipeIndex": 63,
+      "materialsInSourceOrder": [
+        "i307",
+        "i144",
+        "i112"
+      ],
+      "recursiveMaterialQuantities": {
+        "i109": 1,
+        "i110": 1,
+        "i111": 1,
+        "i144": 1,
+        "i307": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 8400,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i307",
+      "name": "制作书-裁决之剑",
+      "kind": "制作书",
+      "itemLevel": 4,
+      "objectGold": 4950,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B200",
+      "sourceAcquisitionText": "神秘商店奖池",
+      "entryWaveLowerBound": 21,
+      "includedBy": [
+        "mysteryShop",
+        "配方:i306"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i308",
+      "name": "怨念魔杖",
+      "kind": "局内装备／组件",
+      "itemLevel": 4,
+      "objectGold": 9000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B201",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 21,
+      "includedBy": [
+        "配方:i265",
+        "配方:i308"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-resources-batch-01",
+        "item-spell-output-batch-01"
+      ],
+      "recipeIndex": 56,
+      "materialsInSourceOrder": [
+        "i309",
+        "i191",
+        "i200"
+      ],
+      "recursiveMaterialQuantities": {
+        "i102": 2,
+        "i164": 1,
+        "i171": 1,
+        "i172": 1,
+        "i190": 2,
+        "i192": 1,
+        "i201": 1,
+        "i309": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 9000,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i309",
+      "name": "制作书-怨念魔杖",
+      "kind": "制作书",
+      "itemLevel": 4,
+      "objectGold": 5300,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B202",
+      "sourceAcquisitionText": "神秘商店奖池",
+      "entryWaveLowerBound": 21,
+      "includedBy": [
+        "mysteryShop",
+        "配方:i308"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i310",
+      "name": "阿哈利姆神杖",
+      "kind": "局内装备／组件",
+      "itemLevel": 5,
+      "objectGold": 11000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B203",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 21,
+      "includedBy": [
+        "配方:i310"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "scepter-lifecycle",
+        "tide-and-morphling"
+      ],
+      "recipeIndex": 87,
+      "materialsInSourceOrder": [
+        "i311",
+        "i151",
+        "i106",
+        "i110",
+        "i122"
+      ],
+      "recursiveMaterialQuantities": {
+        "i106": 1,
+        "i110": 1,
+        "i122": 1,
+        "i151": 1,
+        "i311": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 11000,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i311",
+      "name": "制作书-阿哈利姆神杖",
+      "kind": "制作书",
+      "itemLevel": 5,
+      "objectGold": 8000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B204",
+      "sourceAcquisitionText": "神秘商店奖池",
+      "entryWaveLowerBound": 21,
+      "includedBy": [
+        "mysteryShop",
+        "配方:i310"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i312",
+      "name": "知识之书Lv1",
+      "kind": "局内道具",
+      "itemLevel": 21,
+      "objectGold": 6300,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B205",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 21,
+      "includedBy": [
+        "配方:i312",
+        "配方:i313"
+      ],
+      "effectRules": [
+        "item-targeted-books-batch-01"
+      ],
+      "recipeIndex": 57,
+      "materialsInSourceOrder": [
+        "i315",
+        "i127",
+        "i128"
+      ],
+      "recursiveMaterialQuantities": {
+        "i127": 1,
+        "i128": 1,
+        "i315": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 6300,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i313",
+      "name": "知识之书Lv2",
+      "kind": "局内道具",
+      "itemLevel": 21,
+      "objectGold": 9300,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B206",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 21,
+      "includedBy": [
+        "配方:i313",
+        "配方:i314"
+      ],
+      "effectRules": [
+        "item-targeted-books-batch-01"
+      ],
+      "recipeIndex": 19,
+      "materialsInSourceOrder": [
+        "i315",
+        "i312"
+      ],
+      "recursiveMaterialQuantities": {
+        "i127": 1,
+        "i128": 1,
+        "i315": 2
+      },
+      "materialObjectPriceSum": {
+        "gold": 9300,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i314",
+      "name": "知识之书Max",
+      "kind": "局内道具",
+      "itemLevel": 21,
+      "objectGold": 12300,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B207",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 21,
+      "includedBy": [
+        "配方:i314"
+      ],
+      "effectRules": [
+        "item-targeted-books-batch-01"
+      ],
+      "recipeIndex": 20,
+      "materialsInSourceOrder": [
+        "i315",
+        "i313"
+      ],
+      "recursiveMaterialQuantities": {
+        "i127": 1,
+        "i128": 1,
+        "i315": 3
+      },
+      "materialObjectPriceSum": {
+        "gold": 12300,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i315",
+      "name": "制作书-知识之书",
+      "kind": "制作书",
+      "itemLevel": 4,
+      "objectGold": 3000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B208",
+      "sourceAcquisitionText": "神秘商店奖池",
+      "entryWaveLowerBound": 21,
+      "includedBy": [
+        "mysteryShop",
+        "配方:i312",
+        "配方:i313",
+        "配方:i314"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i316",
+      "name": "斩敌巨斧",
+      "kind": "局内装备／组件",
+      "itemLevel": 5,
+      "objectGold": 19600,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B209",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 21,
+      "includedBy": [
+        "配方:i316"
+      ],
+      "effectRules": [
+        "item-attack-procs-batch-01",
+        "item-attack-speed-batch-01",
+        "item-attributes"
+      ],
+      "recipeIndex": 65,
+      "materialsInSourceOrder": [
+        "i317",
+        "i112",
+        "i114",
+        "i114"
+      ],
+      "recursiveMaterialQuantities": {
+        "i105": 2,
+        "i106": 2,
+        "i107": 2,
+        "i109": 3,
+        "i110": 3,
+        "i111": 3,
+        "i113": 2,
+        "i317": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 19500,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i317",
+      "name": "制作书-斩敌巨斧",
+      "kind": "制作书",
+      "itemLevel": 5,
+      "objectGold": 9950,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B210",
+      "sourceAcquisitionText": "神秘商店奖池",
+      "entryWaveLowerBound": 21,
+      "includedBy": [
+        "mysteryShop",
+        "配方:i316"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i318",
+      "name": "灰烬兜帽Lv1",
+      "kind": "局内装备／组件",
+      "itemLevel": 5,
+      "objectGold": 15500,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B211",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 21,
+      "includedBy": [
+        "配方:i318",
+        "配方:i319"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "ogre-hood-items"
+      ],
+      "recipeIndex": 70,
+      "materialsInSourceOrder": [
+        "i321",
+        "i279",
+        "i157",
+        "i157"
+      ],
+      "recursiveMaterialQuantities": {
+        "i122": 3,
+        "i157": 2,
+        "i280": 1,
+        "i321": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 15500,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i319",
+      "name": "灰烬兜帽Lv2",
+      "kind": "局内装备／组件",
+      "itemLevel": 5,
+      "objectGold": 20000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B212",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 21,
+      "includedBy": [
+        "配方:i319",
+        "配方:i320"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "ogre-hood-items"
+      ],
+      "recipeIndex": 21,
+      "materialsInSourceOrder": [
+        "i321",
+        "i318"
+      ],
+      "recursiveMaterialQuantities": {
+        "i122": 3,
+        "i157": 2,
+        "i280": 1,
+        "i321": 2
+      },
+      "materialObjectPriceSum": {
+        "gold": 20000,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i320",
+      "name": "灰烬兜帽Max",
+      "kind": "局内装备／组件",
+      "itemLevel": 5,
+      "objectGold": 24500,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B213",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 21,
+      "includedBy": [
+        "配方:i320"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "ogre-hood-items"
+      ],
+      "recipeIndex": 22,
+      "materialsInSourceOrder": [
+        "i321",
+        "i319"
+      ],
+      "recursiveMaterialQuantities": {
+        "i122": 3,
+        "i157": 2,
+        "i280": 1,
+        "i321": 3
+      },
+      "materialObjectPriceSum": {
+        "gold": 24500,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i321",
+      "name": "制作书-灰烬兜帽",
+      "kind": "制作书",
+      "itemLevel": 5,
+      "objectGold": 4500,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B214",
+      "sourceAcquisitionText": "神秘商店奖池",
+      "entryWaveLowerBound": 21,
+      "includedBy": [
+        "mysteryShop",
+        "配方:i318",
+        "配方:i319",
+        "配方:i320"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i322",
+      "name": "遗物之刃",
+      "kind": "局内装备／组件",
+      "itemLevel": 5,
+      "objectGold": 20900,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B215",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 21,
+      "includedBy": [
+        "配方:i322"
+      ],
+      "effectRules": [
+        "item-attack-procs-batch-01",
+        "item-attack-speed-batch-01",
+        "item-damage-effects",
+        "item-flat-attack",
+        "skill-coup-de-grace"
+      ],
+      "recipeIndex": 60,
+      "materialsInSourceOrder": [
+        "i323",
+        "i141",
+        "i158"
+      ],
+      "recursiveMaterialQuantities": {
+        "i142": 1,
+        "i143": 1,
+        "i144": 2,
+        "i159": 1,
+        "i160": 2,
+        "i323": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 21000,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i323",
+      "name": "制作书-遗物之刃",
+      "kind": "制作书",
+      "itemLevel": 5,
+      "objectGold": 8000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B216",
+      "sourceAcquisitionText": "神秘商店奖池",
+      "entryWaveLowerBound": 21,
+      "includedBy": [
+        "mysteryShop",
+        "配方:i322"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i324",
+      "name": "制作书-雪落法杖",
+      "kind": "制作书",
+      "itemLevel": 5,
+      "objectGold": 11340,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B217",
+      "sourceAcquisitionText": "神秘商店奖池",
+      "entryWaveLowerBound": 21,
+      "includedBy": [
+        "mysteryShop",
+        "配方:i325"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i325",
+      "name": "雪落法杖",
+      "kind": "局内装备／组件",
+      "itemLevel": 5,
+      "objectGold": 23500,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B218",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 21,
+      "includedBy": [
+        "配方:i325"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-regeneration-batch-01",
+        "item-spell-control-batch-01"
+      ],
+      "recipeIndex": 59,
+      "materialsInSourceOrder": [
+        "i324",
+        "i202",
+        "i119"
+      ],
+      "recursiveMaterialQuantities": {
+        "i101": 1,
+        "i120": 1,
+        "i121": 2,
+        "i122": 1,
+        "i152": 1,
+        "i157": 1,
+        "i203": 1,
+        "i324": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 23475,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i326",
+      "name": "小净化",
+      "kind": "局内道具",
+      "itemLevel": 1,
+      "objectGold": 200,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B219",
+      "sourceAcquisitionText": "杂货铺",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "utilityAndTask"
+      ],
+      "effectRules": [
+        "item-regeneration-batch-01",
+        "item-restoration-batch-01"
+      ]
+    },
+    {
+      "id": "i327",
+      "name": "玲珑心",
+      "kind": "局内装备／组件",
+      "itemLevel": 4,
+      "objectGold": 12000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B220",
+      "sourceAcquisitionText": "成品商店、合成",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i404奖项",
+        "配方:i327"
+      ],
+      "effectRules": [
+        "item-attributes",
+        "item-growth-batch-01",
+        "item-regeneration-batch-01",
+        "item-resources-batch-01"
+      ],
+      "recipeIndex": 90,
+      "materialsInSourceOrder": [
+        "i328",
+        "i218",
+        "i157"
+      ],
+      "recursiveMaterialQuantities": {
+        "i102": 1,
+        "i148": 1,
+        "i151": 1,
+        "i157": 1,
+        "i219": 1,
+        "i328": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 11000,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i328",
+      "name": "制作书-玲珑心",
+      "kind": "制作书",
+      "itemLevel": 4,
+      "objectGold": 4500,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B221",
+      "sourceAcquisitionText": "制作书五",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "i402奖项",
+        "i403奖项",
+        "配方:i327"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i330",
+      "name": "魔焰之心(开启的)",
+      "kind": "局内装备／组件",
+      "itemLevel": 5,
+      "objectGold": 24690,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B223",
+      "sourceAcquisitionText": "获取入口未确认",
+      "entryWaveLowerBound": 21,
+      "includedBy": [
+        "reachableItemForms"
+      ],
+      "effectRules": [
+        "item-attack-speed-batch-01",
+        "item-attributes",
+        "item-final-batch-01",
+        "item-resources-batch-01"
+      ]
+    },
+    {
+      "id": "i331",
+      "name": "制作书-魔焰之心",
+      "kind": "制作书",
+      "itemLevel": 5,
+      "objectGold": 7790,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B224",
+      "sourceAcquisitionText": "神秘商店奖池",
+      "entryWaveLowerBound": 21,
+      "includedBy": [
+        "mysteryShop",
+        "配方:i332"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i332",
+      "name": "魔焰之心(关闭的)",
+      "kind": "局内装备／组件",
+      "itemLevel": 5,
+      "objectGold": 24690,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B225",
+      "sourceAcquisitionText": "合成",
+      "entryWaveLowerBound": 21,
+      "includedBy": [
+        "reachableItemForms",
+        "配方:i332"
+      ],
+      "effectRules": [
+        "item-attack-speed-batch-01",
+        "item-attributes",
+        "item-final-batch-01",
+        "item-regeneration-batch-01",
+        "item-resources-batch-01"
+      ],
+      "recipeIndex": 32,
+      "materialsInSourceOrder": [
+        "i331",
+        "i145",
+        "i138"
+      ],
+      "recursiveMaterialQuantities": {
+        "i139": 4,
+        "i140": 1,
+        "i146": 1,
+        "i147": 1,
+        "i148": 2,
+        "i331": 1
+      },
+      "materialObjectPriceSum": {
+        "gold": 24690,
+        "lumber": 0
+      }
+    },
+    {
+      "id": "i399",
+      "name": "刷新球碎片",
+      "kind": "局内道具",
+      "itemLevel": 1,
+      "objectGold": null,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B226",
+      "sourceAcquisitionText": "神秘商店（限次）",
+      "entryWaveLowerBound": 21,
+      "includedBy": [
+        "mysteryShop"
+      ],
+      "effectRules": [
+        "item-lifecycle"
+      ]
+    },
+    {
+      "id": "i401",
+      "name": "1级宝箱",
+      "kind": "局内道具",
+      "itemLevel": 2,
+      "objectGold": 200,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B227",
+      "sourceAcquisitionText": "获取入口未确认",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "chestsAndKeys"
+      ],
+      "effectRules": [
+        "item-reward-packs-batch-01"
+      ]
+    },
+    {
+      "id": "i402",
+      "name": "2级宝箱",
+      "kind": "局内道具",
+      "itemLevel": 3,
+      "objectGold": 200,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B228",
+      "sourceAcquisitionText": "获取入口未确认",
+      "entryWaveLowerBound": 1,
+      "includedBy": [
+        "chestsAndKeys"
+      ],
+      "effectRules": [
+        "item-reward-packs-batch-01"
+      ]
+    },
+    {
+      "id": "i403",
+      "name": "3级宝箱",
+      "kind": "局内道具",
+      "itemLevel": 4,
+      "objectGold": 200,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B229",
+      "sourceAcquisitionText": "获取入口未确认",
+      "entryWaveLowerBound": 10,
+      "includedBy": [
+        "chestsAndKeys"
+      ],
+      "effectRules": [
+        "item-reward-packs-batch-01"
+      ]
+    },
+    {
+      "id": "i404",
+      "name": "4级宝箱",
+      "kind": "局内道具",
+      "itemLevel": 5,
+      "objectGold": 200,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B230",
+      "sourceAcquisitionText": "获取入口未确认",
+      "entryWaveLowerBound": 30,
+      "includedBy": [
+        "chestsAndKeys"
+      ],
+      "effectRules": [
+        "item-reward-packs-batch-01"
+      ]
+    },
+    {
+      "id": "i411",
+      "name": "1级钥匙",
+      "kind": "局内道具",
+      "itemLevel": 2,
+      "objectGold": 1000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B231",
+      "sourceAcquisitionText": "获取入口未确认",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "chestsAndKeys"
+      ],
+      "effectRules": [
+        "item-reward-packs-batch-01"
+      ]
+    },
+    {
+      "id": "i412",
+      "name": "2级钥匙",
+      "kind": "局内道具",
+      "itemLevel": 3,
+      "objectGold": 2000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B232",
+      "sourceAcquisitionText": "获取入口未确认",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "chestsAndKeys"
+      ],
+      "effectRules": [
+        "item-reward-packs-batch-01"
+      ]
+    },
+    {
+      "id": "i413",
+      "name": "3级钥匙",
+      "kind": "局内道具",
+      "itemLevel": 4,
+      "objectGold": 4000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B233",
+      "sourceAcquisitionText": "获取入口未确认",
+      "entryWaveLowerBound": 10,
+      "includedBy": [
+        "chestsAndKeys"
+      ],
+      "effectRules": [
+        "item-reward-packs-batch-01"
+      ]
+    },
+    {
+      "id": "i414",
+      "name": "4级钥匙",
+      "kind": "局内道具",
+      "itemLevel": 5,
+      "objectGold": 6000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B234",
+      "sourceAcquisitionText": "神秘商店奖池",
+      "entryWaveLowerBound": 21,
+      "includedBy": [
+        "mysteryShop"
+      ],
+      "effectRules": [
+        "item-reward-packs-batch-01"
+      ]
+    },
+    {
+      "id": "i423",
+      "name": "购买木材",
+      "kind": "局内道具",
+      "itemLevel": 1,
+      "objectGold": 15000,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B237",
+      "sourceAcquisitionText": "祈祷神庙",
+      "entryWaveLowerBound": 0,
+      "includedBy": [
+        "prayerShop"
+      ],
+      "effectRules": [
+        "item-economy-batch-01"
+      ]
+    },
+    {
+      "id": "i718",
+      "name": "赏金神符",
+      "kind": "局内道具",
+      "itemLevel": null,
+      "objectGold": 300,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B238",
+      "sourceAcquisitionText": "获取入口未确认",
+      "entryWaveLowerBound": 1,
+      "includedBy": [
+        "mainlineDropsAndRunes"
+      ],
+      "effectRules": [
+        "item-runes-batch-01"
+      ]
+    },
+    {
+      "id": "i719",
+      "name": "力量神符",
+      "kind": "局内道具",
+      "itemLevel": null,
+      "objectGold": 300,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B239",
+      "sourceAcquisitionText": "获取入口未确认",
+      "entryWaveLowerBound": 1,
+      "includedBy": [
+        "mainlineDropsAndRunes"
+      ],
+      "effectRules": [
+        "item-runes-batch-01"
+      ]
+    },
+    {
+      "id": "i720",
+      "name": "奥术神符",
+      "kind": "局内道具",
+      "itemLevel": null,
+      "objectGold": 300,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B240",
+      "sourceAcquisitionText": "获取入口未确认",
+      "entryWaveLowerBound": 1,
+      "includedBy": [
+        "mainlineDropsAndRunes"
+      ],
+      "effectRules": [
+        "item-runes-batch-01"
+      ]
+    },
+    {
+      "id": "i721",
+      "name": "极速神符",
+      "kind": "局内道具",
+      "itemLevel": null,
+      "objectGold": 300,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B241",
+      "sourceAcquisitionText": "获取入口未确认",
+      "entryWaveLowerBound": 1,
+      "includedBy": [
+        "mainlineDropsAndRunes"
+      ],
+      "effectRules": [
+        "item-runes-batch-01"
+      ]
+    },
+    {
+      "id": "i722",
+      "name": "幻象神符",
+      "kind": "局内道具",
+      "itemLevel": null,
+      "objectGold": 300,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B242",
+      "sourceAcquisitionText": "获取入口未确认",
+      "entryWaveLowerBound": 1,
+      "includedBy": [
+        "mainlineDropsAndRunes"
+      ],
+      "effectRules": [
+        "item-runes-batch-01"
+      ]
+    },
+    {
+      "id": "i723",
+      "name": "恢复神符",
+      "kind": "局内道具",
+      "itemLevel": null,
+      "objectGold": 300,
+      "objectLumber": null,
+      "sourceCell": "装备与道具!B243",
+      "sourceAcquisitionText": "获取入口未确认",
+      "entryWaveLowerBound": 1,
+      "includedBy": [
+        "mainlineDropsAndRunes"
+      ],
+      "effectRules": [
+        "item-restoration-batch-01"
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "id": "i207",
+      "name": "原力法杖",
+      "reason": "outside-selected-reward-and-recipe-closure"
+    },
+    {
+      "id": "i208",
+      "name": "制作书-原力法杖",
+      "reason": "outside-selected-reward-and-recipe-closure"
+    },
+    {
+      "id": "i224",
+      "name": "紫苑",
+      "reason": "outside-selected-reward-and-recipe-closure"
+    },
+    {
+      "id": "i225",
+      "name": "制作书-紫苑",
+      "reason": "outside-selected-reward-and-recipe-closure"
+    },
+    {
+      "id": "i226",
+      "name": "血棘",
+      "reason": "outside-selected-reward-and-recipe-closure"
+    },
+    {
+      "id": "i227",
+      "name": "制作书-血棘",
+      "reason": "outside-selected-reward-and-recipe-closure"
+    },
+    {
+      "id": "i230",
+      "name": "远行鞋",
+      "reason": "outside-selected-reward-and-recipe-closure"
+    },
+    {
+      "id": "i231",
+      "name": "制作书-远行鞋",
+      "reason": "outside-selected-reward-and-recipe-closure"
+    },
+    {
+      "id": "i232",
+      "name": "黑皇杖",
+      "reason": "outside-selected-reward-and-recipe-closure"
+    },
+    {
+      "id": "i233",
+      "name": "制作书-黑皇杖",
+      "reason": "outside-selected-reward-and-recipe-closure"
+    },
+    {
+      "id": "i234",
+      "name": "闪烁匕首",
+      "reason": "later-mode"
+    },
+    {
+      "id": "i236",
+      "name": "限定版-闪烁匕首",
+      "reason": "later-mode"
+    },
+    {
+      "id": "i237",
+      "name": "深渊礼包",
+      "reason": "later-mode"
+    },
+    {
+      "id": "i238",
+      "name": "灵魂之戒",
+      "reason": "outside-selected-reward-and-recipe-closure"
+    },
+    {
+      "id": "i239",
+      "name": "制作书-灵魂之戒",
+      "reason": "outside-selected-reward-and-recipe-closure"
+    },
+    {
+      "id": "i243",
+      "name": "提尔的祝福-红Lv1",
+      "reason": "outside-selected-reward-and-recipe-closure"
+    },
+    {
+      "id": "i244",
+      "name": "制作书-提尔的祝福-红",
+      "reason": "outside-selected-reward-and-recipe-closure"
+    },
+    {
+      "id": "i245",
+      "name": "提尔的祝福-绿Lv1",
+      "reason": "outside-selected-reward-and-recipe-closure"
+    },
+    {
+      "id": "i246",
+      "name": "制作书-提尔的祝福-绿",
+      "reason": "outside-selected-reward-and-recipe-closure"
+    },
+    {
+      "id": "i247",
+      "name": "提尔的祝福-蓝Lv1",
+      "reason": "outside-selected-reward-and-recipe-closure"
+    },
+    {
+      "id": "i248",
+      "name": "制作书-提尔的祝福-蓝",
+      "reason": "outside-selected-reward-and-recipe-closure"
+    },
+    {
+      "id": "i249",
+      "name": "提尔的祝福-红Lv2",
+      "reason": "outside-selected-reward-and-recipe-closure"
+    },
+    {
+      "id": "i250",
+      "name": "提尔的祝福-红Max",
+      "reason": "outside-selected-reward-and-recipe-closure"
+    },
+    {
+      "id": "i251",
+      "name": "提尔的祝福-绿Lv2",
+      "reason": "outside-selected-reward-and-recipe-closure"
+    },
+    {
+      "id": "i252",
+      "name": "提尔的祝福-绿Max",
+      "reason": "outside-selected-reward-and-recipe-closure"
+    },
+    {
+      "id": "i253",
+      "name": "提尔的祝福-蓝Lv2",
+      "reason": "outside-selected-reward-and-recipe-closure"
+    },
+    {
+      "id": "i254",
+      "name": "提尔的祝福-蓝Max",
+      "reason": "outside-selected-reward-and-recipe-closure"
+    },
+    {
+      "id": "i272",
+      "name": "幻影斧",
+      "reason": "outside-selected-reward-and-recipe-closure"
+    },
+    {
+      "id": "i273",
+      "name": "制作书-幻影斧",
+      "reason": "outside-selected-reward-and-recipe-closure"
+    },
+    {
+      "id": "i274",
+      "name": "幻影匕首",
+      "reason": "outside-selected-reward-and-recipe-closure"
+    },
+    {
+      "id": "i275",
+      "name": "制作书-幻影匕首",
+      "reason": "outside-selected-reward-and-recipe-closure"
+    },
+    {
+      "id": "i282",
+      "name": "魔龙枪",
+      "reason": "outside-selected-reward-and-recipe-closure"
+    },
+    {
+      "id": "i283",
+      "name": "制作书-魔龙枪",
+      "reason": "outside-selected-reward-and-recipe-closure"
+    },
+    {
+      "id": "i301",
+      "name": "海神三叉戟",
+      "reason": "no-known-acquisition"
+    },
+    {
+      "id": "i329",
+      "name": "无尽魔石",
+      "reason": "later-mode"
+    },
+    {
+      "id": "i421",
+      "name": "金元宝",
+      "reason": "later-mode"
+    },
+    {
+      "id": "i422",
+      "name": "皮肤碎片",
+      "reason": "later-mode"
+    },
+    {
+      "id": "i800",
+      "name": "全能骑士的信条",
+      "reason": "later-mode"
+    },
+    {
+      "id": "texp",
+      "name": "经验之书",
+      "reason": "no-known-acquisition"
+    },
+    {
+      "id": "tgxp",
+      "name": "超级经验之书",
+      "reason": "no-known-acquisition"
+    },
+    {
+      "id": "tkno",
+      "name": "能量之书",
+      "reason": "no-known-acquisition"
+    }
+  ]
+}

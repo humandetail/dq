@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "scope": "Only shared probability body and eligibility/call boundaries; NOT complete i202_Skill, native hex, duration/resistance, staff channel or stats.",
+  "source": {
+    "path": "reference/map-6.25/main.disasm",
+    "sha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+    "workbookPath": "图鉴.xlsx",
+    "workbookSha256": "457c8f7e37e19412a0dd072ce941e95604b0b8910860b9e1eb9883e6b82bb6af"
+  },
+  "workbook": [
+    {
+      "itemId": "i202",
+      "name": "邪恶镰刀",
+      "cell": "装备与道具!H112",
+      "text": "属性：\n增加15点力量。\n增加15点敏捷。\n增加120点智力。\n增加200%魔法回复速度。\n妖术：\n释放技能时有50%的概率使周围敌人变成小动物，持续2秒。"
+    },
+    {
+      "itemId": "i325",
+      "name": "雪落法杖",
+      "cell": "装备与道具!H218",
+      "text": "属性：\n增加15点力量。\n增加15点敏捷。\n增加135点智力。\n增加200%魔法回复速度。\n落雪：\n吟唱数秒后,召唤出冰雪之力冰冻敌人并造成伤害。(吟唱时间越长伤害越高,范围越大,冰冻越久，输入-LX+数字可以设置吟唱时间)\n妖术：\n释放技能时有50%的概率使周围敌人变成小动物，持续2秒。\n蓝心冰川下雪了。"
+    }
+  ],
+  "probability": {
+    "function": {
+      "name": "i202_Get_probability",
+      "function": "main/f245/f1",
+      "sourceLines": [
+        128072,
+        128098
+      ],
+      "counts": {
+        "instructions": 10,
+        "conditions": 1,
+        "calls": 1,
+        "returnInstructions": 2
+      },
+      "conditions": [
+        {
+          "pc": 5,
+          "line": 128092,
+          "raw": "lt 1 r0 k3",
+          "trueNextPC": 8,
+          "falseNextPC": 7,
+          "meaning": "r < 50: return true; otherwise return false"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 9,
+          "line": 128097,
+          "raw": "return r0 2"
+        },
+        {
+          "pc": 10,
+          "line": 128098,
+          "raw": "return r0 1"
+        }
+      ]
+    },
+    "original": {
+      "random": "GetRandomInt(0,100)",
+      "predicate": "r < 50",
+      "favorableIntegers": 50,
+      "totalIntegers": 101,
+      "fraction": "50/101",
+      "decimal": 0.49504950495049505
+    },
+    "workbook": 0.5
+  },
+  "entry": {
+    "event": "EVENT_PLAYER_UNIT_SPELL_EFFECT",
+    "registeredPlayers": [
+      0,
+      1,
+      2,
+      3,
+      11
+    ],
+    "outer": "AnySkillStart returns for IsTemp(caster) or ability in [T033,A040,A070,A210]",
+    "itemEntry": "Item_Skill_Action returns for IsWorker(caster) or IsBOX(caster) or IsUseless(abilityId)",
+    "ordering": [
+      "optional A084_Action",
+      "optional i134 probability and skill",
+      "HasItem(caster,i202) OR HasItem(caster,i325), left-to-right short circuit",
+      "if item handle != nil: one i202_Get_probability call",
+      "if true: one i202_Skill call"
+    ],
+    "doubleItems": "one shared roll; i325 lookup skipped when i202 is present",
+    "noAdditionalGate": [
+      "skill target type",
+      "melee/ranged",
+      "game mode",
+      "hero type",
+      "cooldown internal to probability"
+    ]
+  },
+  "evidence": [
+    {
+      "name": "outer filters and Item_Skill_Action call",
+      "function": "main/f291/f14",
+      "lines": [
+        169999,
+        170072
+      ],
+      "pcs": [
+        1,
+        70
+      ]
+    },
+    {
+      "name": "item filters and previous procs",
+      "function": "main/f285/f16",
+      "lines": [
+        146490,
+        146582
+      ],
+      "pcs": [
+        1,
+        89
+      ]
+    },
+    {
+      "name": "shared item eligibility and call",
+      "function": "main/f285/f16",
+      "lines": [
+        146583,
+        146607
+      ],
+      "pcs": [
+        90,
+        112
+      ]
+    },
+    {
+      "name": "registration",
+      "function": "main/f291/f35",
+      "lines": [
+        179727,
+        179797
+      ]
+    }
+  ],
+  "decision": {
+    "id": "Q30",
+    "status": "confirmed",
+    "selected": {
+      "probability": 0.5,
+      "appliesTo": [
+        "i202",
+        "i325"
+      ],
+      "sharedRollsWhenBothHeld": 1,
+      "preserve": "original trigger filters and ordering"
+    }
+  },
+  "validation": {
+    "kind": "static bytecode and integer enumeration; no Warcraft execution",
+    "cases": [
+      {
+        "roll": 0,
+        "originalSuccess": true
+      },
+      {
+        "roll": 49,
+        "originalSuccess": true
+      },
+      {
+        "roll": 50,
+        "originalSuccess": false
+      },
+      {
+        "roll": 100,
+        "originalSuccess": false
+      }
+    ],
+    "favorableCount": 50
+  }
+}

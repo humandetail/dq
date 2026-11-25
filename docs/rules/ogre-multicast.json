@@ -1,0 +1,762 @@
+{
+  "skills": [
+    {
+      "id": "A058",
+      "status": "ready",
+      "rules": "主弹使用图鉴六级数值；Q51每实例每0.6秒以原目标追加T053",
+      "sourceRefs": [
+        "main/f52/f0",
+        "main/f53/f0",
+        "main/f53/f2",
+        "main/f53/f3",
+        "main/f291/f27#777"
+      ],
+      "differences": [
+        "图鉴CD各比对象低2秒",
+        "原强制合格重施清掉新计数"
+      ],
+      "unresolved": [],
+      "validation": [
+        "时序、读实时等级、失败消费、死亡截止与重入空比较探针"
+      ]
+    },
+    {
+      "id": "A059",
+      "status": "ready",
+      "rules": "主目标为友方英雄；Q50额外目标600内从合法友方无放回抽取",
+      "sourceRefs": [
+        "main/f53/f1#99",
+        "A059",
+        "T054"
+      ],
+      "differences": [
+        "原按组首顺序且未先筛合法友方；Q50采用均匀无放回",
+        "图鉴7秒覆盖T054的10秒"
+      ],
+      "unresolved": [],
+      "validation": [
+        "原共享槽及Q50/Q51目标和状态边界探针"
+      ]
+    },
+    {
+      "id": "A060",
+      "status": "ready",
+      "rules": "一次1–100整数抽样决定含原施法的总数；只额外施放A058/A059",
+      "sourceRefs": [
+        "main/f53/f1#15",
+        "main/f291/f14#447",
+        "main/f285/f16#155",
+        "main/f287/f1"
+      ],
+      "differences": [
+        "原两个技能共用塔槽计数；Q51爆轰每次独立",
+        "无兜帽计数记录时直接读会出现nil加法"
+      ],
+      "unresolved": [],
+      "validation": [
+        "6档600骰、原跨技能覆盖、首次兜帽空值与失效探针"
+      ]
+    }
+  ],
+  "sourceRefs": {
+    "workbooks": {
+      "A058": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 585
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 585
+        }
+      ],
+      "A059": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 586
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 586
+        }
+      ],
+      "A060": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 587
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 587
+        }
+      ],
+      "T053": [],
+      "T054": [],
+      "i318": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "装备与道具",
+          "row": 211
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "装备与道具",
+          "row": 211
+        }
+      ],
+      "i319": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "装备与道具",
+          "row": 212
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "装备与道具",
+          "row": 212
+        }
+      ],
+      "i320": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "装备与道具",
+          "row": 213
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "装备与道具",
+          "row": 213
+        }
+      ]
+    },
+    "sourceFingerprints": {
+      "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx": "47af226c7d16f240975d148e4b8f20bbcbf43c6141987cffc67435c1e0f437a1",
+      "图鉴.xlsx": "457c8f7e37e19412a0dd072ce941e95604b0b8910860b9e1eb9883e6b82bb6af",
+      "reference/map-6.25/units_abilitydata.json": "b772de42ebcfc1d3818298b35dbe81a35826892848c7cbfef70bf5097e481861",
+      "reference/map-6.25/units_itemdata.json": "569b41f4be3caf8844a0ac7184fef0076f75118faf60fdb3e14b157aa992e113",
+      "reference/map-6.25/units_unitabilities.json": "ebd8a6fd8410f593c5ecadf6bf7c4f6bbc5b4bb7183c5e986a4d2d77e1747133",
+      "reference/map-6.25/war3map.w3a.json": "d2875f064b389bca471db97121ff7c810d46fbc962ae640ad128d1daa85931bb",
+      "reference/map-6.25/main.disasm": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+      "reference/map-6.25/units_campaignabilitystrings.txt": "5240c99230cd441b4c376371a31a7987e65470feed736177473a206c55fbe8cc"
+    },
+    "objectRecords": {
+      "A058": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 856
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 32
+        }
+      ],
+      "A059": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 857
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 33
+        }
+      ],
+      "A060": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 858
+        }
+      ],
+      "T053": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 1930
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 185
+        }
+      ],
+      "T054": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 1931
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 186
+        }
+      ],
+      "i318": [
+        {
+          "sourcePath": "reference/map-6.25/units_itemdata.json",
+          "jsonIndex": 504
+        }
+      ],
+      "i319": [
+        {
+          "sourcePath": "reference/map-6.25/units_itemdata.json",
+          "jsonIndex": 505
+        }
+      ],
+      "i320": [
+        {
+          "sourcePath": "reference/map-6.25/units_itemdata.json",
+          "jsonIndex": 506
+        }
+      ]
+    },
+    "functions": [
+      {
+        "function": "main/f52",
+        "startLine": 69284,
+        "endLine": 69300
+      },
+      {
+        "function": "main/f52/f0",
+        "startLine": 69301,
+        "endLine": 69330
+      },
+      {
+        "function": "main/f53",
+        "startLine": 69331,
+        "endLine": 69369
+      },
+      {
+        "function": "main/f53/f0",
+        "startLine": 69370,
+        "endLine": 69444
+      },
+      {
+        "function": "main/f53/f1",
+        "startLine": 69445,
+        "endLine": 69713
+      },
+      {
+        "function": "main/f53/f2",
+        "startLine": 69714,
+        "endLine": 69782
+      },
+      {
+        "function": "main/f53/f3",
+        "startLine": 69783,
+        "endLine": 69821
+      },
+      {
+        "function": "main/f270",
+        "startLine": 134068,
+        "endLine": 134090
+      },
+      {
+        "function": "main/f270/f0",
+        "startLine": 134091,
+        "endLine": 134311
+      },
+      {
+        "function": "main/f270/f1",
+        "startLine": 134312,
+        "endLine": 134439
+      },
+      {
+        "function": "main/f287",
+        "startLine": 153118,
+        "endLine": 153140
+      },
+      {
+        "function": "main/f287/f0",
+        "startLine": 153141,
+        "endLine": 153361
+      },
+      {
+        "function": "main/f287/f1",
+        "startLine": 153362,
+        "endLine": 153489
+      },
+      {
+        "function": "main/f285/f16",
+        "startLine": 146437,
+        "endLine": 146703
+      },
+      {
+        "function": "main/f291/f14",
+        "startLine": 169578,
+        "endLine": 172173
+      },
+      {
+        "function": "main/f291/f16",
+        "startLine": 172233,
+        "endLine": 172449
+      },
+      {
+        "function": "main/f291/f27",
+        "startLine": 173759,
+        "endLine": 179251
+      }
+    ],
+    "references": {
+      "A058": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f53/f0",
+          "key": "k9",
+          "constantLine": 69390,
+          "pc": 18,
+          "sourceLine": 69419,
+          "instruction": "loadk r12 k9"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f53/f1",
+          "key": "k24",
+          "constantLine": 69480,
+          "pc": 71,
+          "sourceLine": 69586,
+          "instruction": "loadk r8 k24"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k109",
+          "constantLine": 169698,
+          "pc": 459,
+          "sourceLine": 170501,
+          "instruction": "loadk r5 k109"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k78",
+          "constantLine": 173850,
+          "pc": 777,
+          "sourceLine": 174916,
+          "instruction": "loadk r14 k78"
+        }
+      ],
+      "A059": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f53/f1",
+          "key": "k33",
+          "constantLine": 69489,
+          "pc": 99,
+          "sourceLine": 69616,
+          "instruction": "loadk r8 k33"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f53/f1",
+          "key": "k33",
+          "constantLine": 69489,
+          "pc": 166,
+          "sourceLine": 69684,
+          "instruction": "loadk r24 k33"
+        }
+      ],
+      "A060": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f53/f1",
+          "key": "k3",
+          "constantLine": 69459,
+          "pc": 6,
+          "sourceLine": 69518,
+          "instruction": "loadk r5 k3"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k107",
+          "constantLine": 169696,
+          "pc": 450,
+          "sourceLine": 170491,
+          "instruction": "loadk r7 k107"
+        }
+      ],
+      "T053": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f53/f0",
+          "key": "k6",
+          "constantLine": 69387,
+          "pc": 14,
+          "sourceLine": 69415,
+          "instruction": "loadk r8 k6"
+        }
+      ],
+      "T054": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f53/f1",
+          "key": "k50",
+          "constantLine": 69506,
+          "pc": 162,
+          "sourceLine": 69680,
+          "instruction": "loadk r20 k50"
+        }
+      ],
+      "i318": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f53/f1",
+          "key": "k15",
+          "constantLine": 69471,
+          "pc": 32,
+          "sourceLine": 69545,
+          "instruction": "loadk r10 k15"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f285",
+          "key": "k122",
+          "constantLine": 140870,
+          "pc": 435,
+          "sourceLine": 141550,
+          "instruction": "loadk r28 k122"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f285",
+          "key": "k122",
+          "constantLine": 140870,
+          "pc": 1101,
+          "sourceLine": 142216,
+          "instruction": "loadk r25 k122"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f285",
+          "key": "k122",
+          "constantLine": 140870,
+          "pc": 1514,
+          "sourceLine": 142629,
+          "instruction": "loadk r12 k122"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f285/f16",
+          "key": "k35",
+          "constantLine": 146483,
+          "pc": 155,
+          "sourceLine": 146653,
+          "instruction": "loadk r8 k35"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f16",
+          "key": "k18",
+          "constantLine": 172264,
+          "pc": 91,
+          "sourceLine": 172372,
+          "instruction": "loadk r5 k18"
+        }
+      ],
+      "i319": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f53/f1",
+          "key": "k16",
+          "constantLine": 69472,
+          "pc": 40,
+          "sourceLine": 69553,
+          "instruction": "loadk r10 k16"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f270/f0",
+          "key": "k15",
+          "constantLine": 134117,
+          "pc": 34,
+          "sourceLine": 134187,
+          "instruction": "loadk r12 k15"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f285",
+          "key": "k120",
+          "constantLine": 140868,
+          "pc": 429,
+          "sourceLine": 141544,
+          "instruction": "loadk r26 k120"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f285",
+          "key": "k120",
+          "constantLine": 140868,
+          "pc": 446,
+          "sourceLine": 141561,
+          "instruction": "loadk r29 k120"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f285",
+          "key": "k120",
+          "constantLine": 140868,
+          "pc": 1517,
+          "sourceLine": 142632,
+          "instruction": "loadk r13 k120"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f285/f16",
+          "key": "k36",
+          "constantLine": 146484,
+          "pc": 163,
+          "sourceLine": 146661,
+          "instruction": "loadk r8 k36"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f287/f0",
+          "key": "k15",
+          "constantLine": 153167,
+          "pc": 34,
+          "sourceLine": 153237,
+          "instruction": "loadk r12 k15"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f16",
+          "key": "k19",
+          "constantLine": 172265,
+          "pc": 99,
+          "sourceLine": 172380,
+          "instruction": "loadk r5 k19"
+        }
+      ],
+      "i320": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f53/f1",
+          "key": "k17",
+          "constantLine": 69473,
+          "pc": 48,
+          "sourceLine": 69561,
+          "instruction": "loadk r10 k17"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f270/f0",
+          "key": "k10",
+          "constantLine": 134112,
+          "pc": 17,
+          "sourceLine": 134169,
+          "instruction": "loadk r12 k10"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f285",
+          "key": "k123",
+          "constantLine": 140871,
+          "pc": 440,
+          "sourceLine": 141555,
+          "instruction": "loadk r27 k123"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f285",
+          "key": "k123",
+          "constantLine": 140871,
+          "pc": 1520,
+          "sourceLine": 142635,
+          "instruction": "loadk r14 k123"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f285/f16",
+          "key": "k37",
+          "constantLine": 146485,
+          "pc": 171,
+          "sourceLine": 146669,
+          "instruction": "loadk r8 k37"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f287/f0",
+          "key": "k10",
+          "constantLine": 153162,
+          "pc": 17,
+          "sourceLine": 153219,
+          "instruction": "loadk r12 k10"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f16",
+          "key": "k20",
+          "constantLine": 172266,
+          "pc": 107,
+          "sourceLine": 172388,
+          "instruction": "loadk r5 k20"
+        }
+      ]
+    }
+  },
+  "auxiliary": {
+    "verified": [
+      "T053",
+      "T054",
+      "i318–i320计数写入"
+    ],
+    "relatedRule": "docs/rules/ogre-hood-items.md"
+  },
+  "validation": {
+    "rankTotalsFor100Rolls": [
+      [
+        50,
+        50
+      ],
+      [
+        33,
+        33,
+        34
+      ],
+      [
+        25,
+        25,
+        25,
+        25
+      ],
+      [
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      [
+        16,
+        17,
+        17,
+        16,
+        17,
+        17
+      ],
+      [
+        14,
+        14,
+        14,
+        15,
+        14,
+        14,
+        15
+      ]
+    ],
+    "fireboltSpacedOrders": [
+      [
+        "3/5",
+        1,
+        2
+      ],
+      [
+        "6/5",
+        1,
+        4
+      ],
+      [
+        "9/5",
+        1,
+        4
+      ]
+    ],
+    "originalRejectedOrderConsumed": true,
+    "originalBloodlustSharedSlot": {
+      "A060Rank": 3,
+      "fireboltRoll": 100,
+      "bloodlustRoll": 50,
+      "extraBuffAttempts": 1,
+      "expectedFireboltAttemptsWithoutInterleaving": 3,
+      "countsReadAtFirstTick": [
+        2,
+        2
+      ],
+      "fireboltAttemptsWithInterleaving": 0
+    },
+    "originalPositiveRecastNilComparison": {
+      "A060Rank": 3,
+      "rolls": [
+        100,
+        100
+      ],
+      "effectTimes": [
+        0,
+        0.1
+      ],
+      "priorTimerDestroyed": true,
+      "firstReplacementTick": 0.7,
+      "counts": [
+        null,
+        null
+      ],
+      "vmResult": "TypeError comparing nil counters"
+    },
+    "originalUninitializedHoodNilAddition": true,
+    "originalHoodThresholdAndNoTarget": true,
+    "duplicateHoodFunctionsIdentical": true,
+    "q50": {
+      "inclusiveRange": true,
+      "stableOrderBeforeDraw": true,
+      "distinctValidAllies": true,
+      "primaryExcluded": true,
+      "limitedByAvailability": true
+    },
+    "q51": {
+      "afterInterleavedBloodlust": [
+        [
+          0.6,
+          0,
+          "a"
+        ],
+        [
+          1.2,
+          0,
+          "a"
+        ],
+        [
+          1.8,
+          0,
+          "a"
+        ]
+      ],
+      "afterPositiveRecast": [
+        [
+          0.6,
+          0,
+          "a"
+        ],
+        [
+          0.7,
+          1,
+          "b"
+        ],
+        [
+          1.2,
+          0,
+          "a"
+        ],
+        [
+          1.3,
+          1,
+          "b"
+        ],
+        [
+          1.8,
+          0,
+          "a"
+        ],
+        [
+          1.9,
+          1,
+          "b"
+        ]
+      ],
+      "deathOnlyCancelsMatchingTargetInstances": true,
+      "stableEqualTimeOrder": true
+    }
+  },
+  "originalClientTested": false
+}

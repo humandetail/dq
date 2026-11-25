@@ -1,0 +1,5288 @@
+{
+  "baseline": "hero-spells-batch-04-v1",
+  "source": {
+    "path": "reference/map-6.25/main.disasm",
+    "sha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+  },
+  "skills": {
+    "A173": {
+      "status": "linked-damage",
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 360,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "术士<SR>",
+            "H045",
+            1,
+            "学习技能",
+            "致命连接",
+            "A173",
+            6,
+            "连接目标单位周围数个敌人，6秒内其中任意一个单位受到伤害，同时其他被连接单位受到当前伤害的25%。冷却12秒。",
+            "等级 1｜将3个敌方单位连接在一起。 耗蓝 50点。\n等级 2｜将4个敌方单位连接在一起。 耗蓝 60点。\n等级 3｜将5个敌方单位连接在一起。 耗蓝 70点。\n等级 4｜将6个敌方单位连接在一起。 耗蓝 80点。\n等级 5｜将7个敌方单位连接在一起。 耗蓝 90点。\n等级 6｜将8个敌方单位连接在一起。 耗蓝 100点。",
+            "耗蓝 90／100"
+          ]
+        },
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 537,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "红袍贤者<SR>",
+            "G070",
+            1,
+            "学习技能",
+            "致命连接",
+            "A173",
+            6,
+            "连接目标单位周围数个敌人，6秒内其中任意一个单位受到伤害，同时其他被连接单位受到当前伤害的25%。冷却12秒。",
+            "等级 1｜将3个敌方单位连接在一起。 耗蓝 50点。\n等级 2｜将4个敌方单位连接在一起。 耗蓝 60点。\n等级 3｜将5个敌方单位连接在一起。 耗蓝 70点。\n等级 4｜将6个敌方单位连接在一起。 耗蓝 80点。\n等级 5｜将7个敌方单位连接在一起。 耗蓝 90点。\n等级 6｜将8个敌方单位连接在一起。 耗蓝 100点。",
+            "耗蓝 90／100"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 360,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "术士<SR>",
+            "H045",
+            1,
+            "学习技能",
+            "致命连接",
+            "A173",
+            6,
+            "连接目标单位周围数个敌人，6秒内其中任意一个单位受到伤害，同时其他被连接单位受到当前伤害的25%。冷却12秒。",
+            "等级 1｜将3个敌方单位连接在一起。 耗蓝 50点。\n等级 2｜将4个敌方单位连接在一起。 耗蓝 60点。\n等级 3｜将5个敌方单位连接在一起。 耗蓝 70点。\n等级 4｜将6个敌方单位连接在一起。 耗蓝 80点。\n等级 5｜将7个敌方单位连接在一起。 耗蓝 90点。\n等级 6｜将8个敌方单位连接在一起。 耗蓝 100点。",
+            "耗蓝 90／100"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 537,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "红袍贤者<SR>",
+            "G070",
+            1,
+            "学习技能",
+            "致命连接",
+            "A173",
+            6,
+            "连接目标单位周围数个敌人，6秒内其中任意一个单位受到伤害，同时其他被连接单位受到当前伤害的25%。冷却12秒。",
+            "等级 1｜将3个敌方单位连接在一起。 耗蓝 50点。\n等级 2｜将4个敌方单位连接在一起。 耗蓝 60点。\n等级 3｜将5个敌方单位连接在一起。 耗蓝 70点。\n等级 4｜将6个敌方单位连接在一起。 耗蓝 80点。\n等级 5｜将7个敌方单位连接在一起。 耗蓝 90点。\n等级 6｜将8个敌方单位连接在一起。 耗蓝 100点。",
+            "耗蓝 90／100"
+          ]
+        }
+      ],
+      "shell": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 962,
+          "id": "A173",
+          "fields": {
+            "alias": "A173",
+            "code": "ANcl",
+            "Area1": 750.0,
+            "Area2": 750.0,
+            "Area3": 750.0,
+            "Area4": 750.0,
+            "checkDep": 1,
+            "Cool1": 12.0,
+            "Cool2": 12.0,
+            "Cool3": 12.0,
+            "Cool4": 12.0,
+            "Cost1": 50,
+            "Cost2": 60,
+            "Cost3": 70,
+            "Cost4": 80,
+            "DataB1": 1,
+            "DataB2": 1,
+            "DataB3": 1,
+            "DataB4": 1,
+            "DataC1": 1,
+            "DataC2": 1,
+            "DataC3": 1,
+            "DataC4": 1,
+            "DataD1": 1.0,
+            "DataD2": 1.0,
+            "DataD3": 1.0,
+            "DataD4": 1.0,
+            "DataF1": "channel",
+            "DataF2": "channel",
+            "DataF3": "channel",
+            "DataF4": "channel",
+            "levels": 6,
+            "reqLevel": 1,
+            "Rng1": 600.0,
+            "Rng2": 600.0,
+            "Rng3": 600.0,
+            "Rng4": 600.0,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 104,
+          "id": "A173",
+          "fields": {
+            "old": "A173",
+            "new": "\u0000\u0000\u0000\u0000",
+            "mods": [
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 5,
+                "data": 0,
+                "value": 90
+              },
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 6,
+                "data": 0,
+                "value": 100
+              }
+            ]
+          }
+        }
+      ],
+      "castTimes": {
+        "G070": {
+          "castpt": 0.5,
+          "castbsw": 0.1
+        },
+        "H045": {
+          "castpt": 0.5,
+          "castbsw": 0.1
+        }
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f122/f5",
+          "key": "k7",
+          "constantLine": 94550,
+          "pc": 17,
+          "sourceLine": 94612,
+          "instruction": "loadk r13 k7"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k237",
+          "constantLine": 169826,
+          "pc": 1109,
+          "sourceLine": 171214,
+          "instruction": "loadk r5 k237"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k183",
+          "constantLine": 173955,
+          "pc": 2658,
+          "sourceLine": 176918,
+          "instruction": "loadk r14 k183"
+        }
+      ],
+      "functions": {
+        "main/f122": [
+          94299,
+          94333
+        ],
+        "main/f122/f0": [
+          94334,
+          94370
+        ],
+        "main/f122/f1": [
+          94371,
+          94403
+        ],
+        "main/f122/f2": [
+          94404,
+          94445
+        ],
+        "main/f122/f3": [
+          94446,
+          94480
+        ],
+        "main/f122/f4": [
+          94481,
+          94520
+        ],
+        "main/f122/f5": [
+          94521,
+          94842
+        ],
+        "main/f122/f6": [
+          94843,
+          95021
+        ]
+      },
+      "objects": {
+        "T188": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 2059,
+            "id": "T188",
+            "fields": {
+              "alias": "T188",
+              "code": "ANcl",
+              "checkDep": 1,
+              "DataC1": 1,
+              "DataF1": "healingward",
+              "levels": 1,
+              "reqLevel": 1,
+              "Rng1": 500.0,
+              "targs1": "_",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ],
+        "q039": []
+      },
+      "sourceMana": [
+        50,
+        60,
+        70,
+        80,
+        90,
+        100
+      ],
+      "sourceCooldown": [
+        12.0,
+        12.0,
+        12.0,
+        12.0,
+        12.0,
+        12.0
+      ],
+      "web": {
+        "duration": 6,
+        "damageFraction": 0.25,
+        "limit": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "order": "channel",
+        "mode": "unit",
+        "range": 600.0,
+        "auto": 500,
+        "mana": [
+          50,
+          60,
+          70,
+          80,
+          90,
+          100
+        ],
+        "cooldown": [
+          12,
+          12,
+          12,
+          12,
+          12,
+          12
+        ]
+      }
+    },
+    "A174": {
+      "status": "upheaval",
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 361,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "术士<SR>",
+            "H045",
+            2,
+            "学习技能",
+            "剧变",
+            "A174",
+            6,
+            "激发目标区域内的惰性魔法，引发强烈的气流降低敌方单位的移动速度，气流会随着咏唱时间的增加而变得更加强烈。最多咏唱5秒。",
+            "等级 1｜最高降低40%的移动速度。 耗蓝 50点，冷却 15秒。\n等级 2｜最多降低50%的移动速度。 耗蓝 70点，冷却 14秒。\n等级 3｜最多降低60%的移动速度。 耗蓝 90点，冷却 13秒。\n等级 4｜最多降低70%的移动速度。 耗蓝 120点，冷却 12秒。\n等级 5｜最多降低80%的移动速度。 耗蓝 150点，冷却 11秒。\n等级 6｜最多降低90%的移动速度。 耗蓝 180点，冷却 10秒。",
+            "冷却 11.0／10.0；耗蓝 150／180"
+          ]
+        },
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 538,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "红袍贤者<SR>",
+            "G070",
+            2,
+            "学习技能",
+            "剧变",
+            "A174",
+            6,
+            "激发目标区域内的惰性魔法，引发强烈的气流降低敌方单位的移动速度，气流会随着咏唱时间的增加而变得更加强烈。最多咏唱5秒。",
+            "等级 1｜最高降低40%的移动速度。 耗蓝 50点，冷却 15秒。\n等级 2｜最多降低50%的移动速度。 耗蓝 70点，冷却 14秒。\n等级 3｜最多降低60%的移动速度。 耗蓝 90点，冷却 13秒。\n等级 4｜最多降低70%的移动速度。 耗蓝 120点，冷却 12秒。\n等级 5｜最多降低80%的移动速度。 耗蓝 150点，冷却 11秒。\n等级 6｜最多降低90%的移动速度。 耗蓝 180点，冷却 10秒。",
+            "冷却 11.0／10.0；耗蓝 150／180"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 361,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "术士<SR>",
+            "H045",
+            2,
+            "学习技能",
+            "剧变",
+            "A174",
+            6,
+            "激发目标区域内的惰性魔法，引发强烈的气流降低敌方单位的移动速度，气流会随着咏唱时间的增加而变得更加强烈。最多咏唱5秒。",
+            "等级 1｜最高降低40%的移动速度。 耗蓝 50点，冷却 15秒。\n等级 2｜最多降低50%的移动速度。 耗蓝 70点，冷却 14秒。\n等级 3｜最多降低60%的移动速度。 耗蓝 90点，冷却 13秒。\n等级 4｜最多降低70%的移动速度。 耗蓝 120点，冷却 12秒。\n等级 5｜最多降低80%的移动速度。 耗蓝 150点，冷却 11秒。\n等级 6｜最多降低90%的移动速度。 耗蓝 180点，冷却 10秒。",
+            "冷却 11.0／10.0；耗蓝 150／180"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 538,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "红袍贤者<SR>",
+            "G070",
+            2,
+            "学习技能",
+            "剧变",
+            "A174",
+            6,
+            "激发目标区域内的惰性魔法，引发强烈的气流降低敌方单位的移动速度，气流会随着咏唱时间的增加而变得更加强烈。最多咏唱5秒。",
+            "等级 1｜最高降低40%的移动速度。 耗蓝 50点，冷却 15秒。\n等级 2｜最多降低50%的移动速度。 耗蓝 70点，冷却 14秒。\n等级 3｜最多降低60%的移动速度。 耗蓝 90点，冷却 13秒。\n等级 4｜最多降低70%的移动速度。 耗蓝 120点，冷却 12秒。\n等级 5｜最多降低80%的移动速度。 耗蓝 150点，冷却 11秒。\n等级 6｜最多降低90%的移动速度。 耗蓝 180点，冷却 10秒。",
+            "冷却 11.0／10.0；耗蓝 150／180"
+          ]
+        }
+      ],
+      "shell": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 963,
+          "id": "A174",
+          "fields": {
+            "alias": "A174",
+            "code": "ANcl",
+            "Area1": 500.0,
+            "Area2": 500.0,
+            "Area3": 500.0,
+            "Area4": 500.0,
+            "checkDep": 1,
+            "Cool1": 15.0,
+            "Cool2": 14.0,
+            "Cool3": 13.0,
+            "Cool4": 12.0,
+            "Cost1": 50,
+            "Cost2": 70,
+            "Cost3": 90,
+            "Cost4": 120,
+            "DataA1": 5.0,
+            "DataA2": 5.0,
+            "DataA3": 5.0,
+            "DataA4": 5.0,
+            "DataB1": 2,
+            "DataB2": 2,
+            "DataB3": 2,
+            "DataB4": 2,
+            "DataC1": 3,
+            "DataC2": 3,
+            "DataC3": 3,
+            "DataC4": 3,
+            "DataD1": 1.0,
+            "DataD2": 1.0,
+            "DataD3": 1.0,
+            "DataD4": 1.0,
+            "DataF1": "resurrection",
+            "DataF2": "resurrection",
+            "DataF3": "resurrection",
+            "DataF4": "resurrection",
+            "levels": 6,
+            "reqLevel": 1,
+            "Rng1": 700.0,
+            "Rng2": 700.0,
+            "Rng3": 700.0,
+            "Rng4": 700.0,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 105,
+          "id": "A174",
+          "fields": {
+            "old": "A174",
+            "new": "\u0000\u0000\u0000\u0000",
+            "mods": [
+              {
+                "key": "acdn",
+                "type": 2,
+                "level": 5,
+                "data": 0,
+                "value": 11.0
+              },
+              {
+                "key": "acdn",
+                "type": 2,
+                "level": 6,
+                "data": 0,
+                "value": 10.0
+              },
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 5,
+                "data": 0,
+                "value": 150
+              },
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 6,
+                "data": 0,
+                "value": 180
+              }
+            ]
+          }
+        }
+      ],
+      "castTimes": {
+        "G070": {
+          "castpt": 0.5,
+          "castbsw": 0.1
+        },
+        "H045": {
+          "castpt": 0.5,
+          "castbsw": 0.1
+        }
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f123/f2",
+          "key": "k5",
+          "constantLine": 95201,
+          "pc": 17,
+          "sourceLine": 95242,
+          "instruction": "loadk r9 k5"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k239",
+          "constantLine": 169828,
+          "pc": 1119,
+          "sourceLine": 171225,
+          "instruction": "loadk r5 k239"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f15",
+          "key": "k5",
+          "constantLine": 172190,
+          "pc": 13,
+          "sourceLine": 172209,
+          "instruction": "loadk r3 k5"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k185",
+          "constantLine": 173957,
+          "pc": 2722,
+          "sourceLine": 176986,
+          "instruction": "loadk r14 k185"
+        }
+      ],
+      "functions": {
+        "main/f123": [
+          95022,
+          95050
+        ],
+        "main/f123/f0": [
+          95051,
+          95083
+        ],
+        "main/f123/f1": [
+          95084,
+          95176
+        ],
+        "main/f123/f2": [
+          95177,
+          95324
+        ],
+        "main/f123/f3": [
+          95325,
+          95349
+        ]
+      },
+      "objects": {
+        "T190": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 2061,
+            "id": "T190",
+            "fields": {
+              "alias": "T190",
+              "code": "AUau",
+              "Area1": 500.0,
+              "Area2": 500.0,
+              "Area3": 500.0,
+              "Area4": 500.0,
+              "BuffID1": "B161",
+              "BuffID2": "B161",
+              "BuffID3": "B161",
+              "BuffID4": "B161",
+              "checkDep": 1,
+              "DataA1": -0.2,
+              "DataA2": -0.25,
+              "DataA3": -0.3,
+              "DataA4": -0.4,
+              "EfctID1": "X001",
+              "EfctID2": "X001",
+              "EfctID3": "X001",
+              "EfctID4": "X001",
+              "levels": 4,
+              "reqLevel": 1,
+              "targs1": "enemies",
+              "targs2": "enemies",
+              "targs3": "enemies",
+              "targs4": "enemies"
+            }
+          }
+        ],
+        "T191": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 2062,
+            "id": "T191",
+            "fields": {
+              "alias": "T191",
+              "code": "AUau",
+              "Area1": 500.0,
+              "Area2": 500.0,
+              "Area3": 500.0,
+              "Area4": 500.0,
+              "BuffID1": "B161",
+              "BuffID2": "B161",
+              "BuffID3": "B161",
+              "BuffID4": "B161",
+              "checkDep": 1,
+              "DataA1": -0.2,
+              "DataA2": -0.3,
+              "DataA3": -0.4,
+              "DataA4": -0.5,
+              "levels": 4,
+              "reqLevel": 1,
+              "targs1": "enemies",
+              "targs2": "enemies",
+              "targs3": "enemies",
+              "targs4": "enemies"
+            }
+          }
+        ],
+        "T192": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 2063,
+            "id": "T192",
+            "fields": {
+              "alias": "T192",
+              "code": "AUau",
+              "Area1": 500.0,
+              "Area2": 500.0,
+              "Area3": 500.0,
+              "Area4": 500.0,
+              "BuffID1": "B161",
+              "BuffID2": "B161",
+              "BuffID3": "B161",
+              "BuffID4": "B161",
+              "checkDep": 1,
+              "DataA1": -0.2,
+              "DataA2": -0.3,
+              "DataA3": -0.5,
+              "DataA4": -0.6,
+              "levels": 4,
+              "reqLevel": 1,
+              "targs1": "enemies",
+              "targs2": "enemies",
+              "targs3": "enemies",
+              "targs4": "enemies"
+            }
+          }
+        ],
+        "T193": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 2064,
+            "id": "T193",
+            "fields": {
+              "alias": "T193",
+              "code": "AUau",
+              "Area1": 500.0,
+              "Area2": 500.0,
+              "Area3": 500.0,
+              "Area4": 500.0,
+              "BuffID1": "B161",
+              "BuffID2": "B617",
+              "BuffID3": "B161",
+              "BuffID4": "B161",
+              "checkDep": 1,
+              "DataA1": -0.2,
+              "DataA2": -0.4,
+              "DataA3": -0.6,
+              "DataA4": -0.7,
+              "levels": 4,
+              "reqLevel": 1,
+              "targs1": "enemies",
+              "targs2": "enemies",
+              "targs3": "enemies",
+              "targs4": "enemies"
+            }
+          }
+        ],
+        "T194": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 2065,
+            "id": "T194",
+            "fields": {
+              "alias": "T194",
+              "code": "AUau",
+              "Area1": 500.0,
+              "Area2": 500.0,
+              "Area3": 500.0,
+              "Area4": 500.0,
+              "BuffID1": "B161",
+              "BuffID2": "B161",
+              "BuffID3": "B161",
+              "BuffID4": "B161",
+              "checkDep": 1,
+              "DataA1": -0.2,
+              "DataA2": -0.4,
+              "DataA3": -0.6,
+              "DataA4": -0.8,
+              "levels": 4,
+              "reqLevel": 1,
+              "targs1": "enemies",
+              "targs2": "enemies",
+              "targs3": "enemies",
+              "targs4": "enemies"
+            }
+          }
+        ],
+        "T195": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 2066,
+            "id": "T195",
+            "fields": {
+              "alias": "T195",
+              "code": "AUau",
+              "Area1": 500.0,
+              "Area2": 500.0,
+              "Area3": 500.0,
+              "Area4": 500.0,
+              "BuffID1": "B161",
+              "BuffID2": "B161",
+              "BuffID3": "B161",
+              "BuffID4": "B161",
+              "checkDep": 1,
+              "DataA1": -0.2,
+              "DataA2": -0.4,
+              "DataA3": -0.7,
+              "DataA4": -0.9,
+              "levels": 4,
+              "reqLevel": 1,
+              "targs1": "enemies",
+              "targs2": "enemies",
+              "targs3": "enemies",
+              "targs4": "enemies"
+            }
+          }
+        ],
+        "q044": [],
+        "B161": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+            "jsonIndex": 381,
+            "id": "B161",
+            "fields": {
+              "alias": "B161"
+            }
+          }
+        ]
+      },
+      "sourceMana": [
+        50,
+        70,
+        90,
+        120,
+        150,
+        180
+      ],
+      "sourceCooldown": [
+        15.0,
+        14.0,
+        13.0,
+        12.0,
+        11.0,
+        10.0
+      ],
+      "web": {
+        "duration": 5,
+        "slowMax": [
+          0.4,
+          0.5,
+          0.6,
+          0.7,
+          0.8,
+          0.9
+        ],
+        "radius": 500,
+        "order": "resurrection",
+        "mode": "point",
+        "range": 700.0,
+        "auto": 600,
+        "mana": [
+          50,
+          70,
+          90,
+          120,
+          150,
+          180
+        ],
+        "cooldown": [
+          15,
+          14,
+          13,
+          12,
+          11,
+          10
+        ]
+      }
+    },
+    "A175": {
+      "status": "ready",
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 362,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "术士<SR>",
+            "H045",
+            3,
+            "学习技能",
+            "混乱之雨",
+            "A175",
+            6,
+            "术士撕裂天空召唤一个持续15秒的地狱火，对目标区域的敌方单位造成1秒眩晕。冷却25秒。",
+            "等级 1｜召唤一个Lv1的地狱火。 耗蓝 50点。\n等级 2｜召唤一个Lv2的地狱火。 耗蓝 80点。\n等级 3｜召唤一个Lv3的地狱火。 耗蓝 110点。\n等级 4｜召唤一个Lv4的地狱火。 耗蓝 140点。\n等级 5｜召唤一个Lv5的地狱火。 耗蓝 170点。\n等级 6｜召唤一个Lv6的地狱火。 耗蓝 200点。",
+            "耗蓝 170／200"
+          ]
+        },
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 539,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "红袍贤者<SR>",
+            "G070",
+            3,
+            "学习技能",
+            "混乱之雨",
+            "A175",
+            6,
+            "术士撕裂天空召唤一个持续15秒的地狱火，对目标区域的敌方单位造成1秒眩晕。冷却25秒。",
+            "等级 1｜召唤一个Lv1的地狱火。 耗蓝 50点。\n等级 2｜召唤一个Lv2的地狱火。 耗蓝 80点。\n等级 3｜召唤一个Lv3的地狱火。 耗蓝 110点。\n等级 4｜召唤一个Lv4的地狱火。 耗蓝 140点。\n等级 5｜召唤一个Lv5的地狱火。 耗蓝 170点。\n等级 6｜召唤一个Lv6的地狱火。 耗蓝 200点。",
+            "耗蓝 170／200"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 362,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "术士<SR>",
+            "H045",
+            3,
+            "学习技能",
+            "混乱之雨",
+            "A175",
+            6,
+            "术士撕裂天空召唤一个持续15秒的地狱火，对目标区域的敌方单位造成1秒眩晕。冷却25秒。",
+            "等级 1｜召唤一个Lv1的地狱火。 耗蓝 50点。\n等级 2｜召唤一个Lv2的地狱火。 耗蓝 80点。\n等级 3｜召唤一个Lv3的地狱火。 耗蓝 110点。\n等级 4｜召唤一个Lv4的地狱火。 耗蓝 140点。\n等级 5｜召唤一个Lv5的地狱火。 耗蓝 170点。\n等级 6｜召唤一个Lv6的地狱火。 耗蓝 200点。",
+            "耗蓝 170／200"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 539,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "红袍贤者<SR>",
+            "G070",
+            3,
+            "学习技能",
+            "混乱之雨",
+            "A175",
+            6,
+            "术士撕裂天空召唤一个持续15秒的地狱火，对目标区域的敌方单位造成1秒眩晕。冷却25秒。",
+            "等级 1｜召唤一个Lv1的地狱火。 耗蓝 50点。\n等级 2｜召唤一个Lv2的地狱火。 耗蓝 80点。\n等级 3｜召唤一个Lv3的地狱火。 耗蓝 110点。\n等级 4｜召唤一个Lv4的地狱火。 耗蓝 140点。\n等级 5｜召唤一个Lv5的地狱火。 耗蓝 170点。\n等级 6｜召唤一个Lv6的地狱火。 耗蓝 200点。",
+            "耗蓝 170／200"
+          ]
+        }
+      ],
+      "shell": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 964,
+          "id": "A175",
+          "fields": {
+            "alias": "A175",
+            "code": "ANcl",
+            "Area1": 500.0,
+            "Area2": 500.0,
+            "Area3": 500.0,
+            "Area4": 500.0,
+            "checkDep": 1,
+            "Cool1": 25.0,
+            "Cool2": 25.0,
+            "Cool3": 25.0,
+            "Cool4": 25.0,
+            "Cost1": 50,
+            "Cost2": 80,
+            "Cost3": 110,
+            "Cost4": 140,
+            "DataA1": 1.0,
+            "DataA2": 1.0,
+            "DataA3": 1.0,
+            "DataA4": 1.0,
+            "DataB1": 2,
+            "DataB2": 2,
+            "DataB3": 2,
+            "DataB4": 2,
+            "DataC1": 3,
+            "DataC2": 3,
+            "DataC3": 3,
+            "DataC4": 3,
+            "DataF1": "revive",
+            "DataF2": "revive",
+            "DataF3": "revive",
+            "DataF4": "revive",
+            "levels": 6,
+            "reqLevel": 1,
+            "Rng1": 1000.0,
+            "Rng2": 1000.0,
+            "Rng3": 1000.0,
+            "Rng4": 1000.0,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 106,
+          "id": "A175",
+          "fields": {
+            "old": "A175",
+            "new": "\u0000\u0000\u0000\u0000",
+            "mods": [
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 5,
+                "data": 0,
+                "value": 170
+              },
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 6,
+                "data": 0,
+                "value": 200
+              }
+            ]
+          }
+        }
+      ],
+      "castTimes": {
+        "G070": {
+          "castpt": 0.5,
+          "castbsw": 0.1
+        },
+        "H045": {
+          "castpt": 0.5,
+          "castbsw": 0.1
+        }
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f7",
+          "key": "k87",
+          "constantLine": 49281,
+          "pc": 260,
+          "sourceLine": 49745,
+          "instruction": "loadk r58 k87"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f124/f0",
+          "key": "k3",
+          "constantLine": 95381,
+          "pc": 7,
+          "sourceLine": 95398,
+          "instruction": "loadk r6 k3"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k241",
+          "constantLine": 169830,
+          "pc": 1129,
+          "sourceLine": 171236,
+          "instruction": "loadk r5 k241"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k184",
+          "constantLine": 173956,
+          "pc": 2688,
+          "sourceLine": 176950,
+          "instruction": "loadk r14 k184"
+        }
+      ],
+      "functions": {
+        "main/f124": [
+          95350,
+          95366
+        ],
+        "main/f124/f0": [
+          95367,
+          95446
+        ]
+      },
+      "objects": {
+        "T189": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 2060,
+            "id": "T189",
+            "fields": {
+              "alias": "T189",
+              "code": "AUin",
+              "Area1": 500.0,
+              "Area2": 500.0,
+              "Area3": 500.0,
+              "Area4": 500.0,
+              "BuffID1": "BNin",
+              "BuffID2": "BNin",
+              "BuffID3": "BNin",
+              "BuffID4": "BNin",
+              "checkDep": 1,
+              "Cool1": 180.0,
+              "Cool2": 180.0,
+              "Cool3": 180.0,
+              "Cool4": 180.0,
+              "Cost1": 1,
+              "Cost2": 1,
+              "Cost3": 1,
+              "Cost4": 1,
+              "DataA1": 10.0,
+              "DataA2": 10.0,
+              "DataA3": 10.0,
+              "DataA4": 10.0,
+              "DataB1": 15.0,
+              "DataB2": 15.0,
+              "DataB3": 15.0,
+              "DataB4": 15.0,
+              "DataC1": 1.0,
+              "DataC2": 1.0,
+              "DataC3": 1.0,
+              "DataC4": 1.0,
+              "Dur1": 1.0,
+              "Dur2": 1.0,
+              "Dur3": 1.0,
+              "Dur4": 1.0,
+              "HeroDur1": 1.0,
+              "HeroDur2": 1.0,
+              "HeroDur3": 1.0,
+              "HeroDur4": 1.0,
+              "levels": 6,
+              "reqLevel": 1,
+              "Rng1": 1000.0,
+              "Rng2": 1000.0,
+              "Rng3": 1000.0,
+              "Rng4": 1000.0,
+              "targs1": "ground,structure,debris,enemy,neutral",
+              "targs2": "ground,structure,debris,enemy,neutral",
+              "targs3": "ground,structure,debris,enemy,neutral",
+              "targs4": "ground,structure,debris,enemy,neutral",
+              "UnitID1": "n261",
+              "UnitID2": "n262",
+              "UnitID3": "n263",
+              "UnitID4": "n264"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/war3map.w3a.json",
+            "jsonIndex": 242,
+            "id": "T189",
+            "fields": {
+              "old": "T189",
+              "new": "\u0000\u0000\u0000\u0000",
+              "mods": [
+                {
+                  "key": "Uin4",
+                  "type": 3,
+                  "level": 5,
+                  "data": 0,
+                  "value": "n265"
+                },
+                {
+                  "key": "Uin4",
+                  "type": 3,
+                  "level": 6,
+                  "data": 0,
+                  "value": "n266"
+                }
+              ]
+            }
+          }
+        ],
+        "BNin": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+            "jsonIndex": 60,
+            "id": "BNin",
+            "fields": {
+              "alias": "BNin"
+            }
+          }
+        ],
+        "N142": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1450,
+            "id": "N142",
+            "fields": {
+              "alias": "N142",
+              "code": "AOcr",
+              "checkDep": 1,
+              "levels": 1,
+              "reqLevel": 1,
+              "targs1": "air,ground,enemy,neutral",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ],
+        "N143": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1451,
+            "id": "N143",
+            "fields": {
+              "alias": "N143",
+              "code": "AOcr",
+              "checkDep": 1,
+              "DataA2": 15.0,
+              "DataB2": 3.0,
+              "levels": 2,
+              "reqLevel": 1,
+              "targs1": "air,ground,enemy,neutral",
+              "targs2": "air,ground,enemy,neutral",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ],
+        "N144": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1452,
+            "id": "N144",
+            "fields": {
+              "alias": "N144",
+              "code": "AOcr",
+              "checkDep": 1,
+              "DataA2": 15.0,
+              "DataA3": 15.0,
+              "DataB2": 3.0,
+              "DataB3": 4.0,
+              "levels": 3,
+              "reqLevel": 1,
+              "targs1": "air,ground,enemy,neutral",
+              "targs2": "air,ground,enemy,neutral",
+              "targs3": "air,ground,enemy,neutral",
+              "targs4": "_"
+            }
+          }
+        ],
+        "N145": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1453,
+            "id": "N145",
+            "fields": {
+              "alias": "N145",
+              "code": "AOcr",
+              "checkDep": 1,
+              "DataA2": 15.0,
+              "DataA3": 15.0,
+              "DataA4": 15.0,
+              "DataB2": 3.0,
+              "DataB3": 4.0,
+              "DataB4": 4.0,
+              "levels": 4,
+              "reqLevel": 1,
+              "targs1": "air,ground,enemy,neutral",
+              "targs2": "air,ground,enemy,neutral",
+              "targs3": "air,ground,enemy,neutral",
+              "targs4": "air,ground,enemy,neutral"
+            }
+          }
+        ],
+        "N146": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1454,
+            "id": "N146",
+            "fields": {
+              "alias": "N146",
+              "code": "AOcr",
+              "checkDep": 1,
+              "DataA2": 15.0,
+              "DataA3": 15.0,
+              "DataA4": 15.0,
+              "DataB2": 3.0,
+              "DataB3": 4.0,
+              "DataB4": 4.0,
+              "levels": 5,
+              "reqLevel": 1,
+              "targs1": "air,ground,enemy,neutral",
+              "targs2": "air,ground,enemy,neutral",
+              "targs3": "air,ground,enemy,neutral",
+              "targs4": "air,ground,enemy,neutral"
+            }
+          }
+        ],
+        "N147": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1455,
+            "id": "N147",
+            "fields": {
+              "alias": "N147",
+              "code": "AOcr",
+              "checkDep": 1,
+              "DataA2": 15.0,
+              "DataA3": 15.0,
+              "DataA4": 15.0,
+              "DataB2": 3.0,
+              "DataB3": 4.0,
+              "DataB4": 4.0,
+              "levels": 6,
+              "reqLevel": 1,
+              "targs1": "air,ground,enemy,neutral",
+              "targs2": "air,ground,enemy,neutral",
+              "targs3": "air,ground,enemy,neutral",
+              "targs4": "air,ground,enemy,neutral"
+            }
+          }
+        ],
+        "N152": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1456,
+            "id": "N152",
+            "fields": {
+              "alias": "N152",
+              "code": "AOcr",
+              "checkDep": 1,
+              "levels": 1,
+              "reqLevel": 1,
+              "targs1": "air,ground,enemy,neutral",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ],
+        "N153": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1457,
+            "id": "N153",
+            "fields": {
+              "alias": "N153",
+              "code": "Apig",
+              "Area1": 300.0,
+              "BuffID1": "B162",
+              "DataA1": 200.0,
+              "Dur1": 1.0,
+              "HeroDur1": 1.0,
+              "levels": 1,
+              "targs1": "enemies",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ],
+        "N154": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1458,
+            "id": "N154",
+            "fields": {
+              "alias": "N154",
+              "code": "Apig",
+              "Area1": 300.0,
+              "BuffID1": "B162",
+              "DataA1": 400.0,
+              "Dur1": 1.0,
+              "HeroDur1": 1.0,
+              "levels": 1,
+              "targs1": "enemies",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ],
+        "N155": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1459,
+            "id": "N155",
+            "fields": {
+              "alias": "N155",
+              "code": "Apig",
+              "Area1": 300.0,
+              "BuffID1": "B162",
+              "DataA1": 600.0,
+              "Dur1": 1.0,
+              "HeroDur1": 1.0,
+              "levels": 1,
+              "targs1": "enemies",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ],
+        "N156": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1460,
+            "id": "N156",
+            "fields": {
+              "alias": "N156",
+              "code": "Apig",
+              "Area1": 300.0,
+              "BuffID1": "B162",
+              "DataA1": 800.0,
+              "Dur1": 1.0,
+              "HeroDur1": 1.0,
+              "levels": 1,
+              "targs1": "enemies",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ],
+        "N157": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1461,
+            "id": "N157",
+            "fields": {
+              "alias": "N157",
+              "code": "Apig",
+              "Area1": 300.0,
+              "BuffID1": "B162",
+              "DataA1": 1000.0,
+              "Dur1": 1.0,
+              "HeroDur1": 1.0,
+              "levels": 1,
+              "targs1": "enemies",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ],
+        "N158": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1462,
+            "id": "N158",
+            "fields": {
+              "alias": "N158",
+              "code": "Apig",
+              "Area1": 300.0,
+              "BuffID1": "B162",
+              "DataA1": 1200.0,
+              "Dur1": 1.0,
+              "HeroDur1": 1.0,
+              "levels": 1,
+              "targs1": "enemies",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ],
+        "n261": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitabilities.json",
+            "jsonIndex": 1309,
+            "id": "n261",
+            "fields": {
+              "unitAbilID": "n261",
+              "abilList": "Avul,N142,N153",
+              "auto": "_"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitbalance.json",
+            "jsonIndex": 1309,
+            "id": "n261",
+            "fields": {
+              "unitBalanceID": "n261",
+              "bldtm": 1,
+              "bountydice": 6,
+              "bountyplus": 70,
+              "bountysides": 3,
+              "collision": 72.0,
+              "def": 6.0,
+              "defType": "large",
+              "defUp": 2.0,
+              "HP": 3000,
+              "level": 1,
+              "nsight": 800,
+              "preventPlace": "_",
+              "Primary": "_",
+              "regenHP": 1.0,
+              "regenMana": 6.0,
+              "regenType": "always",
+              "reptm": 2,
+              "requirePlace": "_",
+              "sight": 1400,
+              "spd": 320,
+              "stockMax": 1,
+              "stockRegen": 410,
+              "stockStart": 440,
+              "tilesets": "C,O,K",
+              "type": "sapper"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 1309,
+            "id": "n261",
+            "fields": {
+              "unitWeapID": "n261",
+              "acquire": 500.0,
+              "atkType1": "hero",
+              "atkType2": "normal",
+              "backSw1": 0.74,
+              "castbsw": 0.51,
+              "castpt": 0.3,
+              "cool1": 1.2,
+              "dice1": 2,
+              "dmgplus1": 252,
+              "dmgpt1": 0.26,
+              "impactZ": 100.0,
+              "launchZ": 60.0,
+              "rangeN1": 500,
+              "RngBuff1": 1300.0,
+              "showUI1": 1,
+              "showUI2": 1,
+              "sides1": 6,
+              "targCount1": 1,
+              "targCount2": 1,
+              "targs1": "ground,structure,debris,item,ward,tree",
+              "weapsOn": 1,
+              "weapTp1": "normal",
+              "weapType1": "RockHeavyBash"
+            }
+          }
+        ],
+        "n262": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitabilities.json",
+            "jsonIndex": 1310,
+            "id": "n262",
+            "fields": {
+              "unitAbilID": "n262",
+              "abilList": "Avul,N143,N154",
+              "auto": "_"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitbalance.json",
+            "jsonIndex": 1310,
+            "id": "n262",
+            "fields": {
+              "unitBalanceID": "n262",
+              "bldtm": 1,
+              "bountydice": 6,
+              "bountyplus": 70,
+              "bountysides": 3,
+              "collision": 72.0,
+              "def": 6.0,
+              "defType": "large",
+              "defUp": 2.0,
+              "HP": 3000,
+              "level": 2,
+              "nsight": 800,
+              "preventPlace": "_",
+              "Primary": "_",
+              "regenHP": 1.0,
+              "regenMana": 6.0,
+              "regenType": "always",
+              "reptm": 2,
+              "requirePlace": "_",
+              "sight": 1400,
+              "spd": 320,
+              "stockMax": 1,
+              "stockRegen": 410,
+              "stockStart": 440,
+              "tilesets": "C,O,K",
+              "type": "sapper"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 1310,
+            "id": "n262",
+            "fields": {
+              "unitWeapID": "n262",
+              "acquire": 500.0,
+              "atkType1": "hero",
+              "atkType2": "normal",
+              "backSw1": 0.74,
+              "castbsw": 0.51,
+              "castpt": 0.3,
+              "cool1": 1.2,
+              "dice1": 2,
+              "dmgplus1": 350,
+              "dmgpt1": 0.26,
+              "impactZ": 100.0,
+              "launchZ": 60.0,
+              "rangeN1": 500,
+              "RngBuff1": 1300.0,
+              "showUI1": 1,
+              "showUI2": 1,
+              "sides1": 6,
+              "targCount1": 1,
+              "targCount2": 1,
+              "targs1": "ground,structure,debris,item,ward,tree",
+              "weapsOn": 1,
+              "weapTp1": "normal",
+              "weapType1": "RockHeavyBash"
+            }
+          }
+        ],
+        "n263": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitabilities.json",
+            "jsonIndex": 1311,
+            "id": "n263",
+            "fields": {
+              "unitAbilID": "n263",
+              "abilList": "Avul,N144,N155",
+              "auto": "_"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitbalance.json",
+            "jsonIndex": 1311,
+            "id": "n263",
+            "fields": {
+              "unitBalanceID": "n263",
+              "bldtm": 1,
+              "bountydice": 6,
+              "bountyplus": 70,
+              "bountysides": 3,
+              "collision": 72.0,
+              "def": 6.0,
+              "defType": "large",
+              "defUp": 2.0,
+              "HP": 3000,
+              "level": 3,
+              "nsight": 800,
+              "preventPlace": "_",
+              "Primary": "_",
+              "regenHP": 1.0,
+              "regenMana": 6.0,
+              "regenType": "always",
+              "reptm": 2,
+              "requirePlace": "_",
+              "sight": 1400,
+              "spd": 320,
+              "stockMax": 1,
+              "stockRegen": 410,
+              "stockStart": 440,
+              "tilesets": "C,O,K",
+              "type": "sapper"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 1311,
+            "id": "n263",
+            "fields": {
+              "unitWeapID": "n263",
+              "acquire": 500.0,
+              "atkType1": "hero",
+              "atkType2": "normal",
+              "backSw1": 0.74,
+              "castbsw": 0.51,
+              "castpt": 0.3,
+              "cool1": 1.2,
+              "dice1": 2,
+              "dmgplus1": 450,
+              "dmgpt1": 0.26,
+              "impactZ": 100.0,
+              "launchZ": 60.0,
+              "rangeN1": 500,
+              "RngBuff1": 1300.0,
+              "showUI1": 1,
+              "showUI2": 1,
+              "sides1": 6,
+              "targCount1": 1,
+              "targCount2": 1,
+              "targs1": "ground,structure,debris,item,ward,tree",
+              "weapsOn": 1,
+              "weapTp1": "normal",
+              "weapType1": "RockHeavyBash"
+            }
+          }
+        ],
+        "n264": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitabilities.json",
+            "jsonIndex": 1312,
+            "id": "n264",
+            "fields": {
+              "unitAbilID": "n264",
+              "abilList": "Avul,N145,N156",
+              "auto": "_"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitbalance.json",
+            "jsonIndex": 1312,
+            "id": "n264",
+            "fields": {
+              "unitBalanceID": "n264",
+              "bldtm": 1,
+              "bountydice": 6,
+              "bountyplus": 70,
+              "bountysides": 3,
+              "collision": 72.0,
+              "def": 6.0,
+              "defType": "large",
+              "defUp": 2.0,
+              "HP": 3000,
+              "level": 4,
+              "nsight": 800,
+              "preventPlace": "_",
+              "Primary": "_",
+              "regenHP": 1.0,
+              "regenMana": 6.0,
+              "regenType": "always",
+              "reptm": 2,
+              "requirePlace": "_",
+              "sight": 1400,
+              "spd": 320,
+              "stockMax": 1,
+              "stockRegen": 410,
+              "stockStart": 440,
+              "tilesets": "C,O,K",
+              "type": "sapper"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 1312,
+            "id": "n264",
+            "fields": {
+              "unitWeapID": "n264",
+              "acquire": 500.0,
+              "atkType1": "hero",
+              "atkType2": "normal",
+              "backSw1": 0.74,
+              "castbsw": 0.51,
+              "castpt": 0.3,
+              "cool1": 1.2,
+              "dice1": 2,
+              "dmgplus1": 550,
+              "dmgpt1": 0.26,
+              "impactZ": 100.0,
+              "launchZ": 60.0,
+              "rangeN1": 500,
+              "RngBuff1": 1300.0,
+              "showUI1": 1,
+              "showUI2": 1,
+              "sides1": 6,
+              "targCount1": 1,
+              "targCount2": 1,
+              "targs1": "ground,structure,debris,item,ward,tree",
+              "weapsOn": 1,
+              "weapTp1": "normal",
+              "weapType1": "RockHeavyBash"
+            }
+          }
+        ],
+        "n265": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitabilities.json",
+            "jsonIndex": 1313,
+            "id": "n265",
+            "fields": {
+              "unitAbilID": "n265",
+              "abilList": "Avul,N146,N157",
+              "auto": "_"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitbalance.json",
+            "jsonIndex": 1313,
+            "id": "n265",
+            "fields": {
+              "unitBalanceID": "n265",
+              "bldtm": 1,
+              "bountydice": 6,
+              "bountyplus": 70,
+              "bountysides": 3,
+              "collision": 72.0,
+              "def": 6.0,
+              "defType": "large",
+              "defUp": 2.0,
+              "HP": 3000,
+              "level": 5,
+              "nsight": 800,
+              "preventPlace": "_",
+              "Primary": "_",
+              "regenHP": 1.0,
+              "regenMana": 6.0,
+              "regenType": "always",
+              "reptm": 2,
+              "requirePlace": "_",
+              "sight": 1400,
+              "spd": 320,
+              "stockMax": 1,
+              "stockRegen": 410,
+              "stockStart": 440,
+              "tilesets": "C,O,K",
+              "type": "sapper"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 1313,
+            "id": "n265",
+            "fields": {
+              "unitWeapID": "n265",
+              "acquire": 500.0,
+              "atkType1": "hero",
+              "atkType2": "normal",
+              "backSw1": 0.74,
+              "castbsw": 0.51,
+              "castpt": 0.3,
+              "cool1": 1.2,
+              "dice1": 2,
+              "dmgplus1": 700,
+              "dmgpt1": 0.26,
+              "impactZ": 100.0,
+              "launchZ": 60.0,
+              "rangeN1": 500,
+              "RngBuff1": 1300.0,
+              "showUI1": 1,
+              "showUI2": 1,
+              "sides1": 6,
+              "targCount1": 1,
+              "targCount2": 1,
+              "targs1": "ground,structure,debris,item,ward,tree",
+              "weapsOn": 1,
+              "weapTp1": "normal",
+              "weapType1": "RockHeavyBash"
+            }
+          }
+        ],
+        "n266": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitabilities.json",
+            "jsonIndex": 1314,
+            "id": "n266",
+            "fields": {
+              "unitAbilID": "n266",
+              "abilList": "Avul,N147,N152,N158",
+              "auto": "_"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitbalance.json",
+            "jsonIndex": 1314,
+            "id": "n266",
+            "fields": {
+              "unitBalanceID": "n266",
+              "bldtm": 1,
+              "bountydice": 6,
+              "bountyplus": 70,
+              "bountysides": 3,
+              "collision": 72.0,
+              "def": 6.0,
+              "defType": "large",
+              "defUp": 2.0,
+              "HP": 3000,
+              "level": 6,
+              "nsight": 800,
+              "preventPlace": "_",
+              "Primary": "_",
+              "regenHP": 1.0,
+              "regenMana": 6.0,
+              "regenType": "always",
+              "reptm": 2,
+              "requirePlace": "_",
+              "sight": 1400,
+              "spd": 320,
+              "stockMax": 1,
+              "stockRegen": 410,
+              "stockStart": 440,
+              "tilesets": "C,O,K",
+              "type": "sapper"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 1314,
+            "id": "n266",
+            "fields": {
+              "unitWeapID": "n266",
+              "acquire": 500.0,
+              "atkType1": "hero",
+              "atkType2": "normal",
+              "backSw1": 0.74,
+              "castbsw": 0.51,
+              "castpt": 0.3,
+              "cool1": 1.2,
+              "dice1": 2,
+              "dmgplus1": 900,
+              "dmgpt1": 0.26,
+              "impactZ": 100.0,
+              "launchZ": 60.0,
+              "rangeN1": 500,
+              "RngBuff1": 1300.0,
+              "showUI1": 1,
+              "showUI2": 1,
+              "sides1": 6,
+              "targCount1": 1,
+              "targCount2": 1,
+              "targs1": "ground,structure,debris,item,ward,tree",
+              "weapsOn": 1,
+              "weapTp1": "normal",
+              "weapType1": "RockHeavyBash"
+            }
+          }
+        ]
+      },
+      "sourceMana": [
+        50,
+        80,
+        110,
+        140,
+        170,
+        200
+      ],
+      "sourceCooldown": [
+        25.0,
+        25.0,
+        25.0,
+        25.0,
+        25.0,
+        25.0
+      ],
+      "web": {
+        "duration": 15,
+        "radius": 500,
+        "impactDamage": 10,
+        "stun": 1,
+        "scepterSummons": 2,
+        "summons": [
+          "n261",
+          "n262",
+          "n263",
+          "n264",
+          "n265",
+          "n266"
+        ],
+        "fieryFistDamage": [
+          500,
+          1000,
+          1500,
+          2000,
+          2500,
+          3000
+        ],
+        "fieryFistRadius": 300,
+        "fieryFistRoll": [
+          1,
+          100,
+          25
+        ],
+        "lastTierCurrentLifeRoll": [
+          1,
+          100,
+          10
+        ],
+        "lastTierCurrentLifeFactor": 0.08,
+        "order": "revive",
+        "mode": "point",
+        "range": 1000.0,
+        "auto": 800,
+        "mana": [
+          50,
+          80,
+          110,
+          140,
+          170,
+          200
+        ],
+        "cooldown": [
+          25,
+          25,
+          25,
+          25,
+          25,
+          25
+        ]
+      }
+    },
+    "A178": {
+      "status": "ready",
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 431,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "灰烬之灵<SR>",
+            "H046",
+            1,
+            "学习技能",
+            "炽热锁链",
+            "A178",
+            6,
+            "释放出火焰绳索缠绕住附近的几个敌人4秒并造成伤害。",
+            "等级 1｜缠绕住4个敌人，每秒造成50点伤害，冷却时间：15秒。 耗蓝 20点。\n等级 2｜缠绕住4个敌人，每秒造成100点伤害，冷却时间：14秒。 耗蓝 30点。\n等级 3｜缠绕住5个敌人，每秒造成150点伤害，冷却时间：13秒。 耗蓝 40点。\n等级 4｜缠绕住5个敌人，每秒造成200点伤害，冷却时间：12秒。 耗蓝 50点。\n等级 5｜缠绕住6个敌人，每秒造成250点伤害，冷却时间：11秒。 耗蓝 60点。\n等级 6｜缠绕住6个敌人，每秒造成300点伤害，冷却时间：10秒。 耗蓝 70点。\n伤害类型 法术伤害",
+            "冷却 11.0／10.0；耗蓝 60／70"
+          ]
+        },
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 446,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "烈焰双刃<SR>",
+            "G065",
+            1,
+            "学习技能",
+            "炽热锁链",
+            "A178",
+            6,
+            "释放出火焰绳索缠绕住附近的几个敌人4秒并造成伤害。",
+            "等级 1｜缠绕住4个敌人，每秒造成50点伤害，冷却时间：15秒。 耗蓝 20点。\n等级 2｜缠绕住4个敌人，每秒造成100点伤害，冷却时间：14秒。 耗蓝 30点。\n等级 3｜缠绕住5个敌人，每秒造成150点伤害，冷却时间：13秒。 耗蓝 40点。\n等级 4｜缠绕住5个敌人，每秒造成200点伤害，冷却时间：12秒。 耗蓝 50点。\n等级 5｜缠绕住6个敌人，每秒造成250点伤害，冷却时间：11秒。 耗蓝 60点。\n等级 6｜缠绕住6个敌人，每秒造成300点伤害，冷却时间：10秒。 耗蓝 70点。\n伤害类型 法术伤害",
+            "冷却 11.0／10.0；耗蓝 60／70"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 431,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "灰烬之灵<SR>",
+            "H046",
+            1,
+            "学习技能",
+            "炽热锁链",
+            "A178",
+            6,
+            "释放出火焰绳索缠绕住附近的几个敌人4秒并造成伤害。",
+            "等级 1｜缠绕住4个敌人，每秒造成50点伤害，冷却时间：15秒。 耗蓝 20点。\n等级 2｜缠绕住4个敌人，每秒造成100点伤害，冷却时间：14秒。 耗蓝 30点。\n等级 3｜缠绕住5个敌人，每秒造成150点伤害，冷却时间：13秒。 耗蓝 40点。\n等级 4｜缠绕住5个敌人，每秒造成200点伤害，冷却时间：12秒。 耗蓝 50点。\n等级 5｜缠绕住6个敌人，每秒造成250点伤害，冷却时间：11秒。 耗蓝 60点。\n等级 6｜缠绕住6个敌人，每秒造成300点伤害，冷却时间：10秒。 耗蓝 70点。\n伤害类型 法术伤害",
+            "冷却 11.0／10.0；耗蓝 60／70"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 446,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "烈焰双刃<SR>",
+            "G065",
+            1,
+            "学习技能",
+            "炽热锁链",
+            "A178",
+            6,
+            "释放出火焰绳索缠绕住附近的几个敌人4秒并造成伤害。",
+            "等级 1｜缠绕住4个敌人，每秒造成50点伤害，冷却时间：15秒。 耗蓝 20点。\n等级 2｜缠绕住4个敌人，每秒造成100点伤害，冷却时间：14秒。 耗蓝 30点。\n等级 3｜缠绕住5个敌人，每秒造成150点伤害，冷却时间：13秒。 耗蓝 40点。\n等级 4｜缠绕住5个敌人，每秒造成200点伤害，冷却时间：12秒。 耗蓝 50点。\n等级 5｜缠绕住6个敌人，每秒造成250点伤害，冷却时间：11秒。 耗蓝 60点。\n等级 6｜缠绕住6个敌人，每秒造成300点伤害，冷却时间：10秒。 耗蓝 70点。\n伤害类型 法术伤害",
+            "冷却 11.0／10.0；耗蓝 60／70"
+          ]
+        }
+      ],
+      "shell": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 967,
+          "id": "A178",
+          "fields": {
+            "alias": "A178",
+            "code": "ANcl",
+            "checkDep": 1,
+            "Cool1": 15.0,
+            "Cool2": 14.0,
+            "Cool3": 13.0,
+            "Cool4": 12.0,
+            "Cost1": 20,
+            "Cost2": 30,
+            "Cost3": 40,
+            "Cost4": 50,
+            "DataC1": 1,
+            "DataC2": 1,
+            "DataC3": 1,
+            "DataC4": 1,
+            "DataF1": "sacrifice",
+            "DataF2": "sacrifice",
+            "DataF3": "sacrifice",
+            "DataF4": "sacrifice",
+            "levels": 6,
+            "reqLevel": 1,
+            "Rng1": 500.0,
+            "Rng2": 500.0,
+            "Rng3": 500.0,
+            "Rng4": 500.0,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 108,
+          "id": "A178",
+          "fields": {
+            "old": "A178",
+            "new": "\u0000\u0000\u0000\u0000",
+            "mods": [
+              {
+                "key": "acdn",
+                "type": 2,
+                "level": 5,
+                "data": 0,
+                "value": 11.0
+              },
+              {
+                "key": "acdn",
+                "type": 2,
+                "level": 6,
+                "data": 0,
+                "value": 10.0
+              },
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 5,
+                "data": 0,
+                "value": 60
+              },
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 6,
+                "data": 0,
+                "value": 70
+              }
+            ]
+          }
+        }
+      ],
+      "castTimes": {
+        "G065": {
+          "castpt": 0.01,
+          "castbsw": 0.1
+        },
+        "H046": {
+          "castpt": 0.01,
+          "castbsw": 0.1
+        }
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f125/f1",
+          "key": "k5",
+          "constantLine": 95518,
+          "pc": 12,
+          "sourceLine": 95542,
+          "instruction": "loadk r6 k5"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f125/f2",
+          "key": "k11",
+          "constantLine": 95610,
+          "pc": 27,
+          "sourceLine": 95687,
+          "instruction": "loadk r13 k11"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f125/f2",
+          "key": "k11",
+          "constantLine": 95610,
+          "pc": 105,
+          "sourceLine": 95772,
+          "instruction": "loadk r25 k11"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k231",
+          "constantLine": 169820,
+          "pc": 1082,
+          "sourceLine": 171184,
+          "instruction": "loadk r5 k231"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k177",
+          "constantLine": 173949,
+          "pc": 2576,
+          "sourceLine": 176831,
+          "instruction": "loadk r14 k177"
+        }
+      ],
+      "functions": {
+        "main/f125": [
+          95447,
+          95468
+        ],
+        "main/f125/f0": [
+          95469,
+          95497
+        ],
+        "main/f125/f1": [
+          95498,
+          95582
+        ],
+        "main/f125/f2": [
+          95583,
+          95904
+        ]
+      },
+      "objects": {
+        "T185": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 2057,
+            "id": "T185",
+            "fields": {
+              "alias": "T185",
+              "code": "Aens",
+              "BuffID1": "B159",
+              "Cool1": 1.0,
+              "Cost1": 1,
+              "DataA1": 0.6,
+              "DataB1": 200.0,
+              "DataC1": 128.0,
+              "Dur1": 2.0,
+              "HeroDur1": 1.8,
+              "levels": 1,
+              "Rng1": 2000.0,
+              "targs1": "enemies",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ],
+        "B159": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+            "jsonIndex": 379,
+            "id": "B159",
+            "fields": {
+              "alias": "B159"
+            }
+          }
+        ]
+      },
+      "sourceMana": [
+        20,
+        30,
+        40,
+        50,
+        60,
+        70
+      ],
+      "sourceCooldown": [
+        15.0,
+        14.0,
+        13.0,
+        12.0,
+        11.0,
+        10.0
+      ],
+      "web": {
+        "radius": 650,
+        "limit": [
+          4,
+          4,
+          5,
+          5,
+          6,
+          6
+        ],
+        "duration": 4,
+        "damage": [
+          50,
+          100,
+          150,
+          200,
+          250,
+          300
+        ],
+        "damageTimes": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "control": 4,
+        "sourceOrdinaryControl": 2,
+        "sourceHeroControl": 1.8,
+        "recast": "replace damage timer per caster; native control separate",
+        "damageLevel": "cast for immediate and live for periodic",
+        "order": "sacrifice",
+        "mode": "none",
+        "range": 500.0,
+        "auto": 500,
+        "mana": [
+          20,
+          30,
+          40,
+          50,
+          60,
+          70
+        ],
+        "cooldown": [
+          15,
+          14,
+          13,
+          12,
+          11,
+          10
+        ]
+      }
+    },
+    "A179": {
+      "status": "ready",
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 432,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "灰烬之灵<SR>",
+            "H046",
+            2,
+            "学习技能",
+            "火焰壁垒",
+            "A179",
+            6,
+            "新用火焰之环将自己包裹起来，对周围800范围的敌人造成持续伤害。持续14秒，冷却时间：20秒。",
+            "等级 1｜每秒造成200点伤害。 耗蓝 50点。\n等级 2｜每秒造成400点伤害。 耗蓝 60点。\n等级 3｜每秒造成600点伤害。 耗蓝 70点。\n等级 4｜每秒造成800点伤害。 耗蓝 80点。\n等级 5｜每秒造成1000点伤害。 耗蓝 90点。\n等级 6｜每秒造成1200点伤害。 耗蓝 100点。\n伤害类型 法术伤害",
+            "耗蓝 90／100"
+          ]
+        },
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 447,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "烈焰双刃<SR>",
+            "G065",
+            2,
+            "学习技能",
+            "火焰壁垒",
+            "A179",
+            6,
+            "新用火焰之环将自己包裹起来，对周围800范围的敌人造成持续伤害。持续14秒，冷却时间：20秒。",
+            "等级 1｜每秒造成200点伤害。 耗蓝 50点。\n等级 2｜每秒造成400点伤害。 耗蓝 60点。\n等级 3｜每秒造成600点伤害。 耗蓝 70点。\n等级 4｜每秒造成800点伤害。 耗蓝 80点。\n等级 5｜每秒造成1000点伤害。 耗蓝 90点。\n等级 6｜每秒造成1200点伤害。 耗蓝 100点。\n伤害类型 法术伤害",
+            "耗蓝 90／100"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 432,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "灰烬之灵<SR>",
+            "H046",
+            2,
+            "学习技能",
+            "火焰壁垒",
+            "A179",
+            6,
+            "新用火焰之环将自己包裹起来，对周围800范围的敌人造成持续伤害。持续14秒，冷却时间：20秒。",
+            "等级 1｜每秒造成200点伤害。 耗蓝 50点。\n等级 2｜每秒造成400点伤害。 耗蓝 60点。\n等级 3｜每秒造成600点伤害。 耗蓝 70点。\n等级 4｜每秒造成800点伤害。 耗蓝 80点。\n等级 5｜每秒造成1000点伤害。 耗蓝 90点。\n等级 6｜每秒造成1200点伤害。 耗蓝 100点。\n伤害类型 法术伤害",
+            "耗蓝 90／100"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 447,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "烈焰双刃<SR>",
+            "G065",
+            2,
+            "学习技能",
+            "火焰壁垒",
+            "A179",
+            6,
+            "新用火焰之环将自己包裹起来，对周围800范围的敌人造成持续伤害。持续14秒，冷却时间：20秒。",
+            "等级 1｜每秒造成200点伤害。 耗蓝 50点。\n等级 2｜每秒造成400点伤害。 耗蓝 60点。\n等级 3｜每秒造成600点伤害。 耗蓝 70点。\n等级 4｜每秒造成800点伤害。 耗蓝 80点。\n等级 5｜每秒造成1000点伤害。 耗蓝 90点。\n等级 6｜每秒造成1200点伤害。 耗蓝 100点。\n伤害类型 法术伤害",
+            "耗蓝 90／100"
+          ]
+        }
+      ],
+      "shell": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 968,
+          "id": "A179",
+          "fields": {
+            "alias": "A179",
+            "code": "AEfk",
+            "Area1": 400.0,
+            "Area2": 450.0,
+            "Area3": 475.0,
+            "Area4": 475.0,
+            "checkDep": 1,
+            "Cool1": 20.0,
+            "Cool2": 20.0,
+            "Cool3": 20.0,
+            "Cool4": 20.0,
+            "Cost1": 50,
+            "Cost2": 60,
+            "Cost3": 70,
+            "Cost4": 80,
+            "levels": 6,
+            "reqLevel": 1,
+            "targs1": "air,ground,enemy,organic",
+            "targs2": "air,ground,enemy,organic",
+            "targs3": "air,ground,enemy,organic",
+            "targs4": "air,ground,enemy,organic"
+          }
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 109,
+          "id": "A179",
+          "fields": {
+            "old": "A179",
+            "new": "\u0000\u0000\u0000\u0000",
+            "mods": [
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 5,
+                "data": 0,
+                "value": 90
+              },
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 6,
+                "data": 0,
+                "value": 100
+              }
+            ]
+          }
+        }
+      ],
+      "castTimes": {
+        "G065": {
+          "castpt": 0.01,
+          "castbsw": 0.1
+        },
+        "H046": {
+          "castpt": 0.01,
+          "castbsw": 0.1
+        }
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f126/f1",
+          "key": "k5",
+          "constantLine": 95972,
+          "pc": 12,
+          "sourceLine": 95995,
+          "instruction": "loadk r6 k5"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f126/f2",
+          "key": "k6",
+          "constantLine": 96049,
+          "pc": 17,
+          "sourceLine": 96089,
+          "instruction": "loadk r6 k6"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k233",
+          "constantLine": 169822,
+          "pc": 1091,
+          "sourceLine": 171194,
+          "instruction": "loadk r5 k233"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k178",
+          "constantLine": 173950,
+          "pc": 2605,
+          "sourceLine": 176862,
+          "instruction": "loadk r14 k178"
+        }
+      ],
+      "functions": {
+        "main/f126": [
+          95905,
+          95925
+        ],
+        "main/f126/f0": [
+          95926,
+          95952
+        ],
+        "main/f126/f1": [
+          95953,
+          96027
+        ],
+        "main/f126/f2": [
+          96028,
+          96145
+        ]
+      },
+      "objects": {},
+      "sourceMana": [
+        50,
+        60,
+        70,
+        80,
+        90,
+        100
+      ],
+      "sourceCooldown": [
+        20.0,
+        20.0,
+        20.0,
+        20.0,
+        20.0,
+        20.0
+      ],
+      "web": {
+        "radius": 800,
+        "duration": 14,
+        "damage": [
+          200,
+          400,
+          600,
+          800,
+          1000,
+          1200
+        ],
+        "damageTimes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "recast": "replace per caster",
+        "damageLevel": "live",
+        "center": "live caster",
+        "order": "fanofknives",
+        "mode": "none",
+        "range": null,
+        "auto": null,
+        "mana": [
+          50,
+          60,
+          70,
+          80,
+          90,
+          100
+        ],
+        "cooldown": [
+          20,
+          20,
+          20,
+          20,
+          20,
+          20
+        ]
+      }
+    },
+    "A181": {
+      "status": "ready",
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 185,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "刚背兽<SR>",
+            "H047",
+            1,
+            "学习技能",
+            "粘稠鼻液",
+            "A181",
+            6,
+            "用鼻涕包裹刚背兽周围550范围敌方单位，降低其移动速度与护甲，效果可以叠加。冷却2.5秒。",
+            "等级 1 每次降低8%的移动速度及5点护甲。可以叠加3次。 耗蓝 35点。\n等级 2 每次降低8%的移动速度及10点护甲。可以叠加3次。 耗蓝 40点。\n等级 3 每次降低8%的移动速度及10点护甲。可以叠加4次。 耗蓝 45点。\n等级 4 每次降低8%的移动速度及15点护甲。可以叠加4次。 耗蓝 50点。\n等级 5 每次降低8%的移动速度及15点护甲。可以叠加5次。 耗蓝 55点。\n等级 6 每次降低8%的移动速度及20点护甲。可以叠加5次。 耗蓝 60点。",
+            "耗蓝 55／60"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 185,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "刚背兽<SR>",
+            "H047",
+            1,
+            "学习技能",
+            "粘稠鼻液",
+            "A181",
+            6,
+            "用鼻涕包裹刚背兽周围550范围敌方单位，降低其移动速度与护甲，效果可以叠加。冷却2.5秒。",
+            "等级 1 每次降低8%的移动速度及5点护甲。可以叠加3次。 耗蓝 35点。\n等级 2 每次降低8%的移动速度及10点护甲。可以叠加3次。 耗蓝 40点。\n等级 3 每次降低8%的移动速度及10点护甲。可以叠加4次。 耗蓝 45点。\n等级 4 每次降低8%的移动速度及15点护甲。可以叠加4次。 耗蓝 50点。\n等级 5 每次降低8%的移动速度及15点护甲。可以叠加5次。 耗蓝 55点。\n等级 6 每次降低8%的移动速度及20点护甲。可以叠加5次。 耗蓝 60点。",
+            "耗蓝 55／60"
+          ]
+        }
+      ],
+      "shell": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 970,
+          "id": "A181",
+          "fields": {
+            "alias": "A181",
+            "code": "ANcl",
+            "checkDep": 1,
+            "Cool1": 2.5,
+            "Cool2": 2.5,
+            "Cool3": 2.5,
+            "Cool4": 2.5,
+            "Cost1": 35,
+            "Cost2": 40,
+            "Cost3": 45,
+            "Cost4": 50,
+            "DataC1": 1,
+            "DataC2": 1,
+            "DataC3": 1,
+            "DataC4": 1,
+            "DataF1": "channel",
+            "DataF2": "channel",
+            "DataF3": "channel",
+            "DataF4": "channel",
+            "Dur1": 0.1,
+            "Dur2": 0.1,
+            "Dur3": 0.1,
+            "Dur4": 0.1,
+            "HeroDur1": 0.1,
+            "HeroDur2": 0.1,
+            "HeroDur3": 0.1,
+            "HeroDur4": 0.1,
+            "levels": 6,
+            "reqLevel": 1,
+            "Rng1": 800.0,
+            "Rng2": 800.0,
+            "Rng3": 800.0,
+            "Rng4": 800.0,
+            "targs1": "enemies",
+            "targs2": "enemies",
+            "targs3": "enemies",
+            "targs4": "enemies"
+          }
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 111,
+          "id": "A181",
+          "fields": {
+            "old": "A181",
+            "new": "\u0000\u0000\u0000\u0000",
+            "mods": [
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 5,
+                "data": 0,
+                "value": 55
+              },
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 6,
+                "data": 0,
+                "value": 60
+              }
+            ]
+          }
+        }
+      ],
+      "castTimes": {
+        "H047": {
+          "castpt": 0.4,
+          "castbsw": 0.1
+        }
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f129/f2",
+          "key": "k6",
+          "constantLine": 97592,
+          "pc": 16,
+          "sourceLine": 97651,
+          "instruction": "loadk r8 k6"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k243",
+          "constantLine": 169832,
+          "pc": 1139,
+          "sourceLine": 171247,
+          "instruction": "loadk r5 k243"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k186",
+          "constantLine": 173958,
+          "pc": 2756,
+          "sourceLine": 177022,
+          "instruction": "loadk r14 k186"
+        }
+      ],
+      "functions": {
+        "main/f129": [
+          97453,
+          97474
+        ],
+        "main/f129/f0": [
+          97475,
+          97496
+        ],
+        "main/f129/f1": [
+          97497,
+          97569
+        ],
+        "main/f129/f2": [
+          97570,
+          97878
+        ]
+      },
+      "objects": {
+        "T203": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 2074,
+            "id": "T203",
+            "fields": {
+              "alias": "T203",
+              "code": "AIde",
+              "DataA1": -5.0,
+              "DataA2": -10.0,
+              "DataA3": -15.0,
+              "DataA4": -10.0,
+              "levels": 24,
+              "targs1": "_",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/war3map.w3a.json",
+            "jsonIndex": 246,
+            "id": "T203",
+            "fields": {
+              "old": "T203",
+              "new": "\u0000\u0000\u0000\u0000",
+              "mods": [
+                {
+                  "key": "Idef",
+                  "type": 2,
+                  "level": 5,
+                  "data": 1,
+                  "value": -20.0
+                },
+                {
+                  "key": "Idef",
+                  "type": 2,
+                  "level": 6,
+                  "data": 1,
+                  "value": -30.0
+                },
+                {
+                  "key": "Idef",
+                  "type": 2,
+                  "level": 8,
+                  "data": 1,
+                  "value": -20.0
+                },
+                {
+                  "key": "Idef",
+                  "type": 2,
+                  "level": 9,
+                  "data": 1,
+                  "value": -30.0
+                },
+                {
+                  "key": "Idef",
+                  "type": 2,
+                  "level": 10,
+                  "data": 1,
+                  "value": -40.0
+                },
+                {
+                  "key": "Idef",
+                  "type": 2,
+                  "level": 11,
+                  "data": 1,
+                  "value": -15.0
+                },
+                {
+                  "key": "Idef",
+                  "type": 2,
+                  "level": 12,
+                  "data": 1,
+                  "value": -30.0
+                },
+                {
+                  "key": "Idef",
+                  "type": 2,
+                  "level": 13,
+                  "data": 1,
+                  "value": -45.0
+                },
+                {
+                  "key": "Idef",
+                  "type": 2,
+                  "level": 14,
+                  "data": 1,
+                  "value": -60.0
+                },
+                {
+                  "key": "Idef",
+                  "type": 2,
+                  "level": 15,
+                  "data": 1,
+                  "value": -15.0
+                },
+                {
+                  "key": "Idef",
+                  "type": 2,
+                  "level": 16,
+                  "data": 1,
+                  "value": -30.0
+                },
+                {
+                  "key": "Idef",
+                  "type": 2,
+                  "level": 17,
+                  "data": 1,
+                  "value": -45.0
+                },
+                {
+                  "key": "Idef",
+                  "type": 2,
+                  "level": 18,
+                  "data": 1,
+                  "value": -60.0
+                },
+                {
+                  "key": "Idef",
+                  "type": 2,
+                  "level": 19,
+                  "data": 1,
+                  "value": -75.0
+                },
+                {
+                  "key": "Idef",
+                  "type": 2,
+                  "level": 20,
+                  "data": 1,
+                  "value": -20.0
+                },
+                {
+                  "key": "Idef",
+                  "type": 2,
+                  "level": 21,
+                  "data": 1,
+                  "value": -40.0
+                },
+                {
+                  "key": "Idef",
+                  "type": 2,
+                  "level": 22,
+                  "data": 1,
+                  "value": -60.0
+                },
+                {
+                  "key": "Idef",
+                  "type": 2,
+                  "level": 23,
+                  "data": 1,
+                  "value": -80.0
+                },
+                {
+                  "key": "Idef",
+                  "type": 2,
+                  "level": 24,
+                  "data": 1,
+                  "value": -100.0
+                }
+              ]
+            }
+          }
+        ],
+        "T204": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 2075,
+            "id": "T204",
+            "fields": {
+              "alias": "T204",
+              "code": "ANpa",
+              "BuffID1": "B149",
+              "BuffID2": "B149",
+              "BuffID3": "B149",
+              "BuffID4": "B149",
+              "checkDep": 1,
+              "DataB1": 0.08,
+              "DataB2": 0.16,
+              "DataB3": 0.24,
+              "DataB4": 0.32,
+              "Dur1": 5.0,
+              "Dur2": 5.0,
+              "Dur3": 5.0,
+              "Dur4": 5.0,
+              "HeroDur1": 5.0,
+              "HeroDur2": 5.0,
+              "HeroDur3": 5.0,
+              "HeroDur4": 5.0,
+              "levels": 5,
+              "Rng1": 800.0,
+              "Rng2": 800.0,
+              "Rng3": 800.0,
+              "Rng4": 800.0,
+              "targs1": "enemies",
+              "targs2": "enemies",
+              "targs3": "enemies",
+              "targs4": "enemies"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/war3map.w3a.json",
+            "jsonIndex": 247,
+            "id": "T204",
+            "fields": {
+              "old": "T204",
+              "new": "\u0000\u0000\u0000\u0000",
+              "mods": [
+                {
+                  "key": "Poi2",
+                  "type": 2,
+                  "level": 5,
+                  "data": 2,
+                  "value": 0.4000000059604645
+                }
+              ]
+            }
+          }
+        ],
+        "B149": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+            "jsonIndex": 370,
+            "id": "B149",
+            "fields": {
+              "alias": "B149"
+            }
+          }
+        ]
+      },
+      "sourceMana": [
+        35,
+        40,
+        45,
+        50,
+        55,
+        60
+      ],
+      "sourceCooldown": [
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5
+      ],
+      "web": {
+        "radius": 550,
+        "armorPerStack": [
+          5,
+          10,
+          10,
+          15,
+          15,
+          20
+        ],
+        "slowPerStack": 0.08,
+        "stackCap": [
+          3,
+          3,
+          4,
+          4,
+          5,
+          5
+        ],
+        "armorState": "per-caster/target count then strongest currently on target (original shared carrier)",
+        "armorExpiry": 12,
+        "slowDuration": 5,
+        "slowDelivery": "native T204 single-target cast",
+        "order": "channel",
+        "mode": "none",
+        "range": 800.0,
+        "auto": 450,
+        "mana": [
+          35,
+          40,
+          45,
+          50,
+          55,
+          60
+        ],
+        "cooldown": [
+          2.5,
+          2.5,
+          2.5,
+          2.5,
+          2.5,
+          2.5
+        ]
+      }
+    },
+    "A186": {
+      "status": "ready",
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 200,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "半人猛犸<SR>",
+            "H048",
+            1,
+            "学习技能",
+            "震荡波",
+            "A186",
+            6,
+            "发射出一道震荡波，对一条直线上的敌人造成伤害并击退一段距离。",
+            "等级 1｜造成300点伤害。 耗蓝 20点。冷却 11秒。\n等级 2｜造成700点伤害。 耗蓝 30点。冷却 10秒。\n等级 3｜造成1100点伤害。 耗蓝 40点。冷却 9秒。\n等级 4｜造成1500点伤害。 耗蓝 50点。冷却 8秒。\n等级 5｜造成1900点伤害。 耗蓝 60点。冷却 7秒。\n等级 6｜造成2500点伤害。 耗蓝 70点。冷却 6秒。\n伤害类型 法术伤害",
+            "冷却 7.0／6.0；耗蓝 60／70"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 200,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "半人猛犸<SR>",
+            "H048",
+            1,
+            "学习技能",
+            "震荡波",
+            "A186",
+            6,
+            "发射出一道震荡波，对一条直线上的敌人造成伤害并击退一段距离。",
+            "等级 1｜造成300点伤害。 耗蓝 20点。冷却 11秒。\n等级 2｜造成700点伤害。 耗蓝 30点。冷却 10秒。\n等级 3｜造成1100点伤害。 耗蓝 40点。冷却 9秒。\n等级 4｜造成1500点伤害。 耗蓝 50点。冷却 8秒。\n等级 5｜造成1900点伤害。 耗蓝 60点。冷却 7秒。\n等级 6｜造成2500点伤害。 耗蓝 70点。冷却 6秒。\n伤害类型 法术伤害",
+            "冷却 7.0／6.0；耗蓝 60／70"
+          ]
+        }
+      ],
+      "shell": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 975,
+          "id": "A186",
+          "fields": {
+            "alias": "A186",
+            "code": "ANcl",
+            "Area1": 425.0,
+            "Area2": 425.0,
+            "Area3": 425.0,
+            "Area4": 425.0,
+            "checkDep": 1,
+            "Cool1": 11.0,
+            "Cool2": 10.0,
+            "Cool3": 9.0,
+            "Cool4": 8.0,
+            "Cost1": 20,
+            "Cost2": 30,
+            "Cost3": 40,
+            "Cost4": 50,
+            "DataA1": 0.2,
+            "DataA2": 0.2,
+            "DataA3": 0.2,
+            "DataA4": 0.2,
+            "DataB1": 2,
+            "DataB2": 2,
+            "DataB3": 2,
+            "DataB4": 2,
+            "DataC1": 1,
+            "DataC2": 1,
+            "DataC3": 1,
+            "DataC4": 1,
+            "DataF1": "revive",
+            "DataF2": "revive",
+            "DataF3": "revive",
+            "DataF4": "revive",
+            "HeroDur1": 1.0,
+            "HeroDur2": 1.0,
+            "HeroDur3": 1.0,
+            "HeroDur4": 1.0,
+            "levels": 6,
+            "reqLevel": 1,
+            "Rng1": 800.0,
+            "Rng2": 800.0,
+            "Rng3": 800.0,
+            "Rng4": 800.0,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 113,
+          "id": "A186",
+          "fields": {
+            "old": "A186",
+            "new": "\u0000\u0000\u0000\u0000",
+            "mods": [
+              {
+                "key": "acdn",
+                "type": 2,
+                "level": 5,
+                "data": 0,
+                "value": 7.0
+              },
+              {
+                "key": "acdn",
+                "type": 2,
+                "level": 6,
+                "data": 0,
+                "value": 6.0
+              },
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 5,
+                "data": 0,
+                "value": 60
+              },
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 6,
+                "data": 0,
+                "value": 70
+              }
+            ]
+          }
+        }
+      ],
+      "castTimes": {
+        "H048": {
+          "castpt": 0.4,
+          "castbsw": 0.1
+        }
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f7",
+          "key": "k90",
+          "constantLine": 49284,
+          "pc": 269,
+          "sourceLine": 49754,
+          "instruction": "loadk r61 k90"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f131/f0",
+          "key": "k5",
+          "constantLine": 98559,
+          "pc": 11,
+          "sourceLine": 98581,
+          "instruction": "loadk r8 k5"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k247",
+          "constantLine": 169836,
+          "pc": 1157,
+          "sourceLine": 171267,
+          "instruction": "loadk r5 k247"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k188",
+          "constantLine": 173960,
+          "pc": 2798,
+          "sourceLine": 177067,
+          "instruction": "loadk r14 k188"
+        }
+      ],
+      "functions": {
+        "main/f131": [
+          98513,
+          98542
+        ],
+        "main/f131/f0": [
+          98543,
+          98613
+        ],
+        "main/f131/f1": [
+          98614,
+          98639
+        ],
+        "main/f131/f2": [
+          98640,
+          98735
+        ],
+        "main/f131/f3": [
+          98736,
+          98867
+        ],
+        "main/f131/f4": [
+          98868,
+          98895
+        ]
+      },
+      "objects": {
+        "T205": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 2076,
+            "id": "T205",
+            "fields": {
+              "alias": "T205",
+              "code": "AOsh",
+              "Area1": 300.0,
+              "Area2": 300.0,
+              "Area3": 300.0,
+              "Area4": 300.0,
+              "BuffID1": "BOsh",
+              "BuffID2": "BOsh",
+              "BuffID3": "BOsh",
+              "BuffID4": "BOsh",
+              "checkDep": 1,
+              "Cool1": 11.0,
+              "Cool2": 10.0,
+              "Cool3": 9.0,
+              "Cool4": 8.0,
+              "Cost1": 30,
+              "Cost2": 40,
+              "Cost3": 50,
+              "Cost4": 60,
+              "DataA1": 300.0,
+              "DataA2": 700.0,
+              "DataA3": 1100.0,
+              "DataA4": 1500.0,
+              "DataB1": 999999.0,
+              "DataB2": 999999.0,
+              "DataB3": 999999.0,
+              "DataB4": 999999.0,
+              "DataC1": 1000.0,
+              "DataC2": 1000.0,
+              "DataC3": 1000.0,
+              "DataC4": 1000.0,
+              "DataD1": 500.0,
+              "DataD2": 500.0,
+              "DataD3": 500.0,
+              "DataD4": 500.0,
+              "levels": 12,
+              "reqLevel": 1,
+              "Rng1": 800.0,
+              "Rng2": 800.0,
+              "Rng3": 800.0,
+              "Rng4": 800.0,
+              "targs1": "enemies",
+              "targs2": "enemies",
+              "targs3": "enemies",
+              "targs4": "enemies"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/war3map.w3a.json",
+            "jsonIndex": 248,
+            "id": "T205",
+            "fields": {
+              "old": "T205",
+              "new": "\u0000\u0000\u0000\u0000",
+              "mods": [
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 5,
+                  "data": 0,
+                  "value": 7.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 6,
+                  "data": 0,
+                  "value": 6.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 7,
+                  "data": 0,
+                  "value": 11.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 8,
+                  "data": 0,
+                  "value": 10.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 9,
+                  "data": 0,
+                  "value": 9.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 11,
+                  "data": 0,
+                  "value": 7.0
+                },
+                {
+                  "key": "acdn",
+                  "type": 2,
+                  "level": 12,
+                  "data": 0,
+                  "value": 6.0
+                },
+                {
+                  "key": "amcs",
+                  "type": 0,
+                  "level": 5,
+                  "data": 0,
+                  "value": 70
+                },
+                {
+                  "key": "amcs",
+                  "type": 0,
+                  "level": 6,
+                  "data": 0,
+                  "value": 80
+                },
+                {
+                  "key": "amcs",
+                  "type": 0,
+                  "level": 7,
+                  "data": 0,
+                  "value": 30
+                },
+                {
+                  "key": "amcs",
+                  "type": 0,
+                  "level": 8,
+                  "data": 0,
+                  "value": 40
+                },
+                {
+                  "key": "amcs",
+                  "type": 0,
+                  "level": 9,
+                  "data": 0,
+                  "value": 50
+                },
+                {
+                  "key": "amcs",
+                  "type": 0,
+                  "level": 11,
+                  "data": 0,
+                  "value": 70
+                },
+                {
+                  "key": "amcs",
+                  "type": 0,
+                  "level": 12,
+                  "data": 0,
+                  "value": 80
+                },
+                {
+                  "key": "Osh1",
+                  "type": 2,
+                  "level": 5,
+                  "data": 1,
+                  "value": 1900.0
+                },
+                {
+                  "key": "Osh1",
+                  "type": 2,
+                  "level": 6,
+                  "data": 1,
+                  "value": 2500.0
+                },
+                {
+                  "key": "Osh1",
+                  "type": 2,
+                  "level": 7,
+                  "data": 1,
+                  "value": 600.0
+                },
+                {
+                  "key": "Osh1",
+                  "type": 2,
+                  "level": 8,
+                  "data": 1,
+                  "value": 1400.0
+                },
+                {
+                  "key": "Osh1",
+                  "type": 2,
+                  "level": 9,
+                  "data": 1,
+                  "value": 2200.0
+                },
+                {
+                  "key": "Osh1",
+                  "type": 2,
+                  "level": 10,
+                  "data": 1,
+                  "value": 3000.0
+                },
+                {
+                  "key": "Osh1",
+                  "type": 2,
+                  "level": 11,
+                  "data": 1,
+                  "value": 3800.0
+                },
+                {
+                  "key": "Osh1",
+                  "type": 2,
+                  "level": 12,
+                  "data": 1,
+                  "value": 5000.0
+                }
+              ]
+            }
+          }
+        ],
+        "q041": []
+      },
+      "sourceMana": [
+        20,
+        30,
+        40,
+        50,
+        60,
+        70
+      ],
+      "sourceCooldown": [
+        11.0,
+        10.0,
+        9.0,
+        8.0,
+        7.0,
+        6.0
+      ],
+      "web": {
+        "carrier": "q041",
+        "carrierLifetime": 1,
+        "staffFactor": 2,
+        "damage": [
+          300,
+          700,
+          1100,
+          1500,
+          1900,
+          2500
+        ],
+        "origin": "cast source",
+        "speed": 1200,
+        "travel": 1000,
+        "startRadius": 300,
+        "endRadius": 500,
+        "knockbackInitial": 40,
+        "knockbackTick": 40,
+        "knockbackPeriod": 0.05,
+        "knockbackTicks": 3,
+        "knockbackKey": "target",
+        "order": "revive",
+        "mode": "point",
+        "range": 800.0,
+        "auto": 800,
+        "mana": [
+          20,
+          30,
+          40,
+          50,
+          60,
+          70
+        ],
+        "cooldown": [
+          11,
+          10,
+          9,
+          8,
+          7,
+          6
+        ]
+      }
+    },
+    "A187": {
+      "status": "ready",
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 201,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "半人猛犸<SR>",
+            "H048",
+            2,
+            "学习技能",
+            "授予力量",
+            "A187",
+            6,
+            "提升一个友方单位的攻击力并赋予他分裂攻击能力（分裂攻击对远程无效,自动施法时优先选取上一个目标施放）。持续时间：7秒。",
+            "等级 1｜增加目标50%分裂攻击能力和20%攻击力。 耗蓝 40点。\n冷却 9秒。\n等级 2｜增加目标60%分裂攻击能力和25%攻击力。 耗蓝 45点。\n冷却 9秒。\n等级 3｜增加目标70%分裂攻击能力和30%攻击力。 耗蓝 50点。\n冷却 9秒。\n等级 4｜增加目标80%分裂攻击能力和35%攻击力。 耗蓝 55点。\n冷却 9秒。\n等级 5｜增加目标90%分裂攻击能力和40%攻击力。 耗蓝 60点。\n冷却 9秒。\n等级 6｜增加目标100%分裂攻击能力和50%攻击力。 耗蓝 65点。\n冷却 9秒。",
+            "耗蓝 60／65"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 201,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "半人猛犸<SR>",
+            "H048",
+            2,
+            "学习技能",
+            "授予力量",
+            "A187",
+            6,
+            "提升一个友方单位的攻击力并赋予他分裂攻击能力（分裂攻击对远程无效,自动施法时优先选取上一个目标施放）。持续时间：7秒。",
+            "等级 1｜增加目标50%分裂攻击能力和20%攻击力。 耗蓝 40点。\n冷却 9秒。\n等级 2｜增加目标60%分裂攻击能力和25%攻击力。 耗蓝 45点。\n冷却 9秒。\n等级 3｜增加目标70%分裂攻击能力和30%攻击力。 耗蓝 50点。\n冷却 9秒。\n等级 4｜增加目标80%分裂攻击能力和35%攻击力。 耗蓝 55点。\n冷却 9秒。\n等级 5｜增加目标90%分裂攻击能力和40%攻击力。 耗蓝 60点。\n冷却 9秒。\n等级 6｜增加目标100%分裂攻击能力和50%攻击力。 耗蓝 65点。\n冷却 9秒。",
+            "耗蓝 60／65"
+          ]
+        }
+      ],
+      "shell": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 976,
+          "id": "A187",
+          "fields": {
+            "alias": "A187",
+            "code": "ANcl",
+            "checkDep": 1,
+            "Cool1": 9.0,
+            "Cool2": 9.0,
+            "Cool3": 9.0,
+            "Cool4": 9.0,
+            "Cost1": 40,
+            "Cost2": 45,
+            "Cost3": 50,
+            "Cost4": 55,
+            "DataB1": 1,
+            "DataB2": 1,
+            "DataB3": 1,
+            "DataB4": 1,
+            "DataC1": 1,
+            "DataC2": 1,
+            "DataC3": 1,
+            "DataC4": 1,
+            "DataD1": 1.0,
+            "DataD2": 1.0,
+            "DataD3": 1.0,
+            "DataD4": 1.0,
+            "DataF1": "creepheal",
+            "DataF2": "creepheal",
+            "DataF3": "creepheal",
+            "DataF4": "creepheal",
+            "Dur1": 7.0,
+            "Dur2": 7.0,
+            "Dur3": 7.0,
+            "Dur4": 7.0,
+            "HeroDur1": 7.0,
+            "HeroDur2": 7.0,
+            "HeroDur3": 7.0,
+            "HeroDur4": 7.0,
+            "levels": 6,
+            "reqLevel": 1,
+            "Rng1": 9999.0,
+            "Rng2": 9999.0,
+            "Rng3": 9999.0,
+            "Rng4": 9999.0,
+            "targs1": "self,friend,invulnerable",
+            "targs2": "self,friend,invulnerable",
+            "targs3": "self,friend,invulnerable",
+            "targs4": "self,friend,invulnerable"
+          }
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 114,
+          "id": "A187",
+          "fields": {
+            "old": "A187",
+            "new": "\u0000\u0000\u0000\u0000",
+            "mods": [
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 5,
+                "data": 0,
+                "value": 60
+              },
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 6,
+                "data": 0,
+                "value": 65
+              }
+            ]
+          }
+        }
+      ],
+      "castTimes": {
+        "H048": {
+          "castpt": 0.4,
+          "castbsw": 0.1
+        }
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f132/f1",
+          "key": "k7",
+          "constantLine": 98991,
+          "pc": 20,
+          "sourceLine": 99022,
+          "instruction": "loadk r6 k7"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k249",
+          "constantLine": 169838,
+          "pc": 1167,
+          "sourceLine": 171278,
+          "instruction": "loadk r5 k249"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k191",
+          "constantLine": 173963,
+          "pc": 2861,
+          "sourceLine": 177134,
+          "instruction": "loadk r14 k191"
+        }
+      ],
+      "functions": {
+        "main/f132": [
+          98896,
+          98925
+        ],
+        "main/f132/f0": [
+          98926,
+          98969
+        ],
+        "main/f132/f1": [
+          98970,
+          99078
+        ],
+        "main/f132/f2": [
+          99079,
+          99271
+        ]
+      },
+      "objects": {
+        "T198": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 2069,
+            "id": "T198",
+            "fields": {
+              "alias": "T198",
+              "code": "AOac",
+              "Area1": 100.0,
+              "Area2": 100.0,
+              "Area3": 100.0,
+              "Area4": 100.0,
+              "BuffID1": "B163",
+              "BuffID2": "B163",
+              "BuffID3": "B163",
+              "BuffID4": "B163",
+              "DataA1": 0.2,
+              "DataA2": 0.25,
+              "DataA3": 0.3,
+              "DataA4": 0.35,
+              "DataB1": 1,
+              "DataB2": 1,
+              "DataB3": 1,
+              "DataB4": 1,
+              "DataC1": 1,
+              "DataC2": 1,
+              "DataC3": 1,
+              "DataC4": 1,
+              "levels": 6,
+              "targs1": "self,invulnerable",
+              "targs2": "self,invulnerable",
+              "targs3": "self,invulnerable",
+              "targs4": "self,invulnerable"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/war3map.w3a.json",
+            "jsonIndex": 243,
+            "id": "T198",
+            "fields": {
+              "old": "T198",
+              "new": "\u0000\u0000\u0000\u0000",
+              "mods": [
+                {
+                  "key": "Cac1",
+                  "type": 2,
+                  "level": 5,
+                  "data": 1,
+                  "value": 0.4000000059604645
+                },
+                {
+                  "key": "Cac1",
+                  "type": 2,
+                  "level": 6,
+                  "data": 1,
+                  "value": 0.5
+                }
+              ]
+            }
+          }
+        ],
+        "B163": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+            "jsonIndex": 383,
+            "id": "B163",
+            "fields": {
+              "alias": "B163"
+            }
+          }
+        ]
+      },
+      "sourceMana": [
+        40,
+        45,
+        50,
+        55,
+        60,
+        65
+      ],
+      "sourceCooldown": [
+        9.0,
+        9.0,
+        9.0,
+        9.0,
+        9.0,
+        9.0
+      ],
+      "web": {
+        "duration": 7,
+        "attackBonus": [
+          0.2,
+          0.25,
+          0.3,
+          0.35,
+          0.4,
+          0.5
+        ],
+        "cleave": [
+          0.5,
+          0.6,
+          0.7,
+          0.8,
+          0.9,
+          1
+        ],
+        "cleaveRadius": 520,
+        "cleaveSpecialTargetFactor": 0.2,
+        "cleaveType": "real",
+        "rankRule": "reject downgrade, same or greater resets single target timer",
+        "order": "creepheal",
+        "mode": "friend",
+        "range": 9999.0,
+        "auto": null,
+        "mana": [
+          40,
+          45,
+          50,
+          55,
+          60,
+          65
+        ],
+        "cooldown": [
+          9,
+          9,
+          9,
+          9,
+          9,
+          9
+        ]
+      }
+    },
+    "A188": {
+      "status": "ready",
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 202,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "半人猛犸<SR>",
+            "H048",
+            3,
+            "学习技能",
+            "两极反转",
+            "A188",
+            6,
+            "通过某种未知的力量，将周围的敌方单位牵引到半人猛犸的身边并眩晕。牵引范围为500。",
+            "等级 1｜对目标造成300伤害。 耗蓝 75点。冷却 21秒。\n等级 2｜对目标造成600伤害。 耗蓝 100点。冷却 20秒。\n等级 3｜对目标造成900伤害。 耗蓝 125点。冷却 19秒。\n等级 4｜对目标造成1200伤害。 耗蓝 150点。冷却 18秒。\n等级 5｜对目标造成1500伤害。 耗蓝 175点。冷却 17秒。\n等级 6｜对目标造成1800伤害。 耗蓝 200点。冷却 16秒。\n伤害类型 法术伤害",
+            "冷却 17.0／16.0；耗蓝 175／200"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 202,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "半人猛犸<SR>",
+            "H048",
+            3,
+            "学习技能",
+            "两极反转",
+            "A188",
+            6,
+            "通过某种未知的力量，将周围的敌方单位牵引到半人猛犸的身边并眩晕。牵引范围为500。",
+            "等级 1｜对目标造成300伤害。 耗蓝 75点。冷却 21秒。\n等级 2｜对目标造成600伤害。 耗蓝 100点。冷却 20秒。\n等级 3｜对目标造成900伤害。 耗蓝 125点。冷却 19秒。\n等级 4｜对目标造成1200伤害。 耗蓝 150点。冷却 18秒。\n等级 5｜对目标造成1500伤害。 耗蓝 175点。冷却 17秒。\n等级 6｜对目标造成1800伤害。 耗蓝 200点。冷却 16秒。\n伤害类型 法术伤害",
+            "冷却 17.0／16.0；耗蓝 175／200"
+          ]
+        }
+      ],
+      "shell": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 977,
+          "id": "A188",
+          "fields": {
+            "alias": "A188",
+            "code": "ANcl",
+            "Area1": 100.0,
+            "Area2": 100.0,
+            "Area3": 100.0,
+            "Area4": 100.0,
+            "checkDep": 1,
+            "Cool1": 21.0,
+            "Cool2": 20.0,
+            "Cool3": 19.0,
+            "Cool4": 18.0,
+            "Cost1": 75,
+            "Cost2": 100,
+            "Cost3": 125,
+            "Cost4": 150,
+            "DataC1": 1,
+            "DataC2": 1,
+            "DataC3": 1,
+            "DataC4": 1,
+            "DataF1": "summongrizzly",
+            "DataF2": "summongrizzly",
+            "DataF3": "summongrizzly",
+            "DataF4": "summongrizzly",
+            "Dur1": 0.1,
+            "Dur2": 0.1,
+            "Dur3": 0.1,
+            "Dur4": 0.1,
+            "HeroDur1": 0.1,
+            "HeroDur2": 0.1,
+            "HeroDur3": 0.1,
+            "HeroDur4": 0.1,
+            "levels": 6,
+            "reqLevel": 1,
+            "Rng1": 600.0,
+            "Rng2": 600.0,
+            "Rng3": 600.0,
+            "Rng4": 600.0,
+            "targs1": "enemies",
+            "targs2": "enemies",
+            "targs3": "enemies",
+            "targs4": "enemies"
+          }
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 115,
+          "id": "A188",
+          "fields": {
+            "old": "A188",
+            "new": "\u0000\u0000\u0000\u0000",
+            "mods": [
+              {
+                "key": "acdn",
+                "type": 2,
+                "level": 5,
+                "data": 0,
+                "value": 17.0
+              },
+              {
+                "key": "acdn",
+                "type": 2,
+                "level": 6,
+                "data": 0,
+                "value": 16.0
+              },
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 5,
+                "data": 0,
+                "value": 175
+              },
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 6,
+                "data": 0,
+                "value": 200
+              }
+            ]
+          }
+        }
+      ],
+      "castTimes": {
+        "H048": {
+          "castpt": 0.4,
+          "castbsw": 0.1
+        }
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f7",
+          "key": "k91",
+          "constantLine": 49285,
+          "pc": 272,
+          "sourceLine": 49757,
+          "instruction": "loadk r62 k91"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k251",
+          "constantLine": 169840,
+          "pc": 1177,
+          "sourceLine": 171289,
+          "instruction": "loadk r5 k251"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k189",
+          "constantLine": 173961,
+          "pc": 2832,
+          "sourceLine": 177103,
+          "instruction": "loadk r14 k189"
+        }
+      ],
+      "functions": {
+        "main/f133": [
+          99272,
+          99289
+        ],
+        "main/f133/f0": [
+          99290,
+          99502
+        ]
+      },
+      "objects": {
+        "T199": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 2070,
+            "id": "T199",
+            "fields": {
+              "alias": "T199",
+              "code": "AOws",
+              "Area1": 300.0,
+              "Area2": 300.0,
+              "Area3": 300.0,
+              "Area4": 300.0,
+              "BuffID1": "BPSE",
+              "BuffID2": "BPSE",
+              "BuffID3": "BPSE",
+              "BuffID4": "BPSE",
+              "checkDep": 1,
+              "Cool1": 6.0,
+              "Cool2": 6.0,
+              "Cool3": 6.0,
+              "Cool4": 6.0,
+              "Cost1": 90,
+              "Cost2": 90,
+              "Cost3": 90,
+              "Cost4": 90,
+              "DataA1": 300.0,
+              "DataA2": 600.0,
+              "DataA3": 900.0,
+              "DataA4": 1200.0,
+              "Dur1": 2.0,
+              "Dur2": 2.0,
+              "Dur3": 2.0,
+              "Dur4": 2.0,
+              "HeroDur1": 1.6,
+              "HeroDur2": 1.6,
+              "HeroDur3": 1.6,
+              "HeroDur4": 1.6,
+              "levels": 6,
+              "reqLevel": 1,
+              "Rng1": 800.0,
+              "Rng2": 800.0,
+              "Rng3": 800.0,
+              "Rng4": 800.0,
+              "targs1": "enemies",
+              "targs2": "enemies",
+              "targs3": "enemies",
+              "targs4": "enemies"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/war3map.w3a.json",
+            "jsonIndex": 244,
+            "id": "T199",
+            "fields": {
+              "old": "T199",
+              "new": "\u0000\u0000\u0000\u0000",
+              "mods": [
+                {
+                  "key": "Wrs1",
+                  "type": 2,
+                  "level": 5,
+                  "data": 1,
+                  "value": 1500.0
+                },
+                {
+                  "key": "Wrs1",
+                  "type": 2,
+                  "level": 6,
+                  "data": 1,
+                  "value": 1800.0
+                }
+              ]
+            }
+          }
+        ],
+        "BPSE": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+            "jsonIndex": 96,
+            "id": "BPSE",
+            "fields": {
+              "alias": "BPSE"
+            }
+          }
+        ]
+      },
+      "sourceMana": [
+        75,
+        100,
+        125,
+        150,
+        175,
+        200
+      ],
+      "sourceCooldown": [
+        21.0,
+        20.0,
+        19.0,
+        18.0,
+        17.0,
+        16.0
+      ],
+      "web": {
+        "radius": 500,
+        "staffStrengthFactor": 0.5,
+        "staffRadiusCap": 1400,
+        "offsetEachAxis": [
+          10,
+          50
+        ],
+        "damageRadius": 300,
+        "damage": [
+          300,
+          600,
+          900,
+          1200,
+          1500,
+          1800
+        ],
+        "stun": 2,
+        "heroStun": 1.6,
+        "carrierLifetime": 1,
+        "anchor": "nearest living P11, positions read during the loop",
+        "order": "summongrizzly",
+        "mode": "none",
+        "range": 600.0,
+        "auto": 500,
+        "mana": [
+          75,
+          100,
+          125,
+          150,
+          175,
+          200
+        ],
+        "cooldown": [
+          21,
+          20,
+          19,
+          18,
+          17,
+          16
+        ]
+      }
+    },
+    "A189": {
+      "status": "illuminate-and-spirit",
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 155,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "光之守卫<SR>",
+            "H049",
+            1,
+            "学习技能",
+            "启明",
+            "A189",
+            6,
+            "将正相魔法积聚成球，每秒向其中凝聚能量。释放能量时对一条直线上的所有敌人造成伤害，并使他们进入致盲之光状态。冷却12秒。",
+            "等级 1｜最大凝聚时间1秒，每秒凝聚1500点能量。 耗蓝 90点。\n等级 2｜最大凝聚时间2秒，每秒凝聚2000点能量。 耗蓝 140点。\n等级 3｜最大凝聚时间2秒，每秒凝聚3750点能量。 耗蓝 190点。\n等级 4｜最大凝聚时间2秒，每秒凝聚4500点能量。 耗蓝 240点。\n等级 5｜最大凝聚时间2秒，每秒凝聚5250点能量。 耗蓝 290点。\n等级 6｜最大凝聚时间2秒，每秒凝聚6000点能量。 耗蓝 340点。\n伤害类型 法术伤害",
+            "耗蓝 290／340"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 155,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "光之守卫<SR>",
+            "H049",
+            1,
+            "学习技能",
+            "启明",
+            "A189",
+            6,
+            "将正相魔法积聚成球，每秒向其中凝聚能量。释放能量时对一条直线上的所有敌人造成伤害，并使他们进入致盲之光状态。冷却12秒。",
+            "等级 1｜最大凝聚时间1秒，每秒凝聚1500点能量。 耗蓝 90点。\n等级 2｜最大凝聚时间2秒，每秒凝聚2000点能量。 耗蓝 140点。\n等级 3｜最大凝聚时间2秒，每秒凝聚3750点能量。 耗蓝 190点。\n等级 4｜最大凝聚时间2秒，每秒凝聚4500点能量。 耗蓝 240点。\n等级 5｜最大凝聚时间2秒，每秒凝聚5250点能量。 耗蓝 290点。\n等级 6｜最大凝聚时间2秒，每秒凝聚6000点能量。 耗蓝 340点。\n伤害类型 法术伤害",
+            "耗蓝 290／340"
+          ]
+        }
+      ],
+      "shell": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 978,
+          "id": "A189",
+          "fields": {
+            "alias": "A189",
+            "code": "ANcl",
+            "Area1": 250.0,
+            "Area2": 250.0,
+            "Area3": 250.0,
+            "Area4": 250.0,
+            "checkDep": 1,
+            "Cool1": 12.0,
+            "Cool2": 12.0,
+            "Cool3": 12.0,
+            "Cool4": 12.0,
+            "Cost1": 90,
+            "Cost2": 140,
+            "Cost3": 190,
+            "Cost4": 240,
+            "DataA1": 1.0,
+            "DataA2": 2.0,
+            "DataA3": 3.0,
+            "DataA4": 3.0,
+            "DataB1": 2,
+            "DataB2": 2,
+            "DataB3": 2,
+            "DataB4": 2,
+            "DataC1": 1,
+            "DataC2": 1,
+            "DataC3": 1,
+            "DataC4": 1,
+            "DataF1": "revive",
+            "DataF2": "revive",
+            "DataF3": "revive",
+            "DataF4": "revive",
+            "HeroDur1": 1.0,
+            "HeroDur2": 1.0,
+            "HeroDur3": 1.0,
+            "HeroDur4": 1.0,
+            "levels": 6,
+            "reqLevel": 1,
+            "Rng1": 800.0,
+            "Rng2": 800.0,
+            "Rng3": 800.0,
+            "Rng4": 800.0,
+            "targs1": "enemies",
+            "targs2": "enemies",
+            "targs3": "enemies",
+            "targs4": "enemies"
+          }
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 116,
+          "id": "A189",
+          "fields": {
+            "old": "A189",
+            "new": "\u0000\u0000\u0000\u0000",
+            "mods": [
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 5,
+                "data": 0,
+                "value": 290
+              },
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 6,
+                "data": 0,
+                "value": 340
+              }
+            ]
+          }
+        }
+      ],
+      "castTimes": {
+        "H049": {
+          "castpt": 0.3,
+          "castbsw": 0.1
+        }
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f7",
+          "key": "k92",
+          "constantLine": 49286,
+          "pc": 275,
+          "sourceLine": 49760,
+          "instruction": "loadk r63 k92"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f134/f0",
+          "key": "k19",
+          "constantLine": 99566,
+          "pc": 52,
+          "sourceLine": 99625,
+          "instruction": "loadk r13 k19"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f134/f1",
+          "key": "k4",
+          "constantLine": 99668,
+          "pc": 12,
+          "sourceLine": 99711,
+          "instruction": "loadk r8 k4"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k124",
+          "constantLine": 169713,
+          "pc": 528,
+          "sourceLine": 170578,
+          "instruction": "loadk r5 k124"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f17",
+          "key": "k7",
+          "constantLine": 172470,
+          "pc": 24,
+          "sourceLine": 172560,
+          "instruction": "loadk r3 k7"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k195",
+          "constantLine": 173967,
+          "pc": 2923,
+          "sourceLine": 177201,
+          "instruction": "loadk r14 k195"
+        }
+      ],
+      "functions": {
+        "main/f134": [
+          99503,
+          99532
+        ],
+        "main/f134/f0": [
+          99533,
+          99649
+        ],
+        "main/f134/f1": [
+          99650,
+          99803
+        ],
+        "main/f134/f2": [
+          99804,
+          99841
+        ]
+      },
+      "objects": {
+        "T207": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 2078,
+            "id": "T207",
+            "fields": {
+              "alias": "T207",
+              "code": "AUcs",
+              "Area1": 400.0,
+              "Area2": 400.0,
+              "Area3": 400.0,
+              "Area4": 400.0,
+              "BuffID1": "BUcs",
+              "BuffID2": "BUcs",
+              "BuffID3": "BUcs",
+              "BuffID4": "BUcs",
+              "checkDep": 1,
+              "DataA1": 1000.0,
+              "DataA2": 2000.0,
+              "DataA3": 3000.0,
+              "DataA4": 4000.0,
+              "DataB1": 999999.0,
+              "DataB2": 999999.0,
+              "DataB3": 999999.0,
+              "DataB4": 999999.0,
+              "DataC1": 1500.0,
+              "DataC2": 1500.0,
+              "DataC3": 1500.0,
+              "DataC4": 1500.0,
+              "DataD1": 400.0,
+              "DataD2": 400.0,
+              "DataD3": 400.0,
+              "DataD4": 400.0,
+              "levels": 25,
+              "reqLevel": 1,
+              "Rng1": 1000.0,
+              "Rng2": 1000.0,
+              "Rng3": 1000.0,
+              "Rng4": 1000.0,
+              "targs1": "ground,air,organic",
+              "targs2": "ground,air,organic",
+              "targs3": "ground,air,organic",
+              "targs4": "ground,air,organic"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/war3map.w3a.json",
+            "jsonIndex": 249,
+            "id": "T207",
+            "fields": {
+              "old": "T207",
+              "new": "\u0000\u0000\u0000\u0000",
+              "mods": [
+                {
+                  "key": "Ucs1",
+                  "type": 2,
+                  "level": 5,
+                  "data": 1,
+                  "value": 5000.0
+                },
+                {
+                  "key": "Ucs1",
+                  "type": 2,
+                  "level": 6,
+                  "data": 1,
+                  "value": 6000.0
+                },
+                {
+                  "key": "Ucs1",
+                  "type": 2,
+                  "level": 7,
+                  "data": 1,
+                  "value": 7000.0
+                },
+                {
+                  "key": "Ucs1",
+                  "type": 2,
+                  "level": 8,
+                  "data": 1,
+                  "value": 8000.0
+                },
+                {
+                  "key": "Ucs1",
+                  "type": 2,
+                  "level": 9,
+                  "data": 1,
+                  "value": 9000.0
+                },
+                {
+                  "key": "Ucs1",
+                  "type": 2,
+                  "level": 10,
+                  "data": 1,
+                  "value": 10000.0
+                },
+                {
+                  "key": "Ucs1",
+                  "type": 2,
+                  "level": 11,
+                  "data": 1,
+                  "value": 11000.0
+                },
+                {
+                  "key": "Ucs1",
+                  "type": 2,
+                  "level": 12,
+                  "data": 1,
+                  "value": 12000.0
+                },
+                {
+                  "key": "Ucs1",
+                  "type": 2,
+                  "level": 13,
+                  "data": 1,
+                  "value": 13000.0
+                },
+                {
+                  "key": "Ucs1",
+                  "type": 2,
+                  "level": 14,
+                  "data": 1,
+                  "value": 14000.0
+                },
+                {
+                  "key": "Ucs1",
+                  "type": 2,
+                  "level": 15,
+                  "data": 1,
+                  "value": 15000.0
+                },
+                {
+                  "key": "Ucs1",
+                  "type": 2,
+                  "level": 16,
+                  "data": 1,
+                  "value": 16000.0
+                },
+                {
+                  "key": "Ucs1",
+                  "type": 2,
+                  "level": 17,
+                  "data": 1,
+                  "value": 17000.0
+                },
+                {
+                  "key": "Ucs1",
+                  "type": 2,
+                  "level": 18,
+                  "data": 1,
+                  "value": 18000.0
+                },
+                {
+                  "key": "Ucs1",
+                  "type": 2,
+                  "level": 19,
+                  "data": 1,
+                  "value": 19000.0
+                },
+                {
+                  "key": "Ucs1",
+                  "type": 2,
+                  "level": 20,
+                  "data": 1,
+                  "value": 20000.0
+                },
+                {
+                  "key": "Ucs1",
+                  "type": 2,
+                  "level": 21,
+                  "data": 1,
+                  "value": 21000.0
+                },
+                {
+                  "key": "Ucs1",
+                  "type": 2,
+                  "level": 22,
+                  "data": 1,
+                  "value": 22000.0
+                },
+                {
+                  "key": "Ucs1",
+                  "type": 2,
+                  "level": 23,
+                  "data": 1,
+                  "value": 23000.0
+                },
+                {
+                  "key": "Ucs1",
+                  "type": 2,
+                  "level": 24,
+                  "data": 1,
+                  "value": 24000.0
+                },
+                {
+                  "key": "Ucs1",
+                  "type": 2,
+                  "level": 25,
+                  "data": 1,
+                  "value": 25000.0
+                }
+              ]
+            }
+          }
+        ],
+        "q064": [],
+        "B218": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+            "jsonIndex": 421,
+            "id": "B218",
+            "fields": {
+              "alias": "B218"
+            }
+          }
+        ]
+      },
+      "sourceMana": [
+        90,
+        140,
+        190,
+        240,
+        290,
+        340
+      ],
+      "sourceCooldown": [
+        12.0,
+        12.0,
+        12.0,
+        12.0,
+        12.0,
+        12.0
+      ],
+      "web": {
+        "duration": [
+          1,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "rate": [
+          1500,
+          2000,
+          3750,
+          4500,
+          5250,
+          6000
+        ],
+        "staffFactor": 1.9,
+        "blindFactor": 1.6,
+        "order": "revive",
+        "mode": "point",
+        "range": 800.0,
+        "auto": 700,
+        "mana": [
+          90,
+          140,
+          190,
+          240,
+          290,
+          340
+        ],
+        "cooldown": [
+          12,
+          12,
+          12,
+          12,
+          12,
+          12
+        ]
+      }
+    },
+    "A190": {
+      "status": "ready",
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 156,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "光之守卫<SR>",
+            "H049",
+            2,
+            "学习技能",
+            "查克拉魔法",
+            "A190",
+            6,
+            "打通一个友方单位的穴道，增加目标的魔法值并且下一次使用的技能冷却时间减少20%。",
+            "等级 1｜回复150点法力值。\n冷却 14秒。\n等级 2｜回复200点法力值。\n冷却 13秒。\n等级 3｜回复250点法力值。\n冷却 12秒。\n等级 4｜回复300点法力值。\n冷却 11秒。\n等级 5｜回复350点法力值。\n冷却 10秒。\n等级 6｜回复400点法力值。\n冷却 9秒。",
+            "冷却 10.0／9.0"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 156,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "光之守卫<SR>",
+            "H049",
+            2,
+            "学习技能",
+            "查克拉魔法",
+            "A190",
+            6,
+            "打通一个友方单位的穴道，增加目标的魔法值并且下一次使用的技能冷却时间减少20%。",
+            "等级 1｜回复150点法力值。\n冷却 14秒。\n等级 2｜回复200点法力值。\n冷却 13秒。\n等级 3｜回复250点法力值。\n冷却 12秒。\n等级 4｜回复300点法力值。\n冷却 11秒。\n等级 5｜回复350点法力值。\n冷却 10秒。\n等级 6｜回复400点法力值。\n冷却 9秒。",
+            "冷却 10.0／9.0"
+          ]
+        }
+      ],
+      "shell": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 979,
+          "id": "A190",
+          "fields": {
+            "alias": "A190",
+            "code": "ANcl",
+            "checkDep": 1,
+            "Cool1": 14.0,
+            "Cool2": 13.0,
+            "Cool3": 12.0,
+            "Cool4": 11.0,
+            "DataB1": 1,
+            "DataB2": 1,
+            "DataB3": 1,
+            "DataB4": 1,
+            "DataC1": 1,
+            "DataC2": 1,
+            "DataC3": 1,
+            "DataC4": 1,
+            "DataD1": 1.0,
+            "DataD2": 1.0,
+            "DataD3": 1.0,
+            "DataD4": 1.0,
+            "DataF1": "acolyteharvest",
+            "DataF2": "acolyteharvest",
+            "DataF3": "acolyteharvest",
+            "DataF4": "acolyteharvest",
+            "Dur1": 7.0,
+            "Dur2": 7.0,
+            "Dur3": 7.0,
+            "Dur4": 7.0,
+            "HeroDur1": 7.0,
+            "HeroDur2": 7.0,
+            "HeroDur3": 7.0,
+            "HeroDur4": 7.0,
+            "levels": 6,
+            "reqLevel": 1,
+            "Rng1": 9999.0,
+            "Rng2": 9999.0,
+            "Rng3": 9999.0,
+            "Rng4": 9999.0,
+            "targs1": "self,friend,invulnerable",
+            "targs2": "self,friend,invulnerable",
+            "targs3": "self,friend,invulnerable",
+            "targs4": "self,friend,invulnerable"
+          }
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 117,
+          "id": "A190",
+          "fields": {
+            "old": "A190",
+            "new": "\u0000\u0000\u0000\u0000",
+            "mods": [
+              {
+                "key": "acdn",
+                "type": 2,
+                "level": 5,
+                "data": 0,
+                "value": 10.0
+              },
+              {
+                "key": "acdn",
+                "type": 2,
+                "level": 6,
+                "data": 0,
+                "value": 9.0
+              }
+            ]
+          }
+        }
+      ],
+      "castTimes": {
+        "H049": {
+          "castpt": 0.3,
+          "castbsw": 0.1
+        }
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f7",
+          "key": "k93",
+          "constantLine": 49287,
+          "pc": 279,
+          "sourceLine": 49764,
+          "instruction": "loadk r14 k93"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f135/f0",
+          "key": "k5",
+          "constantLine": 99878,
+          "pc": 12,
+          "sourceLine": 99921,
+          "instruction": "loadk r7 k5"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k253",
+          "constantLine": 169842,
+          "pc": 1187,
+          "sourceLine": 171300,
+          "instruction": "loadk r5 k253"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f17",
+          "key": "k20",
+          "constantLine": 172483,
+          "pc": 74,
+          "sourceLine": 172613,
+          "instruction": "loadk r3 k20"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k196",
+          "constantLine": 173968,
+          "pc": 2957,
+          "sourceLine": 177237,
+          "instruction": "loadk r14 k196"
+        }
+      ],
+      "functions": {
+        "main/f135": [
+          99842,
+          99861
+        ],
+        "main/f135/f0": [
+          99862,
+          100014
+        ]
+      },
+      "objects": {
+        "T206": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 2077,
+            "id": "T206",
+            "fields": {
+              "alias": "T206",
+              "code": "Ablo",
+              "BuffID1": "B164",
+              "checkDep": 1,
+              "Cool1": 1.0,
+              "Dur1": 25.0,
+              "HeroDur1": 25.0,
+              "levels": 1,
+              "priority": 11,
+              "Rng1": 9999.0,
+              "targs1": "friend,invulnerable",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ],
+        "T211": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 2082,
+            "id": "T211",
+            "fields": {
+              "alias": "T211",
+              "code": "Ablo",
+              "BuffID1": "B167",
+              "checkDep": 1,
+              "Cool1": 1.0,
+              "Dur1": 7.0,
+              "HeroDur1": 7.0,
+              "levels": 1,
+              "priority": 11,
+              "Rng1": 9999.0,
+              "targs1": "friend,invulnerable",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ],
+        "B164": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+            "jsonIndex": 384,
+            "id": "B164",
+            "fields": {
+              "alias": "B164"
+            }
+          }
+        ],
+        "B167": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+            "jsonIndex": 387,
+            "id": "B167",
+            "fields": {
+              "alias": "B167"
+            }
+          }
+        ]
+      },
+      "sourceMana": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "sourceCooldown": [
+        14.0,
+        13.0,
+        12.0,
+        11.0,
+        10.0,
+        9.0
+      ],
+      "web": {
+        "manaRestore": [
+          150,
+          200,
+          250,
+          300,
+          350,
+          400
+        ],
+        "staffMaxManaFraction": 0.13,
+        "ordinaryTokenTTL": 25,
+        "staffBuffTTL": 7,
+        "cooldownFactor": 0.8,
+        "i327Stack": false,
+        "ordinaryEligibility": "next eligible committed ability, pre-existing token at commitment",
+        "order": "acolyteharvest",
+        "mode": "friend",
+        "range": 9999.0,
+        "auto": null,
+        "mana": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cooldown": [
+          14,
+          13,
+          12,
+          11,
+          10,
+          9
+        ]
+      }
+    },
+    "A191": {
+      "status": "illuminate-and-spirit",
+      "rows": [
+        {
+          "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 157,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "光之守卫<SR>",
+            "H049",
+            3,
+            "学习技能",
+            "灵魂形态",
+            "A191",
+            6,
+            "创造凝聚一个自己力量的分身，并使分身向目标施放一个威力强大的启明。",
+            "等级 1｜造成3000点伤害。\n冷却 15秒。耗蓝 100点。\n等级 2｜造成5000点伤害。\n冷却 14秒。耗蓝 120点。\n等级 3｜造成7000点伤害。\n冷却 13秒。耗蓝 140点。\n等级 4｜造成9000点伤害。\n冷却 12秒。耗蓝 160点。\n等级 5｜造成11000点伤害。\n冷却 11秒。耗蓝 180点。\n等级 6｜造成13000点伤害。\n冷却 10秒。耗蓝 200点。\n伤害类型 法术伤害",
+            "冷却 11.0／10.0；耗蓝 180／200"
+          ]
+        },
+        {
+          "sourcePath": "图鉴.xlsx",
+          "sheet": "塔技能",
+          "row": 157,
+          "columns": [
+            6
+          ],
+          "cells": [
+            "光之守卫<SR>",
+            "H049",
+            3,
+            "学习技能",
+            "灵魂形态",
+            "A191",
+            6,
+            "创造凝聚一个自己力量的分身，并使分身向目标施放一个威力强大的启明。",
+            "等级 1｜造成3000点伤害。\n冷却 15秒。耗蓝 100点。\n等级 2｜造成5000点伤害。\n冷却 14秒。耗蓝 120点。\n等级 3｜造成7000点伤害。\n冷却 13秒。耗蓝 140点。\n等级 4｜造成9000点伤害。\n冷却 12秒。耗蓝 160点。\n等级 5｜造成11000点伤害。\n冷却 11秒。耗蓝 180点。\n等级 6｜造成13000点伤害。\n冷却 10秒。耗蓝 200点。\n伤害类型 法术伤害",
+            "冷却 11.0／10.0；耗蓝 180／200"
+          ]
+        }
+      ],
+      "shell": [
+        {
+          "sourcePath": "reference/map-6.25/units_abilitydata.json",
+          "jsonIndex": 980,
+          "id": "A191",
+          "fields": {
+            "alias": "A191",
+            "code": "ANcl",
+            "checkDep": 1,
+            "Cool1": 15.0,
+            "Cool2": 14.0,
+            "Cool3": 13.0,
+            "Cool4": 12.0,
+            "Cost1": 100,
+            "Cost2": 120,
+            "Cost3": 140,
+            "Cost4": 160,
+            "DataA1": 0.2,
+            "DataA2": 0.2,
+            "DataA3": 0.2,
+            "DataA4": 0.2,
+            "DataB1": 2,
+            "DataB2": 2,
+            "DataB3": 2,
+            "DataB4": 2,
+            "DataC1": 1,
+            "DataC2": 1,
+            "DataC3": 1,
+            "DataC4": 1,
+            "DataF1": "absorb",
+            "DataF2": "absorb",
+            "DataF3": "absorb",
+            "DataF4": "absorb",
+            "levels": 6,
+            "reqLevel": 1,
+            "Rng1": 900.0,
+            "Rng2": 900.0,
+            "Rng3": 900.0,
+            "Rng4": 900.0,
+            "targs1": "_",
+            "targs2": "_",
+            "targs3": "_",
+            "targs4": "_"
+          }
+        },
+        {
+          "sourcePath": "reference/map-6.25/war3map.w3a.json",
+          "jsonIndex": 118,
+          "id": "A191",
+          "fields": {
+            "old": "A191",
+            "new": "\u0000\u0000\u0000\u0000",
+            "mods": [
+              {
+                "key": "acdn",
+                "type": 2,
+                "level": 5,
+                "data": 0,
+                "value": 11.0
+              },
+              {
+                "key": "acdn",
+                "type": 2,
+                "level": 6,
+                "data": 0,
+                "value": 10.0
+              },
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 5,
+                "data": 0,
+                "value": 180
+              },
+              {
+                "key": "amcs",
+                "type": 0,
+                "level": 6,
+                "data": 0,
+                "value": 200
+              }
+            ]
+          }
+        }
+      ],
+      "castTimes": {
+        "H049": {
+          "castpt": 0.3,
+          "castbsw": 0.1
+        }
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f7",
+          "key": "k94",
+          "constantLine": 49288,
+          "pc": 282,
+          "sourceLine": 49767,
+          "instruction": "loadk r15 k94"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f136/f0",
+          "key": "k6",
+          "constantLine": 100064,
+          "pc": 16,
+          "sourceLine": 100094,
+          "instruction": "loadk r8 k6"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f136/f2",
+          "key": "k3",
+          "constantLine": 100258,
+          "pc": 8,
+          "sourceLine": 100275,
+          "instruction": "loadk r6 k3"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k255",
+          "constantLine": 169844,
+          "pc": 1197,
+          "sourceLine": 171311,
+          "instruction": "loadk r5 k255"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f27",
+          "key": "k194",
+          "constantLine": 173966,
+          "pc": 2889,
+          "sourceLine": 177165,
+          "instruction": "loadk r14 k194"
+        }
+      ],
+      "functions": {
+        "main/f136": [
+          100015,
+          100044
+        ],
+        "main/f136/f0": [
+          100045,
+          100131
+        ],
+        "main/f136/f1": [
+          100132,
+          100243
+        ],
+        "main/f136/f2": [
+          100244,
+          100302
+        ],
+        "main/f136/f3": [
+          100303,
+          100364
+        ]
+      },
+      "objects": {
+        "q062": [],
+        "q063": [],
+        "T408": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 2204,
+            "id": "T408",
+            "fields": {
+              "alias": "T408",
+              "code": "AUcs",
+              "Area1": 400.0,
+              "Area2": 400.0,
+              "Area3": 400.0,
+              "Area4": 400.0,
+              "BuffID1": "BUcs",
+              "BuffID2": "BUcs",
+              "BuffID3": "BUcs",
+              "BuffID4": "BUcs",
+              "checkDep": 1,
+              "DataA1": 3000.0,
+              "DataA2": 5000.0,
+              "DataA3": 7000.0,
+              "DataA4": 9000.0,
+              "DataB1": 999999.0,
+              "DataB2": 999999.0,
+              "DataB3": 999999.0,
+              "DataB4": 999999.0,
+              "DataC1": 1500.0,
+              "DataC2": 1500.0,
+              "DataC3": 1500.0,
+              "DataC4": 1500.0,
+              "DataD1": 400.0,
+              "DataD2": 400.0,
+              "DataD3": 400.0,
+              "DataD4": 400.0,
+              "levels": 6,
+              "reqLevel": 1,
+              "Rng1": 1000.0,
+              "Rng2": 1000.0,
+              "Rng3": 1000.0,
+              "Rng4": 1000.0,
+              "targs1": "ground,air,organic",
+              "targs2": "ground,air,organic",
+              "targs3": "ground,air,organic",
+              "targs4": "ground,air,organic"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/war3map.w3a.json",
+            "jsonIndex": 264,
+            "id": "T408",
+            "fields": {
+              "old": "T408",
+              "new": "\u0000\u0000\u0000\u0000",
+              "mods": [
+                {
+                  "key": "Ucs1",
+                  "type": 2,
+                  "level": 5,
+                  "data": 1,
+                  "value": 11000.0
+                },
+                {
+                  "key": "Ucs1",
+                  "type": 2,
+                  "level": 6,
+                  "data": 1,
+                  "value": 13000.0
+                }
+              ]
+            }
+          }
+        ],
+        "T409": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 2205,
+            "id": "T409",
+            "fields": {
+              "alias": "T409",
+              "code": "Ainf",
+              "BuffID1": "B218",
+              "Dur1": 5.0,
+              "HeroDur1": 5.0,
+              "levels": 1,
+              "priority": 10,
+              "Rng1": 4000.0,
+              "targs1": "enemies",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ],
+        "B218": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+            "jsonIndex": 421,
+            "id": "B218",
+            "fields": {
+              "alias": "B218"
+            }
+          }
+        ]
+      },
+      "sourceMana": [
+        100,
+        120,
+        140,
+        160,
+        180,
+        200
+      ],
+      "sourceCooldown": [
+        15.0,
+        14.0,
+        13.0,
+        12.0,
+        11.0,
+        10.0
+      ],
+      "web": {
+        "damage": [
+          3000,
+          5000,
+          7000,
+          9000,
+          11000,
+          13000
+        ],
+        "blindFactor": 1.6,
+        "staffInt": [
+          4,
+          4,
+          6,
+          6,
+          8,
+          8
+        ],
+        "order": "absorb",
+        "mode": "point",
+        "range": 900.0,
+        "auto": 700,
+        "mana": [
+          100,
+          120,
+          140,
+          160,
+          180,
+          200
+        ],
+        "cooldown": [
+          15,
+          14,
+          13,
+          12,
+          11,
+          10
+        ]
+      }
+    }
+  },
+  "probes": [
+    "A175 staff emits two distinct original T189 rank-six orders at the same point",
+    "A178 immediate and first timer damage use different level-read times",
+    "A178 source replaces old periodic sequence and ordinary-target FX shortens remaining ticks to two",
+    "A179 starts synchronously, follows live hero/rank, and emits its final pulse at second 14",
+    "A181 repeated hits cap slow tier and retain matching armor carrier",
+    "A181 source armor cleanup occurs twelve seconds after the most recent application",
+    "A186 immediate push away from the resolved caster is 40",
+    "A186 periodic moves add 40 each",
+    "A188's cancellation API stops the remaining A186 movement",
+    "A187 successful equal/higher refresh differs from a lower rank, which only updates autocast target",
+    "A187 lower rank leaves original expiry",
+    "A190 staff restores rank six plus 13% of target max mana before T211",
+    "A190 ordinary restoration caps at target maximum before T206",
+    "A190 original ENDCAST reaches .8 without removing existing ordinary buff"
+  ]
+}

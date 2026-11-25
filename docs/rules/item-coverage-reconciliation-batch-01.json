@@ -1,0 +1,232 @@
+{
+  "baselineId": "item-coverage-reconciliation-batch-01",
+  "coverage": {
+    "descriptionsVerified": 13,
+    "newMechanics": 0,
+    "nativeAliasesNewlyAudited": 0
+  },
+  "items": {
+    "i101": {
+      "name": "艺人面罩",
+      "workbookCell": "装备与道具!H11",
+      "sourceAbilList": "I101",
+      "wholeDescriptionCovered": true,
+      "rules": {
+        "item-regeneration-batch-01": {
+          "web": {
+            "manaPercent": 20
+          }
+        }
+      }
+    },
+    "i104": {
+      "name": "圣殿指环",
+      "workbookCell": "装备与道具!H14",
+      "sourceAbilList": "I112,I102",
+      "wholeDescriptionCovered": true,
+      "rules": {
+        "item-resources-batch-01": {
+          "webStats": [
+            0,
+            250
+          ]
+        },
+        "item-regeneration-batch-01": {
+          "web": {
+            "manaPercent": 50
+          }
+        }
+      }
+    },
+    "i108": {
+      "name": "夜叉",
+      "workbookCell": "装备与道具!H18",
+      "sourceAbilList": "I150,I149,I147,I122",
+      "wholeDescriptionCovered": true,
+      "rules": {
+        "item-attributes": {
+          "webStats": [
+            0,
+            16,
+            0
+          ]
+        },
+        "item-attack-speed-batch-01": {
+          "webPct": 12
+        }
+      }
+    },
+    "i112": {
+      "name": "散华",
+      "workbookCell": "装备与道具!H22",
+      "sourceAbilList": "I144,I143,I141,I122",
+      "wholeDescriptionCovered": true,
+      "rules": {
+        "item-attributes": {
+          "webStats": [
+            16,
+            0,
+            0
+          ]
+        },
+        "item-attack-speed-batch-01": {
+          "webPct": 12
+        }
+      }
+    },
+    "i114": {
+      "name": "散夜对剑",
+      "workbookCell": "装备与道具!H24",
+      "sourceAbilList": "I165,I124",
+      "wholeDescriptionCovered": true,
+      "rules": {
+        "item-attributes": {
+          "webStats": [
+            26,
+            26,
+            0
+          ]
+        },
+        "item-attack-speed-batch-01": {
+          "webPct": 30
+        }
+      }
+    },
+    "i125": {
+      "name": "短棍",
+      "workbookCell": "装备与道具!H35",
+      "sourceAbilList": "I134,I122",
+      "wholeDescriptionCovered": true,
+      "rules": {
+        "item-flat-attack": {
+          "webFlatAttack": 10
+        },
+        "item-attack-speed-batch-01": {
+          "webPct": 10
+        }
+      }
+    },
+    "i151": {
+      "name": "精气之球",
+      "workbookCell": "装备与道具!H61",
+      "sourceAbilList": "I194,I195",
+      "wholeDescriptionCovered": true,
+      "rules": {
+        "item-resources-batch-01": {
+          "webStats": [
+            300,
+            200
+          ]
+        }
+      }
+    },
+    "i127": {
+      "name": "经验书",
+      "workbookCell": "装备与道具!H37",
+      "sourceAbilList": "I167",
+      "wholeDescriptionCovered": true,
+      "rules": {
+        "item-targeted-books-batch-01": {
+          "completed": [
+            "single-target command and dispatch",
+            "L03 use/cooldown/charges",
+            "zero native chain damage",
+            "direct XP and level effect per experience-sharing/X03–X04"
+          ]
+        },
+        "experience-sharing": {
+          "workbookEvidence": "1400经验值"
+        }
+      }
+    },
+    "i128": {
+      "name": "能量书",
+      "workbookCell": "装备与道具!H38",
+      "sourceAbilList": "I168",
+      "wholeDescriptionCovered": true,
+      "rules": {
+        "item-targeted-books-batch-01": {
+          "completed": [
+            "single-target command and dispatch",
+            "L03 use/cooldown/charges",
+            "zero native chain damage",
+            "direct XP and level effect per experience-sharing/X03–X04"
+          ]
+        },
+        "experience-sharing": {
+          "workbookEvidence": "1个等级"
+        }
+      }
+    },
+    "i312": {
+      "name": "知识之书Lv1",
+      "workbookCell": "装备与道具!H205",
+      "sourceAbilList": "I226",
+      "wholeDescriptionCovered": true,
+      "rules": {
+        "item-targeted-books-batch-01": {
+          "completed": [
+            "single-target command and dispatch",
+            "L03 use/cooldown/charges",
+            "zero native chain damage",
+            "direct XP and level effect per experience-sharing/X03–X04"
+          ]
+        },
+        "experience-sharing": {
+          "workbookEvidence": "2000经验值"
+        }
+      }
+    },
+    "i313": {
+      "name": "知识之书Lv2",
+      "workbookCell": "装备与道具!H206",
+      "sourceAbilList": "I227",
+      "wholeDescriptionCovered": true,
+      "rules": {
+        "item-targeted-books-batch-01": {
+          "completed": [
+            "single-target command and dispatch",
+            "L03 use/cooldown/charges",
+            "zero native chain damage",
+            "direct XP and level effect per experience-sharing/X03–X04"
+          ]
+        },
+        "experience-sharing": {
+          "workbookEvidence": "20000经验值"
+        }
+      }
+    },
+    "i314": {
+      "name": "知识之书Max",
+      "workbookCell": "装备与道具!H207",
+      "sourceAbilList": "I228",
+      "wholeDescriptionCovered": true,
+      "rules": {
+        "item-targeted-books-batch-01": {
+          "completed": [
+            "single-target command and dispatch",
+            "L03 use/cooldown/charges",
+            "zero native chain damage",
+            "direct XP and level effect per experience-sharing/X03–X04"
+          ]
+        },
+        "experience-sharing": {
+          "workbookEvidence": "一个等级"
+        }
+      }
+    },
+    "i399": {
+      "name": "刷新球碎片",
+      "workbookCell": "装备与道具!H226",
+      "sourceAbilList": null,
+      "wholeDescriptionCovered": true,
+      "rules": {
+        "item-lifecycle": {
+          "decision": "Q44",
+          "sourceLine": 180953,
+          "effect": "once per buyer-owner per game"
+        }
+      }
+    }
+  }
+}

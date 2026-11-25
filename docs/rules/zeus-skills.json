@@ -1,0 +1,1495 @@
+{
+  "baselineId": "zeus-skills-v1",
+  "coverage": {
+    "workbookIds": [
+      "A104",
+      "A105",
+      "A107"
+    ],
+    "auxiliaryIds": [
+      "A106"
+    ],
+    "scope": "listed spell modules and bounded native interfaces"
+  },
+  "rules": {
+    "A104": {
+      "order": "militia",
+      "cost": [
+        20,
+        40,
+        70,
+        100,
+        140,
+        180
+      ],
+      "cooldown": [
+        3.5,
+        3,
+        2.5,
+        2,
+        1.5,
+        1
+      ],
+      "range": 1000,
+      "carrier": "q001/T146",
+      "carrierTimedLife": 3,
+      "damage": [
+        200,
+        400,
+        600,
+        800,
+        1000,
+        1300
+      ],
+      "targetLimitIncludingPrimary": 10,
+      "jumpRadius": 500,
+      "carrierRange": 5000,
+      "decrease": 0,
+      "damageType": "NORMAL/MAGIC"
+    },
+    "A105": {
+      "radius": 1000,
+      "intelligenceDivisor": 16000,
+      "capPercent": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        12
+      ],
+      "magicDamage": [
+        300,
+        600,
+        900,
+        1200,
+        1500,
+        1800
+      ],
+      "bossMultiplier": 0.5,
+      "abyssMultiplier": 0.5,
+      "damageOrder": [
+        "CHAOS/DIVINE",
+        "NORMAL/MAGIC"
+      ]
+    },
+    "A106": {
+      "order": "absorb",
+      "grantedFrom": "A105",
+      "level": 1,
+      "cost": 100,
+      "cooldown": 15,
+      "period": 1,
+      "pulsesPerCloud": 10,
+      "independentTimerInstances": true,
+      "radius": 500,
+      "sourceLuaRadius": 450,
+      "sourcePlayerHintRadius": 500,
+      "carrier": "q001/T100",
+      "carrierTimedLife": 1,
+      "carrierCost": 2,
+      "carrierCooldown": 2,
+      "carrierRange": 200000,
+      "damage": 1000,
+      "stunDurationOrdinary": 0.3,
+      "stunDurationHeroOrResistantSkin": 0.2
+    },
+    "A107": {
+      "order": "decouple",
+      "cost": [
+        70,
+        140,
+        210,
+        280,
+        350,
+        420
+      ],
+      "damage": [
+        4000,
+        5500,
+        7000,
+        8500,
+        10000,
+        11500
+      ],
+      "radius": 200,
+      "baseCooldown": 16,
+      "cooldownReductionEachQualifyingCenter": 1,
+      "cooldownMinimum": 7,
+      "sourceCooldownMinimum": 8,
+      "cooldownRewriteDelay": 0.1,
+      "sourceScepterPercentMissingLife": 10,
+      "sourceScepterAbyssMultiplier": 0.1,
+      "scepterPercentMissingLife": 12,
+      "scepterAbyssMultiplier": 0.5,
+      "sourceScepterShopBossMultiplier": 0.5,
+      "scepterUsesCenterScale": true,
+      "shopBossIds": [
+        "m501",
+        "m502",
+        "m503",
+        "m511",
+        "m512",
+        "m513",
+        "m521",
+        "m522",
+        "m523",
+        "m531",
+        "m532",
+        "m533",
+        "m541",
+        "m542",
+        "m543",
+        "m551",
+        "m552",
+        "m553",
+        "m561",
+        "m562",
+        "m563",
+        "m571",
+        "m572",
+        "m573"
+      ],
+      "centerScale": {
+        "goldBossIds": [
+          "m998",
+          "m999"
+        ],
+        "goldScaleNumerator": 2,
+        "distanceThreshold": 1500,
+        "nearScale": 1,
+        "farNumerator": 300,
+        "farDenominatorOffset": -650,
+        "mainlineOtherPlayerRadius": 1200,
+        "mainlineOtherPlayerScale": 0.03
+      }
+    },
+    "nativeCommit": {
+      "towerCastPoint": 0.4,
+      "towerCastBackswing": 0.1,
+      "followThroughSeconds": {
+        "A104": 0.8,
+        "A106": 0,
+        "A107": 0.1
+      },
+      "spellShieldId": "N535",
+      "spellShieldSharedCooldown": 6
+    }
+  },
+  "decisions": {
+    "Q49": "confirmed: ten independent pulses per committed cloud, including forced recast",
+    "Q61": "player tooltip supplies A106 radius and A107 scepter numerical parameters",
+    "A107CooldownFloor": "workbook maximum reduction 9 applies over source 8",
+    "nativeSelection": "Q24; full rules in zeus-skills.md"
+  },
+  "workbookRows": {
+    "sheet": "塔技能",
+    "columns": "A:J",
+    "rowsMatchAcrossBothWorkbooks": {
+      "5": [
+        "众神之王<SSR>",
+        "G048",
+        1,
+        "学习技能",
+        "弧形闪电",
+        "A104",
+        6,
+        "释放一道会连续跳跃的闪电对受击者造成法术伤害。伤害不随跳跃递减。",
+        "等级 1｜造成200伤害。冷却 3.5秒。 耗蓝 20点。\n等级 2｜造成400伤害。冷却 3秒。 耗蓝 40点。\n等级 3｜造成600伤害。冷却 2.5秒。 耗蓝 70点。\n等级 4｜造成800伤害。冷却 2秒。 耗蓝 100点。\n等级 5｜造成1000伤害。冷却 1.5秒。 耗蓝 140点。\n等级 6｜造成1300伤害。冷却 1秒。 耗蓝 180点。\n伤害类型 法术伤害",
+        "冷却 1.5／1.0；耗蓝 140／180"
+      ],
+      "6": [
+        "众神之王<SSR>",
+        "G048",
+        2,
+        "学习技能",
+        "静电场",
+        "A105",
+        6,
+        "宙斯每次使用技能，都能通过瞬间的电击对1000范围内的敌方单位，造成敌方当前生命值（宙斯智力/160）%的神圣伤害以及技能等级相关的法术伤害。\n被动",
+        "等级 1｜最高伤害比例6%，300额外法术伤害。\n等级 2｜最高伤害比例7%，600额外法术伤害。\n等级 3｜最高伤害比例8%，900额外法术伤害。\n等级 4｜最高伤害比例9%，1200额外法术伤害。\n等级 5｜最高伤害比例10%，1500额外法术伤害。\n等级 6｜最高伤害比例12%，1800额外法术伤害。\n伤害类型 混合伤害",
+        null
+      ],
+      "7": [
+        "众神之王<SSR>",
+        "G048",
+        3,
+        "学习技能",
+        "雷神之怒",
+        "A107",
+        6,
+        "用闪电同时打击所有的敌方BOSS单位及其周围，造成伤害。冷却16秒，每击中一个BOSS单位减少1秒冷却，最多减少9秒。",
+        "等级 1｜造成4000伤害。 耗蓝 70点。\n等级 2｜造成5500伤害。 耗蓝 140点。\n等级 3｜造成7000伤害。 耗蓝 210点。\n等级 4｜造成8500伤害。 耗蓝 280点。\n等级 5｜造成10000伤害。 耗蓝 350点。\n等级 6｜造成11500伤害。 耗蓝 420点。\n伤害类型 法术伤害",
+        "耗蓝 350／420"
+      ],
+      "25": [
+        "宙斯<SSR>",
+        "H031",
+        1,
+        "学习技能",
+        "弧形闪电",
+        "A104",
+        6,
+        "释放一道会连续跳跃的闪电对受击者造成法术伤害。伤害不随跳跃递减。",
+        "等级 1｜造成200伤害。冷却 3.5秒。 耗蓝 20点。\n等级 2｜造成400伤害。冷却 3秒。 耗蓝 40点。\n等级 3｜造成600伤害。冷却 2.5秒。 耗蓝 70点。\n等级 4｜造成800伤害。冷却 2秒。 耗蓝 100点。\n等级 5｜造成1000伤害。冷却 1.5秒。 耗蓝 140点。\n等级 6｜造成1300伤害。冷却 1秒。 耗蓝 180点。\n伤害类型 法术伤害",
+        "冷却 1.5／1.0；耗蓝 140／180"
+      ],
+      "26": [
+        "宙斯<SSR>",
+        "H031",
+        2,
+        "学习技能",
+        "静电场",
+        "A105",
+        6,
+        "宙斯每次使用技能，都能通过瞬间的电击对1000范围内的敌方单位，造成敌方当前生命值（宙斯智力/160）%的神圣伤害以及技能等级相关的法术伤害。\n被动",
+        "等级 1｜最高伤害比例6%，300额外法术伤害。\n等级 2｜最高伤害比例7%，600额外法术伤害。\n等级 3｜最高伤害比例8%，900额外法术伤害。\n等级 4｜最高伤害比例9%，1200额外法术伤害。\n等级 5｜最高伤害比例10%，1500额外法术伤害。\n等级 6｜最高伤害比例12%，1800额外法术伤害。\n伤害类型 混合伤害",
+        null
+      ],
+      "27": [
+        "宙斯<SSR>",
+        "H031",
+        3,
+        "学习技能",
+        "雷神之怒",
+        "A107",
+        6,
+        "用闪电同时打击所有的敌方BOSS单位及其周围，造成伤害。冷却16秒，每击中一个BOSS单位减少1秒冷却，最多减少9秒。",
+        "等级 1｜造成4000伤害。 耗蓝 70点。\n等级 2｜造成5500伤害。 耗蓝 140点。\n等级 3｜造成7000伤害。 耗蓝 210点。\n等级 4｜造成8500伤害。 耗蓝 280点。\n等级 5｜造成10000伤害。 耗蓝 350点。\n等级 6｜造成11500伤害。 耗蓝 420点。\n伤害类型 法术伤害",
+        "耗蓝 350／420"
+      ]
+    }
+  },
+  "abilities": {
+    "A104": {
+      "alias": "A104",
+      "code": "ANcl",
+      "checkDep": 1,
+      "Cool1": 3.5,
+      "Cool2": 3.0,
+      "Cool3": 2.5,
+      "Cool4": 2.0,
+      "Cost1": 20,
+      "Cost2": 40,
+      "Cost3": 70,
+      "Cost4": 100,
+      "DataA1": 0.8,
+      "DataA2": 0.8,
+      "DataA3": 0.8,
+      "DataA4": 0.8,
+      "DataB1": 1,
+      "DataB2": 1,
+      "DataB3": 1,
+      "DataB4": 1,
+      "DataC1": 1,
+      "DataC2": 1,
+      "DataC3": 1,
+      "DataC4": 1,
+      "DataF1": "militia",
+      "DataF2": "militia",
+      "DataF3": "militia",
+      "DataF4": "militia",
+      "levels": 6,
+      "reqLevel": 1,
+      "Rng1": 1000.0,
+      "Rng2": 1000.0,
+      "Rng3": 1000.0,
+      "Rng4": 1000.0,
+      "targs1": "_",
+      "targs2": "_",
+      "targs3": "_",
+      "targs4": "_"
+    },
+    "A105": {
+      "alias": "A105",
+      "code": "AOcr",
+      "Area1": 1000.0,
+      "Area2": 1000.0,
+      "Area3": 1000.0,
+      "Area4": 1000.0,
+      "checkDep": 1,
+      "levels": 6,
+      "reqLevel": 1,
+      "targs1": "enemies",
+      "targs2": "enemies",
+      "targs3": "enemies",
+      "targs4": "enemies"
+    },
+    "A106": {
+      "alias": "A106",
+      "code": "ANcl",
+      "Area1": 500.0,
+      "checkDep": 1,
+      "Cool1": 15.0,
+      "Cost1": 100,
+      "DataB1": 2,
+      "DataC1": 3,
+      "DataF1": "absorb",
+      "levels": 1,
+      "reqLevel": 1,
+      "Rng1": 100000.0,
+      "targs1": "enemies",
+      "targs2": "_",
+      "targs3": "_",
+      "targs4": "_"
+    },
+    "A107": {
+      "alias": "A107",
+      "code": "ANcl",
+      "checkDep": 1,
+      "Cool1": 16.0,
+      "Cool2": 16.0,
+      "Cool3": 16.0,
+      "Cool4": 16.0,
+      "Cost1": 70,
+      "Cost2": 140,
+      "Cost3": 210,
+      "Cost4": 280,
+      "DataA1": 0.1,
+      "DataA2": 0.1,
+      "DataA3": 0.1,
+      "DataA4": 0.1,
+      "DataC1": 1,
+      "DataC2": 1,
+      "DataC3": 1,
+      "DataC4": 1,
+      "DataF1": "decouple",
+      "DataF2": "decouple",
+      "DataF3": "decouple",
+      "DataF4": "decouple",
+      "levels": 6,
+      "reqLevel": 1,
+      "Rng1": 1000.0,
+      "Rng2": 1000.0,
+      "Rng3": 1000.0,
+      "Rng4": 1000.0,
+      "targs1": "_",
+      "targs2": "_",
+      "targs3": "_",
+      "targs4": "_"
+    },
+    "T100": {
+      "alias": "T100",
+      "code": "AHtb",
+      "checkDep": 1,
+      "Cool1": 2.0,
+      "Cost1": 2,
+      "DataA1": 1000.0,
+      "Dur1": 0.3,
+      "HeroDur1": 0.2,
+      "levels": 1,
+      "reqLevel": 1,
+      "Rng1": 200000.0,
+      "targs1": "enemies",
+      "targs2": "_",
+      "targs3": "_",
+      "targs4": "_"
+    },
+    "T146": {
+      "alias": "T146",
+      "code": "AOcl",
+      "Area1": 500.0,
+      "Area2": 500.0,
+      "Area3": 500.0,
+      "Area4": 500.0,
+      "checkDep": 1,
+      "Cool1": 1.0,
+      "Cool2": 1.0,
+      "Cool3": 1.0,
+      "Cool4": 1.0,
+      "DataA1": 200.0,
+      "DataA2": 400.0,
+      "DataA3": 600.0,
+      "DataA4": 800.0,
+      "DataB1": 10,
+      "DataB2": 10,
+      "DataB3": 10,
+      "DataB4": 10,
+      "levels": 6,
+      "reqLevel": 1,
+      "Rng1": 5000.0,
+      "Rng2": 5000.0,
+      "Rng3": 5000.0,
+      "Rng4": 5000.0,
+      "targs1": "air,ground,enemy,neutral,organic",
+      "targs2": "air,ground,enemy,neutral,organic",
+      "targs3": "air,ground,enemy,neutral,organic",
+      "targs4": "air,ground,enemy,neutral,organic"
+    }
+  },
+  "w3a": [
+    {
+      "old": "A104",
+      "new": "\u0000\u0000\u0000\u0000",
+      "mods": [
+        {
+          "key": "acdn",
+          "type": 2,
+          "level": 5,
+          "data": 0,
+          "value": 1.5
+        },
+        {
+          "key": "acdn",
+          "type": 2,
+          "level": 6,
+          "data": 0,
+          "value": 1.0
+        },
+        {
+          "key": "amcs",
+          "type": 0,
+          "level": 5,
+          "data": 0,
+          "value": 140
+        },
+        {
+          "key": "amcs",
+          "type": 0,
+          "level": 6,
+          "data": 0,
+          "value": 180
+        }
+      ]
+    },
+    {
+      "old": "A107",
+      "new": "\u0000\u0000\u0000\u0000",
+      "mods": [
+        {
+          "key": "amcs",
+          "type": 0,
+          "level": 5,
+          "data": 0,
+          "value": 350
+        },
+        {
+          "key": "amcs",
+          "type": 0,
+          "level": 6,
+          "data": 0,
+          "value": 420
+        }
+      ]
+    },
+    {
+      "old": "T146",
+      "new": "\u0000\u0000\u0000\u0000",
+      "mods": [
+        {
+          "key": "Ocl1",
+          "type": 2,
+          "level": 5,
+          "data": 1,
+          "value": 1000.0
+        },
+        {
+          "key": "Ocl1",
+          "type": 2,
+          "level": 6,
+          "data": 1,
+          "value": 1300.0
+        }
+      ]
+    }
+  ],
+  "profiles": {
+    "A104": {
+      "Animnames": "spell,channel",
+      "Art": "ReplaceableTextures\\CommandButtons\\BTNChainLightning.blp",
+      "Buttonpos": "1,2",
+      "Casterattach": "origin",
+      "Hotkey": "W",
+      "Name": "|cffffcc00弧形闪电|r|n|n释放一道会连续跳跃的闪电对受击者造成法术伤害。伤害不随跳跃递减。",
+      "Order": "channel",
+      "ResearchArt": "ReplaceableTextures\\CommandButtons\\BTNChainLightning.blp",
+      "Researchbuttonpos": "1",
+      "Researchhotkey": "W",
+      "Researchtip": "学习弧形闪电(|cffffcc00W|r)",
+      "Researchubertip": "释放一道会连续跳跃的闪电对受击者造成法术伤害。伤害不随跳跃递减。|n|n|cffffcc00等级 1|r |n-造成200伤害。冷却：3.5秒。|n-耗蓝：20点。|n|cffffcc00等级 2|r |n-造成400伤害。冷却：3秒。|n-耗蓝：40点。|n|cffffcc00等级 3|r |n-造成600伤害。冷却：2.5秒。|n-耗蓝：70点。|n|cffffcc00等级 4|r |n-造成800伤害。冷却：2秒。|n-耗蓝：100点。|n|cffffcc00等级 5|r |n-造成1000伤害。冷却：1.5秒。|n-耗蓝：140点。|n|cffffcc00等级 6|r |n-造成1300伤害。冷却：1秒。|n-耗蓝：180点。|n|n|cffffcc00伤害类型：|r法术伤害",
+      "Targetattach": "origin",
+      "Tip": "弧形闪电[|cffffcc00W|r] - [|cffffcc00等级 1|r],弧形闪电[|cffffcc00W|r] - [|cffffcc00等级 2|r],弧形闪电[|cffffcc00W|r] - [|cffffcc00等级 3|r],弧形闪电[|cffffcc00W|r] - [|cffffcc00等级 4|r],弧形闪电[|cffffcc00W|r] - [|cffffcc00等级 5|r],弧形闪电[|cffffcc00W|r] - [|cffffcc00等级 6|r]",
+      "Ubertip": "释放一道会连续跳跃的闪电对受击者造成200法术伤害。伤害不随跳跃递减。,释放一道会连续跳跃的闪电对受击者造成400法术伤害。伤害不随跳跃递减。,释放一道会连续跳跃的闪电对受击者造成600法术伤害。伤害不随跳跃递减。,释放一道会连续跳跃的闪电对受击者造成800法术伤害。伤害不随跳跃递减。,释放一道会连续跳跃的闪电对受击者造成1000法术伤害。伤害不随跳跃递减。,释放一道会连续跳跃的闪电对受击者造成1300法术伤害。伤害不随跳跃递减。"
+    },
+    "A105": {
+      "Art": "JingDianChang.blp",
+      "Buttonpos": "2,2",
+      "Name": "|cffffcc00静电场|r|n|n宙斯每次使用技能，都能通过瞬间的电击对1000范围内的敌方单位，造成敌方当前生命值百分比的伤害。",
+      "ResearchArt": "JingDianChang.blp",
+      "Researchbuttonpos": "2",
+      "Researchhotkey": "E",
+      "Researchtip": "学习静电场(|cffffcc00E|r)|n|cff66CD00[可用神杖强化]|r",
+      "Researchubertip": "宙斯每次使用技能，都能通过瞬间的电击对1000范围内的敌方单位，造成敌方当前生命值|cffEE7621（宙斯智力/160）%|r的神圣伤害以及技能等级相关的法术伤害。|n-|cffffcc00被动|r|n|n|cffffcc00等级 1|r|n -最高伤害比例6%，300额外法术伤害。|n|cffffcc00等级 2|r|n -最高伤害比例7%，600额外法术伤害。|n|cffffcc00等级 3|r|n -最高伤害比例8%，900额外法术伤害。|n|cffffcc00等级 4|r|n -最高伤害比例9%，1200额外法术伤害。|n|cffffcc00等级 5|r|n -最高伤害比例10%，1500额外法术伤害。|n|cffffcc00等级 6|r|n -最高伤害比例12%，1800额外法术伤害。|n|n|cffffcc00伤害类型：|r混合伤害",
+      "Tip": "静电场 - [|cffffcc00等级 1|r],静电场 - [|cffffcc00等级 2|r],静电场 - [|cffffcc00等级 3|r],静电场 - [|cffffcc00等级 4|r],静电场 - [|cffffcc00等级 5|r],静电场 - [|cffffcc00等级 6|r]",
+      "Ubertip": "释放技能对周围1000范围内的造成敌方当前生命值|cffEE7621（宙斯智力/160，最高伤害比例6%）%|r的神圣伤害和300点法术伤害。|n|cff66CD00[持有神杖时增加新技能雷云]|r,释放技能对周围1000范围内的造成敌方当前生命值|cffEE7621（宙斯智力/160，最高伤害比例7%）%|r的神圣伤害和600点法术伤害。|n|cff66CD00[持有神杖时增加新技能雷云]|r,释放技能对周围1000范围内的造成敌方当前生命值|cffEE7621（宙斯智力/160，最高伤害比例8%）%|r的神圣伤害和900点法术伤害。|n|cff66CD00[持有神杖时增加新技能雷云]|r,释放技能对周围1000范围内的造成敌方当前生命值|cffEE7621（宙斯智力/160，最高伤害比例9%）%|r的神圣伤害和1200点法术伤害。|n|cff66CD00[持有神杖时增加新技能雷云]|r,释放技能对周围1000范围内的造成敌方当前生命值|cffEE7621（宙斯智力/160，最高伤害比例10%）%|r的神圣伤害和1500点法术伤害。|n|cff66CD00[持有神杖时增加新技能雷云]|r,释放技能对周围1000范围内的造成敌方当前生命值|cffEE7621（宙斯智力/160，最高伤害比例12%）%|r的神圣伤害和1800点法术伤害。|n|cff66CD00[持有神杖时增加新技能雷云]|r"
+    },
+    "A106": {
+      "Animnames": "spell,throw",
+      "Art": "LeiYun.blp",
+      "Buttonpos": "2,1",
+      "Casterattach": "origin",
+      "Hotkey": "T",
+      "Name": "雷云",
+      "Order": "channel",
+      "ResearchArt": "LeiYun.blp",
+      "Researchhotkey": "T",
+      "Targetattach": "origin",
+      "Tip": "雷云[|cffffcc00T]",
+      "Ubertip": "在地图任意地点创造一朵持续10秒的雷云，每隔1秒雷云将自动对500范围内敌人施放雷击造成1000点伤害。眩晕0.3秒（BOSS眩晕0.2秒）。冷却：15秒。|n-耗蓝：100点。"
+    },
+    "A107": {
+      "Animnames": "spell,slam",
+      "Art": "LeiShenZhiNu.blp",
+      "Buttonpos": "3,2",
+      "Casterattach": "origin",
+      "Hotkey": "R",
+      "Name": "|cffffcc00雷神之怒|r|n|n用闪电同时打击所有的敌方BOSS单位及其周围，造成伤害。冷却16秒，每击中一个BOSS单位减少1秒冷却，最多减少9秒。",
+      "Order": "channel",
+      "ResearchArt": "LeiShenZhiNu.blp",
+      "Researchbuttonpos": "3",
+      "Researchhotkey": "R",
+      "Researchtip": "学习雷神之怒(|cffffcc00R|r)|n|cff66CD00[可用神杖强化]|r",
+      "Researchubertip": "用闪电同时打击所有的敌方BOSS单位及其周围，造成伤害。冷却16秒，每击中一个BOSS单位减少1秒冷却，最多减少9秒。|n|n|cffffcc00等级 1|r |n-造成4000伤害。|n-耗蓝：70点。|n|cffffcc00等级 2|r |n-造成5500伤害。|n-耗蓝：140点。|n|cffffcc00等级 3|r |n-造成7000伤害。|n-耗蓝：210点。|n|cffffcc00等级 4|r |n-造成8500伤害。|n-耗蓝：280点。|n|cffffcc00等级 5|r |n-造成10000伤害。|n-耗蓝：350点。|n|cffffcc00等级 6|r |n-造成11500伤害。|n-耗蓝：420点。|n|n|cffffcc00伤害类型：|r法术伤害",
+      "Targetattach": "origin",
+      "Tip": "雷神之怒[|cffffcc00R|r] - [|cffffcc00等级 1|r],雷神之怒[|cffffcc00R|r] - [|cffffcc00等级 2|r],雷神之怒[|cffffcc00R|r] - [|cffffcc00等级 3|r],雷神之怒[|cffffcc00R|r] - [|cffffcc00等级 4|r],雷神之怒[|cffffcc00R|r] - [|cffffcc00等级 5|r],雷神之怒[|cffffcc00R|r] - [|cffffcc00等级 6|r]",
+      "Ubertip": "用闪电打击所有的敌方BOSS单位，对其200范围内造成4000点法术伤害（距离宙斯越远的单位伤害越低），每击中一个BOSS单位减少1秒冷却，最多减少9秒。|n|cff66CD00[造成该BOSS单位已损失生命值的12%的神圣伤害（该伤害对深渊BOSS伤害减半）]|r,用闪电打击所有的敌方BOSS单位，对其200范围内造成5500点法术伤害（距离宙斯越远的单位伤害越低），每击中一个BOSS单位减少1秒冷却，最多减少9秒。|n|cff66CD00[造成该BOSS单位已损失生命值的12%的神圣伤害（该伤害对深渊BOSS伤害减半）]|r,用闪电打击所有的敌方BOSS单位，对其200范围内造成7000点法术伤害（距离宙斯越远的单位伤害越低），每击中一个BOSS单位减少1秒冷却，最多减少9秒。|n|cff66CD00[造成该BOSS单位已损失生命值的12%的神圣伤害（该伤害对深渊BOSS伤害减半）]|r,用闪电打击所有的敌方BOSS单位，对其200范围内造成8500点法术伤害（距离宙斯越远的单位伤害越低），每击中一个BOSS单位减少1秒冷却，最多减少9秒。|n|cff66CD00[造成该BOSS单位已损失生命值的12%的神圣伤害（该伤害对深渊BOSS伤害减半）]|r,用闪电打击所有的敌方BOSS单位，对其200范围内造成10000点法术伤害（距离宙斯越远的单位伤害越低），每击中一个BOSS单位减少1秒冷却，最多减少9秒。|n|cff66CD00[造成该BOSS单位已损失生命值的12%的神圣伤害（该伤害对深渊BOSS伤害减半）]|r,用闪电打击所有的敌方BOSS单位，对其200范围内造成11500点法术伤害（距离宙斯越远的单位伤害越低），每击中一个BOSS单位减少1秒冷却，最多减少9秒。|n|cff66CD00[造成该BOSS单位已损失生命值的12%的神圣伤害（该伤害对深渊BOSS伤害减半）]|r"
+    },
+    "T100": {
+      "Animnames": "spell,throw",
+      "Art": "ReplaceableTextures\\CommandButtons\\BTNStormBolt.blp",
+      "Buttonpos": ",2",
+      "Hotkey": "T",
+      "MissileHoming": "1",
+      "Missilespeed": "50000",
+      "Name": "雷云-风暴之锤",
+      "Order": "thunderbolt",
+      "ResearchArt": "ReplaceableTextures\\CommandButtons\\BTNStormBolt.blp",
+      "Researchhotkey": "T",
+      "Researchtip": "学习风暴之锤(|cffffcc00T|r) - [|cffffcc00等级 %d|r]",
+      "Researchubertip": "向目标投掷一巨大的魔法锤，对其造成一定伤害并使其处于眩晕状态。|n|n|cffffcc00等级 1|r - 100点伤害，5秒眩晕状态。|n|cffffcc00等级 2|r - 225点伤害，5秒眩晕状态。|n|cffffcc00等级 3|r - 350点伤害，5秒眩晕状态。",
+      "Tip": "风暴之锤(|cffffcc00T|r) - [|cffffcc00等级 1|r]",
+      "Ubertip": "向目标投掷一巨大的魔法锤，对其造成100点伤害并使其5秒内处于眩晕状态。"
+    },
+    "T146": {
+      "Animnames": "spell,chain",
+      "Art": "ReplaceableTextures\\CommandButtons\\BTNChainLightning.blp",
+      "Buttonpos": ",2",
+      "Hotkey": "C",
+      "LightningEffect": "CLPB,CLSB",
+      "Missileart": "Abilities\\Spells\\Orc\\LightningBolt\\LightningBoltMissile.mdl",
+      "Missilespeed": "1500",
+      "Name": "弧形闪电",
+      "Order": "chainlightning",
+      "ResearchArt": "ReplaceableTextures\\CommandButtons\\BTNChainLightning.blp",
+      "Researchhotkey": "C",
+      "Researchtip": "学习闪电链(|cffffcc00C|r) - [|cffffcc00等级 %d|r]",
+      "Researchubertip": "投掷出一道能进行跳跃的闪电。每次跳跃都会减小闪电的攻击力。|n|n|cffffcc00等级 1|r - 85点伤害，跳跃4次。|n|cffffcc00等级 2|r - 125点伤害，跳跃6次。|n|cffffcc00等级 3|r - 180点伤害，跳跃8次。",
+      "TargetArt": "Abilities\\Weapons\\Bolt\\BoltImpact.mdl",
+      "Tip": "闪电链(|cffffcc00C|r) - [|cffffcc00等级 1|r],闪电链(|cffffcc00C|r) - [|cffffcc00等级 2|r],闪电链(|cffffcc00C|r) - [|cffffcc00等级 3|r]",
+      "Ubertip": "投掷出一道具有攻击力的闪电，第一个单位造成85点的伤害，然后闪电跳跃向周围4个敌方的其他单位。每次跳跃都会减小闪电的攻击力。,投掷出一道具有攻击力的闪电，第一个单位造成125点的伤害，然后闪电跳跃向周围6个敌方的其他单位。每次跳跃都会减小闪电的攻击力。,投掷出一道具有攻击力的闪电，第一个单位造成180点的伤害，然后闪电跳跃向周围8个敌方的其他单位。每次跳跃都会减小闪电的攻击力。"
+    }
+  },
+  "units": {
+    "units_unitabilities": [
+      {
+        "unitAbilID": "G048",
+        "abilList": "Avul,AInv,T033",
+        "auto": "_",
+        "heroAbilList": "A104,A105,A107,T101,P000"
+      },
+      {
+        "unitAbilID": "H031",
+        "abilList": "Avul,AInv,T033,S131",
+        "auto": "_",
+        "heroAbilList": "A104,A105,A107,T101,P000"
+      },
+      {
+        "unitAbilID": "q001",
+        "abilList": "Avul,Aloc",
+        "auto": "_"
+      }
+    ],
+    "units_unitweapons": [
+      {
+        "unitWeapID": "G048",
+        "acquire": 1000.0,
+        "atkType1": "hero",
+        "atkType2": "hero",
+        "backSw1": 0.65,
+        "backSw2": 0.65,
+        "castbsw": 0.1,
+        "castpt": 0.4,
+        "cool1": 1.2,
+        "cool2": 2.13,
+        "dice1": 1,
+        "dice2": 2,
+        "dmgplus1": 2,
+        "dmgpt1": 0.35,
+        "dmgpt2": 0.35,
+        "impactZ": 60.0,
+        "launchZ": 60.0,
+        "rangeN1": 1000,
+        "rangeN2": 1000,
+        "RngBuff1": 2000.0,
+        "RngBuff2": 2000.0,
+        "showUI1": 1,
+        "showUI2": 1,
+        "sides1": 19,
+        "sides2": 4,
+        "targCount1": 1,
+        "targCount2": 1,
+        "targs1": "ground,structure,debris,item,ward",
+        "targs2": "ground,structure,debris,air,item,ward",
+        "weapsOn": 1,
+        "weapTp1": "missile",
+        "weapTp2": "missile",
+        "weapType1": "MetalHeavyBash"
+      },
+      {
+        "unitWeapID": "H031",
+        "acquire": 1000.0,
+        "atkType1": "hero",
+        "atkType2": "hero",
+        "backSw1": 0.65,
+        "backSw2": 0.65,
+        "castbsw": 0.1,
+        "castpt": 0.4,
+        "cool1": 1.2,
+        "cool2": 2.13,
+        "dice1": 1,
+        "dice2": 2,
+        "dmgplus1": 2,
+        "dmgpt1": 0.35,
+        "dmgpt2": 0.35,
+        "impactZ": 60.0,
+        "launchZ": 60.0,
+        "rangeN1": 1000,
+        "rangeN2": 1000,
+        "RngBuff1": 2000.0,
+        "RngBuff2": 2000.0,
+        "showUI1": 1,
+        "showUI2": 1,
+        "sides1": 19,
+        "sides2": 4,
+        "targCount1": 1,
+        "targCount2": 1,
+        "targs1": "ground,structure,debris,item,ward",
+        "targs2": "ground,structure,debris,air,item,ward",
+        "weapsOn": 1,
+        "weapTp1": "missile",
+        "weapTp2": "missile",
+        "weapType1": "MetalHeavyBash"
+      },
+      {
+        "unitWeapID": "q001",
+        "acquire": 900.0,
+        "atkType1": "spells",
+        "atkType2": "normal",
+        "cool1": 1.0,
+        "dice1": 1,
+        "dmgplus1": 12,
+        "rangeN1": 10,
+        "RngBuff1": 250.0,
+        "showUI1": 1,
+        "showUI2": 1,
+        "sides1": 2,
+        "targCount1": 1,
+        "targCount2": 1,
+        "targs1": "ground,debris,air,item",
+        "weapTp1": "missile"
+      }
+    ],
+    "units_unitbalance": [
+      {
+        "unitBalanceID": "G048",
+        "AGI": 11,
+        "AGIplus": 3.0,
+        "bldtm": 1,
+        "bountydice": 8,
+        "bountyplus": 30,
+        "bountysides": 3,
+        "collision": 72.0,
+        "def": 1.0,
+        "defType": "hero",
+        "fused": 20,
+        "goldcost": 4000,
+        "HP": 100,
+        "INT": 36,
+        "INTplus": 12.0,
+        "level": 5,
+        "mana0": 100,
+        "nsight": 700,
+        "preventPlace": "_",
+        "Primary": "INT",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always",
+        "reptm": 5,
+        "requirePlace": "_",
+        "sight": 1000,
+        "spd": 290,
+        "stockMax": 3,
+        "stockRegen": 30,
+        "STR": 14,
+        "STRplus": 3.0,
+        "tilesets": "*"
+      },
+      {
+        "unitBalanceID": "H031",
+        "AGI": 11,
+        "AGIplus": 3.0,
+        "bldtm": 1,
+        "bountydice": 8,
+        "bountyplus": 30,
+        "bountysides": 3,
+        "collision": 72.0,
+        "def": 1.0,
+        "defType": "hero",
+        "fused": 20,
+        "goldcost": 4000,
+        "HP": 100,
+        "INT": 36,
+        "INTplus": 12.0,
+        "level": 5,
+        "mana0": 100,
+        "nsight": 700,
+        "preventPlace": "_",
+        "Primary": "INT",
+        "regenHP": 0.25,
+        "regenMana": 0.01,
+        "regenType": "always",
+        "reptm": 5,
+        "requirePlace": "_",
+        "sight": 1000,
+        "spd": 290,
+        "stockMax": 3,
+        "stockRegen": 30,
+        "STR": 14,
+        "STRplus": 3.0,
+        "tilesets": "*"
+      },
+      {
+        "unitBalanceID": "q001",
+        "bldtm": 20,
+        "bountydice": 6,
+        "bountyplus": 20,
+        "bountysides": 3,
+        "defType": "small",
+        "defUp": 2.0,
+        "HP": 65,
+        "mana0": 1000,
+        "manaN": 1000,
+        "preventPlace": "_",
+        "Primary": "_",
+        "regenHP": 0.25,
+        "regenType": "always",
+        "reptm": 20,
+        "requirePlace": "_",
+        "stockMax": 3,
+        "stockRegen": 30,
+        "tilesets": "*"
+      }
+    ]
+  },
+  "sourceFunctions": [
+    {
+      "function": "main/f84",
+      "sourceLines": [
+        78842,
+        78857
+      ],
+      "pcRange": [
+        1,
+        3
+      ],
+      "upvalueBindings": [
+        [
+          0,
+          false
+        ]
+      ]
+    },
+    {
+      "function": "main/f84/f0",
+      "sourceLines": [
+        78859,
+        78913
+      ],
+      "pcRange": [
+        1,
+        30
+      ],
+      "upvalueBindings": [
+        [
+          0,
+          false
+        ]
+      ]
+    },
+    {
+      "function": "main/f85",
+      "sourceLines": [
+        78915,
+        78950
+      ],
+      "pcRange": [
+        1,
+        17
+      ],
+      "upvalueBindings": [
+        [
+          0,
+          false
+        ]
+      ]
+    },
+    {
+      "function": "main/f85/f0",
+      "sourceLines": [
+        78952,
+        79188
+      ],
+      "pcRange": [
+        1,
+        156
+      ],
+      "upvalueBindings": [
+        [
+          0,
+          false
+        ],
+        [
+          3,
+          true
+        ]
+      ]
+    },
+    {
+      "function": "main/f85/f1",
+      "sourceLines": [
+        79190,
+        79272
+      ],
+      "pcRange": [
+        1,
+        47
+      ],
+      "upvalueBindings": [
+        [
+          4,
+          true
+        ],
+        [
+          0,
+          false
+        ]
+      ]
+    },
+    {
+      "function": "main/f85/f2",
+      "sourceLines": [
+        79274,
+        79432
+      ],
+      "pcRange": [
+        1,
+        103
+      ],
+      "upvalueBindings": [
+        [
+          0,
+          false
+        ],
+        [
+          4,
+          true
+        ]
+      ]
+    },
+    {
+      "function": "main/f86",
+      "sourceLines": [
+        79434,
+        79457
+      ],
+      "pcRange": [
+        1,
+        10
+      ],
+      "upvalueBindings": [
+        [
+          0,
+          false
+        ]
+      ]
+    },
+    {
+      "function": "main/f86/f0",
+      "sourceLines": [
+        79459,
+        79519
+      ],
+      "pcRange": [
+        1,
+        31
+      ],
+      "upvalueBindings": [
+        [
+          0,
+          false
+        ],
+        [
+          2,
+          true
+        ],
+        [
+          3,
+          true
+        ],
+        [
+          4,
+          true
+        ],
+        [
+          1,
+          true
+        ]
+      ]
+    },
+    {
+      "function": "main/f86/f1",
+      "sourceLines": [
+        79521,
+        79884
+      ],
+      "pcRange": [
+        1,
+        266
+      ],
+      "upvalueBindings": [
+        [
+          0,
+          false
+        ],
+        [
+          5,
+          true
+        ],
+        [
+          2,
+          true
+        ],
+        [
+          3,
+          true
+        ],
+        [
+          4,
+          true
+        ]
+      ]
+    }
+  ],
+  "sourceSlices": [
+    {
+      "function": "main/f285/f16",
+      "sourceLines": [
+        146490,
+        146698
+      ],
+      "pcRange": [
+        1,
+        198
+      ]
+    },
+    {
+      "function": "main/f291/f14",
+      "sourceLines": [
+        170000,
+        170073
+      ],
+      "pcRange": [
+        1,
+        71
+      ]
+    },
+    {
+      "function": "main/f291/f14",
+      "sourceLines": [
+        170265,
+        170276
+      ],
+      "pcRange": [
+        246,
+        256
+      ]
+    },
+    {
+      "function": "main/f291/f14",
+      "sourceLines": [
+        170746,
+        170783
+      ],
+      "pcRange": [
+        681,
+        714
+      ]
+    },
+    {
+      "function": "main/f291/f27",
+      "sourceLines": [
+        175912,
+        176045
+      ],
+      "pcRange": [
+        1711,
+        1837
+      ]
+    },
+    {
+      "function": "main/f291/f35",
+      "sourceLines": [
+        179750,
+        179797
+      ],
+      "pcRange": [
+        1,
+        48
+      ]
+    }
+  ],
+  "sourceHashes": {
+    "main.disasm": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+    "units_abilitydata.json": "b772de42ebcfc1d3818298b35dbe81a35826892848c7cbfef70bf5097e481861",
+    "units_campaignabilitystrings.txt": "5240c99230cd441b4c376371a31a7987e65470feed736177473a206c55fbe8cc",
+    "units_unitabilities.json": "ebd8a6fd8410f593c5ecadf6bf7c4f6bbc5b4bb7183c5e986a4d2d77e1747133",
+    "units_unitbalance.json": "096bad329e3b86f3ed4cad3e4ca7c8c4d8efcea2f25a366eef4eac8367eb70e3",
+    "units_unitweapons.json": "3d19b979895be4cb5fdaa6d6905faf6b2a907200fc67dfd2756777386dca1ec7",
+    "war3map.w3a.json": "d2875f064b389bca471db97121ff7c810d46fbc962ae640ad128d1daa85931bb"
+  },
+  "verification": {
+    "originalA106": {
+      "staggeredCastsByTower": {
+        "1": 10,
+        "2": 5
+      },
+      "forcedRecastOldLookup": -1,
+      "timerTicks": [
+        [
+          "1",
+          1
+        ],
+        [
+          "1",
+          2
+        ],
+        [
+          "2",
+          1
+        ],
+        [
+          "2",
+          2
+        ],
+        [
+          "3",
+          1
+        ],
+        [
+          "3",
+          2
+        ],
+        [
+          "4",
+          1
+        ],
+        [
+          "4",
+          2
+        ],
+        [
+          "5",
+          1
+        ],
+        [
+          "5",
+          2
+        ],
+        [
+          "6",
+          1
+        ]
+      ],
+      "castsByTower": {
+        "1": 6,
+        "2": 5
+      },
+      "sharedCounter": 11
+    },
+    "staticRankModeIntCases": 36,
+    "rageCooldowns": [
+      {
+        "qualifyingCenters": 0,
+        "source": 16,
+        "selected": 16
+      },
+      {
+        "qualifyingCenters": 1,
+        "source": 15,
+        "selected": 15
+      },
+      {
+        "qualifyingCenters": 2,
+        "source": 14,
+        "selected": 14
+      },
+      {
+        "qualifyingCenters": 3,
+        "source": 13,
+        "selected": 13
+      },
+      {
+        "qualifyingCenters": 4,
+        "source": 12,
+        "selected": 12
+      },
+      {
+        "qualifyingCenters": 5,
+        "source": 11,
+        "selected": 11
+      },
+      {
+        "qualifyingCenters": 6,
+        "source": 10,
+        "selected": 10
+      },
+      {
+        "qualifyingCenters": 7,
+        "source": 9,
+        "selected": 9
+      },
+      {
+        "qualifyingCenters": 8,
+        "source": 8,
+        "selected": 8
+      },
+      {
+        "qualifyingCenters": 9,
+        "source": 8,
+        "selected": 7
+      },
+      {
+        "qualifyingCenters": 10,
+        "source": 8,
+        "selected": 7
+      },
+      {
+        "qualifyingCenters": 11,
+        "source": 8,
+        "selected": 7
+      },
+      {
+        "qualifyingCenters": 12,
+        "source": 8,
+        "selected": 7
+      }
+    ],
+    "rageFactors": 8,
+    "autoSourceCases": 5,
+    "selectedA106": {
+      "ticks": [
+        [
+          1,
+          1,
+          1,
+          [
+            -1000,
+            0
+          ]
+        ],
+        [
+          1,
+          2,
+          2,
+          [
+            1000,
+            0
+          ]
+        ],
+        [
+          2,
+          1,
+          1,
+          [
+            -1000,
+            0
+          ]
+        ],
+        [
+          2,
+          2,
+          2,
+          [
+            1000,
+            0
+          ]
+        ],
+        [
+          3,
+          1,
+          1,
+          [
+            -1000,
+            0
+          ]
+        ],
+        [
+          3,
+          2,
+          2,
+          [
+            1000,
+            0
+          ]
+        ],
+        [
+          4,
+          1,
+          1,
+          [
+            -1000,
+            0
+          ]
+        ],
+        [
+          4,
+          2,
+          2,
+          [
+            1000,
+            0
+          ]
+        ],
+        [
+          5,
+          1,
+          1,
+          [
+            -1000,
+            0
+          ]
+        ],
+        [
+          5,
+          2,
+          2,
+          [
+            1000,
+            0
+          ]
+        ],
+        [
+          5,
+          3,
+          1,
+          [
+            0,
+            1000
+          ]
+        ],
+        [
+          6,
+          1,
+          1,
+          [
+            -1000,
+            0
+          ]
+        ],
+        [
+          6,
+          2,
+          2,
+          [
+            1000,
+            0
+          ]
+        ],
+        [
+          6,
+          3,
+          1,
+          [
+            0,
+            1000
+          ]
+        ],
+        [
+          7,
+          1,
+          1,
+          [
+            -1000,
+            0
+          ]
+        ],
+        [
+          7,
+          2,
+          2,
+          [
+            1000,
+            0
+          ]
+        ],
+        [
+          7,
+          3,
+          1,
+          [
+            0,
+            1000
+          ]
+        ],
+        [
+          8,
+          1,
+          1,
+          [
+            -1000,
+            0
+          ]
+        ],
+        [
+          8,
+          2,
+          2,
+          [
+            1000,
+            0
+          ]
+        ],
+        [
+          8,
+          3,
+          1,
+          [
+            0,
+            1000
+          ]
+        ],
+        [
+          9,
+          1,
+          1,
+          [
+            -1000,
+            0
+          ]
+        ],
+        [
+          9,
+          2,
+          2,
+          [
+            1000,
+            0
+          ]
+        ],
+        [
+          9,
+          3,
+          1,
+          [
+            0,
+            1000
+          ]
+        ],
+        [
+          10,
+          1,
+          1,
+          [
+            -1000,
+            0
+          ]
+        ],
+        [
+          10,
+          2,
+          2,
+          [
+            1000,
+            0
+          ]
+        ],
+        [
+          10,
+          3,
+          1,
+          [
+            0,
+            1000
+          ]
+        ],
+        [
+          11,
+          3,
+          1,
+          [
+            0,
+            1000
+          ]
+        ],
+        [
+          12,
+          3,
+          1,
+          [
+            0,
+            1000
+          ]
+        ],
+        [
+          13,
+          3,
+          1,
+          [
+            0,
+            1000
+          ]
+        ],
+        [
+          14,
+          3,
+          1,
+          [
+            0,
+            1000
+          ]
+        ]
+      ],
+      "restoredAt": 6,
+      "Q61IncludedDistances": [
+        450,
+        450.001,
+        500
+      ]
+    },
+    "selectedA107ScepterQ61": [
+      480.0,
+      960.0,
+      240.0,
+      120.0,
+      120.0
+    ],
+    "chainBoundaries": 8,
+    "boltBoundaries": 8,
+    "workbookCells": 120,
+    "immutableManifestFiles": 37,
+    "fullSourceInstructions": 663,
+    "partialSourceInstructions": 489,
+    "localDocLinks": 56,
+    "scope": "decoded Lua instruction probes and explicit Web contract vectors"
+  }
+}

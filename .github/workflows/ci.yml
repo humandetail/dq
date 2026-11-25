@@ -14,5 +14,7 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: npm
+      - name: Check M2 configuration
+        run: python3 tools/check-m2-configuration.py
       - run: npm ci
       - run: npm run check

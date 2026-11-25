@@ -1,0 +1,1470 @@
+{
+  "baseline": "late-enemy-effects-v1",
+  "source": "reference/map-6.25/main.disasm",
+  "abilities": {
+    "N525": {
+      "status": "ready",
+      "objects": {
+        "N525": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1489,
+            "id": "N525",
+            "fields": {
+              "alias": "N525",
+              "code": "AEev",
+              "checkDep": 1,
+              "levels": 1,
+              "reqLevel": 1,
+              "targs1": "_",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ]
+      },
+      "functions": {
+        "main/f188": [
+          115056,
+          115077
+        ],
+        "main/f188/f0": [
+          115078,
+          115103
+        ],
+        "main/f188/f1": [
+          115104,
+          115241
+        ]
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f117",
+          "key": "k6",
+          "constantLine": 93093,
+          "pc": 13,
+          "sourceLine": 93110,
+          "instruction": "loadk r13 k6"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f1",
+          "key": "k367",
+          "constantLine": 162359,
+          "pc": 2937,
+          "sourceLine": 165592,
+          "instruction": "loadk r7 k367"
+        }
+      ],
+      "web": {
+        "angleRanges": [
+          [
+            130,
+            230
+          ],
+          [
+            60,
+            300
+          ]
+        ],
+        "strict": true,
+        "damageFactors": [
+          0.4,
+          0.7,
+          0.9
+        ],
+        "temporarySource": "Tower_ALL slot; missing short circuits"
+      }
+    },
+    "N526": {
+      "status": "ready",
+      "objects": {
+        "N526": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1490,
+            "id": "N526",
+            "fields": {
+              "alias": "N526",
+              "code": "Absk",
+              "BuffID1": "B028",
+              "checkDep": 1,
+              "Cool1": 30.0,
+              "Cost1": 500,
+              "Dur1": 20.0,
+              "HeroDur1": 20.0,
+              "levels": 1,
+              "targs1": "_",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ],
+        "B028": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+            "jsonIndex": 272,
+            "id": "B028",
+            "fields": {
+              "alias": "B028"
+            }
+          }
+        ]
+      },
+      "functions": {
+        "main/f189": [
+          115242,
+          115283
+        ],
+        "main/f189/f0": [
+          115284,
+          115333
+        ],
+        "main/f189/f1": [
+          115334,
+          115360
+        ],
+        "main/f189/f2": [
+          115361,
+          115415
+        ],
+        "main/f189/f3": [
+          115416,
+          115472
+        ]
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f1",
+          "key": "k369",
+          "constantLine": 162361,
+          "pc": 2948,
+          "sourceLine": 165604,
+          "instruction": "loadk r7 k369"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k357",
+          "constantLine": 169946,
+          "pc": 1730,
+          "sourceLine": 171895,
+          "instruction": "loadk r5 k357"
+        }
+      ],
+      "web": {
+        "window": 20,
+        "packets": 50,
+        "mana": 500,
+        "cooldown": 30,
+        "firstAttempt": "cast only"
+      }
+    },
+    "N527": {
+      "status": "ready",
+      "objects": {
+        "N527": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1491,
+            "id": "N527",
+            "fields": {
+              "alias": "N527",
+              "code": "AOwk",
+              "checkDep": 1,
+              "Cool1": 4.0,
+              "Cost1": 400,
+              "DataA1": 0.5,
+              "DataB1": 2.0,
+              "Dur1": 3.0,
+              "HeroDur1": 3.0,
+              "levels": 1,
+              "reqLevel": 1,
+              "targs1": "air,ground,enemy,neutral",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ]
+      },
+      "functions": {},
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f1",
+          "key": "k353",
+          "constantLine": 162345,
+          "pc": 2845,
+          "sourceLine": 165493,
+          "instruction": "loadk r7 k353"
+        }
+      ],
+      "web": {
+        "invisibilityDelay": 0.5,
+        "duration": 3,
+        "moveBonus": 2,
+        "backstab": 0,
+        "mana": 400,
+        "cooldown": 4
+      }
+    },
+    "N528": {
+      "status": "ready",
+      "objects": {
+        "N528": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1492,
+            "id": "N528",
+            "fields": {
+              "alias": "N528",
+              "code": "AOws",
+              "Area1": 1500.0,
+              "BuffID1": "BPSE",
+              "Cool1": 4.0,
+              "Cost1": 400,
+              "Dur1": 2.0,
+              "HeroDur1": 1.5,
+              "levels": 1,
+              "targs1": "enemies,invulnerable",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ]
+      },
+      "functions": {},
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f1",
+          "key": "k375",
+          "constantLine": 162367,
+          "pc": 2983,
+          "sourceLine": 165642,
+          "instruction": "loadk r7 k375"
+        }
+      ],
+      "web": {
+        "radius": 1500,
+        "ordinaryStun": 2,
+        "heroStun": 1.5,
+        "mana": 400,
+        "cooldown": 4,
+        "damage": 0
+      }
+    },
+    "N530": {
+      "status": "ready",
+      "objects": {
+        "N530": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1494,
+            "id": "N530",
+            "fields": {
+              "alias": "N530",
+              "code": "AHhb",
+              "checkDep": 1,
+              "Cool1": 20.0,
+              "Cost1": 400,
+              "DataA1": 9000000.0,
+              "levels": 1,
+              "reqLevel": 1,
+              "Rng1": 10.0,
+              "targs1": "self",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ]
+      },
+      "functions": {},
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f1",
+          "key": "k376",
+          "constantLine": 162368,
+          "pc": 2997,
+          "sourceLine": 165657,
+          "instruction": "loadk r7 k376"
+        }
+      ],
+      "web": {
+        "hpThreshold": 0.3,
+        "heal": 9000000,
+        "mana": 400,
+        "cooldown": 20,
+        "selfOnly": true
+      }
+    },
+    "N531": {
+      "status": "ready",
+      "objects": {
+        "N531": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1495,
+            "id": "N531",
+            "fields": {
+              "alias": "N531",
+              "code": "AEme",
+              "BuffID1": "BEme",
+              "checkDep": 1,
+              "Cool1": 80.0,
+              "Cost1": 1000,
+              "DataA1": "m048",
+              "DataB1": 1,
+              "DataE1": 2500.0,
+              "Dur1": 0.1,
+              "HeroDur1": 20.0,
+              "levels": 1,
+              "reqLevel": 6,
+              "targs1": "_",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_",
+              "UnitID1": "e008"
+            }
+          }
+        ],
+        "m048": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitabilities.json",
+            "jsonIndex": 1114,
+            "id": "m048",
+            "fields": {
+              "unitAbilID": "m048",
+              "abilList": "N531,T016",
+              "auto": "_"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitbalance.json",
+            "jsonIndex": 1114,
+            "id": "m048",
+            "fields": {
+              "unitBalanceID": "m048",
+              "bldtm": 20,
+              "bountydice": 1,
+              "bountyplus": 90,
+              "bountysides": 5,
+              "collision": 1.0,
+              "def": 350.0,
+              "defType": "none",
+              "defUp": 2.0,
+              "fused": 2,
+              "goldcost": 135,
+              "goldRep": 135,
+              "HP": 42000,
+              "level": 22,
+              "lumberbountyplus": 1,
+              "manaN": 41000,
+              "minSpd": 80,
+              "nsight": 800,
+              "preventPlace": "_",
+              "Primary": "_",
+              "regenHP": 10.0,
+              "regenType": "always",
+              "reptm": 20,
+              "requirePlace": "_",
+              "sight": 1400,
+              "spd": 240,
+              "stockMax": 3,
+              "stockRegen": 30,
+              "tilesets": "*"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 1114,
+            "id": "m048",
+            "fields": {
+              "unitWeapID": "m048",
+              "acquire": 500.0,
+              "atkType1": "normal",
+              "atkType2": "normal",
+              "backSw1": 0.5,
+              "castbsw": 0.1,
+              "castpt": 0.3,
+              "cool1": 1.35,
+              "dice1": 1,
+              "dmgplus1": 11,
+              "dmgpt1": 0.5,
+              "impactZ": 60.0,
+              "launchZ": 60.0,
+              "rangeN1": 90,
+              "RngBuff1": 250.0,
+              "showUI1": 1,
+              "showUI2": 1,
+              "sides1": 2,
+              "targCount1": 1,
+              "targCount2": 1,
+              "targs1": "ground,structure,debris,item,ward",
+              "weapTp1": "normal",
+              "weapType1": "MetalMediumSlice"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitdata.json",
+            "jsonIndex": 1114,
+            "id": "m048",
+            "fields": {
+              "unitID": "m048",
+              "canFlee": 1,
+              "cargoSize": 1,
+              "death": 3.04,
+              "movetp": "fly",
+              "points": 1,
+              "prio": 6,
+              "propWin": 60.0,
+              "race": "human",
+              "targType": "ground",
+              "turnRate": 0.6
+            }
+          }
+        ],
+        "e008": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitabilities.json",
+            "jsonIndex": 1045,
+            "id": "e008",
+            "fields": {
+              "unitAbilID": "e008",
+              "abilList": "N531,T014",
+              "auto": "_"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitbalance.json",
+            "jsonIndex": 1045,
+            "id": "e008",
+            "fields": {
+              "unitBalanceID": "e008",
+              "bldtm": 20,
+              "bountydice": 1,
+              "bountyplus": 80,
+              "bountysides": 5,
+              "collision": 1.0,
+              "def": 170.0,
+              "defType": "none",
+              "defUp": 2.0,
+              "fused": 2,
+              "goldcost": 135,
+              "goldRep": 135,
+              "HP": 49000,
+              "level": 15,
+              "lumberbountyplus": 1,
+              "manaN": 7000,
+              "minSpd": 560,
+              "nsight": 800,
+              "preventPlace": "_",
+              "Primary": "_",
+              "regenHP": 10.0,
+              "regenType": "always",
+              "reptm": 20,
+              "requirePlace": "_",
+              "sight": 1400,
+              "spd": 560,
+              "stockMax": 3,
+              "stockRegen": 30,
+              "tilesets": "*"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 1045,
+            "id": "e008",
+            "fields": {
+              "unitWeapID": "e008",
+              "acquire": 500.0,
+              "atkType1": "normal",
+              "atkType2": "normal",
+              "backSw1": 0.5,
+              "castbsw": 0.1,
+              "castpt": 0.3,
+              "cool1": 1.35,
+              "dice1": 1,
+              "dmgplus1": 11,
+              "dmgpt1": 0.5,
+              "impactZ": 60.0,
+              "launchZ": 60.0,
+              "rangeN1": 90,
+              "RngBuff1": 250.0,
+              "showUI1": 1,
+              "showUI2": 1,
+              "sides1": 2,
+              "targCount1": 1,
+              "targCount2": 1,
+              "targs1": "ground,structure,debris,item,ward",
+              "weapTp1": "normal",
+              "weapType1": "MetalMediumSlice"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitdata.json",
+            "jsonIndex": 1045,
+            "id": "e008",
+            "fields": {
+              "unitID": "e008",
+              "canFlee": 1,
+              "cargoSize": 1,
+              "death": 3.04,
+              "movetp": "fly",
+              "points": 1,
+              "prio": 6,
+              "propWin": 60.0,
+              "race": "human",
+              "targType": "ground",
+              "turnRate": 0.6
+            }
+          }
+        ],
+        "BEme": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+            "jsonIndex": 11,
+            "id": "BEme",
+            "fields": {
+              "alias": "BEme"
+            }
+          }
+        ]
+      },
+      "functions": {},
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f1",
+          "key": "k379",
+          "constantLine": 162371,
+          "pc": 3019,
+          "sourceLine": 165680,
+          "instruction": "loadk r7 k379"
+        }
+      ],
+      "web": {
+        "from": "m048",
+        "to": "e008",
+        "hpThreshold": 0.7,
+        "transition": 0.1,
+        "duration": 20,
+        "hpBonus": 2500,
+        "mana": 1000,
+        "cooldown": 80
+      }
+    },
+    "N532": {
+      "status": "ready",
+      "objects": {
+        "N532": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1496,
+            "id": "N532",
+            "fields": {
+              "alias": "N532",
+              "code": "AEme",
+              "BuffID1": "BEme",
+              "checkDep": 1,
+              "Cool1": 80.0,
+              "Cost1": 1000,
+              "DataA1": "m049",
+              "DataB1": 1,
+              "DataC1": 1.0,
+              "DataD1": 1.0,
+              "DataE1": 200.0,
+              "Dur1": 0.35,
+              "HeroDur1": 20.0,
+              "levels": 1,
+              "reqLevel": 6,
+              "targs1": "_",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_",
+              "UnitID1": "e009"
+            }
+          }
+        ],
+        "m049": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitabilities.json",
+            "jsonIndex": 1115,
+            "id": "m049",
+            "fields": {
+              "unitAbilID": "m049",
+              "abilList": "N532,T016",
+              "auto": "_"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitbalance.json",
+            "jsonIndex": 1115,
+            "id": "m049",
+            "fields": {
+              "unitBalanceID": "m049",
+              "bldtm": 20,
+              "bountydice": 1,
+              "bountyplus": 100,
+              "bountysides": 5,
+              "collision": 1.0,
+              "def": 360.0,
+              "defType": "none",
+              "defUp": 2.0,
+              "fused": 2,
+              "goldcost": 135,
+              "goldRep": 135,
+              "HP": 50000,
+              "level": 23,
+              "lumberbountyplus": 1,
+              "manaN": 47000,
+              "minSpd": 90,
+              "nsight": 800,
+              "preventPlace": "_",
+              "Primary": "_",
+              "regenType": "always",
+              "reptm": 20,
+              "requirePlace": "_",
+              "sight": 1400,
+              "spd": 240,
+              "stockMax": 3,
+              "stockRegen": 30,
+              "tilesets": "*"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 1115,
+            "id": "m049",
+            "fields": {
+              "unitWeapID": "m049",
+              "acquire": 500.0,
+              "atkType1": "normal",
+              "atkType2": "normal",
+              "backSw1": 0.5,
+              "castbsw": 0.1,
+              "castpt": 0.3,
+              "cool1": 1.35,
+              "dice1": 1,
+              "dmgplus1": 11,
+              "dmgpt1": 0.5,
+              "impactZ": 60.0,
+              "launchZ": 60.0,
+              "rangeN1": 90,
+              "RngBuff1": 250.0,
+              "showUI1": 1,
+              "showUI2": 1,
+              "sides1": 2,
+              "targCount1": 1,
+              "targCount2": 1,
+              "targs1": "ground,structure,debris,item,ward",
+              "weapTp1": "normal",
+              "weapType1": "MetalMediumSlice"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitdata.json",
+            "jsonIndex": 1115,
+            "id": "m049",
+            "fields": {
+              "unitID": "m049",
+              "canFlee": 1,
+              "cargoSize": 1,
+              "death": 3.04,
+              "movetp": "fly",
+              "points": 1,
+              "prio": 6,
+              "propWin": 60.0,
+              "race": "human",
+              "targType": "ground",
+              "turnRate": 0.6
+            }
+          }
+        ],
+        "e009": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitabilities.json",
+            "jsonIndex": 1046,
+            "id": "e009",
+            "fields": {
+              "unitAbilID": "e009",
+              "abilList": "N532,T014",
+              "auto": "_"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitbalance.json",
+            "jsonIndex": 1046,
+            "id": "e009",
+            "fields": {
+              "unitBalanceID": "e009",
+              "bldtm": 20,
+              "bountydice": 1,
+              "bountyplus": 100,
+              "bountysides": 5,
+              "collision": 1.0,
+              "def": 180.0,
+              "defType": "none",
+              "defUp": 2.0,
+              "fused": 2,
+              "goldcost": 135,
+              "goldRep": 135,
+              "HP": 55000,
+              "level": 15,
+              "lumberbountyplus": 1,
+              "manaN": 8000,
+              "minSpd": 180,
+              "nsight": 800,
+              "preventPlace": "_",
+              "Primary": "_",
+              "regenHP": 14000.0,
+              "regenType": "always",
+              "reptm": 20,
+              "requirePlace": "_",
+              "sight": 1400,
+              "spd": 240,
+              "stockMax": 3,
+              "stockRegen": 30,
+              "tilesets": "*"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 1046,
+            "id": "e009",
+            "fields": {
+              "unitWeapID": "e009",
+              "acquire": 500.0,
+              "atkType1": "normal",
+              "atkType2": "normal",
+              "backSw1": 0.5,
+              "castbsw": 0.1,
+              "castpt": 0.3,
+              "cool1": 1.35,
+              "dice1": 1,
+              "dmgplus1": 11,
+              "dmgpt1": 0.5,
+              "impactZ": 60.0,
+              "launchZ": 60.0,
+              "rangeN1": 90,
+              "RngBuff1": 250.0,
+              "showUI1": 1,
+              "showUI2": 1,
+              "sides1": 2,
+              "targCount1": 1,
+              "targCount2": 1,
+              "targs1": "ground,structure,debris,item,ward",
+              "weapTp1": "normal",
+              "weapType1": "MetalMediumSlice"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitdata.json",
+            "jsonIndex": 1046,
+            "id": "e009",
+            "fields": {
+              "unitID": "e009",
+              "canFlee": 1,
+              "cargoSize": 1,
+              "death": 3.04,
+              "movetp": "fly",
+              "points": 1,
+              "prio": 6,
+              "propWin": 60.0,
+              "race": "human",
+              "targType": "ground",
+              "turnRate": 0.6
+            }
+          }
+        ],
+        "BEme": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+            "jsonIndex": 11,
+            "id": "BEme",
+            "fields": {
+              "alias": "BEme"
+            }
+          }
+        ]
+      },
+      "functions": {},
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f1",
+          "key": "k382",
+          "constantLine": 162374,
+          "pc": 3040,
+          "sourceLine": 165702,
+          "instruction": "loadk r7 k382"
+        }
+      ],
+      "web": {
+        "from": "m049",
+        "to": "e009",
+        "hpThreshold": 0.7,
+        "transition": 0.35,
+        "altitude": 1,
+        "landing": 1,
+        "duration": 20,
+        "hpBonus": 200,
+        "mana": 1000,
+        "cooldown": 80
+      }
+    },
+    "N533": {
+      "status": "ready",
+      "objects": {
+        "N533": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1497,
+            "id": "N533",
+            "fields": {
+              "alias": "N533",
+              "code": "AEev",
+              "checkDep": 1,
+              "levels": 1,
+              "reqLevel": 1,
+              "targs1": "_",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ]
+      },
+      "functions": {},
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f117",
+          "key": "k2",
+          "constantLine": 93089,
+          "pc": 9,
+          "sourceLine": 93106,
+          "instruction": "loadk r9 k2"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f1",
+          "key": "k341",
+          "constantLine": 162333,
+          "pc": 2754,
+          "sourceLine": 165397,
+          "instruction": "loadk r7 k341"
+        }
+      ],
+      "web": {
+        "chance": 0.4,
+        "sourceRoll": [
+          1,
+          100,
+          39
+        ],
+        "excluded": "q025"
+      }
+    },
+    "N571": {
+      "status": "ready",
+      "objects": {
+        "N571": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1533,
+            "id": "N571",
+            "fields": {
+              "alias": "N571",
+              "code": "Absk",
+              "BuffID1": "B093",
+              "checkDep": 1,
+              "Cool1": 30.0,
+              "Cost1": 100,
+              "DataA1": 0.4,
+              "Dur1": 6.0,
+              "HeroDur1": 6.0,
+              "levels": 1,
+              "targs1": "_",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ],
+        "B093": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+            "jsonIndex": 327,
+            "id": "B093",
+            "fields": {
+              "alias": "B093"
+            }
+          }
+        ],
+        "N572": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1534,
+            "id": "N572",
+            "fields": {
+              "alias": "N572",
+              "code": "AOcr",
+              "checkDep": 1,
+              "DataD1": 1.0,
+              "levels": 1,
+              "reqLevel": 1,
+              "targs1": "air,ground,enemy,neutral",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ]
+      },
+      "functions": {
+        "main/f212": [
+          120227,
+          120248
+        ],
+        "main/f212/f0": [
+          120249,
+          120330
+        ],
+        "main/f212/f1": [
+          120331,
+          120370
+        ]
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f1",
+          "key": "k383",
+          "constantLine": 162375,
+          "pc": 3061,
+          "sourceLine": 165724,
+          "instruction": "loadk r7 k383"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k381",
+          "constantLine": 169970,
+          "pc": 1851,
+          "sourceLine": 172028,
+          "instruction": "loadk r5 k381"
+        }
+      ],
+      "web": {
+        "hpThreshold": 0.7,
+        "moveBonus": 0.4,
+        "nativeEvade": "N572",
+        "duration": 6,
+        "mana": 100,
+        "cooldown": 30
+      }
+    },
+    "N573": {
+      "status": "ready",
+      "objects": {
+        "N573": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1535,
+            "id": "N573",
+            "fields": {
+              "alias": "N573",
+              "code": "Absk",
+              "BuffID1": "B094",
+              "checkDep": 1,
+              "Cool1": 20.0,
+              "Cost1": 100,
+              "DataA1": 0.3,
+              "Dur1": 6.0,
+              "HeroDur1": 6.0,
+              "levels": 1,
+              "targs1": "_",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ],
+        "B094": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+            "jsonIndex": 328,
+            "id": "B094",
+            "fields": {
+              "alias": "B094"
+            }
+          }
+        ],
+        "T096": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1973,
+            "id": "T096",
+            "fields": {
+              "alias": "T096",
+              "code": "Ainf",
+              "BuffID1": "B094",
+              "Cool1": 10.0,
+              "Cost1": 200,
+              "Dur1": 8.0,
+              "HeroDur1": 8.0,
+              "levels": 1,
+              "priority": 10,
+              "Rng1": 500.0,
+              "targs1": "enemies,invulnerable",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ]
+      },
+      "functions": {
+        "main/f213": [
+          120371,
+          120387
+        ],
+        "main/f213/f0": [
+          120388,
+          120534
+        ]
+      },
+      "references": [],
+      "web": {
+        "sourceDeathType": "m052",
+        "sourceRoll": [
+          1,
+          10,
+          4
+        ],
+        "radius": 300,
+        "mark": "B094",
+        "duration": 8,
+        "outgoingFactor": 0.5
+      }
+    },
+    "N574": {
+      "status": "ready",
+      "objects": {
+        "N574": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1536,
+            "id": "N574",
+            "fields": {
+              "alias": "N574",
+              "code": "AOcr",
+              "checkDep": 1,
+              "levels": 1,
+              "reqLevel": 1,
+              "targs1": "air,ground,enemy,neutral",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ]
+      },
+      "functions": {
+        "main/f214": [
+          120535,
+          120557
+        ],
+        "main/f214/f0": [
+          120558,
+          120629
+        ]
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f1",
+          "key": "k388",
+          "constantLine": 162380,
+          "pc": 3114,
+          "sourceLine": 165780,
+          "instruction": "loadk r7 k388"
+        }
+      ],
+      "web": {
+        "threshold": 20000,
+        "strict": true,
+        "negativeBuffsOnly": true
+      }
+    },
+    "N575": {
+      "status": "ready",
+      "objects": {
+        "N575": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1537,
+            "id": "N575",
+            "fields": {
+              "alias": "N575",
+              "code": "Absk",
+              "BuffID1": "B095",
+              "checkDep": 1,
+              "Cool1": 40.0,
+              "Cost1": 500,
+              "Dur1": 15.0,
+              "HeroDur1": 15.0,
+              "levels": 1,
+              "targs1": "_",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ],
+        "B095": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+            "jsonIndex": 329,
+            "id": "B095",
+            "fields": {
+              "alias": "B095"
+            }
+          }
+        ]
+      },
+      "functions": {
+        "main/f215": [
+          120630,
+          120671
+        ],
+        "main/f215/f0": [
+          120672,
+          120721
+        ],
+        "main/f215/f1": [
+          120722,
+          120748
+        ],
+        "main/f215/f2": [
+          120749,
+          120803
+        ],
+        "main/f215/f3": [
+          120804,
+          120883
+        ]
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f1",
+          "key": "k373",
+          "constantLine": 162365,
+          "pc": 2971,
+          "sourceLine": 165629,
+          "instruction": "loadk r7 k373"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f14",
+          "key": "k359",
+          "constantLine": 169948,
+          "pc": 1739,
+          "sourceLine": 171905,
+          "instruction": "loadk r5 k359"
+        }
+      ],
+      "web": {
+        "window": 15,
+        "amount": 120000,
+        "mana": 500,
+        "cooldown": 40,
+        "firstAttempt": "cast only"
+      }
+    },
+    "N576": {
+      "status": "pending-native-split",
+      "objects": {
+        "N576": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1538,
+            "id": "N576",
+            "fields": {
+              "alias": "N576",
+              "code": "ANef",
+              "Area1": 10.0,
+              "BuffID1": "BNef",
+              "checkDep": 1,
+              "Cool1": 40.0,
+              "Cost1": 300,
+              "DataA1": "b138",
+              "Dur1": 6.0,
+              "HeroDur1": 6.0,
+              "levels": 1,
+              "levelSkip": 6,
+              "reqLevel": 6,
+              "targs1": "_",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ],
+        "b138": [
+          {
+            "sourcePath": "reference/map-6.25/units_unitabilities.json",
+            "jsonIndex": 1009,
+            "id": "b138",
+            "fields": {
+              "unitAbilID": "b138",
+              "abilList": "N534",
+              "auto": "_"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitbalance.json",
+            "jsonIndex": 1009,
+            "id": "b138",
+            "fields": {
+              "unitBalanceID": "b138",
+              "bldtm": 45,
+              "bountydice": 1,
+              "bountyplus": 600,
+              "bountysides": 25,
+              "defType": "none",
+              "defUp": 2.0,
+              "HP": 33,
+              "level": 6,
+              "nsight": 600,
+              "preventPlace": "_",
+              "Primary": "_",
+              "regenType": "none",
+              "reptm": 45,
+              "requirePlace": "_",
+              "sight": 600,
+              "stockMax": 3,
+              "stockRegen": 30,
+              "tilesets": "*",
+              "type": "ancient,sapper"
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitweapons.json",
+            "jsonIndex": 1009,
+            "id": "b138",
+            "fields": {
+              "unitWeapID": "b138",
+              "atkType1": "normal",
+              "atkType2": "normal",
+              "castbsw": 0.51,
+              "impactZ": 60.0,
+              "launchZ": 60.0,
+              "showUI1": 1,
+              "showUI2": 1,
+              "targCount2": 1
+            }
+          },
+          {
+            "sourcePath": "reference/map-6.25/units_unitdata.json",
+            "jsonIndex": 1009,
+            "id": "b138",
+            "fields": {
+              "unitID": "b138",
+              "canFlee": 1,
+              "death": 1.33,
+              "moveHeight": 120.0,
+              "movetp": "Fly",
+              "points": 1,
+              "prio": 1,
+              "propWin": 60.0,
+              "race": "human",
+              "targType": "ground"
+            }
+          }
+        ],
+        "T097": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1974,
+            "id": "T097",
+            "fields": {
+              "alias": "T097",
+              "code": "AOws",
+              "Area1": 1200.0,
+              "BuffID1": "BPSE",
+              "Cool1": 20.0,
+              "Cost1": 100,
+              "Dur1": 4.0,
+              "HeroDur1": 4.0,
+              "levels": 1,
+              "targs1": "enemies,invulnerable",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ]
+      },
+      "functions": {
+        "main/f216": [
+          120884,
+          120900
+        ],
+        "main/f216/f0": [
+          120901,
+          120960
+        ]
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f1",
+          "key": "k384",
+          "constantLine": 162376,
+          "pc": 3082,
+          "sourceLine": 165746,
+          "instruction": "loadk r7 k384"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f16",
+          "key": "k22",
+          "constantLine": 172268,
+          "pc": 117,
+          "sourceLine": 172401,
+          "instruction": "loadk r3 k22"
+        }
+      ],
+      "web": {
+        "replacement": "b138",
+        "duration": 6,
+        "finishCarrier": "T097"
+      }
+    },
+    "N579": {
+      "status": "ready",
+      "objects": {
+        "N579": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1541,
+            "id": "N579",
+            "fields": {
+              "alias": "N579",
+              "code": "AOcr",
+              "checkDep": 1,
+              "levels": 1,
+              "reqLevel": 1,
+              "targs1": "air,ground,enemy,neutral",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ]
+      },
+      "functions": {
+        "main/f218": [
+          121159,
+          121181
+        ],
+        "main/f218/f0": [
+          121182,
+          121275
+        ]
+      },
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f117",
+          "key": "k4",
+          "constantLine": 93091,
+          "pc": 11,
+          "sourceLine": 93108,
+          "instruction": "loadk r11 k4"
+        },
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f1",
+          "key": "k454",
+          "constantLine": 162446,
+          "pc": 3816,
+          "sourceLine": 166528,
+          "instruction": "loadk r7 k454"
+        }
+      ],
+      "web": {
+        "maxHpThreshold": 0.3,
+        "strict": true,
+        "unpause": true,
+        "negativeBuffsOnly": true
+      }
+    },
+    "N581": {
+      "status": "ready",
+      "objects": {
+        "N581": [
+          {
+            "sourcePath": "reference/map-6.25/units_abilitydata.json",
+            "jsonIndex": 1543,
+            "id": "N581",
+            "fields": {
+              "alias": "N581",
+              "code": "AOws",
+              "Area1": 1200.0,
+              "BuffID1": "BPSE",
+              "Cool1": 12.0,
+              "Cost1": 100,
+              "Dur1": 3.0,
+              "HeroDur1": 3.0,
+              "levels": 1,
+              "targs1": "enemies,invulnerable",
+              "targs2": "_",
+              "targs3": "_",
+              "targs4": "_"
+            }
+          }
+        ]
+      },
+      "functions": {},
+      "references": [
+        {
+          "sourcePath": "reference/map-6.25/main.disasm",
+          "function": "main/f291/f1",
+          "key": "k340",
+          "constantLine": 162332,
+          "pc": 2735,
+          "sourceLine": 165377,
+          "instruction": "loadk r7 k340"
+        }
+      ],
+      "web": {
+        "hpThreshold": 0.5,
+        "radius": 1200,
+        "ordinaryStun": 3,
+        "heroStun": 3,
+        "mana": 100,
+        "cooldown": 12,
+        "damage": 0
+      }
+    }
+  },
+  "probes": [
+    "N525 directional sectors at native facing",
+    "N526 zeroes exactly 50 routed damage packets; fifty-first passes",
+    "N575 capacity arithmetic and expiry",
+    "N574 strict flat threshold and negative-only removal",
+    "N579 strict dynamic threshold and explicit unpause before removing negative buffs"
+  ]
+}

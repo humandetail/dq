@@ -1,5 +1,7 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import { test } from "node:test";
+import { decodeBLP, getBLPImageData, parseMDX } from "war3-model";
 import {
   contentVersion, economy, endlessWave, enemies, frameMs, isInsideContainment,
   items, mainline, map, recipes, shop, towers,
@@ -66,5 +68,24 @@ test("opening gold and first-wave rewards fund all five economy actions for eith
     assert.ok(Object.hasOwn(towers, card));
     const spend = openingSpend + economy.drawGold + towers[card].buildGold + shoppingCost + recipe.gold;
     assert.ok(spend <= economy.openingGold + firstBounty);
+  }
+});
+
+test("every M1 unit ships a linked MDX, a BLP1 texture, and a moving attack clip", async () => {
+  const assets = new URL("../src/assets/m1/", import.meta.url);
+  for (const id of [...Object.keys(towers), ...Object.keys(enemies)]) {
+    const mdx = await readFile(new URL(`${id}.mdx`, assets));
+    const model = parseMDX(new Uint8Array(mdx).buffer);
+    assert.ok(model.Geosets.length > 0);
+    assert.equal(model.Textures[0].Image, `${id}.blp`);
+    const blp = await readFile(new URL(model.Textures[0].Image, assets));
+    const pixels = getBLPImageData(decodeBLP(new Uint8Array(blp).buffer), 0);
+    assert.ok(pixels.width > 0 && pixels.data[3] === 255);
+    assert.ok(model.Sequences.some(sequence => sequence.Name === "Stand"));
+    const attack = model.Sequences.find(sequence => sequence.Name === "Attack");
+    assert.ok(attack);
+    const [start, end] = attack.Interval;
+    assert.ok(model.Bones.some(bone => bone.Translation?.Keys.some(key =>
+      key.Frame >= start && key.Frame <= end && key.Vector.some(component => component !== 0))));
   }
 });

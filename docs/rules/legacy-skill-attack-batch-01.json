@@ -1,0 +1,224 @@
+{
+  "scope": "Eight existing legacy skill gaps",
+  "skills": {
+    "A002": {
+      "workbookRows": [
+        46,
+        76
+      ],
+      "sourceCode": "AUav",
+      "scope": "soul state; no additional native life steal",
+      "reuse": "skill-requiem",
+      "status": "ready"
+    },
+    "A023": {
+      "workbookRows": [
+        191,
+        452
+      ],
+      "sourceCode": "AHad",
+      "scope": "attack start; no additional native armor aura",
+      "reuse": "combat-and-skills",
+      "status": "ready"
+    },
+    "A026": {
+      "workbookRows": [
+        31,
+        56
+      ],
+      "sourceCode": "AHad",
+      "scope": "resolved attack / Q26; no additional native armor aura",
+      "reuse": "combat-and-skills",
+      "status": "ready"
+    },
+    "A045": {
+      "workbookRows": [
+        162,
+        197,
+        242
+      ],
+      "sourceCode": "ANcl",
+      "scope": "complete target, interval, hit and end sequence",
+      "reuse": "legacy-skill-attack-batch-01",
+      "status": "ready"
+    },
+    "N068": {
+      "workbookRows": [
+        776
+      ],
+      "sourceCode": "Awar",
+      "scope": "no additional native Pulverize damage",
+      "reuse": "native-area-damage",
+      "status": "ready"
+    },
+    "N069": {
+      "workbookRows": [
+        779
+      ],
+      "sourceCode": "Awar",
+      "scope": "no additional native Pulverize damage",
+      "reuse": "native-area-damage",
+      "status": "ready"
+    },
+    "N070": {
+      "workbookRows": [
+        782
+      ],
+      "sourceCode": "Awar",
+      "scope": "no additional native Pulverize damage",
+      "reuse": "native-area-damage",
+      "status": "ready"
+    },
+    "N071": {
+      "workbookRows": [
+        785
+      ],
+      "sourceCode": "Awar",
+      "scope": "no additional native Pulverize damage",
+      "reuse": "native-area-damage",
+      "status": "ready"
+    }
+  },
+  "A045": {
+    "weaponMaximum": "S21 (Q64)",
+    "originalWeaponSum": "S18+S19",
+    "baseDamage": [
+      297,
+      338,
+      389,
+      445,
+      534,
+      694
+    ],
+    "acceptRange": 500,
+    "scanRadius": 500,
+    "duration": 8.3,
+    "intervalMinimum": 0.1,
+    "interval": "raw C/R snapshot at EFFECT",
+    "initialSlash": "immediate on accepted target",
+    "scepterRadius": 200,
+    "scepterDamageType": "DIVINE",
+    "scepterMultiplier": 2
+  },
+  "validation": {
+    "originalSequence": [
+      [
+        "create",
+        "q020-1",
+        300,
+        600,
+        0
+      ],
+      [
+        "schedule",
+        "timer-1",
+        0.5,
+        true
+      ],
+      [
+        "schedule",
+        "timer-2",
+        8.3,
+        false
+      ],
+      [
+        "physical",
+        "hero",
+        "first",
+        447
+      ],
+      [
+        "divine",
+        "hero",
+        0,
+        200,
+        15,
+        15,
+        1688
+      ],
+      [
+        "itemDispatch",
+        "hero",
+        "next"
+      ],
+      [
+        "create",
+        "q021-2",
+        300,
+        600,
+        0
+      ],
+      [
+        "remove",
+        "q020-1"
+      ],
+      [
+        "schedule",
+        "timer-3",
+        0.1,
+        true
+      ],
+      [
+        "schedule",
+        "timer-4",
+        8.3,
+        false
+      ],
+      [
+        "divine",
+        "hero",
+        0,
+        200,
+        10,
+        10,
+        1688
+      ],
+      [
+        "itemDispatch",
+        "hero",
+        "first"
+      ],
+      [
+        "remove",
+        "q021-2"
+      ],
+      [
+        "create",
+        "q002-3",
+        300,
+        600,
+        0
+      ],
+      [
+        "schedule",
+        "timer-5",
+        0.1,
+        true
+      ],
+      [
+        "schedule",
+        "timer-6",
+        8.3,
+        false
+      ],
+      [
+        "physical",
+        "hero",
+        "first",
+        844
+      ],
+      [
+        "remove",
+        "q002-3"
+      ]
+    ],
+    "webMaximumExamples": [
+      459,
+      856
+    ],
+    "noInterruptionSlashCountsAt0.1And0.5": [
+      83,
+      17
+    ]
+  }
+}

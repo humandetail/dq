@@ -1,0 +1,260 @@
+{
+  "baselineId": "item-restoration-batch-01",
+  "coverage": {
+    "workbookItemsScreened": 243,
+    "activeAliases": 2,
+    "scriptPickupWithoutAlias": 1,
+    "itemsReady": 3,
+    "itemsRemaining": 0
+  },
+  "items": [
+    {
+      "id": "i238",
+      "name": "灵魂之戒",
+      "workbookCell": "装备与道具!H148",
+      "described": "属性：\n增加70%魔法回复速度。\n牺牲：\n暂时获取250魔法值。持续7秒，时间过后获取魔法值将被扣除，冷却时间10秒。",
+      "alias": "I245",
+      "passiveAuditedElsewhere": "I103",
+      "itemObjectJsonIndex": 441,
+      "item": {
+        "abilList": "I245,I103",
+        "cooldownID": "I245",
+        "uses": null,
+        "usable": 1,
+        "powerup": null,
+        "perishable": null
+      },
+      "abilityObjectJsonIndex": 1168,
+      "fields": {
+        "alias": "I245",
+        "code": "ANcl",
+        "checkDep": 1,
+        "Cool1": 10.0,
+        "Cost1": 1,
+        "DataA2": 180.0,
+        "DataA3": 180.0,
+        "DataC1": 1,
+        "DataD2": 0.98,
+        "DataD3": 0.98,
+        "DataE2": 1,
+        "DataE3": 1,
+        "DataF1": "healingward",
+        "levels": 3,
+        "reqLevel": 1,
+        "Rng1": 800.0,
+        "Rng2": 500.0,
+        "Rng3": 500.0,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    {
+      "id": "i326",
+      "name": "小净化",
+      "workbookCell": "装备与道具!H219",
+      "described": "属性：\n增加20%魔法回复速度。使用后在60秒内恢复300点魔法值。",
+      "alias": "I248",
+      "passiveAuditedElsewhere": "I101",
+      "itemObjectJsonIndex": 512,
+      "item": {
+        "abilList": "I248,I101",
+        "cooldownID": "I248",
+        "uses": 3,
+        "usable": 1,
+        "powerup": null,
+        "perishable": 1
+      },
+      "abilityObjectJsonIndex": 1171,
+      "fields": {
+        "alias": "I248",
+        "code": "AIrg",
+        "BuffID1": "BIrg,BIrl,BIrm",
+        "Cool1": 1.0,
+        "Cost1": 1,
+        "DataB1": 300.0,
+        "DataD1": 1,
+        "Dur1": 60.0,
+        "HeroDur1": 60.0,
+        "levels": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    {
+      "id": "i723",
+      "name": "恢复神符",
+      "workbookCell": "装备与道具!H243",
+      "described": "恢复所有玩家英雄的魔法值\n所有玩家的英雄恢复50%魔法值。",
+      "alias": null,
+      "passiveAuditedElsewhere": null,
+      "itemObjectJsonIndex": 626,
+      "item": {
+        "abilList": null,
+        "cooldownID": "AIrs",
+        "uses": 1,
+        "usable": 1,
+        "powerup": 1,
+        "perishable": 1
+      }
+    }
+  ],
+  "sourceLinks": {
+    "ringCast": [
+      "main/f255/f0",
+      129258
+    ],
+    "ringExpiry": [
+      "main/f255/f1",
+      129322
+    ],
+    "runePickup": [
+      "main/f285/f10",
+      145495
+    ],
+    "runeAction": [
+      "main/f278/f7",
+      136776
+    ],
+    "runeRecipientFilter": [
+      "main/f278/f7/f1",
+      136854
+    ],
+    "runeAmount": [
+      "main/f278/f7/f0",
+      136805
+    ]
+  },
+  "I248TemplateComparison": {
+    "sourceAIprJsonIndex": 279,
+    "sourceAIprDataE1": 1,
+    "I248DataE1": null,
+    "metadataDataD": "No Target Required",
+    "metadataDataE": "Dispel On Attack"
+  },
+  "web": {
+    "I248": {
+      "manaPerSecond": 5,
+      "durationSeconds": 60,
+      "target": "self",
+      "fullMana": "reject before spend",
+      "onRecast": "refresh one BIrm slot",
+      "damageStops": false,
+      "positiveDispelStops": true
+    },
+    "I245": {
+      "grantCap": 250,
+      "durationSeconds": 7,
+      "independentTimerPerUse": true,
+      "updatesMaxMana": false
+    },
+    "i723": {
+      "amountPerUnit": "0.5 * current MAX_MANA",
+      "sourceTargets": "native HERO excluding exact collector, among current Player_Index_Arr owners",
+      "Q64Targets": "native HERO in the current roster including a native HERO collector"
+    }
+  },
+  "verification": {
+    "source": [
+      {
+        "name": "source ring borrows full amount and clears at zero if spent",
+        "actual": [
+          350,
+          0
+        ]
+      },
+      {
+        "name": "source ring stores only the headroom and withdraws exactly that later",
+        "actual": [
+          500,
+          250
+        ]
+      },
+      {
+        "name": "after 1-mana L03 cost at full mana only one point is borrowed",
+        "actual": [
+          500,
+          499
+        ]
+      },
+      {
+        "name": "original rune excludes the collector even when that unit is a native hero",
+        "actual": [
+          40,
+          500,
+          300.0,
+          0,
+          0
+        ]
+      }
+    ],
+    "i723Q64": {
+      "unitOrder": [
+        "picker",
+        "hero",
+        "deadHero",
+        "ordinary",
+        "nonRosterHero"
+      ],
+      "heroPicker": [
+        90.0,
+        500,
+        300.0,
+        0,
+        0
+      ],
+      "nonHeroPicker": [
+        40,
+        500,
+        300.0,
+        0,
+        0
+      ]
+    },
+    "clarityWeb": {
+      "events": [
+        "cast",
+        "damage at 10",
+        "recast at 20",
+        "dispel at 40",
+        "advance to 60"
+      ],
+      "sampleOrder": [
+        "mana",
+        "expiry",
+        "itemCharges"
+      ],
+      "samples": [
+        [
+          99,
+          60,
+          2
+        ],
+        [
+          149,
+          60,
+          2
+        ],
+        [
+          198,
+          80,
+          1
+        ],
+        [
+          298,
+          40,
+          1
+        ],
+        [
+          298,
+          40,
+          1
+        ]
+      ]
+    }
+  },
+  "originalClientTested": false
+}

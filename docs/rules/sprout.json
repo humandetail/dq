@@ -1,0 +1,118 @@
+{
+  "skill": "N549",
+  "status": "ready",
+  "object": {
+    "sourcePath": "reference/map-6.25/units_abilitydata.json",
+    "jsonIndex": 1513,
+    "id": "N549",
+    "fields": {
+      "alias": "N549",
+      "code": "ANcl",
+      "checkDep": 1,
+      "Cool1": 5.0,
+      "Cost1": 200,
+      "DataB1": 1,
+      "DataC1": 5,
+      "DataF1": "cannibalize",
+      "levels": 1,
+      "reqLevel": 1,
+      "Rng1": 5000.0,
+      "targs1": "enemies,invulnerable",
+      "targs2": "_",
+      "targs3": "_",
+      "targs4": "_"
+    }
+  },
+  "references": {
+    "N549": [
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f291/f1",
+        "key": "k413",
+        "constantLine": 162405,
+        "pc": 3414,
+        "sourceLine": 166099,
+        "instruction": "loadk r11 k413"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f291/f14",
+        "key": "k367",
+        "constantLine": 169956,
+        "pc": 1777,
+        "sourceLine": 171947,
+        "instruction": "loadk r5 k367"
+      }
+    ],
+    "N549_Skill": [
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f197",
+        "key": "k1",
+        "constantLine": 116883,
+        "pc": 8,
+        "sourceLine": 116892,
+        "instruction": "settabup u0 k1 r5"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f291/f14",
+        "key": "k368",
+        "constantLine": 169957,
+        "pc": 1781,
+        "sourceLine": 171951,
+        "instruction": "loadk r4 k368"
+      }
+    ],
+    "N549_Damage": [
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f197",
+        "key": "k0",
+        "constantLine": 116882,
+        "pc": 5,
+        "sourceLine": 116889,
+        "instruction": "settabup u0 k0 r4"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f291/f1",
+        "key": "k414",
+        "constantLine": 162406,
+        "pc": 3419,
+        "sourceLine": 166104,
+        "instruction": "loadk r8 k414"
+      }
+    ],
+    "LTlt": [
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f197/f2",
+        "key": "k13",
+        "constantLine": 117099,
+        "pc": 34,
+        "sourceLine": 117141,
+        "instruction": "loadk r14 k13"
+      }
+    ]
+  },
+  "source": "reference/map-6.25/main.disasm",
+  "web": {
+    "candidateRadius": 2000,
+    "candidateType": "native HERO, living, owner != P11, no active sprout",
+    "order": "cannibalize",
+    "duration": 10,
+    "trees": 11,
+    "radius": 300,
+    "angleArgumentRadianStep": 36,
+    "facingDegreesStep": 36,
+    "scale": 1.2,
+    "destructible": "LTlt",
+    "variant": 0
+  },
+  "probes": [
+    "real random candidates exclude own P11, non-heroes and dead handles",
+    "tree array uses eleven Lua radians and JASS degree facings",
+    "marked target cannot be sprouted again until timer removes all trees"
+  ]
+}

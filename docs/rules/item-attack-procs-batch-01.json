@@ -1,0 +1,198 @@
+{
+  "baselineId": "item-attack-procs-batch-01",
+  "coverage": {
+    "itemsReady": 12,
+    "newEffects": 5,
+    "priorEffects": 7
+  },
+  "items": {
+    "i115": {
+      "name": "狂战斧",
+      "workbookCell": "装备与道具!H25",
+      "componentReady": true,
+      "sourceAbilList": "I135,I135",
+      "newEffect": false,
+      "existingRule": "item-damage-effects"
+    },
+    "i132": {
+      "name": "完美的妖刀村正",
+      "workbookCell": "装备与道具!H42",
+      "componentReady": true,
+      "sourceAbilList": "I170,I125",
+      "newEffect": false,
+      "existingRule": "item-muramasa-takemitsu"
+    },
+    "i134": {
+      "name": "完美的妖刀竹光",
+      "workbookCell": "装备与道具!H44",
+      "componentReady": true,
+      "sourceAbilList": "I158,I105",
+      "newEffect": false,
+      "existingRule": "item-muramasa-takemitsu"
+    },
+    "i213": {
+      "name": "水晶剑",
+      "workbookCell": "装备与道具!H123",
+      "componentReady": true,
+      "sourceAbilList": "I201,I214",
+      "newEffect": false,
+      "existingRule": "skill-coup-de-grace"
+    },
+    "i215": {
+      "name": "暴雪弩炮",
+      "workbookCell": "装备与道具!H125",
+      "componentReady": true,
+      "sourceAbilList": "I136,I215",
+      "newEffect": false,
+      "existingRule": "skill-coup-de-grace"
+    },
+    "i263": {
+      "name": "完美的妖刀鬼切",
+      "workbookCell": "装备与道具!H173",
+      "componentReady": true,
+      "sourceAbilList": "I163,I163",
+      "newEffect": false,
+      "existingRule": "item-damage-effects"
+    },
+    "i306": {
+      "name": "裁决之剑",
+      "workbookCell": "装备与道具!H199",
+      "componentReady": true,
+      "sourceAbilList": "I286,I229,I284",
+      "newEffect": false,
+      "existingRule": "skill-coup-de-grace"
+    },
+    "i141": {
+      "name": "金箍棒",
+      "workbookCell": "装备与道具!H51",
+      "componentReady": true,
+      "sourceAbilList": "I185,I187",
+      "newEffect": true,
+      "web": {
+        "extraChancePct": 30,
+        "extraPhysical": 400,
+        "existingHitPct": 70
+      },
+      "indexedScriptRefs": [
+        142064,
+        142403,
+        142949,
+        142979
+      ]
+    },
+    "i144": {
+      "name": "标枪",
+      "workbookCell": "装备与道具!H54",
+      "componentReady": true,
+      "sourceAbilList": "I134,I134",
+      "newEffect": true,
+      "web": {
+        "extraChancePct": 20,
+        "extraPhysical": 100
+      },
+      "indexedScriptRefs": [
+        141308,
+        142106,
+        142412,
+        142415
+      ]
+    },
+    "i302": {
+      "name": "索利达尔-群星之怒",
+      "workbookCell": "装备与道具!H195",
+      "componentReady": true,
+      "sourceAbilList": "I152,I128",
+      "newEffect": true,
+      "web": {
+        "chancePct": 12,
+        "attackRangeCoefficient": 13,
+        "radius": 425,
+        "denominators": [
+          1000,
+          600
+        ],
+        "lockSeconds": 0.3,
+        "callback": "Item_Attack_Special"
+      }
+    },
+    "i316": {
+      "name": "斩敌巨斧",
+      "workbookCell": "装备与道具!H209",
+      "componentReady": true,
+      "sourceAbilList": "I146,I124",
+      "newEffect": true,
+      "web": {
+        "meleeChancePct": 25,
+        "rangedChancePct": 15,
+        "radii": [
+          500,
+          350
+        ],
+        "strengthDeltaFactors": [
+          10,
+          8
+        ],
+        "meleeLifeBonusFraction": 0.6,
+        "lockSeconds": 2,
+        "callback": "Item_Attack_Special"
+      }
+    },
+    "i322": {
+      "name": "遗物之刃",
+      "workbookCell": "装备与道具!H215",
+      "componentReady": true,
+      "sourceAbilList": "I252,I126,I251",
+      "newEffect": true,
+      "web": {
+        "windUp": 0,
+        "waveDistance": 900,
+        "halfWidth": 300,
+        "speed": 2500,
+        "waveSeconds": 0.36,
+        "carrier": "q018",
+        "damageCarrier": "q019",
+        "callback": "ItemDamageActionBefore"
+      }
+    }
+  },
+  "verification": {
+    "originalAttackProcAreas": [
+      [
+        425,
+        30,
+        20,
+        1100.0
+      ],
+      [
+        440,
+        10,
+        20,
+        2700.0
+      ],
+      [
+        310,
+        30,
+        20,
+        2070.0
+      ]
+    ],
+    "axeOriginalCensusCenters": [
+      "actor",
+      "target"
+    ],
+    "webWaveEdges": {
+      "500,300": 0.2,
+      "500,301": null,
+      "900,0": 0.36,
+      "901,0": null
+    }
+  },
+  "sourceLines": {
+    "specialDispatch": 146247,
+    "star": 133492,
+    "axeCensus": 133661,
+    "axeDispatch": 133818,
+    "relicWave": 133200,
+    "relicBridge": 133315
+  }
+}

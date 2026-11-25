@@ -1,9 +1,9 @@
-import { economy, endlessWave, enemies, framesPerSecond, isInsideContainment, items, mainline, map } from "./content.ts";
+import { economy, endlessWave, enemies, framesPerSecond, isInsideContainment, items, mainline, map, overcharge } from "./content.ts";
 import { executeEconomy, recordResult, shopStock, towerStats, type Outcome } from "./economy.ts";
 import type { BattleEvent, Enemy, MatchState, PlayerCommand, ScheduledCommand, Tower } from "./state.ts";
 
 export type Hit = { towerId: number; targetId: number; x: number; y: number };
-export type FrameReport = { hits: Hit[]; save: boolean };
+export type FrameReport = { hits: Hit[]; arrivals: number[]; save: boolean };
 
 export function running(state: MatchState) {
   return state.phase === "mainline" || state.phase === "endless";
@@ -68,22 +68,49 @@ export function containmentPoints(state: MatchState) {
     sum + (isInsideContainment(enemy.position) ? enemies[enemy.type].containmentPoints : 0), 0);
 }
 
-function move(enemy: Enemy) {
+function overlaps(state: MatchState, enemy: Pick<Enemy, "type" | "id">, position: Enemy["position"], previous?: Enemy["position"]) {
+  return state.enemies.some(other => {
+    if (other.id === enemy.id) return false;
+    const radius = enemies[enemy.type].radius + enemies[other.type].radius;
+    const distanceSquared = (point: Enemy["position"]) =>
+      (other.position.x - point.x) ** 2 + (other.position.y - point.y) ** 2;
+    const distance = distanceSquared(position);
+    return distance < radius ** 2 && (!previous || distance <= distanceSquared(previous));
+  });
+}
+
+function move(state: MatchState, enemy: Enemy) {
   const waypoint = map.route[enemy.nextWaypoint];
   const dx = waypoint.x - enemy.position.x;
   const dy = waypoint.y - enemy.position.y;
   const distance = Math.hypot(dx, dy);
   const step = enemies[enemy.type].speed / framesPerSecond;
-  if (distance <= step) {
-    enemy.position = { ...waypoint };
-    enemy.nextWaypoint = (enemy.nextWaypoint + 1) % map.route.length;
-  } else {
-    enemy.position.x += dx * step / distance;
-    enemy.position.y += dy * step / distance;
-  }
+  const reached = distance <= step;
+  const position = reached ? { ...waypoint } : {
+    x: enemy.position.x + dx * step / distance,
+    y: enemy.position.y + dy * step / distance,
+  };
+  if (overlaps(state, enemy, position, enemy.position)) return;
+  enemy.position = position;
+  if (reached) enemy.nextWaypoint = (enemy.nextWaypoint + 1) % map.route.length;
 }
 
-function spawn(state: MatchState, event: Extract<BattleEvent, { type: "spawn" }>) {
+function spawnPosition(state: MatchState, enemy: Pick<Enemy, "type" | "id">) {
+  const entry = map.route[0];
+  const { maxX, minY } = map.containment;
+  const spacing = 0.65;
+  // Fill the nearest free row first, within the containment boundary.
+  for (let y = entry.y; y >= minY; y -= spacing) {
+    for (let x = entry.x; x <= maxX; x += spacing) {
+      const position = { x, y };
+      if (!overlaps(state, enemy, position)) return position;
+    }
+  }
+  // The official waves fail well before filling the map; keep C01 meaningful for large fixtures.
+  return { ...entry };
+}
+
+function spawn(state: MatchState, event: Extract<BattleEvent, { type: "spawn" }>, arrivals: number[]) {
   const wave = waveConfig(state, event.wave)!;
   const batch = wave.batches[event.batchIndex];
   const progress = state.waves.find(entry => entry.number === event.wave)!;
@@ -91,10 +118,9 @@ function spawn(state: MatchState, event: Extract<BattleEvent, { type: "spawn" }>
   progress.livingEnemies += batch.count;
   const hp = Math.ceil(enemies[batch.enemy].hp * wave.hpMultiplier);
   for (let count = 0; count < batch.count; count++) {
-    state.enemies.push({
-      id: state.nextInstanceId++, type: batch.enemy, wave: event.wave,
-      position: { ...map.route[0] }, nextWaypoint: 1, hp,
-    });
+    const enemy = { id: state.nextInstanceId++, type: batch.enemy };
+    state.enemies.push({ ...enemy, wave: event.wave, position: spawnPosition(state, enemy), nextWaypoint: 1, hp });
+    arrivals.push(enemy.id);
   }
 }
 
@@ -127,6 +153,18 @@ function attack(state: MatchState, tower: Tower | undefined, target: Enemy | und
   return { ok: true };
 }
 
+function activateOvercharge(state: MatchState, towerId: number): Outcome {
+  const tower = state.towers.find(entry => entry.id === towerId);
+  if (!tower) return { ok: false, reason: "missing" };
+  if ((tower.skillReadyFrames.overcharge ?? 0) > state.frame) return { ok: false, reason: "cooldown" };
+  tower.skillReadyFrames.overcharge = state.frame + overcharge.cooldownFrames;
+  const effectId = state.nextInstanceId++;
+  const expiresFrame = state.frame + overcharge.durationFrames;
+  state.effects.push({ id: effectId, type: "damage-bonus", targetId: towerId, expiresFrame, magnitude: overcharge.damageBonus });
+  state.events.push({ type: "expire-effect", targetFrame: expiresFrame, sequence: state.nextEventSequence++, effectId });
+  return { ok: true };
+}
+
 function stop(state: MatchState, dueAttacks: ScheduledCommand[] = []) {
   for (const command of [...dueAttacks, ...state.commands]) {
     recordResult(state, command, { ok: false, reason: "phase" });
@@ -136,7 +174,7 @@ function stop(state: MatchState, dueAttacks: ScheduledCommand[] = []) {
 }
 
 export function advanceFrame(state: MatchState): FrameReport {
-  const report: FrameReport = { hits: [], save: false };
+  const report: FrameReport = { hits: [], arrivals: [], save: false };
   if (!running(state)) return report;
   const frame = ++state.frame;
   const commands = state.commands.filter(command => command.targetFrame === frame)
@@ -145,12 +183,12 @@ export function advanceFrame(state: MatchState): FrameReport {
   const attacks: ScheduledCommand[] = [];
   for (const command of commands) {
     const { action } = command;
-    if (action.type === "attack") attacks.push(command);
+    if (action.type === "attack" || action.type === "overcharge") attacks.push(command);
     else if (action.type === "enter-endless" || action.type === "restart") recordResult(state, command, { ok: false, reason: "phase" });
     else recordResult(state, command, executeEconomy(state, action));
   }
   report.save = commands.length > 0;
-  for (const enemy of state.enemies) move(enemy);
+  for (const enemy of state.enemies) move(state, enemy);
   const due = state.events.filter(event => event.targetFrame === frame)
     .sort((left, right) => left.sequence - right.sequence);
   state.events = state.events.filter(event => event.targetFrame !== frame);
@@ -158,7 +196,7 @@ export function advanceFrame(state: MatchState): FrameReport {
   for (const event of due) {
     if (event.type === "expire-effect") state.effects = state.effects.filter(effect => effect.id !== event.effectId);
     if (event.type !== "spawn") continue;
-    spawn(state, event);
+    spawn(state, event, report.arrivals);
     if (event.batchIndex === 0) {
       startsWave = true;
       state.currentWave = event.wave;
@@ -176,6 +214,10 @@ export function advanceFrame(state: MatchState): FrameReport {
 
   for (const command of attacks) {
     const { action } = command;
+    if (action.type === "overcharge") {
+      recordResult(state, command, activateOvercharge(state, action.towerId));
+      continue;
+    }
     if (action.type !== "attack") continue;
     const tower = state.towers.find(tower => tower.id === action.towerId);
     const target = state.enemies.find(enemy => enemy.id === action.targetId);

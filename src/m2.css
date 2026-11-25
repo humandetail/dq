@@ -1,0 +1,49 @@
+:root {
+  color-scheme: dark;
+  font: 16px/1.5 system-ui, sans-serif;
+  color: #e8f3f0;
+  background: #101d22;
+}
+body { margin: 0; }
+header { padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+h1, h2, p { margin: 0; }
+h1 { font-size: 1.4rem; }
+h2 { margin-bottom: .4rem; font-size: 1.05rem; }
+p { color: #cedcda; font-size: .9rem; }
+button, select { font: inherit; color: inherit; border: 1px solid #65817e; border-radius: .4rem; background: #253d3e; padding: .26rem .5rem; }
+button:not(:disabled) { cursor: pointer; }
+button[aria-pressed="true"] { background: #356757; outline: 2px solid #9ce0bf; }
+button:disabled { opacity: .55; }
+main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, 25vw); min-height: calc(100dvh - 6rem); }
+#field { display: block; width: 100%; height: calc(100dvh - 6rem); min-height: 28rem; touch-action: none; }
+aside { padding: 1rem; background: #162a30; }
+section { border-top: 1px solid #3a5053; margin-top: .8rem; padding-top: .8rem; }
+.controls { display: flex; flex-wrap: wrap; gap: .3rem; }
+#structures > div { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem; margin-bottom: .3rem; }
+#feedback, #save { margin-top: .4rem; }
+@media (max-width: 760px) {
+  main { grid-template-columns: minmax(0, 1fr); }
+  #field { height: 60vh; }
+}
+
+.battlefield { position: relative; min-width: 0; }
+.map-key { display: flex; align-items: center; gap: .5rem; width: fit-content; max-width: 100%; flex-wrap: wrap; background: #14251eec; border: 1px solid #8b9c65; padding: .55rem .8rem; font-size: .85rem; }
+.build-key, .road-key { display: inline-block; width: 1rem; height: 1rem; background: #7f9b50; border: 1px solid #dfd39b; }
+.road-key { background: #97805d; margin-left: .6rem; }
+.placement-bar { position: absolute; bottom: 1rem; left: 1rem; right: 1rem; background: #14251ef2; border: 1px solid #8b9c65; padding: .8rem 1rem; display: flex; align-items: center; justify-content: space-between; gap: .8rem; pointer-events: none; }
+.placement-bar p { color: #f1efd7; }
+.placement-bar button { pointer-events: auto; white-space: nowrap; }
+[hidden] { display: none !important; }
+.build-help { margin-bottom: .5rem; color: #d6e9ba; }
+button:focus-visible { outline: 2px solid #efcf84; outline-offset: 3px; }
+#field.placing { outline: 2px solid #b9cf87; outline-offset: -2px; }
+
+.battlefield-tools { position: absolute; top: 1rem; left: 1rem; right: 1rem; display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: .5rem; pointer-events: none; }
+.map-key, .camera-panel { pointer-events: auto; }
+.camera-panel { background: #14251ef2; border: 1px solid #8b9c65; padding: .55rem .7rem; max-width: 100%; }
+.camera-panel button { font-size: .85rem; }
+.camera-panel p { font-size: .85rem; margin-top: .35rem; }
+.camera-help { color: #d1dccb; max-width: 29rem; }
+#camera-status { color: #efcf84; }
+
+#structures > div > p, #structures > div > .controls { flex-basis: 100%; }

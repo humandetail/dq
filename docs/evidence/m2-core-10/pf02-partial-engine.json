@@ -1,0 +1,6564 @@
+{
+  "fixtureId": "PF02",
+  "status": "partial-engine-fixture",
+  "seed": 811,
+  "contentVersion": "m2-core-10",
+  "bundle": "/assets/m2-BaM_jniC.js",
+  "bundleSha256": "cabd4b1cbc1da1253a5591cda692db7454999207e9bcfc104dbe3cc49542c2e8",
+  "initialSha256": "6f397f83f5254180465404bdeeb1c8b0d0042642a7b7e31c026bdb20bb44fcf2",
+  "inputsSha256": "66f95b0bd4f3fd7be9ecdaf76d7256832fe1066f759a19c8bf995d39c1eecfd2",
+  "commands": [
+    {
+      "atUs": 87000000,
+      "id": "pf02-1",
+      "matchId": "pf01",
+      "action": {
+        "type": "use-item",
+        "itemId": 1
+      },
+      "outcome": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 87000001,
+      "id": "pf02-2",
+      "matchId": "pf01",
+      "action": {
+        "type": "choose-opening",
+        "card": "i569"
+      },
+      "outcome": {
+        "ok": true,
+        "createdId": 107
+      }
+    },
+    {
+      "atUs": 87000002,
+      "id": "pf02-3",
+      "matchId": "pf01",
+      "action": {
+        "type": "build-card",
+        "cardId": 107,
+        "point": {
+          "x": -288,
+          "y": -128
+        }
+      },
+      "outcome": {
+        "ok": true,
+        "createdId": 108
+      }
+    },
+    {
+      "atUs": 88000003,
+      "id": "pf02-4",
+      "matchId": "pf01",
+      "action": {
+        "type": "learn-skill",
+        "towerId": 108,
+        "skillId": "A094"
+      },
+      "outcome": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 88000004,
+      "id": "pf02-5",
+      "matchId": "pf01",
+      "action": {
+        "type": "reserve-challenge",
+        "unitId": "m523"
+      },
+      "outcome": {
+        "ok": true,
+        "createdId": 110
+      }
+    }
+  ],
+  "initial": {
+    "matchId": "pf01",
+    "mapVersion": "m2-map-5",
+    "seed": 811,
+    "randomState": 363506472,
+    "queue": {
+      "nowUs": 87000000,
+      "nextSequence": 2850,
+      "pending": [
+        {
+          "timerId": 1,
+          "sequence": 2849,
+          "dueUs": 87031250,
+          "periodUs": 31250,
+          "payload": {
+            "type": "movement"
+          }
+        },
+        {
+          "timerId": 2847,
+          "sequence": 2847,
+          "dueUs": 87700000,
+          "periodUs": 700000,
+          "payload": {
+            "type": "spawn",
+            "index": 1
+          }
+        },
+        {
+          "timerId": 2846,
+          "sequence": 2846,
+          "dueUs": 127000000,
+          "periodUs": 0,
+          "payload": {
+            "type": "stop-wave",
+            "index": 1
+          }
+        },
+        {
+          "timerId": 2848,
+          "sequence": 2848,
+          "dueUs": 137000000,
+          "periodUs": 0,
+          "payload": {
+            "type": "start-wave",
+            "index": 2
+          }
+        }
+      ]
+    },
+    "clock": {
+      "targetUs": 87000000,
+      "fractionUs": 0,
+      "speed": 1,
+      "paused": false
+    },
+    "phase": "running",
+    "waveRewardSlots": [
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "worker": {
+      "x": -288,
+      "y": -128
+    },
+    "approach": null,
+    "wave": 2,
+    "batch": 1,
+    "totalArrivals": 59,
+    "bossArrivalUs": null,
+    "bossDeadlineUs": null,
+    "nextId": 103,
+    "openingCard": null,
+    "openingChoicesUnlocked": false,
+    "cards": [],
+    "inventory": [
+      {
+        "id": 1,
+        "itemId": "i004",
+        "slot": 0,
+        "charges": 1,
+        "point": {
+          "x": -288,
+          "y": -128
+        }
+      },
+      {
+        "id": 2,
+        "itemId": "i006",
+        "slot": 1,
+        "charges": 1,
+        "point": {
+          "x": -288,
+          "y": -128
+        }
+      }
+    ],
+    "books": [],
+    "shopRestock": {},
+    "gold": 2000,
+    "populationLimit": 30,
+    "lumber": 0,
+    "blackWeights": {
+      "i564": 100,
+      "i569": 100,
+      "i576": 100,
+      "i581": 100
+    },
+    "luckLevel": 0,
+    "population": 0,
+    "challengeShopOpen": true,
+    "qualificationShopOpen": false,
+    "mysteryShopOpen": false,
+    "overdraftOpen": false,
+    "enemies": [
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -16,
+        "y": 1147.7241745654474,
+        "id": 3,
+        "previousWaypoint": 15,
+        "waypoint": 9,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": -16,
+            "y": 1136
+          },
+          {
+            "x": -16,
+            "y": 1104
+          },
+          {
+            "x": -16,
+            "y": 1072
+          },
+          {
+            "x": -16,
+            "y": 1040
+          },
+          {
+            "x": -16,
+            "y": 1008
+          },
+          {
+            "x": 16,
+            "y": 976
+          },
+          {
+            "x": 16,
+            "y": 944
+          },
+          {
+            "x": 16,
+            "y": 912
+          },
+          {
+            "x": 16,
+            "y": 880
+          },
+          {
+            "x": 0,
+            "y": 832
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -1232,
+        "y": -1076.3925134690196,
+        "id": 4,
+        "previousWaypoint": 17,
+        "waypoint": 23,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37700000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": -1232,
+            "y": -1072
+          },
+          {
+            "x": -1232,
+            "y": -1040
+          },
+          {
+            "x": -1232,
+            "y": -1008
+          },
+          {
+            "x": -1232,
+            "y": -976
+          },
+          {
+            "x": -1232,
+            "y": -944
+          },
+          {
+            "x": -1232,
+            "y": -912
+          },
+          {
+            "x": -1232,
+            "y": -880
+          },
+          {
+            "x": -1232,
+            "y": -848
+          },
+          {
+            "x": -1264,
+            "y": -816
+          },
+          {
+            "x": -1264,
+            "y": -784
+          },
+          {
+            "x": -1232,
+            "y": -752
+          },
+          {
+            "x": -1232,
+            "y": -720
+          },
+          {
+            "x": -1232,
+            "y": -688
+          },
+          {
+            "x": -1232,
+            "y": -656
+          },
+          {
+            "x": -1232,
+            "y": -624
+          },
+          {
+            "x": -1232,
+            "y": -592
+          },
+          {
+            "x": -1232,
+            "y": -560
+          },
+          {
+            "x": -1232,
+            "y": -528
+          },
+          {
+            "x": -1232,
+            "y": -496
+          },
+          {
+            "x": -1232,
+            "y": -464
+          },
+          {
+            "x": -1232,
+            "y": -432
+          },
+          {
+            "x": -1264,
+            "y": -400
+          },
+          {
+            "x": -1264,
+            "y": -368
+          },
+          {
+            "x": -1264,
+            "y": -336
+          },
+          {
+            "x": -1264,
+            "y": -304
+          },
+          {
+            "x": -1264,
+            "y": -272
+          },
+          {
+            "x": -1264,
+            "y": -240
+          },
+          {
+            "x": -1264,
+            "y": -208
+          },
+          {
+            "x": -1264,
+            "y": -176
+          },
+          {
+            "x": -1264,
+            "y": -144
+          },
+          {
+            "x": -1264,
+            "y": -112
+          },
+          {
+            "x": -1264,
+            "y": -80
+          },
+          {
+            "x": -1264,
+            "y": -48
+          },
+          {
+            "x": -1264,
+            "y": -16
+          },
+          {
+            "x": -1248,
+            "y": 0
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 1232,
+        "y": 102.27173014414856,
+        "id": 5,
+        "previousWaypoint": 20,
+        "waypoint": 14,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 38400000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 1232,
+            "y": 112
+          },
+          {
+            "x": 1232,
+            "y": 144
+          },
+          {
+            "x": 1232,
+            "y": 176
+          },
+          {
+            "x": 1232,
+            "y": 208
+          },
+          {
+            "x": 1232,
+            "y": 240
+          },
+          {
+            "x": 1232,
+            "y": 272
+          },
+          {
+            "x": 1232,
+            "y": 304
+          },
+          {
+            "x": 1232,
+            "y": 336
+          },
+          {
+            "x": 1232,
+            "y": 368
+          },
+          {
+            "x": 1232,
+            "y": 400
+          },
+          {
+            "x": 1232,
+            "y": 432
+          },
+          {
+            "x": 1232,
+            "y": 464
+          },
+          {
+            "x": 1232,
+            "y": 496
+          },
+          {
+            "x": 1232,
+            "y": 528
+          },
+          {
+            "x": 1232,
+            "y": 560
+          },
+          {
+            "x": 1232,
+            "y": 592
+          },
+          {
+            "x": 1232,
+            "y": 624
+          },
+          {
+            "x": 1232,
+            "y": 656
+          },
+          {
+            "x": 1232,
+            "y": 688
+          },
+          {
+            "x": 1232,
+            "y": 720
+          },
+          {
+            "x": 1232,
+            "y": 752
+          },
+          {
+            "x": 1232,
+            "y": 784
+          },
+          {
+            "x": 1232,
+            "y": 816
+          },
+          {
+            "x": 1232,
+            "y": 848
+          },
+          {
+            "x": 1232,
+            "y": 880
+          },
+          {
+            "x": 1232,
+            "y": 912
+          },
+          {
+            "x": 1232,
+            "y": 944
+          },
+          {
+            "x": 1232,
+            "y": 976
+          },
+          {
+            "x": 1232,
+            "y": 1008
+          },
+          {
+            "x": 1232,
+            "y": 1040
+          },
+          {
+            "x": 1232,
+            "y": 1072
+          },
+          {
+            "x": 1232,
+            "y": 1104
+          },
+          {
+            "x": 1232,
+            "y": 1136
+          },
+          {
+            "x": 1232,
+            "y": 1168
+          },
+          {
+            "x": 1232,
+            "y": 1200
+          },
+          {
+            "x": 1248,
+            "y": 1216
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -341.4052192169804,
+        "y": -1200,
+        "id": 6,
+        "previousWaypoint": 17,
+        "waypoint": 12,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 39100000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": -336,
+            "y": -1200
+          },
+          {
+            "x": -304,
+            "y": -1200
+          },
+          {
+            "x": -272,
+            "y": -1200
+          },
+          {
+            "x": -240,
+            "y": -1200
+          },
+          {
+            "x": -208,
+            "y": -1200
+          },
+          {
+            "x": -176,
+            "y": -1200
+          },
+          {
+            "x": -144,
+            "y": -1200
+          },
+          {
+            "x": -112,
+            "y": -1200
+          },
+          {
+            "x": -80,
+            "y": -1200
+          },
+          {
+            "x": -48,
+            "y": -1200
+          },
+          {
+            "x": -16,
+            "y": -1200
+          },
+          {
+            "x": 0,
+            "y": -1216
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 990.6753361528075,
+        "y": 1232,
+        "id": 7,
+        "previousWaypoint": 15,
+        "waypoint": 14,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 39800000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 1008,
+            "y": 1232
+          },
+          {
+            "x": 1040,
+            "y": 1232
+          },
+          {
+            "x": 1072,
+            "y": 1232
+          },
+          {
+            "x": 1104,
+            "y": 1232
+          },
+          {
+            "x": 1136,
+            "y": 1232
+          },
+          {
+            "x": 1168,
+            "y": 1232
+          },
+          {
+            "x": 1200,
+            "y": 1232
+          },
+          {
+            "x": 1232,
+            "y": 1232
+          },
+          {
+            "x": 1248,
+            "y": 1216
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -702.2399122550187,
+        "y": 1200,
+        "id": 8,
+        "previousWaypoint": 16,
+        "waypoint": 15,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 40500000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": -688,
+            "y": 1200
+          },
+          {
+            "x": -656,
+            "y": 1200
+          },
+          {
+            "x": -624,
+            "y": 1200
+          },
+          {
+            "x": -592,
+            "y": 1200
+          },
+          {
+            "x": -560,
+            "y": 1200
+          },
+          {
+            "x": -528,
+            "y": 1200
+          },
+          {
+            "x": -496,
+            "y": 1200
+          },
+          {
+            "x": -464,
+            "y": 1200
+          },
+          {
+            "x": -432,
+            "y": 1200
+          },
+          {
+            "x": -400,
+            "y": 1200
+          },
+          {
+            "x": -368,
+            "y": 1200
+          },
+          {
+            "x": -336,
+            "y": 1200
+          },
+          {
+            "x": -304,
+            "y": 1200
+          },
+          {
+            "x": -272,
+            "y": 1200
+          },
+          {
+            "x": -240,
+            "y": 1200
+          },
+          {
+            "x": -208,
+            "y": 1200
+          },
+          {
+            "x": -176,
+            "y": 1200
+          },
+          {
+            "x": -144,
+            "y": 1200
+          },
+          {
+            "x": -112,
+            "y": 1200
+          },
+          {
+            "x": -80,
+            "y": 1200
+          },
+          {
+            "x": -48,
+            "y": 1200
+          },
+          {
+            "x": -16,
+            "y": 1200
+          },
+          {
+            "x": 0,
+            "y": 1216
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 78.2600225110601,
+        "y": -816,
+        "id": 9,
+        "previousWaypoint": 6,
+        "waypoint": 7,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 41200000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 80,
+            "y": -816
+          },
+          {
+            "x": 112,
+            "y": -816
+          },
+          {
+            "x": 144,
+            "y": -816
+          },
+          {
+            "x": 176,
+            "y": -816
+          },
+          {
+            "x": 208,
+            "y": -816
+          },
+          {
+            "x": 240,
+            "y": -816
+          },
+          {
+            "x": 272,
+            "y": -816
+          },
+          {
+            "x": 304,
+            "y": -816
+          },
+          {
+            "x": 336,
+            "y": -816
+          },
+          {
+            "x": 368,
+            "y": -816
+          },
+          {
+            "x": 400,
+            "y": -816
+          },
+          {
+            "x": 432,
+            "y": -816
+          },
+          {
+            "x": 464,
+            "y": -816
+          },
+          {
+            "x": 496,
+            "y": -816
+          },
+          {
+            "x": 528,
+            "y": -816
+          },
+          {
+            "x": 560,
+            "y": -816
+          },
+          {
+            "x": 592,
+            "y": -816
+          },
+          {
+            "x": 624,
+            "y": -816
+          },
+          {
+            "x": 656,
+            "y": -816
+          },
+          {
+            "x": 688,
+            "y": -848
+          },
+          {
+            "x": 720,
+            "y": -848
+          },
+          {
+            "x": 752,
+            "y": -848
+          },
+          {
+            "x": 784,
+            "y": -848
+          },
+          {
+            "x": 816,
+            "y": -848
+          },
+          {
+            "x": 848,
+            "y": -848
+          },
+          {
+            "x": 864,
+            "y": -832
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -16,
+        "y": 1033.7035984191698,
+        "id": 10,
+        "previousWaypoint": 9,
+        "waypoint": 15,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 41900000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": -16,
+            "y": 1040
+          },
+          {
+            "x": -16,
+            "y": 1072
+          },
+          {
+            "x": -16,
+            "y": 1104
+          },
+          {
+            "x": -16,
+            "y": 1136
+          },
+          {
+            "x": -16,
+            "y": 1168
+          },
+          {
+            "x": -16,
+            "y": 1200
+          },
+          {
+            "x": 0,
+            "y": 1216
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 274.5455773558002,
+        "y": 1200,
+        "id": 11,
+        "previousWaypoint": 14,
+        "waypoint": 15,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 42600000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 272,
+            "y": 1200
+          },
+          {
+            "x": 240,
+            "y": 1200
+          },
+          {
+            "x": 208,
+            "y": 1200
+          },
+          {
+            "x": 176,
+            "y": 1200
+          },
+          {
+            "x": 144,
+            "y": 1200
+          },
+          {
+            "x": 112,
+            "y": 1200
+          },
+          {
+            "x": 80,
+            "y": 1200
+          },
+          {
+            "x": 48,
+            "y": 1200
+          },
+          {
+            "x": 0,
+            "y": 1216
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -1264,
+        "y": -1150.4792703739706,
+        "id": 12,
+        "previousWaypoint": 23,
+        "waypoint": 17,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 43300000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": -1264,
+            "y": -1168
+          },
+          {
+            "x": -1248,
+            "y": -1216
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -16,
+        "y": -583.9081855100937,
+        "id": 13,
+        "previousWaypoint": 0,
+        "waypoint": 6,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 44000000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": -16,
+            "y": -592
+          },
+          {
+            "x": -16,
+            "y": -624
+          },
+          {
+            "x": -16,
+            "y": -656
+          },
+          {
+            "x": -16,
+            "y": -688
+          },
+          {
+            "x": -16,
+            "y": -720
+          },
+          {
+            "x": -16,
+            "y": -752
+          },
+          {
+            "x": -16,
+            "y": -784
+          },
+          {
+            "x": 0,
+            "y": -832
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -21.71925827158875,
+        "y": 1232,
+        "id": 14,
+        "previousWaypoint": 15,
+        "waypoint": 16,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 44700000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": -48,
+            "y": 1232
+          },
+          {
+            "x": -80,
+            "y": 1232
+          },
+          {
+            "x": -112,
+            "y": 1232
+          },
+          {
+            "x": -144,
+            "y": 1232
+          },
+          {
+            "x": -176,
+            "y": 1232
+          },
+          {
+            "x": -208,
+            "y": 1232
+          },
+          {
+            "x": -240,
+            "y": 1232
+          },
+          {
+            "x": -272,
+            "y": 1232
+          },
+          {
+            "x": -304,
+            "y": 1232
+          },
+          {
+            "x": -336,
+            "y": 1232
+          },
+          {
+            "x": -368,
+            "y": 1232
+          },
+          {
+            "x": -400,
+            "y": 1232
+          },
+          {
+            "x": -432,
+            "y": 1232
+          },
+          {
+            "x": -464,
+            "y": 1232
+          },
+          {
+            "x": -496,
+            "y": 1232
+          },
+          {
+            "x": -528,
+            "y": 1232
+          },
+          {
+            "x": -560,
+            "y": 1232
+          },
+          {
+            "x": -592,
+            "y": 1232
+          },
+          {
+            "x": -624,
+            "y": 1232
+          },
+          {
+            "x": -656,
+            "y": 1232
+          },
+          {
+            "x": -688,
+            "y": 1232
+          },
+          {
+            "x": -720,
+            "y": 1232
+          },
+          {
+            "x": -752,
+            "y": 1232
+          },
+          {
+            "x": -784,
+            "y": 1232
+          },
+          {
+            "x": -816,
+            "y": 1232
+          },
+          {
+            "x": -848,
+            "y": 1232
+          },
+          {
+            "x": -880,
+            "y": 1232
+          },
+          {
+            "x": -912,
+            "y": 1232
+          },
+          {
+            "x": -944,
+            "y": 1232
+          },
+          {
+            "x": -976,
+            "y": 1232
+          },
+          {
+            "x": -1008,
+            "y": 1232
+          },
+          {
+            "x": -1040,
+            "y": 1232
+          },
+          {
+            "x": -1072,
+            "y": 1232
+          },
+          {
+            "x": -1104,
+            "y": 1232
+          },
+          {
+            "x": -1136,
+            "y": 1200
+          },
+          {
+            "x": -1168,
+            "y": 1200
+          },
+          {
+            "x": -1200,
+            "y": 1200
+          },
+          {
+            "x": -1248,
+            "y": 1216
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 478.4545618079086,
+        "y": 848,
+        "id": 15,
+        "previousWaypoint": 8,
+        "waypoint": 9,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 45400000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 464,
+            "y": 848
+          },
+          {
+            "x": 432,
+            "y": 848
+          },
+          {
+            "x": 400,
+            "y": 848
+          },
+          {
+            "x": 368,
+            "y": 848
+          },
+          {
+            "x": 336,
+            "y": 848
+          },
+          {
+            "x": 304,
+            "y": 816
+          },
+          {
+            "x": 272,
+            "y": 816
+          },
+          {
+            "x": 240,
+            "y": 816
+          },
+          {
+            "x": 208,
+            "y": 816
+          },
+          {
+            "x": 176,
+            "y": 816
+          },
+          {
+            "x": 144,
+            "y": 816
+          },
+          {
+            "x": 112,
+            "y": 816
+          },
+          {
+            "x": 80,
+            "y": 816
+          },
+          {
+            "x": 48,
+            "y": 816
+          },
+          {
+            "x": 0,
+            "y": 832
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 880,
+        "y": 286.1343069098615,
+        "id": 16,
+        "previousWaypoint": 19,
+        "waypoint": 8,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 46100000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 880,
+            "y": 304
+          },
+          {
+            "x": 880,
+            "y": 336
+          },
+          {
+            "x": 880,
+            "y": 368
+          },
+          {
+            "x": 880,
+            "y": 400
+          },
+          {
+            "x": 880,
+            "y": 432
+          },
+          {
+            "x": 880,
+            "y": 464
+          },
+          {
+            "x": 880,
+            "y": 496
+          },
+          {
+            "x": 880,
+            "y": 528
+          },
+          {
+            "x": 880,
+            "y": 560
+          },
+          {
+            "x": 880,
+            "y": 592
+          },
+          {
+            "x": 880,
+            "y": 624
+          },
+          {
+            "x": 880,
+            "y": 656
+          },
+          {
+            "x": 880,
+            "y": 688
+          },
+          {
+            "x": 880,
+            "y": 720
+          },
+          {
+            "x": 880,
+            "y": 752
+          },
+          {
+            "x": 880,
+            "y": 784
+          },
+          {
+            "x": 880,
+            "y": 816
+          },
+          {
+            "x": 864,
+            "y": 832
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 1232,
+        "y": -568.9143222156906,
+        "id": 17,
+        "previousWaypoint": 20,
+        "waypoint": 13,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 46800000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 1232,
+            "y": -592
+          },
+          {
+            "x": 1232,
+            "y": -624
+          },
+          {
+            "x": 1232,
+            "y": -656
+          },
+          {
+            "x": 1232,
+            "y": -688
+          },
+          {
+            "x": 1232,
+            "y": -720
+          },
+          {
+            "x": 1232,
+            "y": -752
+          },
+          {
+            "x": 1232,
+            "y": -784
+          },
+          {
+            "x": 1232,
+            "y": -816
+          },
+          {
+            "x": 1232,
+            "y": -848
+          },
+          {
+            "x": 1232,
+            "y": -880
+          },
+          {
+            "x": 1232,
+            "y": -912
+          },
+          {
+            "x": 1232,
+            "y": -944
+          },
+          {
+            "x": 1232,
+            "y": -976
+          },
+          {
+            "x": 1232,
+            "y": -1008
+          },
+          {
+            "x": 1232,
+            "y": -1040
+          },
+          {
+            "x": 1232,
+            "y": -1072
+          },
+          {
+            "x": 1264,
+            "y": -1104
+          },
+          {
+            "x": 1264,
+            "y": -1136
+          },
+          {
+            "x": 1264,
+            "y": -1168
+          },
+          {
+            "x": 1248,
+            "y": -1216
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -925.424712073018,
+        "y": 16,
+        "id": 18,
+        "previousWaypoint": 23,
+        "waypoint": 22,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 47500000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": -912,
+            "y": 16
+          },
+          {
+            "x": -880,
+            "y": 16
+          },
+          {
+            "x": -864,
+            "y": 0
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -1232,
+        "y": -957.5055929574298,
+        "id": 19,
+        "previousWaypoint": 23,
+        "waypoint": 17,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 48200000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": -1232,
+            "y": -976
+          },
+          {
+            "x": -1232,
+            "y": -1008
+          },
+          {
+            "x": -1232,
+            "y": -1040
+          },
+          {
+            "x": -1232,
+            "y": -1072
+          },
+          {
+            "x": -1232,
+            "y": -1104
+          },
+          {
+            "x": -1232,
+            "y": -1136
+          },
+          {
+            "x": -1232,
+            "y": -1168
+          },
+          {
+            "x": -1248,
+            "y": -1216
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -1264,
+        "y": -881.8138924004878,
+        "id": 20,
+        "previousWaypoint": 23,
+        "waypoint": 17,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 48900000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": -1264,
+            "y": -912
+          },
+          {
+            "x": -1264,
+            "y": -944
+          },
+          {
+            "x": -1264,
+            "y": -976
+          },
+          {
+            "x": -1264,
+            "y": -1008
+          },
+          {
+            "x": -1264,
+            "y": -1040
+          },
+          {
+            "x": -1264,
+            "y": -1072
+          },
+          {
+            "x": -1264,
+            "y": -1104
+          },
+          {
+            "x": -1264,
+            "y": -1136
+          },
+          {
+            "x": -1264,
+            "y": -1168
+          },
+          {
+            "x": -1248,
+            "y": -1216
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -1236.6130530123928,
+        "y": 34.16084096282164,
+        "id": 21,
+        "previousWaypoint": 16,
+        "waypoint": 23,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 49600000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": -1248,
+            "y": 0
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 265.64104628334275,
+        "y": 432,
+        "id": 22,
+        "previousWaypoint": 2,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 50300000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 240,
+            "y": 432
+          },
+          {
+            "x": 208,
+            "y": 432
+          },
+          {
+            "x": 176,
+            "y": 432
+          },
+          {
+            "x": 144,
+            "y": 432
+          },
+          {
+            "x": 112,
+            "y": 432
+          },
+          {
+            "x": 80,
+            "y": 432
+          },
+          {
+            "x": 48,
+            "y": 432
+          },
+          {
+            "x": 0,
+            "y": 448
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 638.4022417007664,
+        "y": 16,
+        "id": 23,
+        "previousWaypoint": 18,
+        "waypoint": 19,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 51000000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 656,
+            "y": 16
+          },
+          {
+            "x": 688,
+            "y": 16
+          },
+          {
+            "x": 720,
+            "y": 16
+          },
+          {
+            "x": 752,
+            "y": 16
+          },
+          {
+            "x": 784,
+            "y": 16
+          },
+          {
+            "x": 816,
+            "y": 16
+          },
+          {
+            "x": 848,
+            "y": 16
+          },
+          {
+            "x": 864,
+            "y": 0
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 936.8763029000875,
+        "y": -16,
+        "id": 24,
+        "previousWaypoint": 20,
+        "waypoint": 19,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 51700000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 912,
+            "y": -16
+          },
+          {
+            "x": 880,
+            "y": -16
+          },
+          {
+            "x": 864,
+            "y": 0
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 698.3064990517213,
+        "y": -16,
+        "id": 25,
+        "previousWaypoint": 18,
+        "waypoint": 19,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 52400000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 720,
+            "y": -16
+          },
+          {
+            "x": 752,
+            "y": -16
+          },
+          {
+            "x": 784,
+            "y": -16
+          },
+          {
+            "x": 816,
+            "y": -16
+          },
+          {
+            "x": 848,
+            "y": -16
+          },
+          {
+            "x": 864,
+            "y": 0
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 1200,
+        "y": -765.752446347906,
+        "id": 26,
+        "previousWaypoint": 13,
+        "waypoint": 20,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 53100000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 1200,
+            "y": -752
+          },
+          {
+            "x": 1200,
+            "y": -720
+          },
+          {
+            "x": 1200,
+            "y": -688
+          },
+          {
+            "x": 1200,
+            "y": -656
+          },
+          {
+            "x": 1200,
+            "y": -624
+          },
+          {
+            "x": 1200,
+            "y": -592
+          },
+          {
+            "x": 1200,
+            "y": -560
+          },
+          {
+            "x": 1200,
+            "y": -528
+          },
+          {
+            "x": 1200,
+            "y": -496
+          },
+          {
+            "x": 1200,
+            "y": -464
+          },
+          {
+            "x": 1200,
+            "y": -432
+          },
+          {
+            "x": 1200,
+            "y": -400
+          },
+          {
+            "x": 1200,
+            "y": -368
+          },
+          {
+            "x": 1200,
+            "y": -336
+          },
+          {
+            "x": 1200,
+            "y": -304
+          },
+          {
+            "x": 1200,
+            "y": -272
+          },
+          {
+            "x": 1200,
+            "y": -240
+          },
+          {
+            "x": 1200,
+            "y": -208
+          },
+          {
+            "x": 1200,
+            "y": -176
+          },
+          {
+            "x": 1200,
+            "y": -144
+          },
+          {
+            "x": 1200,
+            "y": -112
+          },
+          {
+            "x": 1232,
+            "y": -80
+          },
+          {
+            "x": 1232,
+            "y": -48
+          },
+          {
+            "x": 1232,
+            "y": -16
+          },
+          {
+            "x": 1248,
+            "y": 0
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 350.32717313323576,
+        "y": 464,
+        "id": 27,
+        "previousWaypoint": 2,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 53800000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 336,
+            "y": 464
+          },
+          {
+            "x": 304,
+            "y": 464
+          },
+          {
+            "x": 272,
+            "y": 464
+          },
+          {
+            "x": 240,
+            "y": 464
+          },
+          {
+            "x": 208,
+            "y": 464
+          },
+          {
+            "x": 176,
+            "y": 464
+          },
+          {
+            "x": 144,
+            "y": 464
+          },
+          {
+            "x": 112,
+            "y": 464
+          },
+          {
+            "x": 80,
+            "y": 464
+          },
+          {
+            "x": 48,
+            "y": 464
+          },
+          {
+            "x": 0,
+            "y": 448
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 848,
+        "y": 616.8657126975979,
+        "id": 28,
+        "previousWaypoint": 19,
+        "waypoint": 8,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 54500000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 848,
+            "y": 624
+          },
+          {
+            "x": 848,
+            "y": 656
+          },
+          {
+            "x": 880,
+            "y": 688
+          },
+          {
+            "x": 880,
+            "y": 720
+          },
+          {
+            "x": 880,
+            "y": 752
+          },
+          {
+            "x": 880,
+            "y": 784
+          },
+          {
+            "x": 880,
+            "y": 816
+          },
+          {
+            "x": 864,
+            "y": 832
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 305.2854080144215,
+        "y": -464,
+        "id": 29,
+        "previousWaypoint": 0,
+        "waypoint": 1,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 55200000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 336,
+            "y": -464
+          },
+          {
+            "x": 368,
+            "y": -464
+          },
+          {
+            "x": 400,
+            "y": -464
+          },
+          {
+            "x": 432,
+            "y": -464
+          },
+          {
+            "x": 464,
+            "y": -464
+          },
+          {
+            "x": 480,
+            "y": -448
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -817.2303551063765,
+        "y": 847.5898816312078,
+        "id": 30,
+        "previousWaypoint": 9,
+        "waypoint": 10,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 55900000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": -864,
+            "y": 832
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 1055.3127937476072,
+        "y": 1200,
+        "id": 31,
+        "previousWaypoint": 15,
+        "waypoint": 14,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 56600000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 1072,
+            "y": 1200
+          },
+          {
+            "x": 1104,
+            "y": 1200
+          },
+          {
+            "x": 1136,
+            "y": 1200
+          },
+          {
+            "x": 1168,
+            "y": 1200
+          },
+          {
+            "x": 1200,
+            "y": 1200
+          },
+          {
+            "x": 1232,
+            "y": 1200
+          },
+          {
+            "x": 1248,
+            "y": 1216
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 1225.5743810697036,
+        "y": 16,
+        "id": 32,
+        "previousWaypoint": 19,
+        "waypoint": 20,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 57300000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 1232,
+            "y": 16
+          },
+          {
+            "x": 1248,
+            "y": 0
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -1091.0699534924358,
+        "y": 1232,
+        "id": 33,
+        "previousWaypoint": 16,
+        "waypoint": 15,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 58000000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": -1072,
+            "y": 1232
+          },
+          {
+            "x": -1040,
+            "y": 1232
+          },
+          {
+            "x": -1008,
+            "y": 1232
+          },
+          {
+            "x": -976,
+            "y": 1232
+          },
+          {
+            "x": -944,
+            "y": 1232
+          },
+          {
+            "x": -912,
+            "y": 1232
+          },
+          {
+            "x": -880,
+            "y": 1232
+          },
+          {
+            "x": -848,
+            "y": 1232
+          },
+          {
+            "x": -816,
+            "y": 1232
+          },
+          {
+            "x": -784,
+            "y": 1232
+          },
+          {
+            "x": -752,
+            "y": 1232
+          },
+          {
+            "x": -720,
+            "y": 1232
+          },
+          {
+            "x": -688,
+            "y": 1232
+          },
+          {
+            "x": -656,
+            "y": 1232
+          },
+          {
+            "x": -624,
+            "y": 1232
+          },
+          {
+            "x": -592,
+            "y": 1232
+          },
+          {
+            "x": -560,
+            "y": 1232
+          },
+          {
+            "x": -528,
+            "y": 1232
+          },
+          {
+            "x": -496,
+            "y": 1232
+          },
+          {
+            "x": -464,
+            "y": 1232
+          },
+          {
+            "x": -432,
+            "y": 1232
+          },
+          {
+            "x": -400,
+            "y": 1232
+          },
+          {
+            "x": -368,
+            "y": 1232
+          },
+          {
+            "x": -336,
+            "y": 1232
+          },
+          {
+            "x": -304,
+            "y": 1232
+          },
+          {
+            "x": -272,
+            "y": 1232
+          },
+          {
+            "x": -240,
+            "y": 1232
+          },
+          {
+            "x": -208,
+            "y": 1232
+          },
+          {
+            "x": -176,
+            "y": 1232
+          },
+          {
+            "x": -144,
+            "y": 1232
+          },
+          {
+            "x": -112,
+            "y": 1200
+          },
+          {
+            "x": -80,
+            "y": 1200
+          },
+          {
+            "x": -48,
+            "y": 1200
+          },
+          {
+            "x": -16,
+            "y": 1200
+          },
+          {
+            "x": 0,
+            "y": 1216
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 419.80820966829145,
+        "y": 432,
+        "id": 34,
+        "previousWaypoint": 2,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 58700000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 400,
+            "y": 432
+          },
+          {
+            "x": 368,
+            "y": 432
+          },
+          {
+            "x": 336,
+            "y": 464
+          },
+          {
+            "x": 304,
+            "y": 464
+          },
+          {
+            "x": 272,
+            "y": 464
+          },
+          {
+            "x": 240,
+            "y": 464
+          },
+          {
+            "x": 208,
+            "y": 464
+          },
+          {
+            "x": 176,
+            "y": 464
+          },
+          {
+            "x": 144,
+            "y": 464
+          },
+          {
+            "x": 112,
+            "y": 464
+          },
+          {
+            "x": 80,
+            "y": 464
+          },
+          {
+            "x": 48,
+            "y": 464
+          },
+          {
+            "x": 0,
+            "y": 448
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 451.7121655403407,
+        "y": -1232,
+        "id": 35,
+        "previousWaypoint": 12,
+        "waypoint": 13,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 59400000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 464,
+            "y": -1232
+          },
+          {
+            "x": 496,
+            "y": -1232
+          },
+          {
+            "x": 528,
+            "y": -1232
+          },
+          {
+            "x": 560,
+            "y": -1232
+          },
+          {
+            "x": 592,
+            "y": -1232
+          },
+          {
+            "x": 624,
+            "y": -1232
+          },
+          {
+            "x": 656,
+            "y": -1232
+          },
+          {
+            "x": 688,
+            "y": -1232
+          },
+          {
+            "x": 720,
+            "y": -1232
+          },
+          {
+            "x": 752,
+            "y": -1232
+          },
+          {
+            "x": 784,
+            "y": -1232
+          },
+          {
+            "x": 816,
+            "y": -1232
+          },
+          {
+            "x": 848,
+            "y": -1232
+          },
+          {
+            "x": 880,
+            "y": -1232
+          },
+          {
+            "x": 912,
+            "y": -1232
+          },
+          {
+            "x": 944,
+            "y": -1232
+          },
+          {
+            "x": 976,
+            "y": -1232
+          },
+          {
+            "x": 1008,
+            "y": -1232
+          },
+          {
+            "x": 1040,
+            "y": -1232
+          },
+          {
+            "x": 1072,
+            "y": -1232
+          },
+          {
+            "x": 1104,
+            "y": -1232
+          },
+          {
+            "x": 1136,
+            "y": -1232
+          },
+          {
+            "x": 1168,
+            "y": -1232
+          },
+          {
+            "x": 1200,
+            "y": -1232
+          },
+          {
+            "x": 1232,
+            "y": -1232
+          },
+          {
+            "x": 1248,
+            "y": -1216
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -732.4872643863524,
+        "y": -16,
+        "id": 36,
+        "previousWaypoint": 21,
+        "waypoint": 22,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 60100000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": -752,
+            "y": -16
+          },
+          {
+            "x": -784,
+            "y": -16
+          },
+          {
+            "x": -816,
+            "y": -16
+          },
+          {
+            "x": -864,
+            "y": 0
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 262.1217344692952,
+        "y": -1200,
+        "id": 37,
+        "previousWaypoint": 12,
+        "waypoint": 13,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 60800000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 272,
+            "y": -1200
+          },
+          {
+            "x": 304,
+            "y": -1200
+          },
+          {
+            "x": 336,
+            "y": -1200
+          },
+          {
+            "x": 368,
+            "y": -1200
+          },
+          {
+            "x": 400,
+            "y": -1200
+          },
+          {
+            "x": 432,
+            "y": -1200
+          },
+          {
+            "x": 464,
+            "y": -1200
+          },
+          {
+            "x": 496,
+            "y": -1200
+          },
+          {
+            "x": 528,
+            "y": -1200
+          },
+          {
+            "x": 560,
+            "y": -1200
+          },
+          {
+            "x": 592,
+            "y": -1200
+          },
+          {
+            "x": 624,
+            "y": -1200
+          },
+          {
+            "x": 656,
+            "y": -1200
+          },
+          {
+            "x": 688,
+            "y": -1200
+          },
+          {
+            "x": 720,
+            "y": -1200
+          },
+          {
+            "x": 752,
+            "y": -1200
+          },
+          {
+            "x": 784,
+            "y": -1200
+          },
+          {
+            "x": 816,
+            "y": -1200
+          },
+          {
+            "x": 848,
+            "y": -1200
+          },
+          {
+            "x": 880,
+            "y": -1200
+          },
+          {
+            "x": 912,
+            "y": -1200
+          },
+          {
+            "x": 944,
+            "y": -1200
+          },
+          {
+            "x": 976,
+            "y": -1200
+          },
+          {
+            "x": 1008,
+            "y": -1200
+          },
+          {
+            "x": 1040,
+            "y": -1200
+          },
+          {
+            "x": 1072,
+            "y": -1200
+          },
+          {
+            "x": 1104,
+            "y": -1200
+          },
+          {
+            "x": 1136,
+            "y": -1200
+          },
+          {
+            "x": 1168,
+            "y": -1200
+          },
+          {
+            "x": 1200,
+            "y": -1200
+          },
+          {
+            "x": 1232,
+            "y": -1200
+          },
+          {
+            "x": 1248,
+            "y": -1216
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 486.253974867043,
+        "y": 18.761924601128783,
+        "id": 38,
+        "previousWaypoint": 2,
+        "waypoint": 18,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 61500000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 480,
+            "y": 0
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 880,
+        "y": 696.9374267324247,
+        "id": 39,
+        "previousWaypoint": 8,
+        "waypoint": 19,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 62200000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 880,
+            "y": 688
+          },
+          {
+            "x": 880,
+            "y": 656
+          },
+          {
+            "x": 880,
+            "y": 624
+          },
+          {
+            "x": 880,
+            "y": 592
+          },
+          {
+            "x": 880,
+            "y": 560
+          },
+          {
+            "x": 880,
+            "y": 528
+          },
+          {
+            "x": 880,
+            "y": 496
+          },
+          {
+            "x": 880,
+            "y": 464
+          },
+          {
+            "x": 880,
+            "y": 432
+          },
+          {
+            "x": 880,
+            "y": 400
+          },
+          {
+            "x": 880,
+            "y": 368
+          },
+          {
+            "x": 880,
+            "y": 336
+          },
+          {
+            "x": 880,
+            "y": 304
+          },
+          {
+            "x": 880,
+            "y": 272
+          },
+          {
+            "x": 880,
+            "y": 240
+          },
+          {
+            "x": 880,
+            "y": 208
+          },
+          {
+            "x": 848,
+            "y": 176
+          },
+          {
+            "x": 848,
+            "y": 144
+          },
+          {
+            "x": 848,
+            "y": 112
+          },
+          {
+            "x": 848,
+            "y": 80
+          },
+          {
+            "x": 848,
+            "y": 48
+          },
+          {
+            "x": 864,
+            "y": 0
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 219.50804453975127,
+        "y": 1200,
+        "id": 40,
+        "previousWaypoint": 14,
+        "waypoint": 15,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 62900000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 208,
+            "y": 1200
+          },
+          {
+            "x": 176,
+            "y": 1200
+          },
+          {
+            "x": 144,
+            "y": 1200
+          },
+          {
+            "x": 112,
+            "y": 1200
+          },
+          {
+            "x": 80,
+            "y": 1200
+          },
+          {
+            "x": 48,
+            "y": 1200
+          },
+          {
+            "x": 0,
+            "y": 1216
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 813.6336404453922,
+        "y": -816,
+        "id": 41,
+        "previousWaypoint": 6,
+        "waypoint": 7,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 63600000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 816,
+            "y": -816
+          },
+          {
+            "x": 848,
+            "y": -816
+          },
+          {
+            "x": 864,
+            "y": -832
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 533.7518124352971,
+        "y": -16,
+        "id": 42,
+        "previousWaypoint": 18,
+        "waypoint": 19,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 64300000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 560,
+            "y": -16
+          },
+          {
+            "x": 592,
+            "y": -16
+          },
+          {
+            "x": 624,
+            "y": -16
+          },
+          {
+            "x": 656,
+            "y": 16
+          },
+          {
+            "x": 688,
+            "y": 16
+          },
+          {
+            "x": 720,
+            "y": 16
+          },
+          {
+            "x": 752,
+            "y": 16
+          },
+          {
+            "x": 784,
+            "y": 16
+          },
+          {
+            "x": 816,
+            "y": 16
+          },
+          {
+            "x": 848,
+            "y": 16
+          },
+          {
+            "x": 864,
+            "y": 0
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 509.6853767496359,
+        "y": 880,
+        "id": 43,
+        "previousWaypoint": 9,
+        "waypoint": 8,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 65000000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 528,
+            "y": 880
+          },
+          {
+            "x": 560,
+            "y": 880
+          },
+          {
+            "x": 592,
+            "y": 880
+          },
+          {
+            "x": 624,
+            "y": 880
+          },
+          {
+            "x": 656,
+            "y": 880
+          },
+          {
+            "x": 688,
+            "y": 880
+          },
+          {
+            "x": 720,
+            "y": 880
+          },
+          {
+            "x": 752,
+            "y": 880
+          },
+          {
+            "x": 784,
+            "y": 880
+          },
+          {
+            "x": 816,
+            "y": 848
+          },
+          {
+            "x": 848,
+            "y": 848
+          },
+          {
+            "x": 864,
+            "y": 832
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 331.2628526162343,
+        "y": 816,
+        "id": 44,
+        "previousWaypoint": 9,
+        "waypoint": 8,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 65700000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 336,
+            "y": 816
+          },
+          {
+            "x": 368,
+            "y": 816
+          },
+          {
+            "x": 400,
+            "y": 816
+          },
+          {
+            "x": 432,
+            "y": 816
+          },
+          {
+            "x": 464,
+            "y": 816
+          },
+          {
+            "x": 496,
+            "y": 816
+          },
+          {
+            "x": 528,
+            "y": 816
+          },
+          {
+            "x": 560,
+            "y": 816
+          },
+          {
+            "x": 592,
+            "y": 816
+          },
+          {
+            "x": 624,
+            "y": 848
+          },
+          {
+            "x": 656,
+            "y": 848
+          },
+          {
+            "x": 688,
+            "y": 848
+          },
+          {
+            "x": 720,
+            "y": 848
+          },
+          {
+            "x": 752,
+            "y": 848
+          },
+          {
+            "x": 784,
+            "y": 848
+          },
+          {
+            "x": 816,
+            "y": 848
+          },
+          {
+            "x": 848,
+            "y": 848
+          },
+          {
+            "x": 864,
+            "y": 832
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 225.20709962154325,
+        "y": -848,
+        "id": 45,
+        "previousWaypoint": 6,
+        "waypoint": 7,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 66400000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 240,
+            "y": -848
+          },
+          {
+            "x": 272,
+            "y": -848
+          },
+          {
+            "x": 304,
+            "y": -848
+          },
+          {
+            "x": 336,
+            "y": -848
+          },
+          {
+            "x": 368,
+            "y": -848
+          },
+          {
+            "x": 400,
+            "y": -848
+          },
+          {
+            "x": 432,
+            "y": -848
+          },
+          {
+            "x": 464,
+            "y": -848
+          },
+          {
+            "x": 496,
+            "y": -848
+          },
+          {
+            "x": 528,
+            "y": -848
+          },
+          {
+            "x": 560,
+            "y": -848
+          },
+          {
+            "x": 592,
+            "y": -848
+          },
+          {
+            "x": 624,
+            "y": -848
+          },
+          {
+            "x": 656,
+            "y": -848
+          },
+          {
+            "x": 688,
+            "y": -848
+          },
+          {
+            "x": 720,
+            "y": -848
+          },
+          {
+            "x": 752,
+            "y": -848
+          },
+          {
+            "x": 784,
+            "y": -848
+          },
+          {
+            "x": 816,
+            "y": -848
+          },
+          {
+            "x": 848,
+            "y": -848
+          },
+          {
+            "x": 864,
+            "y": -832
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -54.32023632384298,
+        "y": 848,
+        "id": 46,
+        "previousWaypoint": 9,
+        "waypoint": 10,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 67100000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": -80,
+            "y": 848
+          },
+          {
+            "x": -112,
+            "y": 848
+          },
+          {
+            "x": -144,
+            "y": 848
+          },
+          {
+            "x": -176,
+            "y": 848
+          },
+          {
+            "x": -208,
+            "y": 848
+          },
+          {
+            "x": -240,
+            "y": 848
+          },
+          {
+            "x": -272,
+            "y": 848
+          },
+          {
+            "x": -304,
+            "y": 848
+          },
+          {
+            "x": -336,
+            "y": 848
+          },
+          {
+            "x": -368,
+            "y": 848
+          },
+          {
+            "x": -400,
+            "y": 848
+          },
+          {
+            "x": -432,
+            "y": 848
+          },
+          {
+            "x": -464,
+            "y": 848
+          },
+          {
+            "x": -496,
+            "y": 848
+          },
+          {
+            "x": -528,
+            "y": 848
+          },
+          {
+            "x": -560,
+            "y": 848
+          },
+          {
+            "x": -592,
+            "y": 848
+          },
+          {
+            "x": -624,
+            "y": 848
+          },
+          {
+            "x": -656,
+            "y": 848
+          },
+          {
+            "x": -688,
+            "y": 848
+          },
+          {
+            "x": -720,
+            "y": 816
+          },
+          {
+            "x": -752,
+            "y": 816
+          },
+          {
+            "x": -784,
+            "y": 816
+          },
+          {
+            "x": -816,
+            "y": 816
+          },
+          {
+            "x": -864,
+            "y": 832
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -393.30387871534856,
+        "y": -432,
+        "id": 47,
+        "previousWaypoint": 5,
+        "waypoint": 0,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 67800000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": -368,
+            "y": -432
+          },
+          {
+            "x": -336,
+            "y": -432
+          },
+          {
+            "x": -304,
+            "y": -432
+          },
+          {
+            "x": -272,
+            "y": -432
+          },
+          {
+            "x": -240,
+            "y": -432
+          },
+          {
+            "x": -208,
+            "y": -432
+          },
+          {
+            "x": -176,
+            "y": -432
+          },
+          {
+            "x": -144,
+            "y": -432
+          },
+          {
+            "x": -112,
+            "y": -432
+          },
+          {
+            "x": -80,
+            "y": -432
+          },
+          {
+            "x": -48,
+            "y": -432
+          },
+          {
+            "x": -16,
+            "y": -432
+          },
+          {
+            "x": 0,
+            "y": -448
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -190.32288378140265,
+        "y": -816,
+        "id": 48,
+        "previousWaypoint": 11,
+        "waypoint": 6,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 68500000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": -176,
+            "y": -816
+          },
+          {
+            "x": -144,
+            "y": -816
+          },
+          {
+            "x": -112,
+            "y": -816
+          },
+          {
+            "x": -80,
+            "y": -816
+          },
+          {
+            "x": -48,
+            "y": -848
+          },
+          {
+            "x": -16,
+            "y": -848
+          },
+          {
+            "x": 0,
+            "y": -832
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -1232,
+        "y": 1001.0425674006544,
+        "id": 49,
+        "previousWaypoint": 23,
+        "waypoint": 16,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 69200000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": -1232,
+            "y": 1008
+          },
+          {
+            "x": -1232,
+            "y": 1040
+          },
+          {
+            "x": -1232,
+            "y": 1072
+          },
+          {
+            "x": -1232,
+            "y": 1104
+          },
+          {
+            "x": -1232,
+            "y": 1136
+          },
+          {
+            "x": -1232,
+            "y": 1168
+          },
+          {
+            "x": -1232,
+            "y": 1200
+          },
+          {
+            "x": -1248,
+            "y": 1216
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -468.33328062330827,
+        "y": 816,
+        "id": 50,
+        "previousWaypoint": 10,
+        "waypoint": 9,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 69900000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": -464,
+            "y": 816
+          },
+          {
+            "x": -432,
+            "y": 816
+          },
+          {
+            "x": -400,
+            "y": 816
+          },
+          {
+            "x": -368,
+            "y": 816
+          },
+          {
+            "x": -336,
+            "y": 816
+          },
+          {
+            "x": -304,
+            "y": 816
+          },
+          {
+            "x": -272,
+            "y": 816
+          },
+          {
+            "x": -240,
+            "y": 816
+          },
+          {
+            "x": -208,
+            "y": 816
+          },
+          {
+            "x": -176,
+            "y": 816
+          },
+          {
+            "x": -144,
+            "y": 816
+          },
+          {
+            "x": -112,
+            "y": 816
+          },
+          {
+            "x": -80,
+            "y": 816
+          },
+          {
+            "x": -48,
+            "y": 816
+          },
+          {
+            "x": -16,
+            "y": 816
+          },
+          {
+            "x": 0,
+            "y": 832
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -1232,
+        "y": 689.5454735372648,
+        "id": 51,
+        "previousWaypoint": 23,
+        "waypoint": 16,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 70600000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": -1232,
+            "y": 720
+          },
+          {
+            "x": -1232,
+            "y": 752
+          },
+          {
+            "x": -1232,
+            "y": 784
+          },
+          {
+            "x": -1232,
+            "y": 816
+          },
+          {
+            "x": -1232,
+            "y": 848
+          },
+          {
+            "x": -1232,
+            "y": 880
+          },
+          {
+            "x": -1232,
+            "y": 912
+          },
+          {
+            "x": -1232,
+            "y": 944
+          },
+          {
+            "x": -1232,
+            "y": 976
+          },
+          {
+            "x": -1232,
+            "y": 1008
+          },
+          {
+            "x": -1232,
+            "y": 1040
+          },
+          {
+            "x": -1232,
+            "y": 1072
+          },
+          {
+            "x": -1232,
+            "y": 1104
+          },
+          {
+            "x": -1232,
+            "y": 1136
+          },
+          {
+            "x": -1232,
+            "y": 1168
+          },
+          {
+            "x": -1232,
+            "y": 1200
+          },
+          {
+            "x": -1248,
+            "y": 1216
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -1296,
+        "y": 585.9712911781643,
+        "id": 52,
+        "previousWaypoint": 23,
+        "waypoint": 16,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 71300000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": -1296,
+            "y": 592
+          },
+          {
+            "x": -1296,
+            "y": 624
+          },
+          {
+            "x": -1296,
+            "y": 656
+          },
+          {
+            "x": -1296,
+            "y": 688
+          },
+          {
+            "x": -1296,
+            "y": 720
+          },
+          {
+            "x": -1296,
+            "y": 752
+          },
+          {
+            "x": -1296,
+            "y": 784
+          },
+          {
+            "x": -1296,
+            "y": 816
+          },
+          {
+            "x": -1296,
+            "y": 848
+          },
+          {
+            "x": -1296,
+            "y": 880
+          },
+          {
+            "x": -1296,
+            "y": 912
+          },
+          {
+            "x": -1296,
+            "y": 944
+          },
+          {
+            "x": -1296,
+            "y": 976
+          },
+          {
+            "x": -1296,
+            "y": 1008
+          },
+          {
+            "x": -1296,
+            "y": 1040
+          },
+          {
+            "x": -1296,
+            "y": 1072
+          },
+          {
+            "x": -1296,
+            "y": 1104
+          },
+          {
+            "x": -1296,
+            "y": 1136
+          },
+          {
+            "x": -1264,
+            "y": 1168
+          },
+          {
+            "x": -1264,
+            "y": 1200
+          },
+          {
+            "x": -1248,
+            "y": 1216
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -880,
+        "y": -73.33806238018315,
+        "id": 53,
+        "previousWaypoint": 22,
+        "waypoint": 11,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 72000000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": -880,
+            "y": -80
+          },
+          {
+            "x": -880,
+            "y": -112
+          },
+          {
+            "x": -880,
+            "y": -144
+          },
+          {
+            "x": -880,
+            "y": -176
+          },
+          {
+            "x": -880,
+            "y": -208
+          },
+          {
+            "x": -880,
+            "y": -240
+          },
+          {
+            "x": -880,
+            "y": -272
+          },
+          {
+            "x": -880,
+            "y": -304
+          },
+          {
+            "x": -880,
+            "y": -336
+          },
+          {
+            "x": -880,
+            "y": -368
+          },
+          {
+            "x": -880,
+            "y": -400
+          },
+          {
+            "x": -880,
+            "y": -432
+          },
+          {
+            "x": -880,
+            "y": -464
+          },
+          {
+            "x": -880,
+            "y": -496
+          },
+          {
+            "x": -880,
+            "y": -528
+          },
+          {
+            "x": -880,
+            "y": -560
+          },
+          {
+            "x": -880,
+            "y": -592
+          },
+          {
+            "x": -880,
+            "y": -624
+          },
+          {
+            "x": -880,
+            "y": -656
+          },
+          {
+            "x": -880,
+            "y": -688
+          },
+          {
+            "x": -880,
+            "y": -720
+          },
+          {
+            "x": -880,
+            "y": -752
+          },
+          {
+            "x": -880,
+            "y": -784
+          },
+          {
+            "x": -864,
+            "y": -832
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -1200,
+        "y": 288.6109357051189,
+        "id": 54,
+        "previousWaypoint": 23,
+        "waypoint": 16,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 72700000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": -1200,
+            "y": 304
+          },
+          {
+            "x": -1200,
+            "y": 336
+          },
+          {
+            "x": -1200,
+            "y": 368
+          },
+          {
+            "x": -1200,
+            "y": 400
+          },
+          {
+            "x": -1200,
+            "y": 432
+          },
+          {
+            "x": -1200,
+            "y": 464
+          },
+          {
+            "x": -1200,
+            "y": 496
+          },
+          {
+            "x": -1200,
+            "y": 528
+          },
+          {
+            "x": -1200,
+            "y": 560
+          },
+          {
+            "x": -1200,
+            "y": 592
+          },
+          {
+            "x": -1200,
+            "y": 624
+          },
+          {
+            "x": -1200,
+            "y": 656
+          },
+          {
+            "x": -1200,
+            "y": 688
+          },
+          {
+            "x": -1200,
+            "y": 720
+          },
+          {
+            "x": -1200,
+            "y": 752
+          },
+          {
+            "x": -1200,
+            "y": 784
+          },
+          {
+            "x": -1200,
+            "y": 816
+          },
+          {
+            "x": -1200,
+            "y": 848
+          },
+          {
+            "x": -1232,
+            "y": 880
+          },
+          {
+            "x": -1232,
+            "y": 912
+          },
+          {
+            "x": -1232,
+            "y": 944
+          },
+          {
+            "x": -1232,
+            "y": 976
+          },
+          {
+            "x": -1232,
+            "y": 1008
+          },
+          {
+            "x": -1232,
+            "y": 1040
+          },
+          {
+            "x": -1232,
+            "y": 1072
+          },
+          {
+            "x": -1232,
+            "y": 1104
+          },
+          {
+            "x": -1232,
+            "y": 1136
+          },
+          {
+            "x": -1232,
+            "y": 1168
+          },
+          {
+            "x": -1232,
+            "y": 1200
+          },
+          {
+            "x": -1248,
+            "y": 1216
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 1106.6777928996346,
+        "y": 13.322207100365397,
+        "id": 55,
+        "previousWaypoint": 20,
+        "waypoint": 19,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 73400000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 1104,
+            "y": 16
+          },
+          {
+            "x": 1072,
+            "y": -16
+          },
+          {
+            "x": 1040,
+            "y": -16
+          },
+          {
+            "x": 1008,
+            "y": -16
+          },
+          {
+            "x": 976,
+            "y": -16
+          },
+          {
+            "x": 944,
+            "y": -16
+          },
+          {
+            "x": 912,
+            "y": -16
+          },
+          {
+            "x": 864,
+            "y": 0
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 1242.8244255784352,
+        "y": -14.453653488794993,
+        "id": 56,
+        "previousWaypoint": 20,
+        "waypoint": 19,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 74100000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 1232,
+            "y": -16
+          },
+          {
+            "x": 1200,
+            "y": -16
+          },
+          {
+            "x": 1168,
+            "y": -16
+          },
+          {
+            "x": 1136,
+            "y": -16
+          },
+          {
+            "x": 1104,
+            "y": -16
+          },
+          {
+            "x": 1072,
+            "y": -16
+          },
+          {
+            "x": 1040,
+            "y": -16
+          },
+          {
+            "x": 1008,
+            "y": -16
+          },
+          {
+            "x": 976,
+            "y": 16
+          },
+          {
+            "x": 944,
+            "y": 16
+          },
+          {
+            "x": 912,
+            "y": 16
+          },
+          {
+            "x": 864,
+            "y": 0
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -1119.0169461432138,
+        "y": 0.98305385678636,
+        "id": 57,
+        "previousWaypoint": 22,
+        "waypoint": 23,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 74800000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": -1136,
+            "y": -16
+          },
+          {
+            "x": -1168,
+            "y": -16
+          },
+          {
+            "x": -1200,
+            "y": -16
+          },
+          {
+            "x": -1248,
+            "y": 0
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -1232,
+        "y": -221.239091035466,
+        "id": 58,
+        "previousWaypoint": 17,
+        "waypoint": 23,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 75500000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": -1232,
+            "y": -208
+          },
+          {
+            "x": -1232,
+            "y": -176
+          },
+          {
+            "x": -1232,
+            "y": -144
+          },
+          {
+            "x": -1232,
+            "y": -112
+          },
+          {
+            "x": -1232,
+            "y": -80
+          },
+          {
+            "x": -1232,
+            "y": -48
+          },
+          {
+            "x": -1232,
+            "y": -16
+          },
+          {
+            "x": -1248,
+            "y": 0
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -1232,
+        "y": -396.2435166863821,
+        "id": 59,
+        "previousWaypoint": 17,
+        "waypoint": 23,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 76200000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": -1232,
+            "y": -368
+          },
+          {
+            "x": -1232,
+            "y": -336
+          },
+          {
+            "x": -1232,
+            "y": -304
+          },
+          {
+            "x": -1232,
+            "y": -272
+          },
+          {
+            "x": -1232,
+            "y": -240
+          },
+          {
+            "x": -1232,
+            "y": -208
+          },
+          {
+            "x": -1232,
+            "y": -176
+          },
+          {
+            "x": -1232,
+            "y": -144
+          },
+          {
+            "x": -1232,
+            "y": -112
+          },
+          {
+            "x": -1232,
+            "y": -80
+          },
+          {
+            "x": -1232,
+            "y": -48
+          },
+          {
+            "x": -1232,
+            "y": -16
+          },
+          {
+            "x": -1248,
+            "y": 0
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 1200,
+        "y": -546.9374020720846,
+        "id": 60,
+        "previousWaypoint": 13,
+        "waypoint": 20,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 76900000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 1200,
+            "y": -528
+          },
+          {
+            "x": 1200,
+            "y": -496
+          },
+          {
+            "x": 1200,
+            "y": -464
+          },
+          {
+            "x": 1200,
+            "y": -432
+          },
+          {
+            "x": 1200,
+            "y": -400
+          },
+          {
+            "x": 1200,
+            "y": -368
+          },
+          {
+            "x": 1200,
+            "y": -336
+          },
+          {
+            "x": 1200,
+            "y": -304
+          },
+          {
+            "x": 1200,
+            "y": -272
+          },
+          {
+            "x": 1200,
+            "y": -240
+          },
+          {
+            "x": 1200,
+            "y": -208
+          },
+          {
+            "x": 1200,
+            "y": -176
+          },
+          {
+            "x": 1200,
+            "y": -144
+          },
+          {
+            "x": 1200,
+            "y": -112
+          },
+          {
+            "x": 1200,
+            "y": -80
+          },
+          {
+            "x": 1232,
+            "y": -48
+          },
+          {
+            "x": 1232,
+            "y": -16
+          },
+          {
+            "x": 1248,
+            "y": 0
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -400,
+        "y": 448,
+        "id": 61,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": []
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -380,
+        "y": 448,
+        "id": 62,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": []
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -360,
+        "y": 448,
+        "id": 63,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": []
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -340,
+        "y": 448,
+        "id": 64,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": []
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -320,
+        "y": 448,
+        "id": 65,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": []
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -300,
+        "y": 448,
+        "id": 66,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": []
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -280,
+        "y": 448,
+        "id": 67,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": []
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -260,
+        "y": 448,
+        "id": 68,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": []
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -240,
+        "y": 448,
+        "id": 69,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": []
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -220,
+        "y": 448,
+        "id": 70,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": []
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -200,
+        "y": 448,
+        "id": 71,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": []
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -180,
+        "y": 448,
+        "id": 72,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": []
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -160,
+        "y": 448,
+        "id": 73,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": []
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -140,
+        "y": 448,
+        "id": 74,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": []
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -120,
+        "y": 448,
+        "id": 75,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": []
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -100,
+        "y": 448,
+        "id": 76,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": []
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -80,
+        "y": 448,
+        "id": 77,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": []
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -60,
+        "y": 448,
+        "id": 78,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": []
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -40,
+        "y": 448,
+        "id": 79,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": []
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -20,
+        "y": 448,
+        "id": 80,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": []
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 5.929270612815711,
+        "y": 449.9764235376052,
+        "id": 81,
+        "previousWaypoint": 3,
+        "waypoint": 2,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": [
+          3
+        ],
+        "path": [
+          {
+            "x": 48,
+            "y": 464
+          },
+          {
+            "x": 80,
+            "y": 464
+          },
+          {
+            "x": 112,
+            "y": 464
+          },
+          {
+            "x": 144,
+            "y": 464
+          },
+          {
+            "x": 176,
+            "y": 464
+          },
+          {
+            "x": 208,
+            "y": 464
+          },
+          {
+            "x": 240,
+            "y": 464
+          },
+          {
+            "x": 272,
+            "y": 464
+          },
+          {
+            "x": 304,
+            "y": 432
+          },
+          {
+            "x": 336,
+            "y": 432
+          },
+          {
+            "x": 368,
+            "y": 432
+          },
+          {
+            "x": 400,
+            "y": 464
+          },
+          {
+            "x": 432,
+            "y": 464
+          },
+          {
+            "x": 464,
+            "y": 464
+          },
+          {
+            "x": 480,
+            "y": 448
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 18.48415234352292,
+        "y": 441.9366093740917,
+        "id": 82,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 16,
+            "y": 432
+          },
+          {
+            "x": 0,
+            "y": 448
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 34.79968566038848,
+        "y": 444.5331237735923,
+        "id": 83,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 16,
+            "y": 432
+          },
+          {
+            "x": 0,
+            "y": 448
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 54.12629110319727,
+        "y": 445.8641058557081,
+        "id": 84,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 16,
+            "y": 432
+          },
+          {
+            "x": 0,
+            "y": 448
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 74.40983005625053,
+        "y": 445.20491502812524,
+        "id": 85,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 48,
+            "y": 432
+          },
+          {
+            "x": 16,
+            "y": 432
+          },
+          {
+            "x": 0,
+            "y": 448
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 95.11956994098107,
+        "y": 444.09565595278485,
+        "id": 86,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 80,
+            "y": 432
+          },
+          {
+            "x": 48,
+            "y": 432
+          },
+          {
+            "x": 16,
+            "y": 432
+          },
+          {
+            "x": 0,
+            "y": 448
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 114.19702068196713,
+        "y": 445.67880827278685,
+        "id": 87,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 80,
+            "y": 432
+          },
+          {
+            "x": 48,
+            "y": 432
+          },
+          {
+            "x": 16,
+            "y": 432
+          },
+          {
+            "x": 0,
+            "y": 448
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 134.57348036172212,
+        "y": 444.8991316352698,
+        "id": 88,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 112,
+            "y": 432
+          },
+          {
+            "x": 80,
+            "y": 432
+          },
+          {
+            "x": 48,
+            "y": 432
+          },
+          {
+            "x": 16,
+            "y": 432
+          },
+          {
+            "x": 0,
+            "y": 448
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 155.58058261758407,
+        "y": 443.58058261758407,
+        "id": 89,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 144,
+            "y": 432
+          },
+          {
+            "x": 112,
+            "y": 432
+          },
+          {
+            "x": 80,
+            "y": 432
+          },
+          {
+            "x": 48,
+            "y": 432
+          },
+          {
+            "x": 16,
+            "y": 432
+          },
+          {
+            "x": 0,
+            "y": 448
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 174.2886778211234,
+        "y": 445.461634587166,
+        "id": 90,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 144,
+            "y": 432
+          },
+          {
+            "x": 112,
+            "y": 432
+          },
+          {
+            "x": 80,
+            "y": 432
+          },
+          {
+            "x": 48,
+            "y": 432
+          },
+          {
+            "x": 16,
+            "y": 432
+          },
+          {
+            "x": 0,
+            "y": 448
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 194.7996856603885,
+        "y": 444.5331237735923,
+        "id": 91,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 176,
+            "y": 432
+          },
+          {
+            "x": 144,
+            "y": 432
+          },
+          {
+            "x": 112,
+            "y": 432
+          },
+          {
+            "x": 80,
+            "y": 432
+          },
+          {
+            "x": 48,
+            "y": 432
+          },
+          {
+            "x": 16,
+            "y": 432
+          },
+          {
+            "x": 0,
+            "y": 448
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 214.12629110319727,
+        "y": 445.8641058557081,
+        "id": 92,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 176,
+            "y": 432
+          },
+          {
+            "x": 144,
+            "y": 432
+          },
+          {
+            "x": 112,
+            "y": 432
+          },
+          {
+            "x": 80,
+            "y": 432
+          },
+          {
+            "x": 48,
+            "y": 432
+          },
+          {
+            "x": 16,
+            "y": 432
+          },
+          {
+            "x": 0,
+            "y": 448
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 234.4098300562505,
+        "y": 445.20491502812524,
+        "id": 93,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 208,
+            "y": 432
+          },
+          {
+            "x": 176,
+            "y": 432
+          },
+          {
+            "x": 144,
+            "y": 432
+          },
+          {
+            "x": 112,
+            "y": 432
+          },
+          {
+            "x": 80,
+            "y": 432
+          },
+          {
+            "x": 48,
+            "y": 432
+          },
+          {
+            "x": 16,
+            "y": 432
+          },
+          {
+            "x": 0,
+            "y": 448
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 255.11956994098105,
+        "y": 444.09565595278485,
+        "id": 94,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 240,
+            "y": 432
+          },
+          {
+            "x": 208,
+            "y": 432
+          },
+          {
+            "x": 176,
+            "y": 432
+          },
+          {
+            "x": 144,
+            "y": 432
+          },
+          {
+            "x": 112,
+            "y": 432
+          },
+          {
+            "x": 80,
+            "y": 432
+          },
+          {
+            "x": 48,
+            "y": 432
+          },
+          {
+            "x": 16,
+            "y": 432
+          },
+          {
+            "x": 0,
+            "y": 448
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 274.1970206819671,
+        "y": 445.67880827278685,
+        "id": 95,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 240,
+            "y": 432
+          },
+          {
+            "x": 208,
+            "y": 432
+          },
+          {
+            "x": 176,
+            "y": 432
+          },
+          {
+            "x": 144,
+            "y": 432
+          },
+          {
+            "x": 112,
+            "y": 432
+          },
+          {
+            "x": 80,
+            "y": 432
+          },
+          {
+            "x": 48,
+            "y": 432
+          },
+          {
+            "x": 16,
+            "y": 432
+          },
+          {
+            "x": 0,
+            "y": 448
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 294.57348036172215,
+        "y": 451.1008683647302,
+        "id": 96,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 272,
+            "y": 464
+          },
+          {
+            "x": 240,
+            "y": 464
+          },
+          {
+            "x": 208,
+            "y": 464
+          },
+          {
+            "x": 176,
+            "y": 464
+          },
+          {
+            "x": 144,
+            "y": 464
+          },
+          {
+            "x": 112,
+            "y": 464
+          },
+          {
+            "x": 80,
+            "y": 464
+          },
+          {
+            "x": 48,
+            "y": 464
+          },
+          {
+            "x": 16,
+            "y": 464
+          },
+          {
+            "x": 0,
+            "y": 448
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 315.58058261758407,
+        "y": 452.41941738241593,
+        "id": 97,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 304,
+            "y": 464
+          },
+          {
+            "x": 272,
+            "y": 464
+          },
+          {
+            "x": 240,
+            "y": 464
+          },
+          {
+            "x": 208,
+            "y": 464
+          },
+          {
+            "x": 176,
+            "y": 464
+          },
+          {
+            "x": 144,
+            "y": 464
+          },
+          {
+            "x": 112,
+            "y": 464
+          },
+          {
+            "x": 80,
+            "y": 464
+          },
+          {
+            "x": 48,
+            "y": 464
+          },
+          {
+            "x": 16,
+            "y": 464
+          },
+          {
+            "x": 0,
+            "y": 448
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 334.2886778211234,
+        "y": 450.538365412834,
+        "id": 98,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 304,
+            "y": 464
+          },
+          {
+            "x": 272,
+            "y": 464
+          },
+          {
+            "x": 240,
+            "y": 464
+          },
+          {
+            "x": 208,
+            "y": 464
+          },
+          {
+            "x": 176,
+            "y": 464
+          },
+          {
+            "x": 144,
+            "y": 464
+          },
+          {
+            "x": 112,
+            "y": 464
+          },
+          {
+            "x": 80,
+            "y": 464
+          },
+          {
+            "x": 48,
+            "y": 464
+          },
+          {
+            "x": 16,
+            "y": 464
+          },
+          {
+            "x": 0,
+            "y": 448
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 354.7996856603885,
+        "y": 451.4668762264077,
+        "id": 99,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 336,
+            "y": 464
+          },
+          {
+            "x": 304,
+            "y": 464
+          },
+          {
+            "x": 272,
+            "y": 464
+          },
+          {
+            "x": 240,
+            "y": 464
+          },
+          {
+            "x": 208,
+            "y": 464
+          },
+          {
+            "x": 176,
+            "y": 464
+          },
+          {
+            "x": 144,
+            "y": 464
+          },
+          {
+            "x": 112,
+            "y": 464
+          },
+          {
+            "x": 80,
+            "y": 464
+          },
+          {
+            "x": 48,
+            "y": 464
+          },
+          {
+            "x": 16,
+            "y": 464
+          },
+          {
+            "x": 0,
+            "y": 448
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 374.1262911031973,
+        "y": 450.1358941442919,
+        "id": 100,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 336,
+            "y": 464
+          },
+          {
+            "x": 304,
+            "y": 464
+          },
+          {
+            "x": 272,
+            "y": 464
+          },
+          {
+            "x": 240,
+            "y": 464
+          },
+          {
+            "x": 208,
+            "y": 464
+          },
+          {
+            "x": 176,
+            "y": 464
+          },
+          {
+            "x": 144,
+            "y": 464
+          },
+          {
+            "x": 112,
+            "y": 464
+          },
+          {
+            "x": 80,
+            "y": 464
+          },
+          {
+            "x": 48,
+            "y": 464
+          },
+          {
+            "x": 16,
+            "y": 464
+          },
+          {
+            "x": 0,
+            "y": 448
+          }
+        ]
+      },
+      {
+        "unitId": "m001",
+        "layer": "fly",
+        "speed": 200,
+        "radius": 1,
+        "points": 1,
+        "hp": 60,
+        "armor": null,
+        "mana": 60,
+        "wave": 1,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": 394.40983005625054,
+        "y": 445.20491502812524,
+        "id": 101,
+        "previousWaypoint": null,
+        "waypoint": 3,
+        "initialOverlaps": [],
+        "maxHp": 60,
+        "manaMax": 60,
+        "manaTickUs": 37000000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": 368,
+            "y": 432
+          },
+          {
+            "x": 336,
+            "y": 432
+          },
+          {
+            "x": 304,
+            "y": 432
+          },
+          {
+            "x": 272,
+            "y": 464
+          },
+          {
+            "x": 240,
+            "y": 464
+          },
+          {
+            "x": 208,
+            "y": 464
+          },
+          {
+            "x": 176,
+            "y": 464
+          },
+          {
+            "x": 144,
+            "y": 464
+          },
+          {
+            "x": 112,
+            "y": 464
+          },
+          {
+            "x": 80,
+            "y": 464
+          },
+          {
+            "x": 48,
+            "y": 464
+          },
+          {
+            "x": 16,
+            "y": 464
+          },
+          {
+            "x": 0,
+            "y": 448
+          }
+        ]
+      },
+      {
+        "unitId": "m002",
+        "layer": "fly",
+        "speed": 250,
+        "radius": 1,
+        "points": 1,
+        "hp": 144,
+        "armor": null,
+        "mana": 144,
+        "wave": 2,
+        "abilities": [],
+        "overdraftArmor": 0,
+        "x": -2.470529422006546,
+        "y": -1272.5884117339804,
+        "id": 102,
+        "previousWaypoint": null,
+        "waypoint": 12,
+        "initialOverlaps": [],
+        "maxHp": 144,
+        "manaMax": 144,
+        "manaTickUs": 87000000,
+        "insideRegions": [],
+        "path": [
+          {
+            "x": -16,
+            "y": -1232
+          },
+          {
+            "x": 0,
+            "y": -1216
+          }
+        ]
+      }
+    ],
+    "structures": [],
+    "commandResults": {},
+    "spawner": 2847,
+    "challengeStages": [
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "challengeReadyUs": 0
+  },
+  "challengeEnemyIds": [
+    134,
+    136,
+    137,
+    139,
+    141,
+    143,
+    144,
+    146,
+    148,
+    149,
+    151,
+    153
+  ],
+  "challengePeak": 12,
+  "wardPeak": 8,
+  "peak": {
+    "atUs": 110000005,
+    "bytes": 81916,
+    "allies": 1,
+    "wards": 8,
+    "enemies": 105,
+    "points": 129,
+    "pendingEvents": 30,
+    "challengeUnits": 12
+  },
+  "missing": [
+    "i196",
+    "i722",
+    "敌方辅助实体完整覆盖",
+    "候选 HTTPS 桌面性能"
+  ]
+}

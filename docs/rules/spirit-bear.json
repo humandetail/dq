@@ -1,0 +1,406 @@
+{
+  "id": "A125",
+  "status": "ready",
+  "rules": {
+    "spec": "spirit-bear.md",
+    "summon": {
+      "ids": [
+        "n255",
+        "n256",
+        "n257",
+        "n258",
+        "n259",
+        "n260"
+      ],
+      "count": 1,
+      "mana": 50,
+      "cooldown": 30,
+      "lifetime": null,
+      "replaceOldAfterDeathBackup": true
+    },
+    "inventory": {
+      "slots": 6,
+      "oldSlotOrder": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "restoresSameGroundItemWithPickup": true,
+      "rescanOnFullBag": false
+    },
+    "inheritance": {
+      "interval": 1,
+      "coefficients": [
+        0.7,
+        0.8,
+        0.9
+      ],
+      "scepterIntervalDelta": -0.2,
+      "appliedContributionsBoundToConcreteBearer": true
+    },
+    "ensnare": {
+      "chancePercent": [
+        10,
+        20
+      ],
+      "targetLockSeconds": [
+        1.5,
+        2.5
+      ],
+      "heroSeconds": [
+        0.75,
+        1.25
+      ]
+    },
+    "recall": {
+      "cooldown": [
+        10,
+        5
+      ],
+      "ownerSearchRadius": 120
+    },
+    "roar": {
+      "radius": 500,
+      "automaticSearchRadius": 450,
+      "duration": [
+        1.5,
+        3
+      ],
+      "mana": [
+        45,
+        80
+      ],
+      "cooldown": 7,
+      "movementOnly": true,
+      "separateControlChannel": true
+    },
+    "meleeContract": {
+      "redArmorIgnore": [
+        0.3,
+        0.4,
+        0.5
+      ],
+      "redSplit": [
+        0.8,
+        1,
+        1.2
+      ],
+      "greenAccurateHitChance": [
+        30,
+        40,
+        50
+      ],
+      "greenAccurateHitBonus": 1
+    }
+  },
+  "sourceRefs": {
+    "workbookRows": [
+      "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx#塔技能!H300:I300",
+      "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx#塔技能!H305:I305",
+      "图鉴.xlsx#塔技能!H300:I300",
+      "图鉴.xlsx#塔技能!H305:I305"
+    ],
+    "disasmSha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+    "abilities": {
+      "A125": {
+        "reference/map-6.25/units_abilitydata.json": 923,
+        "reference/map-6.25/war3map.w3a.json": 75
+      },
+      "T033": {
+        "reference/map-6.25/units_abilitydata.json": 1910
+      },
+      "T104": {
+        "reference/map-6.25/units_abilitydata.json": 1981
+      },
+      "N136": {
+        "reference/map-6.25/units_abilitydata.json": 1444
+      },
+      "N137": {
+        "reference/map-6.25/units_abilitydata.json": 1445
+      },
+      "N138": {
+        "reference/map-6.25/units_abilitydata.json": 1446
+      },
+      "N139": {
+        "reference/map-6.25/units_abilitydata.json": 1447
+      },
+      "N140": {
+        "reference/map-6.25/units_abilitydata.json": 1448
+      },
+      "N141": {
+        "reference/map-6.25/units_abilitydata.json": 1449
+      },
+      "T141": {
+        "reference/map-6.25/units_abilitydata.json": 2018
+      },
+      "T142": {
+        "reference/map-6.25/units_abilitydata.json": 2019
+      },
+      "T138": {
+        "reference/map-6.25/units_abilitydata.json": 2015,
+        "reference/map-6.25/war3map.w3a.json": 223
+      },
+      "T201": {
+        "reference/map-6.25/units_abilitydata.json": 2072
+      }
+    },
+    "units": {
+      "n255": {
+        "units_unitabilities": 1303,
+        "units_unitbalance": 1303,
+        "units_unitdata": 1303,
+        "units_unitweapons": 1303
+      },
+      "n256": {
+        "units_unitabilities": 1304,
+        "units_unitbalance": 1304,
+        "units_unitdata": 1304,
+        "units_unitweapons": 1304
+      },
+      "n257": {
+        "units_unitabilities": 1305,
+        "units_unitbalance": 1305,
+        "units_unitdata": 1305,
+        "units_unitweapons": 1305
+      },
+      "n258": {
+        "units_unitabilities": 1306,
+        "units_unitbalance": 1306,
+        "units_unitdata": 1306,
+        "units_unitweapons": 1306
+      },
+      "n259": {
+        "units_unitabilities": 1307,
+        "units_unitbalance": 1307,
+        "units_unitdata": 1307,
+        "units_unitweapons": 1307
+      },
+      "n260": {
+        "units_unitabilities": 1308,
+        "units_unitbalance": 1308,
+        "units_unitdata": 1308,
+        "units_unitweapons": 1308
+      }
+    },
+    "functionSpans": [
+      [
+        "main/f97/f0",
+        83886,
+        84008
+      ],
+      [
+        "main/f97/f1",
+        84009,
+        84255
+      ],
+      [
+        "main/f97/f2",
+        84256,
+        84358
+      ],
+      [
+        "main/f97/f3",
+        84359,
+        84413
+      ],
+      [
+        "main/f97/f4",
+        84414,
+        84489
+      ],
+      [
+        "main/f97/f5",
+        84490,
+        84534
+      ],
+      [
+        "main/f182/f0",
+        114102,
+        114132
+      ],
+      [
+        "main/f182/f1",
+        114133,
+        114253
+      ],
+      [
+        "main/f99/f1",
+        84835,
+        84862
+      ],
+      [
+        "main/f285/f10",
+        144536,
+        145509
+      ],
+      [
+        "main/f291/f9",
+        168279,
+        168966
+      ],
+      [
+        "main/f291/f14",
+        169578,
+        172173
+      ],
+      [
+        "main/f291/f20",
+        173119,
+        173543
+      ],
+      [
+        "main/f291/f27",
+        173759,
+        179251
+      ],
+      [
+        "main/f290/f25",
+        159594,
+        160036
+      ],
+      [
+        "main/f232/f0",
+        125445,
+        125916
+      ],
+      [
+        "main/f232/f1",
+        125917,
+        126170
+      ],
+      [
+        "main/f285/f18",
+        147097,
+        147620
+      ]
+    ]
+  },
+  "differences": [
+    {
+      "source": "i240 raises bear inheritance by .2",
+      "web": "i240 raises it by .1"
+    },
+    {
+      "source": "equipment contract source R=.4, red armor ratio=.2/.3/.4, blue die <15",
+      "web": "R=.5, red armor ratio=.3/.4/.5, blue 15% per Q55"
+    },
+    {
+      "decision": "Q58",
+      "source": "periodic cache keyed by shared owner slot",
+      "web": "records and timer belong to current actual bear"
+    },
+    {
+      "decision": "Q59",
+      "source": {
+        "effect": "stun",
+        "normalDuration": [
+          1.5,
+          2.5
+        ],
+        "heroDuration": [
+          1,
+          1.5
+        ]
+      },
+      "web": {
+        "effect": "moveLock",
+        "duration": [
+          1.5,
+          3
+        ]
+      }
+    }
+  ],
+  "unresolved": [],
+  "auxiliary": [
+    "T033",
+    "T104",
+    "N136",
+    "N137",
+    "N138",
+    "N139",
+    "N140",
+    "N141",
+    "T138",
+    "T141",
+    "T142",
+    "T201"
+  ],
+  "validation": {
+    "originalVM": {
+      "overdueNilBearBookkeeping": {
+        "actualSourceStats": [
+          84,
+          1.2
+        ],
+        "expectedFreshWithScepter": [
+          294,
+          1.0
+        ],
+        "intervalAfterRemovingScepter": 1.4
+      },
+      "sixSlotOrder": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "fullNewBearRejectsWithoutCloning": true,
+      "directLivePointerReplacement": true,
+      "ensnareProbabilitiesAndTargetLock": true,
+      "recallOwnerXYRadiusAndNewXY": [
+        [
+          700,
+          600
+        ],
+        120,
+        [
+          820,
+          600
+        ]
+      ],
+      "redContractSourceAndWorkbookBossPacket": [
+        32,
+        40
+      ]
+    },
+    "Q58": {
+      "sourceOldTickExample": [
+        84,
+        1.2,
+        1.4
+      ],
+      "freshOnly": {
+        "beforeTick": [
+          84,
+          1.2
+        ],
+        "withScepter": [
+          294,
+          1.0
+        ],
+        "afterScepterDrop": [
+          294,
+          1.2
+        ]
+      },
+      "savedStateDoesNotReplay": true
+    },
+    "Q59": {
+      "duration": [
+        1.5,
+        3
+      ],
+      "heroSameDuration": true,
+      "excludedTargetsAndClosedRadius": true,
+      "ordinaryStunExpiresBeforeMovementLock": true,
+      "shorterRefreshPreservesLongerLock": true
+    },
+    "originalClientTested": false
+  }
+}

@@ -1,0 +1,772 @@
+{
+  "scope": "passive-growth-batch-01",
+  "initialBatch": {
+    "ready": 6,
+    "processed": 8
+  },
+  "ready": 7,
+  "records": [
+    {
+      "id": "A030",
+      "status": "ready",
+      "rules": {
+        "period": 1,
+        "radius": 500,
+        "intelligenceFactor": 2,
+        "fixedDamage": [
+          200,
+          300,
+          400,
+          500,
+          600,
+          750
+        ],
+        "scepterRadiusAndDamageFactor": 2,
+        "studyReplacesTimer": true
+      },
+      "sourceRefs": {
+        "workbookRows": [
+          147,
+          217
+        ],
+        "units": [
+          "G047",
+          "H008"
+        ],
+        "objectIndex": 828,
+        "hintLine": [
+          395,
+          "Ubertip=每秒对周围敌人造成2倍自身智力+200点伤害。|n|cff66CD00[持有神杖时脉冲新星的伤害和范围加倍]|r,每秒对周围敌人造成2倍自身智力+300点伤害。|n|cff66CD00[持有神杖时脉冲新星的伤害和范围加倍]|r,每秒对周围敌人造成2倍自身智力+400点伤害。|n|cff66CD00[持有神杖时脉冲新星的伤害和范围加倍]|r,每秒对周围敌人造成2倍自身智力+500点伤害。|n|cff66CD00[持有神杖时脉冲新星的伤害和范围加倍]|r,每秒对周围敌人造成2倍自身智力+600点伤害。|n|cff66CD00[持有神杖时脉冲新星的伤害和范围加倍]|r,每秒对周围敌人造成2倍自身智力+750点伤害。|n|cff66CD00[持有神杖时脉冲新星的伤害和范围加倍]|r"
+        ],
+        "functions": [
+          [
+            "main/f31",
+            63653,
+            63675
+          ],
+          [
+            "main/f31/f0",
+            63676,
+            63721
+          ],
+          [
+            "main/f31/f1",
+            63722,
+            63942
+          ]
+        ],
+        "routing": [
+          {
+            "function": "main/f291/f10",
+            "pc": 91,
+            "line": 169130
+          }
+        ],
+        "unitMountIndexes": {
+          "G047": 877,
+          "H008": 918
+        },
+        "auxiliary": []
+      },
+      "differences": [
+        "God scepter doubles range and damage in source and actual player hint"
+      ],
+      "unresolved": [],
+      "validation": {
+        "original": [
+          400,
+          800,
+          800
+        ],
+        "selected": null,
+        "originalClientTested": false
+      }
+    },
+    {
+      "id": "A038",
+      "status": "ready",
+      "rules": {
+        "attributeGain": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "duration": [
+          20,
+          22,
+          24,
+          26,
+          28,
+          30
+        ],
+        "independentLayers": true,
+        "fullLifeAtAddAndExpiry": true
+      },
+      "sourceRefs": {
+        "workbookRows": [
+          236,
+          351,
+          596
+        ],
+        "units": [
+          "G051",
+          "G063",
+          "H011"
+        ],
+        "objectIndex": 836,
+        "hintLine": [
+          508,
+          "Ubertip=每次攻击增加1点全属性，持续20秒。,每次攻击增加2点全属性，持续22秒。,每次攻击增加3点全属性，持续24秒。,每次攻击增加4点全属性，持续26秒。,每次攻击增加5点全属性，持续28秒。,每次攻击增加6点全属性，持续30秒。"
+        ],
+        "functions": [
+          [
+            "main/f36",
+            64845,
+            64874
+          ],
+          [
+            "main/f36/f0",
+            64875,
+            65043
+          ],
+          [
+            "main/f36/f1",
+            65044,
+            65158
+          ]
+        ],
+        "routing": [
+          {
+            "function": "main/f291/f1",
+            "pc": 653,
+            "line": 163178
+          }
+        ],
+        "unitMountIndexes": {
+          "G051": 881,
+          "G063": 893,
+          "H011": 921
+        },
+        "auxiliary": []
+      },
+      "differences": [
+        "Source explicitly heals to full after applying or expiring each layer"
+      ],
+      "unresolved": [],
+      "validation": {
+        "original": {
+          "totalsAfterFirstExpiry": [
+            102,
+            102,
+            102
+          ],
+          "expiredLayerHealsToMax": true
+        },
+        "selected": null,
+        "originalClientTested": false
+      }
+    },
+    {
+      "id": "A039",
+      "status": "ready",
+      "rules": {
+        "effectiveAttributeFactor": [
+          0.1,
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6
+        ],
+        "illusionFactor": 0.2,
+        "damageType": "CHAOS/DIVINE",
+        "readsAttributesAfterA038": true
+      },
+      "sourceRefs": {
+        "workbookRows": [
+          237,
+          352,
+          597
+        ],
+        "units": [
+          "G051",
+          "G063",
+          "H011"
+        ],
+        "objectIndex": 837,
+        "hintLine": [
+          520,
+          "Ubertip=小鱼人的攻击附带（全属性x0.1）的伤害。（无视护甲，神圣伤害）,小鱼人的攻击附带（全属性x0.2）的伤害。（无视护甲，神圣伤害）,小鱼人的攻击附带（全属性x0.3）的伤害。（无视护甲，神圣伤害）,小鱼人的攻击附带（全属性x0.4）的伤害。（无视护甲，神圣伤害）,小鱼人的攻击附带（全属性x0.5）的伤害。（无视护甲，神圣伤害）,小鱼人的攻击附带（全属性x0.6）的伤害。（无视护甲，神圣伤害）"
+        ],
+        "functions": [
+          [
+            "main/f37",
+            65159,
+            65175
+          ],
+          [
+            "main/f37/f0",
+            65176,
+            65309
+          ]
+        ],
+        "routing": [
+          {
+            "function": "main/f291/f1",
+            "pc": 669,
+            "line": 163195
+          }
+        ],
+        "unitMountIndexes": {
+          "G051": 881,
+          "G063": 893,
+          "H011": 921
+        },
+        "auxiliary": []
+      },
+      "differences": [
+        "Source illusion damage factor .2 and A038 reads already applied layers"
+      ],
+      "unresolved": [],
+      "validation": {
+        "original": {
+          "withEarlierLayer": 30.3,
+          "illusion": 6
+        },
+        "selected": null,
+        "originalClientTested": false
+      }
+    },
+    {
+      "id": "A048",
+      "status": "ready",
+      "rules": {
+        "perKillProgress": 0.5,
+        "battleStatWriteEvery": 2,
+        "nativeIntegerWrite": 1,
+        "cap": [
+          100,
+          250,
+          400,
+          550,
+          700,
+          1000
+        ],
+        "scepterCapBonus": 400
+      },
+      "sourceRefs": {
+        "workbookRows": [
+          297,
+          388,
+          393
+        ],
+        "units": [
+          "G038",
+          "G050",
+          "H014"
+        ],
+        "objectIndex": 846,
+        "hintLine": [
+          667,
+          "Ubertip=每杀死一个单位就能永久增加0.5点智力，最多增加100点智力。|n|cff66CD00[持有神杖时增加的智力上限+400]|r,每杀死一个单位就能永久增加0.5点智力，最多增加250点智力。|n|cff66CD00[持有神杖时增加的智力上限+400]|r,每杀死一个单位就能永久增加0.5点智力，最多增加400点智力。|n|cff66CD00[持有神杖时增加的智力上限+400]|r,每杀死一个单位就能永久增加0.5点智力，最多增加550点智力。|n|cff66CD00[持有神杖时增加的智力上限+400]|r,每杀死一个单位就能永久增加0.5点智力，最多增加700点智力。|n|cff66CD00[持有神杖时增加的智力上限+400]|r,每杀死一个单位就能永久增加0.5点智力，最多增加1000点智力。|n|cff66CD00[持有神杖时增加的智力上限+400]|r"
+        ],
+        "functions": [
+          [
+            "main/f44",
+            67051,
+            67073
+          ],
+          [
+            "main/f44/f0",
+            67074,
+            67192
+          ]
+        ],
+        "routing": [
+          {
+            "function": "main/f291/f9",
+            "pc": 420,
+            "line": 168847
+          }
+        ],
+        "unitMountIndexes": {
+          "G038": 868,
+          "G050": 880,
+          "H014": 924
+        },
+        "auxiliary": []
+      },
+      "differences": [
+        "Tooltip half point per kill meets existing integer interface as half-unit progress; source writes +1 every two kills"
+      ],
+      "unresolved": [],
+      "validation": {
+        "original": [
+          0,
+          1
+        ],
+        "selected": null,
+        "originalClientTested": false
+      }
+    },
+    {
+      "id": "A109",
+      "status": "ready",
+      "rules": {
+        "streakSeconds": 5,
+        "firstAndMinimum": [
+          3,
+          6,
+          9,
+          12,
+          15,
+          18
+        ],
+        "maximum": [
+          5,
+          10,
+          20,
+          35,
+          55,
+          80
+        ],
+        "endlessMax": 10,
+        "B102A110RankCapFactor": 2,
+        "learnGoldPerWave": 80
+      },
+      "sourceRefs": {
+        "workbookRows": [
+          81,
+          86,
+          91,
+          96,
+          101,
+          106,
+          111
+        ],
+        "units": [
+          "E010",
+          "E011",
+          "E012",
+          "E013",
+          "E014",
+          "E015",
+          "H032"
+        ],
+        "objectIndex": 907,
+        "hintLine": [
+          1632,
+          "Ubertip=5秒内每连续杀死单位更可以提高1的金钱奖励额度，下限为3，上限为5(无尽后金钱奖励上限为10)，每次学习或升级该技能可获得当前波数X80的金币奖励。(输入-Gold查看该技能所得金钱),5秒内每连续杀死单位更可以提高1的金钱奖励额度，下限为6，上限为10(无尽后金钱奖励上限为10)，每次学习或升级该技能可获得当前波数X80的金币奖励。(输入-Gold查看该技能所得金钱),5秒内每连续杀死单位更可以提高1的金钱奖励额度，下限为9，上限为20(无尽后金钱奖励上限为10)，每次学习或升级该技能可获得当前波数X80的金币奖励。(输入-Gold查看该技能所得金钱),5秒内每连续杀死单位更可以提高1的金钱奖励额度，下限为12，上限为35(无尽后金钱奖励上限为10)，每次学习或升级该技能可获得当前波数X80的金币奖励。(输入-Gold查看该技能所得金钱),5秒内每连续杀死单位更可以提高1的金钱奖励额度，下限为15，上限为55(无尽后金钱奖励上限为10)，每次学习或升级该技能可获得当前波数X80的金币奖励。(输入-Gold查看该技能所得金钱),5秒内每连续杀死单位更可以提高1的金钱奖励额度，下限为18，上限为80(无尽后金钱奖励上限为10)，每次学习或升级该技能可获得当前波数X80的金币奖励。(输入-Gold查看该技能所得金钱)"
+        ],
+        "functions": [
+          [
+            "main/f88",
+            80056,
+            80080
+          ],
+          [
+            "main/f88/f0",
+            80081,
+            80266
+          ],
+          [
+            "main/f88/f1",
+            80267,
+            80297
+          ],
+          [
+            "main/f88/f2",
+            80298,
+            80365
+          ]
+        ],
+        "routing": [
+          {
+            "function": "main/f291/f9",
+            "pc": 409,
+            "line": 168835
+          },
+          {
+            "function": "main/f291/f10",
+            "pc": 150,
+            "line": 169195
+          }
+        ],
+        "unitMountIndexes": {
+          "E010": 842,
+          "E011": 843,
+          "E012": 844,
+          "E013": 845,
+          "E014": 846,
+          "E015": 847,
+          "H032": 942
+        },
+        "auxiliary": [
+          "A110",
+          "B102"
+        ]
+      },
+      "differences": [
+        "Initial source payout 3L+1 versus workbook base plus subsequent continuous kills",
+        "Endless 10 cap is explicit in source hint and execution"
+      ],
+      "unresolved": [],
+      "validation": {
+        "original": {
+          "firstThreeAndReset": [
+            4,
+            5,
+            5,
+            4
+          ],
+          "studyAtWave8": 640
+        },
+        "selected": {
+          "tier1": [
+            3,
+            4,
+            5,
+            5,
+            3
+          ],
+          "rank6Endless": 10,
+          "loweredCapKeepsPrevious": true
+        },
+        "originalClientTested": false
+      }
+    },
+    {
+      "id": "A115",
+      "status": "ready",
+      "rules": {
+        "duration": 6,
+        "period": 1,
+        "damagePerRank": 100,
+        "scepterDamageType": "CHAOS/DIVINE",
+        "healWhenLifeBelowFraction": 0.05,
+        "lifeCostFraction": 0.01,
+        "healPerTick": 0.2,
+        "healTicks": 8,
+        "unlimitedIndependentBurns": true
+      },
+      "sourceRefs": {
+        "workbookRows": [
+          527
+        ],
+        "units": [
+          "H034"
+        ],
+        "objectIndex": 913,
+        "hintLine": [
+          1726,
+          "Ubertip=燃烧敌人，使其每秒受到100点伤害，可以无限次叠加。|n|cff66CD00[持有神杖时沸血之矛燃烧变成神圣伤害]|r,燃烧敌人，使其每秒受到200点伤害，可以无限次叠加。|n|cff66CD00[持有神杖时沸血之矛燃烧变成神圣伤害]|r,燃烧敌人，使其每秒受到300点伤害，可以无限次叠加。|n|cff66CD00[持有神杖时沸血之矛燃烧变成神圣伤害]|r,燃烧敌人，使其每秒受到400点伤害，可以无限次叠加。|n|cff66CD00[持有神杖时沸血之矛燃烧变成神圣伤害]|r,燃烧敌人，使其每秒受到500点伤害，可以无限次叠加。|n|cff66CD00[持有神杖时沸血之矛燃烧变成神圣伤害]|r,燃烧敌人，使其每秒受到600点伤害，可以无限次叠加。|n|cff66CD00[持有神杖时沸血之矛燃烧变成神圣伤害]|r"
+        ],
+        "functions": [
+          [
+            "main/f92",
+            82060,
+            82093
+          ],
+          [
+            "main/f92/f0",
+            82094,
+            82189
+          ],
+          [
+            "main/f92/f1",
+            82190,
+            82256
+          ],
+          [
+            "main/f92/f2",
+            82257,
+            82370
+          ],
+          [
+            "main/f92/f3",
+            82371,
+            82487
+          ]
+        ],
+        "routing": [
+          {
+            "function": "main/f291/f1",
+            "pc": 631,
+            "line": 163155
+          }
+        ],
+        "unitMountIndexes": {
+          "H034": 944
+        },
+        "auxiliary": []
+      },
+      "differences": [
+        "Source 200×rank every 2 seconds versus workbook 100×rank once per second",
+        "Source threshold floor(maxHP*.02)*5 versus workbook strict <5%",
+        "Source cost 2% versus actual A116 hint for the same H034 attack cost of 1%"
+      ],
+      "unresolved": [],
+      "validation": {
+        "original": {
+          "burnDelays": [
+            2,
+            4,
+            6
+          ],
+          "healTriggerAt90Of1000": true,
+          "twoHealTicksLife": 490
+        },
+        "selected": {
+          "healAt49_50_90Of1000": [
+            true,
+            false,
+            false
+          ],
+          "paidLifeAt1000": 10,
+          "twoBurnsAt0And1": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "originalClientTested": false
+      }
+    },
+    {
+      "id": "A116",
+      "status": "ready",
+      "rules": {
+        "period": 1,
+        "maxHelperRanks": [
+          4,
+          6,
+          8,
+          12,
+          16,
+          20
+        ],
+        "attackSpeedByHelperRank": [
+          0.2,
+          0.3,
+          0.4,
+          0.5,
+          0.6,
+          0.8,
+          1,
+          1.2,
+          1.4,
+          1.6,
+          1.8,
+          2,
+          2.2,
+          2.4,
+          2.6,
+          2.8,
+          3,
+          3.2,
+          3.4,
+          3.6
+        ],
+        "flatAttackPerHelperRank": 50,
+        "minimumHelperRank": 1,
+        "rankOneRelearnReplacesCurrentSlotTimer": true,
+        "staleCallbackIsNoop": true
+      },
+      "sourceRefs": {
+        "workbookRows": [
+          528
+        ],
+        "units": [
+          "H034"
+        ],
+        "objectIndex": 914,
+        "hintLine": [
+          1738,
+          "Ubertip=血量越少，加成越高，最大攻速加成50%，最大攻击加成200点(神灵武士每次攻击都会减少1%的生命值)。,血量越少，加成越高，最大攻速加成80%，最大攻击加成300点(神灵武士每次攻击都会减少1%的生命值)。,血量越少，加成越高，最大攻速加成120%，最大攻击加成400点(神灵武士每次攻击都会减少1%的生命值)。,血量越少，加成越高，最大攻速加成200%，最大攻击加成600点(神灵武士每次攻击都会减少1%的生命值)。,血量越少，加成越高，最大攻速加成280%，最大攻击加成800点(神灵武士每次攻击都会减少1%的生命值)。,血量越少，加成越高，最大攻速加成360%，最大攻击加成1000点(神灵武士每次攻击都会减少1%的生命值)。"
+        ],
+        "functions": [
+          [
+            "main/f93",
+            82488,
+            82511
+          ],
+          [
+            "main/f93/f0",
+            82512,
+            82585
+          ],
+          [
+            "main/f93/f1",
+            82586,
+            82758
+          ],
+          [
+            "main/f93/f2",
+            82759,
+            82786
+          ]
+        ],
+        "routing": [
+          {
+            "function": "main/f291/f10",
+            "pc": 159,
+            "line": 169205
+          },
+          {
+            "function": "main/f291/f4",
+            "pc": 94,
+            "line": 167536
+          }
+        ],
+        "unitMountIndexes": {
+          "H034": 944
+        },
+        "auxiliary": [
+          "T083",
+          "T117",
+          "T118"
+        ]
+      },
+      "differences": [
+        "Source inedx typo leaves old timer scheduled after relearning rank one",
+        "Web repair uses the current logical tower index in the source cancellation branch"
+      ],
+      "unresolved": [],
+      "validation": {
+        "original": {
+          "fullLifeRank": 1,
+          "lowLifeAt1And6": [
+            4,
+            20
+          ],
+          "relearnOldTimerStillRunningButIndex": -1
+        },
+        "selected": {
+          "sourceLookupPC": 13,
+          "liveTimersAfterRelearn": 1,
+          "oldCallbackNoEffect": true,
+          "rankAfterLoss": 1,
+          "firstNewTickDelay": 1
+        },
+        "originalClientTested": false
+      }
+    },
+    {
+      "id": "A183",
+      "status": "pending",
+      "rules": {
+        "stackCaps": [
+          5,
+          6,
+          7,
+          8,
+          10,
+          12
+        ],
+        "streakRefresh": 8,
+        "strengthTiesQualify": true,
+        "thresholds": [
+          5,
+          7,
+          10,
+          12
+        ],
+        "rank6IntelligencePerExtraPercent": 30,
+        "rank6AbyssBossMultiplier": 0.25
+      },
+      "sourceRefs": {
+        "workbookRows": [
+          187
+        ],
+        "units": [
+          "H047"
+        ],
+        "objectIndex": 972,
+        "hintLine": [
+          2658,
+          "Ubertip=刺针扫射层数上限增加至5层。|n-当受击单位达到5层时眩晕1秒。|n|cffffcc00（特殊效果均需要力量属性最高时才能生效）|r,刺针扫射层数上限增加至6层。|n-当受击单位达到5层时眩晕1秒。|n|cffffcc00（特殊效果均需要力量属性最高时才能生效）|r,刺针扫射层数上限增加至7层。|n-当受击单位达到5层时眩晕1秒。|n-当受击单位达到7层时该次刺针扫射伤害翻倍。|n|cffffcc00（特殊效果均需要力量属性最高时才能生效）|r,刺针扫射层数上限增加至8层。|n-当受击单位达到5层时眩晕1秒。|n-当受击单位达到7层时该次刺针扫射伤害翻倍。|n|cffffcc00（特殊效果均需要力量属性最高时才能生效）|r,刺针扫射层数上限增加至10层。|n-当受击单位达到5层时眩晕1秒。|n-当受击单位达到7层时该次刺针扫射伤害翻倍。|n-当受击单位达到10层时当前生命值小于最大生命值的20%被秒杀，否则额外受到当前生命值的30%的物理伤害。|n|cffffcc00（特殊效果均需要力量属性最高时才能生效）|r,刺针扫射层数上限增加至12层。|n-当受击单位达到5层时眩晕1秒。|n-当受击单位达到7层时该次刺针扫射伤害翻倍。|n-当受击单位达到10层时当前生命值小于最大生命值的20%被秒杀，否则额外受到当前生命值的30%的物理伤害。|n-当受击单位达到12层时每次针刺伤害额外附加受击单位最大生命值4%的物理伤害，并且每30点|cff5CACEE智力|r增加额外1%最大生命值伤害。|n|cffffcc00（特殊效果均需要力量属性最高时才能生效）|r"
+        ],
+        "functions": [
+          [
+            "main/f130",
+            97879,
+            97902
+          ],
+          [
+            "main/f130/f0",
+            97903,
+            97921
+          ],
+          [
+            "main/f130/f1",
+            97922,
+            98148
+          ],
+          [
+            "main/f130/f2",
+            98149,
+            98208
+          ],
+          [
+            "main/f130/f3",
+            98209,
+            98512
+          ]
+        ],
+        "routing": [
+          {
+            "function": "main/f291/f14",
+            "pc": 1152,
+            "line": 171261
+          }
+        ],
+        "unitMountIndexes": {
+          "H047": 957
+        },
+        "auxiliary": [
+          "A182",
+          "T197"
+        ]
+      },
+      "differences": [
+        "Source Int/50 vs workbook Int/30 at 12 stacks",
+        "AEev DataA1–4=10.0, stock AEev .1/.2/.3; tooltip describes only quill effects"
+      ],
+      "unresolved": [
+        "Explicit AEev field needs a mechanic choice",
+        "A182 native wrapper and T197 control admission remain open"
+      ],
+      "validation": {
+        "original": {
+          "originalFiveStackOrder": "T197",
+          "sevenStackPhysicalPackets": [
+            2240,
+            2240
+          ],
+          "tenStackPhysicalPackets": [
+            3200,
+            3000.0
+          ],
+          "twelveAndThirteen": [
+            3840,
+            600.0
+          ]
+        },
+        "selected": null,
+        "originalClientTested": false
+      }
+    }
+  ]
+}

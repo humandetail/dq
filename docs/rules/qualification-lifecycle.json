@@ -1,0 +1,5621 @@
+{
+  "schemaVersion": 1,
+  "baselineId": "qualification-lifecycle-v1",
+  "scope": "P001-P013 native prerequisite/B015 lifecycle; complete assignment and level-up handlers, bounded pickup gate",
+  "sourceFiles": [
+    {
+      "path": "reference/map-6.25/main.disasm",
+      "sha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+    },
+    {
+      "path": "reference/map-6.25/main.readable.lua",
+      "sha256": "d868f14d946f0780313468f5dd783fa4a6cbe39f5c7851d8e4094ef80aa618b9"
+    },
+    {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "sha256": "b772de42ebcfc1d3818298b35dbe81a35826892848c7cbfef70bf5097e481861"
+    },
+    {
+      "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+      "sha256": "5240c99230cd441b4c376371a31a7987e65470feed736177473a206c55fbe8cc"
+    },
+    {
+      "path": "reference/map-6.25/war3map.w3a.json",
+      "sha256": "d2875f064b389bca471db97121ff7c810d46fbc962ae640ad128d1daa85931bb"
+    },
+    {
+      "path": "docs/rules/economy-data.json",
+      "sha256": "cb9a7ba09b238a8df48a0f466a0fa2e12c6dd1fcab97ca7b7b91616334715d6d"
+    }
+  ],
+  "qualifications": [
+    {
+      "id": "P001",
+      "requireUnit": "n189",
+      "displayName": "变强资格(龙卵领主Max)",
+      "source": {
+        "file": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "line": 16069
+      },
+      "ability": {
+        "alias": "P001",
+        "code": "AOae",
+        "Area1": 10.0,
+        "BuffID1": "B015",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "self,invulnerable,nonhero,hero",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "actualProfile": {
+        "Art": "ReplaceableTextures\\CommandButtons\\BTNControlMagic.blp",
+        "Buttonpos": ",1",
+        "Name": "变强资格",
+        "Requires": "n189",
+        "ResearchArt": "ReplaceableTextures\\CommandButtons\\BTNCommand.blp",
+        "Researchbuttonpos": "2",
+        "Researchhotkey": "E",
+        "Researchtip": "学习耐久光环(|cffffcc00E|r) - [|cffffcc00等级 %d|r]",
+        "Researchubertip": "能增加周围单位的移动速度和攻击速度。|n|n|cffffcc00等级 1|r - 提高10%的移动速度和5%的攻击速度。|n|cffffcc00等级 2|r - 提高20%的移动速度和10%的攻击速度。|n|cffffcc00等级 3|r - 提高30%的移动速度和15%的攻击速度。",
+        "Targetattach": "origin",
+        "Tip": "变强资格(龙卵领主Max)",
+        "Ubertip": "英雄可以突破20级并且可以装备|cffffcc00橙色|r品质以上的装备。"
+      }
+    },
+    {
+      "id": "P002",
+      "requireUnit": "n185",
+      "displayName": "变强资格(雷霆蜥蜴Max)",
+      "source": {
+        "file": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "line": 16083
+      },
+      "ability": {
+        "alias": "P002",
+        "code": "AOae",
+        "Area1": 10.0,
+        "BuffID1": "B015",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "self,invulnerable,nonhero,hero",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "actualProfile": {
+        "Art": "ReplaceableTextures\\CommandButtons\\BTNControlMagic.blp",
+        "Buttonpos": ",1",
+        "Name": "变强资格",
+        "Requires": "n185",
+        "ResearchArt": "ReplaceableTextures\\CommandButtons\\BTNCommand.blp",
+        "Researchbuttonpos": "2",
+        "Researchhotkey": "E",
+        "Researchtip": "学习耐久光环(|cffffcc00E|r) - [|cffffcc00等级 %d|r]",
+        "Researchubertip": "能增加周围单位的移动速度和攻击速度。|n|n|cffffcc00等级 1|r - 提高10%的移动速度和5%的攻击速度。|n|cffffcc00等级 2|r - 提高20%的移动速度和10%的攻击速度。|n|cffffcc00等级 3|r - 提高30%的移动速度和15%的攻击速度。",
+        "Targetattach": "origin",
+        "Tip": "变强资格(雷霆蜥蜴Max)",
+        "Ubertip": "英雄可以突破20级并且可以装备|cffffcc00橙色|r品质以上的装备。"
+      }
+    },
+    {
+      "id": "P003",
+      "requireUnit": "n182",
+      "displayName": "变强资格(树魔狂战士Max)",
+      "source": {
+        "file": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "line": 16097
+      },
+      "ability": {
+        "alias": "P003",
+        "code": "AOae",
+        "Area1": 10.0,
+        "BuffID1": "B015",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "self,invulnerable,nonhero,hero",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "actualProfile": {
+        "Art": "ReplaceableTextures\\CommandButtons\\BTNControlMagic.blp",
+        "Buttonpos": ",1",
+        "Name": "变强资格",
+        "Requires": "n182",
+        "ResearchArt": "ReplaceableTextures\\CommandButtons\\BTNCommand.blp",
+        "Researchbuttonpos": "2",
+        "Researchhotkey": "E",
+        "Researchtip": "学习耐久光环(|cffffcc00E|r) - [|cffffcc00等级 %d|r]",
+        "Researchubertip": "能增加周围单位的移动速度和攻击速度。|n|n|cffffcc00等级 1|r - 提高10%的移动速度和5%的攻击速度。|n|cffffcc00等级 2|r - 提高20%的移动速度和10%的攻击速度。|n|cffffcc00等级 3|r - 提高30%的移动速度和15%的攻击速度。",
+        "Targetattach": "origin",
+        "Tip": "变强资格(树魔狂战士Max)",
+        "Ubertip": "英雄可以突破20级并且可以装备|cffffcc00橙色|r品质以上的装备。"
+      }
+    },
+    {
+      "id": "P004",
+      "requireUnit": "n176",
+      "displayName": "变强资格(狂暴洗劫者Max)",
+      "source": {
+        "file": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "line": 16111
+      },
+      "ability": {
+        "alias": "P004",
+        "code": "AOae",
+        "Area1": 10.0,
+        "BuffID1": "B015",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "self,invulnerable,nonhero,hero",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "actualProfile": {
+        "Art": "ReplaceableTextures\\CommandButtons\\BTNControlMagic.blp",
+        "Buttonpos": ",1",
+        "Name": "变强资格",
+        "Requires": "n176",
+        "ResearchArt": "ReplaceableTextures\\CommandButtons\\BTNCommand.blp",
+        "Researchbuttonpos": "2",
+        "Researchhotkey": "E",
+        "Researchtip": "学习耐久光环(|cffffcc00E|r) - [|cffffcc00等级 %d|r]",
+        "Researchubertip": "能增加周围单位的移动速度和攻击速度。|n|n|cffffcc00等级 1|r - 提高10%的移动速度和5%的攻击速度。|n|cffffcc00等级 2|r - 提高20%的移动速度和10%的攻击速度。|n|cffffcc00等级 3|r - 提高30%的移动速度和15%的攻击速度。",
+        "Targetattach": "origin",
+        "Tip": "变强资格(狂暴洗劫者Max)",
+        "Ubertip": "英雄可以突破20级并且可以装备|cffffcc00橙色|r品质以上的装备。"
+      }
+    },
+    {
+      "id": "P005",
+      "requireUnit": "n172",
+      "displayName": "变强资格(丛林捕食者Max)",
+      "source": {
+        "file": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "line": 16125
+      },
+      "ability": {
+        "alias": "P005",
+        "code": "AOae",
+        "Area1": 10.0,
+        "BuffID1": "B015",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "self,invulnerable,nonhero,hero",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "actualProfile": {
+        "Art": "ReplaceableTextures\\CommandButtons\\BTNControlMagic.blp",
+        "Buttonpos": ",1",
+        "Name": "变强资格",
+        "Requires": "n172",
+        "ResearchArt": "ReplaceableTextures\\CommandButtons\\BTNCommand.blp",
+        "Researchbuttonpos": "2",
+        "Researchhotkey": "E",
+        "Researchtip": "学习耐久光环(|cffffcc00E|r) - [|cffffcc00等级 %d|r]",
+        "Researchubertip": "能增加周围单位的移动速度和攻击速度。|n|n|cffffcc00等级 1|r - 提高10%的移动速度和5%的攻击速度。|n|cffffcc00等级 2|r - 提高20%的移动速度和10%的攻击速度。|n|cffffcc00等级 3|r - 提高30%的移动速度和15%的攻击速度。",
+        "Targetattach": "origin",
+        "Tip": "变强资格(丛林捕食者Max)",
+        "Ubertip": "英雄可以突破20级并且可以装备|cffffcc00橙色|r品质以上的装备。"
+      }
+    },
+    {
+      "id": "P006",
+      "requireUnit": "n167",
+      "displayName": "变强资格(天灾防御塔Max)",
+      "source": {
+        "file": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "line": 16139
+      },
+      "ability": {
+        "alias": "P006",
+        "code": "AOae",
+        "Area1": 10.0,
+        "BuffID1": "B015",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "self,invulnerable,nonhero,hero",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "actualProfile": {
+        "Art": "ReplaceableTextures\\CommandButtons\\BTNControlMagic.blp",
+        "Buttonpos": ",1",
+        "Name": "变强资格",
+        "Requires": "n167",
+        "ResearchArt": "ReplaceableTextures\\CommandButtons\\BTNCommand.blp",
+        "Researchbuttonpos": "2",
+        "Researchhotkey": "E",
+        "Researchtip": "学习耐久光环(|cffffcc00E|r) - [|cffffcc00等级 %d|r]",
+        "Researchubertip": "能增加周围单位的移动速度和攻击速度。|n|n|cffffcc00等级 1|r - 提高10%的移动速度和5%的攻击速度。|n|cffffcc00等级 2|r - 提高20%的移动速度和10%的攻击速度。|n|cffffcc00等级 3|r - 提高30%的移动速度和15%的攻击速度。",
+        "Targetattach": "origin",
+        "Tip": "变强资格(天灾防御塔Max)",
+        "Ubertip": "英雄可以突破20级并且可以装备|cffffcc00橙色|r品质以上的装备。"
+      }
+    },
+    {
+      "id": "P007",
+      "requireUnit": "n163",
+      "displayName": "变强资格(近卫防御塔Max)",
+      "source": {
+        "file": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "line": 16153
+      },
+      "ability": {
+        "alias": "P007",
+        "code": "AOae",
+        "Area1": 10.0,
+        "BuffID1": "B015",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "self,invulnerable,nonhero,hero",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "actualProfile": {
+        "Art": "ReplaceableTextures\\CommandButtons\\BTNControlMagic.blp",
+        "Buttonpos": ",1",
+        "Name": "变强资格",
+        "Requires": "n163",
+        "ResearchArt": "ReplaceableTextures\\CommandButtons\\BTNCommand.blp",
+        "Researchbuttonpos": "2",
+        "Researchhotkey": "E",
+        "Researchtip": "学习耐久光环(|cffffcc00E|r) - [|cffffcc00等级 %d|r]",
+        "Researchubertip": "能增加周围单位的移动速度和攻击速度。|n|n|cffffcc00等级 1|r - 提高10%的移动速度和5%的攻击速度。|n|cffffcc00等级 2|r - 提高20%的移动速度和10%的攻击速度。|n|cffffcc00等级 3|r - 提高30%的移动速度和15%的攻击速度。",
+        "Targetattach": "origin",
+        "Tip": "变强资格(近卫防御塔Max)",
+        "Ubertip": "英雄可以突破20级并且可以装备|cffffcc00橙色|r品质以上的装备。"
+      }
+    },
+    {
+      "id": "P008",
+      "requireUnit": "n158",
+      "displayName": "变强资格(天灾投石车Max)",
+      "source": {
+        "file": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "line": 16167
+      },
+      "ability": {
+        "alias": "P008",
+        "code": "AOae",
+        "Area1": 10.0,
+        "BuffID1": "B015",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "self,invulnerable,nonhero,hero",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "actualProfile": {
+        "Art": "ReplaceableTextures\\CommandButtons\\BTNControlMagic.blp",
+        "Buttonpos": ",1",
+        "Name": "变强资格",
+        "Requires": "n158",
+        "ResearchArt": "ReplaceableTextures\\CommandButtons\\BTNCommand.blp",
+        "Researchbuttonpos": "2",
+        "Researchhotkey": "E",
+        "Researchtip": "学习耐久光环(|cffffcc00E|r) - [|cffffcc00等级 %d|r]",
+        "Researchubertip": "能增加周围单位的移动速度和攻击速度。|n|n|cffffcc00等级 1|r - 提高10%的移动速度和5%的攻击速度。|n|cffffcc00等级 2|r - 提高20%的移动速度和10%的攻击速度。|n|cffffcc00等级 3|r - 提高30%的移动速度和15%的攻击速度。",
+        "Targetattach": "origin",
+        "Tip": "变强资格(天灾投石车Max)",
+        "Ubertip": "英雄可以突破20级并且可以装备|cffffcc00橙色|r品质以上的装备。"
+      }
+    },
+    {
+      "id": "P009",
+      "requireUnit": "n155",
+      "displayName": "变强资格(近卫投石车Max)",
+      "source": {
+        "file": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "line": 16181
+      },
+      "ability": {
+        "alias": "P009",
+        "code": "AOae",
+        "Area1": 10.0,
+        "BuffID1": "B015",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "self,invulnerable,nonhero,hero",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "actualProfile": {
+        "Art": "ReplaceableTextures\\CommandButtons\\BTNControlMagic.blp",
+        "Buttonpos": ",1",
+        "Name": "变强资格",
+        "Requires": "n155",
+        "ResearchArt": "ReplaceableTextures\\CommandButtons\\BTNCommand.blp",
+        "Researchbuttonpos": "2",
+        "Researchhotkey": "E",
+        "Researchtip": "学习耐久光环(|cffffcc00E|r) - [|cffffcc00等级 %d|r]",
+        "Researchubertip": "能增加周围单位的移动速度和攻击速度。|n|n|cffffcc00等级 1|r - 提高10%的移动速度和5%的攻击速度。|n|cffffcc00等级 2|r - 提高20%的移动速度和10%的攻击速度。|n|cffffcc00等级 3|r - 提高30%的移动速度和15%的攻击速度。",
+        "Targetattach": "origin",
+        "Tip": "变强资格(近卫投石车Max)",
+        "Ubertip": "英雄可以突破20级并且可以装备|cffffcc00橙色|r品质以上的装备。"
+      }
+    },
+    {
+      "id": "P010",
+      "requireUnit": "n152",
+      "displayName": "变强资格(熊怪Max)",
+      "source": {
+        "file": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "line": 16195
+      },
+      "ability": {
+        "alias": "P010",
+        "code": "AOae",
+        "Area1": 10.0,
+        "BuffID1": "B015",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "self,invulnerable,nonhero,hero",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "actualProfile": {
+        "Art": "ReplaceableTextures\\CommandButtons\\BTNControlMagic.blp",
+        "Buttonpos": ",1",
+        "Name": "变强资格",
+        "Requires": "n152",
+        "ResearchArt": "ReplaceableTextures\\CommandButtons\\BTNCommand.blp",
+        "Researchbuttonpos": "2",
+        "Researchhotkey": "E",
+        "Researchtip": "学习耐久光环(|cffffcc00E|r) - [|cffffcc00等级 %d|r]",
+        "Researchubertip": "能增加周围单位的移动速度和攻击速度。|n|n|cffffcc00等级 1|r - 提高10%的移动速度和5%的攻击速度。|n|cffffcc00等级 2|r - 提高20%的移动速度和10%的攻击速度。|n|cffffcc00等级 3|r - 提高30%的移动速度和15%的攻击速度。",
+        "Targetattach": "origin",
+        "Tip": "变强资格(熊怪Max)",
+        "Ubertip": "英雄可以突破20级并且可以装备|cffffcc00橙色|r品质以上的装备。"
+      }
+    },
+    {
+      "id": "P011",
+      "requireUnit": "n146",
+      "displayName": "变强资格(半人马战士Max)",
+      "source": {
+        "file": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "line": 16209
+      },
+      "ability": {
+        "alias": "P011",
+        "code": "AOae",
+        "Area1": 10.0,
+        "BuffID1": "B015",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "self,invulnerable,nonhero,hero",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "actualProfile": {
+        "Art": "ReplaceableTextures\\CommandButtons\\BTNControlMagic.blp",
+        "Buttonpos": ",1",
+        "Name": "变强资格",
+        "Requires": "n146",
+        "ResearchArt": "ReplaceableTextures\\CommandButtons\\BTNCommand.blp",
+        "Researchbuttonpos": "2",
+        "Researchhotkey": "E",
+        "Researchtip": "学习耐久光环(|cffffcc00E|r) - [|cffffcc00等级 %d|r]",
+        "Researchubertip": "能增加周围单位的移动速度和攻击速度。|n|n|cffffcc00等级 1|r - 提高10%的移动速度和5%的攻击速度。|n|cffffcc00等级 2|r - 提高20%的移动速度和10%的攻击速度。|n|cffffcc00等级 3|r - 提高30%的移动速度和15%的攻击速度。",
+        "Targetattach": "origin",
+        "Tip": "变强资格(半人马战士Max)",
+        "Ubertip": "英雄可以突破20级并且可以装备|cffffcc00橙色|r品质以上的装备。"
+      }
+    },
+    {
+      "id": "P012",
+      "requireUnit": "n194",
+      "displayName": "变强资格(恐怖之狼Max)",
+      "source": {
+        "file": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "line": 16223
+      },
+      "ability": {
+        "alias": "P012",
+        "code": "AOae",
+        "Area1": 10.0,
+        "BuffID1": "B015",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "self,invulnerable,nonhero,hero",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "actualProfile": {
+        "Art": "ReplaceableTextures\\CommandButtons\\BTNControlMagic.blp",
+        "Buttonpos": ",1",
+        "Name": "变强资格",
+        "Requires": "n194",
+        "ResearchArt": "ReplaceableTextures\\CommandButtons\\BTNCommand.blp",
+        "Researchbuttonpos": "2",
+        "Researchhotkey": "E",
+        "Researchtip": "学习耐久光环(|cffffcc00E|r) - [|cffffcc00等级 %d|r]",
+        "Researchubertip": "能增加周围单位的移动速度和攻击速度。|n|n|cffffcc00等级 1|r - 提高10%的移动速度和5%的攻击速度。|n|cffffcc00等级 2|r - 提高20%的移动速度和10%的攻击速度。|n|cffffcc00等级 3|r - 提高30%的移动速度和15%的攻击速度。",
+        "Targetattach": "origin",
+        "Tip": "变强资格(恐怖之狼Max)",
+        "Ubertip": "英雄可以突破20级并且可以装备|cffffcc00橙色|r品质以上的装备。"
+      }
+    },
+    {
+      "id": "P013",
+      "requireUnit": "n254",
+      "displayName": "变强资格(萨特Max)",
+      "source": {
+        "file": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "line": 16237
+      },
+      "ability": {
+        "alias": "P013",
+        "code": "AOae",
+        "Area1": 10.0,
+        "BuffID1": "B015",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "self,invulnerable,nonhero,hero",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "actualProfile": {
+        "Art": "ReplaceableTextures\\CommandButtons\\BTNControlMagic.blp",
+        "Buttonpos": ",1",
+        "Name": "变强资格",
+        "Requires": "n254",
+        "ResearchArt": "ReplaceableTextures\\CommandButtons\\BTNCommand.blp",
+        "Researchbuttonpos": "2",
+        "Researchhotkey": "E",
+        "Researchtip": "学习耐久光环(|cffffcc00E|r) - [|cffffcc00等级 %d|r]",
+        "Researchubertip": "能增加周围单位的移动速度和攻击速度。|n|n|cffffcc00等级 1|r - 提高10%的移动速度和5%的攻击速度。|n|cffffcc00等级 2|r - 提高20%的移动速度和10%的攻击速度。|n|cffffcc00等级 3|r - 提高30%的移动速度和15%的攻击速度。",
+        "Targetattach": "origin",
+        "Tip": "变强资格(萨特Max)",
+        "Ubertip": "英雄可以突破20级并且可以装备|cffEE7621橙色|r品质以上的装备。"
+      }
+    }
+  ],
+  "fullFunctions": [
+    {
+      "function": "main/f291/f7",
+      "lines": [
+        167771,
+        167956
+      ],
+      "constants": {
+        "k0": "AddArrAny",
+        "k1": "Tower_ALL",
+        "k2": "SetUnitUserData",
+        "k3": 0,
+        "k4": "GetUnitAbilityLevel",
+        "k5": "GetId",
+        "k6": "T033",
+        "k7": "IssueImmediateOrder",
+        "k8": "manashieldon",
+        "k9": "N032",
+        "k10": "UnitRemoveAbility",
+        "k11": "IsUnitType",
+        "k12": "UNIT_TYPE_HERO",
+        "k13": "EXSetUnitMoveType",
+        "k14": 1,
+        "k15": "stop",
+        "k16": "SetUnitState",
+        "k17": "UNIT_STATE_MANA",
+        "k18": "GetUnitState",
+        "k19": "UNIT_STATE_MAX_MANA",
+        "k20": "GetUnitTypeId",
+        "k21": "n208",
+        "k22": "tostring",
+        "k23": "GetRandomInt",
+        "k24": 13,
+        "k25": "P",
+        "k26": "00",
+        "k27": 2,
+        "k28": "0",
+        "k29": 3,
+        "k30": 4,
+        "k31": "UnitAddAbility",
+        "k32": "SetUnitAbilityLevel",
+        "k33": "UnitMakeAbilityPermanent"
+      },
+      "instructions": [
+        {
+          "pc": 1,
+          "line": 167818,
+          "op": "gettabup",
+          "args": [
+            "r1",
+            "u0",
+            "k0"
+          ],
+          "raw": "gettabup      r1    u0    k0"
+        },
+        {
+          "pc": 2,
+          "line": 167819,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k1"
+          ],
+          "raw": "gettabup      r2    u0    k1"
+        },
+        {
+          "pc": 3,
+          "line": 167820,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ],
+          "raw": "move          r3    r0"
+        },
+        {
+          "pc": 4,
+          "line": 167821,
+          "op": "call",
+          "args": [
+            "r1",
+            "3",
+            "2"
+          ],
+          "raw": "call          r1     3     2"
+        },
+        {
+          "pc": 5,
+          "line": 167822,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k2"
+          ],
+          "raw": "gettabup      r2    u0    k2"
+        },
+        {
+          "pc": 6,
+          "line": 167823,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ],
+          "raw": "move          r3    r0"
+        },
+        {
+          "pc": 7,
+          "line": 167824,
+          "op": "move",
+          "args": [
+            "r4",
+            "r1"
+          ],
+          "raw": "move          r4    r1"
+        },
+        {
+          "pc": 8,
+          "line": 167825,
+          "op": "call",
+          "args": [
+            "r2",
+            "3",
+            "1"
+          ],
+          "raw": "call          r2     3     1"
+        },
+        {
+          "pc": 9,
+          "line": 167826,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k4"
+          ],
+          "raw": "gettabup      r2    u0    k4"
+        },
+        {
+          "pc": 10,
+          "line": 167827,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ],
+          "raw": "move          r3    r0"
+        },
+        {
+          "pc": 11,
+          "line": 167828,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k5"
+          ],
+          "raw": "gettabup      r4    u0    k5"
+        },
+        {
+          "pc": 12,
+          "line": 167829,
+          "op": "loadk",
+          "args": [
+            "r5",
+            "k6"
+          ],
+          "raw": "loadk         r5    k6"
+        },
+        {
+          "pc": 13,
+          "line": 167830,
+          "op": "call",
+          "args": [
+            "r4",
+            "2",
+            "0"
+          ],
+          "raw": "call          r4     2     0"
+        },
+        {
+          "pc": 14,
+          "line": 167831,
+          "op": "call",
+          "args": [
+            "r2",
+            "0",
+            "2"
+          ],
+          "raw": "call          r2     0     2"
+        },
+        {
+          "pc": 15,
+          "line": 167832,
+          "op": "lt",
+          "args": [
+            "0",
+            "k3",
+            "r2"
+          ],
+          "raw": "lt             0    k3    r2"
+        },
+        {
+          "pc": 16,
+          "line": 167833,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l21"
+          ],
+          "raw": "jmp            0   l21"
+        },
+        {
+          "pc": 17,
+          "line": 167834,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k7"
+          ],
+          "raw": "gettabup      r2    u0    k7"
+        },
+        {
+          "pc": 18,
+          "line": 167835,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ],
+          "raw": "move          r3    r0"
+        },
+        {
+          "pc": 19,
+          "line": 167836,
+          "op": "loadk",
+          "args": [
+            "r4",
+            "k8"
+          ],
+          "raw": "loadk         r4    k8"
+        },
+        {
+          "pc": 20,
+          "line": 167837,
+          "op": "call",
+          "args": [
+            "r2",
+            "3",
+            "1"
+          ],
+          "raw": "call          r2     3     1"
+        },
+        {
+          "pc": 21,
+          "line": 167839,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k4"
+          ],
+          "raw": "gettabup      r2    u0    k4"
+        },
+        {
+          "pc": 22,
+          "line": 167840,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ],
+          "raw": "move          r3    r0"
+        },
+        {
+          "pc": 23,
+          "line": 167841,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k5"
+          ],
+          "raw": "gettabup      r4    u0    k5"
+        },
+        {
+          "pc": 24,
+          "line": 167842,
+          "op": "loadk",
+          "args": [
+            "r5",
+            "k9"
+          ],
+          "raw": "loadk         r5    k9"
+        },
+        {
+          "pc": 25,
+          "line": 167843,
+          "op": "call",
+          "args": [
+            "r4",
+            "2",
+            "0"
+          ],
+          "raw": "call          r4     2     0"
+        },
+        {
+          "pc": 26,
+          "line": 167844,
+          "op": "call",
+          "args": [
+            "r2",
+            "0",
+            "2"
+          ],
+          "raw": "call          r2     0     2"
+        },
+        {
+          "pc": 27,
+          "line": 167845,
+          "op": "lt",
+          "args": [
+            "0",
+            "k3",
+            "r2"
+          ],
+          "raw": "lt             0    k3    r2"
+        },
+        {
+          "pc": 28,
+          "line": 167846,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l35"
+          ],
+          "raw": "jmp            0   l35"
+        },
+        {
+          "pc": 29,
+          "line": 167847,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k10"
+          ],
+          "raw": "gettabup      r2    u0   k10"
+        },
+        {
+          "pc": 30,
+          "line": 167848,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ],
+          "raw": "move          r3    r0"
+        },
+        {
+          "pc": 31,
+          "line": 167849,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k5"
+          ],
+          "raw": "gettabup      r4    u0    k5"
+        },
+        {
+          "pc": 32,
+          "line": 167850,
+          "op": "loadk",
+          "args": [
+            "r5",
+            "k9"
+          ],
+          "raw": "loadk         r5    k9"
+        },
+        {
+          "pc": 33,
+          "line": 167851,
+          "op": "call",
+          "args": [
+            "r4",
+            "2",
+            "0"
+          ],
+          "raw": "call          r4     2     0"
+        },
+        {
+          "pc": 34,
+          "line": 167852,
+          "op": "call",
+          "args": [
+            "r2",
+            "0",
+            "1"
+          ],
+          "raw": "call          r2     0     1"
+        },
+        {
+          "pc": 35,
+          "line": 167854,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k11"
+          ],
+          "raw": "gettabup      r2    u0   k11"
+        },
+        {
+          "pc": 36,
+          "line": 167855,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ],
+          "raw": "move          r3    r0"
+        },
+        {
+          "pc": 37,
+          "line": 167856,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k12"
+          ],
+          "raw": "gettabup      r4    u0   k12"
+        },
+        {
+          "pc": 38,
+          "line": 167857,
+          "op": "call",
+          "args": [
+            "r2",
+            "3",
+            "2"
+          ],
+          "raw": "call          r2     3     2"
+        },
+        {
+          "pc": 39,
+          "line": 167858,
+          "op": "test",
+          "args": [
+            "r2",
+            "0"
+          ],
+          "raw": "test          r2     0"
+        },
+        {
+          "pc": 40,
+          "line": 167859,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l45"
+          ],
+          "raw": "jmp            0   l45"
+        },
+        {
+          "pc": 41,
+          "line": 167860,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u1",
+            "k13"
+          ],
+          "raw": "gettabup      r2    u1   k13"
+        },
+        {
+          "pc": 42,
+          "line": 167861,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ],
+          "raw": "move          r3    r0"
+        },
+        {
+          "pc": 43,
+          "line": 167862,
+          "op": "loadk",
+          "args": [
+            "r4",
+            "k14"
+          ],
+          "raw": "loadk         r4   k14"
+        },
+        {
+          "pc": 44,
+          "line": 167863,
+          "op": "call",
+          "args": [
+            "r2",
+            "3",
+            "1"
+          ],
+          "raw": "call          r2     3     1"
+        },
+        {
+          "pc": 45,
+          "line": 167865,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k7"
+          ],
+          "raw": "gettabup      r2    u0    k7"
+        },
+        {
+          "pc": 46,
+          "line": 167866,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ],
+          "raw": "move          r3    r0"
+        },
+        {
+          "pc": 47,
+          "line": 167867,
+          "op": "loadk",
+          "args": [
+            "r4",
+            "k15"
+          ],
+          "raw": "loadk         r4   k15"
+        },
+        {
+          "pc": 48,
+          "line": 167868,
+          "op": "call",
+          "args": [
+            "r2",
+            "3",
+            "1"
+          ],
+          "raw": "call          r2     3     1"
+        },
+        {
+          "pc": 49,
+          "line": 167869,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k16"
+          ],
+          "raw": "gettabup      r2    u0   k16"
+        },
+        {
+          "pc": 50,
+          "line": 167870,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ],
+          "raw": "move          r3    r0"
+        },
+        {
+          "pc": 51,
+          "line": 167871,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k17"
+          ],
+          "raw": "gettabup      r4    u0   k17"
+        },
+        {
+          "pc": 52,
+          "line": 167872,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k18"
+          ],
+          "raw": "gettabup      r5    u0   k18"
+        },
+        {
+          "pc": 53,
+          "line": 167873,
+          "op": "move",
+          "args": [
+            "r6",
+            "r0"
+          ],
+          "raw": "move          r6    r0"
+        },
+        {
+          "pc": 54,
+          "line": 167874,
+          "op": "gettabup",
+          "args": [
+            "r7",
+            "u0",
+            "k19"
+          ],
+          "raw": "gettabup      r7    u0   k19"
+        },
+        {
+          "pc": 55,
+          "line": 167875,
+          "op": "call",
+          "args": [
+            "r5",
+            "3",
+            "0"
+          ],
+          "raw": "call          r5     3     0"
+        },
+        {
+          "pc": 56,
+          "line": 167876,
+          "op": "call",
+          "args": [
+            "r2",
+            "0",
+            "1"
+          ],
+          "raw": "call          r2     0     1"
+        },
+        {
+          "pc": 57,
+          "line": 167877,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k11"
+          ],
+          "raw": "gettabup      r2    u0   k11"
+        },
+        {
+          "pc": 58,
+          "line": 167878,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ],
+          "raw": "move          r3    r0"
+        },
+        {
+          "pc": 59,
+          "line": 167879,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k12"
+          ],
+          "raw": "gettabup      r4    u0   k12"
+        },
+        {
+          "pc": 60,
+          "line": 167880,
+          "op": "call",
+          "args": [
+            "r2",
+            "3",
+            "2"
+          ],
+          "raw": "call          r2     3     2"
+        },
+        {
+          "pc": 61,
+          "line": 167881,
+          "op": "test",
+          "args": [
+            "r2",
+            "1"
+          ],
+          "raw": "test          r2     1"
+        },
+        {
+          "pc": 62,
+          "line": 167882,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l71"
+          ],
+          "raw": "jmp            0   l71"
+        },
+        {
+          "pc": 63,
+          "line": 167883,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k20"
+          ],
+          "raw": "gettabup      r2    u0   k20"
+        },
+        {
+          "pc": 64,
+          "line": 167884,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ],
+          "raw": "move          r3    r0"
+        },
+        {
+          "pc": 65,
+          "line": 167885,
+          "op": "call",
+          "args": [
+            "r2",
+            "2",
+            "2"
+          ],
+          "raw": "call          r2     2     2"
+        },
+        {
+          "pc": 66,
+          "line": 167886,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k5"
+          ],
+          "raw": "gettabup      r3    u0    k5"
+        },
+        {
+          "pc": 67,
+          "line": 167887,
+          "op": "loadk",
+          "args": [
+            "r4",
+            "k21"
+          ],
+          "raw": "loadk         r4   k21"
+        },
+        {
+          "pc": 68,
+          "line": 167888,
+          "op": "call",
+          "args": [
+            "r3",
+            "2",
+            "2"
+          ],
+          "raw": "call          r3     2     2"
+        },
+        {
+          "pc": 69,
+          "line": 167889,
+          "op": "eq",
+          "args": [
+            "0",
+            "r2",
+            "r3"
+          ],
+          "raw": "eq             0    r2    r3"
+        },
+        {
+          "pc": 70,
+          "line": 167890,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l129"
+          ],
+          "raw": "jmp            0  l129"
+        },
+        {
+          "pc": 71,
+          "line": 167892,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k22"
+          ],
+          "raw": "gettabup      r2    u0   k22"
+        },
+        {
+          "pc": 72,
+          "line": 167893,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k23"
+          ],
+          "raw": "gettabup      r3    u0   k23"
+        },
+        {
+          "pc": 73,
+          "line": 167894,
+          "op": "loadk",
+          "args": [
+            "r4",
+            "k14"
+          ],
+          "raw": "loadk         r4   k14"
+        },
+        {
+          "pc": 74,
+          "line": 167895,
+          "op": "loadk",
+          "args": [
+            "r5",
+            "k24"
+          ],
+          "raw": "loadk         r5   k24"
+        },
+        {
+          "pc": 75,
+          "line": 167896,
+          "op": "call",
+          "args": [
+            "r3",
+            "3",
+            "0"
+          ],
+          "raw": "call          r3     3     0"
+        },
+        {
+          "pc": 76,
+          "line": 167897,
+          "op": "call",
+          "args": [
+            "r2",
+            "0",
+            "2"
+          ],
+          "raw": "call          r2     0     2"
+        },
+        {
+          "pc": 77,
+          "line": 167898,
+          "op": "loadk",
+          "args": [
+            "r3",
+            "k25"
+          ],
+          "raw": "loadk         r3   k25"
+        },
+        {
+          "pc": 78,
+          "line": 167899,
+          "op": "len",
+          "args": [
+            "r4",
+            "r2"
+          ],
+          "raw": "len           r4    r2"
+        },
+        {
+          "pc": 79,
+          "line": 167900,
+          "op": "eq",
+          "args": [
+            "0",
+            "k14",
+            "r4"
+          ],
+          "raw": "eq             0   k14    r4"
+        },
+        {
+          "pc": 80,
+          "line": 167901,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l88"
+          ],
+          "raw": "jmp            0   l88"
+        },
+        {
+          "pc": 81,
+          "line": 167902,
+          "op": "move",
+          "args": [
+            "r4",
+            "r3"
+          ],
+          "raw": "move          r4    r3"
+        },
+        {
+          "pc": 82,
+          "line": 167903,
+          "op": "loadk",
+          "args": [
+            "r5",
+            "k26"
+          ],
+          "raw": "loadk         r5   k26"
+        },
+        {
+          "pc": 83,
+          "line": 167904,
+          "op": "gettabup",
+          "args": [
+            "r6",
+            "u0",
+            "k22"
+          ],
+          "raw": "gettabup      r6    u0   k22"
+        },
+        {
+          "pc": 84,
+          "line": 167905,
+          "op": "move",
+          "args": [
+            "r7",
+            "r2"
+          ],
+          "raw": "move          r7    r2"
+        },
+        {
+          "pc": 85,
+          "line": 167906,
+          "op": "call",
+          "args": [
+            "r6",
+            "2",
+            "2"
+          ],
+          "raw": "call          r6     2     2"
+        },
+        {
+          "pc": 86,
+          "line": 167907,
+          "op": "concat",
+          "args": [
+            "r3",
+            "r4",
+            "r6"
+          ],
+          "raw": "concat        r3    r4    r6"
+        },
+        {
+          "pc": 87,
+          "line": 167908,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l106"
+          ],
+          "raw": "jmp            0  l106"
+        },
+        {
+          "pc": 88,
+          "line": 167910,
+          "op": "len",
+          "args": [
+            "r4",
+            "r2"
+          ],
+          "raw": "len           r4    r2"
+        },
+        {
+          "pc": 89,
+          "line": 167911,
+          "op": "eq",
+          "args": [
+            "0",
+            "k27",
+            "r4"
+          ],
+          "raw": "eq             0   k27    r4"
+        },
+        {
+          "pc": 90,
+          "line": 167912,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l98"
+          ],
+          "raw": "jmp            0   l98"
+        },
+        {
+          "pc": 91,
+          "line": 167913,
+          "op": "move",
+          "args": [
+            "r4",
+            "r3"
+          ],
+          "raw": "move          r4    r3"
+        },
+        {
+          "pc": 92,
+          "line": 167914,
+          "op": "loadk",
+          "args": [
+            "r5",
+            "k28"
+          ],
+          "raw": "loadk         r5   k28"
+        },
+        {
+          "pc": 93,
+          "line": 167915,
+          "op": "gettabup",
+          "args": [
+            "r6",
+            "u0",
+            "k22"
+          ],
+          "raw": "gettabup      r6    u0   k22"
+        },
+        {
+          "pc": 94,
+          "line": 167916,
+          "op": "move",
+          "args": [
+            "r7",
+            "r2"
+          ],
+          "raw": "move          r7    r2"
+        },
+        {
+          "pc": 95,
+          "line": 167917,
+          "op": "call",
+          "args": [
+            "r6",
+            "2",
+            "2"
+          ],
+          "raw": "call          r6     2     2"
+        },
+        {
+          "pc": 96,
+          "line": 167918,
+          "op": "concat",
+          "args": [
+            "r3",
+            "r4",
+            "r6"
+          ],
+          "raw": "concat        r3    r4    r6"
+        },
+        {
+          "pc": 97,
+          "line": 167919,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l106"
+          ],
+          "raw": "jmp            0  l106"
+        },
+        {
+          "pc": 98,
+          "line": 167921,
+          "op": "len",
+          "args": [
+            "r4",
+            "r2"
+          ],
+          "raw": "len           r4    r2"
+        },
+        {
+          "pc": 99,
+          "line": 167922,
+          "op": "eq",
+          "args": [
+            "0",
+            "k29",
+            "r4"
+          ],
+          "raw": "eq             0   k29    r4"
+        },
+        {
+          "pc": 100,
+          "line": 167923,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l106"
+          ],
+          "raw": "jmp            0  l106"
+        },
+        {
+          "pc": 101,
+          "line": 167924,
+          "op": "move",
+          "args": [
+            "r4",
+            "r3"
+          ],
+          "raw": "move          r4    r3"
+        },
+        {
+          "pc": 102,
+          "line": 167925,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k22"
+          ],
+          "raw": "gettabup      r5    u0   k22"
+        },
+        {
+          "pc": 103,
+          "line": 167926,
+          "op": "move",
+          "args": [
+            "r6",
+            "r2"
+          ],
+          "raw": "move          r6    r2"
+        },
+        {
+          "pc": 104,
+          "line": 167927,
+          "op": "call",
+          "args": [
+            "r5",
+            "2",
+            "2"
+          ],
+          "raw": "call          r5     2     2"
+        },
+        {
+          "pc": 105,
+          "line": 167928,
+          "op": "concat",
+          "args": [
+            "r3",
+            "r4",
+            "r5"
+          ],
+          "raw": "concat        r3    r4    r5"
+        },
+        {
+          "pc": 106,
+          "line": 167930,
+          "op": "len",
+          "args": [
+            "r4",
+            "r3"
+          ],
+          "raw": "len           r4    r3"
+        },
+        {
+          "pc": 107,
+          "line": 167931,
+          "op": "eq",
+          "args": [
+            "0",
+            "k30",
+            "r4"
+          ],
+          "raw": "eq             0   k30    r4"
+        },
+        {
+          "pc": 108,
+          "line": 167932,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l129"
+          ],
+          "raw": "jmp            0  l129"
+        },
+        {
+          "pc": 109,
+          "line": 167933,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k31"
+          ],
+          "raw": "gettabup      r4    u0   k31"
+        },
+        {
+          "pc": 110,
+          "line": 167934,
+          "op": "move",
+          "args": [
+            "r5",
+            "r0"
+          ],
+          "raw": "move          r5    r0"
+        },
+        {
+          "pc": 111,
+          "line": 167935,
+          "op": "gettabup",
+          "args": [
+            "r6",
+            "u0",
+            "k5"
+          ],
+          "raw": "gettabup      r6    u0    k5"
+        },
+        {
+          "pc": 112,
+          "line": 167936,
+          "op": "move",
+          "args": [
+            "r7",
+            "r3"
+          ],
+          "raw": "move          r7    r3"
+        },
+        {
+          "pc": 113,
+          "line": 167937,
+          "op": "call",
+          "args": [
+            "r6",
+            "2",
+            "0"
+          ],
+          "raw": "call          r6     2     0"
+        },
+        {
+          "pc": 114,
+          "line": 167938,
+          "op": "call",
+          "args": [
+            "r4",
+            "0",
+            "1"
+          ],
+          "raw": "call          r4     0     1"
+        },
+        {
+          "pc": 115,
+          "line": 167939,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k32"
+          ],
+          "raw": "gettabup      r4    u0   k32"
+        },
+        {
+          "pc": 116,
+          "line": 167940,
+          "op": "move",
+          "args": [
+            "r5",
+            "r0"
+          ],
+          "raw": "move          r5    r0"
+        },
+        {
+          "pc": 117,
+          "line": 167941,
+          "op": "gettabup",
+          "args": [
+            "r6",
+            "u0",
+            "k5"
+          ],
+          "raw": "gettabup      r6    u0    k5"
+        },
+        {
+          "pc": 118,
+          "line": 167942,
+          "op": "move",
+          "args": [
+            "r7",
+            "r3"
+          ],
+          "raw": "move          r7    r3"
+        },
+        {
+          "pc": 119,
+          "line": 167943,
+          "op": "call",
+          "args": [
+            "r6",
+            "2",
+            "2"
+          ],
+          "raw": "call          r6     2     2"
+        },
+        {
+          "pc": 120,
+          "line": 167944,
+          "op": "loadk",
+          "args": [
+            "r7",
+            "k14"
+          ],
+          "raw": "loadk         r7   k14"
+        },
+        {
+          "pc": 121,
+          "line": 167945,
+          "op": "call",
+          "args": [
+            "r4",
+            "4",
+            "1"
+          ],
+          "raw": "call          r4     4     1"
+        },
+        {
+          "pc": 122,
+          "line": 167946,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k33"
+          ],
+          "raw": "gettabup      r4    u0   k33"
+        },
+        {
+          "pc": 123,
+          "line": 167947,
+          "op": "move",
+          "args": [
+            "r5",
+            "r0"
+          ],
+          "raw": "move          r5    r0"
+        },
+        {
+          "pc": 124,
+          "line": 167948,
+          "op": "loadbool",
+          "args": [
+            "r6",
+            "1",
+            "0"
+          ],
+          "raw": "loadbool      r6     1     0"
+        },
+        {
+          "pc": 125,
+          "line": 167949,
+          "op": "gettabup",
+          "args": [
+            "r7",
+            "u0",
+            "k5"
+          ],
+          "raw": "gettabup      r7    u0    k5"
+        },
+        {
+          "pc": 126,
+          "line": 167950,
+          "op": "move",
+          "args": [
+            "r8",
+            "r3"
+          ],
+          "raw": "move          r8    r3"
+        },
+        {
+          "pc": 127,
+          "line": 167951,
+          "op": "call",
+          "args": [
+            "r7",
+            "2",
+            "0"
+          ],
+          "raw": "call          r7     2     0"
+        },
+        {
+          "pc": 128,
+          "line": 167952,
+          "op": "call",
+          "args": [
+            "r4",
+            "0",
+            "1"
+          ],
+          "raw": "call          r4     0     1"
+        },
+        {
+          "pc": 129,
+          "line": 167954,
+          "op": "loadnil",
+          "args": [
+            "r0",
+            "0"
+          ],
+          "raw": "loadnil       r0     0"
+        },
+        {
+          "pc": 130,
+          "line": 167955,
+          "op": "return",
+          "args": [
+            "r0",
+            "1"
+          ],
+          "raw": "return        r0     1"
+        }
+      ],
+      "labels": {
+        "l21": 21,
+        "l35": 35,
+        "l45": 45,
+        "l71": 71,
+        "l88": 88,
+        "l98": 98,
+        "l106": 106,
+        "l129": 129
+      }
+    },
+    {
+      "function": "main/f291/f18",
+      "lines": [
+        172901,
+        172979
+      ],
+      "constants": {
+        "k0": "GetLevelingUnit",
+        "k1": "GetUnitLevel",
+        "k2": 0,
+        "k3": "GetUnitAbilityLevel",
+        "k4": "GetId",
+        "k5": "A225",
+        "k6": "UnitAddAbility",
+        "k7": "T299",
+        "k8": "UnitRemoveAbility",
+        "k9": 2,
+        "k10": "Game_Mode",
+        "k11": 20,
+        "k12": "B015",
+        "k13": "UnitStripHeroLevel",
+        "k14": "WAbility_W019"
+      },
+      "instructions": [
+        {
+          "pc": 1,
+          "line": 172928,
+          "op": "gettabup",
+          "args": [
+            "r0",
+            "u0",
+            "k0"
+          ],
+          "raw": "gettabup      r0    u0    k0"
+        },
+        {
+          "pc": 2,
+          "line": 172929,
+          "op": "call",
+          "args": [
+            "r0",
+            "1",
+            "2"
+          ],
+          "raw": "call          r0     1     2"
+        },
+        {
+          "pc": 3,
+          "line": 172930,
+          "op": "gettabup",
+          "args": [
+            "r1",
+            "u0",
+            "k1"
+          ],
+          "raw": "gettabup      r1    u0    k1"
+        },
+        {
+          "pc": 4,
+          "line": 172931,
+          "op": "move",
+          "args": [
+            "r2",
+            "r0"
+          ],
+          "raw": "move          r2    r0"
+        },
+        {
+          "pc": 5,
+          "line": 172932,
+          "op": "call",
+          "args": [
+            "r1",
+            "2",
+            "2"
+          ],
+          "raw": "call          r1     2     2"
+        },
+        {
+          "pc": 6,
+          "line": 172933,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k3"
+          ],
+          "raw": "gettabup      r2    u0    k3"
+        },
+        {
+          "pc": 7,
+          "line": 172934,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ],
+          "raw": "move          r3    r0"
+        },
+        {
+          "pc": 8,
+          "line": 172935,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k4"
+          ],
+          "raw": "gettabup      r4    u0    k4"
+        },
+        {
+          "pc": 9,
+          "line": 172936,
+          "op": "loadk",
+          "args": [
+            "r5",
+            "k5"
+          ],
+          "raw": "loadk         r5    k5"
+        },
+        {
+          "pc": 10,
+          "line": 172937,
+          "op": "call",
+          "args": [
+            "r4",
+            "2",
+            "0"
+          ],
+          "raw": "call          r4     2     0"
+        },
+        {
+          "pc": 11,
+          "line": 172938,
+          "op": "call",
+          "args": [
+            "r2",
+            "0",
+            "2"
+          ],
+          "raw": "call          r2     0     2"
+        },
+        {
+          "pc": 12,
+          "line": 172939,
+          "op": "lt",
+          "args": [
+            "0",
+            "k2",
+            "r2"
+          ],
+          "raw": "lt             0    k2    r2"
+        },
+        {
+          "pc": 13,
+          "line": 172940,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l26"
+          ],
+          "raw": "jmp            0   l26"
+        },
+        {
+          "pc": 14,
+          "line": 172941,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k6"
+          ],
+          "raw": "gettabup      r2    u0    k6"
+        },
+        {
+          "pc": 15,
+          "line": 172942,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ],
+          "raw": "move          r3    r0"
+        },
+        {
+          "pc": 16,
+          "line": 172943,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k4"
+          ],
+          "raw": "gettabup      r4    u0    k4"
+        },
+        {
+          "pc": 17,
+          "line": 172944,
+          "op": "loadk",
+          "args": [
+            "r5",
+            "k7"
+          ],
+          "raw": "loadk         r5    k7"
+        },
+        {
+          "pc": 18,
+          "line": 172945,
+          "op": "call",
+          "args": [
+            "r4",
+            "2",
+            "0"
+          ],
+          "raw": "call          r4     2     0"
+        },
+        {
+          "pc": 19,
+          "line": 172946,
+          "op": "call",
+          "args": [
+            "r2",
+            "0",
+            "1"
+          ],
+          "raw": "call          r2     0     1"
+        },
+        {
+          "pc": 20,
+          "line": 172947,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k8"
+          ],
+          "raw": "gettabup      r2    u0    k8"
+        },
+        {
+          "pc": 21,
+          "line": 172948,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ],
+          "raw": "move          r3    r0"
+        },
+        {
+          "pc": 22,
+          "line": 172949,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k4"
+          ],
+          "raw": "gettabup      r4    u0    k4"
+        },
+        {
+          "pc": 23,
+          "line": 172950,
+          "op": "loadk",
+          "args": [
+            "r5",
+            "k7"
+          ],
+          "raw": "loadk         r5    k7"
+        },
+        {
+          "pc": 24,
+          "line": 172951,
+          "op": "call",
+          "args": [
+            "r4",
+            "2",
+            "0"
+          ],
+          "raw": "call          r4     2     0"
+        },
+        {
+          "pc": 25,
+          "line": 172952,
+          "op": "call",
+          "args": [
+            "r2",
+            "0",
+            "1"
+          ],
+          "raw": "call          r2     0     1"
+        },
+        {
+          "pc": 26,
+          "line": 172954,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k10"
+          ],
+          "raw": "gettabup      r2    u0   k10"
+        },
+        {
+          "pc": 27,
+          "line": 172955,
+          "op": "eq",
+          "args": [
+            "1",
+            "k9",
+            "r2"
+          ],
+          "raw": "eq             1    k9    r2"
+        },
+        {
+          "pc": 28,
+          "line": 172956,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l44"
+          ],
+          "raw": "jmp            0   l44"
+        },
+        {
+          "pc": 29,
+          "line": 172957,
+          "op": "lt",
+          "args": [
+            "0",
+            "k11",
+            "r1"
+          ],
+          "raw": "lt             0   k11    r1"
+        },
+        {
+          "pc": 30,
+          "line": 172958,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l44"
+          ],
+          "raw": "jmp            0   l44"
+        },
+        {
+          "pc": 31,
+          "line": 172959,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k3"
+          ],
+          "raw": "gettabup      r2    u0    k3"
+        },
+        {
+          "pc": 32,
+          "line": 172960,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ],
+          "raw": "move          r3    r0"
+        },
+        {
+          "pc": 33,
+          "line": 172961,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k4"
+          ],
+          "raw": "gettabup      r4    u0    k4"
+        },
+        {
+          "pc": 34,
+          "line": 172962,
+          "op": "loadk",
+          "args": [
+            "r5",
+            "k12"
+          ],
+          "raw": "loadk         r5   k12"
+        },
+        {
+          "pc": 35,
+          "line": 172963,
+          "op": "call",
+          "args": [
+            "r4",
+            "2",
+            "0"
+          ],
+          "raw": "call          r4     2     0"
+        },
+        {
+          "pc": 36,
+          "line": 172964,
+          "op": "call",
+          "args": [
+            "r2",
+            "0",
+            "2"
+          ],
+          "raw": "call          r2     0     2"
+        },
+        {
+          "pc": 37,
+          "line": 172965,
+          "op": "le",
+          "args": [
+            "0",
+            "r2",
+            "k2"
+          ],
+          "raw": "le             0    r2    k2"
+        },
+        {
+          "pc": 38,
+          "line": 172966,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l44"
+          ],
+          "raw": "jmp            0   l44"
+        },
+        {
+          "pc": 39,
+          "line": 172967,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k13"
+          ],
+          "raw": "gettabup      r2    u0   k13"
+        },
+        {
+          "pc": 40,
+          "line": 172968,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ],
+          "raw": "move          r3    r0"
+        },
+        {
+          "pc": 41,
+          "line": 172969,
+          "op": "sub",
+          "args": [
+            "r4",
+            "r1",
+            "k11"
+          ],
+          "raw": "sub           r4    r1   k11"
+        },
+        {
+          "pc": 42,
+          "line": 172970,
+          "op": "call",
+          "args": [
+            "r2",
+            "3",
+            "1"
+          ],
+          "raw": "call          r2     3     1"
+        },
+        {
+          "pc": 43,
+          "line": 172971,
+          "op": "loadk",
+          "args": [
+            "r1",
+            "k11"
+          ],
+          "raw": "loadk         r1   k11"
+        },
+        {
+          "pc": 44,
+          "line": 172973,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k14"
+          ],
+          "raw": "gettabup      r2    u0   k14"
+        },
+        {
+          "pc": 45,
+          "line": 172974,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ],
+          "raw": "move          r3    r0"
+        },
+        {
+          "pc": 46,
+          "line": 172975,
+          "op": "move",
+          "args": [
+            "r4",
+            "r1"
+          ],
+          "raw": "move          r4    r1"
+        },
+        {
+          "pc": 47,
+          "line": 172976,
+          "op": "call",
+          "args": [
+            "r2",
+            "3",
+            "1"
+          ],
+          "raw": "call          r2     3     1"
+        },
+        {
+          "pc": 48,
+          "line": 172977,
+          "op": "loadnil",
+          "args": [
+            "r0",
+            "0"
+          ],
+          "raw": "loadnil       r0     0"
+        },
+        {
+          "pc": 49,
+          "line": 172978,
+          "op": "return",
+          "args": [
+            "r0",
+            "1"
+          ],
+          "raw": "return        r0     1"
+        }
+      ],
+      "labels": {
+        "l26": 26,
+        "l44": 44
+      }
+    }
+  ],
+  "pickupGate": {
+    "function": "main/f285/f10",
+    "pcs": [
+      268,
+      422
+    ],
+    "constants": {
+      "k0": "GetItemTypeId",
+      "k1": "GetManipulatedItem",
+      "k2": "GetManipulatingUnit",
+      "k3": "GetId",
+      "k4": "i421",
+      "k5": "Abyss_gold_bless_use",
+      "k6": "i422",
+      "k7": "DisplayTextToAll",
+      "k8": "|cffffcc00ç®è¤ç¢çè¢«æ¡èµ·ï¼ææç©å®¶ç®è¤ç¢ç+1ãè¾å¥-jfæ¥çç®è¤ç¢çã|r",
+      "k9": 3,
+      "k10": 0,
+      "k11": 1,
+      "k12": "DZAPI_Update_Skin_Piece",
+      "k13": "Player",
+      "k14": false,
+      "k15": "IsBOX",
+      "k16": "IsWorker",
+      "k17": "i256",
+      "k18": "i329",
+      "k19": "i278",
+      "k20": "DisplayTextToPlayer",
+      "k21": "GetOwningPlayer",
+      "k22": "|cffffcc00åªæå·¥äººæè½æºå¸¦|r",
+      "k23": "UnitRemoveItemSwapped",
+      "k24": "i131",
+      "k25": "i133",
+      "k26": "i262",
+      "k27": "|cffffcc00âç ´æçå¦åâåªæå­å¥|r|cff66CD00è½éå|r|cffffcc00æè½å¸åé­é­|r",
+      "k28": "i330",
+      "k29": "RemoveItem",
+      "k30": "UnitAddItem",
+      "k31": "CreateItem",
+      "k32": "i332",
+      "k33": "GetUnitX",
+      "k34": "GetUnitY",
+      "k35": "|cffffcc00è½éåæ æ³æºå¸¦æ­¤éå·|r",
+      "k36": -1,
+      "k37": "IsInTable",
+      "k38": "GetItemCharges",
+      "k39": "",
+      "k40": "GetCountAndTypeByItemID",
+      "k41": "life",
+      "k42": "SetUnitState",
+      "k43": "UNIT_STATE_MAX_LIFE",
+      "k44": "GetUnitState",
+      "k45": "mana",
+      "k46": "UNIT_STATE_MAX_MANA",
+      "k47": "IsItemInvulnerable",
+      "k48": "SetItemInvulnerable",
+      "k49": "AnyUnitPickUp",
+      "k50": 10,
+      "k51": "GetItemLevel",
+      "k52": 2,
+      "k53": "Game_Mode",
+      "k54": "ignore_strong_item",
+      "k55": "IsXiongLingHuoBan",
+      "k56": "A_ITEM_ID",
+      "k57": "GetUnitAbilityLevel",
+      "k58": "Tower_ALL",
+      "k59": "GetUnitUserData",
+      "k60": "B015",
+      "k61": "|cffffcc00è¯¥åä½è¿æ²¡æèµæ ¼ä½©æ´è¿ä¸ªç­çº§çè£å¤|r",
+      "k62": "i304",
+      "k63": "ConvertUnitState",
+      "k64": 37,
+      "k65": 0.2,
+      "k66": "i282",
+      "k67": "IsUnitType",
+      "k68": "UNIT_TYPE_MELEE_ATTACKER",
+      "k69": 22,
+      "k70": 200,
+      "k71": "SetUnitAcquireRange",
+      "k72": "GetUnitAcquireRange",
+      "k73": 100,
+      "k74": "pairs",
+      "k75": "UnitItemInSlot",
+      "k76": "SetItemCharges",
+      "k77": "CreateEffByUnit",
+      "k78": "Abilities\\Spells\\Items\\AIlm\\AIlmTarget.mdl",
+      "k79": "origin",
+      "k80": 1.0,
+      "k81": null,
+      "k82": "HasItem",
+      "k83": "|cffffcc00è¯¥åä½å·²ç»æ¥æäºâ",
+      "k84": "âç§ç±»çè£å¤|r",
+      "k85": "Use_A_Item",
+      "k86": "i718",
+      "k87": "i718_723_Action01",
+      "k88": "i719",
+      "k89": "i718_723_Action02",
+      "k90": "i720",
+      "k91": "i718_723_Action03",
+      "k92": "i721",
+      "k93": "i718_723_Action04",
+      "k94": "i722",
+      "k95": "i718_723_Action05",
+      "k96": "i723",
+      "k97": "i718_723_Action06"
+    },
+    "instructions": [
+      {
+        "pc": 268,
+        "line": 144934,
+        "op": "gettabup",
+        "args": [
+          "r3",
+          "u0",
+          "k53"
+        ],
+        "raw": "gettabup      r3    u0   k53"
+      },
+      {
+        "pc": 269,
+        "line": 144935,
+        "op": "eq",
+        "args": [
+          "1",
+          "k52",
+          "r3"
+        ],
+        "raw": "eq             1   k52    r3"
+      },
+      {
+        "pc": 270,
+        "line": 144936,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l423"
+        ],
+        "raw": "jmp            0  l423"
+      },
+      {
+        "pc": 271,
+        "line": 144937,
+        "op": "gettabup",
+        "args": [
+          "r3",
+          "u0",
+          "k15"
+        ],
+        "raw": "gettabup      r3    u0   k15"
+      },
+      {
+        "pc": 272,
+        "line": 144938,
+        "op": "move",
+        "args": [
+          "r4",
+          "r1"
+        ],
+        "raw": "move          r4    r1"
+      },
+      {
+        "pc": 273,
+        "line": 144939,
+        "op": "call",
+        "args": [
+          "r3",
+          "2",
+          "2"
+        ],
+        "raw": "call          r3     2     2"
+      },
+      {
+        "pc": 274,
+        "line": 144940,
+        "op": "eq",
+        "args": [
+          "0",
+          "k14",
+          "r3"
+        ],
+        "raw": "eq             0   k14    r3"
+      },
+      {
+        "pc": 275,
+        "line": 144941,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l423"
+        ],
+        "raw": "jmp            0  l423"
+      },
+      {
+        "pc": 276,
+        "line": 144942,
+        "op": "gettabup",
+        "args": [
+          "r3",
+          "u0",
+          "k16"
+        ],
+        "raw": "gettabup      r3    u0   k16"
+      },
+      {
+        "pc": 277,
+        "line": 144943,
+        "op": "move",
+        "args": [
+          "r4",
+          "r1"
+        ],
+        "raw": "move          r4    r1"
+      },
+      {
+        "pc": 278,
+        "line": 144944,
+        "op": "call",
+        "args": [
+          "r3",
+          "2",
+          "2"
+        ],
+        "raw": "call          r3     2     2"
+      },
+      {
+        "pc": 279,
+        "line": 144945,
+        "op": "eq",
+        "args": [
+          "0",
+          "k14",
+          "r3"
+        ],
+        "raw": "eq             0   k14    r3"
+      },
+      {
+        "pc": 280,
+        "line": 144946,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l423"
+        ],
+        "raw": "jmp            0  l423"
+      },
+      {
+        "pc": 281,
+        "line": 144947,
+        "op": "gettabup",
+        "args": [
+          "r3",
+          "u0",
+          "k51"
+        ],
+        "raw": "gettabup      r3    u0   k51"
+      },
+      {
+        "pc": 282,
+        "line": 144948,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k1"
+        ],
+        "raw": "gettabup      r4    u0    k1"
+      },
+      {
+        "pc": 283,
+        "line": 144949,
+        "op": "call",
+        "args": [
+          "r4",
+          "1",
+          "0"
+        ],
+        "raw": "call          r4     1     0"
+      },
+      {
+        "pc": 284,
+        "line": 144950,
+        "op": "call",
+        "args": [
+          "r3",
+          "0",
+          "2"
+        ],
+        "raw": "call          r3     0     2"
+      },
+      {
+        "pc": 285,
+        "line": 144951,
+        "op": "lt",
+        "args": [
+          "0",
+          "k9",
+          "r3"
+        ],
+        "raw": "lt             0    k9    r3"
+      },
+      {
+        "pc": 286,
+        "line": 144952,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l423"
+        ],
+        "raw": "jmp            0  l423"
+      },
+      {
+        "pc": 287,
+        "line": 144953,
+        "op": "gettabup",
+        "args": [
+          "r3",
+          "u0",
+          "k37"
+        ],
+        "raw": "gettabup      r3    u0   k37"
+      },
+      {
+        "pc": 288,
+        "line": 144954,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k1"
+        ],
+        "raw": "gettabup      r4    u0    k1"
+      },
+      {
+        "pc": 289,
+        "line": 144955,
+        "op": "call",
+        "args": [
+          "r4",
+          "1",
+          "2"
+        ],
+        "raw": "call          r4     1     2"
+      },
+      {
+        "pc": 290,
+        "line": 144956,
+        "op": "gettabup",
+        "args": [
+          "r5",
+          "u0",
+          "k54"
+        ],
+        "raw": "gettabup      r5    u0   k54"
+      },
+      {
+        "pc": 291,
+        "line": 144957,
+        "op": "call",
+        "args": [
+          "r3",
+          "3",
+          "2"
+        ],
+        "raw": "call          r3     3     2"
+      },
+      {
+        "pc": 292,
+        "line": 144958,
+        "op": "eq",
+        "args": [
+          "0",
+          "k36",
+          "r3"
+        ],
+        "raw": "eq             0   k36    r3"
+      },
+      {
+        "pc": 293,
+        "line": 144959,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l423"
+        ],
+        "raw": "jmp            0  l423"
+      },
+      {
+        "pc": 294,
+        "line": 144960,
+        "op": "gettabup",
+        "args": [
+          "r3",
+          "u0",
+          "k55"
+        ],
+        "raw": "gettabup      r3    u0   k55"
+      },
+      {
+        "pc": 295,
+        "line": 144961,
+        "op": "move",
+        "args": [
+          "r4",
+          "r1"
+        ],
+        "raw": "move          r4    r1"
+      },
+      {
+        "pc": 296,
+        "line": 144962,
+        "op": "call",
+        "args": [
+          "r3",
+          "2",
+          "2"
+        ],
+        "raw": "call          r3     2     2"
+      },
+      {
+        "pc": 297,
+        "line": 144963,
+        "op": "test",
+        "args": [
+          "r3",
+          "0"
+        ],
+        "raw": "test          r3     0"
+      },
+      {
+        "pc": 298,
+        "line": 144964,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l331"
+        ],
+        "raw": "jmp            0  l331"
+      },
+      {
+        "pc": 299,
+        "line": 144965,
+        "op": "gettabup",
+        "args": [
+          "r3",
+          "u0",
+          "k3"
+        ],
+        "raw": "gettabup      r3    u0    k3"
+      },
+      {
+        "pc": 300,
+        "line": 144966,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k56"
+        ],
+        "raw": "gettabup      r4    u0   k56"
+      },
+      {
+        "pc": 301,
+        "line": 144967,
+        "op": "call",
+        "args": [
+          "r3",
+          "2",
+          "2"
+        ],
+        "raw": "call          r3     2     2"
+      },
+      {
+        "pc": 302,
+        "line": 144968,
+        "op": "eq",
+        "args": [
+          "1",
+          "r0",
+          "r3"
+        ],
+        "raw": "eq             1    r0    r3"
+      },
+      {
+        "pc": 303,
+        "line": 144969,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l331"
+        ],
+        "raw": "jmp            0  l331"
+      },
+      {
+        "pc": 304,
+        "line": 144970,
+        "op": "gettabup",
+        "args": [
+          "r3",
+          "u0",
+          "k57"
+        ],
+        "raw": "gettabup      r3    u0   k57"
+      },
+      {
+        "pc": 305,
+        "line": 144971,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k58"
+        ],
+        "raw": "gettabup      r4    u0   k58"
+      },
+      {
+        "pc": 306,
+        "line": 144972,
+        "op": "gettabup",
+        "args": [
+          "r5",
+          "u0",
+          "k59"
+        ],
+        "raw": "gettabup      r5    u0   k59"
+      },
+      {
+        "pc": 307,
+        "line": 144973,
+        "op": "move",
+        "args": [
+          "r6",
+          "r1"
+        ],
+        "raw": "move          r6    r1"
+      },
+      {
+        "pc": 308,
+        "line": 144974,
+        "op": "call",
+        "args": [
+          "r5",
+          "2",
+          "2"
+        ],
+        "raw": "call          r5     2     2"
+      },
+      {
+        "pc": 309,
+        "line": 144975,
+        "op": "gettable",
+        "args": [
+          "r4",
+          "r4",
+          "r5"
+        ],
+        "raw": "gettable      r4    r4    r5"
+      },
+      {
+        "pc": 310,
+        "line": 144976,
+        "op": "gettabup",
+        "args": [
+          "r5",
+          "u0",
+          "k3"
+        ],
+        "raw": "gettabup      r5    u0    k3"
+      },
+      {
+        "pc": 311,
+        "line": 144977,
+        "op": "loadk",
+        "args": [
+          "r6",
+          "k60"
+        ],
+        "raw": "loadk         r6   k60"
+      },
+      {
+        "pc": 312,
+        "line": 144978,
+        "op": "call",
+        "args": [
+          "r5",
+          "2",
+          "0"
+        ],
+        "raw": "call          r5     2     0"
+      },
+      {
+        "pc": 313,
+        "line": 144979,
+        "op": "call",
+        "args": [
+          "r3",
+          "0",
+          "2"
+        ],
+        "raw": "call          r3     0     2"
+      },
+      {
+        "pc": 314,
+        "line": 144980,
+        "op": "le",
+        "args": [
+          "0",
+          "r3",
+          "k10"
+        ],
+        "raw": "le             0    r3   k10"
+      },
+      {
+        "pc": 315,
+        "line": 144981,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l423"
+        ],
+        "raw": "jmp            0  l423"
+      },
+      {
+        "pc": 316,
+        "line": 144982,
+        "op": "gettabup",
+        "args": [
+          "r3",
+          "u0",
+          "k20"
+        ],
+        "raw": "gettabup      r3    u0   k20"
+      },
+      {
+        "pc": 317,
+        "line": 144983,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k21"
+        ],
+        "raw": "gettabup      r4    u0   k21"
+      },
+      {
+        "pc": 318,
+        "line": 144984,
+        "op": "move",
+        "args": [
+          "r5",
+          "r1"
+        ],
+        "raw": "move          r5    r1"
+      },
+      {
+        "pc": 319,
+        "line": 144985,
+        "op": "call",
+        "args": [
+          "r4",
+          "2",
+          "2"
+        ],
+        "raw": "call          r4     2     2"
+      },
+      {
+        "pc": 320,
+        "line": 144986,
+        "op": "loadk",
+        "args": [
+          "r5",
+          "k10"
+        ],
+        "raw": "loadk         r5   k10"
+      },
+      {
+        "pc": 321,
+        "line": 144987,
+        "op": "loadk",
+        "args": [
+          "r6",
+          "k10"
+        ],
+        "raw": "loadk         r6   k10"
+      },
+      {
+        "pc": 322,
+        "line": 144988,
+        "op": "loadk",
+        "args": [
+          "r7",
+          "k61"
+        ],
+        "raw": "loadk         r7   k61"
+      },
+      {
+        "pc": 323,
+        "line": 144989,
+        "op": "call",
+        "args": [
+          "r3",
+          "5",
+          "1"
+        ],
+        "raw": "call          r3     5     1"
+      },
+      {
+        "pc": 324,
+        "line": 144990,
+        "op": "gettabup",
+        "args": [
+          "r3",
+          "u0",
+          "k23"
+        ],
+        "raw": "gettabup      r3    u0   k23"
+      },
+      {
+        "pc": 325,
+        "line": 144991,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k1"
+        ],
+        "raw": "gettabup      r4    u0    k1"
+      },
+      {
+        "pc": 326,
+        "line": 144992,
+        "op": "call",
+        "args": [
+          "r4",
+          "1",
+          "2"
+        ],
+        "raw": "call          r4     1     2"
+      },
+      {
+        "pc": 327,
+        "line": 144993,
+        "op": "move",
+        "args": [
+          "r5",
+          "r1"
+        ],
+        "raw": "move          r5    r1"
+      },
+      {
+        "pc": 328,
+        "line": 144994,
+        "op": "call",
+        "args": [
+          "r3",
+          "3",
+          "1"
+        ],
+        "raw": "call          r3     3     1"
+      },
+      {
+        "pc": 329,
+        "line": 144995,
+        "op": "return",
+        "args": [
+          "r0",
+          "1"
+        ],
+        "raw": "return        r0     1"
+      },
+      {
+        "pc": 330,
+        "line": 144996,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l423"
+        ],
+        "raw": "jmp            0  l423"
+      },
+      {
+        "pc": 331,
+        "line": 144998,
+        "op": "gettabup",
+        "args": [
+          "r3",
+          "u0",
+          "k57"
+        ],
+        "raw": "gettabup      r3    u0   k57"
+      },
+      {
+        "pc": 332,
+        "line": 144999,
+        "op": "move",
+        "args": [
+          "r4",
+          "r1"
+        ],
+        "raw": "move          r4    r1"
+      },
+      {
+        "pc": 333,
+        "line": 145000,
+        "op": "gettabup",
+        "args": [
+          "r5",
+          "u0",
+          "k3"
+        ],
+        "raw": "gettabup      r5    u0    k3"
+      },
+      {
+        "pc": 334,
+        "line": 145001,
+        "op": "loadk",
+        "args": [
+          "r6",
+          "k60"
+        ],
+        "raw": "loadk         r6   k60"
+      },
+      {
+        "pc": 335,
+        "line": 145002,
+        "op": "call",
+        "args": [
+          "r5",
+          "2",
+          "0"
+        ],
+        "raw": "call          r5     2     0"
+      },
+      {
+        "pc": 336,
+        "line": 145003,
+        "op": "call",
+        "args": [
+          "r3",
+          "0",
+          "2"
+        ],
+        "raw": "call          r3     0     2"
+      },
+      {
+        "pc": 337,
+        "line": 145004,
+        "op": "le",
+        "args": [
+          "0",
+          "r3",
+          "k10"
+        ],
+        "raw": "le             0    r3   k10"
+      },
+      {
+        "pc": 338,
+        "line": 145005,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l423"
+        ],
+        "raw": "jmp            0  l423"
+      },
+      {
+        "pc": 339,
+        "line": 145006,
+        "op": "gettabup",
+        "args": [
+          "r3",
+          "u0",
+          "k20"
+        ],
+        "raw": "gettabup      r3    u0   k20"
+      },
+      {
+        "pc": 340,
+        "line": 145007,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k21"
+        ],
+        "raw": "gettabup      r4    u0   k21"
+      },
+      {
+        "pc": 341,
+        "line": 145008,
+        "op": "move",
+        "args": [
+          "r5",
+          "r1"
+        ],
+        "raw": "move          r5    r1"
+      },
+      {
+        "pc": 342,
+        "line": 145009,
+        "op": "call",
+        "args": [
+          "r4",
+          "2",
+          "2"
+        ],
+        "raw": "call          r4     2     2"
+      },
+      {
+        "pc": 343,
+        "line": 145010,
+        "op": "loadk",
+        "args": [
+          "r5",
+          "k10"
+        ],
+        "raw": "loadk         r5   k10"
+      },
+      {
+        "pc": 344,
+        "line": 145011,
+        "op": "loadk",
+        "args": [
+          "r6",
+          "k10"
+        ],
+        "raw": "loadk         r6   k10"
+      },
+      {
+        "pc": 345,
+        "line": 145012,
+        "op": "loadk",
+        "args": [
+          "r7",
+          "k61"
+        ],
+        "raw": "loadk         r7   k61"
+      },
+      {
+        "pc": 346,
+        "line": 145013,
+        "op": "call",
+        "args": [
+          "r3",
+          "5",
+          "1"
+        ],
+        "raw": "call          r3     5     1"
+      },
+      {
+        "pc": 347,
+        "line": 145014,
+        "op": "gettabup",
+        "args": [
+          "r3",
+          "u0",
+          "k3"
+        ],
+        "raw": "gettabup      r3    u0    k3"
+      },
+      {
+        "pc": 348,
+        "line": 145015,
+        "op": "loadk",
+        "args": [
+          "r4",
+          "k62"
+        ],
+        "raw": "loadk         r4   k62"
+      },
+      {
+        "pc": 349,
+        "line": 145016,
+        "op": "call",
+        "args": [
+          "r3",
+          "2",
+          "2"
+        ],
+        "raw": "call          r3     2     2"
+      },
+      {
+        "pc": 350,
+        "line": 145017,
+        "op": "eq",
+        "args": [
+          "0",
+          "r0",
+          "r3"
+        ],
+        "raw": "eq             0    r0    r3"
+      },
+      {
+        "pc": 351,
+        "line": 145018,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l365"
+        ],
+        "raw": "jmp            0  l365"
+      },
+      {
+        "pc": 352,
+        "line": 145019,
+        "op": "gettabup",
+        "args": [
+          "r3",
+          "u0",
+          "k42"
+        ],
+        "raw": "gettabup      r3    u0   k42"
+      },
+      {
+        "pc": 353,
+        "line": 145020,
+        "op": "move",
+        "args": [
+          "r4",
+          "r1"
+        ],
+        "raw": "move          r4    r1"
+      },
+      {
+        "pc": 354,
+        "line": 145021,
+        "op": "gettabup",
+        "args": [
+          "r5",
+          "u0",
+          "k63"
+        ],
+        "raw": "gettabup      r5    u0   k63"
+      },
+      {
+        "pc": 355,
+        "line": 145022,
+        "op": "loadk",
+        "args": [
+          "r6",
+          "k64"
+        ],
+        "raw": "loadk         r6   k64"
+      },
+      {
+        "pc": 356,
+        "line": 145023,
+        "op": "call",
+        "args": [
+          "r5",
+          "2",
+          "2"
+        ],
+        "raw": "call          r5     2     2"
+      },
+      {
+        "pc": 357,
+        "line": 145024,
+        "op": "gettabup",
+        "args": [
+          "r6",
+          "u0",
+          "k44"
+        ],
+        "raw": "gettabup      r6    u0   k44"
+      },
+      {
+        "pc": 358,
+        "line": 145025,
+        "op": "move",
+        "args": [
+          "r7",
+          "r1"
+        ],
+        "raw": "move          r7    r1"
+      },
+      {
+        "pc": 359,
+        "line": 145026,
+        "op": "gettabup",
+        "args": [
+          "r8",
+          "u0",
+          "k63"
+        ],
+        "raw": "gettabup      r8    u0   k63"
+      },
+      {
+        "pc": 360,
+        "line": 145027,
+        "op": "loadk",
+        "args": [
+          "r9",
+          "k64"
+        ],
+        "raw": "loadk         r9   k64"
+      },
+      {
+        "pc": 361,
+        "line": 145028,
+        "op": "call",
+        "args": [
+          "r8",
+          "2",
+          "0"
+        ],
+        "raw": "call          r8     2     0"
+      },
+      {
+        "pc": 362,
+        "line": 145029,
+        "op": "call",
+        "args": [
+          "r6",
+          "0",
+          "2"
+        ],
+        "raw": "call          r6     0     2"
+      },
+      {
+        "pc": 363,
+        "line": 145030,
+        "op": "sub",
+        "args": [
+          "r6",
+          "r6",
+          "k65"
+        ],
+        "raw": "sub           r6    r6   k65"
+      },
+      {
+        "pc": 364,
+        "line": 145031,
+        "op": "call",
+        "args": [
+          "r3",
+          "4",
+          "1"
+        ],
+        "raw": "call          r3     4     1"
+      },
+      {
+        "pc": 365,
+        "line": 145033,
+        "op": "gettabup",
+        "args": [
+          "r3",
+          "u0",
+          "k3"
+        ],
+        "raw": "gettabup      r3    u0    k3"
+      },
+      {
+        "pc": 366,
+        "line": 145034,
+        "op": "loadk",
+        "args": [
+          "r4",
+          "k66"
+        ],
+        "raw": "loadk         r4   k66"
+      },
+      {
+        "pc": 367,
+        "line": 145035,
+        "op": "call",
+        "args": [
+          "r3",
+          "2",
+          "2"
+        ],
+        "raw": "call          r3     2     2"
+      },
+      {
+        "pc": 368,
+        "line": 145036,
+        "op": "eq",
+        "args": [
+          "0",
+          "r0",
+          "r3"
+        ],
+        "raw": "eq             0    r0    r3"
+      },
+      {
+        "pc": 369,
+        "line": 145037,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l417"
+        ],
+        "raw": "jmp            0  l417"
+      },
+      {
+        "pc": 370,
+        "line": 145038,
+        "op": "gettabup",
+        "args": [
+          "r3",
+          "u0",
+          "k67"
+        ],
+        "raw": "gettabup      r3    u0   k67"
+      },
+      {
+        "pc": 371,
+        "line": 145039,
+        "op": "move",
+        "args": [
+          "r4",
+          "r1"
+        ],
+        "raw": "move          r4    r1"
+      },
+      {
+        "pc": 372,
+        "line": 145040,
+        "op": "gettabup",
+        "args": [
+          "r5",
+          "u0",
+          "k68"
+        ],
+        "raw": "gettabup      r5    u0   k68"
+      },
+      {
+        "pc": 373,
+        "line": 145041,
+        "op": "call",
+        "args": [
+          "r3",
+          "3",
+          "2"
+        ],
+        "raw": "call          r3     3     2"
+      },
+      {
+        "pc": 374,
+        "line": 145042,
+        "op": "eq",
+        "args": [
+          "0",
+          "k14",
+          "r3"
+        ],
+        "raw": "eq             0   k14    r3"
+      },
+      {
+        "pc": 375,
+        "line": 145043,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l397"
+        ],
+        "raw": "jmp            0  l397"
+      },
+      {
+        "pc": 376,
+        "line": 145044,
+        "op": "gettabup",
+        "args": [
+          "r3",
+          "u0",
+          "k42"
+        ],
+        "raw": "gettabup      r3    u0   k42"
+      },
+      {
+        "pc": 377,
+        "line": 145045,
+        "op": "move",
+        "args": [
+          "r4",
+          "r1"
+        ],
+        "raw": "move          r4    r1"
+      },
+      {
+        "pc": 378,
+        "line": 145046,
+        "op": "gettabup",
+        "args": [
+          "r5",
+          "u0",
+          "k63"
+        ],
+        "raw": "gettabup      r5    u0   k63"
+      },
+      {
+        "pc": 379,
+        "line": 145047,
+        "op": "loadk",
+        "args": [
+          "r6",
+          "k69"
+        ],
+        "raw": "loadk         r6   k69"
+      },
+      {
+        "pc": 380,
+        "line": 145048,
+        "op": "call",
+        "args": [
+          "r5",
+          "2",
+          "2"
+        ],
+        "raw": "call          r5     2     2"
+      },
+      {
+        "pc": 381,
+        "line": 145049,
+        "op": "gettabup",
+        "args": [
+          "r6",
+          "u0",
+          "k44"
+        ],
+        "raw": "gettabup      r6    u0   k44"
+      },
+      {
+        "pc": 382,
+        "line": 145050,
+        "op": "move",
+        "args": [
+          "r7",
+          "r1"
+        ],
+        "raw": "move          r7    r1"
+      },
+      {
+        "pc": 383,
+        "line": 145051,
+        "op": "gettabup",
+        "args": [
+          "r8",
+          "u0",
+          "k63"
+        ],
+        "raw": "gettabup      r8    u0   k63"
+      },
+      {
+        "pc": 384,
+        "line": 145052,
+        "op": "loadk",
+        "args": [
+          "r9",
+          "k69"
+        ],
+        "raw": "loadk         r9   k69"
+      },
+      {
+        "pc": 385,
+        "line": 145053,
+        "op": "call",
+        "args": [
+          "r8",
+          "2",
+          "0"
+        ],
+        "raw": "call          r8     2     0"
+      },
+      {
+        "pc": 386,
+        "line": 145054,
+        "op": "call",
+        "args": [
+          "r6",
+          "0",
+          "2"
+        ],
+        "raw": "call          r6     0     2"
+      },
+      {
+        "pc": 387,
+        "line": 145055,
+        "op": "add",
+        "args": [
+          "r6",
+          "r6",
+          "k70"
+        ],
+        "raw": "add           r6    r6   k70"
+      },
+      {
+        "pc": 388,
+        "line": 145056,
+        "op": "call",
+        "args": [
+          "r3",
+          "4",
+          "1"
+        ],
+        "raw": "call          r3     4     1"
+      },
+      {
+        "pc": 389,
+        "line": 145057,
+        "op": "gettabup",
+        "args": [
+          "r3",
+          "u0",
+          "k71"
+        ],
+        "raw": "gettabup      r3    u0   k71"
+      },
+      {
+        "pc": 390,
+        "line": 145058,
+        "op": "move",
+        "args": [
+          "r4",
+          "r1"
+        ],
+        "raw": "move          r4    r1"
+      },
+      {
+        "pc": 391,
+        "line": 145059,
+        "op": "gettabup",
+        "args": [
+          "r5",
+          "u0",
+          "k72"
+        ],
+        "raw": "gettabup      r5    u0   k72"
+      },
+      {
+        "pc": 392,
+        "line": 145060,
+        "op": "move",
+        "args": [
+          "r6",
+          "r1"
+        ],
+        "raw": "move          r6    r1"
+      },
+      {
+        "pc": 393,
+        "line": 145061,
+        "op": "call",
+        "args": [
+          "r5",
+          "2",
+          "2"
+        ],
+        "raw": "call          r5     2     2"
+      },
+      {
+        "pc": 394,
+        "line": 145062,
+        "op": "add",
+        "args": [
+          "r5",
+          "r5",
+          "k70"
+        ],
+        "raw": "add           r5    r5   k70"
+      },
+      {
+        "pc": 395,
+        "line": 145063,
+        "op": "call",
+        "args": [
+          "r3",
+          "3",
+          "1"
+        ],
+        "raw": "call          r3     3     1"
+      },
+      {
+        "pc": 396,
+        "line": 145064,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l417"
+        ],
+        "raw": "jmp            0  l417"
+      },
+      {
+        "pc": 397,
+        "line": 145066,
+        "op": "gettabup",
+        "args": [
+          "r3",
+          "u0",
+          "k42"
+        ],
+        "raw": "gettabup      r3    u0   k42"
+      },
+      {
+        "pc": 398,
+        "line": 145067,
+        "op": "move",
+        "args": [
+          "r4",
+          "r1"
+        ],
+        "raw": "move          r4    r1"
+      },
+      {
+        "pc": 399,
+        "line": 145068,
+        "op": "gettabup",
+        "args": [
+          "r5",
+          "u0",
+          "k63"
+        ],
+        "raw": "gettabup      r5    u0   k63"
+      },
+      {
+        "pc": 400,
+        "line": 145069,
+        "op": "loadk",
+        "args": [
+          "r6",
+          "k69"
+        ],
+        "raw": "loadk         r6   k69"
+      },
+      {
+        "pc": 401,
+        "line": 145070,
+        "op": "call",
+        "args": [
+          "r5",
+          "2",
+          "2"
+        ],
+        "raw": "call          r5     2     2"
+      },
+      {
+        "pc": 402,
+        "line": 145071,
+        "op": "gettabup",
+        "args": [
+          "r6",
+          "u0",
+          "k44"
+        ],
+        "raw": "gettabup      r6    u0   k44"
+      },
+      {
+        "pc": 403,
+        "line": 145072,
+        "op": "move",
+        "args": [
+          "r7",
+          "r1"
+        ],
+        "raw": "move          r7    r1"
+      },
+      {
+        "pc": 404,
+        "line": 145073,
+        "op": "gettabup",
+        "args": [
+          "r8",
+          "u0",
+          "k63"
+        ],
+        "raw": "gettabup      r8    u0   k63"
+      },
+      {
+        "pc": 405,
+        "line": 145074,
+        "op": "loadk",
+        "args": [
+          "r9",
+          "k69"
+        ],
+        "raw": "loadk         r9   k69"
+      },
+      {
+        "pc": 406,
+        "line": 145075,
+        "op": "call",
+        "args": [
+          "r8",
+          "2",
+          "0"
+        ],
+        "raw": "call          r8     2     0"
+      },
+      {
+        "pc": 407,
+        "line": 145076,
+        "op": "call",
+        "args": [
+          "r6",
+          "0",
+          "2"
+        ],
+        "raw": "call          r6     0     2"
+      },
+      {
+        "pc": 408,
+        "line": 145077,
+        "op": "add",
+        "args": [
+          "r6",
+          "r6",
+          "k73"
+        ],
+        "raw": "add           r6    r6   k73"
+      },
+      {
+        "pc": 409,
+        "line": 145078,
+        "op": "call",
+        "args": [
+          "r3",
+          "4",
+          "1"
+        ],
+        "raw": "call          r3     4     1"
+      },
+      {
+        "pc": 410,
+        "line": 145079,
+        "op": "gettabup",
+        "args": [
+          "r3",
+          "u0",
+          "k71"
+        ],
+        "raw": "gettabup      r3    u0   k71"
+      },
+      {
+        "pc": 411,
+        "line": 145080,
+        "op": "move",
+        "args": [
+          "r4",
+          "r1"
+        ],
+        "raw": "move          r4    r1"
+      },
+      {
+        "pc": 412,
+        "line": 145081,
+        "op": "gettabup",
+        "args": [
+          "r5",
+          "u0",
+          "k72"
+        ],
+        "raw": "gettabup      r5    u0   k72"
+      },
+      {
+        "pc": 413,
+        "line": 145082,
+        "op": "move",
+        "args": [
+          "r6",
+          "r1"
+        ],
+        "raw": "move          r6    r1"
+      },
+      {
+        "pc": 414,
+        "line": 145083,
+        "op": "call",
+        "args": [
+          "r5",
+          "2",
+          "2"
+        ],
+        "raw": "call          r5     2     2"
+      },
+      {
+        "pc": 415,
+        "line": 145084,
+        "op": "add",
+        "args": [
+          "r5",
+          "r5",
+          "k73"
+        ],
+        "raw": "add           r5    r5   k73"
+      },
+      {
+        "pc": 416,
+        "line": 145085,
+        "op": "call",
+        "args": [
+          "r3",
+          "3",
+          "1"
+        ],
+        "raw": "call          r3     3     1"
+      },
+      {
+        "pc": 417,
+        "line": 145087,
+        "op": "gettabup",
+        "args": [
+          "r3",
+          "u0",
+          "k23"
+        ],
+        "raw": "gettabup      r3    u0   k23"
+      },
+      {
+        "pc": 418,
+        "line": 145088,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k1"
+        ],
+        "raw": "gettabup      r4    u0    k1"
+      },
+      {
+        "pc": 419,
+        "line": 145089,
+        "op": "call",
+        "args": [
+          "r4",
+          "1",
+          "2"
+        ],
+        "raw": "call          r4     1     2"
+      },
+      {
+        "pc": 420,
+        "line": 145090,
+        "op": "move",
+        "args": [
+          "r5",
+          "r1"
+        ],
+        "raw": "move          r5    r1"
+      },
+      {
+        "pc": 421,
+        "line": 145091,
+        "op": "call",
+        "args": [
+          "r3",
+          "3",
+          "1"
+        ],
+        "raw": "call          r3     3     1"
+      },
+      {
+        "pc": 422,
+        "line": 145092,
+        "op": "return",
+        "args": [
+          "r0",
+          "1"
+        ],
+        "raw": "return        r0     1"
+      }
+    ]
+  },
+  "sourceFacts": {
+    "assignment": "handler assigns one uniform P001..P013 to native HERO or n208, after registration/stop/mana refill; permanent flag does not prove unconditional B015",
+    "noLossCallback": "Only three literal B015 queries in business Lua: two pickup branches, one level-up branch; no literal script removes B015 on prerequisite loss",
+    "upgradeGate": "mode!=2 and level>20 and B015<=0 -> strip level-20; A225/T299 before gate, W019 after gate",
+    "pickupGate": "mode!=2, not box/worker, item level>3, not ignore_strong_item instance; ordinary bear companion reads linked Tower_ALL owner unless A_ITEM_ID; otherwise recipient B015",
+    "existingGearAndLevels": "Source contains no B015-loss event to strip levels or force existing items out; only subsequent specified events check it"
+  },
+  "webSelections": {
+    "authority": "Q24, researched native prerequisite and aura timing; not original client measurement",
+    "requiredUnit": "At least one existing alive completed non-illusion unit of exact required type owned by the qualified unit owner; cards/unfinished buildings/allies/corpses do not count",
+    "qualificationHolder": "exists, alive, visible, enabled positive P001-P013; self-only, native HERO not required (n208 supported); invulnerability/magic immunity allowed",
+    "temporaryEmissionSuppression": "hidden/invisible/illusion/hex/burrow source suppresses this aura contribution; stun/silence/pause do not independently suppress it",
+    "recompute": "immediate after relevant committed owner/type/completion/life/ability/state change; zero linger, no extra RNG/timer; exact-current-type requirement",
+    "stacking": "any qualifying held P001-P013 yields one B015 contribution; independent explicit external contributions retained",
+    "extraStats": "none: no native stock Endurance move/attack bonus inherited from missing DataA/B",
+    "onLoss": "remove qualification contribution only; do not alter current level/XP/items, no synthetic level-up/pickup event; later events follow existing script",
+    "deathAndRevival": "permanent qualification id retained if same logical entity; B015 contribution absent while dead, recomputed on revival; no reroll",
+    "dispel": "ordinary magic dispel does not remove this aura; explicit rawcode removal executes then recomputes from still-valid emitters",
+    "save": "persist selected ability, actual providers and event position; rebuild derived B015 without replaying random assignment or level-up",
+    "onlyKnownAssignmentCalls": [
+      "Lua76877 direct item path",
+      "Lua115433 build-complete wrapper"
+    ],
+    "repeatedActualHandler": "not silently deduplicated; if legitimately called again, preserve source registration/random/add behavior"
+  },
+  "primaryEvidence": [
+    {
+      "url": "https://classic.battle.net/war3/basics/spellbasics.shtml",
+      "supports": "self-benefit, universal auras, nonstacking and hidden/invisible emission; does not settle this custom prerequisite lifecycle"
+    }
+  ],
+  "verification": {
+    "sourceInstructionCount": 334,
+    "buildCases": [
+      {
+        "hero": true,
+        "type": "H001",
+        "roll": 1,
+        "assigned": [
+          "P001"
+        ],
+        "drawCount": 1
+      },
+      {
+        "hero": true,
+        "type": "H001",
+        "roll": 2,
+        "assigned": [
+          "P002"
+        ],
+        "drawCount": 1
+      },
+      {
+        "hero": true,
+        "type": "H001",
+        "roll": 3,
+        "assigned": [
+          "P003"
+        ],
+        "drawCount": 1
+      },
+      {
+        "hero": true,
+        "type": "H001",
+        "roll": 4,
+        "assigned": [
+          "P004"
+        ],
+        "drawCount": 1
+      },
+      {
+        "hero": true,
+        "type": "H001",
+        "roll": 5,
+        "assigned": [
+          "P005"
+        ],
+        "drawCount": 1
+      },
+      {
+        "hero": true,
+        "type": "H001",
+        "roll": 6,
+        "assigned": [
+          "P006"
+        ],
+        "drawCount": 1
+      },
+      {
+        "hero": true,
+        "type": "H001",
+        "roll": 7,
+        "assigned": [
+          "P007"
+        ],
+        "drawCount": 1
+      },
+      {
+        "hero": true,
+        "type": "H001",
+        "roll": 8,
+        "assigned": [
+          "P008"
+        ],
+        "drawCount": 1
+      },
+      {
+        "hero": true,
+        "type": "H001",
+        "roll": 9,
+        "assigned": [
+          "P009"
+        ],
+        "drawCount": 1
+      },
+      {
+        "hero": true,
+        "type": "H001",
+        "roll": 10,
+        "assigned": [
+          "P010"
+        ],
+        "drawCount": 1
+      },
+      {
+        "hero": true,
+        "type": "H001",
+        "roll": 11,
+        "assigned": [
+          "P011"
+        ],
+        "drawCount": 1
+      },
+      {
+        "hero": true,
+        "type": "H001",
+        "roll": 12,
+        "assigned": [
+          "P012"
+        ],
+        "drawCount": 1
+      },
+      {
+        "hero": true,
+        "type": "H001",
+        "roll": 13,
+        "assigned": [
+          "P013"
+        ],
+        "drawCount": 1
+      },
+      {
+        "hero": false,
+        "type": "n208",
+        "roll": 1,
+        "assigned": [
+          "P001"
+        ],
+        "drawCount": 1
+      },
+      {
+        "hero": false,
+        "type": "n208",
+        "roll": 2,
+        "assigned": [
+          "P002"
+        ],
+        "drawCount": 1
+      },
+      {
+        "hero": false,
+        "type": "n208",
+        "roll": 3,
+        "assigned": [
+          "P003"
+        ],
+        "drawCount": 1
+      },
+      {
+        "hero": false,
+        "type": "n208",
+        "roll": 4,
+        "assigned": [
+          "P004"
+        ],
+        "drawCount": 1
+      },
+      {
+        "hero": false,
+        "type": "n208",
+        "roll": 5,
+        "assigned": [
+          "P005"
+        ],
+        "drawCount": 1
+      },
+      {
+        "hero": false,
+        "type": "n208",
+        "roll": 6,
+        "assigned": [
+          "P006"
+        ],
+        "drawCount": 1
+      },
+      {
+        "hero": false,
+        "type": "n208",
+        "roll": 7,
+        "assigned": [
+          "P007"
+        ],
+        "drawCount": 1
+      },
+      {
+        "hero": false,
+        "type": "n208",
+        "roll": 8,
+        "assigned": [
+          "P008"
+        ],
+        "drawCount": 1
+      },
+      {
+        "hero": false,
+        "type": "n208",
+        "roll": 9,
+        "assigned": [
+          "P009"
+        ],
+        "drawCount": 1
+      },
+      {
+        "hero": false,
+        "type": "n208",
+        "roll": 10,
+        "assigned": [
+          "P010"
+        ],
+        "drawCount": 1
+      },
+      {
+        "hero": false,
+        "type": "n208",
+        "roll": 11,
+        "assigned": [
+          "P011"
+        ],
+        "drawCount": 1
+      },
+      {
+        "hero": false,
+        "type": "n208",
+        "roll": 12,
+        "assigned": [
+          "P012"
+        ],
+        "drawCount": 1
+      },
+      {
+        "hero": false,
+        "type": "n208",
+        "roll": 13,
+        "assigned": [
+          "P013"
+        ],
+        "drawCount": 1
+      },
+      {
+        "hero": false,
+        "type": "n001",
+        "roll": 1,
+        "assigned": [],
+        "drawCount": 0
+      },
+      {
+        "hero": false,
+        "type": "n001",
+        "roll": 2,
+        "assigned": [],
+        "drawCount": 0
+      },
+      {
+        "hero": false,
+        "type": "n001",
+        "roll": 3,
+        "assigned": [],
+        "drawCount": 0
+      },
+      {
+        "hero": false,
+        "type": "n001",
+        "roll": 4,
+        "assigned": [],
+        "drawCount": 0
+      },
+      {
+        "hero": false,
+        "type": "n001",
+        "roll": 5,
+        "assigned": [],
+        "drawCount": 0
+      },
+      {
+        "hero": false,
+        "type": "n001",
+        "roll": 6,
+        "assigned": [],
+        "drawCount": 0
+      },
+      {
+        "hero": false,
+        "type": "n001",
+        "roll": 7,
+        "assigned": [],
+        "drawCount": 0
+      },
+      {
+        "hero": false,
+        "type": "n001",
+        "roll": 8,
+        "assigned": [],
+        "drawCount": 0
+      },
+      {
+        "hero": false,
+        "type": "n001",
+        "roll": 9,
+        "assigned": [],
+        "drawCount": 0
+      },
+      {
+        "hero": false,
+        "type": "n001",
+        "roll": 10,
+        "assigned": [],
+        "drawCount": 0
+      },
+      {
+        "hero": false,
+        "type": "n001",
+        "roll": 11,
+        "assigned": [],
+        "drawCount": 0
+      },
+      {
+        "hero": false,
+        "type": "n001",
+        "roll": 12,
+        "assigned": [],
+        "drawCount": 0
+      },
+      {
+        "hero": false,
+        "type": "n001",
+        "roll": 13,
+        "assigned": [],
+        "drawCount": 0
+      }
+    ],
+    "levelCases": [
+      {
+        "mode": 0,
+        "level": 19,
+        "B015": 0,
+        "A225": 0,
+        "trace": [
+          [
+            "W019",
+            19
+          ]
+        ]
+      },
+      {
+        "mode": 0,
+        "level": 19,
+        "B015": 0,
+        "A225": 1,
+        "trace": [
+          [
+            "add",
+            "T299"
+          ],
+          [
+            "remove",
+            "T299"
+          ],
+          [
+            "W019",
+            19
+          ]
+        ]
+      },
+      {
+        "mode": 0,
+        "level": 19,
+        "B015": 1,
+        "A225": 0,
+        "trace": [
+          [
+            "W019",
+            19
+          ]
+        ]
+      },
+      {
+        "mode": 0,
+        "level": 19,
+        "B015": 1,
+        "A225": 1,
+        "trace": [
+          [
+            "add",
+            "T299"
+          ],
+          [
+            "remove",
+            "T299"
+          ],
+          [
+            "W019",
+            19
+          ]
+        ]
+      },
+      {
+        "mode": 0,
+        "level": 20,
+        "B015": 0,
+        "A225": 0,
+        "trace": [
+          [
+            "W019",
+            20
+          ]
+        ]
+      },
+      {
+        "mode": 0,
+        "level": 20,
+        "B015": 0,
+        "A225": 1,
+        "trace": [
+          [
+            "add",
+            "T299"
+          ],
+          [
+            "remove",
+            "T299"
+          ],
+          [
+            "W019",
+            20
+          ]
+        ]
+      },
+      {
+        "mode": 0,
+        "level": 20,
+        "B015": 1,
+        "A225": 0,
+        "trace": [
+          [
+            "W019",
+            20
+          ]
+        ]
+      },
+      {
+        "mode": 0,
+        "level": 20,
+        "B015": 1,
+        "A225": 1,
+        "trace": [
+          [
+            "add",
+            "T299"
+          ],
+          [
+            "remove",
+            "T299"
+          ],
+          [
+            "W019",
+            20
+          ]
+        ]
+      },
+      {
+        "mode": 0,
+        "level": 21,
+        "B015": 0,
+        "A225": 0,
+        "trace": [
+          [
+            "strip",
+            1
+          ],
+          [
+            "W019",
+            20
+          ]
+        ]
+      },
+      {
+        "mode": 0,
+        "level": 21,
+        "B015": 0,
+        "A225": 1,
+        "trace": [
+          [
+            "add",
+            "T299"
+          ],
+          [
+            "remove",
+            "T299"
+          ],
+          [
+            "strip",
+            1
+          ],
+          [
+            "W019",
+            20
+          ]
+        ]
+      },
+      {
+        "mode": 0,
+        "level": 21,
+        "B015": 1,
+        "A225": 0,
+        "trace": [
+          [
+            "W019",
+            21
+          ]
+        ]
+      },
+      {
+        "mode": 0,
+        "level": 21,
+        "B015": 1,
+        "A225": 1,
+        "trace": [
+          [
+            "add",
+            "T299"
+          ],
+          [
+            "remove",
+            "T299"
+          ],
+          [
+            "W019",
+            21
+          ]
+        ]
+      },
+      {
+        "mode": 0,
+        "level": 25,
+        "B015": 0,
+        "A225": 0,
+        "trace": [
+          [
+            "strip",
+            5
+          ],
+          [
+            "W019",
+            20
+          ]
+        ]
+      },
+      {
+        "mode": 0,
+        "level": 25,
+        "B015": 0,
+        "A225": 1,
+        "trace": [
+          [
+            "add",
+            "T299"
+          ],
+          [
+            "remove",
+            "T299"
+          ],
+          [
+            "strip",
+            5
+          ],
+          [
+            "W019",
+            20
+          ]
+        ]
+      },
+      {
+        "mode": 0,
+        "level": 25,
+        "B015": 1,
+        "A225": 0,
+        "trace": [
+          [
+            "W019",
+            25
+          ]
+        ]
+      },
+      {
+        "mode": 0,
+        "level": 25,
+        "B015": 1,
+        "A225": 1,
+        "trace": [
+          [
+            "add",
+            "T299"
+          ],
+          [
+            "remove",
+            "T299"
+          ],
+          [
+            "W019",
+            25
+          ]
+        ]
+      },
+      {
+        "mode": 0,
+        "level": 30,
+        "B015": 0,
+        "A225": 0,
+        "trace": [
+          [
+            "strip",
+            10
+          ],
+          [
+            "W019",
+            20
+          ]
+        ]
+      },
+      {
+        "mode": 0,
+        "level": 30,
+        "B015": 0,
+        "A225": 1,
+        "trace": [
+          [
+            "add",
+            "T299"
+          ],
+          [
+            "remove",
+            "T299"
+          ],
+          [
+            "strip",
+            10
+          ],
+          [
+            "W019",
+            20
+          ]
+        ]
+      },
+      {
+        "mode": 0,
+        "level": 30,
+        "B015": 1,
+        "A225": 0,
+        "trace": [
+          [
+            "W019",
+            30
+          ]
+        ]
+      },
+      {
+        "mode": 0,
+        "level": 30,
+        "B015": 1,
+        "A225": 1,
+        "trace": [
+          [
+            "add",
+            "T299"
+          ],
+          [
+            "remove",
+            "T299"
+          ],
+          [
+            "W019",
+            30
+          ]
+        ]
+      },
+      {
+        "mode": 1,
+        "level": 19,
+        "B015": 0,
+        "A225": 0,
+        "trace": [
+          [
+            "W019",
+            19
+          ]
+        ]
+      },
+      {
+        "mode": 1,
+        "level": 19,
+        "B015": 0,
+        "A225": 1,
+        "trace": [
+          [
+            "add",
+            "T299"
+          ],
+          [
+            "remove",
+            "T299"
+          ],
+          [
+            "W019",
+            19
+          ]
+        ]
+      },
+      {
+        "mode": 1,
+        "level": 19,
+        "B015": 1,
+        "A225": 0,
+        "trace": [
+          [
+            "W019",
+            19
+          ]
+        ]
+      },
+      {
+        "mode": 1,
+        "level": 19,
+        "B015": 1,
+        "A225": 1,
+        "trace": [
+          [
+            "add",
+            "T299"
+          ],
+          [
+            "remove",
+            "T299"
+          ],
+          [
+            "W019",
+            19
+          ]
+        ]
+      },
+      {
+        "mode": 1,
+        "level": 20,
+        "B015": 0,
+        "A225": 0,
+        "trace": [
+          [
+            "W019",
+            20
+          ]
+        ]
+      },
+      {
+        "mode": 1,
+        "level": 20,
+        "B015": 0,
+        "A225": 1,
+        "trace": [
+          [
+            "add",
+            "T299"
+          ],
+          [
+            "remove",
+            "T299"
+          ],
+          [
+            "W019",
+            20
+          ]
+        ]
+      },
+      {
+        "mode": 1,
+        "level": 20,
+        "B015": 1,
+        "A225": 0,
+        "trace": [
+          [
+            "W019",
+            20
+          ]
+        ]
+      },
+      {
+        "mode": 1,
+        "level": 20,
+        "B015": 1,
+        "A225": 1,
+        "trace": [
+          [
+            "add",
+            "T299"
+          ],
+          [
+            "remove",
+            "T299"
+          ],
+          [
+            "W019",
+            20
+          ]
+        ]
+      },
+      {
+        "mode": 1,
+        "level": 21,
+        "B015": 0,
+        "A225": 0,
+        "trace": [
+          [
+            "strip",
+            1
+          ],
+          [
+            "W019",
+            20
+          ]
+        ]
+      },
+      {
+        "mode": 1,
+        "level": 21,
+        "B015": 0,
+        "A225": 1,
+        "trace": [
+          [
+            "add",
+            "T299"
+          ],
+          [
+            "remove",
+            "T299"
+          ],
+          [
+            "strip",
+            1
+          ],
+          [
+            "W019",
+            20
+          ]
+        ]
+      },
+      {
+        "mode": 1,
+        "level": 21,
+        "B015": 1,
+        "A225": 0,
+        "trace": [
+          [
+            "W019",
+            21
+          ]
+        ]
+      },
+      {
+        "mode": 1,
+        "level": 21,
+        "B015": 1,
+        "A225": 1,
+        "trace": [
+          [
+            "add",
+            "T299"
+          ],
+          [
+            "remove",
+            "T299"
+          ],
+          [
+            "W019",
+            21
+          ]
+        ]
+      },
+      {
+        "mode": 1,
+        "level": 25,
+        "B015": 0,
+        "A225": 0,
+        "trace": [
+          [
+            "strip",
+            5
+          ],
+          [
+            "W019",
+            20
+          ]
+        ]
+      },
+      {
+        "mode": 1,
+        "level": 25,
+        "B015": 0,
+        "A225": 1,
+        "trace": [
+          [
+            "add",
+            "T299"
+          ],
+          [
+            "remove",
+            "T299"
+          ],
+          [
+            "strip",
+            5
+          ],
+          [
+            "W019",
+            20
+          ]
+        ]
+      },
+      {
+        "mode": 1,
+        "level": 25,
+        "B015": 1,
+        "A225": 0,
+        "trace": [
+          [
+            "W019",
+            25
+          ]
+        ]
+      },
+      {
+        "mode": 1,
+        "level": 25,
+        "B015": 1,
+        "A225": 1,
+        "trace": [
+          [
+            "add",
+            "T299"
+          ],
+          [
+            "remove",
+            "T299"
+          ],
+          [
+            "W019",
+            25
+          ]
+        ]
+      },
+      {
+        "mode": 1,
+        "level": 30,
+        "B015": 0,
+        "A225": 0,
+        "trace": [
+          [
+            "strip",
+            10
+          ],
+          [
+            "W019",
+            20
+          ]
+        ]
+      },
+      {
+        "mode": 1,
+        "level": 30,
+        "B015": 0,
+        "A225": 1,
+        "trace": [
+          [
+            "add",
+            "T299"
+          ],
+          [
+            "remove",
+            "T299"
+          ],
+          [
+            "strip",
+            10
+          ],
+          [
+            "W019",
+            20
+          ]
+        ]
+      },
+      {
+        "mode": 1,
+        "level": 30,
+        "B015": 1,
+        "A225": 0,
+        "trace": [
+          [
+            "W019",
+            30
+          ]
+        ]
+      },
+      {
+        "mode": 1,
+        "level": 30,
+        "B015": 1,
+        "A225": 1,
+        "trace": [
+          [
+            "add",
+            "T299"
+          ],
+          [
+            "remove",
+            "T299"
+          ],
+          [
+            "W019",
+            30
+          ]
+        ]
+      },
+      {
+        "mode": 2,
+        "level": 19,
+        "B015": 0,
+        "A225": 0,
+        "trace": [
+          [
+            "W019",
+            19
+          ]
+        ]
+      },
+      {
+        "mode": 2,
+        "level": 19,
+        "B015": 0,
+        "A225": 1,
+        "trace": [
+          [
+            "add",
+            "T299"
+          ],
+          [
+            "remove",
+            "T299"
+          ],
+          [
+            "W019",
+            19
+          ]
+        ]
+      },
+      {
+        "mode": 2,
+        "level": 19,
+        "B015": 1,
+        "A225": 0,
+        "trace": [
+          [
+            "W019",
+            19
+          ]
+        ]
+      },
+      {
+        "mode": 2,
+        "level": 19,
+        "B015": 1,
+        "A225": 1,
+        "trace": [
+          [
+            "add",
+            "T299"
+          ],
+          [
+            "remove",
+            "T299"
+          ],
+          [
+            "W019",
+            19
+          ]
+        ]
+      },
+      {
+        "mode": 2,
+        "level": 20,
+        "B015": 0,
+        "A225": 0,
+        "trace": [
+          [
+            "W019",
+            20
+          ]
+        ]
+      },
+      {
+        "mode": 2,
+        "level": 20,
+        "B015": 0,
+        "A225": 1,
+        "trace": [
+          [
+            "add",
+            "T299"
+          ],
+          [
+            "remove",
+            "T299"
+          ],
+          [
+            "W019",
+            20
+          ]
+        ]
+      },
+      {
+        "mode": 2,
+        "level": 20,
+        "B015": 1,
+        "A225": 0,
+        "trace": [
+          [
+            "W019",
+            20
+          ]
+        ]
+      },
+      {
+        "mode": 2,
+        "level": 20,
+        "B015": 1,
+        "A225": 1,
+        "trace": [
+          [
+            "add",
+            "T299"
+          ],
+          [
+            "remove",
+            "T299"
+          ],
+          [
+            "W019",
+            20
+          ]
+        ]
+      },
+      {
+        "mode": 2,
+        "level": 21,
+        "B015": 0,
+        "A225": 0,
+        "trace": [
+          [
+            "W019",
+            21
+          ]
+        ]
+      },
+      {
+        "mode": 2,
+        "level": 21,
+        "B015": 0,
+        "A225": 1,
+        "trace": [
+          [
+            "add",
+            "T299"
+          ],
+          [
+            "remove",
+            "T299"
+          ],
+          [
+            "W019",
+            21
+          ]
+        ]
+      },
+      {
+        "mode": 2,
+        "level": 21,
+        "B015": 1,
+        "A225": 0,
+        "trace": [
+          [
+            "W019",
+            21
+          ]
+        ]
+      },
+      {
+        "mode": 2,
+        "level": 21,
+        "B015": 1,
+        "A225": 1,
+        "trace": [
+          [
+            "add",
+            "T299"
+          ],
+          [
+            "remove",
+            "T299"
+          ],
+          [
+            "W019",
+            21
+          ]
+        ]
+      },
+      {
+        "mode": 2,
+        "level": 25,
+        "B015": 0,
+        "A225": 0,
+        "trace": [
+          [
+            "W019",
+            25
+          ]
+        ]
+      },
+      {
+        "mode": 2,
+        "level": 25,
+        "B015": 0,
+        "A225": 1,
+        "trace": [
+          [
+            "add",
+            "T299"
+          ],
+          [
+            "remove",
+            "T299"
+          ],
+          [
+            "W019",
+            25
+          ]
+        ]
+      },
+      {
+        "mode": 2,
+        "level": 25,
+        "B015": 1,
+        "A225": 0,
+        "trace": [
+          [
+            "W019",
+            25
+          ]
+        ]
+      },
+      {
+        "mode": 2,
+        "level": 25,
+        "B015": 1,
+        "A225": 1,
+        "trace": [
+          [
+            "add",
+            "T299"
+          ],
+          [
+            "remove",
+            "T299"
+          ],
+          [
+            "W019",
+            25
+          ]
+        ]
+      },
+      {
+        "mode": 2,
+        "level": 30,
+        "B015": 0,
+        "A225": 0,
+        "trace": [
+          [
+            "W019",
+            30
+          ]
+        ]
+      },
+      {
+        "mode": 2,
+        "level": 30,
+        "B015": 0,
+        "A225": 1,
+        "trace": [
+          [
+            "add",
+            "T299"
+          ],
+          [
+            "remove",
+            "T299"
+          ],
+          [
+            "W019",
+            30
+          ]
+        ]
+      },
+      {
+        "mode": 2,
+        "level": 30,
+        "B015": 1,
+        "A225": 0,
+        "trace": [
+          [
+            "W019",
+            30
+          ]
+        ]
+      },
+      {
+        "mode": 2,
+        "level": 30,
+        "B015": 1,
+        "A225": 1,
+        "trace": [
+          [
+            "add",
+            "T299"
+          ],
+          [
+            "remove",
+            "T299"
+          ],
+          [
+            "W019",
+            30
+          ]
+        ]
+      }
+    ],
+    "objectProfiles": 13,
+    "originalClientRun": false,
+    "webGameRun": false
+  },
+  "remaining": [
+    "full native unit-upgrade technology accounting uses placement/upgrade transaction integration",
+    "hero natural stat and learned-skill rollback on UnitStripHeroLevel",
+    "full bear companion identity/lifecycle and all item pickup branches",
+    "matched-client evidence for chosen native prerequisite/aura timing"
+  ]
+}

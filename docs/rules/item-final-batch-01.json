@@ -1,0 +1,314 @@
+{
+  "scope": "Final owned item callbacks and scepter dependency cross-check",
+  "items": {
+    "i255": {
+      "name": "古尔丹之颅",
+      "workbookCell": "装备与道具!H165",
+      "componentReady": true,
+      "alias": "I246",
+      "callbackReady": [],
+      "sourceMounts": "I246,I163",
+      "web": {
+        "charges": 5,
+        "cooldown": 120,
+        "manaCost": 10,
+        "branchRoll": [
+          1,
+          6
+        ],
+        "effects": [
+          [
+            "STR",
+            5,
+            30
+          ],
+          [
+            "AGI",
+            5,
+            30
+          ],
+          [
+            "INT",
+            5,
+            30
+          ],
+          [
+            "max-life-and-fill",
+            200,
+            400
+          ],
+          [
+            "max-mana-and-fill",
+            200,
+            400
+          ],
+          [
+            "state19",
+            30,
+            60
+          ]
+        ]
+      }
+    },
+    "i278": {
+      "name": "地精家族的护身符",
+      "workbookCell": "装备与道具!H188",
+      "componentReady": true,
+      "alias": "I273",
+      "callbackReady": [
+        "Item_Get"
+      ],
+      "sourceMounts": "I273",
+      "web": {
+        "charges": 1,
+        "cooldown": 1,
+        "usesPerPlayer": 1,
+        "killCredit": false,
+        "preserveUncreditedDeathCallbacks": true,
+        "targetScope": "living Player(11) members of the submitting player's actual spawn-exit list",
+        "workbookOverride": "Q64"
+      }
+    },
+    "i304": {
+      "name": "圣剑",
+      "workbookCell": "装备与道具!H197",
+      "componentReady": true,
+      "alias": null,
+      "callbackReady": [
+        "Item_Get",
+        "Item_Drop"
+      ],
+      "sourceMounts": "I139",
+      "web": {
+        "flatAttack": 800,
+        "state37DeltaSeconds": -0.2,
+        "maximumCarried": 1,
+        "changeOnRejectedPickup": 0,
+        "workbookOverride": "Q64"
+      }
+    },
+    "i310": {
+      "name": "阿哈利姆神杖",
+      "workbookCell": "装备与道具!H203",
+      "componentReady": true,
+      "alias": null,
+      "callbackReady": [],
+      "sourceMounts": "I163",
+      "web": {
+        "allAttributes": 40,
+        "tidalWaveRule": "tide-and-morphling.md"
+      }
+    },
+    "i330": {
+      "name": "魔焰之心(开启的)",
+      "workbookCell": "装备与道具!H223",
+      "componentReady": true,
+      "alias": "I274",
+      "callbackReady": [
+        "Item_Get",
+        "Item_Use"
+      ],
+      "sourceMounts": "I274,I280",
+      "web": {
+        "manualDroppable": false,
+        "period": 1,
+        "lifeLossFraction": 0.08,
+        "physicalDamageMissingLifeMultiplier": 2.5,
+        "damageSample": "before life write",
+        "autoCloseBelowFraction": 0.2,
+        "radius": 700,
+        "I277": "effect only",
+        "workbookOverride": "Q64"
+      }
+    },
+    "i332": {
+      "name": "魔焰之心(关闭的)",
+      "workbookCell": "装备与道具!H225",
+      "componentReady": true,
+      "alias": "I274",
+      "callbackReady": [
+        "Item_Get",
+        "Item_Use",
+        "Item_Auto_Use"
+      ],
+      "sourceMounts": "I274,I280,I281",
+      "web": {
+        "manualOpenAboveFraction": 0.8,
+        "autoOpenAtFullLife": true,
+        "autoOpenEnemyRadius": 700,
+        "closedRegenFractionPerSecond": 0.04,
+        "workbookOverride": "Q64"
+      }
+    }
+  },
+  "validation": {
+    "skullSixBranches": [
+      [
+        1,
+        6,
+        1
+      ],
+      [
+        5,
+        30,
+        5
+      ],
+      [
+        1,
+        6,
+        2
+      ],
+      [
+        5,
+        30,
+        30
+      ],
+      [
+        1,
+        6,
+        3
+      ],
+      [
+        5,
+        30,
+        19
+      ],
+      [
+        1,
+        6,
+        4
+      ],
+      [
+        200,
+        400,
+        200
+      ],
+      [
+        1,
+        6,
+        5
+      ],
+      [
+        200,
+        400,
+        400
+      ],
+      [
+        1,
+        6,
+        6
+      ],
+      [
+        30,
+        60,
+        60
+      ]
+    ],
+    "swordRejectedDuplicate": [
+      1.0,
+      0.8,
+      0.8,
+      0.8,
+      1.0
+    ],
+    "laneCasterIdentityAndExclusions": [
+      "lane-creep",
+      "lane-creep",
+      "other-lane"
+    ],
+    "webLaneForcedDeaths": [
+      [
+        "lane-creep",
+        null
+      ],
+      [
+        "mBOS",
+        null
+      ],
+      [
+        "m999",
+        null
+      ],
+      [
+        "shop",
+        null
+      ],
+      [
+        "other-lane",
+        null
+      ]
+    ],
+    "originalFlame": [
+      [
+        "hp",
+        920.0
+      ],
+      [
+        "physical",
+        "hero",
+        0,
+        700,
+        11,
+        22,
+        0.0
+      ],
+      [
+        "hp",
+        170.0
+      ],
+      [
+        "physical",
+        "hero",
+        0,
+        700,
+        11,
+        22,
+        1650.0
+      ]
+    ],
+    "webFlame": [
+      [
+        "too-low"
+      ],
+      [
+        "hp",
+        920.0
+      ],
+      [
+        "physical",
+        "hero",
+        0,
+        700,
+        11,
+        22,
+        0.0
+      ],
+      [
+        "hp",
+        170.0
+      ],
+      [
+        "physical",
+        "hero",
+        0,
+        700,
+        11,
+        22,
+        1875.0
+      ],
+      [
+        "hp",
+        120.0
+      ],
+      [
+        "physical",
+        "hero",
+        0,
+        700,
+        11,
+        22,
+        2000.0
+      ]
+    ]
+  }
+}

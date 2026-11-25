@@ -1,0 +1,3454 @@
+{
+  "schemaVersion": 1,
+  "baselineId": "dragon-attack-passives-v1",
+  "scope": "four workbook passives, actualA013 effect, twelveform weapons andnecessarysource bridges; notcompleteA010/A239 AEme lifecycle orworldobjectsystem",
+  "counts": {
+    "workbookIds": 4,
+    "workbookRows": 12,
+    "auxiliaryEffectIds": 1,
+    "formUnits": 12,
+    "baseUnits": 2
+  },
+  "sourceFiles": {
+    "main.disasm": {
+      "path": "reference/map-6.25/main.disasm",
+      "sha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+    },
+    "war3map.j": {
+      "path": "reference/map-6.25/war3map.j",
+      "sha256": "67d4ebedc82fc39d687689b593efe0d21319ef6fcee44591058812d1baf1c3f8"
+    },
+    "war3mapMisc.txt": {
+      "path": "reference/map-6.25/war3mapMisc.txt",
+      "sha256": "f13e268c2da3ad776b39f230cb55a8eb5721df2bcf1e62c78202236b3f5d3743"
+    },
+    "units_abilitydata.json": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "sha256": "b772de42ebcfc1d3818298b35dbe81a35826892848c7cbfef70bf5097e481861"
+    },
+    "units_abilitybuffdata.json": {
+      "path": "reference/map-6.25/units_abilitybuffdata.json",
+      "sha256": "c49954cfe19012e1b66cd2f24d8c0e3b3f483c02fd22c8f31057330968d6042a"
+    },
+    "war3map.w3a.json": {
+      "path": "reference/map-6.25/war3map.w3a.json",
+      "sha256": "d2875f064b389bca471db97121ff7c810d46fbc962ae640ad128d1daa85931bb"
+    },
+    "war3map.w3u.json": {
+      "path": "reference/map-6.25/war3map.w3u.json",
+      "sha256": "4d599edcf9784748cb7d8f07d873331de37393c9dec20d55b8551a924e6946c1"
+    },
+    "units_unitabilities.json": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "sha256": "ebd8a6fd8410f593c5ecadf6bf7c4f6bbc5b4bb7183c5e986a4d2d77e1747133"
+    },
+    "units_unitweapons.json": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "sha256": "3d19b979895be4cb5fdaa6d6905faf6b2a907200fc67dfd2756777386dca1ec7"
+    },
+    "units_unitbalance.json": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "sha256": "096bad329e3b86f3ed4cad3e4ca7c8c4d8efcea2f25a366eef4eac8367eb70e3"
+    },
+    "units_unitdata.json": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "sha256": "5489f9711b37803ea5d50e755d7c191205ea28710650d9a40dcd51b2e27c9e04"
+    },
+    "units_unitui.json": {
+      "path": "reference/map-6.25/units_unitui.json",
+      "sha256": "fff7455751f81a4875c8216b12812696da2b6815566d36ddeca2cb84e28f700c"
+    },
+    "units_campaignabilitystrings.txt": {
+      "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+      "sha256": "5240c99230cd441b4c376371a31a7987e65470feed736177473a206c55fbe8cc"
+    },
+    "units_campaignunitstrings.txt": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "sha256": "c247a137399eee98afe1c0ed276f045f1d6dfa63080d3fefbf6f4d05f7d61b53"
+    },
+    "units_commonabilitystrings.txt": {
+      "path": "reference/map-6.25/units_commonabilitystrings.txt",
+      "sha256": "07e87948660b7ec5beea095716ddd66faa340bfacc38a7c8d9bc09b59df2c205"
+    }
+  },
+  "workbook": {
+    "path": "图鉴.xlsx",
+    "sha256": "457c8f7e37e19412a0dd072ce941e95604b0b8910860b9e1eb9883e6b82bb6af",
+    "columns": "A–J",
+    "supplemental": "all12primaryJblank; fourteenA010 rowsJ70/80 matchI andw3aamcs5/6, no newconflict"
+  },
+  "ids": [
+    {
+      "id": "A011",
+      "status": "bounded-Web-passive-defined",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 629,
+          "cells": {
+            "A629": "龙骑士<SR>",
+            "B629": "E001",
+            "C629": "5",
+            "D629": "自带技能",
+            "E629": "毒性攻击",
+            "F629": "A011",
+            "G629": "1",
+            "H629": "攻击造成每秒40点伤害，20%减速（伤害可叠加）。",
+            "I629": "",
+            "J629": ""
+          }
+        },
+        {
+          "sheet": "塔技能",
+          "row": 659,
+          "cells": {
+            "A659": "龙骑士<SR>",
+            "B659": "E023",
+            "C659": "5",
+            "D659": "自带技能",
+            "E659": "毒性攻击",
+            "F659": "A011",
+            "G659": "1",
+            "H659": "攻击造成每秒40点伤害，20%减速（伤害可叠加）。",
+            "I659": "",
+            "J659": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:A011",
+      "w3aOverrides": [],
+      "mergedFields": {
+        "alias": "A011",
+        "code": "Aven",
+        "BuffID1": "Bpoi,Bpsd",
+        "DataA1": 40.0,
+        "DataB1": 0.2,
+        "DataD1": 1,
+        "Dur1": 5.0,
+        "HeroDur1": 3.0,
+        "levels": 1,
+        "targs1": "air,ground,organic",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          141,
+          147
+        ],
+        "fields": {"Art":"ReplaceableTextures\\PassiveButtons\\PASBTNEnvenomedSpear.blp","Buttonpos":",2","Name":"毒性攻击","Tip":"毒性攻击 - [|cffffcc00等级 1|r]","Ubertip":"攻击造成每秒40点伤害，20%减速（伤害可叠加）。"}
+      },
+      "initialCarriers": [
+        "E001",
+        "E023"
+      ],
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "A012",
+      "status": "bounded-Web-passive-defined",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 634,
+          "cells": {
+            "A634": "龙骑士<SR>",
+            "B634": "E002",
+            "C634": "5",
+            "D634": "自带技能",
+            "E634": "毒性攻击",
+            "F634": "A012",
+            "G634": "1",
+            "H634": "攻击造成每秒80点伤害，20%减速（伤害可叠加）。",
+            "I634": "",
+            "J634": ""
+          }
+        },
+        {
+          "sheet": "塔技能",
+          "row": 664,
+          "cells": {
+            "A664": "龙骑士<SR>",
+            "B664": "E024",
+            "C664": "5",
+            "D664": "自带技能",
+            "E664": "毒性攻击",
+            "F664": "A012",
+            "G664": "1",
+            "H664": "攻击造成每秒80点伤害，20%减速（伤害可叠加）。",
+            "I664": "",
+            "J664": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:A012",
+      "w3aOverrides": [],
+      "mergedFields": {
+        "alias": "A012",
+        "code": "Aven",
+        "BuffID1": "Bpoi,Bpsd",
+        "DataA1": 80.0,
+        "DataB1": 0.2,
+        "DataD1": 1,
+        "Dur1": 5.0,
+        "HeroDur1": 3.0,
+        "levels": 1,
+        "targs1": "air,ground,organic",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          148,
+          154
+        ],
+        "fields": {"Art":"ReplaceableTextures\\PassiveButtons\\PASBTNEnvenomedSpear.blp","Buttonpos":",2","Name":"毒性攻击","Tip":"毒性攻击 - [|cffffcc00等级 2|r]","Ubertip":"攻击造成每秒80点伤害，20%减速（伤害可叠加）。"}
+      },
+      "initialCarriers": [
+        "E002",
+        "E024"
+      ],
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "A014",
+      "status": "bounded-Web-passive-defined",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 649,
+          "cells": {
+            "A649": "龙骑士<SR>",
+            "B649": "E005",
+            "C649": "6",
+            "D649": "自带技能",
+            "E649": "霜冻呼吸",
+            "F649": "A014",
+            "G649": "1",
+            "H649": "攻击造成40%的减速。",
+            "I649": "",
+            "J649": ""
+          }
+        },
+        {
+          "sheet": "塔技能",
+          "row": 654,
+          "cells": {
+            "A654": "龙骑士<SR>",
+            "B654": "E006",
+            "C654": "6",
+            "D654": "自带技能",
+            "E654": "霜冻呼吸",
+            "F654": "A014",
+            "G654": "1",
+            "H654": "攻击造成40%的减速。",
+            "I654": "",
+            "J654": ""
+          }
+        },
+        {
+          "sheet": "塔技能",
+          "row": 679,
+          "cells": {
+            "A679": "龙骑士<SR>",
+            "B679": "E027",
+            "C679": "6",
+            "D679": "自带技能",
+            "E679": "霜冻呼吸",
+            "F679": "A014",
+            "G679": "1",
+            "H679": "攻击造成40%的减速。",
+            "I679": "",
+            "J679": ""
+          }
+        },
+        {
+          "sheet": "塔技能",
+          "row": 684,
+          "cells": {
+            "A684": "龙骑士<SR>",
+            "B684": "E028",
+            "C684": "6",
+            "D684": "自带技能",
+            "E684": "霜冻呼吸",
+            "F684": "A014",
+            "G684": "1",
+            "H684": "攻击造成40%的减速。",
+            "I684": "",
+            "J684": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:A014",
+      "w3aOverrides": [],
+      "mergedFields": {
+        "alias": "A014",
+        "code": "Atru",
+        "checkDep": 1,
+        "DataA1": 3,
+        "levels": 1,
+        "targs1": "vuln,invu",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          160,
+          167
+        ],
+        "fields": {"Art":"ReplaceableTextures\\PassiveButtons\\PASBTNFrost.blp","Buttonpos":",2","Name":"霜冻呼吸","Researchbuttonpos":"1","Tip":"霜冻呼吸","Ubertip":"攻击造成40%的减速。"}
+      },
+      "initialCarriers": [
+        "E005",
+        "E006",
+        "E027",
+        "E028"
+      ],
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "A015",
+      "status": "bounded-Web-passive-defined",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 639,
+          "cells": {
+            "A639": "龙骑士<SR>",
+            "B639": "E003",
+            "C639": "5",
+            "D639": "自带技能",
+            "E639": "溅射攻击",
+            "F639": "A015",
+            "G639": "1",
+            "H639": "攻击造成范围溅射。",
+            "I639": "",
+            "J639": ""
+          }
+        },
+        {
+          "sheet": "塔技能",
+          "row": 644,
+          "cells": {
+            "A644": "龙骑士<SR>",
+            "B644": "E004",
+            "C644": "5",
+            "D644": "自带技能",
+            "E644": "溅射攻击",
+            "F644": "A015",
+            "G644": "1",
+            "H644": "攻击造成范围溅射。",
+            "I644": "",
+            "J644": ""
+          }
+        },
+        {
+          "sheet": "塔技能",
+          "row": 669,
+          "cells": {
+            "A669": "龙骑士<SR>",
+            "B669": "E025",
+            "C669": "5",
+            "D669": "自带技能",
+            "E669": "溅射攻击",
+            "F669": "A015",
+            "G669": "1",
+            "H669": "攻击造成范围溅射。",
+            "I669": "",
+            "J669": ""
+          }
+        },
+        {
+          "sheet": "塔技能",
+          "row": 674,
+          "cells": {
+            "A674": "龙骑士<SR>",
+            "B674": "E026",
+            "C674": "5",
+            "D674": "自带技能",
+            "E674": "溅射攻击",
+            "F674": "A015",
+            "G674": "1",
+            "H674": "攻击造成范围溅射。",
+            "I674": "",
+            "J674": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:A015",
+      "w3aOverrides": [],
+      "mergedFields": {
+        "alias": "A015",
+        "code": "Atru",
+        "checkDep": 1,
+        "DataA1": 3,
+        "levels": 1,
+        "targs1": "vuln,invu",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          168,
+          175
+        ],
+        "fields": {"Art":"ReplaceableTextures\\PassiveButtons\\PASBTNCleavingAttack.blp","Buttonpos":",2","Name":"溅射攻击","Researchbuttonpos":"1","Tip":"溅射攻击","Ubertip":"攻击造成范围溅射。"}
+      },
+      "initialCarriers": [
+        "E003",
+        "E004",
+        "E025",
+        "E026"
+      ],
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "A013",
+      "status": "bounded-Web-effect-dependency",
+      "workbook": [],
+      "object": "units_abilitydata.json:A013",
+      "w3aOverrides": [],
+      "mergedFields": {
+        "alias": "A013",
+        "code": "Afrb",
+        "BuffID1": "Bfro",
+        "checkDep": 1,
+        "Dur1": 3.0,
+        "HeroDur1": 2.0,
+        "levels": 1,
+        "targs1": "air,ground",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          155,
+          159
+        ],
+        "fields": {"Art":",","Missileart":"Abilities\\Weapons\\FrostWyrmMissile\\FrostWyrmMissile.mdl","Name":"效果-霜冻呼吸"}
+      },
+      "initialCarriers": [
+        "E005",
+        "E006",
+        "E027",
+        "E028"
+      ],
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "A010",
+      "status": "form-source-bridge-only",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 443,
+          "cells": {
+            "A443": "烈焰之鳞<SR>",
+            "B443": "G077",
+            "C443": "3",
+            "D443": "学习技能",
+            "E443": "真龙形态",
+            "F443": "A010",
+            "G443": "6",
+            "H443": "龙骑士化身为龙，提升10%所有伤害，并且获得特殊能力，变身持续20秒，冷却时间30秒。",
+            "I443": "等级 1｜变身为绿龙，拥有1级毒性攻击。 耗蓝 30点。\n等级 2｜变身为绿龙，拥有2级毒性攻击。 耗蓝 40点。\n等级 3｜变身为红龙，拥有1级溅射攻击。 耗蓝 50点。\n等级 4｜变身为红龙，拥有2级溅射攻击。 耗蓝 60点。\n等级 5｜变身为蓝龙，拥有1级霜冻攻击和溅射攻击。 耗蓝 70点。\n等级 6｜变身为蓝龙，拥有2级霜冻攻击和溅射攻击。 耗蓝 80点。",
+            "J443": "耗蓝 70／80"
+          }
+        },
+        {
+          "sheet": "塔技能",
+          "row": 627,
+          "cells": {
+            "A627": "龙骑士<SR>",
+            "B627": "E001",
+            "C627": "3",
+            "D627": "学习技能",
+            "E627": "真龙形态",
+            "F627": "A010",
+            "G627": "6",
+            "H627": "龙骑士化身为龙，提升10%所有伤害，并且获得特殊能力，变身持续20秒，冷却时间30秒。",
+            "I627": "等级 1｜变身为绿龙，拥有1级毒性攻击。 耗蓝 30点。\n等级 2｜变身为绿龙，拥有2级毒性攻击。 耗蓝 40点。\n等级 3｜变身为红龙，拥有1级溅射攻击。 耗蓝 50点。\n等级 4｜变身为红龙，拥有2级溅射攻击。 耗蓝 60点。\n等级 5｜变身为蓝龙，拥有1级霜冻攻击和溅射攻击。 耗蓝 70点。\n等级 6｜变身为蓝龙，拥有2级霜冻攻击和溅射攻击。 耗蓝 80点。",
+            "J627": "耗蓝 70／80"
+          }
+        },
+        {
+          "sheet": "塔技能",
+          "row": 632,
+          "cells": {
+            "A632": "龙骑士<SR>",
+            "B632": "E002",
+            "C632": "3",
+            "D632": "学习技能",
+            "E632": "真龙形态",
+            "F632": "A010",
+            "G632": "6",
+            "H632": "龙骑士化身为龙，提升10%所有伤害，并且获得特殊能力，变身持续20秒，冷却时间30秒。",
+            "I632": "等级 1｜变身为绿龙，拥有1级毒性攻击。 耗蓝 30点。\n等级 2｜变身为绿龙，拥有2级毒性攻击。 耗蓝 40点。\n等级 3｜变身为红龙，拥有1级溅射攻击。 耗蓝 50点。\n等级 4｜变身为红龙，拥有2级溅射攻击。 耗蓝 60点。\n等级 5｜变身为蓝龙，拥有1级霜冻攻击和溅射攻击。 耗蓝 70点。\n等级 6｜变身为蓝龙，拥有2级霜冻攻击和溅射攻击。 耗蓝 80点。",
+            "J632": "耗蓝 70／80"
+          }
+        },
+        {
+          "sheet": "塔技能",
+          "row": 637,
+          "cells": {
+            "A637": "龙骑士<SR>",
+            "B637": "E003",
+            "C637": "3",
+            "D637": "学习技能",
+            "E637": "真龙形态",
+            "F637": "A010",
+            "G637": "6",
+            "H637": "龙骑士化身为龙，提升10%所有伤害，并且获得特殊能力，变身持续20秒，冷却时间30秒。",
+            "I637": "等级 1｜变身为绿龙，拥有1级毒性攻击。 耗蓝 30点。\n等级 2｜变身为绿龙，拥有2级毒性攻击。 耗蓝 40点。\n等级 3｜变身为红龙，拥有1级溅射攻击。 耗蓝 50点。\n等级 4｜变身为红龙，拥有2级溅射攻击。 耗蓝 60点。\n等级 5｜变身为蓝龙，拥有1级霜冻攻击和溅射攻击。 耗蓝 70点。\n等级 6｜变身为蓝龙，拥有2级霜冻攻击和溅射攻击。 耗蓝 80点。",
+            "J637": "耗蓝 70／80"
+          }
+        },
+        {
+          "sheet": "塔技能",
+          "row": 642,
+          "cells": {
+            "A642": "龙骑士<SR>",
+            "B642": "E004",
+            "C642": "3",
+            "D642": "学习技能",
+            "E642": "真龙形态",
+            "F642": "A010",
+            "G642": "6",
+            "H642": "龙骑士化身为龙，提升10%所有伤害，并且获得特殊能力，变身持续20秒，冷却时间30秒。",
+            "I642": "等级 1｜变身为绿龙，拥有1级毒性攻击。 耗蓝 30点。\n等级 2｜变身为绿龙，拥有2级毒性攻击。 耗蓝 40点。\n等级 3｜变身为红龙，拥有1级溅射攻击。 耗蓝 50点。\n等级 4｜变身为红龙，拥有2级溅射攻击。 耗蓝 60点。\n等级 5｜变身为蓝龙，拥有1级霜冻攻击和溅射攻击。 耗蓝 70点。\n等级 6｜变身为蓝龙，拥有2级霜冻攻击和溅射攻击。 耗蓝 80点。",
+            "J642": "耗蓝 70／80"
+          }
+        },
+        {
+          "sheet": "塔技能",
+          "row": 647,
+          "cells": {
+            "A647": "龙骑士<SR>",
+            "B647": "E005",
+            "C647": "3",
+            "D647": "学习技能",
+            "E647": "真龙形态",
+            "F647": "A010",
+            "G647": "6",
+            "H647": "龙骑士化身为龙，提升10%所有伤害，并且获得特殊能力，变身持续20秒，冷却时间30秒。",
+            "I647": "等级 1｜变身为绿龙，拥有1级毒性攻击。 耗蓝 30点。\n等级 2｜变身为绿龙，拥有2级毒性攻击。 耗蓝 40点。\n等级 3｜变身为红龙，拥有1级溅射攻击。 耗蓝 50点。\n等级 4｜变身为红龙，拥有2级溅射攻击。 耗蓝 60点。\n等级 5｜变身为蓝龙，拥有1级霜冻攻击和溅射攻击。 耗蓝 70点。\n等级 6｜变身为蓝龙，拥有2级霜冻攻击和溅射攻击。 耗蓝 80点。",
+            "J647": "耗蓝 70／80"
+          }
+        },
+        {
+          "sheet": "塔技能",
+          "row": 652,
+          "cells": {
+            "A652": "龙骑士<SR>",
+            "B652": "E006",
+            "C652": "3",
+            "D652": "学习技能",
+            "E652": "真龙形态",
+            "F652": "A010",
+            "G652": "6",
+            "H652": "龙骑士化身为龙，提升10%所有伤害，并且获得特殊能力，变身持续20秒，冷却时间30秒。",
+            "I652": "等级 1｜变身为绿龙，拥有1级毒性攻击。 耗蓝 30点。\n等级 2｜变身为绿龙，拥有2级毒性攻击。 耗蓝 40点。\n等级 3｜变身为红龙，拥有1级溅射攻击。 耗蓝 50点。\n等级 4｜变身为红龙，拥有2级溅射攻击。 耗蓝 60点。\n等级 5｜变身为蓝龙，拥有1级霜冻攻击和溅射攻击。 耗蓝 70点。\n等级 6｜变身为蓝龙，拥有2级霜冻攻击和溅射攻击。 耗蓝 80点。",
+            "J652": "耗蓝 70／80"
+          }
+        },
+        {
+          "sheet": "塔技能",
+          "row": 657,
+          "cells": {
+            "A657": "龙骑士<SR>",
+            "B657": "E023",
+            "C657": "3",
+            "D657": "学习技能",
+            "E657": "真龙形态",
+            "F657": "A010",
+            "G657": "6",
+            "H657": "龙骑士化身为龙，提升10%所有伤害，并且获得特殊能力，变身持续20秒，冷却时间30秒。",
+            "I657": "等级 1｜变身为绿龙，拥有1级毒性攻击。 耗蓝 30点。\n等级 2｜变身为绿龙，拥有2级毒性攻击。 耗蓝 40点。\n等级 3｜变身为红龙，拥有1级溅射攻击。 耗蓝 50点。\n等级 4｜变身为红龙，拥有2级溅射攻击。 耗蓝 60点。\n等级 5｜变身为蓝龙，拥有1级霜冻攻击和溅射攻击。 耗蓝 70点。\n等级 6｜变身为蓝龙，拥有2级霜冻攻击和溅射攻击。 耗蓝 80点。",
+            "J657": "耗蓝 70／80"
+          }
+        },
+        {
+          "sheet": "塔技能",
+          "row": 662,
+          "cells": {
+            "A662": "龙骑士<SR>",
+            "B662": "E024",
+            "C662": "3",
+            "D662": "学习技能",
+            "E662": "真龙形态",
+            "F662": "A010",
+            "G662": "6",
+            "H662": "龙骑士化身为龙，提升10%所有伤害，并且获得特殊能力，变身持续20秒，冷却时间30秒。",
+            "I662": "等级 1｜变身为绿龙，拥有1级毒性攻击。 耗蓝 30点。\n等级 2｜变身为绿龙，拥有2级毒性攻击。 耗蓝 40点。\n等级 3｜变身为红龙，拥有1级溅射攻击。 耗蓝 50点。\n等级 4｜变身为红龙，拥有2级溅射攻击。 耗蓝 60点。\n等级 5｜变身为蓝龙，拥有1级霜冻攻击和溅射攻击。 耗蓝 70点。\n等级 6｜变身为蓝龙，拥有2级霜冻攻击和溅射攻击。 耗蓝 80点。",
+            "J662": "耗蓝 70／80"
+          }
+        },
+        {
+          "sheet": "塔技能",
+          "row": 667,
+          "cells": {
+            "A667": "龙骑士<SR>",
+            "B667": "E025",
+            "C667": "3",
+            "D667": "学习技能",
+            "E667": "真龙形态",
+            "F667": "A010",
+            "G667": "6",
+            "H667": "龙骑士化身为龙，提升10%所有伤害，并且获得特殊能力，变身持续20秒，冷却时间30秒。",
+            "I667": "等级 1｜变身为绿龙，拥有1级毒性攻击。 耗蓝 30点。\n等级 2｜变身为绿龙，拥有2级毒性攻击。 耗蓝 40点。\n等级 3｜变身为红龙，拥有1级溅射攻击。 耗蓝 50点。\n等级 4｜变身为红龙，拥有2级溅射攻击。 耗蓝 60点。\n等级 5｜变身为蓝龙，拥有1级霜冻攻击和溅射攻击。 耗蓝 70点。\n等级 6｜变身为蓝龙，拥有2级霜冻攻击和溅射攻击。 耗蓝 80点。",
+            "J667": "耗蓝 70／80"
+          }
+        },
+        {
+          "sheet": "塔技能",
+          "row": 672,
+          "cells": {
+            "A672": "龙骑士<SR>",
+            "B672": "E026",
+            "C672": "3",
+            "D672": "学习技能",
+            "E672": "真龙形态",
+            "F672": "A010",
+            "G672": "6",
+            "H672": "龙骑士化身为龙，提升10%所有伤害，并且获得特殊能力，变身持续20秒，冷却时间30秒。",
+            "I672": "等级 1｜变身为绿龙，拥有1级毒性攻击。 耗蓝 30点。\n等级 2｜变身为绿龙，拥有2级毒性攻击。 耗蓝 40点。\n等级 3｜变身为红龙，拥有1级溅射攻击。 耗蓝 50点。\n等级 4｜变身为红龙，拥有2级溅射攻击。 耗蓝 60点。\n等级 5｜变身为蓝龙，拥有1级霜冻攻击和溅射攻击。 耗蓝 70点。\n等级 6｜变身为蓝龙，拥有2级霜冻攻击和溅射攻击。 耗蓝 80点。",
+            "J672": "耗蓝 70／80"
+          }
+        },
+        {
+          "sheet": "塔技能",
+          "row": 677,
+          "cells": {
+            "A677": "龙骑士<SR>",
+            "B677": "E027",
+            "C677": "3",
+            "D677": "学习技能",
+            "E677": "真龙形态",
+            "F677": "A010",
+            "G677": "6",
+            "H677": "龙骑士化身为龙，提升10%所有伤害，并且获得特殊能力，变身持续20秒，冷却时间30秒。",
+            "I677": "等级 1｜变身为绿龙，拥有1级毒性攻击。 耗蓝 30点。\n等级 2｜变身为绿龙，拥有2级毒性攻击。 耗蓝 40点。\n等级 3｜变身为红龙，拥有1级溅射攻击。 耗蓝 50点。\n等级 4｜变身为红龙，拥有2级溅射攻击。 耗蓝 60点。\n等级 5｜变身为蓝龙，拥有1级霜冻攻击和溅射攻击。 耗蓝 70点。\n等级 6｜变身为蓝龙，拥有2级霜冻攻击和溅射攻击。 耗蓝 80点。",
+            "J677": "耗蓝 70／80"
+          }
+        },
+        {
+          "sheet": "塔技能",
+          "row": 682,
+          "cells": {
+            "A682": "龙骑士<SR>",
+            "B682": "E028",
+            "C682": "3",
+            "D682": "学习技能",
+            "E682": "真龙形态",
+            "F682": "A010",
+            "G682": "6",
+            "H682": "龙骑士化身为龙，提升10%所有伤害，并且获得特殊能力，变身持续20秒，冷却时间30秒。",
+            "I682": "等级 1｜变身为绿龙，拥有1级毒性攻击。 耗蓝 30点。\n等级 2｜变身为绿龙，拥有2级毒性攻击。 耗蓝 40点。\n等级 3｜变身为红龙，拥有1级溅射攻击。 耗蓝 50点。\n等级 4｜变身为红龙，拥有2级溅射攻击。 耗蓝 60点。\n等级 5｜变身为蓝龙，拥有1级霜冻攻击和溅射攻击。 耗蓝 70点。\n等级 6｜变身为蓝龙，拥有2级霜冻攻击和溅射攻击。 耗蓝 80点。",
+            "J682": "耗蓝 70／80"
+          }
+        },
+        {
+          "sheet": "塔技能",
+          "row": 687,
+          "cells": {
+            "A687": "龙骑士<SR>",
+            "B687": "H003",
+            "C687": "3",
+            "D687": "学习技能",
+            "E687": "真龙形态",
+            "F687": "A010",
+            "G687": "6",
+            "H687": "龙骑士化身为龙，提升10%所有伤害，并且获得特殊能力，变身持续20秒，冷却时间30秒。",
+            "I687": "等级 1｜变身为绿龙，拥有1级毒性攻击。 耗蓝 30点。\n等级 2｜变身为绿龙，拥有2级毒性攻击。 耗蓝 40点。\n等级 3｜变身为红龙，拥有1级溅射攻击。 耗蓝 50点。\n等级 4｜变身为红龙，拥有2级溅射攻击。 耗蓝 60点。\n等级 5｜变身为蓝龙，拥有1级霜冻攻击和溅射攻击。 耗蓝 70点。\n等级 6｜变身为蓝龙，拥有2级霜冻攻击和溅射攻击。 耗蓝 80点。",
+            "J687": "耗蓝 70／80"
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:A010",
+      "w3aOverrides": [
+        {
+          "old": "A010",
+          "new": "\u0000\u0000\u0000\u0000",
+          "mods": [
+            {
+              "key": "amcs",
+              "type": 0,
+              "level": 5,
+              "data": 0,
+              "value": 70
+            },
+            {
+              "key": "amcs",
+              "type": 0,
+              "level": 6,
+              "data": 0,
+              "value": 80
+            },
+            {
+              "key": "Emeu",
+              "type": 3,
+              "level": 5,
+              "data": 0,
+              "value": "E005"
+            },
+            {
+              "key": "Emeu",
+              "type": 3,
+              "level": 6,
+              "data": 0,
+              "value": "E006"
+            }
+          ]
+        }
+      ],
+      "mergedFields": {
+        "alias": "A010",
+        "code": "AEme",
+        "BuffID1": "B031",
+        "BuffID2": "B031",
+        "BuffID3": "B031",
+        "BuffID4": "B031",
+        "checkDep": 1,
+        "Cool1": 30.0,
+        "Cool2": 30.0,
+        "Cool3": 30.0,
+        "Cool4": 30.0,
+        "Cost1": 30,
+        "Cost2": 40,
+        "Cost3": 50,
+        "Cost4": 60,
+        "DataA1": "H003",
+        "DataA2": "H003",
+        "DataA3": "H003",
+        "DataA4": "H003",
+        "DataB1": 1,
+        "DataB2": 1,
+        "DataB3": 1,
+        "DataB4": 1,
+        "DataE1": 500.0,
+        "DataE2": 500.0,
+        "DataE3": 500.0,
+        "DataE4": 500.0,
+        "HeroDur1": 20.0,
+        "HeroDur2": 20.0,
+        "HeroDur3": 20.0,
+        "HeroDur4": 20.0,
+        "levels": 6,
+        "reqLevel": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_",
+        "UnitID1": "E001",
+        "UnitID2": "E002",
+        "UnitID3": "E003",
+        "UnitID4": "E004",
+        "Cost5": 70,
+        "Cost6": 80,
+        "UnitID5": "E005",
+        "UnitID6": "E006"
+      },
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          127,
+          140
+        ],
+        "fields": {"Art":"ReplaceableTextures\\CommandButtons\\BTNAzureDragon.blp","Buttonpos":"3,2","Hotkey":"R","Name":"|cffffcc00真龙形态|r|n|n龙骑士化身为龙，提升10%所有伤害，并且获得特殊能力，变身持续20秒，冷却时间30秒。","Order":"metamorphosis","ResearchArt":"ReplaceableTextures\\CommandButtons\\BTNAzureDragon.blp","Researchbuttonpos":"3","Researchhotkey":"R","Researchtip":"学习真龙形态(|cffffcc00R|r)|n|cff66CD00[可用神杖强化]|r","Researchubertip":"龙骑士化身为龙，提升10%所有伤害，并且获得特殊能力，变身持续20秒，冷却时间30秒。|n|n|cffffcc00等级 1|r |n-变身为绿龙，拥有1级毒性攻击。|n-耗蓝：30点。|n|cffffcc00等级 2|r |n-变身为绿龙，拥有2级毒性攻击。|n-耗蓝：40点。|n|cffffcc00等级 3|r |n-变身为红龙，拥有1级溅射攻击。|n-耗蓝：50点。|n|cffffcc00等级 4|r |n-变身为红龙，拥有2级溅射攻击。|n-耗蓝：60点。|n|cffffcc00等级 5|r |n-变身为蓝龙，拥有1级霜冻攻击和溅射攻击。|n-耗蓝：70点。|n|cffffcc00等级 6|r |n-变身为蓝龙，拥有2级霜冻攻击和溅射攻击。|n-耗蓝：80点。","Tip":"真龙形态[|cffffcc00R] - [|cffffcc00等级 1|r],真龙形态[|cffffcc00R] - [|cffffcc00等级 2|r],真龙形态[|cffffcc00R] - [|cffffcc00等级 3|r],真龙形态[|cffffcc00R] - [|cffffcc00等级 4|r],真龙形态[|cffffcc00R] - [|cffffcc00等级 5|r],真龙形态[|cffffcc00R] - [|cffffcc00等级 6|r]","Ubertip":"变身后增加10%所有伤害，并且有毒性攻击Lv1。|n|cff66CD00[持有神杖时冷却1秒并且伤害增加变为20%]|r,变身后增加10%所有伤害，并且有毒性攻击Lv2。|n|cff66CD00[持有神杖时冷却1秒并且伤害增加变为20%]|r,变身后增加10%所有伤害，并且有溅射攻击Lv1。|n|cff66CD00[持有神杖时冷却1秒并且伤害增加变为20%]|r,变身后增加10%所有伤害，并且有溅射攻击Lv2。|n|cff66CD00[持有神杖时冷却1秒并且伤害增加变为20%]|r,变身后增加10%所有伤害，并且有冰霜攻击Lv1和溅射伤害。|n|cff66CD00[持有神杖时冷却1秒并且伤害增加变为20%]|r,变身后增加10%所有伤害，并且有冰霜攻击Lv2和溅射伤害。|n|cff66CD00[持有神杖时冷却1秒并且伤害增加变为20%]|r"}
+      },
+      "initialCarriers": [
+        "E001",
+        "E002",
+        "E003",
+        "E004",
+        "E005",
+        "E006",
+        "E023",
+        "E024",
+        "E025",
+        "E026",
+        "E027",
+        "E028",
+        "G077",
+        "H003"
+      ],
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "A239",
+      "status": "form-source-bridge-only",
+      "workbook": [],
+      "object": "units_abilitydata.json:A239",
+      "w3aOverrides": [
+        {
+          "old": "A239",
+          "new": "\u0000\u0000\u0000\u0000",
+          "mods": [
+            {
+              "key": "amcs",
+              "type": 0,
+              "level": 5,
+              "data": 0,
+              "value": 70
+            },
+            {
+              "key": "amcs",
+              "type": 0,
+              "level": 6,
+              "data": 0,
+              "value": 80
+            },
+            {
+              "key": "Emeu",
+              "type": 3,
+              "level": 5,
+              "data": 0,
+              "value": "E027"
+            },
+            {
+              "key": "Emeu",
+              "type": 3,
+              "level": 6,
+              "data": 0,
+              "value": "E028"
+            }
+          ]
+        }
+      ],
+      "mergedFields": {
+        "alias": "A239",
+        "code": "AEme",
+        "BuffID1": "B031",
+        "BuffID2": "B031",
+        "BuffID3": "B031",
+        "BuffID4": "B031",
+        "checkDep": 1,
+        "Cool1": 30.0,
+        "Cool2": 30.0,
+        "Cool3": 30.0,
+        "Cool4": 30.0,
+        "Cost1": 30,
+        "Cost2": 40,
+        "Cost3": 50,
+        "Cost4": 60,
+        "DataA1": "G077",
+        "DataA2": "G077",
+        "DataA3": "G077",
+        "DataA4": "G077",
+        "DataB1": 1,
+        "DataB2": 1,
+        "DataB3": 1,
+        "DataB4": 1,
+        "DataE1": 500.0,
+        "DataE2": 500.0,
+        "DataE3": 500.0,
+        "DataE4": 500.0,
+        "HeroDur1": 20.0,
+        "HeroDur2": 20.0,
+        "HeroDur3": 20.0,
+        "HeroDur4": 20.0,
+        "levels": 6,
+        "reqLevel": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_",
+        "UnitID1": "E023",
+        "UnitID2": "E024",
+        "UnitID3": "E025",
+        "UnitID4": "E026",
+        "Cost5": 70,
+        "Cost6": 80,
+        "UnitID5": "E027",
+        "UnitID6": "E028"
+      },
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          3515,
+          3528
+        ],
+        "fields": {"Art":"DKlieyan.blp","Buttonpos":"3,2","Hotkey":"R","Name":"|cffffcc00真龙形态|r|n|n龙骑士化身为龙，提升10%所有伤害，并且获得特殊能力，变身持续20秒，冷却时间30秒。","Order":"metamorphosis","ResearchArt":"DKlieyan.blp","Researchbuttonpos":"3","Researchhotkey":"R","Researchtip":"学习真龙形态(|cffffcc00R|r)|n|cff66CD00[可用神杖强化]|r","Researchubertip":"龙骑士化身为龙，提升10%所有伤害，并且获得特殊能力，变身持续20秒，冷却时间30秒。|n|n|cffffcc00等级 1|r |n-变身为绿龙，拥有1级毒性攻击。|n-耗蓝：30点。|n|cffffcc00等级 2|r |n-变身为绿龙，拥有2级毒性攻击。|n-耗蓝：40点。|n|cffffcc00等级 3|r |n-变身为红龙，拥有1级溅射攻击。|n-耗蓝：50点。|n|cffffcc00等级 4|r |n-变身为红龙，拥有2级溅射攻击。|n-耗蓝：60点。|n|cffffcc00等级 5|r |n-变身为蓝龙，拥有1级霜冻攻击和溅射攻击。|n-耗蓝：70点。|n|cffffcc00等级 6|r |n-变身为蓝龙，拥有2级霜冻攻击和溅射攻击。|n-耗蓝：80点。","Tip":"真龙形态[|cffffcc00R] - [|cffffcc00等级 1|r],真龙形态[|cffffcc00R] - [|cffffcc00等级 2|r],真龙形态[|cffffcc00R] - [|cffffcc00等级 3|r],真龙形态[|cffffcc00R] - [|cffffcc00等级 4|r],真龙形态[|cffffcc00R] - [|cffffcc00等级 5|r],真龙形态[|cffffcc00R] - [|cffffcc00等级 6|r]","Ubertip":"变身后增加10%所有伤害，并且有毒性攻击Lv1。|n|cff66CD00[持有神杖时冷却1秒并且伤害增加变为20%]|r,变身后增加10%所有伤害，并且有毒性攻击Lv2。|n|cff66CD00[持有神杖时冷却1秒并且伤害增加变为20%]|r,变身后增加10%所有伤害，并且有溅射攻击Lv1。|n|cff66CD00[持有神杖时冷却1秒并且伤害增加变为20%]|r,变身后增加10%所有伤害，并且有溅射攻击Lv2。|n|cff66CD00[持有神杖时冷却1秒并且伤害增加变为20%]|r,变身后增加10%所有伤害，并且有冰霜攻击Lv1和溅射伤害。|n|cff66CD00[持有神杖时冷却1秒并且伤害增加变为20%]|r,变身后增加10%所有伤害，并且有冰霜攻击Lv2和溅射伤害。|n|cff66CD00[持有神杖时冷却1秒并且伤害增加变为20%]|r"}
+      },
+      "initialCarriers": [],
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "A240",
+      "status": "form-source-bridge-only",
+      "workbook": [],
+      "object": "units_abilitydata.json:A240",
+      "w3aOverrides": [],
+      "mergedFields": {
+        "alias": "A240",
+        "code": "ANeg",
+        "BuffID1": "BNeg",
+        "checkDep": 1,
+        "DataC1": "A239,A010",
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          3529,
+          3542
+        ],
+        "fields": {"Art":"ReplaceableTextures\\CommandButtons\\PASBTNEngineeringUpgrade.blp","Buttonpos":"2,2","Hotkey":"E","Name":"工程升级","Order":"engineeringupgrade","ResearchArt":"ReplaceableTextures\\CommandButtons\\BTNEngineeringUpgrade.blp","Researchbuttonpos":"2","Researchhotkey":"E","Researchtip":"(|cffffcc00E|r)学习工程升级- [|cffffcc00等级 %d|r]","Researchubertip":"\"提高修补匠的技能。|n|n|cffffcc00火箭群|r - 大区域|n|cffffcc00口袋工厂|r – 能更快地建造出人工地精。|n|cffffcc00机器人地精|r – 增加护甲和力量。 |n|n同时提高攻击力和加快修补匠的移动速度。|n|n|cffffcc00等级 1|r - +2 攻击力, +10% 移动速度。|n|cffffcc00等级 2|r - +4 攻击力, +20% 移动速度。|n|cffffcc00等级 3|r - +6 攻击力, +30% 移动速度。\"","Tip":"工程升级 - [|cffffcc00等级 1|r]","Ubertip":"改进修补匠的技能，增加其2点的攻击力和提高其10%的移动速度。"}
+      },
+      "initialCarriers": [],
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "Aven",
+      "status": "template-comparison-only",
+      "workbook": [],
+      "object": "units_abilitydata.json:Aven",
+      "w3aOverrides": [],
+      "mergedFields": {
+        "alias": "Aven",
+        "code": "Aven",
+        "BuffID1": "Bpoi,Bpsd",
+        "checkDep": 1,
+        "DataA1": 4.0,
+        "DataD1": 1,
+        "Dur1": 25.0,
+        "HeroDur1": 1.0,
+        "levels": 1,
+        "targs1": "air,ground,organic",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          11150,
+          11157
+        ],
+        "fields": {"Art":"ReplaceableTextures\\PassiveButtons\\PASBTNEnvenomedSpear.blp","Buttonpos":",2","Name":"浸毒武器","Requires":"Rovs","Tip":"浸毒武器","Ubertip":"能造成每秒4点的毒性伤害。|n持续25秒。"}
+      },
+      "initialCarriers": [
+        "owyv"
+      ],
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "Atru",
+      "status": "template-comparison-only",
+      "workbook": [],
+      "object": "units_abilitydata.json:Atru",
+      "w3aOverrides": [],
+      "mergedFields": {
+        "alias": "Atru",
+        "code": "Atru",
+        "checkDep": 1,
+        "DataA1": 3,
+        "levels": 1,
+        "Rng1": 900.0,
+        "targs1": "vuln,invu",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          11091,
+          11097
+        ],
+        "fields": {"Art":"ReplaceableTextures\\PassiveButtons\\PASBTNShadeTrueSight.blp","Buttonpos":",2","Name":"真实视域","Tip":"真实视域","Ubertip":"显示周围的隐形单位。"}
+      },
+      "initialCarriers": [
+        "ushd"
+      ],
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "Afrb",
+      "status": "template-comparison-only",
+      "workbook": [],
+      "object": "units_abilitydata.json:Afrb",
+      "w3aOverrides": [],
+      "mergedFields": {
+        "alias": "Afrb",
+        "code": "Afrb",
+        "BuffID1": "Bfro",
+        "checkDep": 1,
+        "Dur1": 10.0,
+        "HeroDur1": 10.0,
+        "levels": 1,
+        "targs1": "air,ground",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          9480,
+          9484
+        ],
+        "fields": {"Art":",","Missileart":"Abilities\\Weapons\\FrostWyrmMissile\\FrostWyrmMissile.mdl","Name":"霜冻呼吸"}
+      },
+      "initialCarriers": [
+        "nadk",
+        "nadr",
+        "nadw",
+        "ufro"
+      ],
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "Afrz",
+      "status": "template-comparison-only",
+      "workbook": [],
+      "object": "units_abilitydata.json:Afrz",
+      "w3aOverrides": [],
+      "mergedFields": {
+        "alias": "Afrz",
+        "code": "Afrz",
+        "Area1": 100.0,
+        "BuffID1": "Bfrz",
+        "checkDep": 1,
+        "Dur1": 5.0,
+        "HeroDur1": 5.0,
+        "levels": 1,
+        "targs1": "structure,enemy",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          9485,
+          9496
+        ],
+        "fields": {"Art":"ReplaceableTextures\\PassiveButtons\\PASBTNFreezingBreath.blp","Buttonpos":",2","Missileart":"Abilities\\Spells\\Undead\\FreezingBreath\\FreezingBreathMissile.mdl","MissileHoming":"1","Missilespeed":"900","Name":"冰冻喷吐","Order":"freezingbreath","Requires":"Rufb","Tip":"冰冻喷吐","Ubertip":"用在建筑物上时，能在段时间内使其失去应有的功效。|n持续5秒。"}
+      },
+      "initialCarriers": [
+        "ufro"
+      ],
+      "nativeParity": "unproved"
+    }
+  ],
+  "objectData": {
+    "units_abilitydata.json:A011": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 13879,
+      "fields": {"alias":"A011","code":"Aven","BuffID1":"Bpoi,Bpsd","DataA1":40.0,"DataB1":0.2,"DataD1":1,"Dur1":5.0,"HeroDur1":3.0,"levels":1,"targs1":"air,ground,organic","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:A012": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 13894,
+      "fields": {"alias":"A012","code":"Aven","BuffID1":"Bpoi,Bpsd","DataA1":80.0,"DataB1":0.2,"DataD1":1,"Dur1":5.0,"HeroDur1":3.0,"levels":1,"targs1":"air,ground,organic","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:A014": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 13922,
+      "fields": {"alias":"A014","code":"Atru","checkDep":1,"DataA1":3,"levels":1,"targs1":"vuln,invu","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:A015": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 13933,
+      "fields": {"alias":"A015","code":"Atru","checkDep":1,"DataA1":3,"levels":1,"targs1":"vuln,invu","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:A013": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 13909,
+      "fields": {"alias":"A013","code":"Afrb","BuffID1":"Bfro","checkDep":1,"Dur1":3.0,"HeroDur1":2.0,"levels":1,"targs1":"air,ground","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:A010": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 13836,
+      "fields": {"alias":"A010","code":"AEme","BuffID1":"B031","BuffID2":"B031","BuffID3":"B031","BuffID4":"B031","checkDep":1,"Cool1":30.0,"Cool2":30.0,"Cool3":30.0,"Cool4":30.0,"Cost1":30,"Cost2":40,"Cost3":50,"Cost4":60,"DataA1":"H003","DataA2":"H003","DataA3":"H003","DataA4":"H003","DataB1":1,"DataB2":1,"DataB3":1,"DataB4":1,"DataE1":500.0,"DataE2":500.0,"DataE3":500.0,"DataE4":500.0,"HeroDur1":20.0,"HeroDur2":20.0,"HeroDur3":20.0,"HeroDur4":20.0,"levels":6,"reqLevel":1,"targs1":"_","targs2":"_","targs3":"_","targs4":"_","UnitID1":"E001","UnitID2":"E002","UnitID3":"E003","UnitID4":"E004"}
+    },
+    "units_abilitydata.json:A239": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 20582,
+      "fields": {"alias":"A239","code":"AEme","BuffID1":"B031","BuffID2":"B031","BuffID3":"B031","BuffID4":"B031","checkDep":1,"Cool1":30.0,"Cool2":30.0,"Cool3":30.0,"Cool4":30.0,"Cost1":30,"Cost2":40,"Cost3":50,"Cost4":60,"DataA1":"G077","DataA2":"G077","DataA3":"G077","DataA4":"G077","DataB1":1,"DataB2":1,"DataB3":1,"DataB4":1,"DataE1":500.0,"DataE2":500.0,"DataE3":500.0,"DataE4":500.0,"HeroDur1":20.0,"HeroDur2":20.0,"HeroDur3":20.0,"HeroDur4":20.0,"levels":6,"reqLevel":1,"targs1":"_","targs2":"_","targs3":"_","targs4":"_","UnitID1":"E023","UnitID2":"E024","UnitID3":"E025","UnitID4":"E026"}
+    },
+    "units_abilitydata.json:A240": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 20625,
+      "fields": {"alias":"A240","code":"ANeg","BuffID1":"BNeg","checkDep":1,"DataC1":"A239,A010","levels":1,"reqLevel":1,"targs1":"_","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:Aven": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 13071,
+      "fields": {"alias":"Aven","code":"Aven","BuffID1":"Bpoi,Bpsd","checkDep":1,"DataA1":4.0,"DataD1":1,"Dur1":25.0,"HeroDur1":1.0,"levels":1,"targs1":"air,ground,organic","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:Atru": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 12967,
+      "fields": {"alias":"Atru","code":"Atru","checkDep":1,"DataA1":3,"levels":1,"Rng1":900.0,"targs1":"vuln,invu","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:Afrb": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 10679,
+      "fields": {"alias":"Afrb","code":"Afrb","BuffID1":"Bfro","checkDep":1,"Dur1":10.0,"HeroDur1":10.0,"levels":1,"targs1":"air,ground","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_abilitydata.json:Afrz": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 10692,
+      "fields": {"alias":"Afrz","code":"Afrz","Area1":100.0,"BuffID1":"Bfrz","checkDep":1,"Dur1":5.0,"HeroDur1":5.0,"levels":1,"targs1":"structure,enemy","targs2":"_","targs3":"_","targs4":"_"}
+    },
+    "units_unitabilities.json:E001": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 4018,
+      "fields": {"unitAbilID":"E001","abilList":"Avul,AInv,A011,T033","auto":"_","heroAbilList":"A008,A009,A010,T000"}
+    },
+    "units_unitweapons.json:E001": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 20004,
+      "fields": {"unitWeapID":"E001","acquire":1200.0,"atkType1":"hero","atkType2":"chaos","backSw1":0.64,"backSw2":0.64,"castbsw":0.47,"castpt":0.3,"cool1":1.2,"cool2":2.13,"dice1":2,"dice2":2,"dmgplus1":100,"dmgpt1":0.26,"dmgpt2":0.26,"Farea1":50,"Harea1":150,"Hfact1":0.5,"impactZ":60.0,"launchZ":160.0,"Qarea1":250,"Qfact1":0.25,"rangeN1":1200,"rangeN2":1200,"RngBuff1":2000.0,"RngBuff2":2000.0,"showUI1":1,"showUI2":1,"sides1":15,"sides2":4,"splashTargs1":"ground,structure,debris,air,enemy","targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,air,item,ward","targs2":"ground,structure,debris,air,item,ward","weapsOn":1,"weapTp1":"missile","weapTp2":"missile"}
+    },
+    "units_unitbalance.json:E001": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 23629,
+      "fields": {"unitBalanceID":"E001","AGI":10,"AGIplus":4.0,"bldtm":1,"bountydice":8,"bountyplus":30,"bountysides":3,"collision":72.0,"defType":"hero","fused":20,"goldcost":3000,"HP":100,"INT":10,"INTplus":3.0,"level":5,"mana0":100,"nsight":800,"preventPlace":"_","Primary":"STR","regenHP":1.0,"regenMana":0.01,"regenType":"night","reptm":5,"requirePlace":"_","sight":900,"spd":390,"stockMax":3,"stockRegen":30,"STR":14,"STRplus":5.0,"tilesets":"*"}
+    },
+    "units_unitdata.json:E001": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 12282,
+      "fields": {"unitID":"E001","canFlee":1,"cargoSize":1,"death":3.0,"deathType":2,"formation":2,"moveHeight":150.0,"movetp":"hover","nameCount":15,"orientInterp":4,"points":100,"prio":9,"propWin":60.0,"race":"nightelf","targType":"ground","turnRate":0.5}
+    },
+    "units_unitui.json:E001": {
+      "path": "reference/map-6.25/units_unitui.json",
+      "line": 21328,
+      "fields": {"unitUIID":"E001","name":"custom_E001","armor":"Flesh","blend":0.15,"blue":255,"elevRad":20.0,"file":"units\\creeps\\GreenDragon\\GreenDragon","green":255,"maxPitch":10.0,"maxRoll":10.0,"modelScale":1.4,"red":255,"run":350.0,"scale":2.0,"scaleBull":1,"shadowH":160.0,"shadowOnWater":1,"shadowW":160.0,"shadowX":60.0,"shadowY":60.0,"teamColor":-1,"unitShadow":"Shadow","unitSound":"AzureDragon","walk":350.0}
+    },
+    "units_unitabilities.json:E002": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 4024,
+      "fields": {"unitAbilID":"E002","abilList":"Avul,AInv,A012,T033","auto":"_","heroAbilList":"A008,A009,A010,T000"}
+    },
+    "units_unitweapons.json:E002": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 20044,
+      "fields": {"unitWeapID":"E002","acquire":1200.0,"atkType1":"hero","atkType2":"chaos","backSw1":0.64,"backSw2":0.64,"castbsw":0.47,"castpt":0.3,"cool1":1.2,"cool2":2.13,"dice1":2,"dice2":2,"dmgplus1":20,"dmgpt1":0.26,"dmgpt2":0.26,"Farea1":50,"Harea1":150,"Hfact1":0.5,"impactZ":60.0,"launchZ":160.0,"Qarea1":250,"Qfact1":0.25,"rangeN1":1200,"rangeN2":1200,"RngBuff1":2000.0,"RngBuff2":2000.0,"showUI1":1,"showUI2":1,"sides1":150,"sides2":4,"splashTargs1":"ground,structure,debris,air,enemy","targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,air,item,ward","targs2":"ground,structure,debris,air,item,ward","weapsOn":1,"weapTp1":"missile","weapTp2":"missile"}
+    },
+    "units_unitbalance.json:E002": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 23662,
+      "fields": {"unitBalanceID":"E002","AGI":10,"AGIplus":4.0,"bldtm":1,"bountydice":8,"bountyplus":30,"bountysides":3,"collision":72.0,"defType":"hero","fused":20,"goldcost":2000,"HP":100,"INT":10,"INTplus":3.0,"level":5,"mana0":100,"nsight":800,"preventPlace":"_","Primary":"STR","regenHP":1.0,"regenMana":0.01,"regenType":"night","reptm":5,"requirePlace":"_","sight":900,"spd":390,"stockMax":3,"stockRegen":30,"STR":14,"STRplus":5.0,"tilesets":"*"}
+    },
+    "units_unitdata.json:E002": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 12300,
+      "fields": {"unitID":"E002","canFlee":1,"cargoSize":1,"death":3.0,"deathType":2,"formation":2,"moveHeight":150.0,"movetp":"hover","nameCount":15,"orientInterp":4,"points":100,"prio":9,"propWin":60.0,"race":"nightelf","targType":"ground","turnRate":0.5}
+    },
+    "units_unitui.json:E002": {
+      "path": "reference/map-6.25/units_unitui.json",
+      "line": 21354,
+      "fields": {"unitUIID":"E002","name":"custom_E002","armor":"Flesh","blend":0.15,"blue":255,"elevRad":20.0,"file":"units\\creeps\\GreenDragon\\GreenDragon","green":255,"maxPitch":10.0,"maxRoll":10.0,"modelScale":1.4,"red":255,"run":350.0,"scale":2.0,"scaleBull":1,"shadowH":160.0,"shadowOnWater":1,"shadowW":160.0,"shadowX":60.0,"shadowY":60.0,"teamColor":-1,"unitShadow":"Shadow","unitSound":"AzureDragon","walk":350.0}
+    },
+    "units_unitabilities.json:E003": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 4030,
+      "fields": {"unitAbilID":"E003","abilList":"Avul,AInv,A015,T033","auto":"_","heroAbilList":"A008,A009,A010,T000"}
+    },
+    "units_unitweapons.json:E003": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 20084,
+      "fields": {"unitWeapID":"E003","acquire":1200.0,"atkType1":"hero","atkType2":"chaos","backSw1":0.64,"backSw2":0.64,"castbsw":0.47,"castpt":0.3,"cool1":1.2,"cool2":2.13,"dice1":2,"dice2":2,"dmgplus1":30,"dmgpt1":0.26,"dmgpt2":0.26,"Farea1":50,"Harea1":150,"Hfact1":0.6,"impactZ":60.0,"launchZ":160.0,"Qarea1":240,"Qfact1":0.4,"rangeN1":1200,"rangeN2":1200,"RngBuff1":2000.0,"RngBuff2":2000.0,"showUI1":1,"showUI2":1,"sides1":200,"sides2":4,"splashTargs1":"ground,structure,debris,air,enemy","targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,air,item,ward","targs2":"ground,structure,debris,air,item,ward","weapsOn":1,"weapTp1":"msplash","weapTp2":"missile"}
+    },
+    "units_unitbalance.json:E003": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 23695,
+      "fields": {"unitBalanceID":"E003","AGI":10,"AGIplus":4.0,"bldtm":1,"bountydice":8,"bountyplus":30,"bountysides":3,"collision":72.0,"defType":"hero","fused":20,"goldcost":2000,"HP":100,"INT":10,"INTplus":3.0,"level":5,"mana0":100,"nsight":800,"preventPlace":"_","Primary":"STR","regenHP":1.0,"regenMana":0.01,"regenType":"night","reptm":5,"requirePlace":"_","sight":900,"spd":390,"stockMax":3,"stockRegen":30,"STR":14,"STRplus":5.0,"tilesets":"*"}
+    },
+    "units_unitdata.json:E003": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 12318,
+      "fields": {"unitID":"E003","canFlee":1,"cargoSize":1,"death":3.0,"deathType":2,"formation":2,"moveHeight":150.0,"movetp":"hover","nameCount":15,"orientInterp":4,"points":100,"prio":9,"propWin":60.0,"race":"nightelf","targType":"ground","turnRate":0.5}
+    },
+    "units_unitui.json:E003": {
+      "path": "reference/map-6.25/units_unitui.json",
+      "line": 21380,
+      "fields": {"unitUIID":"E003","name":"custom_E003","armor":"Flesh","blend":0.15,"blue":255,"elevRad":20.0,"file":"units\\creeps\\RedDragon\\RedDragon","green":255,"maxPitch":10.0,"maxRoll":10.0,"modelScale":1.4,"red":255,"run":350.0,"scale":2.0,"scaleBull":1,"shadowH":160.0,"shadowOnWater":1,"shadowW":160.0,"shadowX":60.0,"shadowY":60.0,"teamColor":-1,"unitShadow":"Shadow","unitSound":"AzureDragon","walk":350.0}
+    },
+    "units_unitabilities.json:E004": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 4036,
+      "fields": {"unitAbilID":"E004","abilList":"Avul,AInv,A015,T033","auto":"_","heroAbilList":"A008,A009,A010,T000"}
+    },
+    "units_unitweapons.json:E004": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 20124,
+      "fields": {"unitWeapID":"E004","acquire":1200.0,"atkType1":"hero","atkType2":"chaos","backSw1":0.64,"backSw2":0.64,"castbsw":0.47,"castpt":0.3,"cool1":1.2,"cool2":2.13,"dice1":2,"dice2":2,"dmgplus1":30,"dmgpt1":0.26,"dmgpt2":0.26,"Farea1":70,"Harea1":200,"Hfact1":0.6,"impactZ":60.0,"launchZ":160.0,"Qarea1":320,"Qfact1":0.4,"rangeN1":1200,"rangeN2":1200,"RngBuff1":2000.0,"RngBuff2":2000.0,"showUI1":1,"showUI2":1,"sides1":250,"sides2":4,"splashTargs1":"ground,structure,debris,air,enemy","targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,air,item,ward","targs2":"ground,structure,debris,air,item,ward","weapsOn":1,"weapTp1":"msplash","weapTp2":"missile"}
+    },
+    "units_unitbalance.json:E004": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 23728,
+      "fields": {"unitBalanceID":"E004","AGI":10,"AGIplus":4.0,"bldtm":1,"bountydice":8,"bountyplus":30,"bountysides":3,"collision":72.0,"defType":"hero","fused":20,"goldcost":2000,"HP":100,"INT":10,"INTplus":3.0,"level":5,"mana0":100,"nsight":800,"preventPlace":"_","Primary":"STR","regenHP":1.0,"regenMana":0.01,"regenType":"night","reptm":5,"requirePlace":"_","sight":900,"spd":390,"stockMax":3,"stockRegen":30,"STR":14,"STRplus":5.0,"tilesets":"*"}
+    },
+    "units_unitdata.json:E004": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 12336,
+      "fields": {"unitID":"E004","canFlee":1,"cargoSize":1,"death":3.0,"deathType":2,"formation":2,"moveHeight":150.0,"movetp":"hover","nameCount":15,"orientInterp":4,"points":100,"prio":9,"propWin":60.0,"race":"nightelf","targType":"ground","turnRate":0.5}
+    },
+    "units_unitui.json:E004": {
+      "path": "reference/map-6.25/units_unitui.json",
+      "line": 21406,
+      "fields": {"unitUIID":"E004","name":"custom_E004","armor":"Flesh","blend":0.15,"blue":255,"elevRad":20.0,"file":"units\\creeps\\RedDragon\\RedDragon","green":255,"maxPitch":10.0,"maxRoll":10.0,"modelScale":1.4,"red":255,"run":350.0,"scale":2.0,"scaleBull":1,"shadowH":160.0,"shadowOnWater":1,"shadowW":160.0,"shadowX":60.0,"shadowY":60.0,"teamColor":-1,"unitShadow":"Shadow","unitSound":"AzureDragon","walk":350.0}
+    },
+    "units_unitabilities.json:E005": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 4042,
+      "fields": {"unitAbilID":"E005","abilList":"Avul,AInv,A013,A014,T033","auto":"_","heroAbilList":"A008,A009,A010,T000"}
+    },
+    "units_unitweapons.json:E005": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 20164,
+      "fields": {"unitWeapID":"E005","acquire":1200.0,"atkType1":"hero","atkType2":"chaos","backSw1":0.64,"backSw2":0.64,"castbsw":0.47,"castpt":0.3,"cool1":1.2,"cool2":2.13,"dice1":2,"dice2":2,"dmgplus1":30,"dmgpt1":0.26,"dmgpt2":0.26,"Farea1":70,"Harea1":200,"Hfact1":0.6,"impactZ":60.0,"launchZ":160.0,"Qarea1":320,"Qfact1":0.4,"rangeN1":1200,"rangeN2":1200,"RngBuff1":2000.0,"RngBuff2":2000.0,"showUI1":1,"showUI2":1,"sides1":300,"sides2":4,"splashTargs1":"ground,structure,debris,air,enemy","targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,air,item,ward","targs2":"ground,structure,debris,air,item,ward","weapsOn":1,"weapTp1":"msplash","weapTp2":"missile"}
+    },
+    "units_unitbalance.json:E005": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 23761,
+      "fields": {"unitBalanceID":"E005","AGI":10,"AGIplus":4.0,"bldtm":1,"bountydice":8,"bountyplus":30,"bountysides":3,"collision":72.0,"defType":"hero","fused":20,"goldcost":2000,"HP":100,"INT":10,"INTplus":3.0,"level":5,"mana0":100,"nsight":800,"preventPlace":"_","Primary":"STR","regenHP":1.0,"regenMana":0.01,"regenType":"night","reptm":5,"requirePlace":"_","sight":900,"spd":390,"stockMax":3,"stockRegen":30,"STR":14,"STRplus":5.0,"tilesets":"*"}
+    },
+    "units_unitdata.json:E005": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 12354,
+      "fields": {"unitID":"E005","canFlee":1,"cargoSize":1,"death":3.0,"deathType":2,"formation":2,"moveHeight":150.0,"movetp":"hover","nameCount":15,"orientInterp":4,"points":100,"prio":9,"propWin":60.0,"race":"nightelf","targType":"ground","turnRate":0.5}
+    },
+    "units_unitui.json:E005": {
+      "path": "reference/map-6.25/units_unitui.json",
+      "line": 21432,
+      "fields": {"unitUIID":"E005","name":"custom_E005","armor":"Flesh","blend":0.15,"blue":255,"elevRad":20.0,"file":"units\\creeps\\AzureDragon\\AzureDragon","green":255,"maxPitch":10.0,"maxRoll":10.0,"modelScale":1.4,"red":255,"run":350.0,"scale":2.0,"scaleBull":1,"shadowH":160.0,"shadowOnWater":1,"shadowW":160.0,"shadowX":60.0,"shadowY":60.0,"teamColor":-1,"unitShadow":"Shadow","unitSound":"AzureDragon","walk":350.0}
+    },
+    "units_unitabilities.json:E006": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 4048,
+      "fields": {"unitAbilID":"E006","abilList":"Avul,AInv,A013,A014,T033","auto":"_","heroAbilList":"A008,A009,A010,T000"}
+    },
+    "units_unitweapons.json:E006": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 20204,
+      "fields": {"unitWeapID":"E006","acquire":1200.0,"atkType1":"hero","atkType2":"chaos","backSw1":0.64,"backSw2":0.64,"castbsw":0.47,"castpt":0.3,"cool1":0.9,"cool2":2.13,"dice1":2,"dice2":2,"dmgplus1":50,"dmgpt1":0.26,"dmgpt2":0.26,"Farea1":70,"Harea1":200,"Hfact1":0.6,"impactZ":60.0,"launchZ":160.0,"Qarea1":320,"Qfact1":0.4,"rangeN1":1200,"rangeN2":1200,"RngBuff1":2000.0,"RngBuff2":2000.0,"showUI1":1,"showUI2":1,"sides1":350,"sides2":4,"splashTargs1":"ground,structure,debris,air,enemy","targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,air,item,ward","targs2":"ground,structure,debris,air,item,ward","weapsOn":1,"weapTp1":"msplash","weapTp2":"missile"}
+    },
+    "units_unitbalance.json:E006": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 23794,
+      "fields": {"unitBalanceID":"E006","AGI":10,"AGIplus":4.0,"bldtm":1,"bountydice":8,"bountyplus":30,"bountysides":3,"collision":72.0,"defType":"hero","fused":20,"goldcost":2000,"HP":100,"INT":10,"INTplus":3.0,"level":5,"mana0":100,"nsight":800,"preventPlace":"_","Primary":"STR","regenHP":1.0,"regenMana":0.01,"regenType":"night","reptm":5,"requirePlace":"_","sight":900,"spd":390,"stockMax":3,"stockRegen":30,"STR":14,"STRplus":5.0,"tilesets":"*"}
+    },
+    "units_unitdata.json:E006": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 12372,
+      "fields": {"unitID":"E006","canFlee":1,"cargoSize":1,"death":3.0,"deathType":2,"formation":2,"moveHeight":150.0,"movetp":"hover","nameCount":15,"orientInterp":4,"points":100,"prio":9,"propWin":60.0,"race":"nightelf","targType":"ground","turnRate":0.5}
+    },
+    "units_unitui.json:E006": {
+      "path": "reference/map-6.25/units_unitui.json",
+      "line": 21458,
+      "fields": {"unitUIID":"E006","name":"custom_E006","armor":"Flesh","blend":0.15,"blue":255,"elevRad":20.0,"file":"units\\creeps\\AzureDragon\\AzureDragon","green":255,"maxPitch":10.0,"maxRoll":10.0,"modelScale":1.4,"red":255,"run":350.0,"scale":2.0,"scaleBull":1,"shadowH":160.0,"shadowOnWater":1,"shadowW":160.0,"shadowX":60.0,"shadowY":60.0,"teamColor":-1,"unitShadow":"Shadow","unitSound":"AzureDragon","walk":350.0}
+    },
+    "units_unitabilities.json:E023": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 4132,
+      "fields": {"unitAbilID":"E023","abilList":"Avul,AInv,A011,T033","auto":"_","heroAbilList":"A008,A009,A010,T000"}
+    },
+    "units_unitweapons.json:E023": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 20705,
+      "fields": {"unitWeapID":"E023","acquire":1200.0,"atkType1":"hero","atkType2":"chaos","backSw1":0.64,"backSw2":0.64,"castbsw":0.47,"castpt":0.3,"cool1":1.2,"cool2":2.13,"dice1":2,"dice2":2,"dmgplus1":100,"dmgpt1":0.26,"dmgpt2":0.26,"Farea1":50,"Harea1":150,"Hfact1":0.5,"impactZ":60.0,"launchZ":160.0,"Qarea1":250,"Qfact1":0.25,"rangeN1":1200,"rangeN2":1200,"RngBuff1":2000.0,"RngBuff2":2000.0,"showUI1":1,"showUI2":1,"sides1":15,"sides2":4,"splashTargs1":"ground,structure,debris,air,enemy","targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,air,item,ward","targs2":"ground,structure,debris,air,item,ward","weapsOn":1,"weapTp1":"missile","weapTp2":"missile"}
+    },
+    "units_unitbalance.json:E023": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 24256,
+      "fields": {"unitBalanceID":"E023","AGI":10,"AGIplus":4.0,"bldtm":1,"bountydice":8,"bountyplus":30,"bountysides":3,"collision":72.0,"defType":"hero","fused":20,"goldcost":3000,"HP":100,"INT":10,"INTplus":3.0,"level":5,"mana0":100,"nsight":800,"preventPlace":"_","Primary":"STR","regenHP":1.0,"regenMana":0.01,"regenType":"night","reptm":5,"requirePlace":"_","sight":900,"spd":390,"stockMax":3,"stockRegen":30,"STR":14,"STRplus":5.0,"tilesets":"*"}
+    },
+    "units_unitdata.json:E023": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 12598,
+      "fields": {"unitID":"E023","canFlee":1,"cargoSize":1,"death":3.0,"deathType":2,"formation":2,"movetp":"hover","nameCount":15,"orientInterp":4,"points":100,"prio":9,"propWin":60.0,"race":"nightelf","targType":"ground","turnRate":0.5}
+    },
+    "units_unitui.json:E023": {
+      "path": "reference/map-6.25/units_unitui.json",
+      "line": 21822,
+      "fields": {"unitUIID":"E023","name":"custom_E023","armor":"Flesh","blend":0.15,"blue":255,"elevRad":20.0,"file":"M768.mdx","green":255,"maxPitch":10.0,"maxRoll":10.0,"modelScale":0.22,"red":255,"run":350.0,"scale":2.0,"scaleBull":1,"shadowH":160.0,"shadowOnWater":1,"shadowW":160.0,"shadowX":60.0,"shadowY":60.0,"teamColor":-1,"unitShadow":"Shadow","unitSound":"AzureDragon","walk":350.0}
+    },
+    "units_unitabilities.json:E024": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 4138,
+      "fields": {"unitAbilID":"E024","abilList":"Avul,AInv,A012,T033","auto":"_","heroAbilList":"A008,A009,A010,T000"}
+    },
+    "units_unitweapons.json:E024": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 20745,
+      "fields": {"unitWeapID":"E024","acquire":1200.0,"atkType1":"hero","atkType2":"chaos","backSw1":0.64,"backSw2":0.64,"castbsw":0.47,"castpt":0.3,"cool1":1.2,"cool2":2.13,"dice1":2,"dice2":2,"dmgplus1":20,"dmgpt1":0.26,"dmgpt2":0.26,"Farea1":50,"Harea1":150,"Hfact1":0.5,"impactZ":60.0,"launchZ":160.0,"Qarea1":250,"Qfact1":0.25,"rangeN1":1200,"rangeN2":1200,"RngBuff1":2000.0,"RngBuff2":2000.0,"showUI1":1,"showUI2":1,"sides1":150,"sides2":4,"splashTargs1":"ground,structure,debris,air,enemy","targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,air,item,ward","targs2":"ground,structure,debris,air,item,ward","weapsOn":1,"weapTp1":"missile","weapTp2":"missile"}
+    },
+    "units_unitbalance.json:E024": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 24289,
+      "fields": {"unitBalanceID":"E024","AGI":10,"AGIplus":4.0,"bldtm":1,"bountydice":8,"bountyplus":30,"bountysides":3,"collision":72.0,"defType":"hero","fused":20,"goldcost":2000,"HP":100,"INT":10,"INTplus":3.0,"level":5,"mana0":100,"nsight":800,"preventPlace":"_","Primary":"STR","regenHP":1.0,"regenMana":0.01,"regenType":"night","reptm":5,"requirePlace":"_","sight":900,"spd":390,"stockMax":3,"stockRegen":30,"STR":14,"STRplus":5.0,"tilesets":"*"}
+    },
+    "units_unitdata.json:E024": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 12615,
+      "fields": {"unitID":"E024","canFlee":1,"cargoSize":1,"death":3.0,"deathType":2,"formation":2,"moveHeight":150.0,"movetp":"hover","nameCount":15,"orientInterp":4,"points":100,"prio":9,"propWin":60.0,"race":"nightelf","targType":"ground","turnRate":0.5}
+    },
+    "units_unitui.json:E024": {
+      "path": "reference/map-6.25/units_unitui.json",
+      "line": 21848,
+      "fields": {"unitUIID":"E024","name":"custom_E024","armor":"Flesh","blend":0.15,"blue":255,"elevRad":20.0,"file":"M768.mdx","green":255,"maxPitch":10.0,"maxRoll":10.0,"modelScale":0.22,"red":255,"run":350.0,"scale":2.0,"scaleBull":1,"shadowH":160.0,"shadowOnWater":1,"shadowW":160.0,"shadowX":60.0,"shadowY":60.0,"teamColor":-1,"unitShadow":"Shadow","unitSound":"AzureDragon","walk":350.0}
+    },
+    "units_unitabilities.json:E025": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 4144,
+      "fields": {"unitAbilID":"E025","abilList":"Avul,AInv,A015,T033","auto":"_","heroAbilList":"A008,A009,A010,T000"}
+    },
+    "units_unitweapons.json:E025": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 20785,
+      "fields": {"unitWeapID":"E025","acquire":1200.0,"atkType1":"hero","atkType2":"chaos","backSw1":0.64,"backSw2":0.64,"castbsw":0.47,"castpt":0.3,"cool1":1.2,"cool2":2.13,"dice1":2,"dice2":2,"dmgplus1":30,"dmgpt1":0.26,"dmgpt2":0.26,"Farea1":50,"Harea1":150,"Hfact1":0.6,"impactZ":60.0,"launchZ":160.0,"Qarea1":240,"Qfact1":0.4,"rangeN1":1200,"rangeN2":1200,"RngBuff1":2000.0,"RngBuff2":2000.0,"showUI1":1,"showUI2":1,"sides1":200,"sides2":4,"splashTargs1":"ground,structure,debris,air,enemy","targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,air,item,ward","targs2":"ground,structure,debris,air,item,ward","weapsOn":1,"weapTp1":"msplash","weapTp2":"missile"}
+    },
+    "units_unitbalance.json:E025": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 24322,
+      "fields": {"unitBalanceID":"E025","AGI":10,"AGIplus":4.0,"bldtm":1,"bountydice":8,"bountyplus":30,"bountysides":3,"collision":72.0,"defType":"hero","fused":20,"goldcost":2000,"HP":100,"INT":10,"INTplus":3.0,"level":5,"mana0":100,"nsight":800,"preventPlace":"_","Primary":"STR","regenHP":1.0,"regenMana":0.01,"regenType":"night","reptm":5,"requirePlace":"_","sight":900,"spd":390,"stockMax":3,"stockRegen":30,"STR":14,"STRplus":5.0,"tilesets":"*"}
+    },
+    "units_unitdata.json:E025": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 12633,
+      "fields": {"unitID":"E025","canFlee":1,"cargoSize":1,"death":3.0,"deathType":2,"formation":2,"movetp":"hover","nameCount":15,"orientInterp":4,"points":100,"prio":9,"propWin":60.0,"race":"nightelf","targType":"ground","turnRate":0.5}
+    },
+    "units_unitui.json:E025": {
+      "path": "reference/map-6.25/units_unitui.json",
+      "line": 21874,
+      "fields": {"unitUIID":"E025","name":"custom_E025","armor":"Flesh","blend":0.15,"blue":255,"elevRad":20.0,"file":"M765.mdx","green":255,"maxPitch":10.0,"maxRoll":10.0,"modelScale":0.22,"red":255,"run":350.0,"scale":2.0,"scaleBull":1,"shadowH":160.0,"shadowOnWater":1,"shadowW":160.0,"shadowX":60.0,"shadowY":60.0,"teamColor":-1,"unitShadow":"Shadow","unitSound":"AzureDragon","walk":350.0}
+    },
+    "units_unitabilities.json:E026": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 4150,
+      "fields": {"unitAbilID":"E026","abilList":"Avul,AInv,A015,T033","auto":"_","heroAbilList":"A008,A009,A010,T000"}
+    },
+    "units_unitweapons.json:E026": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 20825,
+      "fields": {"unitWeapID":"E026","acquire":1200.0,"atkType1":"hero","atkType2":"chaos","backSw1":0.64,"backSw2":0.64,"castbsw":0.47,"castpt":0.3,"cool1":1.2,"cool2":2.13,"dice1":2,"dice2":2,"dmgplus1":30,"dmgpt1":0.26,"dmgpt2":0.26,"Farea1":70,"Harea1":200,"Hfact1":0.6,"impactZ":60.0,"launchZ":160.0,"Qarea1":320,"Qfact1":0.4,"rangeN1":1200,"rangeN2":1200,"RngBuff1":2000.0,"RngBuff2":2000.0,"showUI1":1,"showUI2":1,"sides1":250,"sides2":4,"splashTargs1":"ground,structure,debris,air,enemy","targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,air,item,ward","targs2":"ground,structure,debris,air,item,ward","weapsOn":1,"weapTp1":"msplash","weapTp2":"missile"}
+    },
+    "units_unitbalance.json:E026": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 24355,
+      "fields": {"unitBalanceID":"E026","AGI":10,"AGIplus":4.0,"bldtm":1,"bountydice":8,"bountyplus":30,"bountysides":3,"collision":72.0,"defType":"hero","fused":20,"goldcost":2000,"HP":100,"INT":10,"INTplus":3.0,"level":5,"mana0":100,"nsight":800,"preventPlace":"_","Primary":"STR","regenHP":1.0,"regenMana":0.01,"regenType":"night","reptm":5,"requirePlace":"_","sight":900,"spd":390,"stockMax":3,"stockRegen":30,"STR":14,"STRplus":5.0,"tilesets":"*"}
+    },
+    "units_unitdata.json:E026": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 12650,
+      "fields": {"unitID":"E026","canFlee":1,"cargoSize":1,"death":3.0,"deathType":2,"formation":2,"movetp":"hover","nameCount":15,"orientInterp":4,"points":100,"prio":9,"propWin":60.0,"race":"nightelf","targType":"ground","turnRate":0.5}
+    },
+    "units_unitui.json:E026": {
+      "path": "reference/map-6.25/units_unitui.json",
+      "line": 21900,
+      "fields": {"unitUIID":"E026","name":"custom_E026","armor":"Flesh","blend":0.15,"blue":255,"elevRad":20.0,"file":"M765.mdx","green":255,"maxPitch":10.0,"maxRoll":10.0,"modelScale":0.22,"red":255,"run":350.0,"scale":2.0,"scaleBull":1,"shadowH":160.0,"shadowOnWater":1,"shadowW":160.0,"shadowX":60.0,"shadowY":60.0,"teamColor":-1,"unitShadow":"Shadow","unitSound":"AzureDragon","walk":350.0}
+    },
+    "units_unitabilities.json:E027": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 4156,
+      "fields": {"unitAbilID":"E027","abilList":"Avul,AInv,A013,A014,T033","auto":"_","heroAbilList":"A008,A009,A010,T000"}
+    },
+    "units_unitweapons.json:E027": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 20865,
+      "fields": {"unitWeapID":"E027","acquire":1200.0,"atkType1":"hero","atkType2":"chaos","backSw1":0.64,"backSw2":0.64,"castbsw":0.47,"castpt":0.3,"cool1":1.2,"cool2":2.13,"dice1":2,"dice2":2,"dmgplus1":30,"dmgpt1":0.26,"dmgpt2":0.26,"Farea1":70,"Harea1":200,"Hfact1":0.6,"impactZ":60.0,"launchZ":160.0,"Qarea1":320,"Qfact1":0.4,"rangeN1":1200,"rangeN2":1200,"RngBuff1":2000.0,"RngBuff2":2000.0,"showUI1":1,"showUI2":1,"sides1":300,"sides2":4,"splashTargs1":"ground,structure,debris,air,enemy","targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,air,item,ward","targs2":"ground,structure,debris,air,item,ward","weapsOn":1,"weapTp1":"msplash","weapTp2":"missile"}
+    },
+    "units_unitbalance.json:E027": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 24388,
+      "fields": {"unitBalanceID":"E027","AGI":10,"AGIplus":4.0,"bldtm":1,"bountydice":8,"bountyplus":30,"bountysides":3,"collision":72.0,"defType":"hero","fused":20,"goldcost":2000,"HP":100,"INT":10,"INTplus":3.0,"level":5,"mana0":100,"nsight":800,"preventPlace":"_","Primary":"STR","regenHP":1.0,"regenMana":0.01,"regenType":"night","reptm":5,"requirePlace":"_","sight":900,"spd":390,"stockMax":3,"stockRegen":30,"STR":14,"STRplus":5.0,"tilesets":"*"}
+    },
+    "units_unitdata.json:E027": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 12667,
+      "fields": {"unitID":"E027","canFlee":1,"cargoSize":1,"death":3.0,"deathType":2,"formation":2,"movetp":"hover","nameCount":15,"orientInterp":4,"points":100,"prio":9,"propWin":60.0,"race":"nightelf","targType":"ground","turnRate":0.5}
+    },
+    "units_unitui.json:E027": {
+      "path": "reference/map-6.25/units_unitui.json",
+      "line": 21926,
+      "fields": {"unitUIID":"E027","name":"custom_E027","armor":"Flesh","blend":0.15,"blue":255,"elevRad":20.0,"file":"M767.mdx","green":255,"maxPitch":10.0,"maxRoll":10.0,"modelScale":0.22,"red":255,"run":350.0,"scale":2.0,"scaleBull":1,"shadowH":160.0,"shadowOnWater":1,"shadowW":160.0,"shadowX":60.0,"shadowY":60.0,"teamColor":-1,"unitShadow":"Shadow","unitSound":"AzureDragon","walk":350.0}
+    },
+    "units_unitabilities.json:E028": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 4162,
+      "fields": {"unitAbilID":"E028","abilList":"Avul,AInv,A013,A014,T033","auto":"_","heroAbilList":"A008,A009,A010,T000"}
+    },
+    "units_unitweapons.json:E028": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 20905,
+      "fields": {"unitWeapID":"E028","acquire":1200.0,"atkType1":"hero","atkType2":"chaos","backSw1":0.64,"backSw2":0.64,"castbsw":0.47,"castpt":0.3,"cool1":0.9,"cool2":2.13,"dice1":2,"dice2":2,"dmgplus1":50,"dmgpt1":0.26,"dmgpt2":0.26,"Farea1":70,"Harea1":200,"Hfact1":0.6,"impactZ":60.0,"launchZ":160.0,"Qarea1":320,"Qfact1":0.4,"rangeN1":1200,"rangeN2":1200,"RngBuff1":2000.0,"RngBuff2":2000.0,"showUI1":1,"showUI2":1,"sides1":350,"sides2":4,"splashTargs1":"ground,structure,debris,air,enemy","targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,air,item,ward","targs2":"ground,structure,debris,air,item,ward","weapsOn":1,"weapTp1":"msplash","weapTp2":"missile"}
+    },
+    "units_unitbalance.json:E028": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 24421,
+      "fields": {"unitBalanceID":"E028","AGI":10,"AGIplus":4.0,"bldtm":1,"bountydice":8,"bountyplus":30,"bountysides":3,"collision":72.0,"defType":"hero","fused":20,"goldcost":2000,"HP":100,"INT":10,"INTplus":3.0,"level":5,"mana0":100,"nsight":800,"preventPlace":"_","Primary":"STR","regenHP":1.0,"regenMana":0.01,"regenType":"night","reptm":5,"requirePlace":"_","sight":900,"spd":390,"stockMax":3,"stockRegen":30,"STR":14,"STRplus":5.0,"tilesets":"*"}
+    },
+    "units_unitdata.json:E028": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 12684,
+      "fields": {"unitID":"E028","canFlee":1,"cargoSize":1,"death":3.0,"deathType":2,"formation":2,"movetp":"hover","nameCount":15,"orientInterp":4,"points":100,"prio":9,"propWin":60.0,"race":"nightelf","targType":"ground","turnRate":0.5}
+    },
+    "units_unitui.json:E028": {
+      "path": "reference/map-6.25/units_unitui.json",
+      "line": 21952,
+      "fields": {"unitUIID":"E028","name":"custom_E028","armor":"Flesh","blend":0.15,"blue":255,"elevRad":20.0,"file":"M767.mdx","green":255,"maxPitch":10.0,"maxRoll":10.0,"modelScale":0.22,"red":255,"run":350.0,"scale":2.0,"scaleBull":1,"shadowH":160.0,"shadowOnWater":1,"shadowW":160.0,"shadowX":60.0,"shadowY":60.0,"teamColor":-1,"unitShadow":"Shadow","unitSound":"AzureDragon","walk":350.0}
+    },
+    "units_unitabilities.json:H003": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 4480,
+      "fields": {"unitAbilID":"H003","abilList":"Avul,AInv,T033,S371","auto":"_","heroAbilList":"A008,A009,A010,T000,P000"}
+    },
+    "units_unitweapons.json:H003": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 22775,
+      "fields": {"unitWeapID":"H003","acquire":800.0,"atkType1":"hero","atkType2":"hero","backSw1":0.567,"backSw2":0.567,"castbsw":1.67,"castpt":0.5,"cool1":1.2,"cool2":2.13,"dice1":1,"dice2":2,"dmgplus1":13,"dmgpt1":0.433,"dmgpt2":0.433,"impactZ":60.0,"launchZ":60.0,"rangeN1":800,"rangeN2":800,"RngBuff1":1000.0,"RngBuff2":1000.0,"showUI1":1,"showUI2":1,"sides1":12,"sides2":4,"targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,item,ward","targs2":"ground,structure,debris,air,item,ward","weapsOn":1,"weapTp1":"normal","weapTp2":"missile","weapType1":"MetalHeavyBash"}
+    },
+    "units_unitbalance.json:H003": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 26201,
+      "fields": {"unitBalanceID":"H003","AGI":10,"AGIplus":4.0,"bldtm":1,"bountydice":8,"bountyplus":30,"bountysides":3,"collision":72.0,"def":2.0,"defType":"hero","fused":20,"goldcost":3000,"HP":100,"INT":10,"INTplus":3.0,"level":5,"mana0":100,"nsight":700,"preventPlace":"_","Primary":"STR","regenHP":0.25,"regenMana":0.01,"regenType":"always","reptm":5,"requirePlace":"_","sight":900,"spd":300,"stockMax":3,"stockRegen":30,"stockStart":120,"STR":14,"STRplus":5.0,"tilesets":"*"}
+    },
+    "units_unitdata.json:H003": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 13552,
+      "fields": {"unitID":"H003","canFlee":1,"cargoSize":1,"death":1.5,"deathType":2,"movetp":"foot","nameCount":15,"orientInterp":5,"points":1875,"prio":9,"propWin":60.0,"race":"human","targType":"ground","turnRate":3.0}
+    },
+    "units_unitui.json:H003": {
+      "path": "reference/map-6.25/units_unitui.json",
+      "line": 23331,
+      "fields": {"unitUIID":"H003","name":"custom_H003","armor":"Metal","blend":0.15,"blue":255,"elevRad":30.0,"file":"units\\human\\TheCaptain\\TheCaptain","green":255,"maxPitch":10.0,"maxRoll":10.0,"modelScale":1.7,"red":255,"run":250.0,"scale":1.25,"scaleBull":1,"shadowH":170.0,"shadowOnWater":1,"shadowW":170.0,"shadowX":65.0,"shadowY":65.0,"teamColor":-1,"unitShadow":"Shadow","unitSound":"Captain","walk":250.0}
+    },
+    "units_unitabilities.json:G077": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 4444,
+      "fields": {"unitAbilID":"G077","abilList":"Avul,AInv,T033","auto":"_","heroAbilList":"A008,A009,A010,T000,P000"}
+    },
+    "units_unitweapons.json:G077": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 22560,
+      "fields": {"unitWeapID":"G077","acquire":800.0,"atkType1":"hero","atkType2":"hero","backSw1":0.567,"backSw2":0.567,"castbsw":1.67,"castpt":0.5,"cool1":1.2,"cool2":2.13,"dice1":1,"dice2":2,"dmgplus1":13,"dmgpt1":0.433,"dmgpt2":0.433,"impactZ":60.0,"launchZ":60.0,"rangeN1":800,"rangeN2":800,"RngBuff1":1000.0,"RngBuff2":1000.0,"showUI1":1,"showUI2":1,"sides1":12,"sides2":4,"targCount1":1,"targCount2":1,"targs1":"ground,structure,debris,item,ward","targs2":"ground,structure,debris,air,item,ward","weapsOn":1,"weapTp1":"normal","weapTp2":"missile","weapType1":"MetalHeavyBash"}
+    },
+    "units_unitbalance.json:G077": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 26001,
+      "fields": {"unitBalanceID":"G077","AGI":10,"AGIplus":4.0,"bldtm":1,"bountydice":8,"bountyplus":30,"bountysides":3,"collision":72.0,"def":2.0,"defType":"hero","fused":20,"goldcost":3000,"HP":100,"INT":10,"INTplus":3.0,"level":5,"mana0":100,"nsight":700,"preventPlace":"_","Primary":"STR","regenHP":0.25,"regenMana":0.01,"regenType":"always","reptm":5,"requirePlace":"_","sight":900,"spd":300,"stockMax":3,"stockRegen":30,"stockStart":120,"STR":14,"STRplus":5.0,"tilesets":"*"}
+    },
+    "units_unitdata.json:G077": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 13452,
+      "fields": {"unitID":"G077","canFlee":1,"cargoSize":1,"death":1.5,"deathType":2,"movetp":"foot","nameCount":15,"orientInterp":5,"points":1875,"prio":9,"propWin":60.0,"race":"human","targType":"ground","turnRate":3.0}
+    },
+    "units_unitui.json:G077": {
+      "path": "reference/map-6.25/units_unitui.json",
+      "line": 23174,
+      "fields": {"unitUIID":"G077","name":"custom_G077","armor":"Metal","blend":0.15,"blue":255,"elevRad":30.0,"file":"EragonSkin111.mdx","green":255,"maxPitch":10.0,"maxRoll":10.0,"modelScale":1.6,"red":255,"run":250.0,"scale":1.25,"scaleBull":1,"shadowH":170.0,"shadowOnWater":1,"shadowW":170.0,"shadowX":65.0,"shadowY":65.0,"teamColor":-1,"unitShadow":"Shadow","unitSound":"Captain","walk":250.0}
+    },
+    "units_abilitybuffdata.json:Bpoi": {
+      "path": "reference/map-6.25/units_abilitybuffdata.json",
+      "line": 531,
+      "fields": {"alias":"Bpoi"}
+    },
+    "units_abilitybuffdata.json:Bpsd": {
+      "path": "reference/map-6.25/units_abilitybuffdata.json",
+      "line": 540,
+      "fields": {"alias":"Bpsd"}
+    },
+    "units_abilitybuffdata.json:Bfro": {
+      "path": "reference/map-6.25/units_abilitybuffdata.json",
+      "line": 459,
+      "fields": {"alias":"Bfro"}
+    },
+    "units_abilitybuffdata.json:B031": {
+      "path": "reference/map-6.25/units_abilitybuffdata.json",
+      "line": 828,
+      "fields": {"alias":"B031"}
+    },
+    "units_abilitybuffdata.json:BPSE": {
+      "path": "reference/map-6.25/units_abilitybuffdata.json",
+      "line": 291,
+      "fields": {"alias":"BPSE"}
+    }
+  },
+  "unitDeltas": [],
+  "unitProfiles": {
+    "E001": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": [
+        1,
+        22
+      ],
+      "fields": {"animProps":"alternateex","Art":"ReplaceableTextures\\CommandButtons\\BTNAzureDragon.blp","Attachmentanimprops":"medium","Attachmentlinkprops":"alternate","Awakentip":"复活恶魔猎手(|cffffcc00D|r)","Boneprops":"alternate","Hotkey":"D","Missileart":"Abilities\\Weapons\\GreenDragonMissile\\GreenDragonMissile.mdl","MissileHoming":"1","Missilespeed":"900","Name":"|cffEE7621龙骑士<SR>|r","Propernames":"|cffEE7621龙骑士<SR>|r","Requires1":"etoa","Requires2":"etoe","Requirescount":"3","Revivetip":"复活恶魔猎手(|cffffcc00D|r)","ScoreScreenIcon":"UI\\Glues\\ScoreScreen\\scorescreen-hero-demonhunter.blp","Specialart":"Objects\\Spawnmodels\\NightElf\\NightElfLargeDeathExplode\\NightElfLargeDeathExplode.mdl","Tip":"召唤恶魔猎手(|cffffcc00D|r)","Ubertip":","}
+    },
+    "E002": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": [
+        23,
+        44
+      ],
+      "fields": {"animProps":"alternateex","Art":"ReplaceableTextures\\CommandButtons\\BTNAzureDragon.blp","Attachmentanimprops":"medium","Attachmentlinkprops":"alternate","Awakentip":"复活恶魔猎手(|cffffcc00D|r)","Boneprops":"alternate","Hotkey":"D","Missileart":"Abilities\\Weapons\\GreenDragonMissile\\GreenDragonMissile.mdl","MissileHoming":"1","Missilespeed":"900","Name":"|cffEE7621龙骑士<SR>|r","Propernames":"|cffEE7621龙骑士<SR>|r","Requires1":"etoa","Requires2":"etoe","Requirescount":"3","Revivetip":"复活恶魔猎手(|cffffcc00D|r)","ScoreScreenIcon":"UI\\Glues\\ScoreScreen\\scorescreen-hero-demonhunter.blp","Specialart":"Objects\\Spawnmodels\\NightElf\\NightElfLargeDeathExplode\\NightElfLargeDeathExplode.mdl","Tip":"召唤恶魔猎手(|cffffcc00D|r)","Ubertip":","}
+    },
+    "E003": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": [
+        45,
+        66
+      ],
+      "fields": {"animProps":"alternateex","Art":"ReplaceableTextures\\CommandButtons\\BTNAzureDragon.blp","Attachmentanimprops":"medium","Attachmentlinkprops":"alternate","Awakentip":"复活恶魔猎手(|cffffcc00D|r)","Boneprops":"alternate","Hotkey":"D","Missileart":"Abilities\\Weapons\\RedDragonBreath\\RedDragonMissile.mdl","MissileHoming":"1","Missilespeed":"900","Name":"|cffEE7621龙骑士<SR>|r","Propernames":"|cffEE7621龙骑士<SR>|r","Requires1":"etoa","Requires2":"etoe","Requirescount":"3","Revivetip":"复活恶魔猎手(|cffffcc00D|r)","ScoreScreenIcon":"UI\\Glues\\ScoreScreen\\scorescreen-hero-demonhunter.blp","Specialart":"Objects\\Spawnmodels\\NightElf\\NightElfLargeDeathExplode\\NightElfLargeDeathExplode.mdl","Tip":"召唤恶魔猎手(|cffffcc00D|r)","Ubertip":","}
+    },
+    "E004": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": [
+        67,
+        88
+      ],
+      "fields": {"animProps":"alternateex","Art":"ReplaceableTextures\\CommandButtons\\BTNAzureDragon.blp","Attachmentanimprops":"medium","Attachmentlinkprops":"alternate","Awakentip":"复活恶魔猎手(|cffffcc00D|r)","Boneprops":"alternate","Hotkey":"D","Missileart":"Abilities\\Weapons\\RedDragonBreath\\RedDragonMissile.mdl","MissileHoming":"1","Missilespeed":"900","Name":"|cffEE7621龙骑士<SR>|r","Propernames":"|cffEE7621龙骑士<SR>|r","Requires1":"etoa","Requires2":"etoe","Requirescount":"3","Revivetip":"复活恶魔猎手(|cffffcc00D|r)","ScoreScreenIcon":"UI\\Glues\\ScoreScreen\\scorescreen-hero-demonhunter.blp","Specialart":"Objects\\Spawnmodels\\NightElf\\NightElfLargeDeathExplode\\NightElfLargeDeathExplode.mdl","Tip":"召唤恶魔猎手(|cffffcc00D|r)","Ubertip":","}
+    },
+    "E005": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": [
+        89,
+        110
+      ],
+      "fields": {"animProps":"alternateex","Art":"ReplaceableTextures\\CommandButtons\\BTNAzureDragon.blp","Attachmentanimprops":"medium","Attachmentlinkprops":"alternate","Awakentip":"复活恶魔猎手(|cffffcc00D|r)","Boneprops":"alternate","Hotkey":"D","Missileart":"Abilities\\Weapons\\FrostWyrmMissile\\FrostWyrmMissile.mdl","MissileHoming":"1","Missilespeed":"900","Name":"|cffEE7621龙骑士<SR>|r","Propernames":"|cffEE7621龙骑士<SR>|r","Requires1":"etoa","Requires2":"etoe","Requirescount":"3","Revivetip":"复活恶魔猎手(|cffffcc00D|r)","ScoreScreenIcon":"UI\\Glues\\ScoreScreen\\scorescreen-hero-demonhunter.blp","Specialart":"Objects\\Spawnmodels\\NightElf\\NightElfLargeDeathExplode\\NightElfLargeDeathExplode.mdl","Tip":"召唤恶魔猎手(|cffffcc00D|r)","Ubertip":","}
+    },
+    "E006": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": [
+        111,
+        132
+      ],
+      "fields": {"animProps":"alternateex","Art":"ReplaceableTextures\\CommandButtons\\BTNAzureDragon.blp","Attachmentanimprops":"medium","Attachmentlinkprops":"alternate","Awakentip":"复活恶魔猎手(|cffffcc00D|r)","Boneprops":"alternate","Hotkey":"D","Missileart":"Abilities\\Weapons\\FrostWyrmMissile\\FrostWyrmMissile.mdl","MissileHoming":"1","Missilespeed":"900","Name":"|cffEE7621龙骑士<SR>|r","Propernames":"|cffEE7621龙骑士<SR>|r","Requires1":"etoa","Requires2":"etoe","Requirescount":"3","Revivetip":"复活恶魔猎手(|cffffcc00D|r)","ScoreScreenIcon":"UI\\Glues\\ScoreScreen\\scorescreen-hero-demonhunter.blp","Specialart":"Objects\\Spawnmodels\\NightElf\\NightElfLargeDeathExplode\\NightElfLargeDeathExplode.mdl","Tip":"召唤恶魔猎手(|cffffcc00D|r)","Ubertip":","}
+    },
+    "E023": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": [
+        354,
+        375
+      ],
+      "fields": {"animProps":"alternateex","Art":"ReplaceableTextures\\CommandButtons\\BTNAzureDragon.blp","Attachmentanimprops":"medium","Attachmentlinkprops":"alternate","Awakentip":"复活恶魔猎手(|cffffcc00D|r)","Boneprops":"alternate","Hotkey":"D","Missileart":"Abilities\\Weapons\\GreenDragonMissile\\GreenDragonMissile.mdl","MissileHoming":"1","Missilespeed":"900","Name":"|cffEE7621龙骑士<SR>|r","Propernames":"|cffEE7621龙骑士<SR>|r","Requires1":"etoa","Requires2":"etoe","Requirescount":"3","Revivetip":"复活恶魔猎手(|cffffcc00D|r)","ScoreScreenIcon":"UI\\Glues\\ScoreScreen\\scorescreen-hero-demonhunter.blp","Specialart":"Objects\\Spawnmodels\\NightElf\\NightElfLargeDeathExplode\\NightElfLargeDeathExplode.mdl","Tip":"召唤恶魔猎手(|cffffcc00D|r)","Ubertip":","}
+    },
+    "E024": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": [
+        376,
+        397
+      ],
+      "fields": {"animProps":"alternateex","Art":"ReplaceableTextures\\CommandButtons\\BTNAzureDragon.blp","Attachmentanimprops":"medium","Attachmentlinkprops":"alternate","Awakentip":"复活恶魔猎手(|cffffcc00D|r)","Boneprops":"alternate","Hotkey":"D","Missileart":"Abilities\\Weapons\\GreenDragonMissile\\GreenDragonMissile.mdl","MissileHoming":"1","Missilespeed":"900","Name":"|cffEE7621龙骑士<SR>|r","Propernames":"|cffEE7621龙骑士<SR>|r","Requires1":"etoa","Requires2":"etoe","Requirescount":"3","Revivetip":"复活恶魔猎手(|cffffcc00D|r)","ScoreScreenIcon":"UI\\Glues\\ScoreScreen\\scorescreen-hero-demonhunter.blp","Specialart":"Objects\\Spawnmodels\\NightElf\\NightElfLargeDeathExplode\\NightElfLargeDeathExplode.mdl","Tip":"召唤恶魔猎手(|cffffcc00D|r)","Ubertip":","}
+    },
+    "E025": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": [
+        398,
+        419
+      ],
+      "fields": {"animProps":"alternateex","Art":"ReplaceableTextures\\CommandButtons\\BTNAzureDragon.blp","Attachmentanimprops":"medium","Attachmentlinkprops":"alternate","Awakentip":"复活恶魔猎手(|cffffcc00D|r)","Boneprops":"alternate","Hotkey":"D","Missileart":"Abilities\\Weapons\\RedDragonBreath\\RedDragonMissile.mdl","MissileHoming":"1","Missilespeed":"900","Name":"|cffEE7621龙骑士<SR>|r","Propernames":"|cffEE7621龙骑士<SR>|r","Requires1":"etoa","Requires2":"etoe","Requirescount":"3","Revivetip":"复活恶魔猎手(|cffffcc00D|r)","ScoreScreenIcon":"UI\\Glues\\ScoreScreen\\scorescreen-hero-demonhunter.blp","Specialart":"Objects\\Spawnmodels\\NightElf\\NightElfLargeDeathExplode\\NightElfLargeDeathExplode.mdl","Tip":"召唤恶魔猎手(|cffffcc00D|r)","Ubertip":","}
+    },
+    "E026": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": [
+        420,
+        441
+      ],
+      "fields": {"animProps":"alternateex","Art":"ReplaceableTextures\\CommandButtons\\BTNAzureDragon.blp","Attachmentanimprops":"medium","Attachmentlinkprops":"alternate","Awakentip":"复活恶魔猎手(|cffffcc00D|r)","Boneprops":"alternate","Hotkey":"D","Missileart":"Abilities\\Weapons\\RedDragonBreath\\RedDragonMissile.mdl","MissileHoming":"1","Missilespeed":"900","Name":"|cffEE7621龙骑士<SR>|r","Propernames":"|cffEE7621龙骑士<SR>|r","Requires1":"etoa","Requires2":"etoe","Requirescount":"3","Revivetip":"复活恶魔猎手(|cffffcc00D|r)","ScoreScreenIcon":"UI\\Glues\\ScoreScreen\\scorescreen-hero-demonhunter.blp","Specialart":"Objects\\Spawnmodels\\NightElf\\NightElfLargeDeathExplode\\NightElfLargeDeathExplode.mdl","Tip":"召唤恶魔猎手(|cffffcc00D|r)","Ubertip":","}
+    },
+    "E027": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": [
+        442,
+        463
+      ],
+      "fields": {"animProps":"alternateex","Art":"ReplaceableTextures\\CommandButtons\\BTNAzureDragon.blp","Attachmentanimprops":"medium","Attachmentlinkprops":"alternate","Awakentip":"复活恶魔猎手(|cffffcc00D|r)","Boneprops":"alternate","Hotkey":"D","Missileart":"Abilities\\Weapons\\FrostWyrmMissile\\FrostWyrmMissile.mdl","MissileHoming":"1","Missilespeed":"900","Name":"|cffEE7621龙骑士<SR>|r","Propernames":"|cffEE7621龙骑士<SR>|r","Requires1":"etoa","Requires2":"etoe","Requirescount":"3","Revivetip":"复活恶魔猎手(|cffffcc00D|r)","ScoreScreenIcon":"UI\\Glues\\ScoreScreen\\scorescreen-hero-demonhunter.blp","Specialart":"Objects\\Spawnmodels\\NightElf\\NightElfLargeDeathExplode\\NightElfLargeDeathExplode.mdl","Tip":"召唤恶魔猎手(|cffffcc00D|r)","Ubertip":","}
+    },
+    "E028": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": [
+        464,
+        485
+      ],
+      "fields": {"animProps":"alternateex","Art":"ReplaceableTextures\\CommandButtons\\BTNAzureDragon.blp","Attachmentanimprops":"medium","Attachmentlinkprops":"alternate","Awakentip":"复活恶魔猎手(|cffffcc00D|r)","Boneprops":"alternate","Hotkey":"D","Missileart":"Abilities\\Weapons\\FrostWyrmMissile\\FrostWyrmMissile.mdl","MissileHoming":"1","Missilespeed":"900","Name":"|cffEE7621龙骑士<SR>|r","Propernames":"|cffEE7621龙骑士<SR>|r","Requires1":"etoa","Requires2":"etoe","Requirescount":"3","Revivetip":"复活恶魔猎手(|cffffcc00D|r)","ScoreScreenIcon":"UI\\Glues\\ScoreScreen\\scorescreen-hero-demonhunter.blp","Specialart":"Objects\\Spawnmodels\\NightElf\\NightElfLargeDeathExplode\\NightElfLargeDeathExplode.mdl","Tip":"召唤恶魔猎手(|cffffcc00D|r)","Ubertip":","}
+    },
+    "H003": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": [
+        1628,
+        1643
+      ],
+      "fields": {"Art":"ReplaceableTextures\\CommandButtons\\BTNTheCaptain.blp","Awakentip":"复活圣骑士(|cffffcc00L|r)","Hotkey":"L","Missilespeed":"1500,1500","Name":"|cffEE7621龙骑士<SR>|r","Propernames":"|cffEE7621龙骑士<SR>|r","Requires1":"hkee","Requires2":"hcas","Requirescount":"3","Revivetip":"复活圣骑士(|cffffcc00L|r)","ScoreScreenIcon":"UI\\Glues\\ScoreScreen\\scorescreen-hero-paladin.blp","Specialart":"Objects\\Spawnmodels\\Human\\HumanLargeDeathExplode\\HumanLargeDeathExplode.mdl","Tip":"召唤|cffEE7621龙骑士<SR>|r","Ubertip":","}
+    },
+    "G077": {
+      "path": "reference/map-6.25/units_campaignunitstrings.txt",
+      "lines": [
+        1529,
+        1544
+      ],
+      "fields": {"Art":"ReplaceableTextures\\CommandButtons\\BTNTheCaptain.blp","Awakentip":"复活圣骑士(|cffffcc00L|r)","Hotkey":"L","Missilespeed":"1500,1500","Name":"|cffEE7621烈焰之鳞<SR>|r","Propernames":"|cffEE7621烈焰之鳞<SR>|r","Requires1":"hkee","Requires2":"hcas","Requirescount":"3","Revivetip":"复活圣骑士(|cffffcc00L|r)","ScoreScreenIcon":"UI\\Glues\\ScoreScreen\\scorescreen-hero-paladin.blp","Specialart":"Objects\\Spawnmodels\\Human\\HumanLargeDeathExplode\\HumanLargeDeathExplode.mdl","Tip":"召唤|cffEE7621烈焰之鳞<SR>|r","Ubertip":","}
+    }
+  },
+  "buffProfiles": {
+    "Bpoi": {
+      "path": "reference/map-6.25/units_commonabilitystrings.txt",
+      "lines": [
+        2291,
+        2297
+      ],
+      "fields": {"Buffart":"ReplaceableTextures\\CommandButtons\\BTNEnvenomedSpear.blp","Bufftip":"毒","Buffubertip":"\"该单位被毒刺攻击了, 因此会持续受到伤害。\"","Spelldetail":"2","TargetArt":"Abilities\\Weapons\\PoisonSting\\PoisonStingTarget.mdl"}
+    },
+    "Bpsd": {
+      "path": "reference/map-6.25/units_commonabilitystrings.txt",
+      "lines": [
+        2312,
+        2318
+      ],
+      "fields": {"Buffart":"ReplaceableTextures\\CommandButtons\\BTNEnvenomedSpear.blp","Bufftip":"毒","Buffubertip":"\"该单位被毒刺攻击了, 因此会持续受到伤害。\"","Spelldetail":"2","TargetArt":"Abilities\\Weapons\\PoisonSting\\PoisonStingTarget.mdl"}
+    },
+    "Bfro": {
+      "path": "reference/map-6.25/units_commonabilitystrings.txt",
+      "lines": [
+        2146,
+        2151
+      ],
+      "fields": {"Buffart":"ReplaceableTextures\\CommandButtons\\BTNFrost.blp","Bufftip":"被减速的","Buffubertip":"该单位速度被减慢了，所以移动起来要比其他一般的单位要慢。","TargetArt":"Abilities\\Spells\\Other\\FrostDamage\\FrostDamage.mdl"}
+    },
+    "B031": {
+      "path": "reference/map-6.25/units_commonabilitystrings.txt",
+      "lines": [
+        245,
+        249
+      ],
+      "fields": {"Buffart":"ReplaceableTextures\\CommandButtons\\BTNMetamorphosis.blp","Bufftip":"变龙","Buffubertip":"该单位化身为龙。"}
+    },
+    "BPSE": {
+      "path": "reference/map-6.25/units_commonabilitystrings.txt",
+      "lines": [
+        1798,
+        1804
+      ],
+      "fields": {"Buffart":"ReplaceableTextures\\CommandButtons\\BTNStun.blp","Bufftip":"被击晕的","Buffubertip":"该单位不能移动。","TargetArt":"Abilities\\Spells\\Human\\Thunderclap\\ThunderclapTarget.mdl","Targetattach":"overhead"}
+    }
+  },
+  "literalReferences": {
+    "A011": [],
+    "A012": [],
+    "A014": [],
+    "A015": [],
+    "A013": [],
+    "A010": [
+      {
+        "function": "main/f7",
+        "line": 49240,
+        "constant": "k46"
+      },
+      {
+        "function": "main/f291/f16",
+        "line": 172250,
+        "constant": "k4"
+      },
+      {
+        "function": "main/f291/f17",
+        "line": 172494,
+        "constant": "k31"
+      },
+      {
+        "function": "main/f291/f27",
+        "line": 173783,
+        "constant": "k11"
+      }
+    ],
+    "A239": [
+      {
+        "function": "main/f7",
+        "line": 49296,
+        "constant": "k102"
+      },
+      {
+        "function": "main/f20/f0",
+        "line": 61446,
+        "constant": "k20"
+      },
+      {
+        "function": "main/f291/f16",
+        "line": 172256,
+        "constant": "k10"
+      },
+      {
+        "function": "main/f291/f17",
+        "line": 172497,
+        "constant": "k34"
+      },
+      {
+        "function": "main/f291/f27",
+        "line": 173786,
+        "constant": "k14"
+      }
+    ],
+    "A240": [
+      {
+        "function": "main/f289/f7",
+        "line": 156598,
+        "constant": "k53"
+      }
+    ],
+    "Bpoi": [],
+    "Bpsd": [
+      {
+        "function": "main/f291/f1",
+        "line": 162088,
+        "constant": "k96"
+      }
+    ],
+    "Bfro": [],
+    "B031": [
+      {
+        "function": "main/f20/f2",
+        "line": 61621,
+        "constant": "k15"
+      },
+      {
+        "function": "main/f291/f1",
+        "line": 162258,
+        "constant": "k266"
+      }
+    ],
+    "E001": [],
+    "E002": [],
+    "E003": [],
+    "E004": [],
+    "E005": [],
+    "E006": [],
+    "E023": [],
+    "E024": [],
+    "E025": [],
+    "E026": [],
+    "E027": [],
+    "E028": []
+  },
+  "bytecodeFragments": [
+    {
+      "name": "poisonStatusConsumer",
+      "function": "main/f291/f1",
+      "pcRange": [
+        590,
+        617
+      ],
+      "sourceLines": [
+        163113,
+        163140
+      ],
+      "fullFunction": false,
+      "instructionCount": 28,
+      "conditions": [
+        {
+          "pc": 596,
+          "line": 163119,
+          "raw": "lt 0 k6 r4",
+          "truePC": 598,
+          "falsePC": 618
+        },
+        {
+          "pc": 601,
+          "line": 163124,
+          "raw": "eq 1 k6 r4",
+          "truePC": 618,
+          "falsePC": 603
+        },
+        {
+          "pc": 609,
+          "line": 163132,
+          "raw": "lt 0 k6 r4",
+          "truePC": 611,
+          "falsePC": 618
+        }
+      ],
+      "returnPCs": []
+    },
+    {
+      "name": "B031OutgoingMultiplier",
+      "function": "main/f291/f1",
+      "pcRange": [
+        2041,
+        2069
+      ],
+      "sourceLines": [
+        164646,
+        164676
+      ],
+      "fullFunction": false,
+      "instructionCount": 29,
+      "conditions": [
+        {
+          "pc": 2041,
+          "line": 164646,
+          "raw": "eq 1 k26 r2",
+          "truePC": 2070,
+          "falsePC": 2043
+        },
+        {
+          "pc": 2049,
+          "line": 164654,
+          "raw": "lt 0 k6 r4",
+          "truePC": 2051,
+          "falsePC": 2070
+        },
+        {
+          "pc": 2055,
+          "line": 164660,
+          "raw": "test r5 0",
+          "truePC": 2057,
+          "falsePC": 2059
+        },
+        {
+          "pc": 2060,
+          "line": 164666,
+          "raw": "eq 0 k177 r5",
+          "truePC": 2062,
+          "falsePC": 2064
+        }
+      ],
+      "returnPCs": []
+    },
+    {
+      "name": "autoB012Gate",
+      "function": "main/f291/f27",
+      "pcRange": [
+        14,
+        22
+      ],
+      "sourceLines": [
+        174102,
+        174110
+      ],
+      "fullFunction": false,
+      "instructionCount": 9,
+      "conditions": [
+        {
+          "pc": 20,
+          "line": 174108,
+          "raw": "le 0 r7 k5",
+          "truePC": 22,
+          "falsePC": 23
+        }
+      ],
+      "returnPCs": [
+        22
+      ]
+    },
+    {
+      "name": "dragonAutoOrder",
+      "function": "main/f291/f27",
+      "pcRange": [
+        27,
+        52
+      ],
+      "sourceLines": [
+        174117,
+        174143
+      ],
+      "fullFunction": false,
+      "instructionCount": 26,
+      "conditions": [
+        {
+          "pc": 33,
+          "line": 174123,
+          "raw": "test r11 0",
+          "truePC": 35,
+          "falsePC": 40
+        },
+        {
+          "pc": 46,
+          "line": 174137,
+          "raw": "test r11 0",
+          "truePC": 48,
+          "falsePC": 53
+        }
+      ],
+      "returnPCs": []
+    },
+    {
+      "name": "dragonCDDependency",
+      "function": "main/f291/f16",
+      "pcRange": [
+        13,
+        52
+      ],
+      "sourceLines": [
+        172292,
+        172332
+      ],
+      "fullFunction": false,
+      "instructionCount": 40,
+      "conditions": [
+        {
+          "pc": 16,
+          "line": 172295,
+          "raw": "eq 0 r0 r2",
+          "truePC": 18,
+          "falsePC": 33
+        },
+        {
+          "pc": 21,
+          "line": 172300,
+          "raw": "test r2 0",
+          "truePC": 23,
+          "falsePC": 33
+        },
+        {
+          "pc": 36,
+          "line": 172316,
+          "raw": "eq 0 r0 r2",
+          "truePC": 38,
+          "falsePC": 53
+        },
+        {
+          "pc": 41,
+          "line": 172321,
+          "raw": "test r2 0",
+          "truePC": 43,
+          "falsePC": 53
+        }
+      ],
+      "returnPCs": []
+    },
+    {
+      "name": "skinAbilityBridge",
+      "function": "main/f289/f7",
+      "pcRange": [
+        276,
+        292
+      ],
+      "sourceLines": [
+        156903,
+        156919
+      ],
+      "fullFunction": false,
+      "instructionCount": 17,
+      "conditions": [
+        {
+          "pc": 279,
+          "line": 156906,
+          "raw": "eq 0 r1 r7",
+          "truePC": 281,
+          "falsePC": 293
+        }
+      ],
+      "returnPCs": []
+    }
+  ],
+  "sourceMisc": {
+    "path": "reference/map-6.25/war3mapMisc.txt",
+    "lines": [
+      26,
+      27
+    ],
+    "FrostAttackSpeedDecrease": 0.6,
+    "FrostMoveSpeedDecrease": 0.4
+  },
+  "w3hEvidenceReused": {
+    "path": "docs/rules/skill-lizard-frenzy-and-gold.json",
+    "result": "original MPQ fullhash table has no war3map.w3h; previous positivecontrols checked; notmerelymissingfromsnapshot"
+  },
+  "rules": {
+    "formBridge": {
+      "source": "A010 AEme alternate UnitID1..4 E001..004; w3a Emeu5/6 E005/E006. A239 E023..028 analogous, normalFormG077 vsH003. S372 add/removeA240 maps actual learned A010 toA239 per existing skin baseline. Names/models do not determine combat flags.",
+      "legalRanks": {
+        "A010": [
+          "E001",
+          "E002",
+          "E003",
+          "E004",
+          "E005",
+          "E006"
+        ],
+        "A239": [
+          "E023",
+          "E024",
+          "E025",
+          "E026",
+          "E027",
+          "E028"
+        ]
+      },
+      "passiveLevels": "all fourIDs andA013 fixednative1; A012 tooltipLv2 means alternateability, not A012level2. Green40/80, redringprofile1/2, bothblue sameA013duration/slow/rings; finalblueattackC.9vs1.2 is weapon change.",
+      "Q24": "At separately audited transformation typecommit, replace template-mounted passives with current type abilList, same logical S and no extra learning/ATTACKED. Previously launched payload keeps its weapon/passive snapshot; already applied poison/cold stays until ownexpiry. Switchingform doesnotclear pendingDOT, duplicateit, transferS, or restoreancestor ability. FullAEme accept/CD/time/reversion/stattransaction remains external, not completedhere."
+    },
+    "poison": {
+      "ids": [
+        "A011",
+        "A012"
+      ],
+      "DPS": [
+        40,
+        80
+      ],
+      "attackSlow": 0.2,
+      "sourceMoveSlow": "DataC1 absent",
+      "webMoveSlow": 0,
+      "duration": 5,
+      "heroOrResistantDuration": 3,
+      "stackFlags": 1,
+      "buffIds": [
+        "Bpoi",
+        "Bpsd"
+      ],
+      "Q24": {
+        "entry": "ordinary successful primary weaponhit with enabled actualA011/A012 snapshotted atlaunch, nonillusion; legal enemy ground/air organic nonmechanical/nonstructure, nohidden/Aloc/invul/ethereal, magicimmuneallowed. Not arbitraryattack=true packets or secondarysplash. One ATTACKED only; no mana/CD/RNG/SPELL_EFFECT/N535.",
+        "apply": "before mainweapon native reduction/event registerpoison; mainkill clearsitsstate. Duration selectedonapply by nativeHERO or activeArsk, not UnitIsHero/N534/SAPPER; snapshot5/3sec.",
+        "tracks": "reuse registered Aven tracker alongside N093/N095: key logicalcaster,target, nottype/form/rawcode. Samecaster refresh now+duration andupdateDPS, preserves1sec phase; differentcasters independentincluding sametype. Ifsamecaster artificiallyholds multiple registeredAven choosehighestDPS once perhit, tiesstableID; ordinaryeligible singleactiveform onlyone. DataD1 permits damage stacks, notslow sums/kill.",
+        "ticks": "first atapply+1s, then1s; expiryendpointincluded before cleanup in local schedule, other B05 earlierqueued events mayclear. normal5ticks /hero3ticks withoutrefresh. Source death withhandle continues,source deletioncancels; loss ofability/form doesnotcanceloldpoison.",
+        "packet": "actualS,attack=false,ranged=false,NORMAL/NORMAL. After native reductions/beforemapcallback D=min(max(0,reduced),max(0,HP-2)); D0 noevent, neverheal below2HP. Everytrack separately fullB03, dynamicO andB031 currentstate. Mapboosts cankill aftercap; no finalfloor. PoisonnotweaponR/M/B andnot doubledbecausebufflist has2IDs.",
+        "status": "allregisteredAven contributeone maxattackslow(.2 here); DataCmissing->local0movement. Bpoi/Bpsd trackpresence foralreadydefinedpoisoninterface; Bpsd is not BPSE and neverstuns. ExistingA083 sourceattack+targetBpsd consumer stillruns, itsbody external.",
+        "remove": "same priorpoison contract: ordinarymagic/negative dispel ineffective; explicitBpoi removesregisteredlocaltracks andcorrelatedslow; explicitBpsd clearslocalpoison slow/statusuntilnextrefresh withouterasingDOT; targetdeath/deletion/ineligible clears. Newmagicimmunealone retains. No automatic target retargetingpriority introduced; ordinaryautotarget selection remains shared."
+      }
+    },
+    "frost": {
+      "description": "A014 Atru marker, actual effectA013 Afrb",
+      "movementSlow": 0.4,
+      "attackSlow": 0.6,
+      "duration": 3,
+      "heroOrResistantDuration": 2,
+      "buff": "Bfro",
+      "sourceFields": "A013 no localDataA/B/C; strengths explicit mapMisc26/27, not guessedmissing. NoAfrz mounted.",
+      "Q24": {
+        "entry": "nonillusion actualA013 atordinaryattacklaunch; eachsuccessful weaponreceiver (primary+splash) appliescoldbeforeitsownB03 damageevent. Not anyscriptattack=true event; no duplicateattack/ordinaryproc/SPELL_EFFECT/N535.",
+        "target": "legalenemyground/air nonstructure, includingmechanical; nohidden/Aloc/invul/ethereal. Magicimmunephysical coldallowed bylocalpassive-classification choice; doesnotbroaden Q45 AHca magicimmune rule. Ordinaryweapon damage maystillhitstructure whilecold skips. Area invisibility allowed.",
+        "effect": "movement multiplier .6; attackspeedR contribution-.6. snapshotnativeHERO/activeArsk atapplyfor2s else 3s. RepeatedA013 refreshesonlyitsownslotuntilnow+duration,notstackpercentage oraddduration. No addeddamagepacket, nofreezebuilding/noBPSE/nointerrupt/cancelcast; slow affects subsequent movement/attackprogress throughsharedtiming.",
+        "coldCoexistence": "localA013 + Q45 AHca maintainindependent duration/source slots; eachfamilys own refresh rules unchanged. For thispair use max active moveslow andmax activeattackslow, notsum. Bfro visibility isOR, notautomaticduplicatecold. Dispel AHca removesitsownslotonly; rawexplicit Bfro removal clearsbothregisteredcoldslots. Otherfrostskills/coldchannels remainexternal, notgloballypromoted.",
+        "remove": "ordinarymagicdispel doesnotremoveA013 physicalcold (explicitQ24); explicitA013cold/rawBfro removal,death/deletion/expiry/ineligible clears; becomingmagicimmunealone retains. Source death/deletion/remorph doesnotremovealreadycommittedcold; no source-linkedDOT.",
+        "marker": "A014/A015 Atru Rngabsent; Web explicitdescriptiononly/no detectioncontribution, notoriginalRng0 orstockRng900. LosingmarkerdoesnotremoveA013 orweapon; addingmarkeralone createsneither."
+      }
+    },
+    "weapon": {
+      "slot": 1,
+      "attackType": "HERO",
+      "damageType": "NORMAL",
+      "attack": true,
+      "ranged": true,
+      "range": 1200,
+      "minimumRangeSource": "absent",
+      "minimumRangeWeb": 0,
+      "speed": 900,
+      "homing": true,
+      "damagePoint": 0.26,
+      "backswing": 0.64,
+      "cooldownRanks": [
+        1.2,
+        1.2,
+        1.2,
+        1.2,
+        1.2,
+        0.9
+      ],
+      "typeRanks": [
+        "missile",
+        "missile",
+        "msplash",
+        "msplash",
+        "msplash",
+        "msplash"
+      ],
+      "splashRings": {
+        "rank3": [
+          50,
+          150,
+          240
+        ],
+        "rank4_5_6": [
+          70,
+          200,
+          320
+        ]
+      },
+      "factors": [
+        1,
+        0.6,
+        0.4
+      ],
+      "Q24": {
+        "gate": "usesactualtype weapon andactualenabledability snapshot; green hasdormantF/H/Q butmissile=no splash. RedA015onlydescription; bluemsplash workswithoutA015. Slot2chaos/missile remainsdisabled. Sourcehover withtargTypeground notairclassification; modelheight irrelevant.",
+        "direct": "ordinaryunit target visibleenemy ground/air inclstructure/mechanical/ward whereweaponmask permits, nohidden/Aloc/invul/ethereal; magicimmuneallowedHERO physical. Manualfriendlyonlyexplicitordinarycommand. No artilleryAttackGround/min250/friendlycollateral semantics imported. Worlditem/debris primary usesexternalworldobjectinterface, notfakeunitdamage.",
+        "flight": "launchcapturesRweapon,formprofile,passiveIDs andstableS. Homing speed900 in2D, continuouscurrenttargetposition withB05contacts; no arc/terrainblocking. Aftertargetdeath/deletion followslastknownpointthenmsplashmayimpact there (missilegreen noaliveprimary=>nohit). Source death permitslaunchedshot, explicitsource deletioncancels. Ability/formchange doesnotrewriteoldpayload; targetordinaryinvisibility afterlaunch doesnotcancelhoming, nativehidden/Aloc currentlyillegal.",
+        "primaryHit": "ateligibleprimaryarrival useordinarycritical/hit interface exactlyonce, currentregisteredcandidate snapshot bynative-critical-family-v1; no rerollforcollateral. Miss consumesitsnormalrolls and cancels allunitdamage/cold/poisonfromthismsplashshot (explicitlocalmisschoice, differentfromartillery). Ifnoalivelegalprimary atarrival butimpactpointretained, no targetcritical/hitroll, M1 andB0, remainingcollateral mayreceiveplainRweapon. No fakeATTACKED targets.",
+        "geometry": "msplash impactpoint=currenthomingcontact/lastknownpoint. initialclosedoutercircle candidates, legitimateprimaryfirst thenB04; centeronlynoextra collisionradius. Rings exclusiveinclusiveouteredges, onepacketperunit. Mainstandard100%once atcenter, noseparatefullpacketplusarea. Eachrecipient rechecked beforepacket; dynamicdeath/position/immune changes maydropit; newunitsnotinitialsnapshot excluded. Greenmissile onlyprimary.",
+        "splashTargets": "enemyground/air/structure/mechanical fromexplicit ground,structure,debris,air,enemy mask; nofriend/self collateral. Mainward orworlditem permittedordinarydirecttargets butnotgenericcollateral. Normalinvisibleareaallowed; nohidden/Aloc/invul/ethereal. Magicimmuneallowedphysical. Unlike stockfrostwyrm thereisno activeair-onlynonsplashslot: customslot1 alreadytargetsair, sosplash worksonairprimary too.",
+        "amount": "splashbase R*M*f*band; onlyeligiblemain getsB once: (R*M+B)*f. Do not spreadmainonhitflatB, itsarmor, orfinalmapdamage. Everyunitpacket actualS attack=true,ranged=true,HERO/NORMAL fullB03 withindependentdynamicO/B031/othercallbacks. Othernativeonhit onlymain except specificallyauditedA013 cold splash. No UnitDamagePoint/dummy substitution.",
+        "inheritance": "sourceformonlychangesfutureattackprofile; existingordinarycritical sourceabilityinheritance remainsitsownbaseline. Do notgrantpoison/cold toillusions; fullgenericillusioncopy external. SourceactualO neverreplacedjustbecausemodelchanged. Rawdmgplus/dice/sides stored; R andS18/S19 reads/writes reuse adoptedweapon-attribute-interface-v1 W01-W03. R usescontribution channels plus oneactualdice sum, notintegergetter reconstruction; captureatlaunch. AEme typecommit channeltransition remainsfullmorphdependency."
+      }
+    },
+    "sharedPipeline": {
+      "B031": "reuse main/f291/f1PC2041..2069: O nonnil andB031>0; currentD*(1.1+Has_A_Item(O)*.1+(Game_Mode==1)*.2), noattack/typecondition; AfterPC1917 alreadyran. Laterglobalmodefiltersstillrun. PassiveDPS/weaponbase neverpremultiply.",
+      "Bpsd": "reusePC590..617: actualS A083>0 AND attack!=0 AND targetBpsd>0 => A083_Action(S,T),thenA084_Action(S); nootherfilterinsidefragment. DOTattackfalse skips. Bodiesnotauditedhere.",
+      "BPSE": "notprovidedbythese4IDs/A013; independentstun maycoexist. Cold/poisonneverclearorrefreshBPSE.",
+      "save": "saveactualform/templatepassives, rawweapon/payloadsnapshot,homingtarget,lastpoint,criticalstate/rolls,receiverordering,poisonlogicalsource/phase/DPS/expiry,coldfamilyslots,sharedbuffpresence,B05seq. Restorewithoutrefiring/RNG/morph/learning."
+    }
+  },
+  "primarySources": [
+    {
+      "url": "https://classic.battle.net/war3/basics/spellbasics.shtml",
+      "supports": "Poison physical, no ordinary magic dispel, magicimmune allowed/ethereal excluded; same-source refresh/different-source stacking; official poison floor2HP chosen over older experiment1HP."
+    },
+    {
+      "url": "https://classic.battle.net/war3/orc/units/windrider.shtml",
+      "supports": "Envenomed Spears adds poison via ordinary attacks; stock amounts do not define customA011/A012."
+    },
+    {
+      "url": "https://classic.battle.net/war3/undead/units/frostwyrm.shtml",
+      "supports": "native cold splash attack; separate Afrz stops buildings. Stock air-slot behavior is not custom dragon enabledslot1 targetmask."
+    },
+    {
+      "url": "https://classic.battle.net/war3/neutral/dragons.shtml",
+      "supports": "blue dragon frost passive and missile/msplash distinctions; stock immunity/10sec not imported."
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/Units/AbilityMetaData.slk",
+      "supports": "Poi1 DPS,Poi2 attackslow,Poi3 moveslow,Poi4 stackflags,Det1 detectionType,Emeu alternateform."
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/Units/MiscMetaData.slk",
+      "supports": "froa/from map to FrostAttackSpeedDecrease/FrostMoveSpeedDecrease."
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/UI/WorldEditStrings.txt#L6753",
+      "supports": "frost constants label movement/attack reduction, not remaining fraction."
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/UI/UnitEditorData.txt#L343",
+      "supports": "stackFlags bits damage/movement/attack/kill."
+    },
+    {
+      "url": "https://github.com/Cokemonkey11/wc3-ability-doc/blob/main/sources/screwthetrees-wc3-editor-ability-insight-document/2023-11-14.md#L2936",
+      "supports": "Author experiment Afrb uses gameplay frost constants, latesttested1.28.5; adjacent Afra comment self-qualifies its stacking claim, not proof Afrb/CustomAHca cross-family behavior."
+    }
+  ],
+  "decisions": [
+    {
+      "kind": "Q24",
+      "rule": "Atru descriptionmarkers provide no detection; absent Rng preserved asabsent, no stock900 inherited."
+    },
+    {
+      "kind": "Q24",
+      "rule": "localcold stacking/physicalclassification, msplashflight/miss/geometry andpoisonphase are explicitly defined, notnativeparity"
+    },
+    {
+      "kind": "numeric",
+      "rule": "no confirmedprimary fourID numericconflict; .2 poison isattackspeed, .4frost ismovement and .6attack is explicitoriginalsupplement"
+    }
+  ],
+  "dependencies": [
+    "A010/A239 fullactiveAEme accept/cancel/cooldown/end/reversion andstatmapping",
+    "weapon-attribute-interface-v1 W01-W03 adopted; fullAEme channeltransition separate",
+    "sharedworldobject damage/lifecycle",
+    "A083/A084 invokedbodies andotherdamagecallee modules",
+    "skin-and-transformation existingA240/Skill_BS_Still",
+    "native-critical-family-v1",
+    "creep-buffs-orbs-v1 Q45/registeredAven",
+    "B03/B04/B05"
+  ],
+  "verification": {
+    "kind": "source reread/mergedfields/bytecode fragments with native stubs and selected Web vectors; no nativeclient or gameexecution",
+    "originalSlkRows": 87,
+    "abilityFieldAssertions": 127,
+    "primaryWorkbookRows": 12,
+    "primaryWorkbookCells": 120,
+    "bridgeWorkbookRows": 14,
+    "bridgeWorkbookCells": 140,
+    "w3aCheckedIds": 12,
+    "w3aRecords": 2,
+    "w3aMods": 8,
+    "unitW3uRecords": 0,
+    "bytecodeInstructions": 149,
+    "conditions": 15,
+    "returnInstructions": 1,
+    "fullFunctions": [],
+    "fragmentInstructionCoverage": {
+      "poisonStatusConsumer": 28,
+      "B031OutgoingMultiplier": 29,
+      "autoB012Gate": 9,
+      "dragonAutoOrder": 26,
+      "dragonCDDependency": 40,
+      "skinAbilityBridge": 17
+    },
+    "nativeStubProbes": [
+      {
+        "id": "B031_False_0_False_0",
+        "expected": 100
+      },
+      {
+        "id": "B031_False_0_False_1",
+        "expected": 100
+      },
+      {
+        "id": "B031_False_0_False_2",
+        "expected": 100
+      },
+      {
+        "id": "B031_False_0_True_0",
+        "expected": 100
+      },
+      {
+        "id": "B031_False_0_True_1",
+        "expected": 100
+      },
+      {
+        "id": "B031_False_0_True_2",
+        "expected": 100
+      },
+      {
+        "id": "B031_False_1_False_0",
+        "expected": 100
+      },
+      {
+        "id": "B031_False_1_False_1",
+        "expected": 100
+      },
+      {
+        "id": "B031_False_1_False_2",
+        "expected": 100
+      },
+      {
+        "id": "B031_False_1_True_0",
+        "expected": 100
+      },
+      {
+        "id": "B031_False_1_True_1",
+        "expected": 100
+      },
+      {
+        "id": "B031_False_1_True_2",
+        "expected": 100
+      },
+      {
+        "id": "B031_True_0_False_0",
+        "expected": 100
+      },
+      {
+        "id": "B031_True_0_False_1",
+        "expected": 100
+      },
+      {
+        "id": "B031_True_0_False_2",
+        "expected": 100
+      },
+      {
+        "id": "B031_True_0_True_0",
+        "expected": 100
+      },
+      {
+        "id": "B031_True_0_True_1",
+        "expected": 100
+      },
+      {
+        "id": "B031_True_0_True_2",
+        "expected": 100
+      },
+      {
+        "id": "B031_True_1_False_0",
+        "expected": 110.00000000000001
+      },
+      {
+        "id": "B031_True_1_False_1",
+        "expected": 130.0
+      },
+      {
+        "id": "B031_True_1_False_2",
+        "expected": 110.00000000000001
+      },
+      {
+        "id": "B031_True_1_True_0",
+        "expected": 120.00000000000001
+      },
+      {
+        "id": "B031_True_1_True_1",
+        "expected": 140.0
+      },
+      {
+        "id": "B031_True_1_True_2",
+        "expected": 120.00000000000001
+      },
+      {
+        "id": "Bpsd_0_0_0",
+        "expectedCalls": []
+      },
+      {
+        "id": "Bpsd_0_0_1",
+        "expectedCalls": []
+      },
+      {
+        "id": "Bpsd_0_1_0",
+        "expectedCalls": []
+      },
+      {
+        "id": "Bpsd_0_1_1",
+        "expectedCalls": []
+      },
+      {
+        "id": "Bpsd_0_-1_0",
+        "expectedCalls": []
+      },
+      {
+        "id": "Bpsd_0_-1_1",
+        "expectedCalls": []
+      },
+      {
+        "id": "Bpsd_1_0_0",
+        "expectedCalls": []
+      },
+      {
+        "id": "Bpsd_1_0_1",
+        "expectedCalls": []
+      },
+      {
+        "id": "Bpsd_1_1_0",
+        "expectedCalls": []
+      },
+      {
+        "id": "Bpsd_1_1_1",
+        "expectedCalls": [
+          [
+            "A083",
+            "S",
+            "T"
+          ],
+          [
+            "A084",
+            "S"
+          ]
+        ]
+      },
+      {
+        "id": "Bpsd_1_-1_0",
+        "expectedCalls": []
+      },
+      {
+        "id": "Bpsd_1_-1_1",
+        "expectedCalls": [
+          [
+            "A083",
+            "S",
+            "T"
+          ],
+          [
+            "A084",
+            "S"
+          ]
+        ]
+      },
+      {
+        "id": "auto_False_False_False",
+        "expectedExit": 53,
+        "preferred": null
+      },
+      {
+        "id": "auto_False_False_True",
+        "expectedExit": 53,
+        "preferred": null
+      },
+      {
+        "id": "auto_False_True_False",
+        "expectedExit": 4833,
+        "preferred": "A239"
+      },
+      {
+        "id": "auto_False_True_True",
+        "expectedExit": 4833,
+        "preferred": "A239"
+      },
+      {
+        "id": "auto_True_False_False",
+        "expectedExit": 4833,
+        "preferred": "A010"
+      },
+      {
+        "id": "auto_True_False_True",
+        "expectedExit": 4833,
+        "preferred": "A010"
+      },
+      {
+        "id": "auto_True_True_False",
+        "expectedExit": 4833,
+        "preferred": "A010"
+      },
+      {
+        "id": "auto_True_True_True",
+        "expectedExit": 4833,
+        "preferred": "A010"
+      },
+      {
+        "id": "B012_0",
+        "expectedExit": 22
+      },
+      {
+        "id": "B012_1",
+        "expectedExit": 23
+      },
+      {
+        "id": "CDsourceOnly_A010_False",
+        "expectedCalls": [],
+        "boundary": "not finalAEme recast interval"
+      },
+      {
+        "id": "CDsourceOnly_A010_True",
+        "expectedCalls": [
+          [
+            "A010",
+            1,
+            21
+          ]
+        ],
+        "boundary": "not finalAEme recast interval"
+      },
+      {
+        "id": "CDsourceOnly_A239_False",
+        "expectedCalls": [],
+        "boundary": "not finalAEme recast interval"
+      },
+      {
+        "id": "CDsourceOnly_A239_True",
+        "expectedCalls": [
+          [
+            "A239",
+            1,
+            21
+          ]
+        ],
+        "boundary": "not finalAEme recast interval"
+      },
+      {
+        "id": "CDsourceOnly_A008_False",
+        "expectedCalls": [],
+        "boundary": "not finalAEme recast interval"
+      },
+      {
+        "id": "CDsourceOnly_A008_True",
+        "expectedCalls": [],
+        "boundary": "not finalAEme recast interval"
+      },
+      {
+        "id": "skin_S372",
+        "expectedCalls": [
+          [
+            "add",
+            "S",
+            "A240"
+          ],
+          [
+            "remove",
+            "S",
+            "A240"
+          ]
+        ]
+      },
+      {
+        "id": "skin_S371",
+        "expectedCalls": []
+      }
+    ],
+    "nativeStubProbeCount": 54,
+    "specCases": [
+      {
+        "id": "shared_weapon_R_not_integer_API",
+        "input": {
+          "X": 16777217,
+          "D": 0,
+          "P": 0,
+          "F": 0,
+          "J19": 0,
+          "Get18": 16777216
+        },
+        "expected": 16777217
+      },
+      {
+        "id": "shared_weapon_launch_snapshot",
+        "input": {
+          "launchX": 240,
+          "D": 6,
+          "P": 0.5,
+          "F": 300,
+          "laterDice": 10
+        },
+        "expected": [
+          669,
+          675
+        ]
+      },
+      {
+        "id": "form_A010_1",
+        "input": {
+          "skill": "A010",
+          "level": 1
+        },
+        "expected": "E001"
+      },
+      {
+        "id": "form_A010_2",
+        "input": {
+          "skill": "A010",
+          "level": 2
+        },
+        "expected": "E002"
+      },
+      {
+        "id": "form_A010_3",
+        "input": {
+          "skill": "A010",
+          "level": 3
+        },
+        "expected": "E003"
+      },
+      {
+        "id": "form_A010_4",
+        "input": {
+          "skill": "A010",
+          "level": 4
+        },
+        "expected": "E004"
+      },
+      {
+        "id": "form_A010_5",
+        "input": {
+          "skill": "A010",
+          "level": 5
+        },
+        "expected": "E005"
+      },
+      {
+        "id": "form_A010_6",
+        "input": {
+          "skill": "A010",
+          "level": 6
+        },
+        "expected": "E006"
+      },
+      {
+        "id": "form_A239_1",
+        "input": {
+          "skill": "A239",
+          "level": 1
+        },
+        "expected": "E023"
+      },
+      {
+        "id": "form_A239_2",
+        "input": {
+          "skill": "A239",
+          "level": 2
+        },
+        "expected": "E024"
+      },
+      {
+        "id": "form_A239_3",
+        "input": {
+          "skill": "A239",
+          "level": 3
+        },
+        "expected": "E025"
+      },
+      {
+        "id": "form_A239_4",
+        "input": {
+          "skill": "A239",
+          "level": 4
+        },
+        "expected": "E026"
+      },
+      {
+        "id": "form_A239_5",
+        "input": {
+          "skill": "A239",
+          "level": 5
+        },
+        "expected": "E027"
+      },
+      {
+        "id": "form_A239_6",
+        "input": {
+          "skill": "A239",
+          "level": 6
+        },
+        "expected": "E028"
+      },
+      {
+        "id": "poison_ticks_40_3",
+        "input": {
+          "DPS": 40,
+          "duration": 3
+        },
+        "expected": 120
+      },
+      {
+        "id": "poison_ticks_40_5",
+        "input": {
+          "DPS": 40,
+          "duration": 5
+        },
+        "expected": 200
+      },
+      {
+        "id": "poison_ticks_80_3",
+        "input": {
+          "DPS": 80,
+          "duration": 3
+        },
+        "expected": 240
+      },
+      {
+        "id": "poison_ticks_80_5",
+        "input": {
+          "DPS": 80,
+          "duration": 5
+        },
+        "expected": 400
+      },
+      {
+        "id": "poison_floor_1",
+        "input": {
+          "life": 1,
+          "nativeReduced": 40
+        },
+        "expected": 0
+      },
+      {
+        "id": "poison_floor_2",
+        "input": {
+          "life": 2,
+          "nativeReduced": 40
+        },
+        "expected": 0
+      },
+      {
+        "id": "poison_floor_2.5",
+        "input": {
+          "life": 2.5,
+          "nativeReduced": 40
+        },
+        "expected": 0.5
+      },
+      {
+        "id": "poison_floor_20",
+        "input": {
+          "life": 20,
+          "nativeReduced": 40
+        },
+        "expected": 18
+      },
+      {
+        "id": "poison_floor_100",
+        "input": {
+          "life": 100,
+          "nativeReduced": 40
+        },
+        "expected": 40
+      },
+      {
+        "id": "poison_B031_can_kill",
+        "input": {
+          "HP": 20,
+          "afterNative": 40,
+          "scepterMultiplier": 1.2
+        },
+        "expected": 21.6
+      },
+      {
+        "id": "poison_form_changes_dynamic_multiplier",
+        "input": {
+          "snapDPS": 80,
+          "B031expired": true
+        },
+        "expected": 80
+      },
+      {
+        "id": "same_entity_new_form_refresh",
+        "input": {
+          "logicalS": 7,
+          "oldDPS": 40,
+          "newDPS": 80
+        },
+        "expected": [
+          1,
+          80
+        ]
+      },
+      {
+        "id": "different_source_stack",
+        "input": {
+          "tracks": {
+            "7": 80,
+            "8": 40
+          }
+        },
+        "expected": 120
+      },
+      {
+        "id": "attackslow_not_stacked",
+        "input": {
+          "sources": [
+            0.2,
+            0.2,
+            0.2
+          ]
+        },
+        "expected": 0.2
+      },
+      {
+        "id": "no_moveslow_from_Poi2",
+        "input": {
+          "DataB": 0.2,
+          "DataC": null
+        },
+        "expected": 0
+      },
+      {
+        "id": "poison_duration_False_False",
+        "input": {
+          "nativeHERO": false,
+          "Arsk": false
+        },
+        "expected": 5
+      },
+      {
+        "id": "cold_duration_False_False",
+        "input": {
+          "nativeHERO": false,
+          "Arsk": false
+        },
+        "expected": 3
+      },
+      {
+        "id": "poison_duration_False_True",
+        "input": {
+          "nativeHERO": false,
+          "Arsk": true
+        },
+        "expected": 3
+      },
+      {
+        "id": "cold_duration_False_True",
+        "input": {
+          "nativeHERO": false,
+          "Arsk": true
+        },
+        "expected": 2
+      },
+      {
+        "id": "poison_duration_True_False",
+        "input": {
+          "nativeHERO": true,
+          "Arsk": false
+        },
+        "expected": 3
+      },
+      {
+        "id": "cold_duration_True_False",
+        "input": {
+          "nativeHERO": true,
+          "Arsk": false
+        },
+        "expected": 2
+      },
+      {
+        "id": "poison_duration_True_True",
+        "input": {
+          "nativeHERO": true,
+          "Arsk": true
+        },
+        "expected": 3
+      },
+      {
+        "id": "cold_duration_True_True",
+        "input": {
+          "nativeHERO": true,
+          "Arsk": true
+        },
+        "expected": 2
+      },
+      {
+        "id": "cold_move",
+        "input": {
+          "baseSpeed": 300,
+          "decrease": 0.4
+        },
+        "expected": 180
+      },
+      {
+        "id": "cold_attackR",
+        "input": {
+          "oldR": 1.5,
+          "decrease": 0.6
+        },
+        "expected": 0.9
+      },
+      {
+        "id": "Bpsd_is_not_BPSE",
+        "input": {
+          "poisonIDs": [
+            "Bpoi",
+            "Bpsd"
+          ]
+        },
+        "expected": false
+      },
+      {
+        "id": "cold_pair_0.4_0.15",
+        "input": {
+          "breath": 0.4,
+          "arrow": 0.15
+        },
+        "expected": 0.4
+      },
+      {
+        "id": "cold_pair_0.4_0",
+        "input": {
+          "breath": 0.4,
+          "arrow": 0
+        },
+        "expected": 0.4
+      },
+      {
+        "id": "cold_pair_0_0.15",
+        "input": {
+          "breath": 0,
+          "arrow": 0.15
+        },
+        "expected": 0.15
+      },
+      {
+        "id": "cold_pair_0_0",
+        "input": {
+          "breath": 0,
+          "arrow": 0
+        },
+        "expected": 0
+      },
+      {
+        "id": "Q45_dispel_preserves_breath",
+        "input": {
+          "breathUntil": 3,
+          "arrowUntil": 4,
+          "now": 1,
+          "ordinaryDispel": true
+        },
+        "expected": [
+          0.4,
+          0.6
+        ]
+      },
+      {
+        "id": "breath_expired_arrow_remains",
+        "input": {
+          "breathUntil": 3,
+          "arrowUntil": 4,
+          "now": 3.5
+        },
+        "expected": 0.15
+      },
+      {
+        "id": "marker_no_extra_detection",
+        "input": {
+          "AtruRng": null,
+          "stockRng": 900
+        },
+        "expected": 0
+      },
+      {
+        "id": "ring_[50, 150, 240]_0",
+        "input": {
+          "rings": [
+            50,
+            150,
+            240
+          ],
+          "distance": 0
+        },
+        "expected": 1
+      },
+      {
+        "id": "ring_[50, 150, 240]_50",
+        "input": {
+          "rings": [
+            50,
+            150,
+            240
+          ],
+          "distance": 50
+        },
+        "expected": 1
+      },
+      {
+        "id": "ring_[50, 150, 240]_50.001",
+        "input": {
+          "rings": [
+            50,
+            150,
+            240
+          ],
+          "distance": 50.001
+        },
+        "expected": 0.6
+      },
+      {
+        "id": "ring_[50, 150, 240]_150",
+        "input": {
+          "rings": [
+            50,
+            150,
+            240
+          ],
+          "distance": 150
+        },
+        "expected": 0.6
+      },
+      {
+        "id": "ring_[50, 150, 240]_150.001",
+        "input": {
+          "rings": [
+            50,
+            150,
+            240
+          ],
+          "distance": 150.001
+        },
+        "expected": 0.4
+      },
+      {
+        "id": "ring_[50, 150, 240]_240",
+        "input": {
+          "rings": [
+            50,
+            150,
+            240
+          ],
+          "distance": 240
+        },
+        "expected": 0.4
+      },
+      {
+        "id": "ring_[50, 150, 240]_240.001",
+        "input": {
+          "rings": [
+            50,
+            150,
+            240
+          ],
+          "distance": 240.001
+        },
+        "expected": 0
+      },
+      {
+        "id": "ring_[70, 200, 320]_0",
+        "input": {
+          "rings": [
+            70,
+            200,
+            320
+          ],
+          "distance": 0
+        },
+        "expected": 1
+      },
+      {
+        "id": "ring_[70, 200, 320]_70",
+        "input": {
+          "rings": [
+            70,
+            200,
+            320
+          ],
+          "distance": 70
+        },
+        "expected": 1
+      },
+      {
+        "id": "ring_[70, 200, 320]_70.001",
+        "input": {
+          "rings": [
+            70,
+            200,
+            320
+          ],
+          "distance": 70.001
+        },
+        "expected": 0.6
+      },
+      {
+        "id": "ring_[70, 200, 320]_200",
+        "input": {
+          "rings": [
+            70,
+            200,
+            320
+          ],
+          "distance": 200
+        },
+        "expected": 0.6
+      },
+      {
+        "id": "ring_[70, 200, 320]_200.001",
+        "input": {
+          "rings": [
+            70,
+            200,
+            320
+          ],
+          "distance": 200.001
+        },
+        "expected": 0.4
+      },
+      {
+        "id": "ring_[70, 200, 320]_320",
+        "input": {
+          "rings": [
+            70,
+            200,
+            320
+          ],
+          "distance": 320
+        },
+        "expected": 0.4
+      },
+      {
+        "id": "ring_[70, 200, 320]_320.001",
+        "input": {
+          "rings": [
+            70,
+            200,
+            320
+          ],
+          "distance": 320.001
+        },
+        "expected": 0
+      },
+      {
+        "id": "splash_active_rank1",
+        "input": {
+          "rank": 1,
+          "weaponType": "missile"
+        },
+        "expected": false
+      },
+      {
+        "id": "splash_active_rank2",
+        "input": {
+          "rank": 2,
+          "weaponType": "missile"
+        },
+        "expected": false
+      },
+      {
+        "id": "splash_active_rank3",
+        "input": {
+          "rank": 3,
+          "weaponType": "msplash"
+        },
+        "expected": true
+      },
+      {
+        "id": "splash_active_rank4",
+        "input": {
+          "rank": 4,
+          "weaponType": "msplash"
+        },
+        "expected": true
+      },
+      {
+        "id": "splash_active_rank5",
+        "input": {
+          "rank": 5,
+          "weaponType": "msplash"
+        },
+        "expected": true
+      },
+      {
+        "id": "splash_active_rank6",
+        "input": {
+          "rank": 6,
+          "weaponType": "msplash"
+        },
+        "expected": true
+      },
+      {
+        "id": "splash_main_flat_not_spread",
+        "input": {
+          "R": 100,
+          "M": 3,
+          "B": 25,
+          "secondaryFactor": 0.6
+        },
+        "expected": [
+          325,
+          180
+        ]
+      },
+      {
+        "id": "source_primary_and_secondary_B031_once",
+        "input": {
+          "raw": [
+            100,
+            60
+          ],
+          "multiplier": 1.3
+        },
+        "expected": [
+          130,
+          78
+        ]
+      },
+      {
+        "id": "no_friend_collateral",
+        "input": {
+          "candidates": [
+            [
+              1,
+              "enemy"
+            ],
+            [
+              2,
+              "friend"
+            ],
+            [
+              3,
+              "enemy"
+            ]
+          ]
+        },
+        "expected": [
+          1,
+          3
+        ]
+      },
+      {
+        "id": "primary_first_unique",
+        "input": {
+          "primary": 7,
+          "snapshot": [
+            4,
+            7,
+            1,
+            7
+          ]
+        },
+        "expected": [
+          7,
+          1,
+          4
+        ]
+      },
+      {
+        "id": "blue_air_primary_splash",
+        "input": {
+          "slot1": "msplash",
+          "targs": "air",
+          "slot2Enabled": false
+        },
+        "expected": true
+      },
+      {
+        "id": "main_miss_cancels_cold_and_area",
+        "input": {
+          "mainHit": false,
+          "receivers": [
+            1,
+            2,
+            3
+          ]
+        },
+        "expected": []
+      },
+      {
+        "id": "dead_primary_plain_collateral",
+        "input": {
+          "targetAlive": false,
+          "R": 100,
+          "storedPoint": true
+        },
+        "expected": [
+          1,
+          0,
+          60
+        ]
+      },
+      {
+        "id": "form_switch_keeps_launched_green",
+        "input": {
+          "launched": "E001",
+          "current": "E005"
+        },
+        "expected": [
+          "A011",
+          "missile"
+        ]
+      },
+      {
+        "id": "no_freezing_buildings",
+        "input": {
+          "blueAbilities": "Avul,AInv,A013,A014,T033"
+        },
+        "expected": false
+      },
+      {
+        "id": "target_ordinary",
+        "input": {
+          "unit": {},
+          "columns": [
+            "poison",
+            "cold",
+            "splashCollateral"
+          ]
+        },
+        "expected": [
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "id": "target_air",
+        "input": {
+          "unit": {
+            "air": true
+          },
+          "columns": [
+            "poison",
+            "cold",
+            "splashCollateral"
+          ]
+        },
+        "expected": [
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "id": "target_magicimmune",
+        "input": {
+          "unit": {
+            "magicimmune": true
+          },
+          "columns": [
+            "poison",
+            "cold",
+            "splashCollateral"
+          ]
+        },
+        "expected": [
+          true,
+          true,
+          true
+        ]
+      },
+      {
+        "id": "target_ethereal",
+        "input": {
+          "unit": {
+            "ethereal": true
+          },
+          "columns": [
+            "poison",
+            "cold",
+            "splashCollateral"
+          ]
+        },
+        "expected": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "id": "target_mechanical",
+        "input": {
+          "unit": {
+            "mechanical": true,
+            "organic": false
+          },
+          "columns": [
+            "poison",
+            "cold",
+            "splashCollateral"
+          ]
+        },
+        "expected": [
+          false,
+          true,
+          true
+        ]
+      },
+      {
+        "id": "target_structure",
+        "input": {
+          "unit": {
+            "structure": true
+          },
+          "columns": [
+            "poison",
+            "cold",
+            "splashCollateral"
+          ]
+        },
+        "expected": [
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "id": "target_ward",
+        "input": {
+          "unit": {
+            "ward": true
+          },
+          "columns": [
+            "poison",
+            "cold",
+            "splashCollateral"
+          ]
+        },
+        "expected": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "id": "target_friendly",
+        "input": {
+          "unit": {
+            "enemy": false
+          },
+          "columns": [
+            "poison",
+            "cold",
+            "splashCollateral"
+          ]
+        },
+        "expected": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "id": "target_hidden",
+        "input": {
+          "unit": {
+            "hidden": true
+          },
+          "columns": [
+            "poison",
+            "cold",
+            "splashCollateral"
+          ]
+        },
+        "expected": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "id": "target_locust",
+        "input": {
+          "unit": {
+            "Aloc": true
+          },
+          "columns": [
+            "poison",
+            "cold",
+            "splashCollateral"
+          ]
+        },
+        "expected": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "id": "target_invulnerable",
+        "input": {
+          "unit": {
+            "invulnerable": true
+          },
+          "columns": [
+            "poison",
+            "cold",
+            "splashCollateral"
+          ]
+        },
+        "expected": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "id": "target_dead",
+        "input": {
+          "unit": {
+            "alive": false
+          },
+          "columns": [
+            "poison",
+            "cold",
+            "splashCollateral"
+          ]
+        },
+        "expected": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "id": "flight_us_450",
+        "input": {
+          "distance": 450,
+          "speed": 900
+        },
+        "expected": 500000
+      },
+      {
+        "id": "flight_us_900",
+        "input": {
+          "distance": 900,
+          "speed": 900
+        },
+        "expected": 1000000
+      },
+      {
+        "id": "flight_us_1200",
+        "input": {
+          "distance": 1200,
+          "speed": 900
+        },
+        "expected": 1333333
+      }
+    ],
+    "specCaseCount": 91,
+    "relativeLinks": 32
+  },
+  "sharedWeaponInterface": {
+    "baselineId": "weapon-attribute-interface-v1",
+    "path": "docs/rules/weapon-field-source-notes.json",
+    "status": "adopted_under_Q24",
+    "rules": [
+      "W01",
+      "W02",
+      "W03"
+    ],
+    "scope": "R andnativefield adapters reused; no fullAEme stattransition claim"
+  }
+}

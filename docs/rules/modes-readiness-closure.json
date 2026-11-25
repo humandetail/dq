@@ -1,0 +1,360 @@
+{
+  "id": "modes-readiness-v1",
+  "status": "ready",
+  "scope": "single-player ordinary reachable game",
+  "source": "reference/map-6.25/main.disasm",
+  "sourceHash": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+  "shared": [
+    "web-wave-boundaries.json",
+    "challenge-spawns.json",
+    "tower-lifecycle.md",
+    "npc-abyss-dragon-abilities.json",
+    "damage-pipeline.md",
+    "skill-lizard-frenzy-and-gold.md",
+    "waves-data.json"
+  ],
+  "waveCounts": {
+    "authority": "web-wave-boundaries.json",
+    "endlessOrdinary": 7,
+    "finalMainlineSpawnAtWindowEnd": false
+  },
+  "capacity": {
+    "sourceCheckOn": "wave start or Roshan start before advancing counter/spawning",
+    "m2Mainline": {
+      "rule": "C01",
+      "limit": 100,
+      "checkOn": "immediately after first batch enters, including Roshan",
+      "count": "sum points of living enemies inside the containment area",
+      "phase": "first batch and check commit together before same-time attacks or snapshots",
+      "laterBatchesTriggerCheck": false
+    },
+    "failure": "current points > limit",
+    "boardRefreshSeconds": 2,
+    "boardCanEndRun": false,
+    "deathBeforeCheckRemovesPoints": true,
+    "ordinaryEndlessFailureOutcome": "score settlement"
+  },
+  "mainlineGold": {
+    "commit": "sum B03 gold-target score from actual damage source owner",
+    "close": "kill remaining m999/m998, calculate and reset sum, then credit integer gold",
+    "rounding": "floor initial linear term, successive soft caps, floor after Q18 VIP factor, integer SetPlayerState",
+    "sourceLines": [
+      [
+        166725,
+        166785
+      ],
+      [
+        182754,
+        183124
+      ]
+    ]
+  },
+  "roshan": {
+    "deadline": 480,
+    "death": "actual current mBOS death increments count",
+    "settlement": "once; actual positive kills and selected post-mode => 8000 per kill and +5 transition; otherwise mainline victory settlement",
+    "sourceLines": [
+      [
+        183699,
+        183741
+      ],
+      [
+        185067,
+        185075
+      ],
+      [
+        168664,
+        168696
+      ],
+      [
+        185973,
+        186112
+      ]
+    ]
+  },
+  "abyss": {
+    "initialRank": 0,
+    "entryToFirstPrep": 30,
+    "prepSeconds": 240,
+    "prepToSpawnSeconds": 5,
+    "manual": "accepted J003 unit-target, same owner, one round selection; all chosen immediately close preparation",
+    "fallback": {
+      "workerGate": "J003 still present",
+      "center": [
+        0,
+        0
+      ],
+      "radius": 100000,
+      "conditions": [
+        "native HERO",
+        "same owner as worker",
+        "H010 uniqueness when applicable"
+      ],
+      "order": "B04 existing non-removed spatial entities in creation order; shared group excludes hidden and Aloc",
+      "extraScriptAliveGate": false,
+      "empty": "consume J003, keep empty; continue after 5 seconds"
+    },
+    "selectedUnit": "keep stable entity id through tower resurrection; no automatic retarget until next prep",
+    "stages": {
+      "1": {
+        "template": "ma01",
+        "duration": 60,
+        "end": "success even with boss alive; remove uncollected chicken drops"
+      },
+      "2": {
+        "template": "ma03",
+        "duration": 150,
+        "normalDeathDrop": "i800",
+        "successfulWorkerReward": "i237"
+      },
+      "3": {
+        "template": "ma06",
+        "duration": 150,
+        "successfulWorkerReward": "i237"
+      },
+      "4": {
+        "template": "ma99",
+        "duration": 150,
+        "death": "save previous rank, increment rank, begin protected revival"
+      }
+    },
+    "retry": {
+      "sharedRemainingInitially": 4,
+      "failure": "non-trial current boss HP>0 on timeout",
+      "carry": "absolute HP and same rank; reset selection/hidden state; new preparation after 8 seconds",
+      "newFightDuration": "fresh stage template initial duration, including 150 on dragon retry",
+      "stopAfterFailedAttempts": 5,
+      "afterSuccessAdvanceSeconds": 8
+    },
+    "dragonRevival": {
+      "offsetsSeconds": [
+        2,
+        7.5,
+        9.5
+      ],
+      "inherits": [
+        "position",
+        "facing",
+        "path userData"
+      ],
+      "countdownAtCombatResume": "min(300, old remaining + 30)",
+      "saveBeforeIncrement": true,
+      "keepsParticipants": true,
+      "ordinaryWorkerReward": false
+    },
+    "sourceLines": [
+      [
+        59938,
+        60104
+      ],
+      [
+        157085,
+        157262
+      ],
+      [
+        157392,
+        157403
+      ],
+      [
+        158206,
+        158269
+      ],
+      [
+        158440,
+        158755
+      ],
+      [
+        158896,
+        159246
+      ],
+      [
+        159594,
+        160035
+      ],
+      [
+        160092,
+        160255
+      ]
+    ]
+  },
+  "queue": {
+    "order": [
+      "deadlineMicros",
+      "enqueueSequence"
+    ],
+    "settlement": "consume mode-phase generation once; death runs synchronously within committing damage",
+    "invalidate": "cancel prior-phase mode timers, ignore stale settlement attempts and hits to removed enemy entities",
+    "save": [
+      "simulation clock and enqueue sequence",
+      "phase and attempt/rank generation",
+      "active deadline and current boss ID",
+      "selected heroes and companions",
+      "hidden entity/item restoration records",
+      "retry budget and saved absolute boss HP",
+      "dragon revival subphase and retained time",
+      "settlement/reward committed state"
+    ]
+  },
+  "verification": [
+    {
+      "probe": "native-fallback-no-lua-alive-filter",
+      "selected": "H001",
+      "spawnAfter": 5
+    },
+    {
+      "probe": "native-fallback-empty",
+      "selected": null,
+      "spawnAfter": 5
+    },
+    {
+      "probe": "native-round-end",
+      "stage": 1,
+      "life": 300,
+      "retriesBefore": 0,
+      "outcome": "next",
+      "calls": [
+        "remove",
+        "clear",
+        "success",
+        8
+      ]
+    },
+    {
+      "probe": "native-round-end",
+      "stage": 2,
+      "life": 0,
+      "retriesBefore": 0,
+      "outcome": "next",
+      "calls": [
+        "clear",
+        "success",
+        8
+      ]
+    },
+    {
+      "probe": "native-round-end",
+      "stage": 2,
+      "life": 375,
+      "retriesBefore": 4,
+      "outcome": "retry",
+      "calls": [
+        "clear",
+        8
+      ]
+    },
+    {
+      "probe": "native-round-end",
+      "stage": 4,
+      "life": 9200,
+      "retriesBefore": 1,
+      "outcome": "retry",
+      "calls": [
+        "clear",
+        8
+      ]
+    },
+    {
+      "probe": "native-round-end",
+      "stage": 4,
+      "life": 500,
+      "retriesBefore": 0,
+      "outcome": "defeat",
+      "calls": [
+        "defeat"
+      ]
+    },
+    {
+      "probe": "B05-mode-boundary",
+      "kind": "source-pre-spawn-capacity",
+      "effectFirst": false,
+      "outcome": "defeat"
+    },
+    {
+      "probe": "B05-mode-boundary",
+      "kind": "source-pre-spawn-capacity",
+      "effectFirst": true,
+      "outcome": "spawn"
+    },
+    {
+      "probe": "B05-mode-boundary",
+      "kind": "roshan",
+      "effectFirst": false,
+      "outcome": "mainline-settlement"
+    },
+    {
+      "probe": "B05-mode-boundary",
+      "kind": "roshan",
+      "effectFirst": true,
+      "outcome": "post-mode+8000"
+    },
+    {
+      "probe": "B05-mode-boundary",
+      "kind": "abyss",
+      "effectFirst": false,
+      "outcome": "retry-remaining-HP"
+    },
+    {
+      "probe": "B05-mode-boundary",
+      "kind": "abyss",
+      "effectFirst": true,
+      "outcome": "reward-next"
+    },
+    {
+      "probe": "B05-mode-boundary",
+      "kind": "dragon",
+      "effectFirst": false,
+      "outcome": "retry-same-rank"
+    },
+    {
+      "probe": "B05-mode-boundary",
+      "kind": "dragon",
+      "effectFirst": true,
+      "outcome": "save-rank+revive-30s"
+    },
+    {
+      "probe": "B05-mode-boundary",
+      "kind": "prep",
+      "effectFirst": false,
+      "outcome": "automatic"
+    },
+    {
+      "probe": "B05-mode-boundary",
+      "kind": "prep",
+      "effectFirst": true,
+      "outcome": "manual"
+    },
+    {
+      "probe": "M2-C01-first-batch-in-circle",
+      "wave": 2,
+      "spawnedUnit": "m002",
+      "previousAlivePointsInCircle": 99,
+      "pointsAfterFirstBatch": 100,
+      "outcomeBeforeAttack": "continue"
+    },
+    {
+      "probe": "M2-C01-first-batch-in-circle",
+      "wave": 2,
+      "spawnedUnit": "m002",
+      "previousAlivePointsInCircle": 100,
+      "pointsAfterFirstBatch": 101,
+      "outcomeBeforeAttack": "defeat"
+    },
+    {
+      "probe": "M2-C01-first-batch-in-circle",
+      "wave": 55,
+      "spawnedUnit": "mBOS",
+      "previousAlivePointsInCircle": 99,
+      "pointsAfterFirstBatch": 100,
+      "outcomeBeforeAttack": "continue"
+    },
+    {
+      "probe": "M2-C01-first-batch-in-circle",
+      "wave": 55,
+      "spawnedUnit": "mBOS",
+      "previousAlivePointsInCircle": 100,
+      "pointsAfterFirstBatch": 101,
+      "outcomeBeforeAttack": "defeat"
+    }
+  ],
+  "pending": []
+}

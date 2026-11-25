@@ -1,0 +1,7597 @@
+{
+  "baselineId": "item-effect-coverage-v1",
+  "inventory": {
+    "workbookItems": 243,
+    "mountedAliases": 163,
+    "wholeItemReady": 243,
+    "componentsReady": 586
+  },
+  "statusPolicy": "Ready means an existing scoped Web rule. Literal callback references and unmatched descriptions remain unknown until effect verification. Initial acquisition and client runtime verification are separate.",
+  "remainingNativeFamilies": {},
+  "remainingCallbackItems": {},
+  "reviewedWeaponEffectItems": {
+    "i149": "霜冻攻击",
+    "i153": "冰霜吐息",
+    "i173": "连环闪电",
+    "i177": "连环闪电",
+    "i186": "腐蚀",
+    "i188": "腐蚀",
+    "i204": "万箭齐发",
+    "i282": "万箭齐发"
+  },
+  "items": [
+    {
+      "id": "i001",
+      "name": "蓝色卡片",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H5",
+      "abilList": "I001",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIgo",
+          "path": [
+            "I001"
+          ],
+          "componentReady": true,
+          "rule": "item-reward-packs-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i002",
+      "name": "橙色卡片",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H6",
+      "abilList": "I002",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIgo",
+          "path": [
+            "I002"
+          ],
+          "componentReady": true,
+          "rule": "item-reward-packs-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i003",
+      "name": "红色卡片",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H7",
+      "abilList": "I003",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIgo",
+          "path": [
+            "I003"
+          ],
+          "componentReady": true,
+          "rule": "item-reward-packs-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i004",
+      "name": "特制橙色卡片",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H8",
+      "abilList": "I004",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIgo",
+          "path": [
+            "I004"
+          ],
+          "componentReady": true,
+          "rule": "item-reward-packs-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i005",
+      "name": "黑色卡片",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H9",
+      "abilList": "I005",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIgo",
+          "path": [
+            "I005"
+          ],
+          "componentReady": true,
+          "rule": "item-reward-packs-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i006",
+      "name": "新手礼包",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H10",
+      "abilList": "I006",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIgo",
+          "path": [
+            "I006"
+          ],
+          "componentReady": true,
+          "rule": "item-reward-packs-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i101",
+      "name": "艺人面罩",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H11",
+      "abilList": "I101",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIrm",
+          "path": [
+            "I101"
+          ],
+          "componentReady": true,
+          "rule": "item-regeneration-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i102",
+      "name": "能量之球",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H12",
+      "abilList": "I111",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AImm",
+          "path": [
+            "I111"
+          ],
+          "componentReady": true,
+          "rule": "item-resources-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i103",
+      "name": "制作书-圣殿指环",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H13",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i104"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i104",
+      "name": "圣殿指环",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H14",
+      "abilList": "I112,I102",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AImm",
+          "path": [
+            "I112"
+          ],
+          "componentReady": true,
+          "rule": "item-resources-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIrm",
+          "path": [
+            "I102"
+          ],
+          "componentReady": true,
+          "rule": "item-regeneration-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i105",
+      "name": "精灵皮靴",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H15",
+      "abilList": "I148,I148",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I148"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I148"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i106",
+      "name": "欢欣之刃",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H16",
+      "abilList": "I150",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I150"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i107",
+      "name": "制作书-夜叉",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H17",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i108"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i108",
+      "name": "夜叉",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H18",
+      "abilList": "I150,I149,I147,I122",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I150"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I149"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I147"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIas",
+          "path": [
+            "I122"
+          ],
+          "componentReady": true,
+          "rule": "item-attack-speed-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i109",
+      "name": "巨人力量腰带",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H19",
+      "abilList": "I142,I142",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I142"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I142"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i110",
+      "name": "食人魔之斧",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H20",
+      "abilList": "I144",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I144"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i111",
+      "name": "制作书-散华",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H21",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i112"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i112",
+      "name": "散华",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H22",
+      "abilList": "I144,I143,I141,I122",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I144"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I143"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I141"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIas",
+          "path": [
+            "I122"
+          ],
+          "componentReady": true,
+          "rule": "item-attack-speed-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i113",
+      "name": "制作书-散夜对剑",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H23",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i114"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i114",
+      "name": "散夜对剑",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H24",
+      "abilList": "I165,I124",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I165"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIas",
+          "path": [
+            "I124"
+          ],
+          "componentReady": true,
+          "rule": "item-attack-speed-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i115",
+      "name": "狂战斧",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H25",
+      "abilList": "I135,I135",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I135"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I135"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "callback",
+          "entry": "ItemDamageActionBefore",
+          "sourceLines": [
+            145556
+          ],
+          "componentReady": true,
+          "rule": "item-damage-effects"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i116",
+      "name": "制作书-狂战斧",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H26",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i115"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i117",
+      "name": "阔剑",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H27",
+      "abilList": "I134,I134",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I134"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I134"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i118",
+      "name": "大剑",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H28",
+      "abilList": "I134,I134,I133,I131",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I134"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I134"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I133"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I131"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i119",
+      "name": "EUL的神圣法杖",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H29",
+      "abilList": "I103,I156,I155,I153",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIrm",
+          "path": [
+            "I103"
+          ],
+          "componentReady": true,
+          "rule": "item-regeneration-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I156"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I155"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I153"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "ItemDamageActionAfter",
+          "sourceLines": [
+            145764
+          ],
+          "componentReady": true,
+          "rule": "item-damage-dispatch"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i120",
+      "name": "制作书-EUL的神圣法杖",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H30",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i119"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i121",
+      "name": "虚无宝石",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H31",
+      "abilList": "I102",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIrm",
+          "path": [
+            "I102"
+          ],
+          "componentReady": true,
+          "rule": "item-regeneration-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i122",
+      "name": "魔力法杖",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H32",
+      "abilList": "I156",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I156"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i123",
+      "name": "蝴蝶",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H33",
+      "abilList": "I166,I125,I134,I134",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I166"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIas",
+          "path": [
+            "I125"
+          ],
+          "componentReady": true,
+          "rule": "item-attack-speed-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I134"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I134"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i124",
+      "name": "制作书-蝴蝶",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H34",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i123"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i125",
+      "name": "短棍",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H35",
+      "abilList": "I134,I122",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I134"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "ability",
+          "code": "AIas",
+          "path": [
+            "I122"
+          ],
+          "componentReady": true,
+          "rule": "item-attack-speed-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i126",
+      "name": "角鹰弓",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H36",
+      "abilList": "I151,I149",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I151"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I149"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i127",
+      "name": "经验书",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H37",
+      "abilList": "I167",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AOcl",
+          "path": [
+            "I167"
+          ],
+          "componentReady": true,
+          "rule": "item-targeted-books-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i128",
+      "name": "能量书",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H38",
+      "abilList": "I168",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AOcl",
+          "path": [
+            "I168"
+          ],
+          "componentReady": true,
+          "rule": "item-targeted-books-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i129",
+      "name": "天鹰戒指",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H39",
+      "abilList": "I102,I169,I113",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIrm",
+          "path": [
+            "I102"
+          ],
+          "componentReady": true,
+          "rule": "item-regeneration-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AHab",
+          "path": [
+            "I169"
+          ],
+          "componentReady": true,
+          "rule": "item-regeneration-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AImm",
+          "path": [
+            "I113"
+          ],
+          "componentReady": true,
+          "rule": "item-resources-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i130",
+      "name": "制作书-天鹰戒指",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H40",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i129"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i131",
+      "name": "破损的妖刀村正",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H41",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "callback",
+          "entry": "ItemUnitDeadAction",
+          "sourceLines": [
+            146076
+          ],
+          "componentReady": true,
+          "rule": "item-growth-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Get",
+          "sourceLines": [
+            144733
+          ],
+          "componentReady": true,
+          "rule": "item-growth-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i132",
+      "name": "完美的妖刀村正",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H42",
+      "abilList": "I170,I125",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I170"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIas",
+          "path": [
+            "I125"
+          ],
+          "componentReady": true,
+          "rule": "item-attack-speed-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "ItemDamageActionAfter",
+          "sourceLines": [
+            145930
+          ],
+          "componentReady": true,
+          "rule": "item-muramasa-takemitsu"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Attack_Special",
+          "sourceLines": [
+            146274
+          ],
+          "componentReady": true,
+          "rule": "item-muramasa-takemitsu"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i133",
+      "name": "破损的妖刀竹光",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H43",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "callback",
+          "entry": "ItemUnitDeadAction",
+          "sourceLines": [
+            146089
+          ],
+          "componentReady": true,
+          "rule": "item-growth-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Get",
+          "sourceLines": [
+            144738
+          ],
+          "componentReady": true,
+          "rule": "item-growth-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i134",
+      "name": "完美的妖刀竹光",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H44",
+      "abilList": "I158,I105",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I158"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIrm",
+          "path": [
+            "I105"
+          ],
+          "componentReady": true,
+          "rule": "item-regeneration-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "ItemDamageActionAfter",
+          "sourceLines": [
+            145949
+          ],
+          "componentReady": true,
+          "rule": "item-muramasa-takemitsu"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Skill_Action",
+          "sourceLines": [
+            146571
+          ],
+          "componentReady": true,
+          "rule": "item-muramasa-takemitsu"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i135",
+      "name": "辉耀Lv1",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H45",
+      "abilList": "I180,I181",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I180"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "ability",
+          "code": "Apig",
+          "path": [
+            "I181"
+          ],
+          "componentReady": true,
+          "rule": "item-immolation-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i136",
+      "name": "辉耀Lv2",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H46",
+      "abilList": "I180,I182",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I180"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "ability",
+          "code": "Apig",
+          "path": [
+            "I182"
+          ],
+          "componentReady": true,
+          "rule": "item-immolation-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i137",
+      "name": "辉耀Lv3",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H47",
+      "abilList": "I180,I183",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I180"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "ability",
+          "code": "Apig",
+          "path": [
+            "I183"
+          ],
+          "componentReady": true,
+          "rule": "item-immolation-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i138",
+      "name": "辉耀Max",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H48",
+      "abilList": "I180,I184",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I180"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "ability",
+          "code": "Apig",
+          "path": [
+            "I184"
+          ],
+          "componentReady": true,
+          "rule": "item-immolation-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i139",
+      "name": "制作书-辉耀",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H49",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i135",
+            "i136",
+            "i137",
+            "i138"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i140",
+      "name": "圣者遗物",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H50",
+      "abilList": "I135,I135",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I135"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I135"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i141",
+      "name": "金箍棒",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H51",
+      "abilList": "I185,I187",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AOcr",
+          "path": [
+            "I185"
+          ],
+          "componentReady": true,
+          "rule": "skill-coup-de-grace"
+        },
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I187"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "script-effect",
+          "entry": "documented-item-effect",
+          "componentReady": true,
+          "rule": "item-attack-procs-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i142",
+      "name": "制作书-金箍棒",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H52",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i141"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i143",
+      "name": "恶魔刀锋",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H53",
+      "abilList": "I135,I134,I134",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I135"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I134"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I134"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i144",
+      "name": "标枪",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H54",
+      "abilList": "I134,I134",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I134"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I134"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "script-effect",
+          "entry": "documented-item-effect",
+          "componentReady": true,
+          "rule": "item-attack-procs-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i145",
+      "name": "恐鳌之心",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H55",
+      "abilList": "I249,I189,I190",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "Aoar",
+          "path": [
+            "I249"
+          ],
+          "componentReady": true,
+          "rule": "item-regeneration-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I189"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIml",
+          "path": [
+            "I190"
+          ],
+          "componentReady": true,
+          "rule": "item-resources-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "ItemUnitDeadAction",
+          "sourceLines": [
+            146138
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i146",
+      "name": "制作书-恐鳌之心",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H56",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i145"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i147",
+      "name": "掠夺者之斧",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H57",
+      "abilList": "I250, I145",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "Aoar",
+          "path": [
+            "I250"
+          ],
+          "componentReady": true,
+          "rule": "item-regeneration-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I145"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "ItemUnitDeadAction",
+          "sourceLines": [
+            146146
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i148",
+      "name": "活力之球",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H58",
+      "abilList": "I191",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIml",
+          "path": [
+            "I191"
+          ],
+          "componentReady": true,
+          "rule": "item-resources-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i149",
+      "name": "冰霜之眼",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H59",
+      "abilList": "I162,I161,I192,I193",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I161"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIml",
+          "path": [
+            "I192"
+          ],
+          "componentReady": true,
+          "rule": "item-resources-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AImm",
+          "path": [
+            "I193"
+          ],
+          "componentReady": true,
+          "rule": "item-resources-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Attack_Action",
+          "sourceLines": [
+            146356
+          ],
+          "componentReady": true,
+          "rule": "item-weapon-effects-batch-01"
+        },
+        {
+          "kind": "weapon-effect",
+          "entry": "霜冻攻击",
+          "rule": "item-weapon-effects-batch-01",
+          "componentReady": true
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i150",
+      "name": "制作书-冰霜之眼",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H60",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i149"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i151",
+      "name": "精气之球",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H61",
+      "abilList": "I194,I195",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIml",
+          "path": [
+            "I194"
+          ],
+          "componentReady": true,
+          "rule": "item-resources-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AImm",
+          "path": [
+            "I195"
+          ],
+          "componentReady": true,
+          "rule": "item-resources-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i152",
+      "name": "极限法球",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H62",
+      "abilList": "I161,I161,I160",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I161"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I161"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I160"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i153",
+      "name": "斯嘉蒂之眼",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H63",
+      "abilList": "I163,I162,I162",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I163"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Attack_Action",
+          "sourceLines": [
+            146370
+          ],
+          "componentReady": true,
+          "rule": "item-weapon-effects-batch-01"
+        },
+        {
+          "kind": "weapon-effect",
+          "entry": "冰霜吐息",
+          "rule": "item-weapon-effects-batch-01",
+          "componentReady": true
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i154",
+      "name": "制作书-斯嘉蒂之眼",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H64",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i153"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i155",
+      "name": "西瓦的守护",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H65",
+      "abilList": "I162,I161,I196,I197",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I161"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I196"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AOae",
+          "path": [
+            "I197"
+          ],
+          "componentReady": true,
+          "rule": "item-auras-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i156",
+      "name": "制作书-西瓦的守护",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H66",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i155"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i157",
+      "name": "神秘法杖",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H67",
+      "abilList": "I157,I156",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I157"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I156"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i158",
+      "name": "银月之晶",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H68",
+      "abilList": "I125,I125",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIas",
+          "path": [
+            "I125"
+          ],
+          "componentReady": true,
+          "rule": "item-attack-speed-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIas",
+          "path": [
+            "I125"
+          ],
+          "componentReady": true,
+          "rule": "item-attack-speed-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i159",
+      "name": "制作书-银月之晶",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H69",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i158"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i160",
+      "name": "振奋宝石",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H70",
+      "abilList": "I124,I121",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIas",
+          "path": [
+            "I124"
+          ],
+          "componentReady": true,
+          "rule": "item-attack-speed-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIas",
+          "path": [
+            "I121"
+          ],
+          "componentReady": true,
+          "rule": "item-attack-speed-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i161",
+      "name": "大法师之戒",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H71",
+      "abilList": "I106,I161,I199,I198",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIrm",
+          "path": [
+            "I106"
+          ],
+          "componentReady": true,
+          "rule": "item-regeneration-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I161"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I199"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AHab",
+          "path": [
+            "I198"
+          ],
+          "componentReady": true,
+          "rule": "item-regeneration-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "ItemDamageActionAfter",
+          "sourceLines": [
+            145772
+          ],
+          "componentReady": true,
+          "rule": "item-damage-dispatch"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i162",
+      "name": "制作书-大法师之戒",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H72",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i161"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i163",
+      "name": "空灵挂件",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H73",
+      "abilList": "I160,I160,I154,I154",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I160"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I160"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I154"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I154"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i164",
+      "name": "制作书-空灵挂件",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H74",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i163"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i165",
+      "name": "幽灵系带",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H75",
+      "abilList": "I160,I160,I148,I148",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I160"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I160"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I148"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I148"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i166",
+      "name": "制作书-幽灵系带",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H76",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i165"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i167",
+      "name": "力量护腕",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H77",
+      "abilList": "I160,I160,I142,I142",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I160"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I160"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I142"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I142"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i168",
+      "name": "制作书-力量护腕",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H78",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i167"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i169",
+      "name": "力量手套",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H79",
+      "abilList": "I142,I142",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I142"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I142"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i170",
+      "name": "敏捷便鞋",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H80",
+      "abilList": "I148,I148",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I148"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I148"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i171",
+      "name": "智力斗篷",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H81",
+      "abilList": "I154,I154",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I154"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I154"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i172",
+      "name": "贵族圆环",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H82",
+      "abilList": "I160,I160",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I160"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I160"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i173",
+      "name": "漩涡",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H83",
+      "abilList": "I123,I135,I134",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIas",
+          "path": [
+            "I123"
+          ],
+          "componentReady": true,
+          "rule": "item-attack-speed-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I135"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I134"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Attack_Action",
+          "sourceLines": [
+            146384
+          ],
+          "componentReady": true,
+          "rule": "item-weapon-effects-batch-01"
+        },
+        {
+          "kind": "weapon-effect",
+          "entry": "连环闪电",
+          "rule": "item-weapon-effects-batch-01",
+          "componentReady": true
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i174",
+      "name": "制作书-漩涡",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H84",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i173"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i175",
+      "name": "加速手套",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H85",
+      "abilList": "I122,I121",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIas",
+          "path": [
+            "I122"
+          ],
+          "componentReady": true,
+          "rule": "item-attack-speed-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIas",
+          "path": [
+            "I121"
+          ],
+          "componentReady": true,
+          "rule": "item-attack-speed-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i176",
+      "name": "秘银锤",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H86",
+      "abilList": "I201",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I201"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i177",
+      "name": "雷神之锤",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H87",
+      "abilList": "I123,I125,I135,I134",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIas",
+          "path": [
+            "I123"
+          ],
+          "componentReady": true,
+          "rule": "item-attack-speed-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIas",
+          "path": [
+            "I125"
+          ],
+          "componentReady": true,
+          "rule": "item-attack-speed-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I135"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I134"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Attack_Action",
+          "sourceLines": [
+            146392
+          ],
+          "componentReady": true,
+          "rule": "item-weapon-effects-batch-01"
+        },
+        {
+          "kind": "weapon-effect",
+          "entry": "连环闪电",
+          "rule": "item-weapon-effects-batch-01",
+          "componentReady": true
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i178",
+      "name": "制作书-雷神之锤",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H88",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i177"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i179",
+      "name": "达贡之神力Lv1",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H89",
+      "abilList": "I161,I156,I155",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I161"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I156"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I155"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "ItemDamageActionAfter",
+          "sourceLines": [
+            145832
+          ],
+          "componentReady": true,
+          "rule": "item-damage-effects"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i180",
+      "name": "达贡之神力Lv2",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H90",
+      "abilList": "I161,I156,I155,I155",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I161"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I156"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I155"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I155"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "ItemDamageActionAfter",
+          "sourceLines": [
+            145824
+          ],
+          "componentReady": true,
+          "rule": "item-damage-effects"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i181",
+      "name": "达贡之神力Lv3",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H91",
+      "abilList": "I161,I156,I156,I155",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I161"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I156"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I156"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I155"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "ItemDamageActionAfter",
+          "sourceLines": [
+            145816
+          ],
+          "componentReady": true,
+          "rule": "item-damage-effects"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i182",
+      "name": "达贡之神力Lv4",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H92",
+      "abilList": "I161,I156,I156,I156",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I161"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I156"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I156"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I156"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "ItemDamageActionAfter",
+          "sourceLines": [
+            145808
+          ],
+          "componentReady": true,
+          "rule": "item-damage-effects"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i183",
+      "name": "达贡之神力Lv5",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H93",
+      "abilList": "I161,I200",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I161"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I200"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "ItemDamageActionAfter",
+          "sourceLines": [
+            145800
+          ],
+          "componentReady": true,
+          "rule": "item-damage-effects"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i184",
+      "name": "达贡之神力Max",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H94",
+      "abilList": "I161,I200,I156",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I161"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I200"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I156"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "ItemDamageActionAfter",
+          "sourceLines": [
+            145792
+          ],
+          "componentReady": true,
+          "rule": "item-damage-effects"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i185",
+      "name": "制作书-达贡之神力",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H95",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i180",
+            "i181",
+            "i182",
+            "i183",
+            "i184",
+            "i179"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i186",
+      "name": "黯灭",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H96",
+      "abilList": "I135,I202",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I135"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "ability",
+          "code": "AIcb",
+          "path": [
+            "I202"
+          ],
+          "componentReady": true,
+          "rule": "item-weapon-effects-batch-01"
+        },
+        {
+          "kind": "weapon-effect",
+          "entry": "腐蚀",
+          "rule": "item-weapon-effects-batch-01",
+          "componentReady": true
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i187",
+      "name": "制作书-黯灭",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H97",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i186"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i188",
+      "name": "大黯灭",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H98",
+      "abilList": "I136,I203",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I136"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "ability",
+          "code": "AIcb",
+          "path": [
+            "I203"
+          ],
+          "componentReady": true,
+          "rule": "item-weapon-effects-batch-01"
+        },
+        {
+          "kind": "weapon-effect",
+          "entry": "腐蚀",
+          "rule": "item-weapon-effects-batch-01",
+          "componentReady": true
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i189",
+      "name": "制作书-大黯灭",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H99",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i188"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i190",
+      "name": "法师长袍",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H100",
+      "abilList": "I154,I154",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I154"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I154"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i191",
+      "name": "阿托斯",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H101",
+      "abilList": "I161,I156,I111,I111",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I161"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I156"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AImm",
+          "path": [
+            "I111"
+          ],
+          "componentReady": true,
+          "rule": "item-resources-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AImm",
+          "path": [
+            "I111"
+          ],
+          "componentReady": true,
+          "rule": "item-resources-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i192",
+      "name": "制作书-阿托斯",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H102",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i191"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i193",
+      "name": "死灵书Lv1",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H103",
+      "abilList": "I204,I156,I154",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIfs",
+          "path": [
+            "I204"
+          ],
+          "componentReady": true,
+          "rule": "item-summons-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I156"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I154"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Auto_Use",
+          "sourceLines": [
+            147887
+          ],
+          "componentReady": true,
+          "rule": "item-summons-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i194",
+      "name": "死灵书Lv2",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H104",
+      "abilList": "I205,I156,I155,I154",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIfs",
+          "path": [
+            "I205"
+          ],
+          "componentReady": true,
+          "rule": "item-summons-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I156"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I155"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I154"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Auto_Use",
+          "sourceLines": [
+            147879
+          ],
+          "componentReady": true,
+          "rule": "item-summons-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i195",
+      "name": "死灵书Lv3",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H105",
+      "abilList": "I206,I156,I156,I154",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIfs",
+          "path": [
+            "I206"
+          ],
+          "componentReady": true,
+          "rule": "item-summons-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I156"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I156"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I154"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Auto_Use",
+          "sourceLines": [
+            147871
+          ],
+          "componentReady": true,
+          "rule": "item-summons-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i196",
+      "name": "死灵书Max",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H106",
+      "abilList": "I207,I200",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIfs",
+          "path": [
+            "I207"
+          ],
+          "componentReady": true,
+          "rule": "item-summons-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I200"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Auto_Use",
+          "sourceLines": [
+            147863
+          ],
+          "componentReady": true,
+          "rule": "item-summons-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i197",
+      "name": "制作书-死灵书",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H107",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i193",
+            "i194",
+            "i195",
+            "i196"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i198",
+      "name": "吸血鬼的祭品",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H108",
+      "abilList": "I208,I103,I111,I111",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AOac",
+          "path": [
+            "I208"
+          ],
+          "componentReady": true,
+          "rule": "item-auras-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIrm",
+          "path": [
+            "I103"
+          ],
+          "componentReady": true,
+          "rule": "item-regeneration-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AImm",
+          "path": [
+            "I111"
+          ],
+          "componentReady": true,
+          "rule": "item-resources-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AImm",
+          "path": [
+            "I111"
+          ],
+          "componentReady": true,
+          "rule": "item-resources-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i199",
+      "name": "制作书-吸血鬼的祭品",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H109",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i198"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i200",
+      "name": "纷争面纱",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H110",
+      "abilList": "I113,I111,I156,I155",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AImm",
+          "path": [
+            "I113"
+          ],
+          "componentReady": true,
+          "rule": "item-resources-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AImm",
+          "path": [
+            "I111"
+          ],
+          "componentReady": true,
+          "rule": "item-resources-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I156"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I155"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "ItemDamageActionAfter",
+          "sourceLines": [
+            145852
+          ],
+          "componentReady": true,
+          "rule": "item-spell-output-batch-01"
+        },
+        {
+          "kind": "script-effect",
+          "entry": "outgoing-spell-resistance-penetration",
+          "componentReady": true,
+          "rule": "item-spell-output-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i201",
+      "name": "制作书-纷争面纱",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H111",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i200"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i202",
+      "name": "邪恶镰刀",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H112",
+      "abilList": "I209,I162,I161,I106",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I209"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I161"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIrm",
+          "path": [
+            "I106"
+          ],
+          "componentReady": true,
+          "rule": "item-regeneration-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Skill_Action",
+          "sourceLines": [
+            146587
+          ],
+          "componentReady": true,
+          "rule": "item-spell-control-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i203",
+      "name": "制作书-邪恶镰刀",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H113",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i202"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i204",
+      "name": "精灵木弓",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H114",
+      "abilList": "I151,I150",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I151"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I150"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Attack_Action",
+          "sourceLines": [
+            146406
+          ],
+          "componentReady": true,
+          "rule": "item-weapon-effects-batch-01"
+        },
+        {
+          "kind": "weapon-effect",
+          "entry": "万箭齐发",
+          "rule": "item-weapon-effects-batch-01",
+          "componentReady": true
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i205",
+      "name": "制作书-精灵木弓",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H115",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i204"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i206",
+      "name": "显形宝石",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H116",
+      "abilList": "Adt1",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "Adet",
+          "path": [
+            "Adt1"
+          ],
+          "componentReady": true,
+          "rule": "item-utility-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i207",
+      "name": "原力法杖",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H117",
+      "abilList": "I211,I156",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "ANcl",
+          "path": [
+            "I211"
+          ],
+          "componentReady": true,
+          "rule": "item-utility-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I156"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i208",
+      "name": "制作书-原力法杖",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H118",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i207"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i209",
+      "name": "大狂战斧",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H119",
+      "abilList": "I212,I213,I113,I104",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AOac",
+          "path": [
+            "I212"
+          ],
+          "componentReady": true,
+          "rule": "item-auras-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I213"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "ability",
+          "code": "AImm",
+          "path": [
+            "I113"
+          ],
+          "componentReady": true,
+          "rule": "item-resources-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIrm",
+          "path": [
+            "I104"
+          ],
+          "componentReady": true,
+          "rule": "item-regeneration-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "ItemDamageActionBefore",
+          "sourceLines": [
+            145564
+          ],
+          "componentReady": true,
+          "rule": "item-damage-effects"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i210",
+      "name": "制作书-大狂战斧",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H120",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i209"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i211",
+      "name": "攻击之爪",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H121",
+      "abilList": "I134",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I134"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i212",
+      "name": "制作书-水晶剑",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H122",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i213"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i213",
+      "name": "水晶剑",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H123",
+      "abilList": "I201,I214",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I201"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "ability",
+          "code": "AOcr",
+          "path": [
+            "I214"
+          ],
+          "componentReady": true,
+          "rule": "skill-coup-de-grace"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i214",
+      "name": "制作书-暴雪弩炮",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H124",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i215"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i215",
+      "name": "暴雪弩炮",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H125",
+      "abilList": "I136,I215",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I136"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "ability",
+          "code": "AOcr",
+          "path": [
+            "I215"
+          ],
+          "componentReady": true,
+          "rule": "skill-coup-de-grace"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i216",
+      "name": "制作书-强袭胸甲",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H126",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i217"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i217",
+      "name": "强袭胸甲",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H127",
+      "abilList": "I135,I216,I217,I218",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I135"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "ability",
+          "code": "AHad",
+          "path": [
+            "I216"
+          ],
+          "componentReady": true,
+          "rule": "item-auras-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AOae",
+          "path": [
+            "I217"
+          ],
+          "componentReady": true,
+          "rule": "item-auras-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIas",
+          "path": [
+            "I218"
+          ],
+          "componentReady": true,
+          "rule": "item-attack-speed-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i218",
+      "name": "振魂石",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H128",
+      "abilList": "I102,I191,I194,I115",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIrm",
+          "path": [
+            "I102"
+          ],
+          "componentReady": true,
+          "rule": "item-regeneration-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIml",
+          "path": [
+            "I191"
+          ],
+          "componentReady": true,
+          "rule": "item-resources-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIml",
+          "path": [
+            "I194"
+          ],
+          "componentReady": true,
+          "rule": "item-resources-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AImm",
+          "path": [
+            "I115"
+          ],
+          "componentReady": true,
+          "rule": "item-resources-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "ItemUnitDeadAction",
+          "sourceLines": [
+            146204
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i219",
+      "name": "制作书-振魂石",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H129",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i218"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i220",
+      "name": "血精石",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H130",
+      "abilList": "I116,I105,I191,I191",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AImm",
+          "path": [
+            "I116"
+          ],
+          "componentReady": true,
+          "rule": "item-resources-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIrm",
+          "path": [
+            "I105"
+          ],
+          "componentReady": true,
+          "rule": "item-regeneration-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIml",
+          "path": [
+            "I191"
+          ],
+          "componentReady": true,
+          "rule": "item-resources-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIml",
+          "path": [
+            "I191"
+          ],
+          "componentReady": true,
+          "rule": "item-resources-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "ItemUnitDeadAction",
+          "sourceLines": [
+            146188
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i221",
+      "name": "制作书-血精石",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H131",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i220"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i222",
+      "name": "空明杖",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H132",
+      "abilList": "I134,I156,I103,I122",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I134"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I156"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIrm",
+          "path": [
+            "I103"
+          ],
+          "componentReady": true,
+          "rule": "item-regeneration-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIas",
+          "path": [
+            "I122"
+          ],
+          "componentReady": true,
+          "rule": "item-attack-speed-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i223",
+      "name": "制作书-空明杖",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H133",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i222"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i224",
+      "name": "紫苑",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H134",
+      "abilList": "I219,I105,I199,I201",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "ANso",
+          "path": [
+            "I219"
+          ],
+          "componentReady": true,
+          "rule": "item-spell-control-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIrm",
+          "path": [
+            "I105"
+          ],
+          "componentReady": true,
+          "rule": "item-regeneration-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I199"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I201"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Auto_Use",
+          "sourceLines": [
+            147975
+          ],
+          "componentReady": true,
+          "rule": "item-spell-control-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i225",
+      "name": "制作书-紫苑",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H135",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i224"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i226",
+      "name": "血棘",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H136",
+      "abilList": "I220,I105,I200,I213",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "ANso",
+          "path": [
+            "I220"
+          ],
+          "componentReady": true,
+          "rule": "item-spell-control-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIrm",
+          "path": [
+            "I105"
+          ],
+          "componentReady": true,
+          "rule": "item-regeneration-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I200"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I213"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Auto_Use",
+          "sourceLines": [
+            147983
+          ],
+          "componentReady": true,
+          "rule": "item-spell-control-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i227",
+      "name": "制作书-血棘",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H137",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i226"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i228",
+      "name": "韧鼓",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H138",
+      "abilList": "I221,I162,I103,I231",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AOae",
+          "path": [
+            "I221"
+          ],
+          "componentReady": true,
+          "rule": "item-auras-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIrm",
+          "path": [
+            "I103"
+          ],
+          "componentReady": true,
+          "rule": "item-regeneration-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AOac",
+          "path": [
+            "I231"
+          ],
+          "componentReady": true,
+          "rule": "item-auras-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i229",
+      "name": "制作书-韧鼓",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H139",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i228"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i230",
+      "name": "远行鞋",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H140",
+      "abilList": "I233,I157,I239",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "ANcl",
+          "path": [
+            "I233"
+          ],
+          "componentReady": true,
+          "rule": "item-utility-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I157"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIms",
+          "path": [
+            "I239"
+          ],
+          "componentReady": true,
+          "rule": "item-armor-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i231",
+      "name": "制作书-远行鞋",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H141",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i230"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i232",
+      "name": "黑皇杖",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H142",
+      "abilList": "I234,I144,I201",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "ANcl",
+          "path": [
+            "I234"
+          ],
+          "componentReady": true,
+          "rule": "item-utility-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I144"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I201"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i233",
+      "name": "制作书-黑皇杖",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H143",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i232"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i234",
+      "name": "闪烁匕首",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H144",
+      "abilList": "I235",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AEbl",
+          "path": [
+            "I235"
+          ],
+          "componentReady": true,
+          "rule": "item-utility-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i235",
+      "name": "侦查守卫",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H145",
+      "abilList": "I236",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "Aeye",
+          "path": [
+            "I236"
+          ],
+          "componentReady": true,
+          "rule": "item-utility-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i236",
+      "name": "限定版-闪烁匕首",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H146",
+      "abilList": "I237,I238",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AEbl",
+          "path": [
+            "I237"
+          ],
+          "componentReady": true,
+          "rule": "item-utility-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIms",
+          "path": [
+            "I238"
+          ],
+          "componentReady": true,
+          "rule": "item-armor-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i237",
+      "name": "深渊礼包",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H147",
+      "abilList": "I240",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIfs",
+          "path": [
+            "I240"
+          ],
+          "componentReady": true,
+          "rule": "item-reward-packs-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Use",
+          "sourceLines": [
+            147039
+          ],
+          "componentReady": true,
+          "rule": "item-reward-packs-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i238",
+      "name": "灵魂之戒",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H148",
+      "abilList": "I245,I103",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "ANcl",
+          "path": [
+            "I245"
+          ],
+          "componentReady": true,
+          "rule": "item-restoration-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIrm",
+          "path": [
+            "I103"
+          ],
+          "componentReady": true,
+          "rule": "item-regeneration-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Auto_Use",
+          "sourceLines": [
+            147909
+          ],
+          "componentReady": true,
+          "rule": "item-restoration-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i239",
+      "name": "制作书-灵魂之戒",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H149",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i238"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i240",
+      "name": "提尔的祝福",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H150",
+      "abilList": "I161,I162",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I161"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "script-effect",
+          "entry": "summon-contract-birth-and-damage",
+          "componentReady": true,
+          "rule": "item-summon-contracts-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i241",
+      "name": "制作书-提尔的祝福",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H151",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i240"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i242",
+      "name": "精神宝石",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H152",
+      "abilList": "I160,I160",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I160"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I160"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Drop",
+          "sourceLines": [
+            147593,
+            147600
+          ],
+          "componentReady": true,
+          "rule": "item-summon-contracts-batch-01"
+        },
+        {
+          "kind": "script-effect",
+          "entry": "summon-contract-birth-and-damage",
+          "componentReady": true,
+          "rule": "item-summon-contracts-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i243",
+      "name": "提尔的祝福-红Lv1",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H153",
+      "abilList": "I162,I162,I162,I144",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I144"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Drop",
+          "sourceLines": [
+            147393,
+            147417
+          ],
+          "componentReady": true,
+          "rule": "item-summon-contracts-batch-01"
+        },
+        {
+          "kind": "script-effect",
+          "entry": "summon-contract-birth-and-damage",
+          "componentReady": true,
+          "rule": "item-summon-contracts-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i244",
+      "name": "制作书-提尔的祝福-红",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H154",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i249",
+            "i250",
+            "i243"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i245",
+      "name": "提尔的祝福-绿Lv1",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H155",
+      "abilList": "I162,I162,I162,I150",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I150"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Drop",
+          "sourceLines": [
+            147450,
+            147474
+          ],
+          "componentReady": true,
+          "rule": "item-summon-contracts-batch-01"
+        },
+        {
+          "kind": "script-effect",
+          "entry": "summon-contract-birth-and-damage",
+          "componentReady": true,
+          "rule": "item-summon-contracts-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i246",
+      "name": "制作书-提尔的祝福-绿",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H156",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i251",
+            "i252",
+            "i245"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i247",
+      "name": "提尔的祝福-蓝Lv1",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H157",
+      "abilList": "I162,I162,I162,I156",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I156"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Drop",
+          "sourceLines": [
+            147507,
+            147531,
+            147564,
+            147571
+          ],
+          "componentReady": true,
+          "rule": "item-summon-contracts-batch-01"
+        },
+        {
+          "kind": "script-effect",
+          "entry": "summon-contract-birth-and-damage",
+          "componentReady": true,
+          "rule": "item-summon-contracts-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i248",
+      "name": "制作书-提尔的祝福-蓝",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H158",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i253",
+            "i254",
+            "i247"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i249",
+      "name": "提尔的祝福-红Lv2",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H159",
+      "abilList": "I162,I162,I162,I144",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I144"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Drop",
+          "sourceLines": [
+            147401,
+            147422
+          ],
+          "componentReady": true,
+          "rule": "item-summon-contracts-batch-01"
+        },
+        {
+          "kind": "script-effect",
+          "entry": "summon-contract-birth-and-damage",
+          "componentReady": true,
+          "rule": "item-summon-contracts-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i250",
+      "name": "提尔的祝福-红Max",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H160",
+      "abilList": "I162,I162,I162,I144",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I144"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Drop",
+          "sourceLines": [
+            147409,
+            147427
+          ],
+          "componentReady": true,
+          "rule": "item-summon-contracts-batch-01"
+        },
+        {
+          "kind": "script-effect",
+          "entry": "summon-contract-birth-and-damage",
+          "componentReady": true,
+          "rule": "item-summon-contracts-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i251",
+      "name": "提尔的祝福-绿Lv2",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H161",
+      "abilList": "I162,I162,I162,I150",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I150"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Drop",
+          "sourceLines": [
+            147458,
+            147479
+          ],
+          "componentReady": true,
+          "rule": "item-summon-contracts-batch-01"
+        },
+        {
+          "kind": "script-effect",
+          "entry": "summon-contract-birth-and-damage",
+          "componentReady": true,
+          "rule": "item-summon-contracts-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i252",
+      "name": "提尔的祝福-绿Max",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H162",
+      "abilList": "I162,I162,I162,I150",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I150"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Drop",
+          "sourceLines": [
+            147466,
+            147484
+          ],
+          "componentReady": true,
+          "rule": "item-summon-contracts-batch-01"
+        },
+        {
+          "kind": "script-effect",
+          "entry": "summon-contract-birth-and-damage",
+          "componentReady": true,
+          "rule": "item-summon-contracts-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i253",
+      "name": "提尔的祝福-蓝Lv2",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H163",
+      "abilList": "I162,I162,I162,I156",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I156"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Drop",
+          "sourceLines": [
+            147515,
+            147536
+          ],
+          "componentReady": true,
+          "rule": "item-summon-contracts-batch-01"
+        },
+        {
+          "kind": "script-effect",
+          "entry": "summon-contract-birth-and-damage",
+          "componentReady": true,
+          "rule": "item-summon-contracts-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i254",
+      "name": "提尔的祝福-蓝Max",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H164",
+      "abilList": "I162,I162,I162,I156",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I156"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Drop",
+          "sourceLines": [
+            147523,
+            147541
+          ],
+          "componentReady": true,
+          "rule": "item-summon-contracts-batch-01"
+        },
+        {
+          "kind": "script-effect",
+          "entry": "summon-contract-birth-and-damage",
+          "componentReady": true,
+          "rule": "item-summon-contracts-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i255",
+      "name": "古尔丹之颅",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H165",
+      "abilList": "I246,I163",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "ANcl",
+          "path": [
+            "I246"
+          ],
+          "componentReady": true,
+          "rule": "item-final-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I163"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "script-effect",
+          "entry": "permanent-stat-use-branches",
+          "componentReady": true,
+          "rule": "item-final-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i256",
+      "name": "点金手",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H166",
+      "abilList": "I247",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "ANcl",
+          "path": [
+            "I247"
+          ],
+          "componentReady": true,
+          "rule": "item-economy-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Get",
+          "sourceLines": [
+            144701,
+            144794
+          ],
+          "componentReady": true,
+          "rule": "item-economy-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i257",
+      "name": "制作书-点金手",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H167",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i256"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i258",
+      "name": "神能之书",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H168",
+      "abilList": "I253",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AOcl",
+          "path": [
+            "I253"
+          ],
+          "componentReady": true,
+          "rule": "divine-books"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i259",
+      "name": "神能结晶",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H169",
+      "abilList": "I254",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AOcl",
+          "path": [
+            "I254"
+          ],
+          "componentReady": true,
+          "rule": "divine-books"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i260",
+      "name": "神书之羽",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H170",
+      "abilList": "I255",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AOcl",
+          "path": [
+            "I255"
+          ],
+          "componentReady": true,
+          "rule": "divine-books"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i261",
+      "name": "购买木材",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H171",
+      "abilList": "I256",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIlu",
+          "path": [
+            "I256"
+          ],
+          "componentReady": true,
+          "rule": "item-economy-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i262",
+      "name": "破损的妖刀鬼切",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H172",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "callback",
+          "entry": "ItemUnitDeadAction",
+          "sourceLines": [
+            146102
+          ],
+          "componentReady": true,
+          "rule": "item-growth-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Get",
+          "sourceLines": [
+            144743
+          ],
+          "componentReady": true,
+          "rule": "item-growth-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i263",
+      "name": "完美的妖刀鬼切",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H173",
+      "abilList": "I163,I163",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I163"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I163"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "ItemDamageActionAfter",
+          "sourceLines": [
+            145968
+          ],
+          "componentReady": true,
+          "rule": "item-damage-effects"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i264",
+      "name": "神能宝石",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H174",
+      "abilList": "I260",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AOcl",
+          "path": [
+            "I260"
+          ],
+          "componentReady": true,
+          "rule": "divine-books"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i265",
+      "name": "邪念法杖",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H175",
+      "abilList": "I119,I261",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AImm",
+          "path": [
+            "I119"
+          ],
+          "componentReady": true,
+          "rule": "item-resources-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I261"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "ItemDamageActionAfter",
+          "sourceLines": [
+            145882
+          ],
+          "componentReady": true,
+          "rule": "item-spell-output-batch-01"
+        },
+        {
+          "kind": "script-effect",
+          "entry": "outgoing-spell-resistance-penetration",
+          "componentReady": true,
+          "rule": "item-spell-output-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i266",
+      "name": "制作书-邪念法杖",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H176",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i265"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i267",
+      "name": "刺客之刃",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H177",
+      "abilList": "I138,I151,I150",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I138"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I151"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I150"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "ItemDamageActionAfter",
+          "sourceLines": [
+            145913
+          ],
+          "componentReady": true,
+          "rule": "item-damage-dispatch"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i268",
+      "name": "制作书-刺客之刃",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H178",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i267"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i269",
+      "name": "鱼人鳞甲",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H179",
+      "abilList": "I163,I162,I262",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I163"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AHad",
+          "path": [
+            "I262"
+          ],
+          "componentReady": true,
+          "rule": "item-auras-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i270",
+      "name": "战争指挥官的旗帜",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H180",
+      "abilList": "I163,I264,I263",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I163"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AEar",
+          "path": [
+            "I264"
+          ],
+          "componentReady": true,
+          "rule": "item-auras-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AOae",
+          "path": [
+            "I263"
+          ],
+          "componentReady": true,
+          "rule": "item-auras-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i271",
+      "name": "制作书-战争指挥官的旗帜",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H181",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i270"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i272",
+      "name": "幻影斧",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H182",
+      "abilList": "I266,I265,I123",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "ANcl",
+          "path": [
+            "I266"
+          ],
+          "componentReady": true,
+          "rule": "item-summons-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I265"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIas",
+          "path": [
+            "I123"
+          ],
+          "componentReady": true,
+          "rule": "item-attack-speed-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Auto_Use",
+          "sourceLines": [
+            147930
+          ],
+          "componentReady": true,
+          "rule": "item-summons-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i273",
+      "name": "制作书-幻影斧",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H183",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i272"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i274",
+      "name": "幻影匕首",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H184",
+      "abilList": "I267,I268,I122",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "ANcl",
+          "path": [
+            "I267"
+          ],
+          "componentReady": true,
+          "rule": "item-summons-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I268"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIas",
+          "path": [
+            "I122"
+          ],
+          "componentReady": true,
+          "rule": "item-attack-speed-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Auto_Use",
+          "sourceLines": [
+            147951
+          ],
+          "componentReady": true,
+          "rule": "item-summons-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i275",
+      "name": "制作书-幻影匕首",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H185",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i274"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i276",
+      "name": "琥珀净瓶",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H186",
+      "abilList": "I270,I271,I272",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "ANcl",
+          "path": [
+            "I270"
+          ],
+          "componentReady": true,
+          "rule": "item-spell-control-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "Apig",
+          "path": [
+            "I271"
+          ],
+          "componentReady": true,
+          "rule": "item-immolation-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I272"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Auto_Use",
+          "sourceLines": [
+            148024
+          ],
+          "componentReady": true,
+          "rule": "item-spell-control-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i277",
+      "name": "制作书-琥珀净瓶",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H187",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i276"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i278",
+      "name": "地精家族的护身符",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H188",
+      "abilList": "I273",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "ANcl",
+          "path": [
+            "I273"
+          ],
+          "componentReady": true,
+          "rule": "item-final-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Get",
+          "sourceLines": [
+            144711,
+            144799
+          ],
+          "componentReady": true,
+          "rule": "item-final-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i279",
+      "name": "慧光法杖",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H189",
+      "abilList": "I279",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I279"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Skill_Action",
+          "sourceLines": [
+            146693
+          ],
+          "componentReady": true,
+          "rule": "item-spell-control-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i280",
+      "name": "制作书-慧光法杖",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H190",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i279"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i281",
+      "name": "冥火诅咒",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H191",
+      "abilList": "I285,I145,I162,I162",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "ANcl",
+          "path": [
+            "I285"
+          ],
+          "componentReady": true,
+          "rule": "item-spell-control-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I145"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Auto_Use",
+          "sourceLines": [
+            148070
+          ],
+          "componentReady": true,
+          "rule": "item-spell-control-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i282",
+      "name": "魔龙枪",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H192",
+      "abilList": "I171",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I171"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Attack_Action",
+          "sourceLines": [
+            146414
+          ],
+          "componentReady": true,
+          "rule": "item-weapon-effects-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Drop",
+          "sourceLines": [
+            147231,
+            147237
+          ],
+          "componentReady": true,
+          "rule": "item-lifecycle"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Get",
+          "sourceLines": [
+            145034,
+            145349
+          ],
+          "componentReady": true,
+          "rule": "item-lifecycle"
+        },
+        {
+          "kind": "script-effect",
+          "entry": "attack-and-acquire-range",
+          "componentReady": true,
+          "rule": "item-lifecycle"
+        },
+        {
+          "kind": "weapon-effect",
+          "entry": "万箭齐发",
+          "rule": "item-weapon-effects-batch-01",
+          "componentReady": true
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i283",
+      "name": "制作书-魔龙枪",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H193",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i282"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i301",
+      "name": "海神三叉戟",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H194",
+      "abilList": "I209,I162,I161,I106",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I209"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I162"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I161"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIrm",
+          "path": [
+            "I106"
+          ],
+          "componentReady": true,
+          "rule": "item-regeneration-batch-01"
+        },
+        {
+          "kind": "script-effect",
+          "entry": "documented-item-effect",
+          "componentReady": true,
+          "rule": "item-spell-control-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i302",
+      "name": "索利达尔-群星之怒",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H195",
+      "abilList": "I152,I128",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I152"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIas",
+          "path": [
+            "I128"
+          ],
+          "componentReady": true,
+          "rule": "item-attack-speed-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Attack_Special",
+          "sourceLines": [
+            146292
+          ],
+          "componentReady": true,
+          "rule": "item-attack-procs-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i303",
+      "name": "制作书-索利达尔-群星之怒",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H196",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i302"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i304",
+      "name": "圣剑",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H197",
+      "abilList": "I139",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I139"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Drop",
+          "sourceLines": [
+            147193,
+            147199
+          ],
+          "componentReady": true,
+          "rule": "item-final-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Get",
+          "sourceLines": [
+            145015,
+            145319
+          ],
+          "componentReady": true,
+          "rule": "item-final-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i305",
+      "name": "制作书-圣剑",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H198",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i304"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i306",
+      "name": "裁决之剑",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H199",
+      "abilList": "I286,I229,I284",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIas",
+          "path": [
+            "I286"
+          ],
+          "componentReady": true,
+          "rule": "item-attack-speed-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I229"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AOcr",
+          "path": [
+            "I284"
+          ],
+          "componentReady": true,
+          "rule": "skill-coup-de-grace"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i307",
+      "name": "制作书-裁决之剑",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H200",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i306"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i308",
+      "name": "怨念魔杖",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H201",
+      "abilList": "I118,I157,I157",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AImm",
+          "path": [
+            "I118"
+          ],
+          "componentReady": true,
+          "rule": "item-resources-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I157"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I157"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "ItemDamageActionAfter",
+          "sourceLines": [
+            145898
+          ],
+          "componentReady": true,
+          "rule": "item-spell-output-batch-01"
+        },
+        {
+          "kind": "script-effect",
+          "entry": "outgoing-spell-resistance-penetration",
+          "componentReady": true,
+          "rule": "item-spell-output-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i309",
+      "name": "制作书-怨念魔杖",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H202",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i308"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i310",
+      "name": "阿哈利姆神杖",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H203",
+      "abilList": "I163",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I163"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "script-effect",
+          "entry": "scepter-grant-and-withdraw",
+          "componentReady": true,
+          "rule": "scepter-lifecycle"
+        },
+        {
+          "kind": "script-effect",
+          "entry": "A217/A218-complete-tidal-wave",
+          "componentReady": true,
+          "rule": "tide-and-morphling"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i311",
+      "name": "制作书-阿哈利姆神杖",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H204",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i310"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i312",
+      "name": "知识之书Lv1",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H205",
+      "abilList": "I226",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AOcl",
+          "path": [
+            "I226"
+          ],
+          "componentReady": true,
+          "rule": "item-targeted-books-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i313",
+      "name": "知识之书Lv2",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H206",
+      "abilList": "I227",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AOcl",
+          "path": [
+            "I227"
+          ],
+          "componentReady": true,
+          "rule": "item-targeted-books-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i314",
+      "name": "知识之书Max",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H207",
+      "abilList": "I228",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AOcl",
+          "path": [
+            "I228"
+          ],
+          "componentReady": true,
+          "rule": "item-targeted-books-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i315",
+      "name": "制作书-知识之书",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H208",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i313",
+            "i314",
+            "i312"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i316",
+      "name": "斩敌巨斧",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H209",
+      "abilList": "I146,I124",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I146"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIas",
+          "path": [
+            "I124"
+          ],
+          "componentReady": true,
+          "rule": "item-attack-speed-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Attack_Special",
+          "sourceLines": [
+            146311
+          ],
+          "componentReady": true,
+          "rule": "item-attack-procs-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i317",
+      "name": "制作书-斩敌巨斧",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H210",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i316"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i318",
+      "name": "灰烬兜帽Lv1",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H211",
+      "abilList": "I158",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I158"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Skill_Action",
+          "sourceLines": [
+            146653
+          ],
+          "componentReady": true,
+          "rule": "ogre-hood-items"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i319",
+      "name": "灰烬兜帽Lv2",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H212",
+      "abilList": "I158",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I158"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Skill_Action",
+          "sourceLines": [
+            146661
+          ],
+          "componentReady": true,
+          "rule": "ogre-hood-items"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i320",
+      "name": "灰烬兜帽Max",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H213",
+      "abilList": "I158",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I158"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Skill_Action",
+          "sourceLines": [
+            146669
+          ],
+          "componentReady": true,
+          "rule": "ogre-hood-items"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i321",
+      "name": "制作书-灰烬兜帽",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H214",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i319",
+            "i320",
+            "i318"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i322",
+      "name": "遗物之刃",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H215",
+      "abilList": "I252,I126,I251",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIat",
+          "path": [
+            "I252"
+          ],
+          "componentReady": true,
+          "rule": "item-flat-attack"
+        },
+        {
+          "kind": "ability",
+          "code": "AIas",
+          "path": [
+            "I126"
+          ],
+          "componentReady": true,
+          "rule": "item-attack-speed-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AOcr",
+          "path": [
+            "I251"
+          ],
+          "componentReady": true,
+          "rule": "skill-coup-de-grace"
+        },
+        {
+          "kind": "callback",
+          "entry": "ItemDamageActionBefore",
+          "sourceLines": [
+            145587
+          ],
+          "componentReady": true,
+          "rule": "item-attack-procs-batch-01"
+        },
+        {
+          "kind": "script-effect",
+          "entry": "tenth-hit-count-and-amount",
+          "componentReady": true,
+          "rule": "item-damage-effects"
+        },
+        {
+          "kind": "script-effect",
+          "entry": "wave-geometry-and-native-boundaries",
+          "componentReady": true,
+          "rule": "item-attack-procs-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i323",
+      "name": "制作书-遗物之刃",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H216",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i322"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i324",
+      "name": "制作书-雪落法杖",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H217",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i325"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i325",
+      "name": "雪落法杖",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H218",
+      "abilList": "I243,I242,I196,I106",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "ANcl",
+          "path": [
+            "I243"
+          ],
+          "componentReady": true,
+          "rule": "item-spell-control-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I242"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I196"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIrm",
+          "path": [
+            "I106"
+          ],
+          "componentReady": true,
+          "rule": "item-regeneration-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Auto_Use",
+          "sourceLines": [
+            148110
+          ],
+          "componentReady": true,
+          "rule": "item-spell-control-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Skill_Action",
+          "sourceLines": [
+            146595
+          ],
+          "componentReady": true,
+          "rule": "item-spell-control-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i326",
+      "name": "小净化",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H219",
+      "abilList": "I248,I101",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIrg",
+          "path": [
+            "I248"
+          ],
+          "componentReady": true,
+          "rule": "item-restoration-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIrm",
+          "path": [
+            "I101"
+          ],
+          "componentReady": true,
+          "rule": "item-regeneration-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i327",
+      "name": "玲珑心",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H220",
+      "abilList": "I102,I257,I115,I258",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIrm",
+          "path": [
+            "I102"
+          ],
+          "componentReady": true,
+          "rule": "item-regeneration-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIml",
+          "path": [
+            "I257"
+          ],
+          "componentReady": true,
+          "rule": "item-resources-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AImm",
+          "path": [
+            "I115"
+          ],
+          "componentReady": true,
+          "rule": "item-resources-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I258"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "ItemUnitDeadAction",
+          "sourceLines": [
+            146196
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "script-effect",
+          "entry": "endcast-cooldown-modifier",
+          "componentReady": true,
+          "rule": "item-growth-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i328",
+      "name": "制作书-玲珑心",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H221",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i327"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i329",
+      "name": "无尽魔石",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H222",
+      "abilList": "I259",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "ANcl",
+          "path": [
+            "I259"
+          ],
+          "componentReady": true,
+          "rule": "item-growth-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Get",
+          "sourceLines": [
+            144706
+          ],
+          "componentReady": true,
+          "rule": "item-growth-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i330",
+      "name": "魔焰之心(开启的)",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H223",
+      "abilList": "I274,I280",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIfs",
+          "path": [
+            "I274"
+          ],
+          "componentReady": true,
+          "rule": "item-final-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "Aspb",
+          "path": [
+            "I280"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I280",
+            "I275"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIml",
+          "path": [
+            "I280",
+            "I276"
+          ],
+          "componentReady": true,
+          "rule": "item-resources-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIas",
+          "path": [
+            "I280",
+            "I278"
+          ],
+          "componentReady": true,
+          "rule": "item-attack-speed-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "ItemUnitDeadAction",
+          "sourceLines": [
+            146130
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Get",
+          "sourceLines": [
+            144765
+          ],
+          "componentReady": true,
+          "rule": "item-final-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Use",
+          "sourceLines": [
+            146998
+          ],
+          "componentReady": true,
+          "rule": "item-final-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i331",
+      "name": "制作书-魔焰之心",
+      "kind": "制作书",
+      "workbookCell": "装备与道具!H224",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "recipe",
+          "componentReady": true,
+          "rule": "item-lifecycle",
+          "results": [
+            "i332"
+          ]
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i332",
+      "name": "魔焰之心(关闭的)",
+      "kind": "局内装备／组件",
+      "workbookCell": "装备与道具!H225",
+      "abilList": "I274,I280,I281",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIfs",
+          "path": [
+            "I274"
+          ],
+          "componentReady": true,
+          "rule": "item-final-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "Aspb",
+          "path": [
+            "I280"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I280",
+            "I275"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "ability",
+          "code": "AIml",
+          "path": [
+            "I280",
+            "I276"
+          ],
+          "componentReady": true,
+          "rule": "item-resources-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIas",
+          "path": [
+            "I280",
+            "I278"
+          ],
+          "componentReady": true,
+          "rule": "item-attack-speed-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "Aoar",
+          "path": [
+            "I281"
+          ],
+          "componentReady": true,
+          "rule": "item-regeneration-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "ItemUnitDeadAction",
+          "sourceLines": [
+            146122
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Auto_Use",
+          "sourceLines": [
+            148154
+          ],
+          "componentReady": true,
+          "rule": "item-final-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Get",
+          "sourceLines": [
+            144777
+          ],
+          "componentReady": true,
+          "rule": "item-final-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Use",
+          "sourceLines": [
+            146957
+          ],
+          "componentReady": true,
+          "rule": "item-final-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i399",
+      "name": "刷新球碎片",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H226",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "script-effect",
+          "entry": "mystery-shop-once-per-buyer-refresh",
+          "componentReady": true,
+          "rule": "item-lifecycle"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i401",
+      "name": "1级宝箱",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H227",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "callback",
+          "entry": "Item_Use",
+          "sourceLines": [
+            146783,
+            146796
+          ],
+          "componentReady": true,
+          "rule": "item-reward-packs-batch-01"
+        },
+        {
+          "kind": "item-pair",
+          "entry": "matching-key-reward-path",
+          "componentReady": true,
+          "rule": "item-reward-packs-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i402",
+      "name": "2级宝箱",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H228",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "callback",
+          "entry": "Item_Use",
+          "sourceLines": [
+            146829,
+            146842
+          ],
+          "componentReady": true,
+          "rule": "item-reward-packs-batch-01"
+        },
+        {
+          "kind": "item-pair",
+          "entry": "matching-key-reward-path",
+          "componentReady": true,
+          "rule": "item-reward-packs-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i403",
+      "name": "3级宝箱",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H229",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "callback",
+          "entry": "Item_Use",
+          "sourceLines": [
+            146875,
+            146888
+          ],
+          "componentReady": true,
+          "rule": "item-reward-packs-batch-01"
+        },
+        {
+          "kind": "item-pair",
+          "entry": "matching-key-reward-path",
+          "componentReady": true,
+          "rule": "item-reward-packs-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i404",
+      "name": "4级宝箱",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H230",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "callback",
+          "entry": "Item_Use",
+          "sourceLines": [
+            146921,
+            146934
+          ],
+          "componentReady": true,
+          "rule": "item-reward-packs-batch-01"
+        },
+        {
+          "kind": "item-pair",
+          "entry": "matching-key-reward-path",
+          "componentReady": true,
+          "rule": "item-reward-packs-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i411",
+      "name": "1级钥匙",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H231",
+      "abilList": "I210",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIfs",
+          "path": [
+            "I210"
+          ],
+          "componentReady": true,
+          "rule": "item-reward-packs-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Use",
+          "sourceLines": [
+            146776
+          ],
+          "componentReady": true,
+          "rule": "item-reward-packs-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i412",
+      "name": "2级钥匙",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H232",
+      "abilList": "I210",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIfs",
+          "path": [
+            "I210"
+          ],
+          "componentReady": true,
+          "rule": "item-reward-packs-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Use",
+          "sourceLines": [
+            146822
+          ],
+          "componentReady": true,
+          "rule": "item-reward-packs-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i413",
+      "name": "3级钥匙",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H233",
+      "abilList": "I210",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIfs",
+          "path": [
+            "I210"
+          ],
+          "componentReady": true,
+          "rule": "item-reward-packs-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Use",
+          "sourceLines": [
+            146868
+          ],
+          "componentReady": true,
+          "rule": "item-reward-packs-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i414",
+      "name": "4级钥匙",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H234",
+      "abilList": "I210",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIfs",
+          "path": [
+            "I210"
+          ],
+          "componentReady": true,
+          "rule": "item-reward-packs-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Use",
+          "sourceLines": [
+            146914
+          ],
+          "componentReady": true,
+          "rule": "item-reward-packs-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i421",
+      "name": "金元宝",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H235",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "callback",
+          "entry": "Item_Get",
+          "sourceLines": [
+            144658
+          ],
+          "componentReady": true,
+          "rule": "item-economy-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i422",
+      "name": "皮肤碎片",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H236",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "callback",
+          "entry": "Item_Get",
+          "sourceLines": [
+            144667
+          ],
+          "componentReady": true,
+          "rule": "item-economy-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i423",
+      "name": "购买木材",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H237",
+      "abilList": "I283",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIlu",
+          "path": [
+            "I283"
+          ],
+          "componentReady": true,
+          "rule": "item-economy-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i718",
+      "name": "赏金神符",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H238",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "callback",
+          "entry": "Item_Get",
+          "sourceLines": [
+            145429
+          ],
+          "componentReady": true,
+          "rule": "item-runes-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i719",
+      "name": "力量神符",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H239",
+      "abilList": "I222",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIsa",
+          "path": [
+            "I222"
+          ],
+          "componentReady": true,
+          "rule": "item-runes-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Get",
+          "sourceLines": [
+            145443
+          ],
+          "componentReady": true,
+          "rule": "item-runes-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i720",
+      "name": "奥术神符",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H240",
+      "abilList": "I223",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIsa",
+          "path": [
+            "I223"
+          ],
+          "componentReady": true,
+          "rule": "item-runes-batch-01"
+        },
+        {
+          "kind": "callback",
+          "entry": "Item_Get",
+          "sourceLines": [
+            145457
+          ],
+          "componentReady": true,
+          "rule": "item-runes-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i721",
+      "name": "极速神符",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H241",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "callback",
+          "entry": "Item_Get",
+          "sourceLines": [
+            145471
+          ],
+          "componentReady": true,
+          "rule": "item-runes-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i722",
+      "name": "幻象神符",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H242",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "callback",
+          "entry": "Item_Get",
+          "sourceLines": [
+            145485
+          ],
+          "componentReady": true,
+          "rule": "item-runes-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i723",
+      "name": "恢复神符",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H243",
+      "abilList": null,
+      "components": [
+        {
+          "kind": "callback",
+          "entry": "Item_Get",
+          "sourceLines": [
+            145499
+          ],
+          "componentReady": true,
+          "rule": "item-restoration-batch-01"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "i800",
+      "name": "全能骑士的信条",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H244",
+      "abilList": "I244,I163",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "Aprg",
+          "path": [
+            "I244"
+          ],
+          "componentReady": true,
+          "rule": "item-utility-batch-01"
+        },
+        {
+          "kind": "ability",
+          "code": "AIab",
+          "path": [
+            "I163"
+          ],
+          "componentReady": true,
+          "rule": "item-attributes"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "texp",
+      "name": "经验之书",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H245",
+      "abilList": "AIem",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIem",
+          "path": [
+            "AIem"
+          ],
+          "componentReady": true,
+          "rule": "experience-sharing"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "tgxp",
+      "name": "超级经验之书",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H246",
+      "abilList": "AIe2",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIem",
+          "path": [
+            "AIe2"
+          ],
+          "componentReady": true,
+          "rule": "experience-sharing"
+        }
+      ],
+      "wholeItemReady": true
+    },
+    {
+      "id": "tkno",
+      "name": "能量之书",
+      "kind": "局内道具",
+      "workbookCell": "装备与道具!H247",
+      "abilList": "AIlm",
+      "components": [
+        {
+          "kind": "ability",
+          "code": "AIlm",
+          "path": [
+            "AIlm"
+          ],
+          "componentReady": true,
+          "rule": "experience-sharing"
+        }
+      ],
+      "wholeItemReady": true
+    }
+  ]
+}

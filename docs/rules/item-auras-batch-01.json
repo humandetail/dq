@@ -1,0 +1,716 @@
+{
+  "baselineId": "item-auras-batch-01",
+  "status": "bounded_source_audit_and_Q24_Web_selection",
+  "coverage": {
+    "workbookItems": 243,
+    "aliases": 10,
+    "items": 7,
+    "aliasesByCode": {
+      "AOae": 4,
+      "AOac": 3,
+      "AHad": 2,
+      "AEar": 1
+    },
+    "directOccurrences": 10,
+    "indirectOccurrences": 0,
+    "recipeBooks": 6
+  },
+  "aliases": {
+    "I197": {
+      "jsonIndex": 1120,
+      "code": "AOae",
+      "levels": 3,
+      "targs1": "enemies",
+      "Area1": 900.0,
+      "BuffID1": "B030",
+      "DataA1": -0.35,
+      "DataB1": null,
+      "DataC1": null,
+      "DataD1": null,
+      "effectiveLevel": 1,
+      "web": {
+        "movementPct": -35,
+        "attackSpeedPct": 0
+      }
+    },
+    "I208": {
+      "jsonIndex": 1131,
+      "code": "AOac",
+      "levels": 1,
+      "targs1": "air,ground,friend,self,vuln,invu",
+      "Area1": 1000.0,
+      "BuffID1": "B033",
+      "DataA1": 0.25,
+      "DataB1": 1,
+      "DataC1": 1,
+      "DataD1": null,
+      "effectiveLevel": 1,
+      "web": {
+        "attackPct": 25
+      }
+    },
+    "I212": {
+      "jsonIndex": 1135,
+      "code": "AOac",
+      "levels": 1,
+      "targs1": "air,ground,friend,self,vuln,invu",
+      "Area1": 1000.0,
+      "BuffID1": "B033",
+      "DataA1": 0.35,
+      "DataB1": 1,
+      "DataC1": 1,
+      "DataD1": null,
+      "effectiveLevel": 1,
+      "web": {
+        "attackPct": 35
+      }
+    },
+    "I216": {
+      "jsonIndex": 1139,
+      "code": "AHad",
+      "levels": 3,
+      "targs1": "enemies",
+      "Area1": 800.0,
+      "BuffID1": "B044",
+      "DataA1": -30.0,
+      "DataB1": null,
+      "DataC1": null,
+      "DataD1": null,
+      "effectiveLevel": 1,
+      "web": {
+        "armor": -30.0
+      }
+    },
+    "I217": {
+      "jsonIndex": 1140,
+      "code": "AOae",
+      "levels": 3,
+      "targs1": "invulnerable,self,friend",
+      "Area1": 800.0,
+      "BuffID1": "B045",
+      "DataA1": null,
+      "DataB1": 0.2,
+      "DataC1": null,
+      "DataD1": null,
+      "effectiveLevel": 1,
+      "web": {
+        "movementPct": 0,
+        "attackSpeedPct": 20
+      }
+    },
+    "I221": {
+      "jsonIndex": 1144,
+      "code": "AOae",
+      "levels": 3,
+      "targs1": "invulnerable,self,friend",
+      "Area1": 800.0,
+      "BuffID1": "B055",
+      "DataA1": null,
+      "DataB1": 0.1,
+      "DataC1": null,
+      "DataD1": null,
+      "effectiveLevel": 1,
+      "web": {
+        "movementPct": 0,
+        "attackSpeedPct": 10
+      }
+    },
+    "I231": {
+      "jsonIndex": 1154,
+      "code": "AOac",
+      "levels": 1,
+      "targs1": "air,ground,friend,self,vuln,invu",
+      "Area1": 800.0,
+      "BuffID1": "B056",
+      "DataA1": 0.1,
+      "DataB1": 1,
+      "DataC1": 1,
+      "DataD1": null,
+      "effectiveLevel": 1,
+      "web": {
+        "attackPct": 10
+      }
+    },
+    "I262": {
+      "jsonIndex": 1185,
+      "code": "AHad",
+      "levels": 1,
+      "targs1": "enemies,ground,vulnerable,air,invulnerable",
+      "Area1": 900.0,
+      "BuffID1": "B008",
+      "DataA1": -90.0,
+      "DataB1": null,
+      "DataC1": null,
+      "DataD1": null,
+      "effectiveLevel": 1,
+      "web": {
+        "armor": -90.0
+      }
+    },
+    "I264": {
+      "jsonIndex": 1187,
+      "code": "AEar",
+      "levels": 1,
+      "targs1": "sapper,friend,invulnerable",
+      "Area1": 900.0,
+      "BuffID1": "B140",
+      "DataA1": 0.5,
+      "DataB1": 1,
+      "DataC1": 1,
+      "DataD1": null,
+      "effectiveLevel": 1,
+      "web": {
+        "attackPct": 50,
+        "damagePct": 20
+      }
+    },
+    "I263": {
+      "jsonIndex": 1186,
+      "code": "AOae",
+      "levels": 1,
+      "targs1": "sapper,friend,invulnerable",
+      "Area1": 900.0,
+      "BuffID1": "B139",
+      "DataA1": 0.2,
+      "DataB1": 0.5,
+      "DataC1": null,
+      "DataD1": null,
+      "effectiveLevel": 1,
+      "web": {
+        "movementPct": 20,
+        "attackSpeedPct": 50
+      }
+    }
+  },
+  "items": [
+    {
+      "id": "i155",
+      "name": "西瓦的守护",
+      "workbookCell": "装备与道具!H65",
+      "objectJsonIndex": 358,
+      "objectAbilList": "I162,I161,I196,I197",
+      "workbookNumbers": {
+        "radius": [
+          900
+        ],
+        "attackPct": [],
+        "attackSpeedPct": [],
+        "armor": [],
+        "damagePct": []
+      },
+      "mounts": [
+        {
+          "alias": "I197",
+          "position": 4
+        }
+      ],
+      "objectTooltipNumbers": {
+        "radius": [
+          900
+        ],
+        "attackPct": [],
+        "attackSpeedPct": [],
+        "armor": [],
+        "damagePct": []
+      }
+    },
+    {
+      "id": "i198",
+      "name": "吸血鬼的祭品",
+      "workbookCell": "装备与道具!H108",
+      "objectJsonIndex": 401,
+      "objectAbilList": "I208,I103,I111,I111",
+      "workbookNumbers": {
+        "radius": [
+          1000
+        ],
+        "attackPct": [
+          25
+        ],
+        "attackSpeedPct": [],
+        "armor": [],
+        "damagePct": []
+      },
+      "mounts": [
+        {
+          "alias": "I208",
+          "position": 1
+        }
+      ],
+      "objectTooltipNumbers": {
+        "radius": [
+          1000
+        ],
+        "attackPct": [
+          25
+        ],
+        "attackSpeedPct": [],
+        "armor": [],
+        "damagePct": []
+      }
+    },
+    {
+      "id": "i209",
+      "name": "大狂战斧",
+      "workbookCell": "装备与道具!H119",
+      "objectJsonIndex": 412,
+      "objectAbilList": "I212,I213,I113,I104",
+      "workbookNumbers": {
+        "radius": [
+          1000
+        ],
+        "attackPct": [
+          35
+        ],
+        "attackSpeedPct": [],
+        "armor": [],
+        "damagePct": []
+      },
+      "mounts": [
+        {
+          "alias": "I212",
+          "position": 1
+        }
+      ],
+      "objectTooltipNumbers": {
+        "radius": [
+          1000
+        ],
+        "attackPct": [
+          35
+        ],
+        "attackSpeedPct": [],
+        "armor": [],
+        "damagePct": []
+      }
+    },
+    {
+      "id": "i217",
+      "name": "强袭胸甲",
+      "workbookCell": "装备与道具!H127",
+      "objectJsonIndex": 420,
+      "objectAbilList": "I135,I216,I217,I218",
+      "workbookNumbers": {
+        "radius": [
+          800
+        ],
+        "attackPct": [],
+        "attackSpeedPct": [
+          20
+        ],
+        "armor": [
+          -30
+        ],
+        "damagePct": []
+      },
+      "mounts": [
+        {
+          "alias": "I216",
+          "position": 2
+        },
+        {
+          "alias": "I217",
+          "position": 3
+        }
+      ],
+      "objectTooltipNumbers": {
+        "radius": [
+          800
+        ],
+        "attackPct": [],
+        "attackSpeedPct": [
+          20
+        ],
+        "armor": [
+          -30
+        ],
+        "damagePct": []
+      }
+    },
+    {
+      "id": "i228",
+      "name": "韧鼓",
+      "workbookCell": "装备与道具!H138",
+      "objectJsonIndex": 431,
+      "objectAbilList": "I221,I162,I103,I231",
+      "workbookNumbers": {
+        "radius": [
+          800
+        ],
+        "attackPct": [
+          10
+        ],
+        "attackSpeedPct": [
+          10
+        ],
+        "armor": [],
+        "damagePct": []
+      },
+      "mounts": [
+        {
+          "alias": "I221",
+          "position": 1
+        },
+        {
+          "alias": "I231",
+          "position": 4
+        }
+      ],
+      "objectTooltipNumbers": {
+        "radius": [
+          800
+        ],
+        "attackPct": [
+          10
+        ],
+        "attackSpeedPct": [
+          10
+        ],
+        "armor": [],
+        "damagePct": []
+      }
+    },
+    {
+      "id": "i269",
+      "name": "鱼人鳞甲",
+      "workbookCell": "装备与道具!H179",
+      "objectJsonIndex": 472,
+      "objectAbilList": "I163,I162,I262",
+      "workbookNumbers": {
+        "radius": [
+          900
+        ],
+        "attackPct": [],
+        "attackSpeedPct": [],
+        "armor": [
+          -90
+        ],
+        "damagePct": []
+      },
+      "mounts": [
+        {
+          "alias": "I262",
+          "position": 3
+        }
+      ],
+      "objectTooltipNumbers": {
+        "radius": [
+          900
+        ],
+        "attackPct": [],
+        "attackSpeedPct": [],
+        "armor": [
+          -90
+        ],
+        "damagePct": []
+      }
+    },
+    {
+      "id": "i270",
+      "name": "战争指挥官的旗帜",
+      "workbookCell": "装备与道具!H180",
+      "objectJsonIndex": 473,
+      "objectAbilList": "I163,I264,I263",
+      "workbookNumbers": {
+        "radius": [
+          900
+        ],
+        "attackPct": [],
+        "attackSpeedPct": [],
+        "armor": [],
+        "damagePct": [
+          20
+        ]
+      },
+      "mounts": [
+        {
+          "alias": "I264",
+          "position": 2
+        },
+        {
+          "alias": "I263",
+          "position": 3
+        }
+      ],
+      "objectTooltipNumbers": {
+        "radius": [
+          900
+        ],
+        "attackPct": [],
+        "attackSpeedPct": [],
+        "armor": [],
+        "damagePct": [
+          20
+        ]
+      }
+    }
+  ],
+  "recipeBooks": [
+    {
+      "id": "i199",
+      "name": "制作书-吸血鬼的祭品",
+      "workbookCell": "装备与道具!H109",
+      "objectJsonIndex": 402,
+      "objectAbilList": null,
+      "workbookNumbers": {
+        "radius": [
+          1000
+        ],
+        "attackPct": [
+          25
+        ],
+        "attackSpeedPct": [],
+        "armor": [],
+        "damagePct": []
+      },
+      "product": "i198",
+      "recipeSourceLines": [
+        141498,
+        141508
+      ],
+      "objectTooltipNumbers": {
+        "radius": [
+          1000
+        ],
+        "attackPct": [
+          25
+        ],
+        "attackSpeedPct": [],
+        "armor": [],
+        "damagePct": []
+      },
+      "webActiveAuras": [],
+      "webFinishedItemPreview": [
+        "I208"
+      ]
+    },
+    {
+      "id": "i216",
+      "name": "制作书-强袭胸甲",
+      "workbookCell": "装备与道具!H126",
+      "objectJsonIndex": 419,
+      "objectAbilList": null,
+      "workbookNumbers": {
+        "radius": [
+          800
+        ],
+        "attackPct": [],
+        "attackSpeedPct": [
+          20
+        ],
+        "armor": [
+          -30
+        ],
+        "damagePct": []
+      },
+      "product": "i217",
+      "recipeSourceLines": [
+        141719,
+        141732
+      ],
+      "objectTooltipNumbers": {
+        "radius": [
+          800
+        ],
+        "attackPct": [],
+        "attackSpeedPct": [
+          20
+        ],
+        "armor": [
+          -30
+        ],
+        "damagePct": []
+      },
+      "webActiveAuras": [],
+      "webFinishedItemPreview": [
+        "I216",
+        "I217"
+      ]
+    },
+    {
+      "id": "i210",
+      "name": "制作书-大狂战斧",
+      "workbookCell": "装备与道具!H120",
+      "objectJsonIndex": 413,
+      "objectAbilList": null,
+      "workbookNumbers": {
+        "radius": [
+          1000
+        ],
+        "attackPct": [
+          35
+        ],
+        "attackSpeedPct": [],
+        "armor": [],
+        "damagePct": []
+      },
+      "product": "i209",
+      "recipeSourceLines": [
+        141747,
+        141760
+      ],
+      "objectTooltipNumbers": {
+        "radius": [
+          1000
+        ],
+        "attackPct": [
+          35
+        ],
+        "attackSpeedPct": [],
+        "armor": [],
+        "damagePct": []
+      },
+      "webActiveAuras": [],
+      "webFinishedItemPreview": [
+        "I212"
+      ]
+    },
+    {
+      "id": "i229",
+      "name": "制作书-韧鼓",
+      "workbookCell": "装备与道具!H139",
+      "objectJsonIndex": 432,
+      "objectAbilList": null,
+      "workbookNumbers": {
+        "radius": [
+          800
+        ],
+        "attackPct": [
+          10
+        ],
+        "attackSpeedPct": [
+          10
+        ],
+        "armor": [],
+        "damagePct": []
+      },
+      "product": "i228",
+      "recipeSourceLines": [
+        142231,
+        142247
+      ],
+      "objectTooltipNumbers": {
+        "radius": [
+          800
+        ],
+        "attackPct": [
+          10
+        ],
+        "attackSpeedPct": [
+          10
+        ],
+        "armor": [],
+        "damagePct": []
+      },
+      "webActiveAuras": [],
+      "webFinishedItemPreview": [
+        "I221",
+        "I231"
+      ]
+    },
+    {
+      "id": "i156",
+      "name": "制作书-西瓦的守护",
+      "workbookCell": "装备与道具!H66",
+      "objectJsonIndex": 359,
+      "objectAbilList": null,
+      "workbookNumbers": {
+        "radius": [
+          900
+        ],
+        "attackPct": [],
+        "attackSpeedPct": [],
+        "armor": [],
+        "damagePct": []
+      },
+      "product": "i155",
+      "recipeSourceLines": [
+        142350,
+        142366
+      ],
+      "objectTooltipNumbers": {
+        "radius": [
+          900
+        ],
+        "attackPct": [],
+        "attackSpeedPct": [],
+        "armor": [],
+        "damagePct": []
+      },
+      "webActiveAuras": [],
+      "webFinishedItemPreview": [
+        "I197"
+      ]
+    },
+    {
+      "id": "i271",
+      "name": "制作书-战争指挥官的旗帜",
+      "workbookCell": "装备与道具!H181",
+      "objectJsonIndex": 474,
+      "objectAbilList": null,
+      "workbookNumbers": {
+        "radius": [
+          900
+        ],
+        "attackPct": [],
+        "attackSpeedPct": [],
+        "armor": [],
+        "damagePct": []
+      },
+      "product": "i270",
+      "recipeSourceLines": [
+        142486,
+        142502
+      ],
+      "objectTooltipNumbers": {
+        "radius": [
+          900
+        ],
+        "attackPct": [],
+        "attackSpeedPct": [],
+        "armor": [],
+        "damagePct": []
+      },
+      "webActiveAuras": [],
+      "webFinishedItemPreview": [
+        "I264",
+        "I263"
+      ]
+    }
+  ],
+  "dependencies": [
+    "hero-aura-family",
+    "weapon-attribute-interface-v1",
+    "attack-timing",
+    "native-armor-and-xp",
+    "pathing-and-placement",
+    "item-lifecycle-v1",
+    "creep-damage-auras-v1"
+  ],
+  "webRule": {
+    "buffGroups": "Same Buff strongest, based on absolute effect for reductions; different groups use their existing channels.",
+    "lifecycle": "Hero aura eligibility and closed radius. Recompute after real mount or removal before item callbacks, then on range, team, capability or state change. No residue or replay on load.",
+    "sapper": "Flag receivers follow the source SAPPER selector with the allied eligibility requirement.",
+    "B140": {
+      "actualDamageSourceRegister": "r0",
+      "factor": 1.2,
+      "bytecodeLines": [
+        163733,
+        163746
+      ]
+    }
+  },
+  "pendingMechanism": [],
+  "originalClientTested": false,
+  "verification": {
+    "B033WithB056AndFallbackPct": [
+      45,
+      35
+    ],
+    "B008WithB044AndB150": -180.0,
+    "flagWeaponThenDamageOnActualSource": [
+      228.0,
+      190.0
+    ]
+  }
+}

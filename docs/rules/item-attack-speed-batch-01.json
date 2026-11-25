@@ -1,0 +1,785 @@
+{
+  "baselineId": "item-attack-speed-batch-01",
+  "status": "bounded_source_audit_and_Q24_Web_selection",
+  "dependencies": [
+    "attack-timing/T01-T03",
+    "item-lifecycle-v1/L01-L09",
+    "item-attributes-v1",
+    "weapon-attribute-interface-v1"
+  ],
+  "coverage": {
+    "workbookItemRowsCompared": 243,
+    "aliases": 10,
+    "equipment": 21,
+    "directOccurrences": 23,
+    "indirectOccurrences": 2,
+    "recipeBooks": 16
+  },
+  "aliases": {
+    "I121": {
+      "DataA1": 0.05,
+      "jsonIndex": 1056,
+      "occurrences": 2
+    },
+    "I122": {
+      "DataA1": 0.1,
+      "jsonIndex": 1057,
+      "occurrences": 6
+    },
+    "I123": {
+      "DataA1": 0.2,
+      "jsonIndex": 1058,
+      "occurrences": 3
+    },
+    "I124": {
+      "DataA1": 0.3,
+      "jsonIndex": 1059,
+      "occurrences": 3
+    },
+    "I125": {
+      "DataA1": 0.4,
+      "jsonIndex": 1060,
+      "occurrences": 5
+    },
+    "I126": {
+      "DataA1": 0.9,
+      "jsonIndex": 1061,
+      "occurrences": 1
+    },
+    "I128": {
+      "DataA1": 0.6,
+      "jsonIndex": 1063,
+      "occurrences": 1
+    },
+    "I218": {
+      "DataA1": 0.25,
+      "jsonIndex": 1141,
+      "occurrences": 1
+    },
+    "I278": {
+      "DataA1": -0.5,
+      "jsonIndex": 1201,
+      "occurrences": 2
+    },
+    "I286": {
+      "DataA1": 0.45,
+      "jsonIndex": 1208,
+      "occurrences": 1
+    }
+  },
+  "spellBookWrappers": {
+    "I280": {
+      "children": [
+        "I275",
+        "I276",
+        "I278"
+      ],
+      "jsonIndex": 1203
+    }
+  },
+  "items": [
+    {
+      "id": "i108",
+      "name": "夜叉",
+      "workbookCell": "装备与道具!H18",
+      "workbookPct": 12,
+      "objectJsonIndex": 311,
+      "objectAbilList": "I150,I149,I147,I122",
+      "objectTooltipPct": null,
+      "mounts": [
+        {
+          "path": [
+            "I122"
+          ],
+          "itemPosition": 4
+        }
+      ],
+      "objectOccurrenceSumPct": 10,
+      "webPct": 12
+    },
+    {
+      "id": "i112",
+      "name": "散华",
+      "workbookCell": "装备与道具!H22",
+      "workbookPct": 12,
+      "objectJsonIndex": 315,
+      "objectAbilList": "I144,I143,I141,I122",
+      "objectTooltipPct": 12,
+      "mounts": [
+        {
+          "path": [
+            "I122"
+          ],
+          "itemPosition": 4
+        }
+      ],
+      "objectOccurrenceSumPct": 10,
+      "webPct": 12
+    },
+    {
+      "id": "i114",
+      "name": "散夜对剑",
+      "workbookCell": "装备与道具!H24",
+      "workbookPct": 30,
+      "objectJsonIndex": 317,
+      "objectAbilList": "I165,I124",
+      "objectTooltipPct": 30,
+      "mounts": [
+        {
+          "path": [
+            "I124"
+          ],
+          "itemPosition": 2
+        }
+      ],
+      "objectOccurrenceSumPct": 30,
+      "webPct": 30
+    },
+    {
+      "id": "i123",
+      "name": "蝴蝶",
+      "workbookCell": "装备与道具!H33",
+      "workbookPct": 40,
+      "objectJsonIndex": 326,
+      "objectAbilList": "I166,I125,I134,I134",
+      "objectTooltipPct": 40,
+      "mounts": [
+        {
+          "path": [
+            "I125"
+          ],
+          "itemPosition": 2
+        }
+      ],
+      "objectOccurrenceSumPct": 40,
+      "webPct": 40
+    },
+    {
+      "id": "i125",
+      "name": "短棍",
+      "workbookCell": "装备与道具!H35",
+      "workbookPct": 10,
+      "objectJsonIndex": 328,
+      "objectAbilList": "I134,I122",
+      "objectTooltipPct": 10,
+      "mounts": [
+        {
+          "path": [
+            "I122"
+          ],
+          "itemPosition": 2
+        }
+      ],
+      "objectOccurrenceSumPct": 10,
+      "webPct": 10
+    },
+    {
+      "id": "i132",
+      "name": "完美的妖刀村正",
+      "workbookCell": "装备与道具!H42",
+      "workbookPct": 40,
+      "objectJsonIndex": 335,
+      "objectAbilList": "I170,I125",
+      "objectTooltipPct": 40,
+      "mounts": [
+        {
+          "path": [
+            "I125"
+          ],
+          "itemPosition": 2
+        }
+      ],
+      "objectOccurrenceSumPct": 40,
+      "webPct": 40
+    },
+    {
+      "id": "i158",
+      "name": "银月之晶",
+      "workbookCell": "装备与道具!H68",
+      "workbookPct": 80,
+      "objectJsonIndex": 361,
+      "objectAbilList": "I125,I125",
+      "objectTooltipPct": 80,
+      "mounts": [
+        {
+          "path": [
+            "I125"
+          ],
+          "itemPosition": 1
+        },
+        {
+          "path": [
+            "I125"
+          ],
+          "itemPosition": 2
+        }
+      ],
+      "objectOccurrenceSumPct": 80,
+      "webPct": 80
+    },
+    {
+      "id": "i160",
+      "name": "振奋宝石",
+      "workbookCell": "装备与道具!H70",
+      "workbookPct": 35,
+      "objectJsonIndex": 363,
+      "objectAbilList": "I124,I121",
+      "objectTooltipPct": 35,
+      "mounts": [
+        {
+          "path": [
+            "I124"
+          ],
+          "itemPosition": 1
+        },
+        {
+          "path": [
+            "I121"
+          ],
+          "itemPosition": 2
+        }
+      ],
+      "objectOccurrenceSumPct": 35,
+      "webPct": 35
+    },
+    {
+      "id": "i173",
+      "name": "漩涡",
+      "workbookCell": "装备与道具!H83",
+      "workbookPct": 20,
+      "objectJsonIndex": 376,
+      "objectAbilList": "I123,I135,I134",
+      "objectTooltipPct": null,
+      "mounts": [
+        {
+          "path": [
+            "I123"
+          ],
+          "itemPosition": 1
+        }
+      ],
+      "objectOccurrenceSumPct": 20,
+      "webPct": 20
+    },
+    {
+      "id": "i175",
+      "name": "加速手套",
+      "workbookCell": "装备与道具!H85",
+      "workbookPct": 15,
+      "objectJsonIndex": 378,
+      "objectAbilList": "I122,I121",
+      "objectTooltipPct": null,
+      "mounts": [
+        {
+          "path": [
+            "I122"
+          ],
+          "itemPosition": 1
+        },
+        {
+          "path": [
+            "I121"
+          ],
+          "itemPosition": 2
+        }
+      ],
+      "objectOccurrenceSumPct": 15,
+      "webPct": 15
+    },
+    {
+      "id": "i177",
+      "name": "雷神之锤",
+      "workbookCell": "装备与道具!H87",
+      "workbookPct": 60,
+      "objectJsonIndex": 380,
+      "objectAbilList": "I123,I125,I135,I134",
+      "objectTooltipPct": null,
+      "mounts": [
+        {
+          "path": [
+            "I123"
+          ],
+          "itemPosition": 1
+        },
+        {
+          "path": [
+            "I125"
+          ],
+          "itemPosition": 2
+        }
+      ],
+      "objectOccurrenceSumPct": 60,
+      "webPct": 60
+    },
+    {
+      "id": "i217",
+      "name": "强袭胸甲",
+      "workbookCell": "装备与道具!H127",
+      "workbookPct": 25,
+      "objectJsonIndex": 420,
+      "objectAbilList": "I135,I216,I217,I218",
+      "objectTooltipPct": 25,
+      "mounts": [
+        {
+          "path": [
+            "I218"
+          ],
+          "itemPosition": 4
+        }
+      ],
+      "objectOccurrenceSumPct": 25,
+      "webPct": 25
+    },
+    {
+      "id": "i222",
+      "name": "空明杖",
+      "workbookCell": "装备与道具!H132",
+      "workbookPct": 10,
+      "objectJsonIndex": 425,
+      "objectAbilList": "I134,I156,I103,I122",
+      "objectTooltipPct": 10,
+      "mounts": [
+        {
+          "path": [
+            "I122"
+          ],
+          "itemPosition": 4
+        }
+      ],
+      "objectOccurrenceSumPct": 10,
+      "webPct": 10
+    },
+    {
+      "id": "i272",
+      "name": "幻影斧",
+      "workbookCell": "装备与道具!H182",
+      "workbookPct": 20,
+      "objectJsonIndex": 475,
+      "objectAbilList": "I266,I265,I123",
+      "objectTooltipPct": 20,
+      "mounts": [
+        {
+          "path": [
+            "I123"
+          ],
+          "itemPosition": 3
+        }
+      ],
+      "objectOccurrenceSumPct": 20,
+      "webPct": 20
+    },
+    {
+      "id": "i274",
+      "name": "幻影匕首",
+      "workbookCell": "装备与道具!H184",
+      "workbookPct": 12,
+      "objectJsonIndex": 477,
+      "objectAbilList": "I267,I268,I122",
+      "objectTooltipPct": 12,
+      "mounts": [
+        {
+          "path": [
+            "I122"
+          ],
+          "itemPosition": 3
+        }
+      ],
+      "objectOccurrenceSumPct": 10,
+      "webPct": 12
+    },
+    {
+      "id": "i302",
+      "name": "索利达尔-群星之怒",
+      "workbookCell": "装备与道具!H195",
+      "workbookPct": 60,
+      "objectJsonIndex": 488,
+      "objectAbilList": "I152,I128",
+      "objectTooltipPct": null,
+      "mounts": [
+        {
+          "path": [
+            "I128"
+          ],
+          "itemPosition": 2
+        }
+      ],
+      "objectOccurrenceSumPct": 60,
+      "webPct": 60
+    },
+    {
+      "id": "i306",
+      "name": "裁决之剑",
+      "workbookCell": "装备与道具!H199",
+      "workbookPct": 45,
+      "objectJsonIndex": 492,
+      "objectAbilList": "I286,I229,I284",
+      "objectTooltipPct": null,
+      "mounts": [
+        {
+          "path": [
+            "I286"
+          ],
+          "itemPosition": 1
+        }
+      ],
+      "objectOccurrenceSumPct": 45,
+      "webPct": 45
+    },
+    {
+      "id": "i316",
+      "name": "斩敌巨斧",
+      "workbookCell": "装备与道具!H209",
+      "workbookPct": 30,
+      "objectJsonIndex": 502,
+      "objectAbilList": "I146,I124",
+      "objectTooltipPct": null,
+      "mounts": [
+        {
+          "path": [
+            "I124"
+          ],
+          "itemPosition": 2
+        }
+      ],
+      "objectOccurrenceSumPct": 30,
+      "webPct": 30
+    },
+    {
+      "id": "i322",
+      "name": "遗物之刃",
+      "workbookCell": "装备与道具!H215",
+      "workbookPct": 90,
+      "objectJsonIndex": 508,
+      "objectAbilList": "I252,I126,I251",
+      "objectTooltipPct": null,
+      "mounts": [
+        {
+          "path": [
+            "I126"
+          ],
+          "itemPosition": 2
+        }
+      ],
+      "objectOccurrenceSumPct": 90,
+      "webPct": 90
+    },
+    {
+      "id": "i330",
+      "name": "魔焰之心(开启的)",
+      "workbookCell": "装备与道具!H223",
+      "workbookPct": -50,
+      "objectJsonIndex": 516,
+      "objectAbilList": "I274,I280",
+      "objectTooltipPct": null,
+      "mounts": [
+        {
+          "path": [
+            "I280",
+            "I278"
+          ],
+          "itemPosition": 2,
+          "spellBookPosition": 3
+        }
+      ],
+      "objectOccurrenceSumPct": -50,
+      "webPct": -50
+    },
+    {
+      "id": "i332",
+      "name": "魔焰之心(关闭的)",
+      "workbookCell": "装备与道具!H225",
+      "workbookPct": -50,
+      "objectJsonIndex": 518,
+      "objectAbilList": "I274,I280,I281",
+      "objectTooltipPct": null,
+      "mounts": [
+        {
+          "path": [
+            "I280",
+            "I278"
+          ],
+          "itemPosition": 2,
+          "spellBookPosition": 3
+        }
+      ],
+      "objectOccurrenceSumPct": -50,
+      "webPct": -50
+    }
+  ],
+  "recipeBooks": [
+    {
+      "id": "i107",
+      "name": "制作书-夜叉",
+      "workbookCell": "装备与道具!H17",
+      "workbookPct": 12,
+      "objectJsonIndex": 310,
+      "objectAbilList": null,
+      "objectTooltipPct": 12,
+      "webPct": 0,
+      "product": "i108",
+      "recipeSourceLines": [
+        141831,
+        141844
+      ],
+      "webFinishedItemPreviewPct": 12
+    },
+    {
+      "id": "i111",
+      "name": "制作书-散华",
+      "workbookCell": "装备与道具!H21",
+      "workbookPct": 12,
+      "objectJsonIndex": 314,
+      "objectAbilList": null,
+      "objectTooltipPct": 12,
+      "webPct": 0,
+      "product": "i112",
+      "recipeSourceLines": [
+        141845,
+        141858
+      ],
+      "webFinishedItemPreviewPct": 12
+    },
+    {
+      "id": "i113",
+      "name": "制作书-散夜对剑",
+      "workbookCell": "装备与道具!H23",
+      "workbookPct": 30,
+      "objectJsonIndex": 316,
+      "objectAbilList": null,
+      "objectTooltipPct": 30,
+      "webPct": 0,
+      "product": "i114",
+      "recipeSourceLines": [
+        141859,
+        141872
+      ],
+      "webFinishedItemPreviewPct": 30
+    },
+    {
+      "id": "i124",
+      "name": "制作书-蝴蝶",
+      "workbookCell": "装备与道具!H34",
+      "workbookPct": 40,
+      "objectJsonIndex": 327,
+      "objectAbilList": null,
+      "objectTooltipPct": 40,
+      "webPct": 0,
+      "product": "i123",
+      "recipeSourceLines": [
+        142435,
+        142451
+      ],
+      "webFinishedItemPreviewPct": 40
+    },
+    {
+      "id": "i159",
+      "name": "制作书-银月之晶",
+      "workbookCell": "装备与道具!H69",
+      "workbookPct": 80,
+      "objectJsonIndex": 362,
+      "objectAbilList": null,
+      "objectTooltipPct": 80,
+      "webPct": 0,
+      "product": "i158",
+      "recipeSourceLines": [
+        141901,
+        141914
+      ],
+      "webFinishedItemPreviewPct": 80
+    },
+    {
+      "id": "i174",
+      "name": "制作书-漩涡",
+      "workbookCell": "装备与道具!H84",
+      "workbookPct": 20,
+      "objectJsonIndex": 377,
+      "objectAbilList": null,
+      "objectTooltipPct": null,
+      "webPct": 0,
+      "product": "i173",
+      "recipeSourceLines": [
+        141915,
+        141928
+      ],
+      "webFinishedItemPreviewPct": 20
+    },
+    {
+      "id": "i178",
+      "name": "制作书-雷神之锤",
+      "workbookCell": "装备与道具!H88",
+      "workbookPct": 60,
+      "objectJsonIndex": 381,
+      "objectAbilList": null,
+      "objectTooltipPct": null,
+      "webPct": 0,
+      "product": "i177",
+      "recipeSourceLines": [
+        141930,
+        141943
+      ],
+      "webFinishedItemPreviewPct": 60
+    },
+    {
+      "id": "i216",
+      "name": "制作书-强袭胸甲",
+      "workbookCell": "装备与道具!H126",
+      "workbookPct": 25,
+      "objectJsonIndex": 419,
+      "objectAbilList": null,
+      "objectTooltipPct": 25,
+      "webPct": 0,
+      "product": "i217",
+      "recipeSourceLines": [
+        141719,
+        141732
+      ],
+      "webFinishedItemPreviewPct": 25
+    },
+    {
+      "id": "i223",
+      "name": "制作书-空明杖",
+      "workbookCell": "装备与道具!H133",
+      "workbookPct": 10,
+      "objectJsonIndex": 426,
+      "objectAbilList": null,
+      "objectTooltipPct": 10,
+      "webPct": 0,
+      "product": "i222",
+      "recipeSourceLines": [
+        142248,
+        142264
+      ],
+      "webFinishedItemPreviewPct": 10
+    },
+    {
+      "id": "i273",
+      "name": "制作书-幻影斧",
+      "workbookCell": "装备与道具!H183",
+      "workbookPct": 20,
+      "objectJsonIndex": 476,
+      "objectAbilList": null,
+      "objectTooltipPct": 20,
+      "webPct": 0,
+      "product": "i272",
+      "recipeSourceLines": [
+        142070,
+        142083
+      ],
+      "webFinishedItemPreviewPct": 20
+    },
+    {
+      "id": "i275",
+      "name": "制作书-幻影匕首",
+      "workbookCell": "装备与道具!H185",
+      "workbookPct": 12,
+      "objectJsonIndex": 478,
+      "objectAbilList": null,
+      "objectTooltipPct": 12,
+      "webPct": 0,
+      "product": "i274",
+      "recipeSourceLines": [
+        142084,
+        142097
+      ],
+      "webFinishedItemPreviewPct": 12
+    },
+    {
+      "id": "i303",
+      "name": "制作书-索利达尔-群星之怒",
+      "workbookCell": "装备与道具!H196",
+      "workbookPct": 60,
+      "objectJsonIndex": 489,
+      "objectAbilList": null,
+      "objectTooltipPct": null,
+      "webPct": 0,
+      "product": "i302",
+      "recipeSourceLines": [
+        141705,
+        141718
+      ],
+      "webFinishedItemPreviewPct": 60
+    },
+    {
+      "id": "i307",
+      "name": "制作书-裁决之剑",
+      "workbookCell": "装备与道具!H200",
+      "workbookPct": 45,
+      "objectJsonIndex": 493,
+      "objectAbilList": null,
+      "objectTooltipPct": null,
+      "webPct": 0,
+      "product": "i306",
+      "recipeSourceLines": [
+        142098,
+        142111
+      ],
+      "webFinishedItemPreviewPct": 45
+    },
+    {
+      "id": "i317",
+      "name": "制作书-斩敌巨斧",
+      "workbookCell": "装备与道具!H210",
+      "workbookPct": 30,
+      "objectJsonIndex": 503,
+      "objectAbilList": null,
+      "objectTooltipPct": null,
+      "webPct": 0,
+      "product": "i316",
+      "recipeSourceLines": [
+        142129,
+        142145
+      ],
+      "webFinishedItemPreviewPct": 30
+    },
+    {
+      "id": "i323",
+      "name": "制作书-遗物之刃",
+      "workbookCell": "装备与道具!H216",
+      "workbookPct": 90,
+      "objectJsonIndex": 509,
+      "objectAbilList": null,
+      "objectTooltipPct": null,
+      "webPct": 0,
+      "product": "i322",
+      "recipeSourceLines": [
+        142056,
+        142069
+      ],
+      "webFinishedItemPreviewPct": 90
+    },
+    {
+      "id": "i331",
+      "name": "制作书-魔焰之心",
+      "workbookCell": "装备与道具!H224",
+      "workbookPct": -50,
+      "objectJsonIndex": 517,
+      "objectAbilList": null,
+      "objectTooltipPct": null,
+      "webPct": 0,
+      "product": "i332",
+      "recipeSourceLines": [
+        141663,
+        141676
+      ],
+      "webFinishedItemPreviewPct": -50
+    }
+  ],
+  "numericDecisions": [
+    "i108",
+    "i112",
+    "i274"
+  ],
+  "webRule": "Add each eligible mounted item's selected percent/100 once to raw R. Keep AGI and script J separate. Update before PICKUP/DROP and retain attack progress via T03. Clamp K only at scheduling. Restore mount contributions without replay.",
+  "pendingMechanism": [],
+  "originalClientTested": false,
+  "verification": [
+    {
+      "scenario": "i108 drop with i330 and an existing J at half wind-up",
+      "beforeRawR": 0.34,
+      "afterRawR": 0.188,
+      "afterK": 0.2,
+      "remainingBaseWindupSeconds": 0.5,
+      "scheduledSecondsRemaining": 2.5
+    }
+  ]
+}

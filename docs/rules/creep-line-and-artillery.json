@@ -1,0 +1,3925 @@
+{
+  "schemaVersion": 1,
+  "baselineIds": [
+    "creep-line-v1",
+    "creep-artillery-v1"
+  ],
+  "scope": "sixworkbook IDs with fullN017_19_Action, directhelpers, damageentry fragment, T038 nativewave and scopedartilleryadapter; nofullglobalattackstat decomposition orworlddestructibleimport",
+  "sourceFiles": {
+    "main.disasm": {
+      "path": "reference/map-6.25/main.disasm",
+      "sha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+    },
+    "war3map.j": {
+      "path": "reference/map-6.25/war3map.j",
+      "sha256": "67d4ebedc82fc39d687689b593efe0d21319ef6fcee44591058812d1baf1c3f8"
+    },
+    "units_abilitydata.json": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "sha256": "b772de42ebcfc1d3818298b35dbe81a35826892848c7cbfef70bf5097e481861"
+    },
+    "war3map.w3a.json": {
+      "path": "reference/map-6.25/war3map.w3a.json",
+      "sha256": "d2875f064b389bca471db97121ff7c810d46fbc962ae640ad128d1daa85931bb"
+    },
+    "war3map.w3u.json": {
+      "path": "reference/map-6.25/war3map.w3u.json",
+      "sha256": "4d599edcf9784748cb7d8f07d873331de37393c9dec20d55b8551a924e6946c1"
+    },
+    "units_unitweapons.json": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "sha256": "3d19b979895be4cb5fdaa6d6905faf6b2a907200fc67dfd2756777386dca1ec7"
+    },
+    "units_unitabilities.json": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "sha256": "ebd8a6fd8410f593c5ecadf6bf7c4f6bbc5b4bb7183c5e986a4d2d77e1747133"
+    },
+    "units_unitbalance.json": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "sha256": "096bad329e3b86f3ed4cad3e4ca7c8c4d8efcea2f25a366eef4eac8367eb70e3"
+    },
+    "units_unitdata.json": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "sha256": "5489f9711b37803ea5d50e755d7c191205ea28710650d9a40dcd51b2e27c9e04"
+    },
+    "units_campaignabilitystrings.txt": {
+      "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+      "sha256": "5240c99230cd441b4c376371a31a7987e65470feed736177473a206c55fbe8cc"
+    }
+  },
+  "workbook": {
+    "path": "图鉴.xlsx",
+    "sha256": "457c8f7e37e19412a0dd072ce941e95604b0b8910860b9e1eb9883e6b82bb6af",
+    "actualColumns": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J"
+    ],
+    "supplementalAssessment": "all6Jcellsexplicitlyempty; noJnumericconflict; empty notzero"
+  },
+  "ids": [
+    {
+      "id": "N017",
+      "family": "line",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 754,
+          "cells": {
+            "A754": "近卫投石车Lv1<R>",
+            "B754": "n153",
+            "C754": "1",
+            "D754": "自带技能",
+            "E754": "直线攻击",
+            "F754": "N017",
+            "G754": "1",
+            "H754": "普通攻击能攻击一条线上的敌人造成300点伤害。距离900。",
+            "I754": "",
+            "J754": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:N017",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          13141,
+          13152
+        ],
+        "fields": {
+          "Art": "ReplaceableTextures\\PassiveButtons\\PASBTNHumanArtilleryUpOne.blp",
+          "Buttonpos": "3,2",
+          "Name": "直线攻击",
+          "ResearchArt": "ReplaceableTextures\\CommandButtons\\BTNCriticalStrike.blp",
+          "Researchbuttonpos": "2",
+          "Researchhotkey": "C",
+          "Researchtip": "学习致命一击(|cffffcc00C|r) - [|cffffcc00等级 %d|r]",
+          "Researchubertip": "给予一定的概率使得攻击力能大大增强。|n|n|cffffcc00等级 1|r -15%的概率，2倍于一般攻击的伤害值。|n|cffffcc00等级 2|r -15%的概率，3倍于一般攻击的伤害值。|n|cffffcc00等级 3|r -15%的概率，4倍于一般攻击的伤害值。",
+          "Tip": "直线攻击 - [|cffffcc00等级 1|r]",
+          "Ubertip": "普通攻击能攻击一条线上的敌人造成300点伤害。距离900。"
+        }
+      },
+      "initialCarriers": [
+        "n153"
+      ],
+      "status": "bounded-Web-spec-defined",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "N018",
+      "family": "line",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 755,
+          "cells": {
+            "A755": "近卫投石车Lv2<R>",
+            "B755": "n154",
+            "C755": "1",
+            "D755": "自带技能",
+            "E755": "直线攻击",
+            "F755": "N018",
+            "G755": "1",
+            "H755": "普通攻击能攻击一条线上的敌人造成600点伤害。距离1200。",
+            "I755": "",
+            "J755": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:N018",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          13153,
+          13164
+        ],
+        "fields": {
+          "Art": "ReplaceableTextures\\PassiveButtons\\PASBTNHumanArtilleryUpOne.blp",
+          "Buttonpos": "3,2",
+          "Name": "直线攻击",
+          "ResearchArt": "ReplaceableTextures\\CommandButtons\\BTNCriticalStrike.blp",
+          "Researchbuttonpos": "2",
+          "Researchhotkey": "C",
+          "Researchtip": "学习致命一击(|cffffcc00C|r) - [|cffffcc00等级 %d|r]",
+          "Researchubertip": "给予一定的概率使得攻击力能大大增强。|n|n|cffffcc00等级 1|r -15%的概率，2倍于一般攻击的伤害值。|n|cffffcc00等级 2|r -15%的概率，3倍于一般攻击的伤害值。|n|cffffcc00等级 3|r -15%的概率，4倍于一般攻击的伤害值。",
+          "Tip": "直线攻击 - [|cffffcc00等级 2|r]",
+          "Ubertip": "普通攻击能攻击一条线上的敌人造成600点伤害。距离1200。"
+        }
+      },
+      "initialCarriers": [
+        "n154"
+      ],
+      "status": "bounded-Web-spec-defined",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "N019",
+      "family": "line",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 756,
+          "cells": {
+            "A756": "近卫投石车Max<R>",
+            "B756": "n155",
+            "C756": "1",
+            "D756": "自带技能",
+            "E756": "直线攻击",
+            "F756": "N019",
+            "G756": "1",
+            "H756": "普通攻击能攻击一条线上的敌人造成1200点伤害。距离1500。",
+            "I756": "",
+            "J756": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:N019",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          13165,
+          13176
+        ],
+        "fields": {
+          "Art": "ReplaceableTextures\\PassiveButtons\\PASBTNHumanArtilleryUpOne.blp",
+          "Buttonpos": "3,2",
+          "Name": "直线攻击",
+          "ResearchArt": "ReplaceableTextures\\CommandButtons\\BTNCriticalStrike.blp",
+          "Researchbuttonpos": "2",
+          "Researchhotkey": "C",
+          "Researchtip": "学习致命一击(|cffffcc00C|r) - [|cffffcc00等级 %d|r]",
+          "Researchubertip": "给予一定的概率使得攻击力能大大增强。|n|n|cffffcc00等级 1|r -15%的概率，2倍于一般攻击的伤害值。|n|cffffcc00等级 2|r -15%的概率，3倍于一般攻击的伤害值。|n|cffffcc00等级 3|r -15%的概率，4倍于一般攻击的伤害值。",
+          "Tip": "直线攻击 - [|cffffcc00等级 3|r]",
+          "Ubertip": "普通攻击能攻击一条线上的敌人造成1200点伤害。距离1500。"
+        }
+      },
+      "initialCarriers": [
+        "n155"
+      ],
+      "status": "bounded-Web-spec-defined",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "N020",
+      "family": "artillery",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 706,
+          "cells": {
+            "A706": "天灾投石车Lv1<R>",
+            "B706": "n156",
+            "C706": "1",
+            "D706": "自带技能",
+            "E706": "投石车",
+            "F706": "N020",
+            "G706": "1",
+            "H706": "普通攻击能伤害一个小范围内的敌人。",
+            "I706": "",
+            "J706": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:N020",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          13177,
+          13188
+        ],
+        "fields": {
+          "Art": "ReplaceableTextures\\PassiveButtons\\PASBTNFlakCannons.blp",
+          "Buttonpos": "3,2",
+          "Name": "投石车",
+          "ResearchArt": "ReplaceableTextures\\CommandButtons\\BTNCriticalStrike.blp",
+          "Researchbuttonpos": "2",
+          "Researchhotkey": "C",
+          "Researchtip": "学习致命一击(|cffffcc00C|r) - [|cffffcc00等级 %d|r]",
+          "Researchubertip": "给予一定的概率使得攻击力能大大增强。|n|n|cffffcc00等级 1|r -15%的概率，2倍于一般攻击的伤害值。|n|cffffcc00等级 2|r -15%的概率，3倍于一般攻击的伤害值。|n|cffffcc00等级 3|r -15%的概率，4倍于一般攻击的伤害值。",
+          "Tip": "投石车 - [|cffffcc00等级 1|r]",
+          "Ubertip": "普通攻击能伤害一个小范围内的敌人。"
+        }
+      },
+      "initialCarriers": [
+        "n156"
+      ],
+      "status": "bounded-Web-spec-defined",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "N021",
+      "family": "artillery",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 708,
+          "cells": {
+            "A708": "天灾投石车Lv2<R>",
+            "B708": "n157",
+            "C708": "1",
+            "D708": "自带技能",
+            "E708": "投石车",
+            "F708": "N021",
+            "G708": "1",
+            "H708": "普通攻击能伤害一个范围内的敌人。",
+            "I708": "",
+            "J708": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:N021",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          13189,
+          13200
+        ],
+        "fields": {
+          "Art": "ReplaceableTextures\\PassiveButtons\\PASBTNFlakCannons.blp",
+          "Buttonpos": "3,2",
+          "Name": "投石车",
+          "ResearchArt": "ReplaceableTextures\\CommandButtons\\BTNCriticalStrike.blp",
+          "Researchbuttonpos": "2",
+          "Researchhotkey": "C",
+          "Researchtip": "学习致命一击(|cffffcc00C|r) - [|cffffcc00等级 %d|r]",
+          "Researchubertip": "给予一定的概率使得攻击力能大大增强。|n|n|cffffcc00等级 1|r -15%的概率，2倍于一般攻击的伤害值。|n|cffffcc00等级 2|r -15%的概率，3倍于一般攻击的伤害值。|n|cffffcc00等级 3|r -15%的概率，4倍于一般攻击的伤害值。",
+          "Tip": "投石车 - [|cffffcc00等级 2|r]",
+          "Ubertip": "普通攻击能伤害一个范围内的敌人。"
+        }
+      },
+      "initialCarriers": [
+        "n157"
+      ],
+      "status": "bounded-Web-spec-defined",
+      "nativeParity": "unproved"
+    },
+    {
+      "id": "N022",
+      "family": "artillery",
+      "workbook": [
+        {
+          "sheet": "塔技能",
+          "row": 710,
+          "cells": {
+            "A710": "天灾投石车Max<R>",
+            "B710": "n158",
+            "C710": "1",
+            "D710": "自带技能",
+            "E710": "投石车",
+            "F710": "N022",
+            "G710": "1",
+            "H710": "普通攻击能伤害一个大范围内的敌人。",
+            "I710": "",
+            "J710": ""
+          }
+        }
+      ],
+      "object": "units_abilitydata.json:N022",
+      "w3aOverrides": [],
+      "actualProfile": {
+        "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+        "lines": [
+          13201,
+          13212
+        ],
+        "fields": {
+          "Art": "ReplaceableTextures\\PassiveButtons\\PASBTNFlakCannons.blp",
+          "Buttonpos": "3,2",
+          "Name": "投石车",
+          "ResearchArt": "ReplaceableTextures\\CommandButtons\\BTNCriticalStrike.blp",
+          "Researchbuttonpos": "2",
+          "Researchhotkey": "C",
+          "Researchtip": "学习致命一击(|cffffcc00C|r) - [|cffffcc00等级 %d|r]",
+          "Researchubertip": "给予一定的概率使得攻击力能大大增强。|n|n|cffffcc00等级 1|r -15%的概率，2倍于一般攻击的伤害值。|n|cffffcc00等级 2|r -15%的概率，3倍于一般攻击的伤害值。|n|cffffcc00等级 3|r -15%的概率，4倍于一般攻击的伤害值。",
+          "Tip": "投石车 - [|cffffcc00等级 3|r]",
+          "Ubertip": "普通攻击能伤害一个大范围内的敌人。"
+        }
+      },
+      "initialCarriers": [
+        "n158"
+      ],
+      "status": "bounded-Web-spec-defined",
+      "nativeParity": "unproved"
+    }
+  ],
+  "objectData": {
+    "units_abilitydata.json:N017": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 24356,
+      "fields": {
+        "alias": "N017",
+        "code": "AOcr",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "air,ground,enemy,neutral",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "units_abilitydata.json:N018": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 24367,
+      "fields": {
+        "alias": "N018",
+        "code": "AOcr",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "air,ground,enemy,neutral",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "units_abilitydata.json:N019": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 24378,
+      "fields": {
+        "alias": "N019",
+        "code": "AOcr",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "air,ground,enemy,neutral",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "units_abilitydata.json:N020": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 24389,
+      "fields": {
+        "alias": "N020",
+        "code": "AOcr",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "air,ground,enemy,neutral",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "units_abilitydata.json:N021": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 24400,
+      "fields": {
+        "alias": "N021",
+        "code": "AOcr",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "air,ground,enemy,neutral",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "units_abilitydata.json:N022": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 24411,
+      "fields": {
+        "alias": "N022",
+        "code": "AOcr",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "air,ground,enemy,neutral",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "units_abilitydata.json:T038": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 33010,
+      "fields": {
+        "alias": "T038",
+        "code": "AUcs",
+        "Area1": 100.0,
+        "Area2": 110.0,
+        "Area3": 120.0,
+        "checkDep": 1,
+        "Cool1": 10.0,
+        "Cool2": 10.0,
+        "Cool3": 10.0,
+        "DataA1": 300.0,
+        "DataA2": 800.0,
+        "DataA3": 2200.0,
+        "DataB1": 9999999.0,
+        "DataB2": 9999999.0,
+        "DataB3": 9999999.0,
+        "DataC1": 900.0,
+        "DataC2": 1200.0,
+        "DataC3": 1500.0,
+        "DataD1": 100.0,
+        "DataD2": 110.0,
+        "DataD3": 120.0,
+        "levels": 3,
+        "reqLevel": 1,
+        "Rng1": 2000.0,
+        "Rng2": 2000.0,
+        "Rng3": 2000.0,
+        "targs1": "ground,air,organic",
+        "targs2": "ground,air,organic",
+        "targs3": "ground,air,organic",
+        "targs4": "_"
+      }
+    },
+    "units_abilitydata.json:AUcs": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 8725,
+      "fields": {
+        "alias": "AUcs",
+        "code": "AUcs",
+        "Area1": 100.0,
+        "Area2": 100.0,
+        "Area3": 100.0,
+        "BuffID1": "BUcs",
+        "BuffID2": "BUcs",
+        "BuffID3": "BUcs",
+        "checkDep": 1,
+        "Cool1": 10.0,
+        "Cool2": 10.0,
+        "Cool3": 10.0,
+        "Cost1": 110,
+        "Cost2": 110,
+        "Cost3": 110,
+        "DataA1": 75.0,
+        "DataA2": 125.0,
+        "DataA3": 200.0,
+        "DataB1": 300.0,
+        "DataB2": 600.0,
+        "DataB3": 1000.0,
+        "DataC1": 800.0,
+        "DataC2": 800.0,
+        "DataC3": 800.0,
+        "DataD1": 300.0,
+        "DataD2": 300.0,
+        "DataD3": 300.0,
+        "levels": 3,
+        "reqLevel": 1,
+        "Rng1": 700.0,
+        "Rng2": 700.0,
+        "Rng3": 700.0,
+        "targs1": "ground,air,organic",
+        "targs2": "ground,air,organic",
+        "targs3": "ground,air,organic",
+        "targs4": "_"
+      }
+    },
+    "units_unitabilities.json:n153": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 5985,
+      "fields": {
+        "unitAbilID": "n153",
+        "abilList": "Avul,T033,N017",
+        "auto": "_"
+      }
+    },
+    "units_unitweapons.json:n153": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 30800,
+      "fields": {
+        "unitWeapID": "n153",
+        "acquire": 2000.0,
+        "atkType1": "magic",
+        "atkType2": "siege",
+        "backSw1": 1.9,
+        "backSw2": 1.9,
+        "castbsw": 0.51,
+        "castpt": 0.3,
+        "cool1": 1.7,
+        "cool2": 3.5,
+        "damageLoss1": 0.2,
+        "damageLoss2": 0.2,
+        "dice1": 1,
+        "dice2": 1,
+        "dmgplus1": 1,
+        "dmgplus2": 38,
+        "dmgpt1": 0.1,
+        "dmgpt2": 0.1,
+        "Farea1": 25,
+        "Farea2": 25,
+        "Harea1": 50,
+        "Harea2": 50,
+        "Hfact1": 0.4,
+        "Hfact2": 0.4,
+        "impactZ": 60.0,
+        "launchZ": 60.0,
+        "minRange": 250,
+        "Qarea1": 150,
+        "Qarea2": 150,
+        "Qfact1": 0.25,
+        "Qfact2": 0.25,
+        "rangeN1": 900,
+        "rangeN2": 1150,
+        "RngBuff1": 3500.0,
+        "RngBuff2": 250.0,
+        "showUI1": 1,
+        "showUI2": 1,
+        "sides1": 1,
+        "sides2": 12,
+        "spillRadius1": 50.0,
+        "spillRadius2": 50.0,
+        "splashTargs1": "ground,structure,debris,wall",
+        "splashTargs2": "ground,structure,debris,wall,tree",
+        "targCount1": 1,
+        "targCount2": 1,
+        "targs1": "ground,structure,debris,wall,item,ward",
+        "targs2": "ground,structure,debris,wall,item,ward,tree",
+        "weapsOn": 1,
+        "weapTp1": "normal",
+        "weapTp2": "aline"
+      }
+    },
+    "units_unitbalance.json:n153": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 34493,
+      "fields": {
+        "unitBalanceID": "n153",
+        "bldtm": 1,
+        "bountydice": 7,
+        "bountyplus": 25,
+        "bountysides": 3,
+        "collision": 72.0,
+        "def": 2.0,
+        "defType": "large",
+        "defUp": 2.0,
+        "fused": 5,
+        "HP": 300,
+        "level": 1,
+        "nsight": 1200,
+        "preventPlace": "_",
+        "Primary": "_",
+        "regenMana": 1.0,
+        "regenType": "none",
+        "reptm": 2,
+        "requirePlace": "_",
+        "sight": 1400,
+        "stockMax": 3,
+        "stockRegen": 30,
+        "tilesets": "*"
+      }
+    },
+    "units_unitdata.json:n153": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 17777,
+      "fields": {
+        "unitID": "n153",
+        "canFlee": 1,
+        "cargoSize": 2,
+        "death": 3.34,
+        "deathType": 2,
+        "formation": 3,
+        "movetp": "foot",
+        "orientInterp": 1,
+        "prio": 2,
+        "propWin": 30.0,
+        "race": "nightelf",
+        "targType": "ground,organic",
+        "turnRate": 0.4
+      }
+    },
+    "units_unitabilities.json:n154": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 5990,
+      "fields": {
+        "unitAbilID": "n154",
+        "abilList": "Avul,T033,N018",
+        "auto": "_"
+      }
+    },
+    "units_unitweapons.json:n154": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 30852,
+      "fields": {
+        "unitWeapID": "n154",
+        "acquire": 2000.0,
+        "atkType1": "magic",
+        "atkType2": "siege",
+        "backSw1": 1.9,
+        "backSw2": 1.9,
+        "castbsw": 0.51,
+        "castpt": 0.3,
+        "cool1": 1.7,
+        "cool2": 3.5,
+        "damageLoss1": 0.2,
+        "damageLoss2": 0.2,
+        "dice1": 1,
+        "dice2": 1,
+        "dmgplus1": 1,
+        "dmgplus2": 38,
+        "dmgpt1": 0.1,
+        "dmgpt2": 0.1,
+        "Farea1": 25,
+        "Farea2": 25,
+        "Harea1": 50,
+        "Harea2": 50,
+        "Hfact1": 0.4,
+        "Hfact2": 0.4,
+        "impactZ": 60.0,
+        "launchZ": 60.0,
+        "minRange": 250,
+        "Qarea1": 150,
+        "Qarea2": 150,
+        "Qfact1": 0.25,
+        "Qfact2": 0.25,
+        "rangeN1": 1200,
+        "rangeN2": 1150,
+        "RngBuff1": 3500.0,
+        "RngBuff2": 250.0,
+        "showUI1": 1,
+        "showUI2": 1,
+        "sides1": 1,
+        "sides2": 12,
+        "spillRadius1": 50.0,
+        "spillRadius2": 50.0,
+        "splashTargs1": "ground,structure,debris,wall",
+        "splashTargs2": "ground,structure,debris,wall,tree",
+        "targCount1": 1,
+        "targCount2": 1,
+        "targs1": "ground,structure,debris,wall,item,ward",
+        "targs2": "ground,structure,debris,wall,item,ward,tree",
+        "weapsOn": 1,
+        "weapTp1": "normal",
+        "weapTp2": "aline"
+      }
+    },
+    "units_unitbalance.json:n154": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 34518,
+      "fields": {
+        "unitBalanceID": "n154",
+        "bldtm": 1,
+        "bountydice": 7,
+        "bountyplus": 25,
+        "bountysides": 3,
+        "collision": 72.0,
+        "def": 2.0,
+        "defType": "large",
+        "defUp": 2.0,
+        "fused": 5,
+        "goldcost": 2000,
+        "HP": 300,
+        "level": 2,
+        "nsight": 1200,
+        "preventPlace": "_",
+        "Primary": "_",
+        "regenMana": 1.0,
+        "regenType": "none",
+        "reptm": 2,
+        "requirePlace": "_",
+        "sight": 1400,
+        "stockMax": 3,
+        "stockRegen": 30,
+        "tilesets": "*"
+      }
+    },
+    "units_unitdata.json:n154": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 17792,
+      "fields": {
+        "unitID": "n154",
+        "canFlee": 1,
+        "cargoSize": 2,
+        "death": 3.34,
+        "deathType": 2,
+        "formation": 3,
+        "movetp": "foot",
+        "orientInterp": 1,
+        "pathTex": "PathTextures\\4x4SimpleSolid.tga",
+        "points": 2000,
+        "prio": 2,
+        "propWin": 30.0,
+        "race": "nightelf",
+        "targType": "ground,organic",
+        "turnRate": 0.4
+      }
+    },
+    "units_unitabilities.json:n155": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 5995,
+      "fields": {
+        "unitAbilID": "n155",
+        "abilList": "Avul,T033,N019",
+        "auto": "_"
+      }
+    },
+    "units_unitweapons.json:n155": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 30904,
+      "fields": {
+        "unitWeapID": "n155",
+        "acquire": 2000.0,
+        "atkType1": "magic",
+        "atkType2": "siege",
+        "backSw1": 1.9,
+        "backSw2": 1.9,
+        "castbsw": 0.51,
+        "castpt": 0.3,
+        "cool1": 1.7,
+        "cool2": 3.5,
+        "damageLoss1": 0.2,
+        "damageLoss2": 0.2,
+        "dice1": 1,
+        "dice2": 1,
+        "dmgplus1": 1,
+        "dmgplus2": 38,
+        "dmgpt1": 0.1,
+        "dmgpt2": 0.1,
+        "Farea1": 25,
+        "Farea2": 25,
+        "Harea1": 50,
+        "Harea2": 50,
+        "Hfact1": 0.4,
+        "Hfact2": 0.4,
+        "impactZ": 60.0,
+        "launchZ": 60.0,
+        "minRange": 250,
+        "Qarea1": 150,
+        "Qarea2": 150,
+        "Qfact1": 0.25,
+        "Qfact2": 0.25,
+        "rangeN1": 1500,
+        "rangeN2": 1150,
+        "RngBuff1": 3500.0,
+        "RngBuff2": 250.0,
+        "showUI1": 1,
+        "showUI2": 1,
+        "sides1": 1,
+        "sides2": 12,
+        "spillRadius1": 50.0,
+        "spillRadius2": 50.0,
+        "splashTargs1": "ground,structure,debris,wall",
+        "splashTargs2": "ground,structure,debris,wall,tree",
+        "targCount1": 1,
+        "targCount2": 1,
+        "targs1": "ground,structure,debris,wall,item,ward",
+        "targs2": "ground,structure,debris,wall,item,ward,tree",
+        "weapsOn": 1,
+        "weapTp1": "normal",
+        "weapTp2": "aline"
+      }
+    },
+    "units_unitbalance.json:n155": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 34544,
+      "fields": {
+        "unitBalanceID": "n155",
+        "bldtm": 1,
+        "bountydice": 7,
+        "bountyplus": 25,
+        "bountysides": 3,
+        "collision": 72.0,
+        "def": 2.0,
+        "defType": "large",
+        "defUp": 2.0,
+        "fused": 5,
+        "goldcost": 2000,
+        "HP": 300,
+        "level": 3,
+        "nsight": 1200,
+        "preventPlace": "_",
+        "Primary": "_",
+        "regenMana": 1.1,
+        "regenType": "none",
+        "reptm": 2,
+        "requirePlace": "_",
+        "sight": 1400,
+        "stockMax": 3,
+        "stockRegen": 30,
+        "tilesets": "*"
+      }
+    },
+    "units_unitdata.json:n155": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 17809,
+      "fields": {
+        "unitID": "n155",
+        "canFlee": 1,
+        "cargoSize": 2,
+        "death": 3.34,
+        "deathType": 2,
+        "formation": 3,
+        "movetp": "foot",
+        "orientInterp": 1,
+        "pathTex": "PathTextures\\4x4SimpleSolid.tga",
+        "points": 4000,
+        "prio": 2,
+        "propWin": 30.0,
+        "race": "nightelf",
+        "targType": "ground,organic",
+        "turnRate": 0.4
+      }
+    },
+    "units_unitabilities.json:n156": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 6000,
+      "fields": {
+        "unitAbilID": "n156",
+        "abilList": "Avul,T033,N020,N159",
+        "auto": "_"
+      }
+    },
+    "units_unitweapons.json:n156": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 30956,
+      "fields": {
+        "unitWeapID": "n156",
+        "acquire": 2000.0,
+        "atkType1": "pierce",
+        "atkType2": "siege",
+        "backSw1": 1.3,
+        "backSw2": 1.3,
+        "castbsw": 0.51,
+        "castpt": 0.5,
+        "cool1": 2.0,
+        "cool2": 4.0,
+        "dice1": 1,
+        "dice2": 1,
+        "dmgplus1": 826,
+        "dmgplus2": 70,
+        "dmgpt1": 0.7,
+        "dmgpt2": 0.7,
+        "Farea1": 150,
+        "Harea1": 300,
+        "Hfact1": 0.7,
+        "impactZ": 60.0,
+        "launchY": -30.0,
+        "launchZ": 150.0,
+        "minRange": 250,
+        "Qarea1": 400,
+        "Qfact1": 0.4,
+        "rangeN1": 1000,
+        "rangeN2": 1000,
+        "RngBuff1": 3500.0,
+        "RngBuff2": 250.0,
+        "showUI1": 1,
+        "showUI2": 1,
+        "sides1": 23,
+        "sides2": 18,
+        "splashTargs1": "ground,structure,debris,tree,wall",
+        "targCount1": 1,
+        "targCount2": 1,
+        "targs1": "ground,debris,tree,wall,item,ward",
+        "targs2": "structure",
+        "weapsOn": 1,
+        "weapTp1": "artillery",
+        "weapTp2": "missile"
+      }
+    },
+    "units_unitbalance.json:n156": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 34570,
+      "fields": {
+        "unitBalanceID": "n156",
+        "bldtm": 1,
+        "bountydice": 6,
+        "bountyplus": 20,
+        "bountysides": 3,
+        "collision": 72.0,
+        "def": 2.0,
+        "defType": "large",
+        "defUp": 2.0,
+        "fused": 5,
+        "goldcost": 2000,
+        "HP": 380,
+        "level": 1,
+        "nsight": 1200,
+        "preventPlace": "_",
+        "Primary": "_",
+        "regenMana": 1.0,
+        "regenType": "none",
+        "reptm": 2,
+        "requirePlace": "_",
+        "sight": 1400,
+        "stockMax": 3,
+        "stockRegen": 30,
+        "tilesets": "*"
+      }
+    },
+    "units_unitdata.json:n156": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 17826,
+      "fields": {
+        "unitID": "n156",
+        "buffRadius": 15.0,
+        "canFlee": 1,
+        "cargoSize": 2,
+        "death": 1.7,
+        "deathType": 2,
+        "formation": 3,
+        "movetp": "foot",
+        "orientInterp": 1,
+        "pathTex": "PathTextures\\4x4SimpleSolid.tga",
+        "prio": 3,
+        "propWin": 30.0,
+        "race": "undead",
+        "targType": "ground,organic",
+        "turnRate": 0.6
+      }
+    },
+    "units_unitabilities.json:n157": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 6005,
+      "fields": {
+        "unitAbilID": "n157",
+        "abilList": "Avul,T033,N021,N159",
+        "auto": "_"
+      }
+    },
+    "units_unitweapons.json:n157": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 30999,
+      "fields": {
+        "unitWeapID": "n157",
+        "acquire": 2000.0,
+        "atkType1": "pierce",
+        "atkType2": "siege",
+        "backSw1": 1.3,
+        "backSw2": 1.3,
+        "castbsw": 0.51,
+        "castpt": 0.5,
+        "cool1": 2.0,
+        "cool2": 4.0,
+        "dice1": 1,
+        "dice2": 1,
+        "dmgplus1": 1454,
+        "dmgplus2": 70,
+        "dmgpt1": 0.7,
+        "dmgpt2": 0.7,
+        "Farea1": 150,
+        "Harea1": 300,
+        "Hfact1": 0.7,
+        "impactZ": 60.0,
+        "launchY": -30.0,
+        "launchZ": 150.0,
+        "minRange": 250,
+        "Qarea1": 450,
+        "Qfact1": 0.4,
+        "rangeN1": 1200,
+        "rangeN2": 1000,
+        "RngBuff1": 3500.0,
+        "RngBuff2": 250.0,
+        "showUI1": 1,
+        "showUI2": 1,
+        "sides1": 43,
+        "sides2": 18,
+        "splashTargs1": "ground,structure,debris,tree,wall",
+        "targCount1": 1,
+        "targCount2": 1,
+        "targs1": "ground,debris,tree,wall,item,ward",
+        "targs2": "structure",
+        "weapsOn": 1,
+        "weapTp1": "artillery",
+        "weapTp2": "missile"
+      }
+    },
+    "units_unitbalance.json:n157": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 34596,
+      "fields": {
+        "unitBalanceID": "n157",
+        "bldtm": 1,
+        "bountydice": 6,
+        "bountyplus": 20,
+        "bountysides": 3,
+        "collision": 72.0,
+        "def": 2.0,
+        "defType": "large",
+        "defUp": 2.0,
+        "fused": 5,
+        "goldcost": 2000,
+        "HP": 380,
+        "level": 2,
+        "nsight": 1200,
+        "preventPlace": "_",
+        "Primary": "_",
+        "regenMana": 1.0,
+        "regenType": "none",
+        "reptm": 2,
+        "requirePlace": "_",
+        "sight": 1400,
+        "stockMax": 3,
+        "stockRegen": 30,
+        "tilesets": "*"
+      }
+    },
+    "units_unitdata.json:n157": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 17843,
+      "fields": {
+        "unitID": "n157",
+        "canFlee": 1,
+        "cargoSize": 2,
+        "death": 1.7,
+        "deathType": 2,
+        "formation": 3,
+        "movetp": "foot",
+        "orientInterp": 1,
+        "pathTex": "PathTextures\\4x4SimpleSolid.tga",
+        "points": 2000,
+        "prio": 3,
+        "propWin": 30.0,
+        "race": "undead",
+        "targType": "ground,organic",
+        "turnRate": 0.6
+      }
+    },
+    "units_unitabilities.json:n158": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 6010,
+      "fields": {
+        "unitAbilID": "n158",
+        "abilList": "Avul,T033,N022,N159",
+        "auto": "_"
+      }
+    },
+    "units_unitweapons.json:n158": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 31042,
+      "fields": {
+        "unitWeapID": "n158",
+        "acquire": 2000.0,
+        "atkType1": "pierce",
+        "atkType2": "siege",
+        "backSw1": 1.3,
+        "backSw2": 1.3,
+        "castbsw": 0.51,
+        "castpt": 0.5,
+        "cool1": 2.0,
+        "cool2": 4.0,
+        "dice1": 1,
+        "dice2": 1,
+        "dmgplus1": 3356,
+        "dmgplus2": 70,
+        "dmgpt1": 0.7,
+        "dmgpt2": 0.7,
+        "Farea1": 150,
+        "Harea1": 300,
+        "Hfact1": 0.7,
+        "impactZ": 60.0,
+        "launchY": -30.0,
+        "launchZ": 150.0,
+        "minRange": 250,
+        "Qarea1": 500,
+        "Qfact1": 0.4,
+        "rangeN1": 1400,
+        "rangeN2": 1000,
+        "RngBuff1": 3500.0,
+        "RngBuff2": 250.0,
+        "showUI1": 1,
+        "showUI2": 1,
+        "sides1": 62,
+        "sides2": 18,
+        "splashTargs1": "ground,structure,debris,tree,wall",
+        "targCount1": 1,
+        "targCount2": 1,
+        "targs1": "ground,debris,tree,wall,item,ward",
+        "targs2": "structure",
+        "weapsOn": 1,
+        "weapTp1": "artillery",
+        "weapTp2": "missile"
+      }
+    },
+    "units_unitbalance.json:n158": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 34622,
+      "fields": {
+        "unitBalanceID": "n158",
+        "bldtm": 1,
+        "bountydice": 6,
+        "bountyplus": 20,
+        "bountysides": 3,
+        "collision": 72.0,
+        "def": 2.0,
+        "defType": "large",
+        "defUp": 2.0,
+        "fused": 5,
+        "goldcost": 2000,
+        "HP": 380,
+        "level": 3,
+        "nsight": 1200,
+        "preventPlace": "_",
+        "Primary": "_",
+        "regenMana": 1.0,
+        "regenType": "none",
+        "reptm": 2,
+        "requirePlace": "_",
+        "sight": 1400,
+        "stockMax": 3,
+        "stockRegen": 30,
+        "tilesets": "*"
+      }
+    },
+    "units_unitdata.json:n158": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 17860,
+      "fields": {
+        "unitID": "n158",
+        "canFlee": 1,
+        "cargoSize": 2,
+        "death": 1.7,
+        "deathType": 2,
+        "formation": 3,
+        "movetp": "foot",
+        "orientInterp": 1,
+        "pathTex": "PathTextures\\4x4SimpleSolid.tga",
+        "points": 4000,
+        "prio": 3,
+        "propWin": 30.0,
+        "race": "undead",
+        "targType": "ground,organic",
+        "turnRate": 0.6
+      }
+    },
+    "units_unitabilities.json:q001": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 6555,
+      "fields": {
+        "unitAbilID": "q001",
+        "abilList": "Avul,Aloc",
+        "auto": "_"
+      }
+    },
+    "units_unitweapons.json:q001": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 34183,
+      "fields": {
+        "unitWeapID": "q001",
+        "acquire": 900.0,
+        "atkType1": "spells",
+        "atkType2": "normal",
+        "cool1": 1.0,
+        "dice1": 1,
+        "dmgplus1": 12,
+        "rangeN1": 10,
+        "RngBuff1": 250.0,
+        "showUI1": 1,
+        "showUI2": 1,
+        "sides1": 2,
+        "targCount1": 1,
+        "targCount2": 1,
+        "targs1": "ground,debris,air,item",
+        "weapTp1": "missile"
+      }
+    },
+    "units_unitbalance.json:q001": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 37578,
+      "fields": {
+        "unitBalanceID": "q001",
+        "bldtm": 20,
+        "bountydice": 6,
+        "bountyplus": 20,
+        "bountysides": 3,
+        "defType": "small",
+        "defUp": 2.0,
+        "HP": 65,
+        "mana0": 1000,
+        "manaN": 1000,
+        "preventPlace": "_",
+        "Primary": "_",
+        "regenHP": 0.25,
+        "regenType": "always",
+        "reptm": 20,
+        "requirePlace": "_",
+        "stockMax": 3,
+        "stockRegen": 30,
+        "tilesets": "*"
+      }
+    },
+    "units_unitdata.json:q001": {
+      "path": "reference/map-6.25/units_unitdata.json",
+      "line": 19502,
+      "fields": {
+        "unitID": "q001",
+        "canFlee": 1,
+        "cargoSize": 1,
+        "death": 1.0,
+        "moveFloor": 45.0,
+        "movetp": "fly",
+        "points": 100,
+        "prio": 1,
+        "propWin": 170.0,
+        "race": "undead",
+        "targType": "air",
+        "turnRate": 0.2
+      }
+    }
+  },
+  "auxiliaryAbility": {
+    "id": "T038",
+    "actualProfile": {
+      "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+      "lines": [
+        19774,
+        19789
+      ],
+      "fields": {
+        "Animnames": "attack,slam",
+        "Art": "ReplaceableTextures\\CommandButtons\\BTNCarrionSwarm.blp",
+        "Buttonpos": ",2",
+        "Hotkey": "C",
+        "Missileart": "Abilities\\Weapons\\GlaiveMissile\\GlaiveMissile.mdl",
+        "Missilespeed": "1200",
+        "Name": "马甲-直线攻击",
+        "Order": "carrionswarm",
+        "ResearchArt": "ReplaceableTextures\\CommandButtons\\BTNCarrionSwarm.blp",
+        "Researchhotkey": "C",
+        "Researchtip": "学习腐臭蜂群(|cffffcc00C|r) - [|cffffcc00等级 %d|r]",
+        "Researchubertip": "放出一群蝙蝠和昆虫对一线上的敌人造成一定的伤害。|n|n|cffffcc00等级 1|r - 对每个单位造成75点的伤害。|n|cffffcc00等级 2|r - 对每个单位造成125点的伤害。|n|cffffcc00等级 3|r - 对每个单位造成200点的伤害。",
+        "Tip": "腐臭蜂群(|cffffcc00C|r) - [|cffffcc00等级 1|r],腐臭蜂群(|cffffcc00C|r) - [|cffffcc00等级 2|r],腐臭蜂群(|cffffcc00C|r) - [|cffffcc00等级 3|r]",
+        "Ubertip": "放出一群蝙蝠和昆虫对一线上的敌人造成75点的伤害。,放出一群蝙蝠和昆虫对一线上的敌人造成125点的伤害。,放出一群蝙蝠和昆虫对一线上的敌人造成200点的伤害。"
+      }
+    },
+    "w3aOverrides": []
+  },
+  "unitObjectDeltas": [
+    {
+      "old": "n153",
+      "new": "\u0000\u0000\u0000\u0000",
+      "mods": [
+        {
+          "key": "uico",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "ReplaceableTextures\\CommandButtons\\BTNGlaiveThrower.blp"
+        },
+        {
+          "key": "uaap",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "large"
+        },
+        {
+          "key": "ubpx",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ubpy",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "uhot",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "T"
+        },
+        {
+          "key": "ulfi",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ulfo",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "uma1",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.05000000074505806
+        },
+        {
+          "key": "uma2",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.0
+        },
+        {
+          "key": "ua1m",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Abilities\\Weapons\\GlaiveMissile\\GlaiveMissile.mdl"
+        },
+        {
+          "key": "umh1",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "umh2",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ua1z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 1400
+        },
+        {
+          "key": "ua2z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "unam",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff5CACEE近卫投石车Lv1<R>|r"
+        },
+        {
+          "key": "upro",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff5CACEE近卫投石车Lv1<R>|r"
+        },
+        {
+          "key": "urqc",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "urev",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "utaa",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Abilities\\Weapons\\GlaiveMissile\\GlaiveMissileTarget.mdl"
+        },
+        {
+          "key": "utip",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "召唤|cff5CACEE近卫投石车Lv1<R>|r"
+        },
+        {
+          "key": "utub",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": ""
+        },
+        {
+          "key": "uupt",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "n154"
+        }
+      ]
+    },
+    {
+      "old": "n154",
+      "new": "\u0000\u0000\u0000\u0000",
+      "mods": [
+        {
+          "key": "uico",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "ReplaceableTextures\\CommandButtons\\BTNGlaiveThrower.blp"
+        },
+        {
+          "key": "uaap",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "large"
+        },
+        {
+          "key": "ubpx",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ubpy",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 1
+        },
+        {
+          "key": "uhot",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "T"
+        },
+        {
+          "key": "ulfi",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ulfo",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "uma1",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.05000000074505806
+        },
+        {
+          "key": "uma2",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.0
+        },
+        {
+          "key": "ua1m",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Abilities\\Weapons\\GlaiveMissile\\GlaiveMissile.mdl"
+        },
+        {
+          "key": "umh1",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "umh2",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ua1z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 1400
+        },
+        {
+          "key": "ua2z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "unam",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff5CACEE近卫投石车Lv2<R>|r"
+        },
+        {
+          "key": "upro",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff5CACEE近卫投石车Lv2<R>|r"
+        },
+        {
+          "key": "urqc",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "urev",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "utaa",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Abilities\\Weapons\\GlaiveMissile\\GlaiveMissileTarget.mdl"
+        },
+        {
+          "key": "utip",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "升级为|cff5CACEE近卫投石车Lv2<R>|r"
+        },
+        {
+          "key": "utub",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": ""
+        },
+        {
+          "key": "uupt",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "n155"
+        }
+      ]
+    },
+    {
+      "old": "n155",
+      "new": "\u0000\u0000\u0000\u0000",
+      "mods": [
+        {
+          "key": "uico",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "ReplaceableTextures\\CommandButtons\\BTNGlaiveThrower.blp"
+        },
+        {
+          "key": "uaap",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "large"
+        },
+        {
+          "key": "ubpx",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ubpy",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 1
+        },
+        {
+          "key": "uhot",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "T"
+        },
+        {
+          "key": "ulfi",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ulfo",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "uma1",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.05000000074505806
+        },
+        {
+          "key": "uma2",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.0
+        },
+        {
+          "key": "ua1m",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Abilities\\Weapons\\GlaiveMissile\\GlaiveMissile.mdl"
+        },
+        {
+          "key": "umh1",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "umh2",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ua1z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 1400
+        },
+        {
+          "key": "ua2z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "unam",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff5CACEE近卫投石车Max<R>|r"
+        },
+        {
+          "key": "upro",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff5CACEE近卫投石车Max<R>|r"
+        },
+        {
+          "key": "urqc",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "urev",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "utaa",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Abilities\\Weapons\\GlaiveMissile\\GlaiveMissileTarget.mdl"
+        },
+        {
+          "key": "utip",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "升级为|cff5CACEE近卫投石车Max<R>|r"
+        },
+        {
+          "key": "utub",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": ""
+        },
+        {
+          "key": "uupt",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "old": "n156",
+      "new": "\u0000\u0000\u0000\u0000",
+      "mods": [
+        {
+          "key": "uico",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "ReplaceableTextures\\CommandButtons\\BTNMeatWagon.blp"
+        },
+        {
+          "key": "uaap",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "large"
+        },
+        {
+          "key": "ubpx",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ubpy",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "uhot",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "M"
+        },
+        {
+          "key": "ulfi",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ulfo",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "uma1",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.30000001192092896
+        },
+        {
+          "key": "uma2",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.0
+        },
+        {
+          "key": "ua1m",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Abilities\\Weapons\\MeatwagonMissile\\MeatwagonMissile.mdl"
+        },
+        {
+          "key": "umh1",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "umh2",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ua1z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 900
+        },
+        {
+          "key": "ua2z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "unam",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff5CACEE天灾投石车Lv1<R>|r"
+        },
+        {
+          "key": "upro",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff5CACEE天灾投石车Lv1<R>|r"
+        },
+        {
+          "key": "urqc",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "urev",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "utip",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "召唤|cff5CACEE天灾投石车Lv1<R>|r"
+        },
+        {
+          "key": "utub",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": ""
+        },
+        {
+          "key": "uupt",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "n157"
+        }
+      ]
+    },
+    {
+      "old": "n157",
+      "new": "\u0000\u0000\u0000\u0000",
+      "mods": [
+        {
+          "key": "uico",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "ReplaceableTextures\\CommandButtons\\BTNMeatWagon.blp"
+        },
+        {
+          "key": "uaap",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "large"
+        },
+        {
+          "key": "ubpx",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ubpy",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 1
+        },
+        {
+          "key": "uhot",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "M"
+        },
+        {
+          "key": "ulfi",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ulfo",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "uma1",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.30000001192092896
+        },
+        {
+          "key": "uma2",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.0
+        },
+        {
+          "key": "ua1m",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Abilities\\Weapons\\MeatwagonMissile\\MeatwagonMissile.mdl"
+        },
+        {
+          "key": "umh1",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "umh2",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ua1z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 900
+        },
+        {
+          "key": "ua2z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "unam",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff5CACEE天灾投石车Lv2<R>|r"
+        },
+        {
+          "key": "upro",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff5CACEE天灾投石车Lv2<R>|r"
+        },
+        {
+          "key": "urqc",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "urev",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "utip",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "升级为|cff5CACEE天灾投石车Lv2<R>|r"
+        },
+        {
+          "key": "utub",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": ""
+        },
+        {
+          "key": "uupt",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "n158"
+        }
+      ]
+    },
+    {
+      "old": "n158",
+      "new": "\u0000\u0000\u0000\u0000",
+      "mods": [
+        {
+          "key": "uico",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "ReplaceableTextures\\CommandButtons\\BTNMeatWagon.blp"
+        },
+        {
+          "key": "uaap",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "large"
+        },
+        {
+          "key": "ubpx",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ubpy",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 1
+        },
+        {
+          "key": "uhot",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "M"
+        },
+        {
+          "key": "ulfi",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ulfo",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "uma1",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.30000001192092896
+        },
+        {
+          "key": "uma2",
+          "type": 2,
+          "level": null,
+          "data": null,
+          "value": 0.0
+        },
+        {
+          "key": "ua1m",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "Abilities\\Weapons\\MeatwagonMissile\\MeatwagonMissile.mdl"
+        },
+        {
+          "key": "umh1",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "umh2",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "ua1z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 900
+        },
+        {
+          "key": "ua2z",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "unam",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff5CACEE天灾投石车Max<R>|r"
+        },
+        {
+          "key": "upro",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "|cff5CACEE天灾投石车Max<R>|r"
+        },
+        {
+          "key": "urqc",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "urev",
+          "type": 0,
+          "level": null,
+          "data": null,
+          "value": 0
+        },
+        {
+          "key": "utip",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": "升级为|cff5CACEE天灾投石车Max<R>|r"
+        },
+        {
+          "key": "utub",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": ""
+        },
+        {
+          "key": "uupt",
+          "type": 3,
+          "level": null,
+          "data": null,
+          "value": ""
+        }
+      ]
+    }
+  ],
+  "literalReferences": {
+    "N017": [
+      {
+        "function": "main/f175/f0",
+        "line": 113072,
+        "constant": "k7"
+      },
+      {
+        "function": "main/f291/f1",
+        "line": 162216,
+        "constant": "k224"
+      }
+    ],
+    "N018": [
+      {
+        "function": "main/f175/f0",
+        "line": 113073,
+        "constant": "k8"
+      },
+      {
+        "function": "main/f291/f1",
+        "line": 162217,
+        "constant": "k225"
+      }
+    ],
+    "N019": [
+      {
+        "function": "main/f291/f1",
+        "line": 162218,
+        "constant": "k226"
+      }
+    ],
+    "N020": [],
+    "N021": [],
+    "N022": [],
+    "T038": [
+      {
+        "function": "main/f175/f0",
+        "line": 113078,
+        "constant": "k13"
+      }
+    ],
+    "n153": [],
+    "n154": [],
+    "n155": [],
+    "n156": [],
+    "n157": [],
+    "n158": []
+  },
+  "functions": [
+    {
+      "name": "N017_19_Action",
+      "function": "main/f175/f0",
+      "pcRange": [
+        1,
+        52
+      ],
+      "sourceLines": [
+        113086,
+        113140
+      ],
+      "full": true,
+      "counts": {
+        "instructions": 52,
+        "conditions": 2,
+        "calls": 12,
+        "returns": 1
+      },
+      "conditions": [
+        {
+          "pc": 15,
+          "line": 113100,
+          "raw": "lt 0 k4 r4",
+          "truePC": 17,
+          "falsePC": 19
+        },
+        {
+          "pc": 25,
+          "line": 113111,
+          "raw": "lt 0 k4 r4",
+          "truePC": 27,
+          "falsePC": 29
+        }
+      ],
+      "returnPCs": [
+        52
+      ]
+    },
+    {
+      "name": "CreateTempAndSetAbilityLv",
+      "function": "main/f7/f20",
+      "pcRange": [
+        1,
+        33
+      ],
+      "sourceLines": [
+        51476,
+        51509
+      ],
+      "full": true,
+      "counts": {
+        "instructions": 33,
+        "conditions": 1,
+        "calls": 8,
+        "returns": 2
+      },
+      "conditions": [
+        {
+          "pc": 1,
+          "line": 51476,
+          "raw": "test r6 1",
+          "truePC": 4,
+          "falsePC": 3
+        }
+      ],
+      "returnPCs": [
+        32,
+        33
+      ]
+    },
+    {
+      "name": "IsInTable",
+      "function": "main/f7/f7",
+      "pcRange": [
+        1,
+        17
+      ],
+      "sourceLines": [
+        50791,
+        50810
+      ],
+      "full": true,
+      "counts": {
+        "instructions": 17,
+        "conditions": 3,
+        "calls": 1,
+        "returns": 4
+      },
+      "conditions": [
+        {
+          "pc": 1,
+          "line": 50791,
+          "raw": "eq 0 k0 r0",
+          "truePC": 3,
+          "falsePC": 5
+        },
+        {
+          "pc": 10,
+          "line": 50802,
+          "raw": "eq 0 r7 r0",
+          "truePC": 12,
+          "falsePC": 13
+        },
+        {
+          "pc": 14,
+          "line": 50807,
+          "raw": "tforloop r4 l9",
+          "predicate": "next iterator key is not nil",
+          "truePC": 9,
+          "falsePC": 15
+        }
+      ],
+      "returnPCs": [
+        4,
+        12,
+        16,
+        17
+      ]
+    }
+  ],
+  "fragments": [
+    {
+      "name": "damageN017gate",
+      "function": "main/f291/f1",
+      "pcRange": [
+        1730,
+        1760
+      ],
+      "sourceLines": [
+        164318,
+        164349
+      ],
+      "full": false,
+      "counts": {
+        "instructions": 31,
+        "conditions": 4,
+        "calls": 8,
+        "returns": 0
+      },
+      "conditions": [
+        {
+          "pc": 1733,
+          "line": 164321,
+          "raw": "eq 1 k6 r4",
+          "truePC": 1761,
+          "falsePC": 1735
+        },
+        {
+          "pc": 1741,
+          "line": 164329,
+          "raw": "lt 1 k6 r4",
+          "truePC": 1759,
+          "falsePC": 1743
+        },
+        {
+          "pc": 1749,
+          "line": 164337,
+          "raw": "lt 1 k6 r4",
+          "truePC": 1759,
+          "falsePC": 1751
+        },
+        {
+          "pc": 1757,
+          "line": 164345,
+          "raw": "lt 0 k6 r4",
+          "truePC": 1759,
+          "falsePC": 1761
+        }
+      ],
+      "returnPCs": []
+    },
+    {
+      "name": "tempSpellEarlyReturn",
+      "function": "main/f291/f14",
+      "pcRange": [
+        40,
+        65
+      ],
+      "sourceLines": [
+        170040,
+        170066
+      ],
+      "full": false,
+      "counts": {
+        "instructions": 26,
+        "conditions": 5,
+        "calls": 5,
+        "returns": 1
+      },
+      "conditions": [
+        {
+          "pc": 43,
+          "line": 170043,
+          "raw": "test r3 1",
+          "truePC": 65,
+          "falsePC": 45
+        },
+        {
+          "pc": 48,
+          "line": 170048,
+          "raw": "eq 1 r0 r3",
+          "truePC": 65,
+          "falsePC": 50
+        },
+        {
+          "pc": 53,
+          "line": 170053,
+          "raw": "eq 1 r0 r3",
+          "truePC": 65,
+          "falsePC": 55
+        },
+        {
+          "pc": 58,
+          "line": 170058,
+          "raw": "eq 1 r0 r3",
+          "truePC": 65,
+          "falsePC": 60
+        },
+        {
+          "pc": 63,
+          "line": 170063,
+          "raw": "eq 0 r0 r3",
+          "truePC": 65,
+          "falsePC": 66
+        }
+      ],
+      "returnPCs": [
+        65
+      ]
+    }
+  ],
+  "sourceCallerContext": {
+    "reused": "docs/rules/damage-pipeline.json",
+    "function": "main/f291/f1",
+    "initialZeroReturnPC": 27,
+    "q039BypassPC": [
+      98,
+      105
+    ],
+    "B177ReturnPC": 214,
+    "beforePC": 107,
+    "lineActionPC": 1760,
+    "afterPC": 1917,
+    "rawSourceRegister": "r0",
+    "ownerRegister": "r2",
+    "actualSourceNotOwnerForMarker": true,
+    "noLocalIllusionBlock": true
+  },
+  "primarySources": [
+    {
+      "url": "https://classic.battle.net/war3/undead/units/dreadlord.shtml",
+      "fact": "CarrionSwarm directional enemy area damage; no wards. Standard stock amounts/costs do not determine custom T038 missing values."
+    },
+    {
+      "url": "https://classic.battle.net/war3/basics/spellbasics.shtml",
+      "fact": "CarrionSwarm does not damage target friend; magic spells exclude magicalimmune; physical/magic categories distinct."
+    },
+    {
+      "url": "https://classic.battle.net/war3/undead/units/meatwagon.shtml",
+      "fact": "artillery splash bands and minimumrange; cannot attackair; standard siege attack type not custompierce"
+    },
+    {
+      "url": "https://classic.battle.net/war3/basics/siegeunits.shtml",
+      "fact": "siege splash may hurt own units; AttackGround may shoot without targetvision"
+    },
+    {
+      "url": "https://classic.battle.net/war3/nightelf/units/glaivethrower.shtml",
+      "fact": "stockAline/Vorpalblades separate; not proof custom normal weapon gets native line/splash"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/Units/UnitMetaData.slk",
+      "fact": "ua1f/h/q full/medium/small radius,uhd1/uqd1 factors,ua1p targetmask,uamn minimumrange,uaen enabledmask,udl1 damageLoss,usd1/usr1 spilldistance/radius;ua1z/uma1/umh1 missile speed/arc/homing"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/UI/WorldEditStrings.txt#L5198",
+      "fact": "full/medium/small labels; Half/Quarter field names do not force50/25% when factors explicit70/40%"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/Units/AbilityMetaData.slk",
+      "fact": "AUcs Ucs1/2/3/4=damage,maxdamage,distance,finalarea; fieldlabels not native geometry proof"
+    }
+  ],
+  "numericDecisions": [
+    {
+      "id": "workbook-priority-N018-N019",
+      "source": [
+        300,
+        800,
+        2200
+      ],
+      "web": [
+        300,
+        600,
+        1200
+      ],
+      "workbookCells": [
+        "H754",
+        "H755",
+        "H756"
+      ],
+      "authority": "globaluserworkbooknumericpriority",
+      "status": "applied"
+    }
+  ],
+  "families": {
+    "line": {
+      "baselineId": "creep-line-v1",
+      "ids": [
+        "N017",
+        "N018",
+        "N019"
+      ],
+      "sourceDamage": [
+        300,
+        800,
+        2200
+      ],
+      "webDamage": [
+        300,
+        600,
+        1200
+      ],
+      "length": [
+        900,
+        1200,
+        1500
+      ],
+      "radius": [
+        100,
+        110,
+        120
+      ],
+      "speed": 1200,
+      "totalRawBudget": 9999999,
+      "spellRange": 2000,
+      "dummyTimedLife": 0.5,
+      "script": {
+        "gate": "main damagePC1730–1760: EXGetEventDamageData(2)!=0 and actual S hasN017 orN018 orN019 >0; nolocal RNG/illusion/hero/owner/abilityrank gate. Initial zero event,q004/q005 zero, q039bypass and B177earlyreturn remain. Damage may have been rewritten0 after initialcheck and still dispatch.",
+        "rank": "read actual S: N017>0=>1 elseN018>0=>2 else3; abilitylevelmagnitudeignored. Directcallwithoutanymarkerfallsback3; normalcallerexcludesnone.",
+        "order": "readS,T,sourceLoc; CreateTempAndSetAbilityLv(ownerS,sourceLoc,0,T038,rank,.5); SetUserData(q001,IsInTable(S,Tower_ALL)); IssueTargetOrder(q001,carrionswarm,T); ignorebool; return. No RemoveLocation/noEXSetEventDamage/noRNG/timer registered in body.",
+        "attribution": "actual projectile damage source remains q001; O is dynamically Tower_ALL[q001.userData] through original dispatcher, never replaced with towerS. IsInTable missingor nil gives-1; noO fallback or runtimefix. Duplicate table values retainfirstpairs match, original tableorder not reinterpretedasB04.",
+        "spellEvent": "AnySkillStart main/f291/f14 PC40–44/65 returns for IsTemp(q001), before Item_Skill_Action PC70; native T038 spell effect mustnot cause equipment spell procs.",
+        "parentDamage": "native ordinarypacket preserved; body neverzeroes/replaces it. Children are deferred by local zero-time spellcommit after parent damage transaction. Before and prior type multipliers alreadyran; After and restparent stillrun.",
+        "inheritance": "marker AOcr has noextra native contribution; upgradedunit swaps N017->18->19 atlevel1. Do not addillusionfilter toexplicitdamagegate. Generalillusion abilitycopy outside scope; ifactualS ownsmarker gatecanrun and IsInTable(S) may-1."
+      },
+      "Q24": {
+        "ordinaryTriggerWeapon": "n153–155 slot1weapTp=normal,atkType=magic,weapsOn1; retained weapon2aline inactive. Commit immediate ordinary unitattack at P/K; no1400 missile travel/splash/bounce fromunused fields; attack=true,ranged=false,ATTACK_TYPE_MAGIC,DAMAGE_TYPE_NORMAL. RetainoneATTACKED/critical/hit checks. mainraw attackinput fromsharedweaponstats, not hardcode2 or tableS18/S19 mapping. minRange250 andmax900/1200/1500 inclusive centergeometry selectedlocal.",
+        "cast": "accept visible alive enemy organic ground/air nonstructure/nonmechanical/nonward unit,range<=2000,nohidden/Aloc/invul/magicimmune. etherealallowed. Sourceq001 mustexist/alive andhaveT038, no silence/stun/hex/pause castlock; sourceAloc/Avulallowed. MissingCost=>explicitlocal0, missingCast/q001castpt=>local0; cooldown10fromobject startscommit. Initialblue1000 fromobject, nottowerblue.",
+        "acceptCommit": "capture target point onacceptedIssueTargetOrder; enqueuezero-timeB05 commit aftercurrentstack, noinlinechild damage. Atcommit require sourcealive/no castlock/abilityready, paylocal0,startCD10,sendoneAnySkillStart thenlaunch; ifthat eventkills/deletessourcecancelpayload. Targetlaterdeath/move cannot cancelcapturedpoint orretarget. Failedorderstillleavesdummyto.5death,no retry.",
+        "geometry": "fromdummy effectposition to acceptedpoint direction; coincidentpointusesoriginaldummyfacing0deg (+X). Reuse AUcs swept-disc localgeometry withconstant radius100/110/120 andlength900/1200/1500,speed1200. At t0 closedstartdisc, dynamiccontinuousfirstcontact withlivingeligibleunits; eachlogicaltargetonce, simultaneousB04; never stop at first main target.",
+        "targets": "percontact enemyorganic ground/air nonstructure/nonmechanical/nonward,nohidden/Aloc/invul/magicimmune. Ordinaryinvisible canbehit becausearea. targsorg preserved; do not broaden fromotherAUcs family. NoN535/control/status.",
+        "damage": "q001 actualsource false,false,ATTACK_TYPE_NORMAL,DAMAGE_TYPE_MAGIC; fixedwebamount independentofparentdamage/crit/armor. Eachcontact d=min(rankamount,remainingrawbudget); subtractd before fullB03,finalpartialallowed,zero noevent. Snapshotrank atcreation; currentownerattribution resolvedperevent. Multiplewaveshitindependently,no onceperattack victimdedup acrosswaves.",
+        "lifetime": ".5timedlife death occurs asoriginal; doesnotcancel alreadylaunchedwave. Keepdeadq001 sourceidentity available through its ownwave finalcontact (max1.25s), do notrevive/extendaliveperiod/replacewithtower. Naturalcorpse cleanup cannotprematurelyerase retained damageidentity; explicitRemoveUnit cancelsremainingwave. Parenttowerdeath/upgrade/removaldoesnot byitselfdeleteq001 orrewriteuserData; originaldynamicO maynil. Thisretention is localQ24,not provenclientbehavior; shareddeathsideeffects remain.",
+        "termination": "one wave ends at length or exhaustedbudget; speed/visualturning/terrainheight do notchangegeometry. Deleteq001 duringwave cancelsremainingcontacts; targetchangesrechecked eachcontact. No additionalhitcheck/ordinarycrit onspellcontacts.",
+        "state": "savecapturedpoint,rank,origin/direction,travelprogress,visitedlogicalIDs,remainingrawbudget,q001sourceidentity+userdata/deadstate,commit/death/endqueueandsequence. No repeatedRNG orspawn onload."
+      }
+    },
+    "artillery": {
+      "baselineId": "creep-artillery-v1",
+      "ids": [
+        "N020",
+        "N021",
+        "N022"
+      ],
+      "units": [
+        "n156",
+        "n157",
+        "n158"
+      ],
+      "weaponSlot": 1,
+      "attackType": "pierce",
+      "weaponType": "artillery",
+      "worldObjectBoundary": {
+        "knownReachable": "LTlt tree generated by N549; source HP50,armorWood,targTypetree",
+        "snapshot": "reference/map-6.25-pathing/units_destructabledata.slk:2505–2529",
+        "contract": "artillery supplies geometry-scaled rawWeaponDamage, actualS and PIERCE/NORMAL to shared world-object damage; do not use unit B03/anyUnitDamaged for nonunits. World-object life,armor/material mapping and death/pathing lifecycle are explicitly external, not implied as completed by sixID unitcombat audit."
+      },
+      "minimumRange": 250,
+      "maximumRange": [
+        1000,
+        1200,
+        1400
+      ],
+      "fullRadius": 150,
+      "mediumRadius": 300,
+      "outerRadius": [
+        400,
+        450,
+        500
+      ],
+      "mediumFactor": 0.7,
+      "outerFactor": 0.4,
+      "speed": 900,
+      "homing": false,
+      "arcSourceFloat": 0.30000001192092896,
+      "cooldownBase": 2,
+      "damagePointBase": 0.7,
+      "backswingBase": 1.3,
+      "source": "N020–022 AOcr descriptionmarkers only,noexactLua/FourCC references; actualweaponownsarea. initialcarriersalsoN159, preserveexistinggoldstatisticsrule. w3u overrides projectileart/speed900/arc/homing0, noability/weaponsOn/splash/damage overrides. secondweap siege/missile onlystructure hasweapsOn1=>inactive, not a secondpacket.",
+      "Q24": {
+        "launch": "ordinaryattacktimingC2/P.7/B1.3 scaledbyK; selectslot1only. enemyvisible directunit targets groundnonstructure inclorganic/mechanical/ward (directmask); excludeair/hidden/Aloc/invul/ethereal; magicimmuneallowedphysical. Direct manualfriendlyattack allowedonlyexplicitcommand ordinaryinterface, notautotarget. pointAttackGround allowed evenfog. range250..rankmax centerclosed ataccept+launch; cannotshootbelow250 even if splashwouldreach. If unitdies/becomesillegalbeforelaunch cancel; changingrangebeforelaunchrechecks.",
+        "point": "snapshot targetground XY atattackcommit, noleading/prediction/homing. Afterlaunch moving/dying/vanishingtargetdoesnotretarget orcancel shell. Flighttimehorizontalcenterdistance/900 roundedB05; arc.30000001192092896 visualonly, terrain/modelcollision notblocking thisballistic shot. Impactatfixedpoint,zeroextraarrivaldelay. source deathkeepsshell,explicitdeletioncancels.",
+        "hit": "oneordinaryroll/registeredcrit snapshot per unit-targetattack atlaunch; sourceRNG consumedonce, no RNGpercollateral. To avoidunprovedmissscatter, a failedordinarymainhit keepsshell and point but exempts that designatedmainunit fromthisshot; collateral stillsplash. Groundorder hasno designatedmainunit ortargetspecificcrit roll (M=1 unlessindependentlyactiveuntargetedattackcontribution); nofakeATTACKED target. No evasion/uphillpercollateral; range/point geometry stillrequiresvictimatimpact. Thesearelocalnativechoices,notnativeparityclaim.",
+        "geometry": "onimpact takeclosedoutercircle centeredfixedpoint; primaryifstilleligibleinside goesfirst,remainingB04; eachlogicalunitatmostonce. For d<=150 factor1;150<d<=300 factor.7;300<d<=outer factor.4;outside0. Centerdistance no collisionradius inflation; no linearinterpolation/no summingoverlappingrings/no damageLoss bouncefactor. Originalmain getsitscurrentdistanceband,notguaranteed100% ifmoved. No extramainpacket inadditiontosplash.",
+        "targets": "splashTargs ground,structure,debris,tree,wall hasnoenemyonly filter: eligiblegroundunits inclbuildings/mechanical,self/friendly/neutral/enemy,notair/hidden/Aloc/invul/ethereal. Ordinaryinvisible allowed. Magicimmune receivesphysicalweapon damage. invulnerable originaltowersremainunharmed. Ward/item categories onlyreceive ifthey aredesignatedmain stillwithinoutercircle anddirectlegal; notarbitrarycollateralbecauseabsentmask. Trees/destructibles/items areworldobjects,notunitcallbacks; existingworldobjectdamage interface mustapply their ownlife/defense andno fabricatedanyUnitDamaged; fullworldobjectimport outside sixskills.",
+        "raw": "R=sharedordinaryweaponrawamount fromoneattack snapshot, M=registerednativecriticalmax once, f=actualillusionoutputcoefficient; base splash=(R*M)*f*band. FixedonhitB appliesonlydesignatedmain once, giving((R*M)+B)*f*band; no B spread, crit reroll, extraATTACKED orpostcallbackmainvalue usedasbasis. Valuesdmgplus/dice/sides keptraw sourcefacts; S18/S19/globalworkbookattack decomposition still external, notinventedhere.",
+        "events": "actualsourceoriginaln156..158,attack=true,ranged=true,ATTACK_TYPE_PIERCE,DAMAGE_TYPE_NORMAL for eachunit packet. Eachhasindependent B03 andoriginal mapdispatch (therefore native onhitmodule guardshouldonlymain, but Lua damagehooks usingattackflag mayrunpercollateral). No dummy/UnitDamagePoint substitution. Nested targetdeath/immune/statechanges rechecked beforeeachpacket; othernewunitsoutsideinitialsnapshot waitnextshot. Parent/item/mode/goldcallbacksnotbatched or bypassed.",
+        "inheritance": "markers no additionalnativecrit; rankupgrade replacesweaponprofile/futuremarkers butinflight shot keepslaunchedprofile/raw/RNG/owneridentity. Source S remainsactual ifillusion; base f inheritedfromseparatelyauditedillusioncreation, notchosenhere. No implicitcopyofmarkerstoillusions.",
+        "control": "no stun/slow/debuff/spellcast/N535/mana/newCD otherthanordinaryattack; mask/noeffectmarkerremovaldoesnotremoveexistingartilleryweapon.",
+        "state": "saveorigin/impactpoint/flightdue/actualS,rawattackcomponents and M/f/Bmain eligibility/ordinaryhitresult/rankrings,targetlogicalID,attackID,queueorder. Never redraw damage/RNG onload."
+      }
+    }
+  },
+  "sharedDependencies": [
+    "B03",
+    "B04",
+    "B05",
+    "attack-timing-v1",
+    "aocr-marker-contribution-v1",
+    "native-critical-family-v1",
+    "N159goldrule",
+    "AUcs-swept-disc geometry fromcreep-native-001-053-v1 (own organicmask)",
+    "shared attack-stat R mapping (S18/S19 remainsunresolvedexternally)"
+  ],
+  "remaining": [
+    "No matchingWarcraftclient proof; explicitQ24 nativegeometry/timing/classification choices areimplementable Web rules.",
+    "Globalordinaryrawattack/statcomponent mapping notdecidedhere; rawweaponfields retained and R input exposed.",
+    "Worldobjectlife/defense/import andgenericillusioncreation remainexternal, no fabricatedunitdamageevents.",
+    "Fullglobalbuild/death/item/mode callees notrecursivelyclosed bythese6skills."
+  ],
+  "verification": {
+    "kind": "read-only originalSLK/objects/workbook + bounded Lua VM with native stubs + Web specification vectors; no Warcraft execution",
+    "originalSlkRows": 36,
+    "explicitFieldAssertions": 184,
+    "workbookRows": 6,
+    "workbookCells": 60,
+    "supplementalJCells": 6,
+    "abilityW3aNoOverrides": 7,
+    "unitW3uRecords": 6,
+    "fullFunctionCounts": {
+      "main/f175/f0": {
+        "instructions": 52,
+        "conditions": 2,
+        "calls": 12,
+        "returns": 1
+      },
+      "main/f7/f20": {
+        "instructions": 33,
+        "conditions": 1,
+        "calls": 8,
+        "returns": 2
+      },
+      "main/f7/f7": {
+        "instructions": 17,
+        "conditions": 3,
+        "calls": 1,
+        "returns": 4
+      }
+    },
+    "fragmentCounts": {
+      "main/f291/f1": {
+        "instructions": 31,
+        "conditions": 4,
+        "calls": 8,
+        "returns": 0
+      },
+      "main/f291/f14": {
+        "instructions": 26,
+        "conditions": 5,
+        "calls": 5,
+        "returns": 1
+      }
+    },
+    "reachableInstructionCoverage": {
+      "main/f175/f0": 52,
+      "main/f7/f20": 32,
+      "main/f7/f7": 16,
+      "main/f291/f1": 31,
+      "main/f291/f14": 26
+    },
+    "unreachableCompilerReturns": {
+      "main/f7/f20": [
+        33
+      ],
+      "main/f7/f7": [
+        17
+      ]
+    },
+    "nativeStubProbeCount": 71,
+    "nativeStubProbes": [
+      {
+        "id": "lookup_0",
+        "expected": -1,
+        "note": "pairs order is controlled only by stub; original order not claimed"
+      },
+      {
+        "id": "lookup_1",
+        "expected": -1,
+        "note": "pairs order is controlled only by stub; original order not claimed"
+      },
+      {
+        "id": "lookup_2",
+        "expected": -1,
+        "note": "pairs order is controlled only by stub; original order not claimed"
+      },
+      {
+        "id": "lookup_3",
+        "expected": 7,
+        "note": "pairs order is controlled only by stub; original order not claimed"
+      },
+      {
+        "id": "lookup_4",
+        "expected": 9,
+        "note": "pairs order is controlled only by stub; original order not claimed"
+      },
+      {
+        "id": "dummy_None",
+        "expected": [
+          [
+            "create",
+            2,
+            "q001",
+            "XY",
+            0
+          ],
+          [
+            "add",
+            "T038"
+          ],
+          [
+            "level",
+            "T038",
+            2
+          ],
+          [
+            "life",
+            "BHwe",
+            0.5
+          ]
+        ]
+      },
+      {
+        "id": "dummy_False",
+        "expected": [
+          [
+            "create",
+            2,
+            "q001",
+            "XY",
+            0
+          ],
+          [
+            "add",
+            "T038"
+          ],
+          [
+            "level",
+            "T038",
+            2
+          ],
+          [
+            "life",
+            "BHwe",
+            0.5
+          ]
+        ]
+      },
+      {
+        "id": "dummy_'q007'",
+        "expected": [
+          [
+            "create",
+            2,
+            "q007",
+            "XY",
+            0
+          ],
+          [
+            "add",
+            "T038"
+          ],
+          [
+            "level",
+            "T038",
+            2
+          ],
+          [
+            "life",
+            "BHwe",
+            0.5
+          ]
+        ]
+      },
+      {
+        "id": "dummy_0",
+        "expected": [
+          [
+            "create",
+            2,
+            0,
+            "XY",
+            0
+          ],
+          [
+            "add",
+            "T038"
+          ],
+          [
+            "level",
+            "T038",
+            2
+          ],
+          [
+            "life",
+            "BHwe",
+            0.5
+          ]
+        ]
+      },
+      {
+        "id": "action_(0, 0, 0)_False_False",
+        "expectedRank": 3,
+        "orderReturnIgnored": true,
+        "userData": -1
+      },
+      {
+        "id": "action_(0, 0, 0)_False_True",
+        "expectedRank": 3,
+        "orderReturnIgnored": true,
+        "userData": 7
+      },
+      {
+        "id": "action_(0, 0, 0)_True_False",
+        "expectedRank": 3,
+        "orderReturnIgnored": true,
+        "userData": -1
+      },
+      {
+        "id": "action_(0, 0, 0)_True_True",
+        "expectedRank": 3,
+        "orderReturnIgnored": true,
+        "userData": 7
+      },
+      {
+        "id": "action_(0, 0, 2)_False_False",
+        "expectedRank": 3,
+        "orderReturnIgnored": true,
+        "userData": -1
+      },
+      {
+        "id": "action_(0, 0, 2)_False_True",
+        "expectedRank": 3,
+        "orderReturnIgnored": true,
+        "userData": 7
+      },
+      {
+        "id": "action_(0, 0, 2)_True_False",
+        "expectedRank": 3,
+        "orderReturnIgnored": true,
+        "userData": -1
+      },
+      {
+        "id": "action_(0, 0, 2)_True_True",
+        "expectedRank": 3,
+        "orderReturnIgnored": true,
+        "userData": 7
+      },
+      {
+        "id": "action_(0, 2, 0)_False_False",
+        "expectedRank": 2,
+        "orderReturnIgnored": true,
+        "userData": -1
+      },
+      {
+        "id": "action_(0, 2, 0)_False_True",
+        "expectedRank": 2,
+        "orderReturnIgnored": true,
+        "userData": 7
+      },
+      {
+        "id": "action_(0, 2, 0)_True_False",
+        "expectedRank": 2,
+        "orderReturnIgnored": true,
+        "userData": -1
+      },
+      {
+        "id": "action_(0, 2, 0)_True_True",
+        "expectedRank": 2,
+        "orderReturnIgnored": true,
+        "userData": 7
+      },
+      {
+        "id": "action_(0, 2, 2)_False_False",
+        "expectedRank": 2,
+        "orderReturnIgnored": true,
+        "userData": -1
+      },
+      {
+        "id": "action_(0, 2, 2)_False_True",
+        "expectedRank": 2,
+        "orderReturnIgnored": true,
+        "userData": 7
+      },
+      {
+        "id": "action_(0, 2, 2)_True_False",
+        "expectedRank": 2,
+        "orderReturnIgnored": true,
+        "userData": -1
+      },
+      {
+        "id": "action_(0, 2, 2)_True_True",
+        "expectedRank": 2,
+        "orderReturnIgnored": true,
+        "userData": 7
+      },
+      {
+        "id": "action_(2, 0, 0)_False_False",
+        "expectedRank": 1,
+        "orderReturnIgnored": true,
+        "userData": -1
+      },
+      {
+        "id": "action_(2, 0, 0)_False_True",
+        "expectedRank": 1,
+        "orderReturnIgnored": true,
+        "userData": 7
+      },
+      {
+        "id": "action_(2, 0, 0)_True_False",
+        "expectedRank": 1,
+        "orderReturnIgnored": true,
+        "userData": -1
+      },
+      {
+        "id": "action_(2, 0, 0)_True_True",
+        "expectedRank": 1,
+        "orderReturnIgnored": true,
+        "userData": 7
+      },
+      {
+        "id": "action_(2, 0, 2)_False_False",
+        "expectedRank": 1,
+        "orderReturnIgnored": true,
+        "userData": -1
+      },
+      {
+        "id": "action_(2, 0, 2)_False_True",
+        "expectedRank": 1,
+        "orderReturnIgnored": true,
+        "userData": 7
+      },
+      {
+        "id": "action_(2, 0, 2)_True_False",
+        "expectedRank": 1,
+        "orderReturnIgnored": true,
+        "userData": -1
+      },
+      {
+        "id": "action_(2, 0, 2)_True_True",
+        "expectedRank": 1,
+        "orderReturnIgnored": true,
+        "userData": 7
+      },
+      {
+        "id": "action_(2, 2, 0)_False_False",
+        "expectedRank": 1,
+        "orderReturnIgnored": true,
+        "userData": -1
+      },
+      {
+        "id": "action_(2, 2, 0)_False_True",
+        "expectedRank": 1,
+        "orderReturnIgnored": true,
+        "userData": 7
+      },
+      {
+        "id": "action_(2, 2, 0)_True_False",
+        "expectedRank": 1,
+        "orderReturnIgnored": true,
+        "userData": -1
+      },
+      {
+        "id": "action_(2, 2, 0)_True_True",
+        "expectedRank": 1,
+        "orderReturnIgnored": true,
+        "userData": 7
+      },
+      {
+        "id": "action_(2, 2, 2)_False_False",
+        "expectedRank": 1,
+        "orderReturnIgnored": true,
+        "userData": -1
+      },
+      {
+        "id": "action_(2, 2, 2)_False_True",
+        "expectedRank": 1,
+        "orderReturnIgnored": true,
+        "userData": 7
+      },
+      {
+        "id": "action_(2, 2, 2)_True_False",
+        "expectedRank": 1,
+        "orderReturnIgnored": true,
+        "userData": -1
+      },
+      {
+        "id": "action_(2, 2, 2)_True_True",
+        "expectedRank": 1,
+        "orderReturnIgnored": true,
+        "userData": 7
+      },
+      {
+        "id": "gate_0_(0, 0, 0)",
+        "expected": false
+      },
+      {
+        "id": "gate_0_(0, 0, 1)",
+        "expected": false
+      },
+      {
+        "id": "gate_0_(0, 1, 0)",
+        "expected": false
+      },
+      {
+        "id": "gate_0_(0, 1, 1)",
+        "expected": false
+      },
+      {
+        "id": "gate_0_(1, 0, 0)",
+        "expected": false
+      },
+      {
+        "id": "gate_0_(1, 0, 1)",
+        "expected": false
+      },
+      {
+        "id": "gate_0_(1, 1, 0)",
+        "expected": false
+      },
+      {
+        "id": "gate_0_(1, 1, 1)",
+        "expected": false
+      },
+      {
+        "id": "gate_1_(0, 0, 0)",
+        "expected": false
+      },
+      {
+        "id": "gate_1_(0, 0, 1)",
+        "expected": true
+      },
+      {
+        "id": "gate_1_(0, 1, 0)",
+        "expected": true
+      },
+      {
+        "id": "gate_1_(0, 1, 1)",
+        "expected": true
+      },
+      {
+        "id": "gate_1_(1, 0, 0)",
+        "expected": true
+      },
+      {
+        "id": "gate_1_(1, 0, 1)",
+        "expected": true
+      },
+      {
+        "id": "gate_1_(1, 1, 0)",
+        "expected": true
+      },
+      {
+        "id": "gate_1_(1, 1, 1)",
+        "expected": true
+      },
+      {
+        "id": "gate_-1_(0, 0, 0)",
+        "expected": false
+      },
+      {
+        "id": "gate_-1_(0, 0, 1)",
+        "expected": true
+      },
+      {
+        "id": "gate_-1_(0, 1, 0)",
+        "expected": true
+      },
+      {
+        "id": "gate_-1_(0, 1, 1)",
+        "expected": true
+      },
+      {
+        "id": "gate_-1_(1, 0, 0)",
+        "expected": true
+      },
+      {
+        "id": "gate_-1_(1, 0, 1)",
+        "expected": true
+      },
+      {
+        "id": "gate_-1_(1, 1, 0)",
+        "expected": true
+      },
+      {
+        "id": "gate_-1_(1, 1, 1)",
+        "expected": true
+      },
+      {
+        "id": "spell_filter_True_T038",
+        "expected": "return65"
+      },
+      {
+        "id": "spell_filter_False_T038",
+        "expected": "exit66"
+      },
+      {
+        "id": "spell_filter_False_T033",
+        "expected": "return65"
+      },
+      {
+        "id": "spell_filter_False_A040",
+        "expected": "return65"
+      },
+      {
+        "id": "spell_filter_False_A070",
+        "expected": "return65"
+      },
+      {
+        "id": "spell_filter_False_A210",
+        "expected": "return65"
+      }
+    ],
+    "specCaseCount": 69,
+    "specCases": [
+      {
+        "id": "band_400_0",
+        "input": {
+          "distance": 0,
+          "outer": 400
+        },
+        "expected": 1
+      },
+      {
+        "id": "band_400_150",
+        "input": {
+          "distance": 150,
+          "outer": 400
+        },
+        "expected": 1
+      },
+      {
+        "id": "band_400_150.001",
+        "input": {
+          "distance": 150.001,
+          "outer": 400
+        },
+        "expected": 0.7
+      },
+      {
+        "id": "band_400_300",
+        "input": {
+          "distance": 300,
+          "outer": 400
+        },
+        "expected": 0.7
+      },
+      {
+        "id": "band_400_300.001",
+        "input": {
+          "distance": 300.001,
+          "outer": 400
+        },
+        "expected": 0.4
+      },
+      {
+        "id": "band_400_400",
+        "input": {
+          "distance": 400,
+          "outer": 400
+        },
+        "expected": 0.4
+      },
+      {
+        "id": "band_400_400.001",
+        "input": {
+          "distance": 400.001,
+          "outer": 400
+        },
+        "expected": 0
+      },
+      {
+        "id": "band_450_0",
+        "input": {
+          "distance": 0,
+          "outer": 450
+        },
+        "expected": 1
+      },
+      {
+        "id": "band_450_150",
+        "input": {
+          "distance": 150,
+          "outer": 450
+        },
+        "expected": 1
+      },
+      {
+        "id": "band_450_150.001",
+        "input": {
+          "distance": 150.001,
+          "outer": 450
+        },
+        "expected": 0.7
+      },
+      {
+        "id": "band_450_300",
+        "input": {
+          "distance": 300,
+          "outer": 450
+        },
+        "expected": 0.7
+      },
+      {
+        "id": "band_450_300.001",
+        "input": {
+          "distance": 300.001,
+          "outer": 450
+        },
+        "expected": 0.4
+      },
+      {
+        "id": "band_450_450",
+        "input": {
+          "distance": 450,
+          "outer": 450
+        },
+        "expected": 0.4
+      },
+      {
+        "id": "band_450_450.001",
+        "input": {
+          "distance": 450.001,
+          "outer": 450
+        },
+        "expected": 0
+      },
+      {
+        "id": "band_500_0",
+        "input": {
+          "distance": 0,
+          "outer": 500
+        },
+        "expected": 1
+      },
+      {
+        "id": "band_500_150",
+        "input": {
+          "distance": 150,
+          "outer": 500
+        },
+        "expected": 1
+      },
+      {
+        "id": "band_500_150.001",
+        "input": {
+          "distance": 150.001,
+          "outer": 500
+        },
+        "expected": 0.7
+      },
+      {
+        "id": "band_500_300",
+        "input": {
+          "distance": 300,
+          "outer": 500
+        },
+        "expected": 0.7
+      },
+      {
+        "id": "band_500_300.001",
+        "input": {
+          "distance": 300.001,
+          "outer": 500
+        },
+        "expected": 0.4
+      },
+      {
+        "id": "band_500_500",
+        "input": {
+          "distance": 500,
+          "outer": 500
+        },
+        "expected": 0.4
+      },
+      {
+        "id": "band_500_500.001",
+        "input": {
+          "distance": 500.001,
+          "outer": 500
+        },
+        "expected": 0
+      },
+      {
+        "id": "line_amount_1",
+        "input": {
+          "rank": 1
+        },
+        "expected": 300
+      },
+      {
+        "id": "line_front_end_time_1",
+        "input": {
+          "length": 900,
+          "speed": 1200
+        },
+        "expected": 0.75
+      },
+      {
+        "id": "line_full_spell_independent_1",
+        "input": {
+          "parentDamage": 1,
+          "parentCrit": 4,
+          "rank": 1
+        },
+        "expected": 300
+      },
+      {
+        "id": "line_radius_1_100",
+        "input": {
+          "x": 450.0,
+          "y": 100
+        },
+        "expected": true
+      },
+      {
+        "id": "line_radius_1_100.001",
+        "input": {
+          "x": 450.0,
+          "y": 100.001
+        },
+        "expected": false
+      },
+      {
+        "id": "line_amount_2",
+        "input": {
+          "rank": 2
+        },
+        "expected": 600
+      },
+      {
+        "id": "line_front_end_time_2",
+        "input": {
+          "length": 1200,
+          "speed": 1200
+        },
+        "expected": 1
+      },
+      {
+        "id": "line_full_spell_independent_2",
+        "input": {
+          "parentDamage": 1,
+          "parentCrit": 4,
+          "rank": 2
+        },
+        "expected": 600
+      },
+      {
+        "id": "line_radius_2_110",
+        "input": {
+          "x": 600.0,
+          "y": 110
+        },
+        "expected": true
+      },
+      {
+        "id": "line_radius_2_110.001",
+        "input": {
+          "x": 600.0,
+          "y": 110.001
+        },
+        "expected": false
+      },
+      {
+        "id": "line_amount_3",
+        "input": {
+          "rank": 3
+        },
+        "expected": 1200
+      },
+      {
+        "id": "line_front_end_time_3",
+        "input": {
+          "length": 1500,
+          "speed": 1200
+        },
+        "expected": 1.25
+      },
+      {
+        "id": "line_full_spell_independent_3",
+        "input": {
+          "parentDamage": 1,
+          "parentCrit": 4,
+          "rank": 3
+        },
+        "expected": 1200
+      },
+      {
+        "id": "line_radius_3_120",
+        "input": {
+          "x": 750.0,
+          "y": 120
+        },
+        "expected": true
+      },
+      {
+        "id": "line_radius_3_120.001",
+        "input": {
+          "x": 750.0,
+          "y": 120.001
+        },
+        "expected": false
+      },
+      {
+        "id": "wave_contact_(0, 0)",
+        "input": {
+          "center": [
+            0,
+            0
+          ],
+          "radius": 100,
+          "length": 900
+        },
+        "expected": 0
+      },
+      {
+        "id": "wave_contact_(-100, 0)",
+        "input": {
+          "center": [
+            -100,
+            0
+          ],
+          "radius": 100,
+          "length": 900
+        },
+        "expected": 0
+      },
+      {
+        "id": "wave_contact_(-101, 0)",
+        "input": {
+          "center": [
+            -101,
+            0
+          ],
+          "radius": 100,
+          "length": 900
+        },
+        "expected": null
+      },
+      {
+        "id": "wave_contact_(500, 100)",
+        "input": {
+          "center": [
+            500,
+            100
+          ],
+          "radius": 100,
+          "length": 900
+        },
+        "expected": 0.4166666666666667
+      },
+      {
+        "id": "wave_contact_(1000, 0)",
+        "input": {
+          "center": [
+            1000,
+            0
+          ],
+          "radius": 100,
+          "length": 900
+        },
+        "expected": 0.75
+      },
+      {
+        "id": "wave_contact_(1000.001, 0)",
+        "input": {
+          "center": [
+            1000.001,
+            0
+          ],
+          "radius": 100,
+          "length": 900
+        },
+        "expected": null
+      },
+      {
+        "id": "wave_contact_(0, 100.001)",
+        "input": {
+          "center": [
+            0,
+            100.001
+          ],
+          "radius": 100,
+          "length": 900
+        },
+        "expected": null
+      },
+      {
+        "id": "budget_0",
+        "input": {
+          "rawRemaining": 0,
+          "nominal": 300
+        },
+        "expected": [
+          0,
+          0
+        ]
+      },
+      {
+        "id": "budget_10",
+        "input": {
+          "rawRemaining": 10,
+          "nominal": 300
+        },
+        "expected": [
+          10,
+          0
+        ]
+      },
+      {
+        "id": "budget_300",
+        "input": {
+          "rawRemaining": 300,
+          "nominal": 300
+        },
+        "expected": [
+          300,
+          0
+        ]
+      },
+      {
+        "id": "budget_301",
+        "input": {
+          "rawRemaining": 301,
+          "nominal": 300
+        },
+        "expected": [
+          300,
+          1
+        ]
+      },
+      {
+        "id": "artillery_range_249.999",
+        "input": {
+          "distance": 249.999,
+          "rankMax": 1000
+        },
+        "expected": false
+      },
+      {
+        "id": "artillery_range_250",
+        "input": {
+          "distance": 250,
+          "rankMax": 1000
+        },
+        "expected": true
+      },
+      {
+        "id": "artillery_range_1000",
+        "input": {
+          "distance": 1000,
+          "rankMax": 1000
+        },
+        "expected": true
+      },
+      {
+        "id": "artillery_range_1000.001",
+        "input": {
+          "distance": 1000.001,
+          "rankMax": 1000
+        },
+        "expected": false
+      },
+      {
+        "id": "flight_us_0",
+        "input": {
+          "distance": 0,
+          "speed": 900
+        },
+        "expected": 0
+      },
+      {
+        "id": "flight_us_450",
+        "input": {
+          "distance": 450,
+          "speed": 900
+        },
+        "expected": 500000
+      },
+      {
+        "id": "flight_us_900",
+        "input": {
+          "distance": 900,
+          "speed": 900
+        },
+        "expected": 1000000
+      },
+      {
+        "id": "flight_us_1000",
+        "input": {
+          "distance": 1000,
+          "speed": 900
+        },
+        "expected": 1111111
+      },
+      {
+        "id": "splash_base_1",
+        "input": {
+          "R": 100,
+          "M": 4.2,
+          "fIllusion": 1,
+          "band": 1
+        },
+        "expected": 420
+      },
+      {
+        "id": "splash_base_0.7",
+        "input": {
+          "R": 100,
+          "M": 4.2,
+          "fIllusion": 1,
+          "band": 0.7
+        },
+        "expected": 294
+      },
+      {
+        "id": "splash_base_0.4",
+        "input": {
+          "R": 100,
+          "M": 4.2,
+          "fIllusion": 1,
+          "band": 0.4
+        },
+        "expected": 168
+      },
+      {
+        "id": "main_fixed_only",
+        "input": {
+          "R": 100,
+          "M": 3,
+          "B": 25,
+          "band": 0.7
+        },
+        "expected": [
+          227.5,
+          210
+        ]
+      },
+      {
+        "id": "original_parent_not_replaced",
+        "input": {
+          "parentRaw": 2,
+          "waveRaw": 600
+        },
+        "expected": [
+          2,
+          600
+        ]
+      },
+      {
+        "id": "line_dynamic_O",
+        "input": {
+          "userdata": 7,
+          "Tower_ALL_before": {
+            "7": "old"
+          },
+          "Tower_ALL_now": {
+            "7": "new"
+          }
+        },
+        "expected": "new"
+      },
+      {
+        "id": "line_absent_owner",
+        "input": {
+          "userdata": -1,
+          "Tower_ALL": {}
+        },
+        "expected": null
+      },
+      {
+        "id": "artillery_no_enemy_filter",
+        "input": {
+          "candidates": [
+            [
+              3,
+              "enemy"
+            ],
+            [
+              2,
+              "friend"
+            ],
+            [
+              1,
+              "neutral"
+            ]
+          ]
+        },
+        "expected": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "id": "primary_first_then_B04",
+        "input": {
+          "main": 7,
+          "candidates": [
+            9,
+            1,
+            7,
+            4
+          ]
+        },
+        "expected": [
+          7,
+          1,
+          4,
+          9
+        ]
+      },
+      {
+        "id": "failed_mainhit_still_collateral",
+        "input": {
+          "main": 7,
+          "hit": false,
+          "candidates": [
+            7,
+            1,
+            2
+          ]
+        },
+        "expected": [
+          1,
+          2
+        ]
+      },
+      {
+        "id": "dynamic_death_recheck",
+        "input": {
+          "snapshot": [
+            7,
+            1,
+            2
+          ],
+          "aliveAfterFirst": [
+            7,
+            2
+          ]
+        },
+        "expected": [
+          7,
+          2
+        ]
+      },
+      {
+        "id": "one_damage_event_per_unit",
+        "input": {
+          "main": 7,
+          "snapshot": [
+            7,
+            2,
+            7
+          ]
+        },
+        "expected": [
+          7,
+          2
+        ]
+      },
+      {
+        "id": "dummy_dead_but_retained",
+        "input": {
+          "timedLife": 0.5,
+          "contactTime": 1.25,
+          "explicitlyRemoved": false
+        },
+        "expected": [
+          false,
+          true
+        ]
+      },
+      {
+        "id": "dummy_explicitly_removed",
+        "input": {
+          "contactTime": 1,
+          "removeTime": 0.8
+        },
+        "expected": false
+      }
+    ],
+    "relativeLinks": 24
+  },
+  "worldObjectSample": {
+    "path": "reference/map-6.25-pathing/units_destructabledata.slk",
+    "sha256": "2cd81fccf674ed810dad58e9cd80190aee2e9c0e420c6b3457aa3ed3f39c3aec",
+    "lines": [
+      2505,
+      2529
+    ],
+    "id": "LTlt",
+    "fields": {
+      "DestructableID": "LTlt",
+      "armor": "Wood",
+      "colorB": 255,
+      "colorG": 255,
+      "colorR": 255,
+      "deathSnd": "TreeWallDeath",
+      "file": "Doodads\\Terrain\\LordaeronTree\\LordaeronTree",
+      "fixedRot": 270.0,
+      "flyH": 100.0,
+      "HP": 50.0,
+      "lightweight": 1,
+      "maxScale": 1.2,
+      "minScale": 0.8,
+      "MMGreen": 64,
+      "Name": "WESTRING_DEST_SUMMER_TREE_WALL",
+      "numVar": 10,
+      "occH": 230.0,
+      "pathTex": "PathTextures\\4x4Default.tga",
+      "selcircsize": 128.0,
+      "shadow": "BuildingShadowSmall",
+      "showInMM": 1,
+      "targType": "tree",
+      "texFile": "ReplaceableTextures\\LordaeronTree\\LordaeronSummerTree",
+      "texID": 31,
+      "useMMColor": 1
+    },
+    "scope": "source-only, no world-object defense/death closure claim"
+  }
+}

@@ -1,0 +1,1122 @@
+{
+  "schema_version": 1,
+  "status": "Q38 confirmed exact12%; N086 probability entry specified, full effect separate",
+  "scope": [
+    "N086 workbook and actual tooltip identity on n208",
+    "N086_Get_probability full bytecode",
+    "anyUnitDamaged PC1878..1896 branch and shared early exclusions"
+  ],
+  "not_in_scope": [
+    "N086_Action full effect closure",
+    "native AOcr default behavior",
+    "range packet targeting/mitigation and control behavior",
+    "separate T325/A164 copied skill"
+  ],
+  "decision": {
+    "id": "Q38",
+    "status": "confirmed",
+    "selected": "exact_workbook_percent",
+    "workbook_probability": {
+      "numerator": 12,
+      "denominator": 100,
+      "percent": 12
+    },
+    "source_probability": {
+      "roll": "GetRandomInt",
+      "inclusive_min": 0,
+      "inclusive_max": 100,
+      "predicate": "roll<12",
+      "true_outcomes": [
+        0,
+        11
+      ],
+      "false_outcomes": [
+        12,
+        100
+      ],
+      "numerator": 12,
+      "denominator": 101,
+      "percent": 11.881188118811881
+    },
+    "options": [
+      {
+        "id": "exact_workbook_percent",
+        "probability": "12/100",
+        "description": "准确12%；仅修改此判定概率，保留资格与一次抽样位置",
+        "possible_integer_implementation": "GetRandomInt(1,100)<=12; selected by Q38"
+      },
+      {
+        "id": "preserve_source",
+        "probability": "12/101",
+        "description": "保留原GetRandomInt(0,100)<12，true仅0..11"
+      }
+    ],
+    "web_rule": {
+      "authority": "Q38",
+      "ability_ids": [
+        "N086"
+      ],
+      "inclusive_min": 1,
+      "inclusive_max": 100,
+      "predicate": "roll<=12",
+      "numerator": 12,
+      "denominator": 100,
+      "percent": 12,
+      "draw_count": "one only after actual source S has N086>0 and attack flag is nonzero; absent skill, nonattack or prior dispatcher bypass means no draw",
+      "source_identity": "actual damage source S, not attributed owner O",
+      "other_conditions": "preserve public gates and call order; no added mode, illusion, mana, cooldown or current-damage-positive guard",
+      "T325": "separate branch, no probability or behavior decision inferred"
+    }
+  },
+  "workbook": {
+    "row": 548,
+    "unit": "n208",
+    "role": "肉山（伪）<SR>",
+    "id": "N086",
+    "skill_id_cell": "F548",
+    "probability_cell": "H548",
+    "skill_level": 1,
+    "percent": 12,
+    "text_effect": "对目标600范围内的敌人造成肉山血量的物理伤害",
+    "range_text": 600
+  },
+  "actual_tooltip": {
+    "id": "N086",
+    "section_line": 13985,
+    "fields": {
+      "Name": {
+        "line": 13988,
+        "value": "力量压制"
+      },
+      "Tip": {
+        "line": 13994,
+        "value": "力量压制"
+      },
+      "Ubertip": {
+        "line": 13995,
+        "value": "肉山的攻击有12%的概率产生一次威慑，对目标600范围内的敌人造成肉山血量的物理伤害。"
+      }
+    }
+  },
+  "objects": {
+    "units_abilitydata.json": {
+      "line": 25354,
+      "record": {
+        "alias": "N086",
+        "code": "AOcr",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "air,ground,enemy,neutral",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "units_unitabilities.json": {
+      "line": 6260,
+      "record": {
+        "unitAbilID": "n208",
+        "abilList": "Avul,T033,T037,N087,N086,N085",
+        "auto": "_"
+      }
+    }
+  },
+  "w3a_matches": [],
+  "source_hashes": {
+    "main.disasm": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+    "main.readable.lua": "d868f14d946f0780313468f5dd783fa4a6cbe39f5c7851d8e4094ef80aa618b9",
+    "units_unitabilities.json": "ebd8a6fd8410f593c5ecadf6bf7c4f6bbc5b4bb7183c5e986a4d2d77e1747133",
+    "units_abilitydata.json": "b772de42ebcfc1d3818298b35dbe81a35826892848c7cbfef70bf5097e481861",
+    "units_campaignabilitystrings.txt": "5240c99230cd441b4c376371a31a7987e65470feed736177473a206c55fbe8cc",
+    "war3map.w3a.json": "d2875f064b389bca471db97121ff7c810d46fbc962ae640ad128d1daa85931bb"
+  },
+  "helper": {
+    "function": "main/f181/f1",
+    "lines": [
+      114054,
+      114081
+    ],
+    "constants": {
+      "k0": "GetRandomInt",
+      "k1": 0,
+      "k2": 100,
+      "k3": 12
+    },
+    "instructions": [
+      {
+        "pc": 1,
+        "line": 114070,
+        "op": "gettabup",
+        "args": [
+          "r0",
+          "u0",
+          "k0"
+        ]
+      },
+      {
+        "pc": 2,
+        "line": 114071,
+        "op": "loadk",
+        "args": [
+          "r1",
+          "k1"
+        ]
+      },
+      {
+        "pc": 3,
+        "line": 114072,
+        "op": "loadk",
+        "args": [
+          "r2",
+          "k2"
+        ]
+      },
+      {
+        "pc": 4,
+        "line": 114073,
+        "op": "call",
+        "args": [
+          "r0",
+          "3",
+          "2"
+        ]
+      },
+      {
+        "pc": 5,
+        "line": 114074,
+        "op": "lt",
+        "args": [
+          "1",
+          "r0",
+          "k3"
+        ]
+      },
+      {
+        "pc": 6,
+        "line": 114075,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l8"
+        ]
+      },
+      {
+        "pc": 7,
+        "line": 114076,
+        "op": "loadbool",
+        "args": [
+          "r0",
+          "0",
+          "1"
+        ]
+      },
+      {
+        "pc": 8,
+        "line": 114078,
+        "op": "loadbool",
+        "args": [
+          "r0",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "pc": 9,
+        "line": 114079,
+        "op": "return",
+        "args": [
+          "r0",
+          "2"
+        ]
+      },
+      {
+        "pc": 10,
+        "line": 114080,
+        "op": "return",
+        "args": [
+          "r0",
+          "1"
+        ]
+      }
+    ],
+    "labels": {
+      "l8": 8
+    }
+  },
+  "entry": {
+    "function": "main/f291/f1",
+    "pcs": [
+      1878,
+      1896
+    ],
+    "lines": [
+      164474,
+      164492
+    ],
+    "constants": {
+      "k246": "N086_Action",
+      "k31": "EXGetEventDamageData",
+      "k244": "N086",
+      "k6": 0,
+      "k245": "N086_Get_probability",
+      "k27": "GetUnitAbilityLevel",
+      "k2": "GetId",
+      "k32": 2
+    },
+    "instructions": [
+      {
+        "pc": 1878,
+        "line": 164474,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k27"
+        ]
+      },
+      {
+        "pc": 1879,
+        "line": 164475,
+        "op": "move",
+        "args": [
+          "r5",
+          "r0"
+        ]
+      },
+      {
+        "pc": 1880,
+        "line": 164476,
+        "op": "gettabup",
+        "args": [
+          "r6",
+          "u0",
+          "k2"
+        ]
+      },
+      {
+        "pc": 1881,
+        "line": 164477,
+        "op": "loadk",
+        "args": [
+          "r7",
+          "k244"
+        ]
+      },
+      {
+        "pc": 1882,
+        "line": 164478,
+        "op": "call",
+        "args": [
+          "r6",
+          "2",
+          "0"
+        ]
+      },
+      {
+        "pc": 1883,
+        "line": 164479,
+        "op": "call",
+        "args": [
+          "r4",
+          "0",
+          "2"
+        ]
+      },
+      {
+        "pc": 1884,
+        "line": 164480,
+        "op": "lt",
+        "args": [
+          "0",
+          "k6",
+          "r4"
+        ]
+      },
+      {
+        "pc": 1885,
+        "line": 164481,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l1897"
+        ]
+      },
+      {
+        "pc": 1886,
+        "line": 164482,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u1",
+          "k31"
+        ]
+      },
+      {
+        "pc": 1887,
+        "line": 164483,
+        "op": "loadk",
+        "args": [
+          "r5",
+          "k32"
+        ]
+      },
+      {
+        "pc": 1888,
+        "line": 164484,
+        "op": "call",
+        "args": [
+          "r4",
+          "2",
+          "2"
+        ]
+      },
+      {
+        "pc": 1889,
+        "line": 164485,
+        "op": "eq",
+        "args": [
+          "1",
+          "k6",
+          "r4"
+        ]
+      },
+      {
+        "pc": 1890,
+        "line": 164486,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l1897"
+        ]
+      },
+      {
+        "pc": 1891,
+        "line": 164487,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k245"
+        ]
+      },
+      {
+        "pc": 1892,
+        "line": 164488,
+        "op": "call",
+        "args": [
+          "r4",
+          "1",
+          "2"
+        ]
+      },
+      {
+        "pc": 1893,
+        "line": 164489,
+        "op": "test",
+        "args": [
+          "r4",
+          "0"
+        ]
+      },
+      {
+        "pc": 1894,
+        "line": 164490,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l1897"
+        ]
+      },
+      {
+        "pc": 1895,
+        "line": 164491,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k246"
+        ]
+      },
+      {
+        "pc": 1896,
+        "line": 164492,
+        "op": "call",
+        "args": [
+          "r4",
+          "1",
+          "1"
+        ]
+      }
+    ],
+    "labels": {
+      "l1897": 1897
+    }
+  },
+  "shared_gates": [
+    {
+      "meaning": "q004/q005 source -> eventD=0; initialD==0 return, else continue",
+      "bytecode": {
+        "function": "main/f291/f1",
+        "pcs": [
+          1,
+          27
+        ],
+        "lines": [
+          162494,
+          162522
+        ],
+        "constants": {
+          "k0": "GetEventDamageSource",
+          "k7": "GetEventDamage",
+          "k4": "q005",
+          "k1": "GetUnitTypeId",
+          "k3": "q004",
+          "k6": 0,
+          "k2": "GetId",
+          "k5": "EXSetEventDamage"
+        },
+        "instructions": [
+          {
+            "pc": 1,
+            "line": 162494,
+            "op": "gettabup",
+            "args": [
+              "r0",
+              "u0",
+              "k0"
+            ]
+          },
+          {
+            "pc": 2,
+            "line": 162495,
+            "op": "call",
+            "args": [
+              "r0",
+              "1",
+              "2"
+            ]
+          },
+          {
+            "pc": 3,
+            "line": 162496,
+            "op": "gettabup",
+            "args": [
+              "r1",
+              "u0",
+              "k1"
+            ]
+          },
+          {
+            "pc": 4,
+            "line": 162497,
+            "op": "move",
+            "args": [
+              "r2",
+              "r0"
+            ]
+          },
+          {
+            "pc": 5,
+            "line": 162498,
+            "op": "call",
+            "args": [
+              "r1",
+              "2",
+              "2"
+            ]
+          },
+          {
+            "pc": 6,
+            "line": 162499,
+            "op": "gettabup",
+            "args": [
+              "r2",
+              "u0",
+              "k2"
+            ]
+          },
+          {
+            "pc": 7,
+            "line": 162500,
+            "op": "loadk",
+            "args": [
+              "r3",
+              "k3"
+            ]
+          },
+          {
+            "pc": 8,
+            "line": 162501,
+            "op": "call",
+            "args": [
+              "r2",
+              "2",
+              "2"
+            ]
+          },
+          {
+            "pc": 9,
+            "line": 162502,
+            "op": "eq",
+            "args": [
+              "1",
+              "r1",
+              "r2"
+            ]
+          },
+          {
+            "pc": 10,
+            "line": 162503,
+            "op": "jmp",
+            "args": [
+              "0",
+              "l19"
+            ]
+          },
+          {
+            "pc": 11,
+            "line": 162504,
+            "op": "gettabup",
+            "args": [
+              "r1",
+              "u0",
+              "k1"
+            ]
+          },
+          {
+            "pc": 12,
+            "line": 162505,
+            "op": "move",
+            "args": [
+              "r2",
+              "r0"
+            ]
+          },
+          {
+            "pc": 13,
+            "line": 162506,
+            "op": "call",
+            "args": [
+              "r1",
+              "2",
+              "2"
+            ]
+          },
+          {
+            "pc": 14,
+            "line": 162507,
+            "op": "gettabup",
+            "args": [
+              "r2",
+              "u0",
+              "k2"
+            ]
+          },
+          {
+            "pc": 15,
+            "line": 162508,
+            "op": "loadk",
+            "args": [
+              "r3",
+              "k4"
+            ]
+          },
+          {
+            "pc": 16,
+            "line": 162509,
+            "op": "call",
+            "args": [
+              "r2",
+              "2",
+              "2"
+            ]
+          },
+          {
+            "pc": 17,
+            "line": 162510,
+            "op": "eq",
+            "args": [
+              "0",
+              "r1",
+              "r2"
+            ]
+          },
+          {
+            "pc": 18,
+            "line": 162511,
+            "op": "jmp",
+            "args": [
+              "0",
+              "l22"
+            ]
+          },
+          {
+            "pc": 19,
+            "line": 162513,
+            "op": "gettabup",
+            "args": [
+              "r1",
+              "u1",
+              "k5"
+            ]
+          },
+          {
+            "pc": 20,
+            "line": 162514,
+            "op": "loadk",
+            "args": [
+              "r2",
+              "k6"
+            ]
+          },
+          {
+            "pc": 21,
+            "line": 162515,
+            "op": "call",
+            "args": [
+              "r1",
+              "2",
+              "1"
+            ]
+          },
+          {
+            "pc": 22,
+            "line": 162517,
+            "op": "gettabup",
+            "args": [
+              "r1",
+              "u1",
+              "k7"
+            ]
+          },
+          {
+            "pc": 23,
+            "line": 162518,
+            "op": "loadk",
+            "args": [
+              "r2",
+              "k6"
+            ]
+          },
+          {
+            "pc": 24,
+            "line": 162519,
+            "op": "call",
+            "args": [
+              "r1",
+              "2",
+              "2"
+            ]
+          },
+          {
+            "pc": 25,
+            "line": 162520,
+            "op": "eq",
+            "args": [
+              "0",
+              "k6",
+              "r1"
+            ]
+          },
+          {
+            "pc": 26,
+            "line": 162521,
+            "op": "jmp",
+            "args": [
+              "0",
+              "l28"
+            ]
+          },
+          {
+            "pc": 27,
+            "line": 162522,
+            "op": "return",
+            "args": [
+              "r0",
+              "1"
+            ]
+          }
+        ],
+        "labels": {
+          "l22": 22,
+          "l28": 28,
+          "l19": 19
+        }
+      }
+    },
+    {
+      "meaning": "q039 source bypasses body to PC3964; no N086 draw",
+      "bytecode": {
+        "function": "main/f291/f1",
+        "pcs": [
+          98,
+          105
+        ],
+        "lines": [
+          162598,
+          162605
+        ],
+        "constants": {
+          "k24": "q039",
+          "k2": "GetId",
+          "k1": "GetUnitTypeId"
+        },
+        "instructions": [
+          {
+            "pc": 98,
+            "line": 162598,
+            "op": "gettabup",
+            "args": [
+              "r4",
+              "u0",
+              "k1"
+            ]
+          },
+          {
+            "pc": 99,
+            "line": 162599,
+            "op": "move",
+            "args": [
+              "r5",
+              "r0"
+            ]
+          },
+          {
+            "pc": 100,
+            "line": 162600,
+            "op": "call",
+            "args": [
+              "r4",
+              "2",
+              "2"
+            ]
+          },
+          {
+            "pc": 101,
+            "line": 162601,
+            "op": "gettabup",
+            "args": [
+              "r5",
+              "u0",
+              "k2"
+            ]
+          },
+          {
+            "pc": 102,
+            "line": 162602,
+            "op": "loadk",
+            "args": [
+              "r6",
+              "k24"
+            ]
+          },
+          {
+            "pc": 103,
+            "line": 162603,
+            "op": "call",
+            "args": [
+              "r5",
+              "2",
+              "2"
+            ]
+          },
+          {
+            "pc": 104,
+            "line": 162604,
+            "op": "eq",
+            "args": [
+              "1",
+              "r4",
+              "r5"
+            ]
+          },
+          {
+            "pc": 105,
+            "line": 162605,
+            "op": "jmp",
+            "args": [
+              "0",
+              "l3964"
+            ]
+          }
+        ],
+        "labels": {
+          "l3964": 3964
+        }
+      }
+    },
+    {
+      "meaning": "attack!=0 && actual source has B177 -> A164_T322_Action then return; no N086 draw",
+      "bytecode": {
+        "function": "main/f291/f1",
+        "pcs": [
+          198,
+          214
+        ],
+        "lines": [
+          162702,
+          162718
+        ],
+        "constants": {
+          "k40": "B177",
+          "k31": "EXGetEventDamageData",
+          "k6": 0,
+          "k27": "GetUnitAbilityLevel",
+          "k2": "GetId",
+          "k41": "A164_T322_Action",
+          "k32": 2
+        },
+        "instructions": [
+          {
+            "pc": 198,
+            "line": 162702,
+            "op": "gettabup",
+            "args": [
+              "r4",
+              "u1",
+              "k31"
+            ]
+          },
+          {
+            "pc": 199,
+            "line": 162703,
+            "op": "loadk",
+            "args": [
+              "r5",
+              "k32"
+            ]
+          },
+          {
+            "pc": 200,
+            "line": 162704,
+            "op": "call",
+            "args": [
+              "r4",
+              "2",
+              "2"
+            ]
+          },
+          {
+            "pc": 201,
+            "line": 162705,
+            "op": "eq",
+            "args": [
+              "1",
+              "k6",
+              "r4"
+            ]
+          },
+          {
+            "pc": 202,
+            "line": 162706,
+            "op": "jmp",
+            "args": [
+              "0",
+              "l215"
+            ]
+          },
+          {
+            "pc": 203,
+            "line": 162707,
+            "op": "gettabup",
+            "args": [
+              "r4",
+              "u0",
+              "k27"
+            ]
+          },
+          {
+            "pc": 204,
+            "line": 162708,
+            "op": "move",
+            "args": [
+              "r5",
+              "r0"
+            ]
+          },
+          {
+            "pc": 205,
+            "line": 162709,
+            "op": "gettabup",
+            "args": [
+              "r6",
+              "u0",
+              "k2"
+            ]
+          },
+          {
+            "pc": 206,
+            "line": 162710,
+            "op": "loadk",
+            "args": [
+              "r7",
+              "k40"
+            ]
+          },
+          {
+            "pc": 207,
+            "line": 162711,
+            "op": "call",
+            "args": [
+              "r6",
+              "2",
+              "0"
+            ]
+          },
+          {
+            "pc": 208,
+            "line": 162712,
+            "op": "call",
+            "args": [
+              "r4",
+              "0",
+              "2"
+            ]
+          },
+          {
+            "pc": 209,
+            "line": 162713,
+            "op": "lt",
+            "args": [
+              "0",
+              "k6",
+              "r4"
+            ]
+          },
+          {
+            "pc": 210,
+            "line": 162714,
+            "op": "jmp",
+            "args": [
+              "0",
+              "l215"
+            ]
+          },
+          {
+            "pc": 211,
+            "line": 162715,
+            "op": "gettabup",
+            "args": [
+              "r4",
+              "u0",
+              "k41"
+            ]
+          },
+          {
+            "pc": 212,
+            "line": 162716,
+            "op": "move",
+            "args": [
+              "r5",
+              "r0"
+            ]
+          },
+          {
+            "pc": 213,
+            "line": 162717,
+            "op": "call",
+            "args": [
+              "r4",
+              "2",
+              "1"
+            ]
+          },
+          {
+            "pc": 214,
+            "line": 162718,
+            "op": "return",
+            "args": [
+              "r0",
+              "1"
+            ]
+          }
+        ],
+        "labels": {
+          "l215": 215
+        }
+      }
+    }
+  ],
+  "readable": {
+    "helper_lines": [
+      72165,
+      72175
+    ],
+    "branch_lines": [
+      112288,
+      112307
+    ],
+    "module_action_lines": [
+      72123,
+      72163
+    ]
+  },
+  "execution": {
+    "entry_source": "actual damage source S=r0, not attributed original tower O=r2",
+    "order": [
+      "GetUnitAbilityLevel(S,N086)>0",
+      "EXGetEventDamageData(2)!=0",
+      "N086_Get_probability() once",
+      "if true N086_Action() once"
+    ],
+    "random_consumption": "no N086 -> no N086 helper draw; nonattack damage -> no draw; failed probability -> no action; no probability reroll",
+    "prior_order": "N054_57, N058_60 and N068_71 branches precede this branch; their independent calls/rolls unchanged",
+    "after_order": "T325/A164_T325 branch follows from PC1897; distinct skill ID/helper, not merged or covered by this decision",
+    "success_action": "N086_Action(); no arguments, itself reads actual event source and target",
+    "native_ability_field_warning": "N086 codeAOcr data is retained as source evidence; generic15% critical-strike Researchubertip is not the actual12% named skill Ubertip; no native default or stacking conclusion here",
+    "not_added_gates": [
+      "no local Game_Mode condition",
+      "no local illusion exclusion",
+      "no extra local enemy-owner check",
+      "no local post-modification positive-D recheck",
+      "no caster mana or cooldown check in this branch"
+    ],
+    "shared_gate_notes": "initialD==0 is checked once at entry; later D=0 does not automatically stop this branch. No new global return or inferred illusion possession rule."
+  },
+  "validation": {
+    "status": "passed",
+    "helper_outcomes": 101,
+    "source_true_outcomes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "source_false_outcomes": [
+      12,
+      100
+    ],
+    "entry_states": 1212,
+    "public_gate_local_states": 12,
+    "instruction_identity_checks": 81,
+    "method": "small Lua bytecode interpreter, native functions stubbed; selected dispatcher fragments only; actual-source argument identity checked; no full effect or Warcraft runtime test",
+    "workbook_and_tooltip_exact_matches": 1,
+    "confirmed_choice_preserved": true,
+    "web_Q38": {
+      "enumerated_outcomes": 100,
+      "true_outcomes": [
+        1,
+        12
+      ],
+      "false_outcomes": [
+        13,
+        100
+      ],
+      "scope": "mathematical and local entry checks, not game runtime",
+      "local_entry_math_states": 1200
+    }
+  },
+  "remaining": [
+    "N086_Action full physical damage/range/native/control interactions are not claimed complete",
+    "No decision for T325/A164_T325 probability or copied ability behavior is inferred from this question"
+  ]
+}

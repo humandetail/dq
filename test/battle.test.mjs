@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import { advanceFrame, enqueue, enterEndless, newMatch, running } from "../src/game/battle.ts";
 import { creditTime, drainFrames, newClock } from "../src/game/clock.ts";
-import { contentVersion, map } from "../src/game/content.ts";
+import { contentVersion, enemies, map, overcharge } from "../src/game/content.ts";
 import { saveFormatVersion } from "../src/game/state.ts";
 
 const fresh = (id = "test", seed = 1) => ({
@@ -184,19 +184,22 @@ test("real content clears mainline, continues past endless wave five and restore
     const filament = perform(state, "filament", { type: "buy", item: "filament" });
     const ring = perform(state, "craft", { type: "craft", recipe: "amplifier", materialIds: [lens.createdId, filament.createdId] });
     perform(state, "equip", { type: "equip", itemId: ring.createdId, towerId: 2 });
+    advanceUntil(state, () => state.frame === 6030);
+    const skill = perform(state, "overcharge", { type: "overcharge", towerId: 2 });
+    assert.equal(skill.ok, true);
+    assert.equal(perform(state, "overcharge-early", { type: "overcharge", towerId: 2 }).reason, "cooldown");
     advanceUntil(state, () => state.phase === "mainline-won");
     assert.ok(state.frame >= 5900 && state.frame < 6250);
     const preTransition = structuredClone(state);
     assert.equal(enterEndless(state), true);
     assert.equal(enterEndless(state), false);
-    for (const key of ["towers", "items", "cards", "gold", "matchId", "randomState"]) {
+    for (const key of ["towers", "items", "cards", "gold", "matchId", "randomState", "effects"]) {
       assert.deepEqual(state[key], preTransition[key]);
     }
 
-    advanceUntil(state, () => state.currentWave === 2 && state.enemies.length > 0);
-    const effectId = state.nextInstanceId++;
-    state.effects.push({ id: effectId, type: "damage-bonus", targetId: 2, expiresFrame: state.frame + 4, magnitude: 2 });
-    state.events.push({ type: "expire-effect", targetFrame: state.frame + 4, sequence: state.nextEventSequence++, effectId });
+    assert.equal(state.towers[0].skillReadyFrames.overcharge, 6031 + overcharge.cooldownFrames);
+    assert.equal(state.effects[0].expiresFrame, 6031 + overcharge.durationFrames);
+    assert.ok(state.events.some(event => event.type === "expire-effect" && event.effectId === state.effects[0].id));
     queue(state, "pending-draw", { type: "draw" }, 2);
     const restored = structuredClone(state);
     while (running(state) && state.currentWave < 100) {
@@ -253,4 +256,18 @@ test("clock replay matches at 1×, 4× and after paused or chunked recovery", ()
   drainFrames(stopped, Infinity);
   assert.equal(stopped.state.phase, "failed");
   assert.deepEqual([stopped.clock.pendingFrames, stopped.clock.remainderMs], [0, 0]);
+});
+
+test("official batches spawn without overlap and avoid collisions while moving", () => {
+  const state = newMatch("separation", 1);
+  advanceUntil(state, () => state.currentWave === 1);
+  for (let frame = 0; frame < 350 && running(state); frame++) {
+    for (const [index, enemy] of state.enemies.entries()) {
+      for (const other of state.enemies.slice(index + 1)) {
+        const distance = Math.hypot(enemy.position.x - other.position.x, enemy.position.y - other.position.y);
+        assert.ok(distance + 1e-9 >= enemies[enemy.type].radius + enemies[other.type].radius);
+      }
+    }
+    advanceFrame(state);
+  }
 });

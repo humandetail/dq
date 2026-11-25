@@ -1,0 +1,5385 @@
+{
+  "schemaVersion": 1,
+  "baselineIds": [
+    "world-clock-and-base-regen-v1",
+    "night-hunter-v1"
+  ],
+  "scope": "A193/A194 modules and explicit clock/base-regeneration interfaces, not A192 or general transformation/resurrection",
+  "sourceFiles": [
+    {
+      "path": "reference/map-6.25/main.disasm",
+      "sha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+    },
+    {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "sha256": "b772de42ebcfc1d3818298b35dbe81a35826892848c7cbfef70bf5097e481861"
+    },
+    {
+      "path": "reference/map-6.25/war3map.w3a.json",
+      "sha256": "d2875f064b389bca471db97121ff7c810d46fbc962ae640ad128d1daa85931bb"
+    },
+    {
+      "path": "reference/map-6.25/war3map.w3e",
+      "sha256": "fa6ee768414ccc8165d872413434d6232e7c8d6271c5eb32b65b085923e266ed"
+    },
+    {
+      "path": "reference/map-6.25/war3mapMisc.txt",
+      "sha256": "f13e268c2da3ad776b39f230cb55a8eb5721df2bcf1e62c78202236b3f5d3743"
+    }
+  ],
+  "sourceFunctions": {
+    "main/f138/f0": {
+      "function": "main/f138/f0",
+      "lines": [
+        100686,
+        100776
+      ],
+      "constants": {
+        "k0": "GetUnitAbilityLevel",
+        "k1": "GetId",
+        "k2": "A193",
+        "k3": "T208",
+        "k4": 0,
+        "k5": "IsYeMoNightBuff",
+        "k6": 6,
+        "k7": "UnitAddAbility",
+        "k8": "SetUnitAbilityLevel",
+        "k9": "UnitMakeAbilityPermanent",
+        "k10": "T209"
+      },
+      "labels": {
+        "l16": 16,
+        "l22": 22,
+        "l64": 64
+      },
+      "instructions": [
+        {
+          "pc": 1,
+          "line": 100709,
+          "op": "gettabup",
+          "args": [
+            "r1",
+            "u0",
+            "k0"
+          ]
+        },
+        {
+          "pc": 2,
+          "line": 100710,
+          "op": "move",
+          "args": [
+            "r2",
+            "r0"
+          ]
+        },
+        {
+          "pc": 3,
+          "line": 100711,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k1"
+          ]
+        },
+        {
+          "pc": 4,
+          "line": 100712,
+          "op": "loadk",
+          "args": [
+            "r4",
+            "k2"
+          ]
+        },
+        {
+          "pc": 5,
+          "line": 100713,
+          "op": "call",
+          "args": [
+            "r3",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 6,
+          "line": 100714,
+          "op": "call",
+          "args": [
+            "r1",
+            "0",
+            "2"
+          ]
+        },
+        {
+          "pc": 7,
+          "line": 100715,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k0"
+          ]
+        },
+        {
+          "pc": 8,
+          "line": 100716,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ]
+        },
+        {
+          "pc": 9,
+          "line": 100717,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k1"
+          ]
+        },
+        {
+          "pc": 10,
+          "line": 100718,
+          "op": "loadk",
+          "args": [
+            "r5",
+            "k3"
+          ]
+        },
+        {
+          "pc": 11,
+          "line": 100719,
+          "op": "call",
+          "args": [
+            "r4",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 12,
+          "line": 100720,
+          "op": "call",
+          "args": [
+            "r2",
+            "0",
+            "2"
+          ]
+        },
+        {
+          "pc": 13,
+          "line": 100721,
+          "op": "le",
+          "args": [
+            "0",
+            "r1",
+            "k4"
+          ]
+        },
+        {
+          "pc": 14,
+          "line": 100722,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l16"
+          ]
+        },
+        {
+          "pc": 15,
+          "line": 100723,
+          "op": "return",
+          "args": [
+            "r0",
+            "1"
+          ]
+        },
+        {
+          "pc": 16,
+          "line": 100725,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k5"
+          ]
+        },
+        {
+          "pc": 17,
+          "line": 100726,
+          "op": "move",
+          "args": [
+            "r4",
+            "r0"
+          ]
+        },
+        {
+          "pc": 18,
+          "line": 100727,
+          "op": "call",
+          "args": [
+            "r3",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "pc": 19,
+          "line": 100728,
+          "op": "test",
+          "args": [
+            "r3",
+            "0"
+          ]
+        },
+        {
+          "pc": 20,
+          "line": 100729,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l22"
+          ]
+        },
+        {
+          "pc": 21,
+          "line": 100730,
+          "op": "add",
+          "args": [
+            "r1",
+            "r1",
+            "k6"
+          ]
+        },
+        {
+          "pc": 22,
+          "line": 100732,
+          "op": "eq",
+          "args": [
+            "1",
+            "r2",
+            "r1"
+          ]
+        },
+        {
+          "pc": 23,
+          "line": 100733,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l64"
+          ]
+        },
+        {
+          "pc": 24,
+          "line": 100734,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k7"
+          ]
+        },
+        {
+          "pc": 25,
+          "line": 100735,
+          "op": "move",
+          "args": [
+            "r4",
+            "r0"
+          ]
+        },
+        {
+          "pc": 26,
+          "line": 100736,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k1"
+          ]
+        },
+        {
+          "pc": 27,
+          "line": 100737,
+          "op": "loadk",
+          "args": [
+            "r6",
+            "k3"
+          ]
+        },
+        {
+          "pc": 28,
+          "line": 100738,
+          "op": "call",
+          "args": [
+            "r5",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 29,
+          "line": 100739,
+          "op": "call",
+          "args": [
+            "r3",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 30,
+          "line": 100740,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k8"
+          ]
+        },
+        {
+          "pc": 31,
+          "line": 100741,
+          "op": "move",
+          "args": [
+            "r4",
+            "r0"
+          ]
+        },
+        {
+          "pc": 32,
+          "line": 100742,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k1"
+          ]
+        },
+        {
+          "pc": 33,
+          "line": 100743,
+          "op": "loadk",
+          "args": [
+            "r6",
+            "k3"
+          ]
+        },
+        {
+          "pc": 34,
+          "line": 100744,
+          "op": "call",
+          "args": [
+            "r5",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "pc": 35,
+          "line": 100745,
+          "op": "move",
+          "args": [
+            "r6",
+            "r1"
+          ]
+        },
+        {
+          "pc": 36,
+          "line": 100746,
+          "op": "call",
+          "args": [
+            "r3",
+            "4",
+            "1"
+          ]
+        },
+        {
+          "pc": 37,
+          "line": 100747,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k9"
+          ]
+        },
+        {
+          "pc": 38,
+          "line": 100748,
+          "op": "move",
+          "args": [
+            "r4",
+            "r0"
+          ]
+        },
+        {
+          "pc": 39,
+          "line": 100749,
+          "op": "loadbool",
+          "args": [
+            "r5",
+            "1",
+            "0"
+          ]
+        },
+        {
+          "pc": 40,
+          "line": 100750,
+          "op": "gettabup",
+          "args": [
+            "r6",
+            "u0",
+            "k1"
+          ]
+        },
+        {
+          "pc": 41,
+          "line": 100751,
+          "op": "loadk",
+          "args": [
+            "r7",
+            "k3"
+          ]
+        },
+        {
+          "pc": 42,
+          "line": 100752,
+          "op": "call",
+          "args": [
+            "r6",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 43,
+          "line": 100753,
+          "op": "call",
+          "args": [
+            "r3",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 44,
+          "line": 100754,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k7"
+          ]
+        },
+        {
+          "pc": 45,
+          "line": 100755,
+          "op": "move",
+          "args": [
+            "r4",
+            "r0"
+          ]
+        },
+        {
+          "pc": 46,
+          "line": 100756,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k1"
+          ]
+        },
+        {
+          "pc": 47,
+          "line": 100757,
+          "op": "loadk",
+          "args": [
+            "r6",
+            "k10"
+          ]
+        },
+        {
+          "pc": 48,
+          "line": 100758,
+          "op": "call",
+          "args": [
+            "r5",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 49,
+          "line": 100759,
+          "op": "call",
+          "args": [
+            "r3",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 50,
+          "line": 100760,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k8"
+          ]
+        },
+        {
+          "pc": 51,
+          "line": 100761,
+          "op": "move",
+          "args": [
+            "r4",
+            "r0"
+          ]
+        },
+        {
+          "pc": 52,
+          "line": 100762,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k1"
+          ]
+        },
+        {
+          "pc": 53,
+          "line": 100763,
+          "op": "loadk",
+          "args": [
+            "r6",
+            "k10"
+          ]
+        },
+        {
+          "pc": 54,
+          "line": 100764,
+          "op": "call",
+          "args": [
+            "r5",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "pc": 55,
+          "line": 100765,
+          "op": "move",
+          "args": [
+            "r6",
+            "r1"
+          ]
+        },
+        {
+          "pc": 56,
+          "line": 100766,
+          "op": "call",
+          "args": [
+            "r3",
+            "4",
+            "1"
+          ]
+        },
+        {
+          "pc": 57,
+          "line": 100767,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k9"
+          ]
+        },
+        {
+          "pc": 58,
+          "line": 100768,
+          "op": "move",
+          "args": [
+            "r4",
+            "r0"
+          ]
+        },
+        {
+          "pc": 59,
+          "line": 100769,
+          "op": "loadbool",
+          "args": [
+            "r5",
+            "1",
+            "0"
+          ]
+        },
+        {
+          "pc": 60,
+          "line": 100770,
+          "op": "gettabup",
+          "args": [
+            "r6",
+            "u0",
+            "k1"
+          ]
+        },
+        {
+          "pc": 61,
+          "line": 100771,
+          "op": "loadk",
+          "args": [
+            "r7",
+            "k10"
+          ]
+        },
+        {
+          "pc": 62,
+          "line": 100772,
+          "op": "call",
+          "args": [
+            "r6",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 63,
+          "line": 100773,
+          "op": "call",
+          "args": [
+            "r3",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 64,
+          "line": 100775,
+          "op": "return",
+          "args": [
+            "r0",
+            "1"
+          ]
+        }
+      ]
+    },
+    "main/f138/f1": {
+      "function": "main/f138/f1",
+      "lines": [
+        100777,
+        100801
+      ],
+      "constants": {
+        "k0": "GetUnitUserData",
+        "k1": "A193_Unit",
+        "k2": "Change_Skill_Lv"
+      },
+      "labels": {},
+      "instructions": [
+        {
+          "pc": 1,
+          "line": 100792,
+          "op": "gettabup",
+          "args": [
+            "r1",
+            "u0",
+            "k0"
+          ]
+        },
+        {
+          "pc": 2,
+          "line": 100793,
+          "op": "move",
+          "args": [
+            "r2",
+            "r0"
+          ]
+        },
+        {
+          "pc": 3,
+          "line": 100794,
+          "op": "call",
+          "args": [
+            "r1",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "pc": 4,
+          "line": 100795,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k1"
+          ]
+        },
+        {
+          "pc": 5,
+          "line": 100796,
+          "op": "settable",
+          "args": [
+            "r2",
+            "r1",
+            "r0"
+          ]
+        },
+        {
+          "pc": 6,
+          "line": 100797,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k2"
+          ]
+        },
+        {
+          "pc": 7,
+          "line": 100798,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ]
+        },
+        {
+          "pc": 8,
+          "line": 100799,
+          "op": "call",
+          "args": [
+            "r2",
+            "2",
+            "1"
+          ]
+        },
+        {
+          "pc": 9,
+          "line": 100800,
+          "op": "return",
+          "args": [
+            "r0",
+            "1"
+          ]
+        }
+      ]
+    },
+    "main/f139/f0": {
+      "function": "main/f139/f0",
+      "lines": [
+        100824,
+        100901
+      ],
+      "constants": {
+        "k0": "GetExpiredTimer",
+        "k1": "IsInTable",
+        "k2": "Tower_ALL",
+        "k3": "DestroyTimer",
+        "k4": null,
+        "k5": "GetUnitTypeId",
+        "k6": "GetId",
+        "k7": "G071",
+        "k8": "UnitRemoveAbility",
+        "k9": "T256",
+        "k10": "T258",
+        "k11": "T215",
+        "k12": "Change_Skill_Lv"
+      },
+      "labels": {
+        "l40": 40,
+        "l46": 46
+      },
+      "instructions": [
+        {
+          "pc": 1,
+          "line": 100850,
+          "op": "gettabup",
+          "args": [
+            "r0",
+            "u0",
+            "k0"
+          ]
+        },
+        {
+          "pc": 2,
+          "line": 100851,
+          "op": "call",
+          "args": [
+            "r0",
+            "1",
+            "2"
+          ]
+        },
+        {
+          "pc": 3,
+          "line": 100852,
+          "op": "gettabup",
+          "args": [
+            "r1",
+            "u0",
+            "k1"
+          ]
+        },
+        {
+          "pc": 4,
+          "line": 100853,
+          "op": "move",
+          "args": [
+            "r2",
+            "r0"
+          ]
+        },
+        {
+          "pc": 5,
+          "line": 100854,
+          "op": "getupval",
+          "args": [
+            "r3",
+            "u1"
+          ]
+        },
+        {
+          "pc": 6,
+          "line": 100855,
+          "op": "call",
+          "args": [
+            "r1",
+            "3",
+            "2"
+          ]
+        },
+        {
+          "pc": 7,
+          "line": 100856,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k2"
+          ]
+        },
+        {
+          "pc": 8,
+          "line": 100857,
+          "op": "gettable",
+          "args": [
+            "r2",
+            "r2",
+            "r1"
+          ]
+        },
+        {
+          "pc": 9,
+          "line": 100858,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k3"
+          ]
+        },
+        {
+          "pc": 10,
+          "line": 100859,
+          "op": "move",
+          "args": [
+            "r4",
+            "r0"
+          ]
+        },
+        {
+          "pc": 11,
+          "line": 100860,
+          "op": "call",
+          "args": [
+            "r3",
+            "2",
+            "1"
+          ]
+        },
+        {
+          "pc": 12,
+          "line": 100861,
+          "op": "settabup",
+          "args": [
+            "u1",
+            "r1",
+            "k4"
+          ]
+        },
+        {
+          "pc": 13,
+          "line": 100862,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k5"
+          ]
+        },
+        {
+          "pc": 14,
+          "line": 100863,
+          "op": "move",
+          "args": [
+            "r4",
+            "r2"
+          ]
+        },
+        {
+          "pc": 15,
+          "line": 100864,
+          "op": "call",
+          "args": [
+            "r3",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "pc": 16,
+          "line": 100865,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k6"
+          ]
+        },
+        {
+          "pc": 17,
+          "line": 100866,
+          "op": "loadk",
+          "args": [
+            "r5",
+            "k7"
+          ]
+        },
+        {
+          "pc": 18,
+          "line": 100867,
+          "op": "call",
+          "args": [
+            "r4",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "pc": 19,
+          "line": 100868,
+          "op": "eq",
+          "args": [
+            "0",
+            "r3",
+            "r4"
+          ]
+        },
+        {
+          "pc": 20,
+          "line": 100869,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l40"
+          ]
+        },
+        {
+          "pc": 21,
+          "line": 100870,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k8"
+          ]
+        },
+        {
+          "pc": 22,
+          "line": 100871,
+          "op": "move",
+          "args": [
+            "r4",
+            "r2"
+          ]
+        },
+        {
+          "pc": 23,
+          "line": 100872,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k6"
+          ]
+        },
+        {
+          "pc": 24,
+          "line": 100873,
+          "op": "loadk",
+          "args": [
+            "r6",
+            "k9"
+          ]
+        },
+        {
+          "pc": 25,
+          "line": 100874,
+          "op": "call",
+          "args": [
+            "r5",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 26,
+          "line": 100875,
+          "op": "call",
+          "args": [
+            "r3",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 27,
+          "line": 100876,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k8"
+          ]
+        },
+        {
+          "pc": 28,
+          "line": 100877,
+          "op": "move",
+          "args": [
+            "r4",
+            "r2"
+          ]
+        },
+        {
+          "pc": 29,
+          "line": 100878,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k6"
+          ]
+        },
+        {
+          "pc": 30,
+          "line": 100879,
+          "op": "loadk",
+          "args": [
+            "r6",
+            "k10"
+          ]
+        },
+        {
+          "pc": 31,
+          "line": 100880,
+          "op": "call",
+          "args": [
+            "r5",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 32,
+          "line": 100881,
+          "op": "call",
+          "args": [
+            "r3",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 33,
+          "line": 100882,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k8"
+          ]
+        },
+        {
+          "pc": 34,
+          "line": 100883,
+          "op": "move",
+          "args": [
+            "r4",
+            "r2"
+          ]
+        },
+        {
+          "pc": 35,
+          "line": 100884,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k6"
+          ]
+        },
+        {
+          "pc": 36,
+          "line": 100885,
+          "op": "loadk",
+          "args": [
+            "r6",
+            "k11"
+          ]
+        },
+        {
+          "pc": 37,
+          "line": 100886,
+          "op": "call",
+          "args": [
+            "r5",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 38,
+          "line": 100887,
+          "op": "call",
+          "args": [
+            "r3",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 39,
+          "line": 100888,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l46"
+          ]
+        },
+        {
+          "pc": 40,
+          "line": 100890,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k8"
+          ]
+        },
+        {
+          "pc": 41,
+          "line": 100891,
+          "op": "move",
+          "args": [
+            "r4",
+            "r2"
+          ]
+        },
+        {
+          "pc": 42,
+          "line": 100892,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k6"
+          ]
+        },
+        {
+          "pc": 43,
+          "line": 100893,
+          "op": "loadk",
+          "args": [
+            "r6",
+            "k11"
+          ]
+        },
+        {
+          "pc": 44,
+          "line": 100894,
+          "op": "call",
+          "args": [
+            "r5",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 45,
+          "line": 100895,
+          "op": "call",
+          "args": [
+            "r3",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 46,
+          "line": 100897,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k12"
+          ]
+        },
+        {
+          "pc": 47,
+          "line": 100898,
+          "op": "move",
+          "args": [
+            "r4",
+            "r2"
+          ]
+        },
+        {
+          "pc": 48,
+          "line": 100899,
+          "op": "call",
+          "args": [
+            "r3",
+            "2",
+            "1"
+          ]
+        },
+        {
+          "pc": 49,
+          "line": 100900,
+          "op": "return",
+          "args": [
+            "r0",
+            "1"
+          ]
+        }
+      ]
+    },
+    "main/f139/f1": {
+      "function": "main/f139/f1",
+      "lines": [
+        100902,
+        101051
+      ],
+      "constants": {
+        "k0": "GetUnitUserData",
+        "k1": "GetUnitAbilityLevel",
+        "k2": "GetId",
+        "k3": "A194",
+        "k4": 6,
+        "k5": 20,
+        "k6": 5,
+        "k7": 19,
+        "k8": 4,
+        "k9": 18,
+        "k10": 3,
+        "k11": 17,
+        "k12": 2,
+        "k13": 16,
+        "k14": 15,
+        "k15": null,
+        "k16": "DestroyTimer",
+        "k17": "CreateTimer",
+        "k18": "TimerStart",
+        "k19": "GetUnitTypeId",
+        "k20": "G071",
+        "k21": "UnitAddAbility",
+        "k22": "T256",
+        "k23": "UnitMakeAbilityPermanent",
+        "k24": "T258",
+        "k25": "T215",
+        "k26": "Change_Skill_Lv"
+      },
+      "labels": {
+        "l16": 16,
+        "l20": 20,
+        "l24": 24,
+        "l28": 28,
+        "l32": 32,
+        "l33": 33,
+        "l38": 38,
+        "l83": 83,
+        "l96": 96
+      },
+      "instructions": [
+        {
+          "pc": 1,
+          "line": 100943,
+          "op": "gettabup",
+          "args": [
+            "r1",
+            "u0",
+            "k0"
+          ]
+        },
+        {
+          "pc": 2,
+          "line": 100944,
+          "op": "move",
+          "args": [
+            "r2",
+            "r0"
+          ]
+        },
+        {
+          "pc": 3,
+          "line": 100945,
+          "op": "call",
+          "args": [
+            "r1",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "pc": 4,
+          "line": 100946,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u1",
+            "r1"
+          ]
+        },
+        {
+          "pc": 5,
+          "line": 100947,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k1"
+          ]
+        },
+        {
+          "pc": 6,
+          "line": 100948,
+          "op": "move",
+          "args": [
+            "r4",
+            "r0"
+          ]
+        },
+        {
+          "pc": 7,
+          "line": 100949,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k2"
+          ]
+        },
+        {
+          "pc": 8,
+          "line": 100950,
+          "op": "loadk",
+          "args": [
+            "r6",
+            "k3"
+          ]
+        },
+        {
+          "pc": 9,
+          "line": 100951,
+          "op": "call",
+          "args": [
+            "r5",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 10,
+          "line": 100952,
+          "op": "call",
+          "args": [
+            "r3",
+            "0",
+            "2"
+          ]
+        },
+        {
+          "pc": 11,
+          "line": 100953,
+          "op": "loadnil",
+          "args": [
+            "r4",
+            "0"
+          ]
+        },
+        {
+          "pc": 12,
+          "line": 100954,
+          "op": "eq",
+          "args": [
+            "0",
+            "r3",
+            "k4"
+          ]
+        },
+        {
+          "pc": 13,
+          "line": 100955,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l16"
+          ]
+        },
+        {
+          "pc": 14,
+          "line": 100956,
+          "op": "loadk",
+          "args": [
+            "r4",
+            "k5"
+          ]
+        },
+        {
+          "pc": 15,
+          "line": 100957,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l33"
+          ]
+        },
+        {
+          "pc": 16,
+          "line": 100959,
+          "op": "eq",
+          "args": [
+            "0",
+            "r3",
+            "k6"
+          ]
+        },
+        {
+          "pc": 17,
+          "line": 100960,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l20"
+          ]
+        },
+        {
+          "pc": 18,
+          "line": 100961,
+          "op": "loadk",
+          "args": [
+            "r4",
+            "k7"
+          ]
+        },
+        {
+          "pc": 19,
+          "line": 100962,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l33"
+          ]
+        },
+        {
+          "pc": 20,
+          "line": 100964,
+          "op": "eq",
+          "args": [
+            "0",
+            "r3",
+            "k8"
+          ]
+        },
+        {
+          "pc": 21,
+          "line": 100965,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l24"
+          ]
+        },
+        {
+          "pc": 22,
+          "line": 100966,
+          "op": "loadk",
+          "args": [
+            "r4",
+            "k9"
+          ]
+        },
+        {
+          "pc": 23,
+          "line": 100967,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l33"
+          ]
+        },
+        {
+          "pc": 24,
+          "line": 100969,
+          "op": "eq",
+          "args": [
+            "0",
+            "r3",
+            "k10"
+          ]
+        },
+        {
+          "pc": 25,
+          "line": 100970,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l28"
+          ]
+        },
+        {
+          "pc": 26,
+          "line": 100971,
+          "op": "loadk",
+          "args": [
+            "r4",
+            "k11"
+          ]
+        },
+        {
+          "pc": 27,
+          "line": 100972,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l33"
+          ]
+        },
+        {
+          "pc": 28,
+          "line": 100974,
+          "op": "eq",
+          "args": [
+            "0",
+            "r3",
+            "k12"
+          ]
+        },
+        {
+          "pc": 29,
+          "line": 100975,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l32"
+          ]
+        },
+        {
+          "pc": 30,
+          "line": 100976,
+          "op": "loadk",
+          "args": [
+            "r4",
+            "k13"
+          ]
+        },
+        {
+          "pc": 31,
+          "line": 100977,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l33"
+          ]
+        },
+        {
+          "pc": 32,
+          "line": 100979,
+          "op": "loadk",
+          "args": [
+            "r4",
+            "k14"
+          ]
+        },
+        {
+          "pc": 33,
+          "line": 100981,
+          "op": "eq",
+          "args": [
+            "1",
+            "k15",
+            "r2"
+          ]
+        },
+        {
+          "pc": 34,
+          "line": 100982,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l38"
+          ]
+        },
+        {
+          "pc": 35,
+          "line": 100983,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k16"
+          ]
+        },
+        {
+          "pc": 36,
+          "line": 100984,
+          "op": "move",
+          "args": [
+            "r6",
+            "r2"
+          ]
+        },
+        {
+          "pc": 37,
+          "line": 100985,
+          "op": "call",
+          "args": [
+            "r5",
+            "2",
+            "1"
+          ]
+        },
+        {
+          "pc": 38,
+          "line": 100987,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k17"
+          ]
+        },
+        {
+          "pc": 39,
+          "line": 100988,
+          "op": "call",
+          "args": [
+            "r5",
+            "1",
+            "2"
+          ]
+        },
+        {
+          "pc": 40,
+          "line": 100989,
+          "op": "move",
+          "args": [
+            "r2",
+            "r5"
+          ]
+        },
+        {
+          "pc": 41,
+          "line": 100990,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k18"
+          ]
+        },
+        {
+          "pc": 42,
+          "line": 100991,
+          "op": "move",
+          "args": [
+            "r6",
+            "r2"
+          ]
+        },
+        {
+          "pc": 43,
+          "line": 100992,
+          "op": "move",
+          "args": [
+            "r7",
+            "r4"
+          ]
+        },
+        {
+          "pc": 44,
+          "line": 100993,
+          "op": "loadbool",
+          "args": [
+            "r8",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "pc": 45,
+          "line": 100994,
+          "op": "getupval",
+          "args": [
+            "r9",
+            "u2"
+          ]
+        },
+        {
+          "pc": 46,
+          "line": 100995,
+          "op": "call",
+          "args": [
+            "r5",
+            "5",
+            "1"
+          ]
+        },
+        {
+          "pc": 47,
+          "line": 100996,
+          "op": "settabup",
+          "args": [
+            "u1",
+            "r1",
+            "r2"
+          ]
+        },
+        {
+          "pc": 48,
+          "line": 100997,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k19"
+          ]
+        },
+        {
+          "pc": 49,
+          "line": 100998,
+          "op": "move",
+          "args": [
+            "r6",
+            "r0"
+          ]
+        },
+        {
+          "pc": 50,
+          "line": 100999,
+          "op": "call",
+          "args": [
+            "r5",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "pc": 51,
+          "line": 101000,
+          "op": "gettabup",
+          "args": [
+            "r6",
+            "u0",
+            "k2"
+          ]
+        },
+        {
+          "pc": 52,
+          "line": 101001,
+          "op": "loadk",
+          "args": [
+            "r7",
+            "k20"
+          ]
+        },
+        {
+          "pc": 53,
+          "line": 101002,
+          "op": "call",
+          "args": [
+            "r6",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "pc": 54,
+          "line": 101003,
+          "op": "eq",
+          "args": [
+            "0",
+            "r5",
+            "r6"
+          ]
+        },
+        {
+          "pc": 55,
+          "line": 101004,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l83"
+          ]
+        },
+        {
+          "pc": 56,
+          "line": 101005,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k21"
+          ]
+        },
+        {
+          "pc": 57,
+          "line": 101006,
+          "op": "move",
+          "args": [
+            "r6",
+            "r0"
+          ]
+        },
+        {
+          "pc": 58,
+          "line": 101007,
+          "op": "gettabup",
+          "args": [
+            "r7",
+            "u0",
+            "k2"
+          ]
+        },
+        {
+          "pc": 59,
+          "line": 101008,
+          "op": "loadk",
+          "args": [
+            "r8",
+            "k22"
+          ]
+        },
+        {
+          "pc": 60,
+          "line": 101009,
+          "op": "call",
+          "args": [
+            "r7",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 61,
+          "line": 101010,
+          "op": "call",
+          "args": [
+            "r5",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 62,
+          "line": 101011,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k23"
+          ]
+        },
+        {
+          "pc": 63,
+          "line": 101012,
+          "op": "move",
+          "args": [
+            "r6",
+            "r0"
+          ]
+        },
+        {
+          "pc": 64,
+          "line": 101013,
+          "op": "loadbool",
+          "args": [
+            "r7",
+            "1",
+            "0"
+          ]
+        },
+        {
+          "pc": 65,
+          "line": 101014,
+          "op": "gettabup",
+          "args": [
+            "r8",
+            "u0",
+            "k2"
+          ]
+        },
+        {
+          "pc": 66,
+          "line": 101015,
+          "op": "loadk",
+          "args": [
+            "r9",
+            "k22"
+          ]
+        },
+        {
+          "pc": 67,
+          "line": 101016,
+          "op": "call",
+          "args": [
+            "r8",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 68,
+          "line": 101017,
+          "op": "call",
+          "args": [
+            "r5",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 69,
+          "line": 101018,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k21"
+          ]
+        },
+        {
+          "pc": 70,
+          "line": 101019,
+          "op": "move",
+          "args": [
+            "r6",
+            "r0"
+          ]
+        },
+        {
+          "pc": 71,
+          "line": 101020,
+          "op": "gettabup",
+          "args": [
+            "r7",
+            "u0",
+            "k2"
+          ]
+        },
+        {
+          "pc": 72,
+          "line": 101021,
+          "op": "loadk",
+          "args": [
+            "r8",
+            "k24"
+          ]
+        },
+        {
+          "pc": 73,
+          "line": 101022,
+          "op": "call",
+          "args": [
+            "r7",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 74,
+          "line": 101023,
+          "op": "call",
+          "args": [
+            "r5",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 75,
+          "line": 101024,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k23"
+          ]
+        },
+        {
+          "pc": 76,
+          "line": 101025,
+          "op": "move",
+          "args": [
+            "r6",
+            "r0"
+          ]
+        },
+        {
+          "pc": 77,
+          "line": 101026,
+          "op": "loadbool",
+          "args": [
+            "r7",
+            "1",
+            "0"
+          ]
+        },
+        {
+          "pc": 78,
+          "line": 101027,
+          "op": "gettabup",
+          "args": [
+            "r8",
+            "u0",
+            "k2"
+          ]
+        },
+        {
+          "pc": 79,
+          "line": 101028,
+          "op": "loadk",
+          "args": [
+            "r9",
+            "k24"
+          ]
+        },
+        {
+          "pc": 80,
+          "line": 101029,
+          "op": "call",
+          "args": [
+            "r8",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 81,
+          "line": 101030,
+          "op": "call",
+          "args": [
+            "r5",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 82,
+          "line": 101031,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l96"
+          ]
+        },
+        {
+          "pc": 83,
+          "line": 101033,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k21"
+          ]
+        },
+        {
+          "pc": 84,
+          "line": 101034,
+          "op": "move",
+          "args": [
+            "r6",
+            "r0"
+          ]
+        },
+        {
+          "pc": 85,
+          "line": 101035,
+          "op": "gettabup",
+          "args": [
+            "r7",
+            "u0",
+            "k2"
+          ]
+        },
+        {
+          "pc": 86,
+          "line": 101036,
+          "op": "loadk",
+          "args": [
+            "r8",
+            "k25"
+          ]
+        },
+        {
+          "pc": 87,
+          "line": 101037,
+          "op": "call",
+          "args": [
+            "r7",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 88,
+          "line": 101038,
+          "op": "call",
+          "args": [
+            "r5",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 89,
+          "line": 101039,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k23"
+          ]
+        },
+        {
+          "pc": 90,
+          "line": 101040,
+          "op": "move",
+          "args": [
+            "r6",
+            "r0"
+          ]
+        },
+        {
+          "pc": 91,
+          "line": 101041,
+          "op": "loadbool",
+          "args": [
+            "r7",
+            "1",
+            "0"
+          ]
+        },
+        {
+          "pc": 92,
+          "line": 101042,
+          "op": "gettabup",
+          "args": [
+            "r8",
+            "u0",
+            "k2"
+          ]
+        },
+        {
+          "pc": 93,
+          "line": 101043,
+          "op": "loadk",
+          "args": [
+            "r9",
+            "k25"
+          ]
+        },
+        {
+          "pc": 94,
+          "line": 101044,
+          "op": "call",
+          "args": [
+            "r8",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 95,
+          "line": 101045,
+          "op": "call",
+          "args": [
+            "r5",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 96,
+          "line": 101047,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k26"
+          ]
+        },
+        {
+          "pc": 97,
+          "line": 101048,
+          "op": "move",
+          "args": [
+            "r6",
+            "r0"
+          ]
+        },
+        {
+          "pc": 98,
+          "line": 101049,
+          "op": "call",
+          "args": [
+            "r5",
+            "2",
+            "1"
+          ]
+        },
+        {
+          "pc": 99,
+          "line": 101050,
+          "op": "return",
+          "args": [
+            "r0",
+            "1"
+          ]
+        }
+      ]
+    },
+    "main/f139/f2": {
+      "function": "main/f139/f2",
+      "lines": [
+        101052,
+        101114
+      ],
+      "constants": {
+        "k0": "GetUnitAbilityLevel",
+        "k1": "GetId",
+        "k2": "T214",
+        "k3": 0,
+        "k4": "T215",
+        "k5": "T255",
+        "k6": "T256"
+      },
+      "labels": {
+        "l17": 17,
+        "l19": 19,
+        "l35": 35,
+        "l37": 37
+      },
+      "instructions": [
+        {
+          "pc": 1,
+          "line": 101071,
+          "op": "gettabup",
+          "args": [
+            "r1",
+            "u0",
+            "k0"
+          ]
+        },
+        {
+          "pc": 2,
+          "line": 101072,
+          "op": "move",
+          "args": [
+            "r2",
+            "r0"
+          ]
+        },
+        {
+          "pc": 3,
+          "line": 101073,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k1"
+          ]
+        },
+        {
+          "pc": 4,
+          "line": 101074,
+          "op": "loadk",
+          "args": [
+            "r4",
+            "k2"
+          ]
+        },
+        {
+          "pc": 5,
+          "line": 101075,
+          "op": "call",
+          "args": [
+            "r3",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 6,
+          "line": 101076,
+          "op": "call",
+          "args": [
+            "r1",
+            "0",
+            "2"
+          ]
+        },
+        {
+          "pc": 7,
+          "line": 101077,
+          "op": "lt",
+          "args": [
+            "1",
+            "k3",
+            "r1"
+          ]
+        },
+        {
+          "pc": 8,
+          "line": 101078,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l17"
+          ]
+        },
+        {
+          "pc": 9,
+          "line": 101079,
+          "op": "gettabup",
+          "args": [
+            "r1",
+            "u0",
+            "k0"
+          ]
+        },
+        {
+          "pc": 10,
+          "line": 101080,
+          "op": "move",
+          "args": [
+            "r2",
+            "r0"
+          ]
+        },
+        {
+          "pc": 11,
+          "line": 101081,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k1"
+          ]
+        },
+        {
+          "pc": 12,
+          "line": 101082,
+          "op": "loadk",
+          "args": [
+            "r4",
+            "k4"
+          ]
+        },
+        {
+          "pc": 13,
+          "line": 101083,
+          "op": "call",
+          "args": [
+            "r3",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 14,
+          "line": 101084,
+          "op": "call",
+          "args": [
+            "r1",
+            "0",
+            "2"
+          ]
+        },
+        {
+          "pc": 15,
+          "line": 101085,
+          "op": "lt",
+          "args": [
+            "0",
+            "k3",
+            "r1"
+          ]
+        },
+        {
+          "pc": 16,
+          "line": 101086,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l19"
+          ]
+        },
+        {
+          "pc": 17,
+          "line": 101088,
+          "op": "loadbool",
+          "args": [
+            "r1",
+            "1",
+            "0"
+          ]
+        },
+        {
+          "pc": 18,
+          "line": 101089,
+          "op": "return",
+          "args": [
+            "r1",
+            "2"
+          ]
+        },
+        {
+          "pc": 19,
+          "line": 101091,
+          "op": "gettabup",
+          "args": [
+            "r1",
+            "u0",
+            "k0"
+          ]
+        },
+        {
+          "pc": 20,
+          "line": 101092,
+          "op": "move",
+          "args": [
+            "r2",
+            "r0"
+          ]
+        },
+        {
+          "pc": 21,
+          "line": 101093,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k1"
+          ]
+        },
+        {
+          "pc": 22,
+          "line": 101094,
+          "op": "loadk",
+          "args": [
+            "r4",
+            "k5"
+          ]
+        },
+        {
+          "pc": 23,
+          "line": 101095,
+          "op": "call",
+          "args": [
+            "r3",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 24,
+          "line": 101096,
+          "op": "call",
+          "args": [
+            "r1",
+            "0",
+            "2"
+          ]
+        },
+        {
+          "pc": 25,
+          "line": 101097,
+          "op": "lt",
+          "args": [
+            "1",
+            "k3",
+            "r1"
+          ]
+        },
+        {
+          "pc": 26,
+          "line": 101098,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l35"
+          ]
+        },
+        {
+          "pc": 27,
+          "line": 101099,
+          "op": "gettabup",
+          "args": [
+            "r1",
+            "u0",
+            "k0"
+          ]
+        },
+        {
+          "pc": 28,
+          "line": 101100,
+          "op": "move",
+          "args": [
+            "r2",
+            "r0"
+          ]
+        },
+        {
+          "pc": 29,
+          "line": 101101,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k1"
+          ]
+        },
+        {
+          "pc": 30,
+          "line": 101102,
+          "op": "loadk",
+          "args": [
+            "r4",
+            "k6"
+          ]
+        },
+        {
+          "pc": 31,
+          "line": 101103,
+          "op": "call",
+          "args": [
+            "r3",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 32,
+          "line": 101104,
+          "op": "call",
+          "args": [
+            "r1",
+            "0",
+            "2"
+          ]
+        },
+        {
+          "pc": 33,
+          "line": 101105,
+          "op": "lt",
+          "args": [
+            "0",
+            "k3",
+            "r1"
+          ]
+        },
+        {
+          "pc": 34,
+          "line": 101106,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l37"
+          ]
+        },
+        {
+          "pc": 35,
+          "line": 101108,
+          "op": "loadbool",
+          "args": [
+            "r1",
+            "1",
+            "0"
+          ]
+        },
+        {
+          "pc": 36,
+          "line": 101109,
+          "op": "return",
+          "args": [
+            "r1",
+            "2"
+          ]
+        },
+        {
+          "pc": 37,
+          "line": 101111,
+          "op": "loadbool",
+          "args": [
+            "r1",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "pc": 38,
+          "line": 101112,
+          "op": "return",
+          "args": [
+            "r1",
+            "2"
+          ]
+        },
+        {
+          "pc": 39,
+          "line": 101113,
+          "op": "return",
+          "args": [
+            "r0",
+            "1"
+          ]
+        }
+      ]
+    },
+    "main/f291/f5": {
+      "function": "main/f291/f5",
+      "lines": [
+        167591,
+        167688
+      ],
+      "constants": {
+        "k0": "pairs",
+        "k1": "A193_Unit",
+        "k2": null,
+        "k3": 0,
+        "k4": "GetUnitState",
+        "k5": "UNIT_STATE_LIFE",
+        "k6": "GetUnitTypeId",
+        "k7": "GetId",
+        "k8": "G071",
+        "k9": "UnitAddAbility",
+        "k10": "T255",
+        "k11": "UnitMakeAbilityPermanent",
+        "k12": "T257",
+        "k13": "T214",
+        "k14": "Change_Skill_Lv"
+      },
+      "labels": {
+        "l5": 5,
+        "l48": 48,
+        "l61": 61,
+        "l64": 64
+      },
+      "instructions": [
+        {
+          "pc": 1,
+          "line": 167618,
+          "op": "gettabup",
+          "args": [
+            "r0",
+            "u0",
+            "k0"
+          ]
+        },
+        {
+          "pc": 2,
+          "line": 167619,
+          "op": "gettabup",
+          "args": [
+            "r1",
+            "u0",
+            "k1"
+          ]
+        },
+        {
+          "pc": 3,
+          "line": 167620,
+          "op": "call",
+          "args": [
+            "r0",
+            "2",
+            "4"
+          ]
+        },
+        {
+          "pc": 4,
+          "line": 167621,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l64"
+          ]
+        },
+        {
+          "pc": 5,
+          "line": 167623,
+          "op": "eq",
+          "args": [
+            "1",
+            "k2",
+            "r4"
+          ]
+        },
+        {
+          "pc": 6,
+          "line": 167624,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l64"
+          ]
+        },
+        {
+          "pc": 7,
+          "line": 167625,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k4"
+          ]
+        },
+        {
+          "pc": 8,
+          "line": 167626,
+          "op": "move",
+          "args": [
+            "r6",
+            "r4"
+          ]
+        },
+        {
+          "pc": 9,
+          "line": 167627,
+          "op": "gettabup",
+          "args": [
+            "r7",
+            "u0",
+            "k5"
+          ]
+        },
+        {
+          "pc": 10,
+          "line": 167628,
+          "op": "call",
+          "args": [
+            "r5",
+            "3",
+            "2"
+          ]
+        },
+        {
+          "pc": 11,
+          "line": 167629,
+          "op": "lt",
+          "args": [
+            "0",
+            "k3",
+            "r5"
+          ]
+        },
+        {
+          "pc": 12,
+          "line": 167630,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l64"
+          ]
+        },
+        {
+          "pc": 13,
+          "line": 167631,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k6"
+          ]
+        },
+        {
+          "pc": 14,
+          "line": 167632,
+          "op": "move",
+          "args": [
+            "r6",
+            "r4"
+          ]
+        },
+        {
+          "pc": 15,
+          "line": 167633,
+          "op": "call",
+          "args": [
+            "r5",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "pc": 16,
+          "line": 167634,
+          "op": "gettabup",
+          "args": [
+            "r6",
+            "u0",
+            "k7"
+          ]
+        },
+        {
+          "pc": 17,
+          "line": 167635,
+          "op": "loadk",
+          "args": [
+            "r7",
+            "k8"
+          ]
+        },
+        {
+          "pc": 18,
+          "line": 167636,
+          "op": "call",
+          "args": [
+            "r6",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "pc": 19,
+          "line": 167637,
+          "op": "eq",
+          "args": [
+            "0",
+            "r5",
+            "r6"
+          ]
+        },
+        {
+          "pc": 20,
+          "line": 167638,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l48"
+          ]
+        },
+        {
+          "pc": 21,
+          "line": 167639,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k9"
+          ]
+        },
+        {
+          "pc": 22,
+          "line": 167640,
+          "op": "move",
+          "args": [
+            "r6",
+            "r4"
+          ]
+        },
+        {
+          "pc": 23,
+          "line": 167641,
+          "op": "gettabup",
+          "args": [
+            "r7",
+            "u0",
+            "k7"
+          ]
+        },
+        {
+          "pc": 24,
+          "line": 167642,
+          "op": "loadk",
+          "args": [
+            "r8",
+            "k10"
+          ]
+        },
+        {
+          "pc": 25,
+          "line": 167643,
+          "op": "call",
+          "args": [
+            "r7",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 26,
+          "line": 167644,
+          "op": "call",
+          "args": [
+            "r5",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 27,
+          "line": 167645,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k11"
+          ]
+        },
+        {
+          "pc": 28,
+          "line": 167646,
+          "op": "move",
+          "args": [
+            "r6",
+            "r4"
+          ]
+        },
+        {
+          "pc": 29,
+          "line": 167647,
+          "op": "loadbool",
+          "args": [
+            "r7",
+            "1",
+            "0"
+          ]
+        },
+        {
+          "pc": 30,
+          "line": 167648,
+          "op": "gettabup",
+          "args": [
+            "r8",
+            "u0",
+            "k7"
+          ]
+        },
+        {
+          "pc": 31,
+          "line": 167649,
+          "op": "loadk",
+          "args": [
+            "r9",
+            "k10"
+          ]
+        },
+        {
+          "pc": 32,
+          "line": 167650,
+          "op": "call",
+          "args": [
+            "r8",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 33,
+          "line": 167651,
+          "op": "call",
+          "args": [
+            "r5",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 34,
+          "line": 167652,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k9"
+          ]
+        },
+        {
+          "pc": 35,
+          "line": 167653,
+          "op": "move",
+          "args": [
+            "r6",
+            "r4"
+          ]
+        },
+        {
+          "pc": 36,
+          "line": 167654,
+          "op": "gettabup",
+          "args": [
+            "r7",
+            "u0",
+            "k7"
+          ]
+        },
+        {
+          "pc": 37,
+          "line": 167655,
+          "op": "loadk",
+          "args": [
+            "r8",
+            "k12"
+          ]
+        },
+        {
+          "pc": 38,
+          "line": 167656,
+          "op": "call",
+          "args": [
+            "r7",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 39,
+          "line": 167657,
+          "op": "call",
+          "args": [
+            "r5",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 40,
+          "line": 167658,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k11"
+          ]
+        },
+        {
+          "pc": 41,
+          "line": 167659,
+          "op": "move",
+          "args": [
+            "r6",
+            "r4"
+          ]
+        },
+        {
+          "pc": 42,
+          "line": 167660,
+          "op": "loadbool",
+          "args": [
+            "r7",
+            "1",
+            "0"
+          ]
+        },
+        {
+          "pc": 43,
+          "line": 167661,
+          "op": "gettabup",
+          "args": [
+            "r8",
+            "u0",
+            "k7"
+          ]
+        },
+        {
+          "pc": 44,
+          "line": 167662,
+          "op": "loadk",
+          "args": [
+            "r9",
+            "k12"
+          ]
+        },
+        {
+          "pc": 45,
+          "line": 167663,
+          "op": "call",
+          "args": [
+            "r8",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 46,
+          "line": 167664,
+          "op": "call",
+          "args": [
+            "r5",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 47,
+          "line": 167665,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l61"
+          ]
+        },
+        {
+          "pc": 48,
+          "line": 167667,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k9"
+          ]
+        },
+        {
+          "pc": 49,
+          "line": 167668,
+          "op": "move",
+          "args": [
+            "r6",
+            "r4"
+          ]
+        },
+        {
+          "pc": 50,
+          "line": 167669,
+          "op": "gettabup",
+          "args": [
+            "r7",
+            "u0",
+            "k7"
+          ]
+        },
+        {
+          "pc": 51,
+          "line": 167670,
+          "op": "loadk",
+          "args": [
+            "r8",
+            "k13"
+          ]
+        },
+        {
+          "pc": 52,
+          "line": 167671,
+          "op": "call",
+          "args": [
+            "r7",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 53,
+          "line": 167672,
+          "op": "call",
+          "args": [
+            "r5",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 54,
+          "line": 167673,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k11"
+          ]
+        },
+        {
+          "pc": 55,
+          "line": 167674,
+          "op": "move",
+          "args": [
+            "r6",
+            "r4"
+          ]
+        },
+        {
+          "pc": 56,
+          "line": 167675,
+          "op": "loadbool",
+          "args": [
+            "r7",
+            "1",
+            "0"
+          ]
+        },
+        {
+          "pc": 57,
+          "line": 167676,
+          "op": "gettabup",
+          "args": [
+            "r8",
+            "u0",
+            "k7"
+          ]
+        },
+        {
+          "pc": 58,
+          "line": 167677,
+          "op": "loadk",
+          "args": [
+            "r9",
+            "k13"
+          ]
+        },
+        {
+          "pc": 59,
+          "line": 167678,
+          "op": "call",
+          "args": [
+            "r8",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 60,
+          "line": 167679,
+          "op": "call",
+          "args": [
+            "r5",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 61,
+          "line": 167681,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k14"
+          ]
+        },
+        {
+          "pc": 62,
+          "line": 167682,
+          "op": "move",
+          "args": [
+            "r6",
+            "r4"
+          ]
+        },
+        {
+          "pc": 63,
+          "line": 167683,
+          "op": "call",
+          "args": [
+            "r5",
+            "2",
+            "1"
+          ]
+        },
+        {
+          "pc": 64,
+          "line": 167685,
+          "op": "tforcall",
+          "args": [
+            "r0",
+            "2"
+          ]
+        },
+        {
+          "pc": 65,
+          "line": 167686,
+          "op": "tforloop",
+          "args": [
+            "r2",
+            "l5"
+          ]
+        },
+        {
+          "pc": 66,
+          "line": 167687,
+          "op": "return",
+          "args": [
+            "r0",
+            "1"
+          ]
+        }
+      ]
+    },
+    "main/f291/f6": {
+      "function": "main/f291/f6",
+      "lines": [
+        167689,
+        167770
+      ],
+      "constants": {
+        "k0": "pairs",
+        "k1": "A193_Unit",
+        "k2": null,
+        "k3": 0,
+        "k4": "GetUnitState",
+        "k5": "UNIT_STATE_LIFE",
+        "k6": "GetUnitTypeId",
+        "k7": "GetId",
+        "k8": "G071",
+        "k9": "UnitRemoveAbility",
+        "k10": "T255",
+        "k11": "T257",
+        "k12": "T214",
+        "k13": "Change_Skill_Lv"
+      },
+      "labels": {
+        "l5": 5,
+        "l40": 40,
+        "l46": 46,
+        "l49": 49
+      },
+      "instructions": [
+        {
+          "pc": 1,
+          "line": 167715,
+          "op": "gettabup",
+          "args": [
+            "r0",
+            "u0",
+            "k0"
+          ]
+        },
+        {
+          "pc": 2,
+          "line": 167716,
+          "op": "gettabup",
+          "args": [
+            "r1",
+            "u0",
+            "k1"
+          ]
+        },
+        {
+          "pc": 3,
+          "line": 167717,
+          "op": "call",
+          "args": [
+            "r0",
+            "2",
+            "4"
+          ]
+        },
+        {
+          "pc": 4,
+          "line": 167718,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l49"
+          ]
+        },
+        {
+          "pc": 5,
+          "line": 167720,
+          "op": "eq",
+          "args": [
+            "1",
+            "k2",
+            "r4"
+          ]
+        },
+        {
+          "pc": 6,
+          "line": 167721,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l49"
+          ]
+        },
+        {
+          "pc": 7,
+          "line": 167722,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k4"
+          ]
+        },
+        {
+          "pc": 8,
+          "line": 167723,
+          "op": "move",
+          "args": [
+            "r6",
+            "r4"
+          ]
+        },
+        {
+          "pc": 9,
+          "line": 167724,
+          "op": "gettabup",
+          "args": [
+            "r7",
+            "u0",
+            "k5"
+          ]
+        },
+        {
+          "pc": 10,
+          "line": 167725,
+          "op": "call",
+          "args": [
+            "r5",
+            "3",
+            "2"
+          ]
+        },
+        {
+          "pc": 11,
+          "line": 167726,
+          "op": "lt",
+          "args": [
+            "0",
+            "k3",
+            "r5"
+          ]
+        },
+        {
+          "pc": 12,
+          "line": 167727,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l49"
+          ]
+        },
+        {
+          "pc": 13,
+          "line": 167728,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k6"
+          ]
+        },
+        {
+          "pc": 14,
+          "line": 167729,
+          "op": "move",
+          "args": [
+            "r6",
+            "r4"
+          ]
+        },
+        {
+          "pc": 15,
+          "line": 167730,
+          "op": "call",
+          "args": [
+            "r5",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "pc": 16,
+          "line": 167731,
+          "op": "gettabup",
+          "args": [
+            "r6",
+            "u0",
+            "k7"
+          ]
+        },
+        {
+          "pc": 17,
+          "line": 167732,
+          "op": "loadk",
+          "args": [
+            "r7",
+            "k8"
+          ]
+        },
+        {
+          "pc": 18,
+          "line": 167733,
+          "op": "call",
+          "args": [
+            "r6",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "pc": 19,
+          "line": 167734,
+          "op": "eq",
+          "args": [
+            "0",
+            "r5",
+            "r6"
+          ]
+        },
+        {
+          "pc": 20,
+          "line": 167735,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l40"
+          ]
+        },
+        {
+          "pc": 21,
+          "line": 167736,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k9"
+          ]
+        },
+        {
+          "pc": 22,
+          "line": 167737,
+          "op": "move",
+          "args": [
+            "r6",
+            "r4"
+          ]
+        },
+        {
+          "pc": 23,
+          "line": 167738,
+          "op": "gettabup",
+          "args": [
+            "r7",
+            "u0",
+            "k7"
+          ]
+        },
+        {
+          "pc": 24,
+          "line": 167739,
+          "op": "loadk",
+          "args": [
+            "r8",
+            "k10"
+          ]
+        },
+        {
+          "pc": 25,
+          "line": 167740,
+          "op": "call",
+          "args": [
+            "r7",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 26,
+          "line": 167741,
+          "op": "call",
+          "args": [
+            "r5",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 27,
+          "line": 167742,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k9"
+          ]
+        },
+        {
+          "pc": 28,
+          "line": 167743,
+          "op": "move",
+          "args": [
+            "r6",
+            "r4"
+          ]
+        },
+        {
+          "pc": 29,
+          "line": 167744,
+          "op": "gettabup",
+          "args": [
+            "r7",
+            "u0",
+            "k7"
+          ]
+        },
+        {
+          "pc": 30,
+          "line": 167745,
+          "op": "loadk",
+          "args": [
+            "r8",
+            "k11"
+          ]
+        },
+        {
+          "pc": 31,
+          "line": 167746,
+          "op": "call",
+          "args": [
+            "r7",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 32,
+          "line": 167747,
+          "op": "call",
+          "args": [
+            "r5",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 33,
+          "line": 167748,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k9"
+          ]
+        },
+        {
+          "pc": 34,
+          "line": 167749,
+          "op": "move",
+          "args": [
+            "r6",
+            "r4"
+          ]
+        },
+        {
+          "pc": 35,
+          "line": 167750,
+          "op": "gettabup",
+          "args": [
+            "r7",
+            "u0",
+            "k7"
+          ]
+        },
+        {
+          "pc": 36,
+          "line": 167751,
+          "op": "loadk",
+          "args": [
+            "r8",
+            "k12"
+          ]
+        },
+        {
+          "pc": 37,
+          "line": 167752,
+          "op": "call",
+          "args": [
+            "r7",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 38,
+          "line": 167753,
+          "op": "call",
+          "args": [
+            "r5",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 39,
+          "line": 167754,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l46"
+          ]
+        },
+        {
+          "pc": 40,
+          "line": 167756,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k9"
+          ]
+        },
+        {
+          "pc": 41,
+          "line": 167757,
+          "op": "move",
+          "args": [
+            "r6",
+            "r4"
+          ]
+        },
+        {
+          "pc": 42,
+          "line": 167758,
+          "op": "gettabup",
+          "args": [
+            "r7",
+            "u0",
+            "k7"
+          ]
+        },
+        {
+          "pc": 43,
+          "line": 167759,
+          "op": "loadk",
+          "args": [
+            "r8",
+            "k12"
+          ]
+        },
+        {
+          "pc": 44,
+          "line": 167760,
+          "op": "call",
+          "args": [
+            "r7",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 45,
+          "line": 167761,
+          "op": "call",
+          "args": [
+            "r5",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 46,
+          "line": 167763,
+          "op": "gettabup",
+          "args": [
+            "r5",
+            "u0",
+            "k13"
+          ]
+        },
+        {
+          "pc": 47,
+          "line": 167764,
+          "op": "move",
+          "args": [
+            "r6",
+            "r4"
+          ]
+        },
+        {
+          "pc": 48,
+          "line": 167765,
+          "op": "call",
+          "args": [
+            "r5",
+            "2",
+            "1"
+          ]
+        },
+        {
+          "pc": 49,
+          "line": 167767,
+          "op": "tforcall",
+          "args": [
+            "r0",
+            "2"
+          ]
+        },
+        {
+          "pc": 50,
+          "line": 167768,
+          "op": "tforloop",
+          "args": [
+            "r2",
+            "l5"
+          ]
+        },
+        {
+          "pc": 51,
+          "line": 167769,
+          "op": "return",
+          "args": [
+            "r0",
+            "1"
+          ]
+        }
+      ]
+    },
+    "main/f291/f42": {
+      "function": "main/f291/f42",
+      "lines": [
+        180222,
+        180275
+      ],
+      "constants": {
+        "k0": "CreateTrigger",
+        "k1": "TriggerRegisterGameStateEvent",
+        "k2": "GAME_STATE_TIME_OF_DAY",
+        "k3": "EQUAL",
+        "k4": 6,
+        "k5": "TriggerAddCondition",
+        "k6": "Condition",
+        "k7": "NightBuffRemove",
+        "k8": 18,
+        "k9": "NightBuffAdd"
+      },
+      "labels": {},
+      "instructions": [
+        {
+          "pc": 1,
+          "line": 180244,
+          "op": "gettabup",
+          "args": [
+            "r0",
+            "u0",
+            "k0"
+          ]
+        },
+        {
+          "pc": 2,
+          "line": 180245,
+          "op": "call",
+          "args": [
+            "r0",
+            "1",
+            "2"
+          ]
+        },
+        {
+          "pc": 3,
+          "line": 180246,
+          "op": "gettabup",
+          "args": [
+            "r1",
+            "u0",
+            "k1"
+          ]
+        },
+        {
+          "pc": 4,
+          "line": 180247,
+          "op": "move",
+          "args": [
+            "r2",
+            "r0"
+          ]
+        },
+        {
+          "pc": 5,
+          "line": 180248,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k2"
+          ]
+        },
+        {
+          "pc": 6,
+          "line": 180249,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k3"
+          ]
+        },
+        {
+          "pc": 7,
+          "line": 180250,
+          "op": "loadk",
+          "args": [
+            "r5",
+            "k4"
+          ]
+        },
+        {
+          "pc": 8,
+          "line": 180251,
+          "op": "call",
+          "args": [
+            "r1",
+            "5",
+            "1"
+          ]
+        },
+        {
+          "pc": 9,
+          "line": 180252,
+          "op": "gettabup",
+          "args": [
+            "r1",
+            "u0",
+            "k5"
+          ]
+        },
+        {
+          "pc": 10,
+          "line": 180253,
+          "op": "move",
+          "args": [
+            "r2",
+            "r0"
+          ]
+        },
+        {
+          "pc": 11,
+          "line": 180254,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k6"
+          ]
+        },
+        {
+          "pc": 12,
+          "line": 180255,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k7"
+          ]
+        },
+        {
+          "pc": 13,
+          "line": 180256,
+          "op": "call",
+          "args": [
+            "r3",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 14,
+          "line": 180257,
+          "op": "call",
+          "args": [
+            "r1",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 15,
+          "line": 180258,
+          "op": "gettabup",
+          "args": [
+            "r1",
+            "u0",
+            "k0"
+          ]
+        },
+        {
+          "pc": 16,
+          "line": 180259,
+          "op": "call",
+          "args": [
+            "r1",
+            "1",
+            "2"
+          ]
+        },
+        {
+          "pc": 17,
+          "line": 180260,
+          "op": "move",
+          "args": [
+            "r0",
+            "r1"
+          ]
+        },
+        {
+          "pc": 18,
+          "line": 180261,
+          "op": "gettabup",
+          "args": [
+            "r1",
+            "u0",
+            "k1"
+          ]
+        },
+        {
+          "pc": 19,
+          "line": 180262,
+          "op": "move",
+          "args": [
+            "r2",
+            "r0"
+          ]
+        },
+        {
+          "pc": 20,
+          "line": 180263,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k2"
+          ]
+        },
+        {
+          "pc": 21,
+          "line": 180264,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k3"
+          ]
+        },
+        {
+          "pc": 22,
+          "line": 180265,
+          "op": "loadk",
+          "args": [
+            "r5",
+            "k8"
+          ]
+        },
+        {
+          "pc": 23,
+          "line": 180266,
+          "op": "call",
+          "args": [
+            "r1",
+            "5",
+            "1"
+          ]
+        },
+        {
+          "pc": 24,
+          "line": 180267,
+          "op": "gettabup",
+          "args": [
+            "r1",
+            "u0",
+            "k5"
+          ]
+        },
+        {
+          "pc": 25,
+          "line": 180268,
+          "op": "move",
+          "args": [
+            "r2",
+            "r0"
+          ]
+        },
+        {
+          "pc": 26,
+          "line": 180269,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k6"
+          ]
+        },
+        {
+          "pc": 27,
+          "line": 180270,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k9"
+          ]
+        },
+        {
+          "pc": 28,
+          "line": 180271,
+          "op": "call",
+          "args": [
+            "r3",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 29,
+          "line": 180272,
+          "op": "call",
+          "args": [
+            "r1",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 30,
+          "line": 180273,
+          "op": "loadnil",
+          "args": [
+            "r0",
+            "0"
+          ]
+        },
+        {
+          "pc": 31,
+          "line": 180274,
+          "op": "return",
+          "args": [
+            "r0",
+            "1"
+          ]
+        }
+      ]
+    }
+  },
+  "sourceTables": {
+    "T208": [
+      50,
+      75,
+      100,
+      125,
+      150,
+      175,
+      100,
+      150,
+      200,
+      250,
+      300,
+      350
+    ],
+    "T209": [
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.550000011920929,
+      0.6000000238418579,
+      0.699999988079071,
+      0.800000011920929,
+      0.8999999761581421,
+      1.0,
+      1.100000023841858,
+      1.2000000476837158
+    ]
+  },
+  "objects": {
+    "A193": {
+      "source": {
+        "alias": "A193",
+        "code": "AOae",
+        "checkDep": 1,
+        "DataB1": 0.05,
+        "DataB2": 0.1,
+        "DataB3": 0.15,
+        "DataB4": 0.15,
+        "levels": 6,
+        "reqLevel": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "overrides": []
+    },
+    "A194": {
+      "source": {
+        "alias": "A194",
+        "code": "ANcl",
+        "checkDep": 1,
+        "Cool1": 35.0,
+        "Cool2": 35.0,
+        "Cool3": 35.0,
+        "Cool4": 35.0,
+        "Cost1": 40,
+        "Cost2": 70,
+        "Cost3": 100,
+        "Cost4": 130,
+        "DataC1": 1,
+        "DataC2": 1,
+        "DataC3": 1,
+        "DataC4": 1,
+        "DataF1": "channel",
+        "DataF2": "channel",
+        "DataF3": "channel",
+        "DataF4": "channel",
+        "Dur1": 0.1,
+        "Dur2": 0.1,
+        "Dur3": 0.1,
+        "Dur4": 0.1,
+        "HeroDur1": 0.1,
+        "HeroDur2": 0.1,
+        "HeroDur3": 0.1,
+        "HeroDur4": 0.1,
+        "levels": 6,
+        "reqLevel": 1,
+        "Rng1": 800.0,
+        "Rng2": 800.0,
+        "Rng3": 800.0,
+        "Rng4": 800.0,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "overrides": [
+        {
+          "old": "A194",
+          "new": "\u0000\u0000\u0000\u0000",
+          "mods": [
+            {
+              "key": "amcs",
+              "type": 0,
+              "level": 5,
+              "data": 0,
+              "value": 160
+            },
+            {
+              "key": "amcs",
+              "type": 0,
+              "level": 6,
+              "data": 0,
+              "value": 200
+            }
+          ]
+        }
+      ]
+    },
+    "T208": {
+      "source": {
+        "alias": "T208",
+        "code": "AIat",
+        "DataA1": 50,
+        "DataA2": 75,
+        "DataA3": 100,
+        "DataA4": 125,
+        "levels": 12,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "overrides": [
+        {
+          "old": "T208",
+          "new": "\u0000\u0000\u0000\u0000",
+          "mods": [
+            {
+              "key": "Iatt",
+              "type": 0,
+              "level": 5,
+              "data": 1,
+              "value": 150
+            },
+            {
+              "key": "Iatt",
+              "type": 0,
+              "level": 6,
+              "data": 1,
+              "value": 175
+            },
+            {
+              "key": "Iatt",
+              "type": 0,
+              "level": 7,
+              "data": 1,
+              "value": 100
+            },
+            {
+              "key": "Iatt",
+              "type": 0,
+              "level": 8,
+              "data": 1,
+              "value": 150
+            },
+            {
+              "key": "Iatt",
+              "type": 0,
+              "level": 9,
+              "data": 1,
+              "value": 200
+            },
+            {
+              "key": "Iatt",
+              "type": 0,
+              "level": 10,
+              "data": 1,
+              "value": 250
+            },
+            {
+              "key": "Iatt",
+              "type": 0,
+              "level": 11,
+              "data": 1,
+              "value": 300
+            },
+            {
+              "key": "Iatt",
+              "type": 0,
+              "level": 12,
+              "data": 1,
+              "value": 350
+            }
+          ]
+        }
+      ]
+    },
+    "T209": {
+      "source": {
+        "alias": "T209",
+        "code": "AIas",
+        "DataA1": 0.35,
+        "DataA2": 0.4,
+        "DataA3": 0.45,
+        "DataA4": 0.5,
+        "levels": 12,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "overrides": [
+        {
+          "old": "T209",
+          "new": "\u0000\u0000\u0000\u0000",
+          "mods": [
+            {
+              "key": "Isx1",
+              "type": 2,
+              "level": 5,
+              "data": 1,
+              "value": 0.550000011920929
+            },
+            {
+              "key": "Isx1",
+              "type": 2,
+              "level": 6,
+              "data": 1,
+              "value": 0.6000000238418579
+            },
+            {
+              "key": "Isx1",
+              "type": 2,
+              "level": 7,
+              "data": 1,
+              "value": 0.699999988079071
+            },
+            {
+              "key": "Isx1",
+              "type": 2,
+              "level": 8,
+              "data": 1,
+              "value": 0.800000011920929
+            },
+            {
+              "key": "Isx1",
+              "type": 2,
+              "level": 9,
+              "data": 1,
+              "value": 0.8999999761581421
+            },
+            {
+              "key": "Isx1",
+              "type": 2,
+              "level": 10,
+              "data": 1,
+              "value": 1.0
+            },
+            {
+              "key": "Isx1",
+              "type": 2,
+              "level": 11,
+              "data": 1,
+              "value": 1.100000023841858
+            },
+            {
+              "key": "Isx1",
+              "type": 2,
+              "level": 12,
+              "data": 1,
+              "value": 1.2000000476837158
+            }
+          ]
+        }
+      ]
+    },
+    "T214": {
+      "source": {
+        "alias": "T214",
+        "code": "AHad",
+        "Area1": 900.0,
+        "BuffID1": "BHad",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "none",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "overrides": []
+    },
+    "T215": {
+      "source": {
+        "alias": "T215",
+        "code": "AHad",
+        "Area1": 900.0,
+        "BuffID1": "BHad",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "none",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "overrides": []
+    },
+    "T255": {
+      "source": {
+        "alias": "T255",
+        "code": "AHad",
+        "Area1": 900.0,
+        "BuffID1": "BHad",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "none",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "overrides": []
+    },
+    "T256": {
+      "source": {
+        "alias": "T256",
+        "code": "AHad",
+        "Area1": 900.0,
+        "BuffID1": "BHad",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "none",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "overrides": []
+    },
+    "T257": {
+      "source": {
+        "alias": "T257",
+        "code": "AHad",
+        "Area1": 900.0,
+        "BuffID1": "BHad",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "none",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "overrides": []
+    },
+    "T258": {
+      "source": {
+        "alias": "T258",
+        "code": "AHad",
+        "Area1": 900.0,
+        "BuffID1": "BHad",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "none",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      },
+      "overrides": []
+    }
+  },
+  "sourceSlices": {
+    "initClock": {
+      "function": "main/f306/f64",
+      "lines": [
+        202876,
+        202882
+      ],
+      "initialHour": 6,
+      "scale": 2
+    },
+    "learning": {
+      "function": "main/f291/f10",
+      "pc": [
+        200,
+        208
+      ],
+      "lines": [
+        169251,
+        169259
+      ]
+    },
+    "spellEffect": {
+      "function": "main/f291/f14",
+      "pc": [
+        1218,
+        1227
+      ],
+      "lines": [
+        171334,
+        171343
+      ]
+    },
+    "damage": {
+      "function": "main/f291/f1",
+      "pc": [
+        1273,
+        1293
+      ],
+      "lines": [
+        163834,
+        163855
+      ],
+      "worldMode1": 2.5,
+      "otherModes": 1.8,
+      "guard": "IsYeMoNightBuff(attributed O); does not check A193 rank or attack flag here; preserve public prior exits"
+    },
+    "autocast": {
+      "priority": 98,
+      "function": "main/f291/f27",
+      "pc": [
+        3033,
+        3050
+      ],
+      "readyThen": "IsYeMoNightBuff(attacker)==false",
+      "order": "channel"
+    }
+  },
+  "primarySources": [
+    {
+      "url": "https://classic.battle.net/war3/basics/daynight.shtml",
+      "basis": "official qualitative day/night regeneration; does not prove customized runtime details"
+    },
+    {
+      "url": "https://classic.battle.net/war3/basics/heroes.shtml",
+      "basis": "official attribute regeneration and template base regeneration distinction"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/Units/MiscData.txt",
+      "basis": "DayLength480,Dawn6,Dusk18,DayHours24; explicit Q24 fallback, not map-embedded field"
+    },
+    {
+      "url": "https://github.com/flowtsohg/mdx-m3-viewer/blob/master/src/parsers/w3x/w3e/corner.ts",
+      "basis": "7-byte W3E corner, byte4 blight mask0x20; does not describe runtime blight producers"
+    }
+  ],
+  "workbookEvidence": "night-workbook-check.json",
+  "decisions": {
+    "Q43": "After A193 learning registration, synchronize only the learner natural markers to current world day/night before Change_Skill_Lv; retain independent personal-night markers/timer",
+    "A194Mana": {
+      "source": [
+        40,
+        70,
+        100,
+        130,
+        160,
+        200
+      ],
+      "web": [
+        20,
+        40,
+        60,
+        80,
+        100,
+        120
+      ],
+      "basis": "both workbook I312/I342, global numeric priority"
+    },
+    "T209": "source float32 values preserved; selected exact decimal35..60 and doubled night70..120 percent"
+  },
+  "web": {
+    "worldClock": {
+      "baseDaySeconds": 480,
+      "hoursPerCycle": 24,
+      "sourceScale": 2,
+      "effectiveCycleSeconds": 240,
+      "initialHour": 6,
+      "dayInterval": "[6,18)",
+      "nightInterval": "[18,24) union [0,6)",
+      "schedule": "first dusk120s, first dawn240s; B05 exact threshold events; registration at initial6 does not synthesize dawn callback; pause/speed/background use simulation time"
+    },
+    "initialBlight": {
+      "cornerCount": 9409,
+      "flagMask": 32,
+      "setCount": 0,
+      "source": "W3E byte4 of each7-byte corner; no custom script blight setter found; runtime native blight-producing effects require own adapter"
+    },
+    "baseRegen": {
+      "life": "for alive existing visible units: gated(template regenHP,regenType)+0.1*effective STR for native HERO; attribute contribution independent of template gate, Q24 chosen explicitly",
+      "mana": "template regenMana+0.03*effective INT for native HERO; regenType gates base LIFE only",
+      "gates": "always=true; day=[6,18); night=complement; blight=current terrain predicate; none=false; unknown tokens fail import, not automatically always",
+      "otherContributions": "this baseline defines base inputs only; missing template values, negative base regeneration/death handling, percentage/fixed/negative-regeneration abilities require own audited adapters; A018/I230 fixed additions remain after general multipliers per mana-auras-v1",
+      "integration": "positive base regeneration is piecewise continuous, settle old rate before same-time changes, no integer-per-second rounding/overflow reserve; no regen while dead/removed/hidden; unit pause does not by itself stop passive regen; global pause stops time"
+    },
+    "A193": "A193 itself adds no extra native aura; T208 active rank gives one flat weapon bonus, T209 active rank one attack-rate contribution; helper only compares T208, equal does not repair T209; rank<=0 returns without cleanup",
+    "markers": "T214/T255/T257 natural, T215/T256/T258 personal; no native armor or third-party aura targets; IsYeMoNightBuff checks T214/T215/T255/T256 only; marker abilities are not ordinary dispellable Buffs",
+    "A194Cast": {
+      "castPoint": 0.3,
+      "cooldown": 35,
+      "mana": [
+        20,
+        40,
+        60,
+        80,
+        100,
+        120
+      ],
+      "duration": [
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "target": "self no target; manual may refresh even already in night; auto keeps original additional false-night gate",
+      "nativeSelection": "alive existing enabled rank1..6, no spell locks, enough mana/cooldown0; commit at .3 after recheck, pay/startCD then original AnySkillStart once; before-commit cancellation costs nothing, after-commit costs/cooldown never implicitly refunded; actual core refresh creates one new timer and destroys previous; Dur.1 is not a15second channel requirement"
+    },
+    "lifecycle": "Keep raw marker sets and slot timer until source cleanup; dawn/dusk skips life<=0 so dead unit markers can remain stale; Q43 fixes learning only. Save registered table/slot identity/current abilities/timers/clock phase; no synthetic learn or dawn on restore. Deleted handles read0/writesnoop and slot tombstones prevent reuse. No implicit illusion snapshot for this family"
+  },
+  "verification": {
+    "instructions": 408,
+    "sourceCases": 82,
+    "cases": [
+      {
+        "kind": "night predicate",
+        "mask": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "expected": false
+      },
+      {
+        "kind": "night predicate",
+        "mask": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "expected": true
+      },
+      {
+        "kind": "night predicate",
+        "mask": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "expected": true
+      },
+      {
+        "kind": "night predicate",
+        "mask": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "expected": true
+      },
+      {
+        "kind": "night predicate",
+        "mask": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "expected": true
+      },
+      {
+        "kind": "night predicate",
+        "mask": [
+          0,
+          1,
+          0,
+          1
+        ],
+        "expected": true
+      },
+      {
+        "kind": "night predicate",
+        "mask": [
+          0,
+          1,
+          1,
+          0
+        ],
+        "expected": true
+      },
+      {
+        "kind": "night predicate",
+        "mask": [
+          0,
+          1,
+          1,
+          1
+        ],
+        "expected": true
+      },
+      {
+        "kind": "night predicate",
+        "mask": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "expected": true
+      },
+      {
+        "kind": "night predicate",
+        "mask": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "expected": true
+      },
+      {
+        "kind": "night predicate",
+        "mask": [
+          1,
+          0,
+          1,
+          0
+        ],
+        "expected": true
+      },
+      {
+        "kind": "night predicate",
+        "mask": [
+          1,
+          0,
+          1,
+          1
+        ],
+        "expected": true
+      },
+      {
+        "kind": "night predicate",
+        "mask": [
+          1,
+          1,
+          0,
+          0
+        ],
+        "expected": true
+      },
+      {
+        "kind": "night predicate",
+        "mask": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "expected": true
+      },
+      {
+        "kind": "night predicate",
+        "mask": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "expected": true
+      },
+      {
+        "kind": "night predicate",
+        "mask": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "expected": true
+      },
+      {
+        "kind": "learning",
+        "unitType": "H050",
+        "rank": 1,
+        "worldNight": false,
+        "webQ43": false,
+        "selectedRank": 1
+      },
+      {
+        "kind": "learning",
+        "unitType": "H050",
+        "rank": 1,
+        "worldNight": false,
+        "webQ43": true,
+        "selectedRank": 1
+      },
+      {
+        "kind": "learning",
+        "unitType": "H050",
+        "rank": 1,
+        "worldNight": true,
+        "webQ43": false,
+        "selectedRank": 1
+      },
+      {
+        "kind": "learning",
+        "unitType": "H050",
+        "rank": 1,
+        "worldNight": true,
+        "webQ43": true,
+        "selectedRank": 7
+      },
+      {
+        "kind": "learning",
+        "unitType": "H050",
+        "rank": 2,
+        "worldNight": false,
+        "webQ43": false,
+        "selectedRank": 2
+      },
+      {
+        "kind": "learning",
+        "unitType": "H050",
+        "rank": 2,
+        "worldNight": false,
+        "webQ43": true,
+        "selectedRank": 2
+      },
+      {
+        "kind": "learning",
+        "unitType": "H050",
+        "rank": 2,
+        "worldNight": true,
+        "webQ43": false,
+        "selectedRank": 2
+      },
+      {
+        "kind": "learning",
+        "unitType": "H050",
+        "rank": 2,
+        "worldNight": true,
+        "webQ43": true,
+        "selectedRank": 8
+      },
+      {
+        "kind": "learning",
+        "unitType": "H050",
+        "rank": 3,
+        "worldNight": false,
+        "webQ43": false,
+        "selectedRank": 3
+      },
+      {
+        "kind": "learning",
+        "unitType": "H050",
+        "rank": 3,
+        "worldNight": false,
+        "webQ43": true,
+        "selectedRank": 3
+      },
+      {
+        "kind": "learning",
+        "unitType": "H050",
+        "rank": 3,
+        "worldNight": true,
+        "webQ43": false,
+        "selectedRank": 3
+      },
+      {
+        "kind": "learning",
+        "unitType": "H050",
+        "rank": 3,
+        "worldNight": true,
+        "webQ43": true,
+        "selectedRank": 9
+      },
+      {
+        "kind": "learning",
+        "unitType": "H050",
+        "rank": 4,
+        "worldNight": false,
+        "webQ43": false,
+        "selectedRank": 4
+      },
+      {
+        "kind": "learning",
+        "unitType": "H050",
+        "rank": 4,
+        "worldNight": false,
+        "webQ43": true,
+        "selectedRank": 4
+      },
+      {
+        "kind": "learning",
+        "unitType": "H050",
+        "rank": 4,
+        "worldNight": true,
+        "webQ43": false,
+        "selectedRank": 4
+      },
+      {
+        "kind": "learning",
+        "unitType": "H050",
+        "rank": 4,
+        "worldNight": true,
+        "webQ43": true,
+        "selectedRank": 10
+      },
+      {
+        "kind": "learning",
+        "unitType": "H050",
+        "rank": 5,
+        "worldNight": false,
+        "webQ43": false,
+        "selectedRank": 5
+      },
+      {
+        "kind": "learning",
+        "unitType": "H050",
+        "rank": 5,
+        "worldNight": false,
+        "webQ43": true,
+        "selectedRank": 5
+      },
+      {
+        "kind": "learning",
+        "unitType": "H050",
+        "rank": 5,
+        "worldNight": true,
+        "webQ43": false,
+        "selectedRank": 5
+      },
+      {
+        "kind": "learning",
+        "unitType": "H050",
+        "rank": 5,
+        "worldNight": true,
+        "webQ43": true,
+        "selectedRank": 11
+      },
+      {
+        "kind": "learning",
+        "unitType": "H050",
+        "rank": 6,
+        "worldNight": false,
+        "webQ43": false,
+        "selectedRank": 6
+      },
+      {
+        "kind": "learning",
+        "unitType": "H050",
+        "rank": 6,
+        "worldNight": false,
+        "webQ43": true,
+        "selectedRank": 6
+      },
+      {
+        "kind": "learning",
+        "unitType": "H050",
+        "rank": 6,
+        "worldNight": true,
+        "webQ43": false,
+        "selectedRank": 6
+      },
+      {
+        "kind": "learning",
+        "unitType": "H050",
+        "rank": 6,
+        "worldNight": true,
+        "webQ43": true,
+        "selectedRank": 12
+      },
+      {
+        "kind": "learning",
+        "unitType": "G071",
+        "rank": 1,
+        "worldNight": false,
+        "webQ43": false,
+        "selectedRank": 1
+      },
+      {
+        "kind": "learning",
+        "unitType": "G071",
+        "rank": 1,
+        "worldNight": false,
+        "webQ43": true,
+        "selectedRank": 1
+      },
+      {
+        "kind": "learning",
+        "unitType": "G071",
+        "rank": 1,
+        "worldNight": true,
+        "webQ43": false,
+        "selectedRank": 1
+      },
+      {
+        "kind": "learning",
+        "unitType": "G071",
+        "rank": 1,
+        "worldNight": true,
+        "webQ43": true,
+        "selectedRank": 7
+      },
+      {
+        "kind": "learning",
+        "unitType": "G071",
+        "rank": 2,
+        "worldNight": false,
+        "webQ43": false,
+        "selectedRank": 2
+      },
+      {
+        "kind": "learning",
+        "unitType": "G071",
+        "rank": 2,
+        "worldNight": false,
+        "webQ43": true,
+        "selectedRank": 2
+      },
+      {
+        "kind": "learning",
+        "unitType": "G071",
+        "rank": 2,
+        "worldNight": true,
+        "webQ43": false,
+        "selectedRank": 2
+      },
+      {
+        "kind": "learning",
+        "unitType": "G071",
+        "rank": 2,
+        "worldNight": true,
+        "webQ43": true,
+        "selectedRank": 8
+      },
+      {
+        "kind": "learning",
+        "unitType": "G071",
+        "rank": 3,
+        "worldNight": false,
+        "webQ43": false,
+        "selectedRank": 3
+      },
+      {
+        "kind": "learning",
+        "unitType": "G071",
+        "rank": 3,
+        "worldNight": false,
+        "webQ43": true,
+        "selectedRank": 3
+      },
+      {
+        "kind": "learning",
+        "unitType": "G071",
+        "rank": 3,
+        "worldNight": true,
+        "webQ43": false,
+        "selectedRank": 3
+      },
+      {
+        "kind": "learning",
+        "unitType": "G071",
+        "rank": 3,
+        "worldNight": true,
+        "webQ43": true,
+        "selectedRank": 9
+      },
+      {
+        "kind": "learning",
+        "unitType": "G071",
+        "rank": 4,
+        "worldNight": false,
+        "webQ43": false,
+        "selectedRank": 4
+      },
+      {
+        "kind": "learning",
+        "unitType": "G071",
+        "rank": 4,
+        "worldNight": false,
+        "webQ43": true,
+        "selectedRank": 4
+      },
+      {
+        "kind": "learning",
+        "unitType": "G071",
+        "rank": 4,
+        "worldNight": true,
+        "webQ43": false,
+        "selectedRank": 4
+      },
+      {
+        "kind": "learning",
+        "unitType": "G071",
+        "rank": 4,
+        "worldNight": true,
+        "webQ43": true,
+        "selectedRank": 10
+      },
+      {
+        "kind": "learning",
+        "unitType": "G071",
+        "rank": 5,
+        "worldNight": false,
+        "webQ43": false,
+        "selectedRank": 5
+      },
+      {
+        "kind": "learning",
+        "unitType": "G071",
+        "rank": 5,
+        "worldNight": false,
+        "webQ43": true,
+        "selectedRank": 5
+      },
+      {
+        "kind": "learning",
+        "unitType": "G071",
+        "rank": 5,
+        "worldNight": true,
+        "webQ43": false,
+        "selectedRank": 5
+      },
+      {
+        "kind": "learning",
+        "unitType": "G071",
+        "rank": 5,
+        "worldNight": true,
+        "webQ43": true,
+        "selectedRank": 11
+      },
+      {
+        "kind": "learning",
+        "unitType": "G071",
+        "rank": 6,
+        "worldNight": false,
+        "webQ43": false,
+        "selectedRank": 6
+      },
+      {
+        "kind": "learning",
+        "unitType": "G071",
+        "rank": 6,
+        "worldNight": false,
+        "webQ43": true,
+        "selectedRank": 6
+      },
+      {
+        "kind": "learning",
+        "unitType": "G071",
+        "rank": 6,
+        "worldNight": true,
+        "webQ43": false,
+        "selectedRank": 6
+      },
+      {
+        "kind": "learning",
+        "unitType": "G071",
+        "rank": 6,
+        "worldNight": true,
+        "webQ43": true,
+        "selectedRank": 12
+      },
+      {
+        "kind": "personal overlaps natural then refresh",
+        "unitType": "H050",
+        "rank": 1,
+        "duration": 15
+      },
+      {
+        "kind": "personal overlaps natural then refresh",
+        "unitType": "H050",
+        "rank": 2,
+        "duration": 16
+      },
+      {
+        "kind": "personal overlaps natural then refresh",
+        "unitType": "H050",
+        "rank": 3,
+        "duration": 17
+      },
+      {
+        "kind": "personal overlaps natural then refresh",
+        "unitType": "H050",
+        "rank": 4,
+        "duration": 18
+      },
+      {
+        "kind": "personal overlaps natural then refresh",
+        "unitType": "H050",
+        "rank": 5,
+        "duration": 19
+      },
+      {
+        "kind": "personal overlaps natural then refresh",
+        "unitType": "H050",
+        "rank": 6,
+        "duration": 20
+      },
+      {
+        "kind": "personal overlaps natural then refresh",
+        "unitType": "G071",
+        "rank": 1,
+        "duration": 15
+      },
+      {
+        "kind": "personal overlaps natural then refresh",
+        "unitType": "G071",
+        "rank": 2,
+        "duration": 16
+      },
+      {
+        "kind": "personal overlaps natural then refresh",
+        "unitType": "G071",
+        "rank": 3,
+        "duration": 17
+      },
+      {
+        "kind": "personal overlaps natural then refresh",
+        "unitType": "G071",
+        "rank": 4,
+        "duration": 18
+      },
+      {
+        "kind": "personal overlaps natural then refresh",
+        "unitType": "G071",
+        "rank": 5,
+        "duration": 19
+      },
+      {
+        "kind": "personal overlaps natural then refresh",
+        "unitType": "G071",
+        "rank": 6,
+        "duration": 20
+      },
+      {
+        "kind": "dead dawn retains markers",
+        "unitType": "H050"
+      },
+      {
+        "kind": "T208 equal does not repair missing T209",
+        "unitType": "H050"
+      },
+      {
+        "kind": "direct action at rank0",
+        "unitType": "H050",
+        "duration": 15
+      },
+      {
+        "kind": "dead dawn retains markers",
+        "unitType": "G071"
+      },
+      {
+        "kind": "T208 equal does not repair missing T209",
+        "unitType": "G071"
+      },
+      {
+        "kind": "direct action at rank0",
+        "unitType": "G071",
+        "duration": 15
+      }
+    ],
+    "clockVectors": [
+      [
+        0,
+        6,
+        false
+      ],
+      [
+        119999999,
+        17.9999999,
+        false
+      ],
+      [
+        120000000,
+        18,
+        true
+      ],
+      [
+        180000000,
+        0,
+        true
+      ],
+      [
+        240000000,
+        6,
+        false
+      ],
+      [
+        360000000,
+        18,
+        true
+      ]
+    ],
+    "clientRun": false,
+    "webGameRun": false
+  },
+  "remaining": [
+    "A192 complete targeting/control/damage module",
+    "full skin/illusion/resurrection transfers beyond scoped marker behavior",
+    "all non-base regeneration providers and generic damage/death interactions"
+  ]
+}

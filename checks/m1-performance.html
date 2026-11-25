@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<title>M1 性能与存档对照</title>
+<output id="status">运行中</output>
+<output id="without-save"></output>
+<output id="with-save"></output>
+<pre id="result"></pre>
+<script type="module">
+import { advanceFrame, enqueue, newMatch } from "../src/game/battle.ts";
+import { drainFrames, creditTime, newClock } from "../src/game/clock.ts";
+import { contentVersion, frameMs, map } from "../src/game/content.ts";
+import { createSaveStore } from "../src/game/save.ts";
+import { saveFormatVersion } from "../src/game/state.ts";
+
+const seed = 1337;
+const count = 600;
+const period = new URL(location.href).searchParams.has("quick") ? 0 : 1000;
+const store = createSaveStore("td3-m1-v1-" + crypto.randomUUID());
+const sleep = delay => new Promise(resolve => setTimeout(resolve, delay));
+const result = document.querySelector("#result");
+const status = document.querySelector("#status");
+
+function fixture() {
+  const state = newMatch("v1", seed);
+  Object.assign(state, { mode: "endless", phase: "endless", events: [], gold: 2000, currentWave: 1,
+    waves: [{ number: 1, remainingBatches: 0, livingEnemies: 23 }] });
+  for (const site of Object.keys(map.buildSites)) {
+    const cardId = state.nextInstanceId++;
+    state.cards.push({ id: cardId, tower: "beacon" });
+    enqueue(state, { matchId: state.matchId, id: "build-" + site, action: { type: "build", site, cardId } });
+  }
+  advanceFrame(state);
+  for (const tower of state.towers) {
+    tower.level = 2;
+    state.items.push({ id: state.nextInstanceId++, type: "amplifier", owner: { type: "tower", id: tower.id } });
+  }
+  for (let index = 0; index < 23; index++) {
+    const position = { x: -5.7 + (index % 12) * 0.95, y: 3.8 - Math.floor(index / 12) * 0.8 };
+    state.enemies.push({ id: state.nextInstanceId++, type: "skimmer", wave: 1, position, nextWaypoint: 1, hp: 1e9 });
+  }
+  return { formatVersion: saveFormatVersion, contentVersion, revision: 0, state, clock: { ...newClock(), speed: 4 } };
+}
+
+function run(label) {
+  return {
+    snapshot: fixture(), output: document.querySelector(label),
+    confirm: [], logic: [], frame: [], capture: [], commits: [], backlog: 0, write: Promise.resolve(),
+  };
+}
+
+function sample(run, index, saving) {
+  const { snapshot } = run;
+  const state = snapshot.state;
+  const at = performance.now();
+  const tower = state.towers[index % state.towers.length];
+  const target = state.enemies[(index * 7) % state.enemies.length];
+  const id = "action-" + index;
+  const action = index % 5 === 0 ? { type: "overcharge", towerId: tower.id }
+    : { type: "attack", towerId: tower.id, targetId: target.id };
+  enqueue(state, { matchId: state.matchId, id, action }, snapshot.clock.pendingFrames);
+  run.output.textContent = "已接收 " + id;
+  run.confirm.push(performance.now() - at);
+  // Keep both inputs at identical logical times. One 100 ms step at 4× is 25 ms.
+  for (let tick = 0; tick < 40; tick++) {
+    creditTime(snapshot, frameMs / snapshot.clock.speed);
+    run.backlog = Math.max(run.backlog, snapshot.clock.pendingFrames);
+    const frameStart = performance.now();
+    drainFrames(snapshot, 1);
+    run.frame.push(performance.now() - frameStart);
+    if (tick === 0) {
+      if (state.results.at(-1)?.id !== id) throw new Error("指令未结算 " + id);
+      run.logic.push(performance.now() - at);
+    }
+  }
+  if (saving && ((index + 1) % 5 === 0 || state.results.at(-1).ok)) {
+    snapshot.revision++;
+    const started = performance.now();
+    run.write = store.save(snapshot).then(status => {
+      if (status === "saved") run.commits.push(performance.now() - started);
+    });
+    run.capture.push(performance.now() - started);
+  }
+}
+
+const quantile = values => {
+  const sorted = values.toSorted((a, b) => a - b);
+  return [0.95, 0.99].map(q => Number((sorted[Math.ceil(q * sorted.length) - 1] ?? 0).toFixed(3)));
+};
+const summarize = run => ({
+  confirmed: run.confirm.length, confirm: quantile(run.confirm), logic: quantile(run.logic), frame: quantile(run.frame),
+  capture: quantile(run.capture), commitIncludingCapture: quantile(run.commits), backlog: run.backlog,
+  writes: run.commits.length,
+});
+const digest = async value => Array.from(new Uint8Array(await crypto.subtle.digest(
+  "SHA-256", new TextEncoder().encode(JSON.stringify(value)),
+)), byte => byte.toString(16).padStart(2, "0")).join("");
+
+try {
+  const off = run("#without-save");
+  const on = run("#with-save");
+  const started = performance.now();
+  for (let index = 0; index < count; index++) {
+    if (period) await sleep(Math.max(0, started + period * (index + 1) - performance.now()));
+    if (index % 2) {
+      sample(on, index, true);
+      sample(off, index, false);
+    } else {
+      sample(off, index, false);
+      sample(on, index, true);
+    }
+    if (index % 10 === 9 && JSON.stringify(off.snapshot.state) !== JSON.stringify(on.snapshot.state)) {
+      throw new Error("同帧玩法状态不同 " + off.snapshot.state.frame);
+    }
+  }
+  await on.write;
+  const restored = await store.restore();
+  const offDigest = await digest(off.snapshot.state);
+  const onDigest = await digest(on.snapshot.state);
+  const restoredDigest = await digest(restored.state);
+  if (offDigest !== onDigest || onDigest !== restoredDigest) throw new Error("最终状态摘要不同");
+  const withoutSave = summarize(off);
+  const withSave = summarize(on);
+  if (withSave.confirm[0] > 100 || withSave.confirm[1] > 200 || withSave.confirm[0] - withoutSave.confirm[0] > 20) {
+    throw new Error("界面确认耗时超出 V1 通过线");
+  }
+  result.textContent = JSON.stringify({
+    contentVersion, chrome: navigator.userAgent, seed, period, elapsedMs: Math.round(performance.now() - started),
+    logicalFrame: on.snapshot.state.frame, snapshotBytes: new TextEncoder().encode(JSON.stringify(on.snapshot)).length,
+    withoutSave, withSave, offDigest, onDigest, restoredDigest,
+  }, null, 2);
+  status.dataset.result = "passed";
+  status.textContent = "通过";
+} catch (error) {
+  status.dataset.result = "failed";
+  status.textContent = String(error);
+  throw error;
+}
+</script>
+</html>

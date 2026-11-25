@@ -1,7 +1,8 @@
 export type Point = { x: number; y: number };
 export type Mode = "mainline" | "endless";
 
-export const contentVersion = "m1-1";
+export const contentVersion = "m1-2";
+export const previousContentVersion = "m1-1";
 export const frameMs = 100;
 export const framesPerSecond = 1000 / frameMs;
 
@@ -48,9 +49,11 @@ export const towers = {
   },
 } as const;
 
+export const overcharge = { name: "过载", damageBonus: 2, durationFrames: 80, cooldownFrames: 180 } as const;
+
 export const enemies = {
-  skimmer: { name: "潮沫", hp: 24, speed: 2, containmentPoints: 1, bountyGold: 4 },
-  shell: { name: "盐壳", hp: 72, speed: 1.4, containmentPoints: 2, bountyGold: 7 },
+  skimmer: { name: "潮沫", hp: 24, speed: 2, radius: 0.24, containmentPoints: 1, bountyGold: 4 },
+  shell: { name: "盐壳", hp: 72, speed: 1.4, radius: 0.30, containmentPoints: 2, bountyGold: 7 },
 } as const;
 
 export type SiteId = keyof typeof map.buildSites;

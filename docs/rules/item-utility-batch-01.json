@@ -1,0 +1,469 @@
+{
+  "baselineId": "item-utility-batch-01",
+  "scope": "one inventory utility ability per selected item",
+  "coverage": {
+    "aliasesPlanned": 10,
+    "aliasesReady": 8,
+    "aliasesRemaining": 2,
+    "uniqueItems": 10,
+    "recipeRows": 0
+  },
+  "items": {
+    "i207": {
+      "alias": "I211",
+      "componentReady": true,
+      "code": "ANcl",
+      "name": "原力法杖",
+      "workbookCell": "装备与道具!H117",
+      "sourceItemJsonIndex": 410,
+      "sourceAbilityJsonIndex": 1134,
+      "sourceLevel1": {
+        "Cool1": 10.0,
+        "Cost1": 50,
+        "DataB1": 2,
+        "DataC1": 1,
+        "DataF1": "summonfactory",
+        "Rng1": 999999.0,
+        "targs1": "_"
+      },
+      "itemFields": {
+        "abilList": "I211,I156",
+        "usable": 1,
+        "uses": 1,
+        "perishable": 1,
+        "cooldownID": "I211"
+      },
+      "web": {
+        "destination": "point",
+        "delaySeconds": 0.1,
+        "nonAbyssIllegalTerrain": "remove first i207 and deliver a new one",
+        "initialCharges": 1
+      }
+    },
+    "i230": {
+      "alias": "I233",
+      "componentReady": true,
+      "code": "ANcl",
+      "name": "远行鞋",
+      "workbookCell": "装备与道具!H140",
+      "sourceItemJsonIndex": 433,
+      "sourceAbilityJsonIndex": 1156,
+      "sourceLevel1": {
+        "Cool1": 25.0,
+        "Cost1": 50,
+        "DataA1": 2.0,
+        "DataB1": 2,
+        "DataC1": 1,
+        "DataF1": "summonfactory",
+        "Rng1": 999999.0,
+        "targs1": "_"
+      },
+      "itemFields": {
+        "abilList": "I233,I157,I239",
+        "usable": 1,
+        "uses": null,
+        "perishable": null,
+        "cooldownID": "I233"
+      },
+      "web": {
+        "destination": "point",
+        "delaySeconds": 0.1,
+        "nonAbyssIllegalTerrain": "committed no-op"
+      }
+    },
+    "i234": {
+      "alias": "I235",
+      "componentReady": true,
+      "code": "AEbl",
+      "name": "闪烁匕首",
+      "workbookCell": "装备与道具!H144",
+      "sourceItemJsonIndex": 437,
+      "sourceAbilityJsonIndex": 1158,
+      "sourceLevel1": {
+        "Cool1": 5.0,
+        "Cost1": 20,
+        "DataA1": 1000.0,
+        "DataB1": 200.0,
+        "Dur1": 0.33,
+        "Rng1": 99999.0,
+        "targs1": "_"
+      },
+      "itemFields": {
+        "abilList": "I235",
+        "usable": 1,
+        "uses": null,
+        "perishable": null,
+        "cooldownID": "I235"
+      },
+      "web": {
+        "battleOnly": true,
+        "distance": [
+          200,
+          1000
+        ],
+        "cooldown": 5,
+        "mana": 20
+      }
+    },
+    "i236": {
+      "alias": "I237",
+      "componentReady": true,
+      "code": "AEbl",
+      "name": "限定版-闪烁匕首",
+      "workbookCell": "装备与道具!H146",
+      "sourceItemJsonIndex": 439,
+      "sourceAbilityJsonIndex": 1160,
+      "sourceLevel1": {
+        "Cool1": 4.0,
+        "Cost1": 20,
+        "DataA1": 1400.0,
+        "DataB1": 200.0,
+        "Dur1": 0.33,
+        "Rng1": 99999.0,
+        "targs1": "_"
+      },
+      "itemFields": {
+        "abilList": "I237,I238",
+        "usable": 1,
+        "uses": null,
+        "perishable": null,
+        "cooldownID": "I237"
+      },
+      "web": {
+        "battleOnly": true,
+        "distance": [
+          200,
+          1400
+        ],
+        "cooldown": 4,
+        "mana": 20,
+        "acquisition": {
+          "mode": 2,
+          "phase": "abyss setup",
+          "entitlements": [
+            "SHOPITEM08",
+            "SHOPITEM01"
+          ]
+        }
+      }
+    },
+    "i206": {
+      "alias": "Adt1",
+      "componentReady": true,
+      "code": "Adet",
+      "name": "显形宝石",
+      "workbookCell": "装备与道具!H116",
+      "sourceItemJsonIndex": 409,
+      "sourceAbilityJsonIndex": 560,
+      "sourceLevel1": {
+        "DataA1": 3,
+        "Rng1": 1100.0,
+        "targs1": "vuln,invu"
+      },
+      "itemFields": {
+        "abilList": "Adt1",
+        "usable": null,
+        "uses": null,
+        "perishable": null,
+        "cooldownID": "Adet"
+      },
+      "web": {
+        "trigger": "inventory equipped",
+        "detectionRange": 1100
+      }
+    },
+    "i235": {
+      "alias": "I236",
+      "componentReady": true,
+      "code": "Aeye",
+      "name": "侦查守卫",
+      "workbookCell": "装备与道具!H145",
+      "sourceItemJsonIndex": 438,
+      "sourceAbilityJsonIndex": 1159,
+      "sourceLevel1": {
+        "BuffID1": "Beye",
+        "Dur1": 100.0,
+        "HeroDur1": 300.0,
+        "Rng1": 500.0,
+        "targs1": "_",
+        "UnitID1": "b116"
+      },
+      "itemFields": {
+        "abilList": "I236",
+        "usable": 1,
+        "uses": 1,
+        "perishable": 1,
+        "cooldownID": "I236"
+      },
+      "web": {
+        "heroOnly": true,
+        "charges": 1,
+        "castRange": 500,
+        "ward": "b116",
+        "lifetime": 100,
+        "daySight": 1000,
+        "nightSight": 1000,
+        "detectionRange": 1100,
+        "hitPoints": 200
+      }
+    },
+    "i224": {
+      "alias": "I219",
+      "componentReady": false,
+      "code": "ANso",
+      "name": "紫苑",
+      "workbookCell": "装备与道具!H134",
+      "sourceItemJsonIndex": 427,
+      "sourceAbilityJsonIndex": 1142,
+      "sourceLevel1": {
+        "BuffID1": "B049",
+        "Cool1": 25.0,
+        "Cost1": 70,
+        "DataB1": 1.0,
+        "Dur1": 5.0,
+        "HeroDur1": 5.0,
+        "Rng1": 800.0,
+        "targs1": "enemies"
+      },
+      "itemFields": {
+        "abilList": "I219,I105,I199,I201",
+        "usable": 1,
+        "uses": null,
+        "perishable": null,
+        "cooldownID": "I219"
+      }
+    },
+    "i226": {
+      "alias": "I220",
+      "componentReady": false,
+      "code": "ANso",
+      "name": "血棘",
+      "workbookCell": "装备与道具!H136",
+      "sourceItemJsonIndex": 429,
+      "sourceAbilityJsonIndex": 1143,
+      "sourceLevel1": {
+        "BuffID1": "B050",
+        "Cool1": 25.0,
+        "Cost1": 70,
+        "DataB1": 1.0,
+        "Dur1": 5.0,
+        "HeroDur1": 5.0,
+        "Rng1": 800.0,
+        "targs1": "enemies"
+      },
+      "itemFields": {
+        "abilList": "I220,I105,I200,I213",
+        "usable": 1,
+        "uses": null,
+        "perishable": null,
+        "cooldownID": "I219"
+      }
+    },
+    "i232": {
+      "alias": "I234",
+      "componentReady": true,
+      "code": "ANcl",
+      "name": "黑皇杖",
+      "workbookCell": "装备与道具!H142",
+      "sourceItemJsonIndex": 435,
+      "sourceAbilityJsonIndex": 1157,
+      "sourceLevel1": {
+        "Cool1": 30.0,
+        "Cost1": 50,
+        "DataC1": 1,
+        "DataF1": "unloadcorpse",
+        "Rng1": 800.0,
+        "targs1": "_"
+      },
+      "itemFields": {
+        "abilList": "I234,I144,I201",
+        "usable": 1,
+        "uses": null,
+        "perishable": null,
+        "cooldownID": "I234"
+      },
+      "web": {
+        "target": "self",
+        "status": "spellImmune",
+        "seconds": 6,
+        "mana": 50,
+        "cooldown": 30,
+        "decision": "Q64"
+      }
+    },
+    "i800": {
+      "alias": "I244",
+      "componentReady": true,
+      "code": "Aprg",
+      "name": "全能骑士的信条",
+      "workbookCell": "装备与道具!H244",
+      "sourceItemJsonIndex": 627,
+      "sourceAbilityJsonIndex": 1167,
+      "sourceLevel1": {
+        "BuffID1": "Bprg",
+        "Cool1": 25.0,
+        "DataA1": 5,
+        "DataC1": 400.0,
+        "Dur1": 15.0,
+        "HeroDur1": 5.0,
+        "Rng1": 700.0,
+        "targs1": "air,ground,ward,vuln,invu,tree"
+      },
+      "itemFields": {
+        "abilList": "I244,I163",
+        "usable": 1,
+        "uses": null,
+        "perishable": null,
+        "cooldownID": "I244"
+      },
+      "web": {
+        "mana": 0,
+        "castRange": 700,
+        "cooldown": 25,
+        "movementUpdates": 5,
+        "summonDamage": 400,
+        "slowSeconds": {
+          "nativeHero": 5,
+          "ordinary": 15
+        },
+        "initialSpeedMultiplier": 0.2
+      }
+    }
+  },
+  "auxiliaryObjects": {
+    "T068": {
+      "sourcePath": "reference/map-6.25/units_abilitydata.json",
+      "jsonIndex": 1945,
+      "id": "T068",
+      "fields": {
+        "alias": "T068",
+        "code": "Aams",
+        "BuffID1": "B080",
+        "checkDep": 1,
+        "Cool1": 1.0,
+        "Dur1": 6.0,
+        "HeroDur1": 6.0,
+        "levels": 1,
+        "Rng1": 99999.0,
+        "targs1": "air,ground,vuln,invu",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "b116": {
+      "sourcePath": "reference/map-6.25/units_unitbalance.json",
+      "jsonIndex": 991,
+      "id": "b116",
+      "fields": {
+        "unitBalanceID": "b116",
+        "bldtm": 1,
+        "collision": 16.0,
+        "defType": "medium",
+        "defUp": 2.0,
+        "HP": 200,
+        "nsight": 1000,
+        "preventPlace": "_",
+        "Primary": "_",
+        "regenType": "none",
+        "reptm": 1,
+        "requirePlace": "_",
+        "sight": 1000,
+        "stockMax": 3,
+        "stockRegen": 30,
+        "tilesets": "*",
+        "type": "Ward"
+      }
+    },
+    "b116Abilities": {
+      "sourcePath": "reference/map-6.25/units_unitabilities.json",
+      "jsonIndex": 991,
+      "id": "b116",
+      "fields": {
+        "unitAbilID": "b116",
+        "abilList": "Adt1,Aeth",
+        "auto": "_"
+      }
+    }
+  },
+  "sourceLines": {
+    "teleportEntry": [
+      144162,
+      144297
+    ],
+    "teleportQueue": [
+      128400,
+      128486
+    ],
+    "blinkAcquisition": 157379,
+    "wardCleanupExemption": 159939,
+    "blackKingCarrier": 129069,
+    "soulBurn": [
+      144066,
+      144077,
+      147975,
+      152910,
+      152998,
+      153071,
+      164750,
+      164800
+    ]
+  },
+  "deferredReason": {
+    "i224": "per-cast ledger / native dispel and delayed finalization",
+    "i226": "same plus ordinary-critical classification across the item damage dispatcher"
+  },
+  "verification": {
+    "teleportReplacementAndExpiry": [
+      [
+        "start",
+        101,
+        0.1,
+        false
+      ],
+      [
+        "remove-point",
+        "first"
+      ],
+      [
+        "destroy-timer",
+        101
+      ],
+      [
+        "start",
+        102,
+        0.1,
+        false
+      ],
+      [
+        "move",
+        "bearer",
+        "latest"
+      ],
+      [
+        "destroy-timer",
+        102
+      ]
+    ],
+    "shellCarrierAttribution": [
+      [
+        "player",
+        "point",
+        0,
+        "T068",
+        1,
+        1,
+        "q027"
+      ],
+      [
+        "helper",
+        7
+      ],
+      [
+        "helper",
+        "antimagicshell",
+        "bearer"
+      ]
+    ]
+  }
+}

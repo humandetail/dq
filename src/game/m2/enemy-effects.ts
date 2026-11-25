@@ -1,0 +1,21 @@
+// Reactions with a resolved single cast and duration. All times are battle seconds.
+export const enemySpells = {
+  N511: { cost: 100, cooldown: 30, cast: 0.5 },
+  N513: { cost: 0, cooldown: 10, cast: 0 },
+  N514: { cost: 100, cooldown: 20, cast: 0.5 },
+  N515: { cost: 100, cooldown: 20, cast: 0 },
+  N517: { cost: 200, cooldown: 12, cast: 0.3 },
+  N520: { cost: 200, cooldown: 10, cast: 0.3 },
+  N522: { cost: 300, cooldown: 5, cast: 0.3 },
+  N526: { cost: 500, cooldown: 30, cast: 0 },
+  N527: { cost: 400, cooldown: 4, cast: 0 },
+  N528: { cost: 400, cooldown: 4, cast: 0 },
+  N530: { cost: 400, cooldown: 20, cast: 0 },
+  N531: { cost: 1000, cooldown: 80, cast: 0.1 },
+  N532: { cost: 1000, cooldown: 80, cast: 0.35 },
+  N576: { cost: 300, cooldown: 40, cast: 0 },
+  N571: { cost: 100, cooldown: 30, cast: 0 },
+  N575: { cost: 500, cooldown: 40, cast: 0 },
+  N581: { cost: 100, cooldown: 12, cast: 0 },
+} as const;
+export type EnemySpellId = keyof typeof enemySpells;

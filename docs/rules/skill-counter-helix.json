@@ -1,0 +1,1603 @@
+{
+  "schemaVersion": 1,
+  "scope": "All five A056 module bodies and four immediate helper bodies statically checked; passive and spell/auto entry blocks audited. Not every native engine behavior, damage-pipeline callee, UI visibility or generic spell dispatcher branch.",
+  "source": {
+    "path": "reference/map-6.25/main.disasm",
+    "sha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+    "workbookPath": "图鉴.xlsx",
+    "workbookSha256": "457c8f7e37e19412a0dd072ce941e95604b0b8910860b9e1eb9883e6b82bb6af"
+  },
+  "moduleBinding": {
+    "function": "main/f50",
+    "lines": [
+      68424,
+      68447
+    ],
+    "core": "f1 captured by f2/f3",
+    "probability": "f4",
+    "animationCallback": "f0"
+  },
+  "coreCounts": {
+    "instructions": 277,
+    "conditions": 25,
+    "calls": 48,
+    "returnInstructions": 8
+  },
+  "coreFunctions": [
+    {
+      "name": "remove spin callback",
+      "function": "main/f50/f0",
+      "sourceLines": [
+        68449,
+        68473
+      ],
+      "counts": {
+        "instructions": 9,
+        "conditions": 1,
+        "calls": 1,
+        "returnInstructions": 2
+      },
+      "conditions": [
+        {
+          "pc": 1,
+          "line": 68464,
+          "raw": "eq 0 k0 r0",
+          "trueNextPC": 3,
+          "falseNextPC": 4,
+          "meaning": "unit == nil: return; else remove spin animation"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 3,
+          "line": 68466,
+          "raw": "return r0 1"
+        },
+        {
+          "pc": 9,
+          "line": 68473,
+          "raw": "return r0 1"
+        }
+      ],
+      "loopTransfers": []
+    },
+    {
+      "name": "shared spiral damage core",
+      "function": "main/f50/f1",
+      "sourceLines": [
+        68475,
+        68704
+      ],
+      "counts": {
+        "instructions": 157,
+        "conditions": 13,
+        "calls": 28,
+        "returnInstructions": 2
+      },
+      "conditions": [
+        {
+          "pc": 25,
+          "line": 68560,
+          "raw": "eq 0 k9 r1",
+          "trueNextPC": 27,
+          "falseNextPC": 30,
+          "meaning": "level == 1: P = attackBase+attackBonus+STR*1"
+        },
+        {
+          "pc": 30,
+          "line": 68566,
+          "raw": "eq 0 k10 r1",
+          "trueNextPC": 32,
+          "falseNextPC": 35,
+          "meaning": "level == 2: coefficient 1.5"
+        },
+        {
+          "pc": 35,
+          "line": 68572,
+          "raw": "eq 0 k12 r1",
+          "trueNextPC": 37,
+          "falseNextPC": 40,
+          "meaning": "level == 3: coefficient 2"
+        },
+        {
+          "pc": 40,
+          "line": 68578,
+          "raw": "eq 0 k13 r1",
+          "trueNextPC": 42,
+          "falseNextPC": 45,
+          "meaning": "level == 4: coefficient 2.5"
+        },
+        {
+          "pc": 45,
+          "line": 68584,
+          "raw": "eq 0 k15 r1",
+          "trueNextPC": 47,
+          "falseNextPC": 50,
+          "meaning": "level == 5: coefficient 3"
+        },
+        {
+          "pc": 50,
+          "line": 68590,
+          "raw": "eq 0 k16 r1",
+          "trueNextPC": 52,
+          "falseNextPC": 54,
+          "meaning": "level == 6: coefficient 5"
+        },
+        {
+          "pc": 54,
+          "line": 68595,
+          "raw": "eq 0 k8 r4",
+          "trueNextPC": 56,
+          "falseNextPC": 57,
+          "meaning": "P == 0: return (negative P not excluded here)"
+        },
+        {
+          "pc": 63,
+          "line": 68605,
+          "raw": "lt 0 k8 r5",
+          "trueNextPC": 65,
+          "falseNextPC": 66,
+          "meaning": "B171 level > 0: multiply P by 1.5"
+        },
+        {
+          "pc": 84,
+          "line": 68627,
+          "raw": "eq 0 r5 r6",
+          "trueNextPC": 86,
+          "falseNextPC": 92,
+          "meaning": "unit type == G067: create T1837.mdx visual"
+        },
+        {
+          "pc": 115,
+          "line": 68660,
+          "raw": "eq 1 k35 r8",
+          "trueNextPC": 151,
+          "falseNextPC": 117,
+          "meaning": "FirstOfGroup == nil: finish loop"
+        },
+        {
+          "pc": 127,
+          "line": 68672,
+          "raw": "test r14 0",
+          "trueNextPC": 129,
+          "falseNextPC": 149,
+          "meaning": "owner == Player(11): inspect life"
+        },
+        {
+          "pc": 133,
+          "line": 68678,
+          "raw": "lt 0 k8 r14",
+          "trueNextPC": 135,
+          "falseNextPC": 149,
+          "meaning": "life > 0: deal P divine damage"
+        },
+        {
+          "pc": 141,
+          "line": 68686,
+          "raw": "eq 0 k42 r14",
+          "trueNextPC": 143,
+          "falseNextPC": 149,
+          "meaning": "TxShow == true: blood visual for this target"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 56,
+          "line": 68597,
+          "raw": "return r0 1"
+        },
+        {
+          "pc": 157,
+          "line": 68704,
+          "raw": "return r0 1"
+        }
+      ],
+      "loopTransfers": [
+        {
+          "pc": 150,
+          "line": 68696,
+          "raw": "tforloop r12 l111",
+          "targetPC": 111
+        }
+      ]
+    },
+    {
+      "name": "A056_Skill",
+      "function": "main/f50/f2",
+      "sourceLines": [
+        68706,
+        68720
+      ],
+      "counts": {
+        "instructions": 4,
+        "conditions": 0,
+        "calls": 1,
+        "returnInstructions": 1
+      },
+      "conditions": [],
+      "returns": [
+        {
+          "pc": 4,
+          "line": 68720,
+          "raw": "return r0 1"
+        }
+      ],
+      "loopTransfers": []
+    },
+    {
+      "name": "A056_Action",
+      "function": "main/f50/f3",
+      "sourceLines": [
+        68722,
+        68744
+      ],
+      "counts": {
+        "instructions": 8,
+        "conditions": 0,
+        "calls": 2,
+        "returnInstructions": 1
+      },
+      "conditions": [],
+      "returns": [
+        {
+          "pc": 8,
+          "line": 68744,
+          "raw": "return r0 1"
+        }
+      ],
+      "loopTransfers": []
+    },
+    {
+      "name": "A056_Get_probability",
+      "function": "main/f50/f4",
+      "sourceLines": [
+        68746,
+        68904
+      ],
+      "counts": {
+        "instructions": 99,
+        "conditions": 11,
+        "calls": 16,
+        "returnInstructions": 2
+      },
+      "conditions": [
+        {
+          "pc": 27,
+          "line": 68822,
+          "raw": "eq 1 k10 r5",
+          "trueNextPC": 50,
+          "falseNextPC": 29,
+          "meaning": "FirstOfGroup == nil: finish count loop"
+        },
+        {
+          "pc": 39,
+          "line": 68834,
+          "raw": "test r11 0",
+          "trueNextPC": 41,
+          "falseNextPC": 48,
+          "meaning": "owner == Player(11): inspect life"
+        },
+        {
+          "pc": 45,
+          "line": 68840,
+          "raw": "lt 0 k7 r11",
+          "trueNextPC": 47,
+          "falseNextPC": 48,
+          "meaning": "life > 0: add 2 to crowd contribution"
+        },
+        {
+          "pc": 57,
+          "line": 68854,
+          "raw": "eq 0 k20 r7",
+          "trueNextPC": 59,
+          "falseNextPC": 60,
+          "meaning": "Game_Mode == 1: double crowd contribution only"
+        },
+        {
+          "pc": 67,
+          "line": 68865,
+          "raw": "eq 0 k20 r7",
+          "trueNextPC": 69,
+          "falseNextPC": 71,
+          "meaning": "level == 1: threshold 10+crowd"
+        },
+        {
+          "pc": 71,
+          "line": 68870,
+          "raw": "eq 0 k17 r7",
+          "trueNextPC": 73,
+          "falseNextPC": 75,
+          "meaning": "level == 2: threshold 12+crowd"
+        },
+        {
+          "pc": 75,
+          "line": 68875,
+          "raw": "eq 0 k27 r7",
+          "trueNextPC": 77,
+          "falseNextPC": 79,
+          "meaning": "level == 3: threshold 14+crowd"
+        },
+        {
+          "pc": 79,
+          "line": 68880,
+          "raw": "eq 0 k29 r7",
+          "trueNextPC": 81,
+          "falseNextPC": 83,
+          "meaning": "level == 4: threshold 16+crowd"
+        },
+        {
+          "pc": 83,
+          "line": 68885,
+          "raw": "eq 0 k31 r7",
+          "trueNextPC": 85,
+          "falseNextPC": 87,
+          "meaning": "level == 5: threshold 18+crowd"
+        },
+        {
+          "pc": 87,
+          "line": 68890,
+          "raw": "eq 0 k33 r7",
+          "trueNextPC": 89,
+          "falseNextPC": 90,
+          "meaning": "level == 6: threshold 20+crowd"
+        },
+        {
+          "pc": 94,
+          "line": 68898,
+          "raw": "lt 1 r9 r8",
+          "trueNextPC": 97,
+          "falseNextPC": 96,
+          "meaning": "random integer 0..100 < threshold: return true"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 98,
+          "line": 68903,
+          "raw": "return r9 2"
+        },
+        {
+          "pc": 99,
+          "line": 68904,
+          "raw": "return r0 1"
+        }
+      ],
+      "loopTransfers": [
+        {
+          "pc": 49,
+          "line": 68845,
+          "raw": "tforloop r9 l23",
+          "targetPC": 23
+        }
+      ]
+    }
+  ],
+  "directFunctions": [
+    {
+      "name": "delay callback runner",
+      "function": "main/f7/f1",
+      "sourceLines": [
+        50410,
+        50457
+      ],
+      "counts": {
+        "instructions": 25,
+        "conditions": 1,
+        "calls": 6,
+        "returnInstructions": 1
+      },
+      "conditions": [
+        {
+          "pc": 11,
+          "line": 50441,
+          "raw": "eq 0 k3 r2",
+          "trueNextPC": 13,
+          "falseNextPC": 16,
+          "meaning": "argument table == nil: invoke callback with no arguments; else unpack arguments"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 25,
+          "line": 50457,
+          "raw": "return r0 1"
+        }
+      ],
+      "loopTransfers": []
+    },
+    {
+      "name": "delayTimeRunFunc",
+      "function": "main/f7/f2",
+      "sourceLines": [
+        50459,
+        50492
+      ],
+      "counts": {
+        "instructions": 15,
+        "conditions": 0,
+        "calls": 3,
+        "returnInstructions": 1
+      },
+      "conditions": [],
+      "returns": [
+        {
+          "pc": 15,
+          "line": 50492,
+          "raw": "return r0 1"
+        }
+      ],
+      "loopTransfers": []
+    },
+    {
+      "name": "AddArrAny",
+      "function": "main/f7/f22",
+      "sourceLines": [
+        51546,
+        51568
+      ],
+      "counts": {
+        "instructions": 9,
+        "conditions": 1,
+        "calls": 0,
+        "returnInstructions": 2
+      },
+      "conditions": [
+        {
+          "pc": 3,
+          "line": 51561,
+          "raw": "eq 1 k1 r3",
+          "trueNextPC": 7,
+          "falseNextPC": 5,
+          "meaning": "array[index] == nil: store value and return index; else increment index"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 8,
+          "line": 51567,
+          "raw": "return r2 2"
+        },
+        {
+          "pc": 9,
+          "line": 51568,
+          "raw": "return r0 1"
+        }
+      ],
+      "loopTransfers": []
+    },
+    {
+      "name": "SetRealDamage",
+      "function": "main/f7/f35",
+      "sourceLines": [
+        52090,
+        52116
+      ],
+      "counts": {
+        "instructions": 11,
+        "conditions": 0,
+        "calls": 1,
+        "returnInstructions": 1
+      },
+      "conditions": [],
+      "returns": [
+        {
+          "pc": 11,
+          "line": 52116,
+          "raw": "return r0 1"
+        }
+      ],
+      "loopTransfers": []
+    }
+  ],
+  "workbook": [
+    {
+      "towerName": "斧王<SSR>",
+      "towerId": "H017",
+      "cells": [
+        "塔技能!H51",
+        "塔技能!I51"
+      ],
+      "description": "普通攻击有概率会做出螺旋反击。\n被动",
+      "levelsText": "等级 1｜10%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x1.0）的伤害。\n等级 2｜12%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x1.5）的伤害。\n等级 3｜14%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x2.0）的伤害。\n等级 4｜16%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x2.5）的伤害。\n等级 5｜18%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x3.0）的伤害。\n等级 6｜20%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x5.0）的伤害。\n伤害类型 神圣伤害\n注：若淘汰之刃成功斩杀目标，则接下来20秒内该技能伤害增加50%。"
+    },
+    {
+      "towerName": "武圣<SSR>",
+      "towerId": "G067",
+      "cells": [
+        "塔技能!H71",
+        "塔技能!I71"
+      ],
+      "description": "普通攻击有概率会做出螺旋反击。\n被动",
+      "levelsText": "等级 1｜10%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x1.0）的伤害。\n等级 2｜12%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x1.5）的伤害。\n等级 3｜14%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x2.0）的伤害。\n等级 4｜16%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x2.5）的伤害。\n等级 5｜18%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x3.0）的伤害。\n等级 6｜20%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x5.0）的伤害。\n伤害类型 神圣伤害\n注：若淘汰之刃成功斩杀目标，则接下来20秒内该技能伤害增加50%。"
+    },
+    {
+      "towerName": "赤色大将<SSR>",
+      "towerId": "G032",
+      "cells": [
+        "塔技能!H121",
+        "塔技能!I121"
+      ],
+      "description": "普通攻击有概率会做出螺旋反击。\n被动",
+      "levelsText": "等级 1｜10%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x1.0）的伤害。\n等级 2｜12%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x1.5）的伤害。\n等级 3｜14%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x2.0）的伤害。\n等级 4｜16%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x2.5）的伤害。\n等级 5｜18%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x3.0）的伤害。\n等级 6｜20%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x5.0）的伤害。\n伤害类型 神圣伤害\n注：若淘汰之刃成功斩杀目标，则接下来20秒内该技能伤害增加50%。"
+    },
+    {
+      "towerName": "黑兽战傀<SSR>",
+      "towerId": "G033",
+      "cells": [
+        "塔技能!H136",
+        "塔技能!I136"
+      ],
+      "description": "普通攻击有概率会做出螺旋反击。\n被动",
+      "levelsText": "等级 1｜10%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x1.0）的伤害。\n等级 2｜12%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x1.5）的伤害。\n等级 3｜14%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x2.0）的伤害。\n等级 4｜16%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x2.5）的伤害。\n等级 5｜18%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x3.0）的伤害。\n等级 6｜20%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x5.0）的伤害。\n伤害类型 神圣伤害\n注：若淘汰之刃成功斩杀目标，则接下来20秒内该技能伤害增加50%。"
+    }
+  ],
+  "originalTooltip": {
+    "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+    "researchLine": 789,
+    "researchText": "Researchubertip=普通攻击有概率会做出螺旋反击。|n-|cffffcc00被动|r|n|n|cffffcc00等级 1|r |n-10%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x1.0）的伤害。|n|cffffcc00等级 2|r |n-12%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x1.5）的伤害。|n|cffffcc00等级 3|r |n-14%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x2.0）的伤害。|n|cffffcc00等级 4|r |n-16%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x2.5）的伤害。|n|cffffcc00等级 5|r |n-18%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x3.0）的伤害。|n|cffffcc00等级 6|r |n-20%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x5.0）的伤害。|n|n|cffffcc00伤害类型：|r神圣伤害|n|cffffcc00注：若淘汰之刃成功斩杀目标，则接下来20秒内该技能伤害增加50%。|r",
+    "learnedLine": 792,
+    "learnedText": "Ubertip=普通攻击有10%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x1.0）的伤害，若|cffffcc00淘汰之刃|r成功斩杀目标，则接下来20秒内该技能伤害增加50%。|n|cffffcc00周围每有一个敌人，概率+2%(无尽中为4%)。|r|n|cffffcc00可以主动使用，5秒冷却。|r,普通攻击有12%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x1.5）的伤害，若|cffffcc00淘汰之刃|r成功斩杀目标，则接下来20秒内该技能伤害增加50%。|n|cffffcc00周围每有一个敌人，概率+2%(无尽中为4%)。|r|n|cffffcc00可以主动使用，5秒冷却。|r,普通攻击有14%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x2.0）的伤害，若|cffffcc00淘汰之刃|r成功斩杀目标，则接下来20秒内该技能伤害增加50%。|n|cffffcc00周围每有一个敌人，概率+2%(无尽中为4%)。|r|n|cffffcc00可以主动使用，5秒冷却。|r,普通攻击有16%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x2.5）的伤害，若|cffffcc00淘汰之刃|r成功斩杀目标，则接下来20秒内该技能伤害增加50%。|n|cffffcc00周围每有一个敌人，概率+2%(无尽中为4%)。|r|n|cffffcc00可以主动使用，5秒冷却。|r,普通攻击有18%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x3.0）的伤害，若|cffffcc00淘汰之刃|r成功斩杀目标，则接下来20秒内该技能伤害增加50%。|n|cffffcc00周围每有一个敌人，概率+2%(无尽中为4%)。|r|n|cffffcc00可以主动使用，5秒冷却。|r,普通攻击有20%的概率会做出螺旋反击，对周围敌人造成（攻击力+力量x5.0）的伤害，若|cffffcc00淘汰之刃|r成功斩杀目标，则接下来20秒内该技能伤害增加50%。|n|cffffcc00周围每有一个敌人，概率+2%(无尽中为4%)。|r|n|cffffcc00可以主动使用，5秒冷却。|r",
+    "importantSupplement": [
+      "Each nearby enemy adds 2 percentage points; 4 in endless",
+      "Can be actively used; 5 seconds cooldown, all 6 tooltip entries"
+    ],
+    "nativeUIFields": {
+      "Buttonpos": "2,2",
+      "Hotkey": "E",
+      "Animnames": "spell,channel"
+    },
+    "interpretation": "These explicit supplemental descriptions and bytecode contradict treating the workbook passive label as a complete inventory of entrances; do not silently discard or silently approve the supplemental entrance."
+  },
+  "abilityObject": {
+    "path": "reference/map-6.25/units_abilitydata.json",
+    "line": 15031,
+    "data": {
+      "alias": "A056",
+      "code": "ANcl",
+      "checkDep": 1,
+      "Cool1": 5.0,
+      "Cool2": 5.0,
+      "Cool3": 5.0,
+      "Cool4": 5.0,
+      "DataC1": 1,
+      "DataC2": 1,
+      "DataC3": 1,
+      "DataC4": 1,
+      "DataF1": "robogoblin",
+      "DataF2": "robogoblin",
+      "DataF3": "robogoblin",
+      "DataF4": "robogoblin",
+      "levels": 6,
+      "reqLevel": 1,
+      "Rng1": 500.0,
+      "Rng2": 500.0,
+      "Rng3": 500.0,
+      "Rng4": 500.0,
+      "targs1": "_",
+      "targs2": "_",
+      "targs3": "_",
+      "targs4": "_"
+    },
+    "incrementalW3ARecord": null,
+    "omittedFields": "No explicit level5/6 Cool fields or mana cost fields; omitted is not zero. Map tooltip explicitly says 5 sec all levels."
+  },
+  "levels": [
+    {
+      "level": 1,
+      "tooltipBasePercent": 10,
+      "strengthMultiplier": 1
+    },
+    {
+      "level": 2,
+      "tooltipBasePercent": 12,
+      "strengthMultiplier": 1.5
+    },
+    {
+      "level": 3,
+      "tooltipBasePercent": 14,
+      "strengthMultiplier": 2
+    },
+    {
+      "level": 4,
+      "tooltipBasePercent": 16,
+      "strengthMultiplier": 2.5
+    },
+    {
+      "level": 5,
+      "tooltipBasePercent": 18,
+      "strengthMultiplier": 3
+    },
+    {
+      "level": 6,
+      "tooltipBasePercent": 20,
+      "strengthMultiplier": 5
+    }
+  ],
+  "originalRules": {
+    "passiveEntry": {
+      "actualSource": "GetEventDamageSource()",
+      "requirements": [
+        "execution reaches main damage PC728",
+        "level(actualSource,A056)>0",
+        "EXGetEventDamageData(2)!=0",
+        "A056_Get_probability returns true"
+      ],
+      "action": "IssueImmediateOrder(source,stop), then core(source)",
+      "noLocalChecks": [
+        "illusion exclusion",
+        "A056 cooldown",
+        "mana payment",
+        "once-per-attack deduplication",
+        "internal cooldown"
+      ]
+    },
+    "spellEntry": {
+      "event": "EVENT_PLAYER_UNIT_SPELL_EFFECT",
+      "ability": "A056",
+      "action": "A056_Skill(caster) calls core without probability or stop",
+      "ordering": "after general filters, Item_Skill_Action and WAbility_initAbility"
+    },
+    "autocast": {
+      "scanIndex": 26,
+      "range": 650,
+      "selector": "first enumerated alive Player(11) unit",
+      "order": "IssueImmediateOrder(caster,robogoblin)",
+      "requires": [
+        "B012",
+        "A056 readiness via level/cooldown/mana helper"
+      ],
+      "afterAttempt": "end skill scan, continue item tail; command return ignored",
+      "precededBy": "A055",
+      "followedBy": "A057"
+    },
+    "probability": {
+      "sourcePosition": "actual event source position at probability function entry",
+      "countRadius": 700,
+      "countPredicate": "enumerated owner == Player(11) AND currentLife>0",
+      "baseByLevel": [
+        10,
+        12,
+        14,
+        16,
+        18,
+        20
+      ],
+      "crowdContribution": "2*N for Game_Mode != 1; 4*N for Game_Mode == 1",
+      "threshold": "base + crowdContribution",
+      "randomRangeInclusive": [
+        0,
+        100
+      ],
+      "success": "r<threshold",
+      "exactProbability": "min(101, max(0, threshold))/101 for integer threshold",
+      "explicitClamp": false,
+      "invalidLevel": "threshold remains zero even after counting neighbors",
+      "timing": "count first, destroy group, determine mode and level, then one random draw"
+    },
+    "damage": {
+      "readOrder": [
+        "A056 level",
+        "GetHeroStr(unit,true)",
+        "GetUnitState(unit,ConvertUnitState(18))",
+        "GetUnitState(unit,ConvertUnitState(19))"
+      ],
+      "formula": "state18+state19+totalSTR*coefficient[level]",
+      "invalidLevelRawDamage": 0,
+      "returnPredicate": "P==0 exactly",
+      "B171": "if level>0: P*=1.5 after zero check",
+      "radius": 700,
+      "center": "source position sampled after animation/timer/skin visual calls",
+      "targetPredicate": "enumerated owner == Player(11) AND currentLife>0 at iteration",
+      "packet": {
+        "source": "same unit passed to core",
+        "attack": false,
+        "ranged": false,
+        "attackType": "CHAOS",
+        "damageType": "DIVINE",
+        "weaponType": "WHOKNOWS"
+      },
+      "snapshot": "P computed once; each target gets same raw P, final event damage may differ",
+      "areaMechanism": "manual group enumeration + one SetRealDamage call per eligible target, not UnitDamagePoint"
+    },
+    "animation": {
+      "enable": "spin true before damage group",
+      "disableDelaySeconds": 0.4,
+      "disableGuard": "unit != nil only",
+      "timerPolicy": "every core call adds independent timer; no cancel/coalescing",
+      "runner": "destroy expired timer, lookup args, invoke stored callback, clear callback/timer/argument slots"
+    },
+    "visuals": {
+      "G067": {
+        "model": "T1837.mdx",
+        "duration": 0.4,
+        "TxShowGate": false
+      },
+      "targetBlood": {
+        "model": "Objects\\Spawnmodels\\Critters\\Albatross\\CritterBloodAlbatross.mdl",
+        "duration": 0.5,
+        "TxShowGate": true
+      }
+    }
+  },
+  "evidence": [
+    {
+      "name": "passive damage branch",
+      "function": "main/f291/f1",
+      "lines": [
+        163257,
+        163276
+      ],
+      "pcs": [
+        728,
+        747
+      ]
+    },
+    {
+      "name": "spell-effect A056 branch",
+      "function": "main/f291/f14",
+      "lines": [
+        170307,
+        170315
+      ],
+      "pcs": [
+        284,
+        292
+      ]
+    },
+    {
+      "name": "auto branch",
+      "function": "main/f291/f27",
+      "lines": [
+        174850,
+        174879
+      ],
+      "pcs": [
+        715,
+        743
+      ]
+    }
+  ],
+  "primaryInterfaceEvidence": {
+    "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Plugin/Warcraft3/yd_jass_api/UnitState.cpp",
+    "constantLines": [
+      20,
+      21
+    ],
+    "implementationLines": [
+      264,
+      268
+    ],
+    "state18": "attack1_damage_base",
+    "state19": "attack1_damage_bonus",
+    "difference": "Does not add damage dice; do not substitute mean of state20/state21",
+    "qualification": "Pinned developer implementation explains this extended interface; not a client execution test."
+  },
+  "reusedEvidence": {
+    "A057_B171": "docs/rules/skill-culling-blade.md",
+    "damagePipeline": "docs/rules/damage-pipeline.md",
+    "autocast": "docs/rules/autocast.md",
+    "eventAndTimerBaseline": "docs/rules/web-baseline.md",
+    "visualHelper": {
+      "function": "main/f7/f24",
+      "lines": [
+        51609,
+        51659
+      ],
+      "cleanupFunction": "main/f7/f26",
+      "cleanupLines": [
+        51712,
+        51752
+      ]
+    },
+    "IsInTable": {
+      "function": "main/f7/f7",
+      "lines": [
+        50776,
+        50810
+      ]
+    }
+  },
+  "decisions": {
+    "entry": {
+      "id": "Q31",
+      "status": "confirmed",
+      "selected": "keep passive attack plus original active/automatic spell-effect entrance"
+    },
+    "probability": {
+      "id": "Q32",
+      "status": "confirmed",
+      "selected": {
+        "id": "exact_with_crowd",
+        "basePercentByLevel": [
+          10,
+          12,
+          14,
+          16,
+          18,
+          20
+        ],
+        "normalAndAbyssThreshold": "b+2*N",
+        "endlessThreshold": "b+4*N",
+        "formula": "min(100,t)/100",
+        "cap": 1,
+        "countRadius": 700,
+        "countPredicate": "enumerated owner == Player(11) AND currentLife>0",
+        "validLevels": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "invalidLevel": "threshold remains 0; preserve neighborhood count and one draw, always false if the probability function is invoked"
+      },
+      "preserve": [
+        "original probability invocation gates and timing",
+        "original neighborhood count eligibility",
+        "Q31 passive attack plus active/automatic spell-effect entrances"
+      ],
+      "spellEffectProbabilityCalls": 0,
+      "qualification": "Q32 explicitly retains the original nearby-unit contribution and replaces /101 with exact capped percentages. Original script formula remains separately recorded."
+    }
+  },
+  "unclosed": [
+    "Native command acceptance/cast timing/cost omissions/level5-6 property inheritance",
+    "Native group boundary, visibility/locust and buff state behavior; Web enumeration ordering uses B04",
+    "Full effects of every downstream event callback; no universal final damage claimed",
+    "Actual UI button availability at runtime not tested, despite original button/hotkey/tooltip data"
+  ],
+  "validation": {
+    "kind": "Static bytecode/source checks plus original-vs-Web Q32 probability and gate vectors; no client or game execution.",
+    "cases": [
+      {
+        "id": "prob_L1_mode0",
+        "input": {
+          "level": 1,
+          "Game_Mode": 0,
+          "alivePlayer11Within700": 5
+        },
+        "expected": {
+          "threshold": 20,
+          "originalFavorableCount": 20,
+          "originalProbability": 0.19801980198019803,
+          "tooltipBaseProbability": 0.1,
+          "webProbability": 0.2,
+          "webPercent": 20
+        },
+        "basis": "original_script_and_confirmed_Q32"
+      },
+      {
+        "id": "prob_L1_mode1",
+        "input": {
+          "level": 1,
+          "Game_Mode": 1,
+          "alivePlayer11Within700": 5
+        },
+        "expected": {
+          "threshold": 30,
+          "originalFavorableCount": 30,
+          "originalProbability": 0.297029702970297,
+          "tooltipBaseProbability": 0.1,
+          "webProbability": 0.3,
+          "webPercent": 30
+        },
+        "basis": "original_script_and_confirmed_Q32"
+      },
+      {
+        "id": "prob_L1_mode2",
+        "input": {
+          "level": 1,
+          "Game_Mode": 2,
+          "alivePlayer11Within700": 5
+        },
+        "expected": {
+          "threshold": 20,
+          "originalFavorableCount": 20,
+          "originalProbability": 0.19801980198019803,
+          "tooltipBaseProbability": 0.1,
+          "webProbability": 0.2,
+          "webPercent": 20
+        },
+        "basis": "original_script_and_confirmed_Q32"
+      },
+      {
+        "id": "prob_L2_mode0",
+        "input": {
+          "level": 2,
+          "Game_Mode": 0,
+          "alivePlayer11Within700": 5
+        },
+        "expected": {
+          "threshold": 22,
+          "originalFavorableCount": 22,
+          "originalProbability": 0.21782178217821782,
+          "tooltipBaseProbability": 0.12,
+          "webProbability": 0.22,
+          "webPercent": 22
+        },
+        "basis": "original_script_and_confirmed_Q32"
+      },
+      {
+        "id": "prob_L2_mode1",
+        "input": {
+          "level": 2,
+          "Game_Mode": 1,
+          "alivePlayer11Within700": 5
+        },
+        "expected": {
+          "threshold": 32,
+          "originalFavorableCount": 32,
+          "originalProbability": 0.31683168316831684,
+          "tooltipBaseProbability": 0.12,
+          "webProbability": 0.32,
+          "webPercent": 32
+        },
+        "basis": "original_script_and_confirmed_Q32"
+      },
+      {
+        "id": "prob_L2_mode2",
+        "input": {
+          "level": 2,
+          "Game_Mode": 2,
+          "alivePlayer11Within700": 5
+        },
+        "expected": {
+          "threshold": 22,
+          "originalFavorableCount": 22,
+          "originalProbability": 0.21782178217821782,
+          "tooltipBaseProbability": 0.12,
+          "webProbability": 0.22,
+          "webPercent": 22
+        },
+        "basis": "original_script_and_confirmed_Q32"
+      },
+      {
+        "id": "prob_L3_mode0",
+        "input": {
+          "level": 3,
+          "Game_Mode": 0,
+          "alivePlayer11Within700": 5
+        },
+        "expected": {
+          "threshold": 24,
+          "originalFavorableCount": 24,
+          "originalProbability": 0.2376237623762376,
+          "tooltipBaseProbability": 0.14,
+          "webProbability": 0.24,
+          "webPercent": 24
+        },
+        "basis": "original_script_and_confirmed_Q32"
+      },
+      {
+        "id": "prob_L3_mode1",
+        "input": {
+          "level": 3,
+          "Game_Mode": 1,
+          "alivePlayer11Within700": 5
+        },
+        "expected": {
+          "threshold": 34,
+          "originalFavorableCount": 34,
+          "originalProbability": 0.33663366336633666,
+          "tooltipBaseProbability": 0.14,
+          "webProbability": 0.34,
+          "webPercent": 34
+        },
+        "basis": "original_script_and_confirmed_Q32"
+      },
+      {
+        "id": "prob_L3_mode2",
+        "input": {
+          "level": 3,
+          "Game_Mode": 2,
+          "alivePlayer11Within700": 5
+        },
+        "expected": {
+          "threshold": 24,
+          "originalFavorableCount": 24,
+          "originalProbability": 0.2376237623762376,
+          "tooltipBaseProbability": 0.14,
+          "webProbability": 0.24,
+          "webPercent": 24
+        },
+        "basis": "original_script_and_confirmed_Q32"
+      },
+      {
+        "id": "prob_L4_mode0",
+        "input": {
+          "level": 4,
+          "Game_Mode": 0,
+          "alivePlayer11Within700": 5
+        },
+        "expected": {
+          "threshold": 26,
+          "originalFavorableCount": 26,
+          "originalProbability": 0.25742574257425743,
+          "tooltipBaseProbability": 0.16,
+          "webProbability": 0.26,
+          "webPercent": 26
+        },
+        "basis": "original_script_and_confirmed_Q32"
+      },
+      {
+        "id": "prob_L4_mode1",
+        "input": {
+          "level": 4,
+          "Game_Mode": 1,
+          "alivePlayer11Within700": 5
+        },
+        "expected": {
+          "threshold": 36,
+          "originalFavorableCount": 36,
+          "originalProbability": 0.3564356435643564,
+          "tooltipBaseProbability": 0.16,
+          "webProbability": 0.36,
+          "webPercent": 36
+        },
+        "basis": "original_script_and_confirmed_Q32"
+      },
+      {
+        "id": "prob_L4_mode2",
+        "input": {
+          "level": 4,
+          "Game_Mode": 2,
+          "alivePlayer11Within700": 5
+        },
+        "expected": {
+          "threshold": 26,
+          "originalFavorableCount": 26,
+          "originalProbability": 0.25742574257425743,
+          "tooltipBaseProbability": 0.16,
+          "webProbability": 0.26,
+          "webPercent": 26
+        },
+        "basis": "original_script_and_confirmed_Q32"
+      },
+      {
+        "id": "prob_L5_mode0",
+        "input": {
+          "level": 5,
+          "Game_Mode": 0,
+          "alivePlayer11Within700": 5
+        },
+        "expected": {
+          "threshold": 28,
+          "originalFavorableCount": 28,
+          "originalProbability": 0.27722772277227725,
+          "tooltipBaseProbability": 0.18,
+          "webProbability": 0.28,
+          "webPercent": 28
+        },
+        "basis": "original_script_and_confirmed_Q32"
+      },
+      {
+        "id": "prob_L5_mode1",
+        "input": {
+          "level": 5,
+          "Game_Mode": 1,
+          "alivePlayer11Within700": 5
+        },
+        "expected": {
+          "threshold": 38,
+          "originalFavorableCount": 38,
+          "originalProbability": 0.37623762376237624,
+          "tooltipBaseProbability": 0.18,
+          "webProbability": 0.38,
+          "webPercent": 38
+        },
+        "basis": "original_script_and_confirmed_Q32"
+      },
+      {
+        "id": "prob_L5_mode2",
+        "input": {
+          "level": 5,
+          "Game_Mode": 2,
+          "alivePlayer11Within700": 5
+        },
+        "expected": {
+          "threshold": 28,
+          "originalFavorableCount": 28,
+          "originalProbability": 0.27722772277227725,
+          "tooltipBaseProbability": 0.18,
+          "webProbability": 0.28,
+          "webPercent": 28
+        },
+        "basis": "original_script_and_confirmed_Q32"
+      },
+      {
+        "id": "prob_L6_mode0",
+        "input": {
+          "level": 6,
+          "Game_Mode": 0,
+          "alivePlayer11Within700": 5
+        },
+        "expected": {
+          "threshold": 30,
+          "originalFavorableCount": 30,
+          "originalProbability": 0.297029702970297,
+          "tooltipBaseProbability": 0.2,
+          "webProbability": 0.3,
+          "webPercent": 30
+        },
+        "basis": "original_script_and_confirmed_Q32"
+      },
+      {
+        "id": "prob_L6_mode1",
+        "input": {
+          "level": 6,
+          "Game_Mode": 1,
+          "alivePlayer11Within700": 5
+        },
+        "expected": {
+          "threshold": 40,
+          "originalFavorableCount": 40,
+          "originalProbability": 0.39603960396039606,
+          "tooltipBaseProbability": 0.2,
+          "webProbability": 0.4,
+          "webPercent": 40
+        },
+        "basis": "original_script_and_confirmed_Q32"
+      },
+      {
+        "id": "prob_L6_mode2",
+        "input": {
+          "level": 6,
+          "Game_Mode": 2,
+          "alivePlayer11Within700": 5
+        },
+        "expected": {
+          "threshold": 30,
+          "originalFavorableCount": 30,
+          "originalProbability": 0.297029702970297,
+          "tooltipBaseProbability": 0.2,
+          "webProbability": 0.3,
+          "webPercent": 30
+        },
+        "basis": "original_script_and_confirmed_Q32"
+      },
+      {
+        "id": "endless_cap_20",
+        "input": {
+          "level": 6,
+          "Game_Mode": 1,
+          "alivePlayer11Within700": 20
+        },
+        "expected": {
+          "threshold": 100,
+          "originalFavorableCount": 100,
+          "originalProbability": 0.9900990099009901,
+          "webProbability": 1.0,
+          "webPercent": 100
+        },
+        "basis": "original_script_and_confirmed_Q32"
+      },
+      {
+        "id": "endless_cap_21",
+        "input": {
+          "level": 6,
+          "Game_Mode": 1,
+          "alivePlayer11Within700": 21
+        },
+        "expected": {
+          "threshold": 104,
+          "originalFavorableCount": 101,
+          "originalProbability": 1.0,
+          "webProbability": 1.0,
+          "webPercent": 100
+        },
+        "basis": "original_script_and_confirmed_Q32"
+      },
+      {
+        "id": "count_only_alive_player11",
+        "input": {
+          "units": [
+            {
+              "owner": 11,
+              "life": 1
+            },
+            {
+              "owner": 11,
+              "life": 0
+            },
+            {
+              "owner": 0,
+              "life": 100
+            },
+            {
+              "owner": 11,
+              "life": 100,
+              "boss": true
+            },
+            {
+              "owner": 11,
+              "life": 100,
+              "gold": true
+            }
+          ]
+        },
+        "expected": {
+          "count": 3,
+          "normalContribution": 6,
+          "endlessContribution": 12
+        }
+      },
+      {
+        "id": "damage_L1",
+        "input": {
+          "level": 1,
+          "attackBase": 300,
+          "attackBonus": 50,
+          "totalSTR": 100,
+          "B171": false
+        },
+        "expected": {
+          "rawDamagePerEligibleTarget": 450
+        }
+      },
+      {
+        "id": "damage_L2",
+        "input": {
+          "level": 2,
+          "attackBase": 300,
+          "attackBonus": 50,
+          "totalSTR": 100,
+          "B171": false
+        },
+        "expected": {
+          "rawDamagePerEligibleTarget": 500.0
+        }
+      },
+      {
+        "id": "damage_L3",
+        "input": {
+          "level": 3,
+          "attackBase": 300,
+          "attackBonus": 50,
+          "totalSTR": 100,
+          "B171": false
+        },
+        "expected": {
+          "rawDamagePerEligibleTarget": 550
+        }
+      },
+      {
+        "id": "damage_L4",
+        "input": {
+          "level": 4,
+          "attackBase": 300,
+          "attackBonus": 50,
+          "totalSTR": 100,
+          "B171": false
+        },
+        "expected": {
+          "rawDamagePerEligibleTarget": 600.0
+        }
+      },
+      {
+        "id": "damage_L5",
+        "input": {
+          "level": 5,
+          "attackBase": 300,
+          "attackBonus": 50,
+          "totalSTR": 100,
+          "B171": false
+        },
+        "expected": {
+          "rawDamagePerEligibleTarget": 650
+        }
+      },
+      {
+        "id": "damage_L6",
+        "input": {
+          "level": 6,
+          "attackBase": 300,
+          "attackBonus": 50,
+          "totalSTR": 100,
+          "B171": false
+        },
+        "expected": {
+          "rawDamagePerEligibleTarget": 850
+        }
+      },
+      {
+        "id": "B171_full_damage_multiplier",
+        "input": {
+          "level": 6,
+          "attackBase": 300,
+          "attackBonus": 50,
+          "totalSTR": 100,
+          "B171": true
+        },
+        "expected": {
+          "rawDamagePerEligibleTarget": 1275
+        }
+      },
+      {
+        "id": "zero_damage_return",
+        "input": {
+          "level": 1,
+          "attackBase": 0,
+          "attackBonus": 0,
+          "totalSTR": 0
+        },
+        "expected": {
+          "returnsBeforeAnimation": true,
+          "damageCalls": 0,
+          "timerRegistrations": 0
+        }
+      },
+      {
+        "id": "negative_not_filtered",
+        "input": {
+          "level": 1,
+          "attackBase": -200,
+          "attackBonus": 0,
+          "totalSTR": 100
+        },
+        "expected": {
+          "rawDamage": -100,
+          "returnsAtZeroGate": false,
+          "nativeResult": "not determined by this body"
+        }
+      },
+      {
+        "id": "passive_no_cooldown_gate",
+        "input": {
+          "atDamageBranch": true,
+          "hasA056": true,
+          "attackFlag": 1,
+          "originalRollSucceeds": true,
+          "nativeAbilityRemainingCooldown": 4
+        },
+        "expected": {
+          "probabilityCalls": 1,
+          "stopOrders": 1,
+          "coreCalls": 1
+        }
+      },
+      {
+        "id": "nonattack_packet",
+        "input": {
+          "atDamageBranch": true,
+          "hasA056": true,
+          "attackFlag": 0
+        },
+        "expected": {
+          "probabilityCalls": 0,
+          "coreCalls": 0
+        }
+      },
+      {
+        "id": "skill_effect_entry",
+        "input": {
+          "spellId": "A056",
+          "passesOuterFilters": true
+        },
+        "expected": {
+          "probabilityCalls": 0,
+          "stopOrders": 0,
+          "coreCalls": 1,
+          "basis": "original_script_and_confirmed_Q31_Q32"
+        }
+      },
+      {
+        "id": "independent_animation_timers",
+        "input": {
+          "coreCallTimes": [
+            0,
+            0.2
+          ]
+        },
+        "expected": {
+          "removeSpinTimes": [
+            0.4,
+            0.6
+          ],
+          "laterTriggerCancelsEarlierTimer": false
+        }
+      },
+      {
+        "id": "skin_visual_ignores_TxShow",
+        "input": {
+          "unitType": "G067",
+          "TxShow": false,
+          "nonzeroDamage": true,
+          "eligibleTargets": 2
+        },
+        "expected": {
+          "T1837VisualCalls": 1,
+          "bloodVisualCalls": 0,
+          "damageCalls": 2
+        }
+      },
+      {
+        "id": "callback_nil",
+        "input": {
+          "callbackUnit": null
+        },
+        "expected": {
+          "animationWrites": 0
+        }
+      },
+      {
+        "id": "web_t100_normal",
+        "basis": "original_script_and_confirmed_Q32",
+        "input": {
+          "level": 6,
+          "Game_Mode": 0,
+          "alivePlayer11Within700": 40
+        },
+        "expected": {
+          "threshold": 100,
+          "originalProbability": 0.9900990099009901,
+          "webProbability": 1,
+          "webPercent": 100
+        }
+      },
+      {
+        "id": "web_t100_abyss",
+        "basis": "original_script_and_confirmed_Q32",
+        "input": {
+          "level": 6,
+          "Game_Mode": 2,
+          "alivePlayer11Within700": 40
+        },
+        "expected": {
+          "threshold": 100,
+          "originalProbability": 0.9900990099009901,
+          "webProbability": 1,
+          "webPercent": 100
+        }
+      },
+      {
+        "id": "web_below100_endless",
+        "basis": "original_script_and_confirmed_Q32",
+        "input": {
+          "level": 6,
+          "Game_Mode": 1,
+          "alivePlayer11Within700": 19
+        },
+        "expected": {
+          "threshold": 96,
+          "originalProbability": 0.9504950495049505,
+          "webProbability": 0.96,
+          "webPercent": 96
+        }
+      },
+      {
+        "id": "web_nonattack_gate",
+        "basis": "confirmed_Q31_Q32",
+        "input": {
+          "entry": "passive",
+          "reachesBranch": true,
+          "hasA056": true,
+          "attackFlag": 0,
+          "drawSucceeds": true
+        },
+        "expected": {
+          "probabilityCalls": 0,
+          "coreCalls": 0
+        }
+      },
+      {
+        "id": "web_no_ability_gate",
+        "basis": "confirmed_Q31_Q32",
+        "input": {
+          "entry": "passive",
+          "reachesBranch": true,
+          "hasA056": false,
+          "attackFlag": 1,
+          "drawSucceeds": true
+        },
+        "expected": {
+          "probabilityCalls": 0,
+          "coreCalls": 0
+        }
+      },
+      {
+        "id": "web_passive_while_active_cooldown",
+        "basis": "confirmed_Q31_Q32",
+        "input": {
+          "entry": "passive",
+          "reachesBranch": true,
+          "hasA056": true,
+          "attackFlag": 1,
+          "drawSucceeds": true,
+          "abilityCooldown": 4
+        },
+        "expected": {
+          "probabilityCalls": 1,
+          "coreCalls": 1,
+          "stopOrders": 1
+        }
+      },
+      {
+        "id": "web_active_spell_effect",
+        "basis": "confirmed_Q31_Q32",
+        "input": {
+          "entry": "active_spell_effect",
+          "passesOuterFilters": true,
+          "spellId": "A056"
+        },
+        "expected": {
+          "probabilityCalls": 0,
+          "coreCalls": 1,
+          "stopOrders": 0
+        }
+      },
+      {
+        "id": "web_automatic_spell_effect",
+        "basis": "confirmed_Q31_Q32",
+        "input": {
+          "entry": "automatic_spell_effect",
+          "passesOuterFilters": true,
+          "spellId": "A056"
+        },
+        "expected": {
+          "probabilityCalls": 0,
+          "coreCalls": 1,
+          "stopOrders": 0
+        }
+      },
+      {
+        "id": "web_invalid_level_preserves_zero",
+        "basis": "original_script_and_confirmed_Q32",
+        "input": {
+          "level": 7,
+          "Game_Mode": 1,
+          "alivePlayer11Within700": 100,
+          "probabilityFunctionInvoked": true
+        },
+        "expected": {
+          "threshold": 0,
+          "originalProbability": 0,
+          "webProbability": 0,
+          "webPercent": 0,
+          "neighborEnumerationPasses": 1,
+          "randomDraws": 1,
+          "success": false
+        }
+      }
+    ]
+  },
+  "webRules": {
+    "basis": [
+      "Q31",
+      "Q32"
+    ],
+    "probability": {
+      "appliesTo": "qualified passive attack-damage entry only",
+      "basePercentByLevel": [
+        10,
+        12,
+        14,
+        16,
+        18,
+        20
+      ],
+      "countRadius": 700,
+      "countPredicate": "enumerated owner == Player(11) AND currentLife>0",
+      "threshold": "for level1..6: base + (Game_Mode == 1 ? 4 : 2)*N; otherwise 0",
+      "exactProbability": "min(100,threshold)/100",
+      "maximum": 1,
+      "invalidLevel": "count neighbors and consume one draw but threshold stays zero and returns false; do not use a default base0 plus crowd bonus",
+      "timing": "original entry gates and call point; count before the single probability decision",
+      "noAddedGate": [
+        "ability cooldown",
+        "mana payment",
+        "illusion exclusion",
+        "internal cooldown",
+        "once-per-attack deduplication"
+      ],
+      "drawConsumption": "one draw per probability-function invocation, including probability0 or1; outer passive gates still control whether the function is invoked"
+    },
+    "spellEffect": {
+      "activeEntrancePreserved": true,
+      "automaticEntrancePreserved": true,
+      "probabilityCalls": 0,
+      "action": "direct shared damage core through A056_Skill"
+    },
+    "unchanged": "damage, original target filtering and snapshot timing, B171, animations and other source rules"
+  }
+}

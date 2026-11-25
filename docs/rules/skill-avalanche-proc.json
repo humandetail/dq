@@ -1,0 +1,4030 @@
+{
+  "schema_version": 1,
+  "status": "Q39 confirmed: shared cooldown2seconds; source2.4seconds preserved; Q40 confirmed growth referenced separately",
+  "scope": [
+    "workbook A067 F270/F426 identity",
+    "A067_Action inline GetRandomInt and per-tower timer lock",
+    "attack dispatcher admission through PC150 and timer expiry callback"
+  ],
+  "not_in_scope": [
+    "Original clusterrockets native target filters, impact timing and hero/resistance control details",
+    "Q40 six-rank damage/stun growth and radius300 Web contract is maintained in skill-avalanche-effect.md/.json, not implemented by this page's historical Q39-only probe",
+    "ANeg native replacement/version details and native AOcr behavior",
+    "other inline skills"
+  ],
+  "decision": {
+    "id": "Q39",
+    "status": "confirmed",
+    "selected": {
+      "id": "workbook_2_seconds",
+      "seconds": 2
+    },
+    "subject": "successful-proc internal cooldown seconds, not probability percent",
+    "workbook_seconds": 2,
+    "actual_Name_and_Researchubertip_seconds": 2,
+    "source_TimerStart_seconds": 2.4,
+    "actual_Ubertip_cooldown_statement": null,
+    "options": [
+      {
+        "id": "workbook_2_seconds",
+        "seconds": 2,
+        "description": "按图鉴内置冷却2秒；保持先查锁、再抽样和成功后上锁的顺序"
+      },
+      {
+        "id": "source_2_4_seconds",
+        "seconds": 2.4,
+        "description": "保留原TimerStart 2.4秒及其资格与顺序"
+      }
+    ],
+    "selected_by": "user Q39 option1",
+    "web_rule": "Q39-specific change: at the same successful-proc timer-start position use2seconds, preserving shared per-tower lock, no RNG during lock, expiry clearing and probability formula. The cumulative Web effect also applies confirmed Q40 in skill-avalanche-effect.md/.json; changing only this timer constant is not the cumulative implementation."
+  },
+  "workbook": [
+    {
+      "row": 270,
+      "cells": {
+        "A270": "小小<SR>",
+        "B270": "H021",
+        "C270": 1,
+        "D270": "学习技能",
+        "E270": "山崩",
+        "F270": "A067",
+        "G270": 6,
+        "H270": "攻击有15%的概率造成山崩，对目标300范围内敌人眩晕以及伤害，每100点力量提升5%的概率，概率最高达到60%，内置冷却2秒。",
+        "I270": "等级 1｜造成150点伤害，眩晕0.4秒。\n等级 2｜造成275点伤害，眩晕0.6秒。\n等级 3｜造成420点伤害，眩晕0.8秒。\n等级 4｜造成650点伤害，眩晕1秒。\n等级 5｜造成860点伤害，眩晕1.2秒。\n等级 6｜造成1120点伤害，眩晕1.5秒。\n伤害类型 法术伤害"
+      }
+    },
+    {
+      "row": 426,
+      "cells": {
+        "A426": "火焰领主<SR>",
+        "B426": "G059",
+        "C426": 1,
+        "D426": "学习技能",
+        "E426": "山崩",
+        "F426": "A067",
+        "G426": 6,
+        "H426": "攻击有15%的概率造成山崩，对目标300范围内敌人眩晕以及伤害，每100点力量提升5%的概率，概率最高达到60%，内置冷却2秒。",
+        "I426": "等级 1｜造成150点伤害，眩晕0.4秒。\n等级 2｜造成275点伤害，眩晕0.6秒。\n等级 3｜造成420点伤害，眩晕0.8秒。\n等级 4｜造成650点伤害，眩晕1秒。\n等级 5｜造成860点伤害，眩晕1.2秒。\n等级 6｜造成1120点伤害，眩晕1.5秒。\n伤害类型 法术伤害"
+      }
+    }
+  ],
+  "actual_tooltips": [
+    {
+      "id": "A067",
+      "section_line": 961,
+      "fields": {
+        "Name": {
+          "line": 965,
+          "value": "|cffffcc00山崩|r|n|n攻击有15%的概率造成山崩，对目标300范围内敌人眩晕以及伤害，每100点力量提升5%的概率，概率最高达到60%，内置冷却2秒。"
+        },
+        "Researchubertip": {
+          "line": 970,
+          "value": "攻击有15%的概率造成山崩，对目标300范围内敌人眩晕以及伤害，每100点力量提升5%的概率，概率最高达到60%，内置冷却2秒。|n|cffffcc00等级 1|r |n-造成150点伤害，眩晕0.4秒。|n|cffffcc00等级 2|r |n-造成275点伤害，眩晕0.6秒。|n|cffffcc00等级 3|r |n-造成420点伤害，眩晕0.8秒。|n|cffffcc00等级 4|r |n-造成650点伤害，眩晕1秒。|n|cffffcc00等级 5|r |n-造成860点伤害，眩晕1.2秒。|n|cffffcc00等级 6|r |n-造成1120点伤害，眩晕1.5秒。|n|n|cffffcc00伤害类型：|r法术伤害"
+        },
+        "Tip": {
+          "line": 971,
+          "value": "山崩[|cffffcc00W|r] - [|cffffcc00等级 1|r],山崩[|cffffcc00W|r] - [|cffffcc00等级 2|r],山崩[|cffffcc00W|r] - [|cffffcc00等级 3|r],山崩[|cffffcc00W|r] - [|cffffcc00等级 4|r],山崩[|cffffcc00W|r] - [|cffffcc00等级 5|r],山崩[|cffffcc00W|r] - [|cffffcc00等级 6|r]"
+        },
+        "Ubertip": {
+          "line": 972,
+          "value": "攻击有15%的概率造成山崩，对目标300范围内敌人造成150点伤害，眩晕0.4秒，每100点力量提升5%的概率。,攻击有15%的概率造成山崩，对目标300范围内敌人造成275点伤害，眩晕0.6秒，每100点力量提升5%的概率。,攻击有15%的概率造成山崩，对目标300范围内敌人造成420点伤害，眩晕0.8秒，每100点力量提升5%的概率。,攻击有15%的概率造成山崩，对目标300范围内敌人造成650点伤害，眩晕1秒，每100点力量提升5%的概率。,攻击有15%的概率造成山崩，对目标300范围内敌人造成860点伤害，眩晕1.2秒，每100点力量提升5%的概率。,攻击有15%的概率造成山崩，对目标300范围内敌人造成1120点伤害，眩晕1.5秒，每100点力量提升5%的概率。"
+        }
+      }
+    },
+    {
+      "id": "A148",
+      "section_line": 2088,
+      "fields": {
+        "Name": {
+          "line": 2092,
+          "value": "|cffffcc00山崩|r|n|n攻击有15%的概率造成山崩，对目标300范围内敌人眩晕以及伤害，每100点力量提升5%的概率，概率最高达到60%，内置冷却2秒。"
+        },
+        "Researchubertip": {
+          "line": 2097,
+          "value": "攻击有15%的概率造成山崩，对目标300范围内敌人眩晕以及伤害，每100点力量提升5%的概率，概率最高达到60%，内置冷却2秒。|n|cffffcc00等级 1|r|n-造成150点伤害，眩晕0.4秒。|n|cffffcc00等级 2|r|n-造成275点伤害，眩晕0.6秒。|n|cffffcc00等级 3|r|n-造成420点伤害，眩晕0.8秒。|n|cffffcc00等级 4|r|n-造成650点伤害，眩晕1秒。|n|cffffcc00等级 5|r|n-造成860点伤害，眩晕1.2秒。|n|cffffcc00等级 6|r|n-造成1120点伤害，眩晕1.5秒。|n|n|cffffcc00伤害类型：|r法术伤害"
+        },
+        "Tip": {
+          "line": 2098,
+          "value": "山崩[|cffffcc00W|r] - [|cffffcc00等级 1|r],山崩[|cffffcc00W|r] - [|cffffcc00等级 2|r],山崩[|cffffcc00W|r] - [|cffffcc00等级 3|r],山崩[|cffffcc00W|r] - [|cffffcc00等级 4|r],山崩[|cffffcc00W|r] - [|cffffcc00等级 5|r],山崩[|cffffcc00W|r] - [|cffffcc00等级 6|r]"
+        },
+        "Ubertip": {
+          "line": 2099,
+          "value": "攻击有15%的概率造成山崩，对目标300范围内敌人造成150点伤害，眩晕0.4秒，每100点力量提升5%的概率。,攻击有15%的概率造成山崩，对目标300范围内敌人造成275点伤害，眩晕0.6秒，每100点力量提升5%的概率。,攻击有15%的概率造成山崩，对目标300范围内敌人造成420点伤害，眩晕0.8秒，每100点力量提升5%的概率。,攻击有15%的概率造成山崩，对目标300范围内敌人造成650点伤害，眩晕1秒，每100点力量提升5%的概率。,攻击有15%的概率造成山崩，对目标300范围内敌人造成860点伤害，眩晕1.2秒，每100点力量提升5%的概率。,攻击有15%的概率造成山崩，对目标300范围内敌人造成1120点伤害，眩晕1.5秒，每100点力量提升5%的概率。"
+        }
+      }
+    }
+  ],
+  "objects": {
+    "units_unitabilities.json": [
+      {
+        "line": 4588,
+        "record": {
+          "unitAbilID": "H021",
+          "abilList": "Avul,AInv,T033,S211",
+          "auto": "_",
+          "heroAbilList": "A067,A068,A069,T000,P000"
+        }
+      },
+      {
+        "line": 4336,
+        "record": {
+          "unitAbilID": "G059",
+          "abilList": "Avul,AInv,T033",
+          "auto": "_",
+          "heroAbilList": "A067,A068,A069,T000,P000"
+        }
+      }
+    ],
+    "units_abilitydata.json": [
+      {
+        "line": 15408,
+        "record": {
+          "alias": "A067",
+          "code": "AOcr",
+          "checkDep": 1,
+          "levels": 6,
+          "reqLevel": 1,
+          "targs1": "air,ground,enemy,neutral",
+          "targs2": "air,ground,enemy,neutral",
+          "targs3": "air,ground,enemy,neutral",
+          "targs4": "air,ground,enemy,neutral"
+        }
+      },
+      {
+        "line": 17561,
+        "record": {
+          "alias": "A148",
+          "code": "AOcr",
+          "checkDep": 1,
+          "levels": 6,
+          "reqLevel": 1,
+          "targs1": "air,ground,enemy,neutral",
+          "targs2": "air,ground,enemy,neutral",
+          "targs3": "air,ground,enemy,neutral",
+          "targs4": "air,ground,enemy,neutral"
+        }
+      },
+      {
+        "line": 17602,
+        "record": {
+          "alias": "A150",
+          "code": "ANeg",
+          "BuffID1": "BNeg",
+          "checkDep": 1,
+          "DataC1": "A149,A068",
+          "DataD1": "A148,A067",
+          "levels": 1,
+          "reqLevel": 1,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      {
+        "line": 30974,
+        "record": {
+          "alias": "S211",
+          "code": "Aspb",
+          "DataA1": "S212",
+          "DataC1": 11,
+          "DataD1": 11,
+          "DataE1": "spellbook",
+          "levels": 1,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      {
+        "line": 30987,
+        "record": {
+          "alias": "S212",
+          "code": "ANcl",
+          "checkDep": 1,
+          "Cool1": 1.0,
+          "DataC1": 1,
+          "DataF1": "mindrot",
+          "levels": 1,
+          "reqLevel": 1,
+          "Rng1": 500.0,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      }
+    ]
+  },
+  "w3a_matches": [],
+  "source_hashes": {
+    "main.readable.lua": "d868f14d946f0780313468f5dd783fa4a6cbe39f5c7851d8e4094ef80aa618b9",
+    "main.disasm": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+    "units_campaignabilitystrings.txt": "5240c99230cd441b4c376371a31a7987e65470feed736177473a206c55fbe8cc",
+    "units_unitabilities.json": "ebd8a6fd8410f593c5ecadf6bf7c4f6bbc5b4bb7183c5e986a4d2d77e1747133",
+    "units_abilitydata.json": "b772de42ebcfc1d3818298b35dbe81a35826892848c7cbfef70bf5097e481861",
+    "war3map.w3a.json": "d2875f064b389bca471db97121ff7c810d46fbc962ae640ad128d1daa85931bb"
+  },
+  "workbook_sha256": "457c8f7e37e19412a0dd072ce941e95604b0b8910860b9e1eb9883e6b82bb6af",
+  "action": {
+    "function": "main/f59/f1",
+    "lines": [
+      71839,
+      71976
+    ],
+    "constants": {
+      "k0": "IsInTable",
+      "k1": "Tower_ALL",
+      "k2": null,
+      "k3": "GetRandomInt",
+      "k4": 1,
+      "k5": 100,
+      "k6": "GetHeroStr",
+      "k7": 5,
+      "k8": 15,
+      "k9": 60,
+      "k10": "GetUnitLoc",
+      "k11": "GetUnitTypeId",
+      "k12": "GetId",
+      "k13": "G059",
+      "k14": "GetUnitAbilityLevel",
+      "k15": "A148",
+      "k16": "T162",
+      "k17": "A067",
+      "k18": "T059",
+      "k19": "CreateTempAndSetAbilityLv",
+      "k20": "GetOwningPlayer",
+      "k21": 3,
+      "k22": "IssuePointOrderLoc",
+      "k23": "clusterrockets",
+      "k24": "SetUnitUserData",
+      "k25": "RemoveLocation",
+      "k26": "CreateTimer",
+      "k27": "TimerStart",
+      "k28": 2.4
+    },
+    "instructions": [
+      {
+        "pc": 1,
+        "line": 71882,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k0"
+        ]
+      },
+      {
+        "pc": 2,
+        "line": 71883,
+        "op": "move",
+        "args": [
+          "r3",
+          "r0"
+        ]
+      },
+      {
+        "pc": 3,
+        "line": 71884,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k1"
+        ]
+      },
+      {
+        "pc": 4,
+        "line": 71885,
+        "op": "call",
+        "args": [
+          "r2",
+          "3",
+          "2"
+        ]
+      },
+      {
+        "pc": 5,
+        "line": 71886,
+        "op": "gettabup",
+        "args": [
+          "r3",
+          "u1",
+          "r2"
+        ]
+      },
+      {
+        "pc": 6,
+        "line": 71887,
+        "op": "eq",
+        "args": [
+          "1",
+          "k2",
+          "r3"
+        ]
+      },
+      {
+        "pc": 7,
+        "line": 71888,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l9"
+        ]
+      },
+      {
+        "pc": 8,
+        "line": 71889,
+        "op": "return",
+        "args": [
+          "r0",
+          "1"
+        ]
+      },
+      {
+        "pc": 9,
+        "line": 71891,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k3"
+        ]
+      },
+      {
+        "pc": 10,
+        "line": 71892,
+        "op": "loadk",
+        "args": [
+          "r5",
+          "k4"
+        ]
+      },
+      {
+        "pc": 11,
+        "line": 71893,
+        "op": "loadk",
+        "args": [
+          "r6",
+          "k5"
+        ]
+      },
+      {
+        "pc": 12,
+        "line": 71894,
+        "op": "call",
+        "args": [
+          "r4",
+          "3",
+          "2"
+        ]
+      },
+      {
+        "pc": 13,
+        "line": 71895,
+        "op": "gettabup",
+        "args": [
+          "r5",
+          "u0",
+          "k6"
+        ]
+      },
+      {
+        "pc": 14,
+        "line": 71896,
+        "op": "move",
+        "args": [
+          "r6",
+          "r0"
+        ]
+      },
+      {
+        "pc": 15,
+        "line": 71897,
+        "op": "loadbool",
+        "args": [
+          "r7",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "pc": 16,
+        "line": 71898,
+        "op": "call",
+        "args": [
+          "r5",
+          "3",
+          "2"
+        ]
+      },
+      {
+        "pc": 17,
+        "line": 71899,
+        "op": "div",
+        "args": [
+          "r5",
+          "r5",
+          "k5"
+        ]
+      },
+      {
+        "pc": 18,
+        "line": 71900,
+        "op": "mul",
+        "args": [
+          "r5",
+          "r5",
+          "k7"
+        ]
+      },
+      {
+        "pc": 19,
+        "line": 71901,
+        "op": "add",
+        "args": [
+          "r5",
+          "k8",
+          "r5"
+        ]
+      },
+      {
+        "pc": 20,
+        "line": 71902,
+        "op": "lt",
+        "args": [
+          "0",
+          "k9",
+          "r5"
+        ]
+      },
+      {
+        "pc": 21,
+        "line": 71903,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l23"
+        ]
+      },
+      {
+        "pc": 22,
+        "line": 71904,
+        "op": "loadk",
+        "args": [
+          "r5",
+          "k9"
+        ]
+      },
+      {
+        "pc": 23,
+        "line": 71906,
+        "op": "lt",
+        "args": [
+          "0",
+          "r5",
+          "r4"
+        ]
+      },
+      {
+        "pc": 24,
+        "line": 71907,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l26"
+        ]
+      },
+      {
+        "pc": 25,
+        "line": 71908,
+        "op": "return",
+        "args": [
+          "r0",
+          "1"
+        ]
+      },
+      {
+        "pc": 26,
+        "line": 71910,
+        "op": "gettabup",
+        "args": [
+          "r6",
+          "u0",
+          "k10"
+        ]
+      },
+      {
+        "pc": 27,
+        "line": 71911,
+        "op": "move",
+        "args": [
+          "r7",
+          "r1"
+        ]
+      },
+      {
+        "pc": 28,
+        "line": 71912,
+        "op": "call",
+        "args": [
+          "r6",
+          "2",
+          "2"
+        ]
+      },
+      {
+        "pc": 29,
+        "line": 71913,
+        "op": "loadnil",
+        "args": [
+          "r7",
+          "1"
+        ]
+      },
+      {
+        "pc": 30,
+        "line": 71914,
+        "op": "gettabup",
+        "args": [
+          "r9",
+          "u0",
+          "k11"
+        ]
+      },
+      {
+        "pc": 31,
+        "line": 71915,
+        "op": "move",
+        "args": [
+          "r10",
+          "r0"
+        ]
+      },
+      {
+        "pc": 32,
+        "line": 71916,
+        "op": "call",
+        "args": [
+          "r9",
+          "2",
+          "2"
+        ]
+      },
+      {
+        "pc": 33,
+        "line": 71917,
+        "op": "gettabup",
+        "args": [
+          "r10",
+          "u0",
+          "k12"
+        ]
+      },
+      {
+        "pc": 34,
+        "line": 71918,
+        "op": "loadk",
+        "args": [
+          "r11",
+          "k13"
+        ]
+      },
+      {
+        "pc": 35,
+        "line": 71919,
+        "op": "call",
+        "args": [
+          "r10",
+          "2",
+          "2"
+        ]
+      },
+      {
+        "pc": 36,
+        "line": 71920,
+        "op": "eq",
+        "args": [
+          "0",
+          "r9",
+          "r10"
+        ]
+      },
+      {
+        "pc": 37,
+        "line": 71921,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l47"
+        ]
+      },
+      {
+        "pc": 38,
+        "line": 71922,
+        "op": "gettabup",
+        "args": [
+          "r9",
+          "u0",
+          "k14"
+        ]
+      },
+      {
+        "pc": 39,
+        "line": 71923,
+        "op": "move",
+        "args": [
+          "r10",
+          "r0"
+        ]
+      },
+      {
+        "pc": 40,
+        "line": 71924,
+        "op": "gettabup",
+        "args": [
+          "r11",
+          "u0",
+          "k12"
+        ]
+      },
+      {
+        "pc": 41,
+        "line": 71925,
+        "op": "loadk",
+        "args": [
+          "r12",
+          "k15"
+        ]
+      },
+      {
+        "pc": 42,
+        "line": 71926,
+        "op": "call",
+        "args": [
+          "r11",
+          "2",
+          "0"
+        ]
+      },
+      {
+        "pc": 43,
+        "line": 71927,
+        "op": "call",
+        "args": [
+          "r9",
+          "0",
+          "2"
+        ]
+      },
+      {
+        "pc": 44,
+        "line": 71928,
+        "op": "move",
+        "args": [
+          "r7",
+          "r9"
+        ]
+      },
+      {
+        "pc": 45,
+        "line": 71929,
+        "op": "loadk",
+        "args": [
+          "r8",
+          "k16"
+        ]
+      },
+      {
+        "pc": 46,
+        "line": 71930,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l55"
+        ]
+      },
+      {
+        "pc": 47,
+        "line": 71932,
+        "op": "gettabup",
+        "args": [
+          "r9",
+          "u0",
+          "k14"
+        ]
+      },
+      {
+        "pc": 48,
+        "line": 71933,
+        "op": "move",
+        "args": [
+          "r10",
+          "r0"
+        ]
+      },
+      {
+        "pc": 49,
+        "line": 71934,
+        "op": "gettabup",
+        "args": [
+          "r11",
+          "u0",
+          "k12"
+        ]
+      },
+      {
+        "pc": 50,
+        "line": 71935,
+        "op": "loadk",
+        "args": [
+          "r12",
+          "k17"
+        ]
+      },
+      {
+        "pc": 51,
+        "line": 71936,
+        "op": "call",
+        "args": [
+          "r11",
+          "2",
+          "0"
+        ]
+      },
+      {
+        "pc": 52,
+        "line": 71937,
+        "op": "call",
+        "args": [
+          "r9",
+          "0",
+          "2"
+        ]
+      },
+      {
+        "pc": 53,
+        "line": 71938,
+        "op": "move",
+        "args": [
+          "r7",
+          "r9"
+        ]
+      },
+      {
+        "pc": 54,
+        "line": 71939,
+        "op": "loadk",
+        "args": [
+          "r8",
+          "k18"
+        ]
+      },
+      {
+        "pc": 55,
+        "line": 71941,
+        "op": "gettabup",
+        "args": [
+          "r9",
+          "u0",
+          "k19"
+        ]
+      },
+      {
+        "pc": 56,
+        "line": 71942,
+        "op": "gettabup",
+        "args": [
+          "r10",
+          "u0",
+          "k20"
+        ]
+      },
+      {
+        "pc": 57,
+        "line": 71943,
+        "op": "move",
+        "args": [
+          "r11",
+          "r0"
+        ]
+      },
+      {
+        "pc": 58,
+        "line": 71944,
+        "op": "call",
+        "args": [
+          "r10",
+          "2",
+          "2"
+        ]
+      },
+      {
+        "pc": 59,
+        "line": 71945,
+        "op": "gettabup",
+        "args": [
+          "r11",
+          "u0",
+          "k10"
+        ]
+      },
+      {
+        "pc": 60,
+        "line": 71946,
+        "op": "move",
+        "args": [
+          "r12",
+          "r0"
+        ]
+      },
+      {
+        "pc": 61,
+        "line": 71947,
+        "op": "call",
+        "args": [
+          "r11",
+          "2",
+          "2"
+        ]
+      },
+      {
+        "pc": 62,
+        "line": 71948,
+        "op": "move",
+        "args": [
+          "r12",
+          "r7"
+        ]
+      },
+      {
+        "pc": 63,
+        "line": 71949,
+        "op": "move",
+        "args": [
+          "r13",
+          "r8"
+        ]
+      },
+      {
+        "pc": 64,
+        "line": 71950,
+        "op": "loadk",
+        "args": [
+          "r14",
+          "k4"
+        ]
+      },
+      {
+        "pc": 65,
+        "line": 71951,
+        "op": "loadk",
+        "args": [
+          "r15",
+          "k21"
+        ]
+      },
+      {
+        "pc": 66,
+        "line": 71952,
+        "op": "call",
+        "args": [
+          "r9",
+          "7",
+          "2"
+        ]
+      },
+      {
+        "pc": 67,
+        "line": 71953,
+        "op": "gettabup",
+        "args": [
+          "r10",
+          "u0",
+          "k22"
+        ]
+      },
+      {
+        "pc": 68,
+        "line": 71954,
+        "op": "move",
+        "args": [
+          "r11",
+          "r9"
+        ]
+      },
+      {
+        "pc": 69,
+        "line": 71955,
+        "op": "loadk",
+        "args": [
+          "r12",
+          "k23"
+        ]
+      },
+      {
+        "pc": 70,
+        "line": 71956,
+        "op": "move",
+        "args": [
+          "r13",
+          "r6"
+        ]
+      },
+      {
+        "pc": 71,
+        "line": 71957,
+        "op": "call",
+        "args": [
+          "r10",
+          "4",
+          "1"
+        ]
+      },
+      {
+        "pc": 72,
+        "line": 71958,
+        "op": "gettabup",
+        "args": [
+          "r10",
+          "u0",
+          "k24"
+        ]
+      },
+      {
+        "pc": 73,
+        "line": 71959,
+        "op": "move",
+        "args": [
+          "r11",
+          "r9"
+        ]
+      },
+      {
+        "pc": 74,
+        "line": 71960,
+        "op": "move",
+        "args": [
+          "r12",
+          "r2"
+        ]
+      },
+      {
+        "pc": 75,
+        "line": 71961,
+        "op": "call",
+        "args": [
+          "r10",
+          "3",
+          "1"
+        ]
+      },
+      {
+        "pc": 76,
+        "line": 71962,
+        "op": "gettabup",
+        "args": [
+          "r10",
+          "u0",
+          "k25"
+        ]
+      },
+      {
+        "pc": 77,
+        "line": 71963,
+        "op": "move",
+        "args": [
+          "r11",
+          "r6"
+        ]
+      },
+      {
+        "pc": 78,
+        "line": 71964,
+        "op": "call",
+        "args": [
+          "r10",
+          "2",
+          "1"
+        ]
+      },
+      {
+        "pc": 79,
+        "line": 71965,
+        "op": "gettabup",
+        "args": [
+          "r10",
+          "u0",
+          "k26"
+        ]
+      },
+      {
+        "pc": 80,
+        "line": 71966,
+        "op": "call",
+        "args": [
+          "r10",
+          "1",
+          "2"
+        ]
+      },
+      {
+        "pc": 81,
+        "line": 71967,
+        "op": "move",
+        "args": [
+          "r3",
+          "r10"
+        ]
+      },
+      {
+        "pc": 82,
+        "line": 71968,
+        "op": "gettabup",
+        "args": [
+          "r10",
+          "u0",
+          "k27"
+        ]
+      },
+      {
+        "pc": 83,
+        "line": 71969,
+        "op": "move",
+        "args": [
+          "r11",
+          "r3"
+        ]
+      },
+      {
+        "pc": 84,
+        "line": 71970,
+        "op": "loadk",
+        "args": [
+          "r12",
+          "k28"
+        ]
+      },
+      {
+        "pc": 85,
+        "line": 71971,
+        "op": "loadbool",
+        "args": [
+          "r13",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "pc": 86,
+        "line": 71972,
+        "op": "getupval",
+        "args": [
+          "r14",
+          "u2"
+        ]
+      },
+      {
+        "pc": 87,
+        "line": 71973,
+        "op": "call",
+        "args": [
+          "r10",
+          "5",
+          "1"
+        ]
+      },
+      {
+        "pc": 88,
+        "line": 71974,
+        "op": "settabup",
+        "args": [
+          "u1",
+          "r2",
+          "r3"
+        ]
+      },
+      {
+        "pc": 89,
+        "line": 71975,
+        "op": "return",
+        "args": [
+          "r0",
+          "1"
+        ]
+      }
+    ],
+    "labels": {
+      "l9": 9,
+      "l23": 23,
+      "l26": 26,
+      "l47": 47,
+      "l55": 55
+    }
+  },
+  "cleanup": {
+    "function": "main/f59/f0",
+    "lines": [
+      71810,
+      71838
+    ],
+    "constants": {
+      "k0": "GetExpiredTimer",
+      "k1": "IsInTable",
+      "k2": "DestroyTimer",
+      "k3": null
+    },
+    "instructions": [
+      {
+        "pc": 1,
+        "line": 71827,
+        "op": "gettabup",
+        "args": [
+          "r0",
+          "u0",
+          "k0"
+        ]
+      },
+      {
+        "pc": 2,
+        "line": 71828,
+        "op": "call",
+        "args": [
+          "r0",
+          "1",
+          "2"
+        ]
+      },
+      {
+        "pc": 3,
+        "line": 71829,
+        "op": "gettabup",
+        "args": [
+          "r1",
+          "u0",
+          "k1"
+        ]
+      },
+      {
+        "pc": 4,
+        "line": 71830,
+        "op": "move",
+        "args": [
+          "r2",
+          "r0"
+        ]
+      },
+      {
+        "pc": 5,
+        "line": 71831,
+        "op": "getupval",
+        "args": [
+          "r3",
+          "u1"
+        ]
+      },
+      {
+        "pc": 6,
+        "line": 71832,
+        "op": "call",
+        "args": [
+          "r1",
+          "3",
+          "2"
+        ]
+      },
+      {
+        "pc": 7,
+        "line": 71833,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k2"
+        ]
+      },
+      {
+        "pc": 8,
+        "line": 71834,
+        "op": "move",
+        "args": [
+          "r3",
+          "r0"
+        ]
+      },
+      {
+        "pc": 9,
+        "line": 71835,
+        "op": "call",
+        "args": [
+          "r2",
+          "2",
+          "1"
+        ]
+      },
+      {
+        "pc": 10,
+        "line": 71836,
+        "op": "settabup",
+        "args": [
+          "u1",
+          "r1",
+          "k3"
+        ]
+      },
+      {
+        "pc": 11,
+        "line": 71837,
+        "op": "return",
+        "args": [
+          "r0",
+          "1"
+        ]
+      }
+    ],
+    "labels": {}
+  },
+  "entry_prefix": {
+    "function": "main/f291/f3",
+    "pcs": [
+      1,
+      150
+    ],
+    "lines": [
+      167142,
+      167300
+    ],
+    "constants": {
+      "k0": "GetAttacker",
+      "k1": "GetTriggerUnit",
+      "k10": "N707",
+      "k11": "N708",
+      "k12": "B135",
+      "k13": "N706_N708_Action",
+      "k14": "A022",
+      "k15": "A022_Get_probability",
+      "k16": "GetRandomInt",
+      "k17": 100,
+      "k18": "A022_Action",
+      "k19": "T316",
+      "k2": "IsUnitIllusion",
+      "k20": "A164_T316_Get_probability",
+      "k21": "A164_T316_Action",
+      "k22": "A023",
+      "k23": "A023_Action",
+      "k24": "A077",
+      "k25": "A078",
+      "k26": "A077_Action",
+      "k27": null,
+      "k28": "A067",
+      "k29": "A148",
+      "k3": "GetUnitAbilityLevel",
+      "k30": "A067_Action",
+      "k4": "GetId",
+      "k5": "T217",
+      "k6": 0,
+      "k7": "A196_add_num",
+      "k8": "Skill_Auto",
+      "k9": "N706"
+    },
+    "instructions": [
+      {
+        "pc": 1,
+        "line": 167142,
+        "op": "gettabup",
+        "args": [
+          "r0",
+          "u0",
+          "k0"
+        ]
+      },
+      {
+        "pc": 2,
+        "line": 167143,
+        "op": "call",
+        "args": [
+          "r0",
+          "1",
+          "2"
+        ]
+      },
+      {
+        "pc": 3,
+        "line": 167144,
+        "op": "gettabup",
+        "args": [
+          "r1",
+          "u0",
+          "k1"
+        ]
+      },
+      {
+        "pc": 4,
+        "line": 167145,
+        "op": "call",
+        "args": [
+          "r1",
+          "1",
+          "2"
+        ]
+      },
+      {
+        "pc": 5,
+        "line": 167146,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k2"
+        ]
+      },
+      {
+        "pc": 6,
+        "line": 167147,
+        "op": "move",
+        "args": [
+          "r3",
+          "r0"
+        ]
+      },
+      {
+        "pc": 7,
+        "line": 167148,
+        "op": "call",
+        "args": [
+          "r2",
+          "2",
+          "2"
+        ]
+      },
+      {
+        "pc": 8,
+        "line": 167149,
+        "op": "test",
+        "args": [
+          "r2",
+          "0"
+        ]
+      },
+      {
+        "pc": 9,
+        "line": 167150,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l14"
+        ]
+      },
+      {
+        "pc": 10,
+        "line": 167151,
+        "op": "getupval",
+        "args": [
+          "r2",
+          "u1"
+        ]
+      },
+      {
+        "pc": 11,
+        "line": 167152,
+        "op": "move",
+        "args": [
+          "r3",
+          "r0"
+        ]
+      },
+      {
+        "pc": 12,
+        "line": 167153,
+        "op": "call",
+        "args": [
+          "r2",
+          "2",
+          "1"
+        ]
+      },
+      {
+        "pc": 13,
+        "line": 167154,
+        "op": "return",
+        "args": [
+          "r0",
+          "1"
+        ]
+      },
+      {
+        "pc": 14,
+        "line": 167156,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k3"
+        ]
+      },
+      {
+        "pc": 15,
+        "line": 167157,
+        "op": "move",
+        "args": [
+          "r3",
+          "r0"
+        ]
+      },
+      {
+        "pc": 16,
+        "line": 167158,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k4"
+        ]
+      },
+      {
+        "pc": 17,
+        "line": 167159,
+        "op": "loadk",
+        "args": [
+          "r5",
+          "k5"
+        ]
+      },
+      {
+        "pc": 18,
+        "line": 167160,
+        "op": "call",
+        "args": [
+          "r4",
+          "2",
+          "0"
+        ]
+      },
+      {
+        "pc": 19,
+        "line": 167161,
+        "op": "call",
+        "args": [
+          "r2",
+          "0",
+          "2"
+        ]
+      },
+      {
+        "pc": 20,
+        "line": 167162,
+        "op": "lt",
+        "args": [
+          "0",
+          "k6",
+          "r2"
+        ]
+      },
+      {
+        "pc": 21,
+        "line": 167163,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l25"
+        ]
+      },
+      {
+        "pc": 22,
+        "line": 167164,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k7"
+        ]
+      },
+      {
+        "pc": 23,
+        "line": 167165,
+        "op": "move",
+        "args": [
+          "r3",
+          "r0"
+        ]
+      },
+      {
+        "pc": 24,
+        "line": 167166,
+        "op": "call",
+        "args": [
+          "r2",
+          "2",
+          "1"
+        ]
+      },
+      {
+        "pc": 25,
+        "line": 167168,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k8"
+        ]
+      },
+      {
+        "pc": 26,
+        "line": 167169,
+        "op": "call",
+        "args": [
+          "r2",
+          "1",
+          "1"
+        ]
+      },
+      {
+        "pc": 27,
+        "line": 167170,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k3"
+        ]
+      },
+      {
+        "pc": 28,
+        "line": 167171,
+        "op": "move",
+        "args": [
+          "r3",
+          "r1"
+        ]
+      },
+      {
+        "pc": 29,
+        "line": 167172,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k4"
+        ]
+      },
+      {
+        "pc": 30,
+        "line": 167173,
+        "op": "loadk",
+        "args": [
+          "r5",
+          "k9"
+        ]
+      },
+      {
+        "pc": 31,
+        "line": 167174,
+        "op": "call",
+        "args": [
+          "r4",
+          "2",
+          "0"
+        ]
+      },
+      {
+        "pc": 32,
+        "line": 167175,
+        "op": "call",
+        "args": [
+          "r2",
+          "0",
+          "2"
+        ]
+      },
+      {
+        "pc": 33,
+        "line": 167176,
+        "op": "lt",
+        "args": [
+          "1",
+          "k6",
+          "r2"
+        ]
+      },
+      {
+        "pc": 34,
+        "line": 167177,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l51"
+        ]
+      },
+      {
+        "pc": 35,
+        "line": 167178,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k3"
+        ]
+      },
+      {
+        "pc": 36,
+        "line": 167179,
+        "op": "move",
+        "args": [
+          "r3",
+          "r1"
+        ]
+      },
+      {
+        "pc": 37,
+        "line": 167180,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k4"
+        ]
+      },
+      {
+        "pc": 38,
+        "line": 167181,
+        "op": "loadk",
+        "args": [
+          "r5",
+          "k10"
+        ]
+      },
+      {
+        "pc": 39,
+        "line": 167182,
+        "op": "call",
+        "args": [
+          "r4",
+          "2",
+          "0"
+        ]
+      },
+      {
+        "pc": 40,
+        "line": 167183,
+        "op": "call",
+        "args": [
+          "r2",
+          "0",
+          "2"
+        ]
+      },
+      {
+        "pc": 41,
+        "line": 167184,
+        "op": "lt",
+        "args": [
+          "1",
+          "k6",
+          "r2"
+        ]
+      },
+      {
+        "pc": 42,
+        "line": 167185,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l51"
+        ]
+      },
+      {
+        "pc": 43,
+        "line": 167186,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k3"
+        ]
+      },
+      {
+        "pc": 44,
+        "line": 167187,
+        "op": "move",
+        "args": [
+          "r3",
+          "r1"
+        ]
+      },
+      {
+        "pc": 45,
+        "line": 167188,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k4"
+        ]
+      },
+      {
+        "pc": 46,
+        "line": 167189,
+        "op": "loadk",
+        "args": [
+          "r5",
+          "k11"
+        ]
+      },
+      {
+        "pc": 47,
+        "line": 167190,
+        "op": "call",
+        "args": [
+          "r4",
+          "2",
+          "0"
+        ]
+      },
+      {
+        "pc": 48,
+        "line": 167191,
+        "op": "call",
+        "args": [
+          "r2",
+          "0",
+          "2"
+        ]
+      },
+      {
+        "pc": 49,
+        "line": 167192,
+        "op": "lt",
+        "args": [
+          "0",
+          "k6",
+          "r2"
+        ]
+      },
+      {
+        "pc": 50,
+        "line": 167193,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l63"
+        ]
+      },
+      {
+        "pc": 51,
+        "line": 167195,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k3"
+        ]
+      },
+      {
+        "pc": 52,
+        "line": 167196,
+        "op": "move",
+        "args": [
+          "r3",
+          "r0"
+        ]
+      },
+      {
+        "pc": 53,
+        "line": 167197,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k4"
+        ]
+      },
+      {
+        "pc": 54,
+        "line": 167198,
+        "op": "loadk",
+        "args": [
+          "r5",
+          "k12"
+        ]
+      },
+      {
+        "pc": 55,
+        "line": 167199,
+        "op": "call",
+        "args": [
+          "r4",
+          "2",
+          "0"
+        ]
+      },
+      {
+        "pc": 56,
+        "line": 167200,
+        "op": "call",
+        "args": [
+          "r2",
+          "0",
+          "2"
+        ]
+      },
+      {
+        "pc": 57,
+        "line": 167201,
+        "op": "le",
+        "args": [
+          "0",
+          "r2",
+          "k6"
+        ]
+      },
+      {
+        "pc": 58,
+        "line": 167202,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l63"
+        ]
+      },
+      {
+        "pc": 59,
+        "line": 167203,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k13"
+        ]
+      },
+      {
+        "pc": 60,
+        "line": 167204,
+        "op": "move",
+        "args": [
+          "r3",
+          "r0"
+        ]
+      },
+      {
+        "pc": 61,
+        "line": 167205,
+        "op": "move",
+        "args": [
+          "r4",
+          "r1"
+        ]
+      },
+      {
+        "pc": 62,
+        "line": 167206,
+        "op": "call",
+        "args": [
+          "r2",
+          "3",
+          "1"
+        ]
+      },
+      {
+        "pc": 63,
+        "line": 167208,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k3"
+        ]
+      },
+      {
+        "pc": 64,
+        "line": 167209,
+        "op": "move",
+        "args": [
+          "r3",
+          "r0"
+        ]
+      },
+      {
+        "pc": 65,
+        "line": 167210,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k4"
+        ]
+      },
+      {
+        "pc": 66,
+        "line": 167211,
+        "op": "loadk",
+        "args": [
+          "r5",
+          "k14"
+        ]
+      },
+      {
+        "pc": 67,
+        "line": 167212,
+        "op": "call",
+        "args": [
+          "r4",
+          "2",
+          "0"
+        ]
+      },
+      {
+        "pc": 68,
+        "line": 167213,
+        "op": "call",
+        "args": [
+          "r2",
+          "0",
+          "2"
+        ]
+      },
+      {
+        "pc": 69,
+        "line": 167214,
+        "op": "lt",
+        "args": [
+          "0",
+          "k6",
+          "r2"
+        ]
+      },
+      {
+        "pc": 70,
+        "line": 167215,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l81"
+        ]
+      },
+      {
+        "pc": 71,
+        "line": 167216,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k15"
+        ]
+      },
+      {
+        "pc": 72,
+        "line": 167217,
+        "op": "call",
+        "args": [
+          "r2",
+          "1",
+          "2"
+        ]
+      },
+      {
+        "pc": 73,
+        "line": 167218,
+        "op": "gettabup",
+        "args": [
+          "r3",
+          "u0",
+          "k16"
+        ]
+      },
+      {
+        "pc": 74,
+        "line": 167219,
+        "op": "loadk",
+        "args": [
+          "r4",
+          "k6"
+        ]
+      },
+      {
+        "pc": 75,
+        "line": 167220,
+        "op": "loadk",
+        "args": [
+          "r5",
+          "k17"
+        ]
+      },
+      {
+        "pc": 76,
+        "line": 167221,
+        "op": "call",
+        "args": [
+          "r3",
+          "3",
+          "2"
+        ]
+      },
+      {
+        "pc": 77,
+        "line": 167222,
+        "op": "lt",
+        "args": [
+          "0",
+          "r3",
+          "r2"
+        ]
+      },
+      {
+        "pc": 78,
+        "line": 167223,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l81"
+        ]
+      },
+      {
+        "pc": 79,
+        "line": 167224,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k18"
+        ]
+      },
+      {
+        "pc": 80,
+        "line": 167225,
+        "op": "call",
+        "args": [
+          "r2",
+          "1",
+          "1"
+        ]
+      },
+      {
+        "pc": 81,
+        "line": 167227,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k3"
+        ]
+      },
+      {
+        "pc": 82,
+        "line": 167228,
+        "op": "move",
+        "args": [
+          "r3",
+          "r0"
+        ]
+      },
+      {
+        "pc": 83,
+        "line": 167229,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k4"
+        ]
+      },
+      {
+        "pc": 84,
+        "line": 167230,
+        "op": "loadk",
+        "args": [
+          "r5",
+          "k19"
+        ]
+      },
+      {
+        "pc": 85,
+        "line": 167231,
+        "op": "call",
+        "args": [
+          "r4",
+          "2",
+          "0"
+        ]
+      },
+      {
+        "pc": 86,
+        "line": 167232,
+        "op": "call",
+        "args": [
+          "r2",
+          "0",
+          "2"
+        ]
+      },
+      {
+        "pc": 87,
+        "line": 167233,
+        "op": "lt",
+        "args": [
+          "0",
+          "k6",
+          "r2"
+        ]
+      },
+      {
+        "pc": 88,
+        "line": 167234,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l100"
+        ]
+      },
+      {
+        "pc": 89,
+        "line": 167235,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k20"
+        ]
+      },
+      {
+        "pc": 90,
+        "line": 167236,
+        "op": "move",
+        "args": [
+          "r3",
+          "r0"
+        ]
+      },
+      {
+        "pc": 91,
+        "line": 167237,
+        "op": "call",
+        "args": [
+          "r2",
+          "2",
+          "2"
+        ]
+      },
+      {
+        "pc": 92,
+        "line": 167238,
+        "op": "gettabup",
+        "args": [
+          "r3",
+          "u0",
+          "k16"
+        ]
+      },
+      {
+        "pc": 93,
+        "line": 167239,
+        "op": "loadk",
+        "args": [
+          "r4",
+          "k6"
+        ]
+      },
+      {
+        "pc": 94,
+        "line": 167240,
+        "op": "loadk",
+        "args": [
+          "r5",
+          "k17"
+        ]
+      },
+      {
+        "pc": 95,
+        "line": 167241,
+        "op": "call",
+        "args": [
+          "r3",
+          "3",
+          "2"
+        ]
+      },
+      {
+        "pc": 96,
+        "line": 167242,
+        "op": "lt",
+        "args": [
+          "0",
+          "r3",
+          "r2"
+        ]
+      },
+      {
+        "pc": 97,
+        "line": 167243,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l100"
+        ]
+      },
+      {
+        "pc": 98,
+        "line": 167244,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k21"
+        ]
+      },
+      {
+        "pc": 99,
+        "line": 167245,
+        "op": "call",
+        "args": [
+          "r2",
+          "1",
+          "1"
+        ]
+      },
+      {
+        "pc": 100,
+        "line": 167247,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k3"
+        ]
+      },
+      {
+        "pc": 101,
+        "line": 167248,
+        "op": "move",
+        "args": [
+          "r3",
+          "r0"
+        ]
+      },
+      {
+        "pc": 102,
+        "line": 167249,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k4"
+        ]
+      },
+      {
+        "pc": 103,
+        "line": 167250,
+        "op": "loadk",
+        "args": [
+          "r5",
+          "k22"
+        ]
+      },
+      {
+        "pc": 104,
+        "line": 167251,
+        "op": "call",
+        "args": [
+          "r4",
+          "2",
+          "0"
+        ]
+      },
+      {
+        "pc": 105,
+        "line": 167252,
+        "op": "call",
+        "args": [
+          "r2",
+          "0",
+          "2"
+        ]
+      },
+      {
+        "pc": 106,
+        "line": 167253,
+        "op": "lt",
+        "args": [
+          "0",
+          "k6",
+          "r2"
+        ]
+      },
+      {
+        "pc": 107,
+        "line": 167254,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l110"
+        ]
+      },
+      {
+        "pc": 108,
+        "line": 167255,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k23"
+        ]
+      },
+      {
+        "pc": 109,
+        "line": 167256,
+        "op": "call",
+        "args": [
+          "r2",
+          "1",
+          "1"
+        ]
+      },
+      {
+        "pc": 110,
+        "line": 167258,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k3"
+        ]
+      },
+      {
+        "pc": 111,
+        "line": 167259,
+        "op": "move",
+        "args": [
+          "r3",
+          "r0"
+        ]
+      },
+      {
+        "pc": 112,
+        "line": 167260,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k4"
+        ]
+      },
+      {
+        "pc": 113,
+        "line": 167261,
+        "op": "loadk",
+        "args": [
+          "r5",
+          "k24"
+        ]
+      },
+      {
+        "pc": 114,
+        "line": 167262,
+        "op": "call",
+        "args": [
+          "r4",
+          "2",
+          "0"
+        ]
+      },
+      {
+        "pc": 115,
+        "line": 167263,
+        "op": "call",
+        "args": [
+          "r2",
+          "0",
+          "2"
+        ]
+      },
+      {
+        "pc": 116,
+        "line": 167264,
+        "op": "lt",
+        "args": [
+          "0",
+          "k6",
+          "r2"
+        ]
+      },
+      {
+        "pc": 117,
+        "line": 167265,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l129"
+        ]
+      },
+      {
+        "pc": 118,
+        "line": 167266,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k3"
+        ]
+      },
+      {
+        "pc": 119,
+        "line": 167267,
+        "op": "move",
+        "args": [
+          "r3",
+          "r0"
+        ]
+      },
+      {
+        "pc": 120,
+        "line": 167268,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k4"
+        ]
+      },
+      {
+        "pc": 121,
+        "line": 167269,
+        "op": "loadk",
+        "args": [
+          "r5",
+          "k25"
+        ]
+      },
+      {
+        "pc": 122,
+        "line": 167270,
+        "op": "call",
+        "args": [
+          "r4",
+          "2",
+          "0"
+        ]
+      },
+      {
+        "pc": 123,
+        "line": 167271,
+        "op": "call",
+        "args": [
+          "r2",
+          "0",
+          "2"
+        ]
+      },
+      {
+        "pc": 124,
+        "line": 167272,
+        "op": "eq",
+        "args": [
+          "0",
+          "r2",
+          "k6"
+        ]
+      },
+      {
+        "pc": 125,
+        "line": 167273,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l129"
+        ]
+      },
+      {
+        "pc": 126,
+        "line": 167274,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k26"
+        ]
+      },
+      {
+        "pc": 127,
+        "line": 167275,
+        "op": "move",
+        "args": [
+          "r3",
+          "r0"
+        ]
+      },
+      {
+        "pc": 128,
+        "line": 167276,
+        "op": "call",
+        "args": [
+          "r2",
+          "2",
+          "1"
+        ]
+      },
+      {
+        "pc": 129,
+        "line": 167278,
+        "op": "eq",
+        "args": [
+          "1",
+          "k27",
+          "r1"
+        ]
+      },
+      {
+        "pc": 130,
+        "line": 167279,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l151"
+        ]
+      },
+      {
+        "pc": 131,
+        "line": 167280,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k3"
+        ]
+      },
+      {
+        "pc": 132,
+        "line": 167281,
+        "op": "move",
+        "args": [
+          "r3",
+          "r0"
+        ]
+      },
+      {
+        "pc": 133,
+        "line": 167282,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k4"
+        ]
+      },
+      {
+        "pc": 134,
+        "line": 167283,
+        "op": "loadk",
+        "args": [
+          "r5",
+          "k28"
+        ]
+      },
+      {
+        "pc": 135,
+        "line": 167284,
+        "op": "call",
+        "args": [
+          "r4",
+          "2",
+          "0"
+        ]
+      },
+      {
+        "pc": 136,
+        "line": 167285,
+        "op": "call",
+        "args": [
+          "r2",
+          "0",
+          "2"
+        ]
+      },
+      {
+        "pc": 137,
+        "line": 167286,
+        "op": "lt",
+        "args": [
+          "1",
+          "k6",
+          "r2"
+        ]
+      },
+      {
+        "pc": 138,
+        "line": 167287,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l147"
+        ]
+      },
+      {
+        "pc": 139,
+        "line": 167288,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k3"
+        ]
+      },
+      {
+        "pc": 140,
+        "line": 167289,
+        "op": "move",
+        "args": [
+          "r3",
+          "r0"
+        ]
+      },
+      {
+        "pc": 141,
+        "line": 167290,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k4"
+        ]
+      },
+      {
+        "pc": 142,
+        "line": 167291,
+        "op": "loadk",
+        "args": [
+          "r5",
+          "k29"
+        ]
+      },
+      {
+        "pc": 143,
+        "line": 167292,
+        "op": "call",
+        "args": [
+          "r4",
+          "2",
+          "0"
+        ]
+      },
+      {
+        "pc": 144,
+        "line": 167293,
+        "op": "call",
+        "args": [
+          "r2",
+          "0",
+          "2"
+        ]
+      },
+      {
+        "pc": 145,
+        "line": 167294,
+        "op": "lt",
+        "args": [
+          "0",
+          "k6",
+          "r2"
+        ]
+      },
+      {
+        "pc": 146,
+        "line": 167295,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l151"
+        ]
+      },
+      {
+        "pc": 147,
+        "line": 167297,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k30"
+        ]
+      },
+      {
+        "pc": 148,
+        "line": 167298,
+        "op": "move",
+        "args": [
+          "r3",
+          "r0"
+        ]
+      },
+      {
+        "pc": 149,
+        "line": 167299,
+        "op": "move",
+        "args": [
+          "r4",
+          "r1"
+        ]
+      },
+      {
+        "pc": 150,
+        "line": 167300,
+        "op": "call",
+        "args": [
+          "r2",
+          "3",
+          "1"
+        ]
+      }
+    ],
+    "labels": {
+      "l100": 100,
+      "l110": 110,
+      "l129": 129,
+      "l14": 14,
+      "l147": 147,
+      "l151": 151,
+      "l25": 25,
+      "l51": 51,
+      "l63": 63,
+      "l81": 81
+    }
+  },
+  "branch": {
+    "function": "main/f291/f3",
+    "pcs": [
+      129,
+      150
+    ],
+    "lines": [
+      167278,
+      167300
+    ],
+    "constants": {
+      "k27": null,
+      "k28": "A067",
+      "k29": "A148",
+      "k3": "GetUnitAbilityLevel",
+      "k30": "A067_Action",
+      "k4": "GetId",
+      "k6": 0
+    },
+    "instructions": [
+      {
+        "pc": 129,
+        "line": 167278,
+        "op": "eq",
+        "args": [
+          "1",
+          "k27",
+          "r1"
+        ]
+      },
+      {
+        "pc": 130,
+        "line": 167279,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l151"
+        ]
+      },
+      {
+        "pc": 131,
+        "line": 167280,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k3"
+        ]
+      },
+      {
+        "pc": 132,
+        "line": 167281,
+        "op": "move",
+        "args": [
+          "r3",
+          "r0"
+        ]
+      },
+      {
+        "pc": 133,
+        "line": 167282,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k4"
+        ]
+      },
+      {
+        "pc": 134,
+        "line": 167283,
+        "op": "loadk",
+        "args": [
+          "r5",
+          "k28"
+        ]
+      },
+      {
+        "pc": 135,
+        "line": 167284,
+        "op": "call",
+        "args": [
+          "r4",
+          "2",
+          "0"
+        ]
+      },
+      {
+        "pc": 136,
+        "line": 167285,
+        "op": "call",
+        "args": [
+          "r2",
+          "0",
+          "2"
+        ]
+      },
+      {
+        "pc": 137,
+        "line": 167286,
+        "op": "lt",
+        "args": [
+          "1",
+          "k6",
+          "r2"
+        ]
+      },
+      {
+        "pc": 138,
+        "line": 167287,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l147"
+        ]
+      },
+      {
+        "pc": 139,
+        "line": 167288,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k3"
+        ]
+      },
+      {
+        "pc": 140,
+        "line": 167289,
+        "op": "move",
+        "args": [
+          "r3",
+          "r0"
+        ]
+      },
+      {
+        "pc": 141,
+        "line": 167290,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k4"
+        ]
+      },
+      {
+        "pc": 142,
+        "line": 167291,
+        "op": "loadk",
+        "args": [
+          "r5",
+          "k29"
+        ]
+      },
+      {
+        "pc": 143,
+        "line": 167292,
+        "op": "call",
+        "args": [
+          "r4",
+          "2",
+          "0"
+        ]
+      },
+      {
+        "pc": 144,
+        "line": 167293,
+        "op": "call",
+        "args": [
+          "r2",
+          "0",
+          "2"
+        ]
+      },
+      {
+        "pc": 145,
+        "line": 167294,
+        "op": "lt",
+        "args": [
+          "0",
+          "k6",
+          "r2"
+        ]
+      },
+      {
+        "pc": 146,
+        "line": 167295,
+        "op": "jmp",
+        "args": [
+          "0",
+          "l151"
+        ]
+      },
+      {
+        "pc": 147,
+        "line": 167297,
+        "op": "gettabup",
+        "args": [
+          "r2",
+          "u0",
+          "k30"
+        ]
+      },
+      {
+        "pc": 148,
+        "line": 167298,
+        "op": "move",
+        "args": [
+          "r3",
+          "r0"
+        ]
+      },
+      {
+        "pc": 149,
+        "line": 167299,
+        "op": "move",
+        "args": [
+          "r4",
+          "r1"
+        ]
+      },
+      {
+        "pc": 150,
+        "line": 167300,
+        "op": "call",
+        "args": [
+          "r2",
+          "3",
+          "1"
+        ]
+      }
+    ],
+    "labels": {
+      "l147": 147,
+      "l151": 151
+    }
+  },
+  "event_registration": {
+    "function": "main/f291/f31",
+    "lines": [
+      179448,
+      179486
+    ],
+    "constants": {
+      "k0": "CreateTrigger",
+      "k1": "TriggerRegisterPlayerUnitEvent",
+      "k2": "Player",
+      "k3": 11,
+      "k4": "EVENT_PLAYER_UNIT_ATTACKED",
+      "k5": "TriggerAddCondition",
+      "k6": "Condition",
+      "k7": "chooseAttackedAction"
+    },
+    "instructions": [
+      {
+        "pc": 1,
+        "line": 179468,
+        "op": "gettabup",
+        "args": [
+          "r0",
+          "u0",
+          "k0"
+        ]
+      },
+      {
+        "pc": 2,
+        "line": 179469,
+        "op": "call",
+        "args": [
+          "r0",
+          "1",
+          "2"
+        ]
+      },
+      {
+        "pc": 3,
+        "line": 179470,
+        "op": "gettabup",
+        "args": [
+          "r1",
+          "u0",
+          "k1"
+        ]
+      },
+      {
+        "pc": 4,
+        "line": 179471,
+        "op": "move",
+        "args": [
+          "r2",
+          "r0"
+        ]
+      },
+      {
+        "pc": 5,
+        "line": 179472,
+        "op": "gettabup",
+        "args": [
+          "r3",
+          "u0",
+          "k2"
+        ]
+      },
+      {
+        "pc": 6,
+        "line": 179473,
+        "op": "loadk",
+        "args": [
+          "r4",
+          "k3"
+        ]
+      },
+      {
+        "pc": 7,
+        "line": 179474,
+        "op": "call",
+        "args": [
+          "r3",
+          "2",
+          "2"
+        ]
+      },
+      {
+        "pc": 8,
+        "line": 179475,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k4"
+        ]
+      },
+      {
+        "pc": 9,
+        "line": 179476,
+        "op": "loadnil",
+        "args": [
+          "r5",
+          "0"
+        ]
+      },
+      {
+        "pc": 10,
+        "line": 179477,
+        "op": "call",
+        "args": [
+          "r1",
+          "5",
+          "1"
+        ]
+      },
+      {
+        "pc": 11,
+        "line": 179478,
+        "op": "gettabup",
+        "args": [
+          "r1",
+          "u0",
+          "k5"
+        ]
+      },
+      {
+        "pc": 12,
+        "line": 179479,
+        "op": "move",
+        "args": [
+          "r2",
+          "r0"
+        ]
+      },
+      {
+        "pc": 13,
+        "line": 179480,
+        "op": "gettabup",
+        "args": [
+          "r3",
+          "u0",
+          "k6"
+        ]
+      },
+      {
+        "pc": 14,
+        "line": 179481,
+        "op": "gettabup",
+        "args": [
+          "r4",
+          "u0",
+          "k7"
+        ]
+      },
+      {
+        "pc": 15,
+        "line": 179482,
+        "op": "call",
+        "args": [
+          "r3",
+          "2",
+          "0"
+        ]
+      },
+      {
+        "pc": 16,
+        "line": 179483,
+        "op": "call",
+        "args": [
+          "r1",
+          "0",
+          "1"
+        ]
+      },
+      {
+        "pc": 17,
+        "line": 179484,
+        "op": "loadnil",
+        "args": [
+          "r0",
+          "0"
+        ]
+      },
+      {
+        "pc": 18,
+        "line": 179485,
+        "op": "return",
+        "args": [
+          "r0",
+          "1"
+        ]
+      }
+    ],
+    "labels": {}
+  },
+  "probability": {
+    "rng": "GetRandomInt",
+    "inclusive_min": 1,
+    "inclusive_max": 100,
+    "strength": "GetHeroStr(attacker,true)",
+    "threshold_formula": "min(60,15 + strength/100*5)",
+    "success_predicate": "roll <= threshold",
+    "exact_chance_formula": "count({r in integers 1..100 : r <= min(60,15 + strength/100*5)})/100",
+    "all_skill_levels_same_formula": true,
+    "no_explicit_lower_clamp": true,
+    "source_examples": [
+      {
+        "strength": 0,
+        "threshold": 15.0,
+        "successful_integer_count": 15
+      },
+      {
+        "strength": 1,
+        "threshold": 15.05,
+        "successful_integer_count": 15
+      },
+      {
+        "strength": 19,
+        "threshold": 15.95,
+        "successful_integer_count": 15
+      },
+      {
+        "strength": 20,
+        "threshold": 16.0,
+        "successful_integer_count": 16
+      },
+      {
+        "strength": 99,
+        "threshold": 19.95,
+        "successful_integer_count": 19
+      },
+      {
+        "strength": 100,
+        "threshold": 20.0,
+        "successful_integer_count": 20
+      },
+      {
+        "strength": 899,
+        "threshold": 59.95,
+        "successful_integer_count": 59
+      },
+      {
+        "strength": 900,
+        "threshold": 60,
+        "successful_integer_count": 60
+      },
+      {
+        "strength": 1000,
+        "threshold": 60,
+        "successful_integer_count": 60
+      }
+    ],
+    "quantization_conflict_claimed": false,
+    "quantization_note": "图鉴每100点力量提升5%并未明确非整百力量如何取整；记录原整数抽样，不据此创建另一题。"
+  },
+  "execution": {
+    "event": "EVENT_PLAYER_UNIT_ATTACKED on attacked owner Player(11)",
+    "source": "GetAttacker() actual attacking unit",
+    "target": "GetTriggerUnit()",
+    "illusion": "IsUnitIllusion(attacker) true calls isolated illusion branch then returns before Skill_Auto and before A067; no A067 inline draw",
+    "ordinary_prefix_order": [
+      "optional T217/A196_add_num",
+      "Skill_Auto",
+      "optional N706..N708 target reaction",
+      "A022 branch",
+      "T316 branch",
+      "A023 branch",
+      "A077 without A078 branch",
+      "A067/A148 branch"
+    ],
+    "branch_predicate": "target != nil and (GetUnitAbilityLevel(attacker,A067)>0 or GetUnitAbilityLevel(attacker,A148)>0)",
+    "ability_checks_before_A067_rng": true,
+    "shared_A067_A148_action_calls": 1,
+    "timer_key": "IsInTable(attacker,Tower_ALL), no explicit -1 rejection in this function",
+    "locked_behavior": "If timers[index] is non-nil, return before GetRandomInt; neither reroll nor extend lock",
+    "failed_roll": "return before effect and before CreateTimer; no new lock",
+    "successful_roll": "emit one clusterrockets order, then start one nonperiodic timer; order return ignored and no hit acknowledgement required",
+    "timer_seconds": 2.4,
+    "timer_expiry": "GetExpiredTimer; find timer key via IsInTable(timer,timers); DestroyTimer; timers[key]=nil",
+    "native_effect_admission_warning": "TimerStart is script-visible; target immunity, order rejection or damage result is not consulted before locking. Does not prove native spell effect succeeds.",
+    "not_added_gates": [
+      "no local damage-event attack flag requirement",
+      "no local nonzero damage requirement",
+      "no local mana/cost check",
+      "no local game-mode check",
+      "no local per-skill-rank probability scaling"
+    ],
+    "public_gate_boundary": "Do not import anyUnitDamaged q004/q005/q039/B177 early gates into this separate attack-start dispatcher.",
+    "web_timer_seconds": 2,
+    "record_scope": "Original script admission/order facts, with web_timer_seconds recording only Q39. Q40 effect growth is defined in the linked effect document."
+  },
+  "effect_call_boundary": {
+    "source_type_G059": {
+      "rank_query": "A148",
+      "dummy_ability": "T162"
+    },
+    "other_source_types": {
+      "rank_query": "A067",
+      "dummy_ability": "T059"
+    },
+    "raw_CreateTempAndSetAbilityLv_arguments": [
+      "GetOwningPlayer(attacker)",
+      "GetUnitLoc(attacker)",
+      "queried ability rank",
+      "selected dummy ability string",
+      1,
+      3
+    ],
+    "order": "clusterrockets",
+    "full_effect_closure_claimed": false,
+    "note": "原固定一级参数作为来源证据保留。后续skill-avalanche-effect.md/.json已完成补偿排查并确认Q40：按图鉴六级伤害/普通眩晕成长、范围300，沿用Q39的2秒共享锁；此处旧原始调用不代表累计Web效果方案。",
+    "helper_signature": {
+      "readable_lines": [
+        31454,
+        31488
+      ],
+      "export_line": 31490,
+      "parameters": [
+        "owner",
+        "location",
+        "facing",
+        "abilityIdString",
+        "abilityLevel",
+        "timedLifeSeconds",
+        "optionalUnitIdString(default q001)"
+      ],
+      "bytecode": {
+        "function": "main/f7/f20",
+        "lines": [
+          51457,
+          51510
+        ],
+        "constants": {
+          "k0": "q001",
+          "k1": "CreateUnitAtLoc",
+          "k2": "GetId",
+          "k3": "UnitAddAbility",
+          "k4": "SetUnitAbilityLevel",
+          "k5": "UnitApplyTimedLife",
+          "k6": "BHwe"
+        },
+        "instructions": [
+          {
+            "pc": 1,
+            "line": 51476,
+            "op": "test",
+            "args": [
+              "r6",
+              "1"
+            ]
+          },
+          {
+            "pc": 2,
+            "line": 51477,
+            "op": "jmp",
+            "args": [
+              "0",
+              "l4"
+            ]
+          },
+          {
+            "pc": 3,
+            "line": 51478,
+            "op": "loadk",
+            "args": [
+              "r6",
+              "k0"
+            ]
+          },
+          {
+            "pc": 4,
+            "line": 51480,
+            "op": "gettabup",
+            "args": [
+              "r7",
+              "u0",
+              "k1"
+            ]
+          },
+          {
+            "pc": 5,
+            "line": 51481,
+            "op": "move",
+            "args": [
+              "r8",
+              "r0"
+            ]
+          },
+          {
+            "pc": 6,
+            "line": 51482,
+            "op": "gettabup",
+            "args": [
+              "r9",
+              "u0",
+              "k2"
+            ]
+          },
+          {
+            "pc": 7,
+            "line": 51483,
+            "op": "move",
+            "args": [
+              "r10",
+              "r6"
+            ]
+          },
+          {
+            "pc": 8,
+            "line": 51484,
+            "op": "call",
+            "args": [
+              "r9",
+              "2",
+              "2"
+            ]
+          },
+          {
+            "pc": 9,
+            "line": 51485,
+            "op": "move",
+            "args": [
+              "r10",
+              "r1"
+            ]
+          },
+          {
+            "pc": 10,
+            "line": 51486,
+            "op": "move",
+            "args": [
+              "r11",
+              "r2"
+            ]
+          },
+          {
+            "pc": 11,
+            "line": 51487,
+            "op": "call",
+            "args": [
+              "r7",
+              "5",
+              "2"
+            ]
+          },
+          {
+            "pc": 12,
+            "line": 51488,
+            "op": "gettabup",
+            "args": [
+              "r8",
+              "u0",
+              "k3"
+            ]
+          },
+          {
+            "pc": 13,
+            "line": 51489,
+            "op": "move",
+            "args": [
+              "r9",
+              "r7"
+            ]
+          },
+          {
+            "pc": 14,
+            "line": 51490,
+            "op": "gettabup",
+            "args": [
+              "r10",
+              "u0",
+              "k2"
+            ]
+          },
+          {
+            "pc": 15,
+            "line": 51491,
+            "op": "move",
+            "args": [
+              "r11",
+              "r3"
+            ]
+          },
+          {
+            "pc": 16,
+            "line": 51492,
+            "op": "call",
+            "args": [
+              "r10",
+              "2",
+              "0"
+            ]
+          },
+          {
+            "pc": 17,
+            "line": 51493,
+            "op": "call",
+            "args": [
+              "r8",
+              "0",
+              "1"
+            ]
+          },
+          {
+            "pc": 18,
+            "line": 51494,
+            "op": "gettabup",
+            "args": [
+              "r8",
+              "u0",
+              "k4"
+            ]
+          },
+          {
+            "pc": 19,
+            "line": 51495,
+            "op": "move",
+            "args": [
+              "r9",
+              "r7"
+            ]
+          },
+          {
+            "pc": 20,
+            "line": 51496,
+            "op": "gettabup",
+            "args": [
+              "r10",
+              "u0",
+              "k2"
+            ]
+          },
+          {
+            "pc": 21,
+            "line": 51497,
+            "op": "move",
+            "args": [
+              "r11",
+              "r3"
+            ]
+          },
+          {
+            "pc": 22,
+            "line": 51498,
+            "op": "call",
+            "args": [
+              "r10",
+              "2",
+              "2"
+            ]
+          },
+          {
+            "pc": 23,
+            "line": 51499,
+            "op": "move",
+            "args": [
+              "r11",
+              "r4"
+            ]
+          },
+          {
+            "pc": 24,
+            "line": 51500,
+            "op": "call",
+            "args": [
+              "r8",
+              "4",
+              "1"
+            ]
+          },
+          {
+            "pc": 25,
+            "line": 51501,
+            "op": "gettabup",
+            "args": [
+              "r8",
+              "u0",
+              "k5"
+            ]
+          },
+          {
+            "pc": 26,
+            "line": 51502,
+            "op": "move",
+            "args": [
+              "r9",
+              "r7"
+            ]
+          },
+          {
+            "pc": 27,
+            "line": 51503,
+            "op": "gettabup",
+            "args": [
+              "r10",
+              "u0",
+              "k2"
+            ]
+          },
+          {
+            "pc": 28,
+            "line": 51504,
+            "op": "loadk",
+            "args": [
+              "r11",
+              "k6"
+            ]
+          },
+          {
+            "pc": 29,
+            "line": 51505,
+            "op": "call",
+            "args": [
+              "r10",
+              "2",
+              "2"
+            ]
+          },
+          {
+            "pc": 30,
+            "line": 51506,
+            "op": "move",
+            "args": [
+              "r11",
+              "r5"
+            ]
+          },
+          {
+            "pc": 31,
+            "line": 51507,
+            "op": "call",
+            "args": [
+              "r8",
+              "4",
+              "1"
+            ]
+          },
+          {
+            "pc": 32,
+            "line": 51508,
+            "op": "return",
+            "args": [
+              "r7",
+              "2"
+            ]
+          },
+          {
+            "pc": 33,
+            "line": 51509,
+            "op": "return",
+            "args": [
+              "r0",
+              "1"
+            ]
+          }
+        ],
+        "labels": {
+          "l4": 4
+        }
+      },
+      "source_argument_interpretation": {
+        "facing": "queried A148/A067 rank",
+        "abilityLevel": 1,
+        "timedLifeSeconds": 3,
+        "unitId": "q001"
+      },
+      "conclusion": "The source queried rank is passed as facing and dummy ability level is explicitly1. Subsequent audit in skill-avalanche-effect.md/.json found no rank-restoring compensation and confirmed Q40 workbook growth. Preserve this source call as evidence; current Web uses the linked six-rank profile, radius300 and Q39 cooldown2."
+    }
+  },
+  "readable": {
+    "module_lines": [
+      44521,
+      44634
+    ],
+    "action_lines": [
+      44542,
+      44632
+    ],
+    "timer_expiry_lines": [
+      44527,
+      44540
+    ],
+    "entry_lines": [
+      114752,
+      114905
+    ],
+    "registration_lines": [
+      124832,
+      124855
+    ]
+  },
+  "screening": {
+    "method": "Intersect workbook F IDs whose H/I text includes probability and percent with exact scripts.model.skill.ID modules containing GetRandomInt/GetRandomReal; filter known audited IDs; this does not exhaust generic dispatcher RNG or alias modules",
+    "new_candidates_metadata": [
+      {
+        "id": "A067",
+        "rows": [
+          270,
+          426
+        ],
+        "action_inspected": true
+      },
+      {
+        "id": "A084",
+        "rows": [
+          397,
+          621
+        ],
+        "action_inspected": false
+      }
+    ],
+    "new_effect_functions_inspected": 1,
+    "limit": 5,
+    "stopped_at_first_confirmed_difference": "A067 cooldown 2 vs 2.4 seconds"
+  },
+  "validation": {
+    "status": "passed",
+    "source_probability_states": 1000,
+    "entry_states": 48,
+    "cooldown_boundaries": [
+      {
+        "seconds": 2.4,
+        "time": 0,
+        "draws": 1,
+        "locked": true
+      },
+      {
+        "seconds": 2.4,
+        "time": 2.399,
+        "draws": 1,
+        "locked": true
+      },
+      {
+        "seconds": 2.4,
+        "time": 2.4,
+        "after_callback_draws": 2,
+        "renewed_after_expiry": true
+      },
+      {
+        "seconds": 2.0,
+        "time": 0,
+        "draws": 1,
+        "locked": true
+      },
+      {
+        "seconds": 2.0,
+        "time": 1.999,
+        "draws": 1,
+        "locked": true
+      },
+      {
+        "seconds": 2.0,
+        "time": 2.0,
+        "after_callback_draws": 2,
+        "renewed_after_expiry": true
+      }
+    ],
+    "source_instruction_identity_checks": 341,
+    "unique_source_instruction_lines": 319,
+    "extra_cases": [
+      "source2.4 and selectedWeb2seconds: lock keyed independently per tower",
+      "failed rolls reroll without lock",
+      "G059+A148 usesT162 with fifth helper arg1",
+      "order false still schedules timer",
+      "due-time without callback remains locked",
+      "A067->A148 same tower shares lock"
+    ],
+    "method": "local Lua bytecode interpreter with native stubs; original action and entry prefix interpreted; historical Q39-only Web probe changes TimerStart constant2.4 to2; instruction identity checked against persistent disassembly; no Warcraft execution or full effect validation. This probe retains source level1 and is not a cumulative Q39+Q40 Web implementation.",
+    "probe_scope": {
+      "original_source_probe": "Original fixed-level1 caller/helper inputs and source2.4seconds remain as evidence",
+      "web_probe": "Q39-only timer constant changed to2seconds; no Q40 growth was executed by this historical probe",
+      "cumulative_Q39_Q40_implementation_tested": false,
+      "Q40_profile_reference": "skill-avalanche-effect.json#web_rank_profile",
+      "Q40_validation_reference": "skill-avalanche-effect.json#validation"
+    }
+  },
+  "remaining": [
+    "A067/A148 AOcr wrapper, ANeg conversion and full damage callees remain outside the completed T059/T162 layer",
+    "Original-client equality of selected native behavior remains unverified; target/timing/control implementation choices are now defined in avalanche-native-effect.md"
+  ],
+  "alias_identity": {
+    "id": "A148",
+    "actual_name": "山崩",
+    "workbook_F_column_matches": [],
+    "workbook_public_id": "A067",
+    "workbook_roles": [
+      {
+        "unit": "H021",
+        "name": "小小<SR>",
+        "row": 270
+      },
+      {
+        "unit": "G059",
+        "name": "火焰领主<SR>",
+        "row": 426
+      }
+    ],
+    "relation_evidence": [
+      "S211 spellbook in H021.abilList contains S212",
+      "S212 actual Name=火焰领主, Tip adds10 allstats and Ubertip says switch skin; strings18114..18133",
+      "Model_Change on S212, within native-HERO path, adds then removes A150; this is direct script evidence, not a Warcraft runtime test",
+      "A150 code ANeg DataD1=A148,A067; these two IDs are paired in source object data",
+      "A067_Action queries A148 on G059 and T162; other types use A067 and T059"
+    ],
+    "model_change_branch": {
+      "function": "main/f289/f7",
+      "pcs": [
+        204,
+        221
+      ],
+      "lines": [
+        156827,
+        156844
+      ],
+      "constants": {
+        "k33": "UnitAddAbility",
+        "k35": "UnitRemoveAbility",
+        "k44": "S212",
+        "k45": "A150",
+        "k7": "GetId"
+      },
+      "instructions": [
+        {
+          "pc": 204,
+          "line": 156827,
+          "op": "gettabup",
+          "args": [
+            "r7",
+            "u0",
+            "k7"
+          ]
+        },
+        {
+          "pc": 205,
+          "line": 156828,
+          "op": "loadk",
+          "args": [
+            "r8",
+            "k44"
+          ]
+        },
+        {
+          "pc": 206,
+          "line": 156829,
+          "op": "call",
+          "args": [
+            "r7",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "pc": 207,
+          "line": 156830,
+          "op": "eq",
+          "args": [
+            "0",
+            "r1",
+            "r7"
+          ]
+        },
+        {
+          "pc": 208,
+          "line": 156831,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l222"
+          ]
+        },
+        {
+          "pc": 209,
+          "line": 156832,
+          "op": "gettabup",
+          "args": [
+            "r7",
+            "u0",
+            "k33"
+          ]
+        },
+        {
+          "pc": 210,
+          "line": 156833,
+          "op": "move",
+          "args": [
+            "r8",
+            "r0"
+          ]
+        },
+        {
+          "pc": 211,
+          "line": 156834,
+          "op": "gettabup",
+          "args": [
+            "r9",
+            "u0",
+            "k7"
+          ]
+        },
+        {
+          "pc": 212,
+          "line": 156835,
+          "op": "loadk",
+          "args": [
+            "r10",
+            "k45"
+          ]
+        },
+        {
+          "pc": 213,
+          "line": 156836,
+          "op": "call",
+          "args": [
+            "r9",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 214,
+          "line": 156837,
+          "op": "call",
+          "args": [
+            "r7",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 215,
+          "line": 156838,
+          "op": "gettabup",
+          "args": [
+            "r7",
+            "u0",
+            "k35"
+          ]
+        },
+        {
+          "pc": 216,
+          "line": 156839,
+          "op": "move",
+          "args": [
+            "r8",
+            "r0"
+          ]
+        },
+        {
+          "pc": 217,
+          "line": 156840,
+          "op": "gettabup",
+          "args": [
+            "r9",
+            "u0",
+            "k7"
+          ]
+        },
+        {
+          "pc": 218,
+          "line": 156841,
+          "op": "loadk",
+          "args": [
+            "r10",
+            "k45"
+          ]
+        },
+        {
+          "pc": 219,
+          "line": 156842,
+          "op": "call",
+          "args": [
+            "r9",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 220,
+          "line": 156843,
+          "op": "call",
+          "args": [
+            "r7",
+            "0",
+            "1"
+          ]
+        },
+        {
+          "pc": 221,
+          "line": 156844,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l293"
+          ]
+        }
+      ],
+      "labels": {
+        "l222": 222,
+        "l293": 293
+      }
+    },
+    "readable_lines": [
+      106813,
+      106827
+    ],
+    "native_conversion_boundary": "ANeg add/remove final native skill conversion and level preservation not executed here. Do not infer new costs or distinct skills; shared admission/cooldown follows direct script independent of native conversion success.",
+    "cooldown_shared": "Both positive ability IDs enter same closure once. One timer table indexed by attacker Tower_ALL index; no ability-ID key. Lock check occurs before RNG and before G059/rank branch. Same tower with both IDs or a switched ID shares one lock; unrelated tower indices have separate locks."
+  },
+  "related_decisions": [
+    {
+      "id": "Q40",
+      "status": "confirmed",
+      "selected": "workbook_growth",
+      "document": "skill-avalanche-effect.md",
+      "data": "skill-avalanche-effect.json",
+      "web_profile_id": "avalanche-rank-profile-v1",
+      "damage": [
+        150,
+        275,
+        420,
+        650,
+        860,
+        1120
+      ],
+      "normal_stun_seconds": [
+        0.4,
+        0.6,
+        0.8,
+        1,
+        1.2,
+        1.5
+      ],
+      "radius": 300,
+      "shared_cooldown_seconds": 2,
+      "source_fixed_level_evidence_retained": true
+    }
+  ],
+  "nativeEffectFollowup": {
+    "baselineId": "avalanche-native-v1",
+    "specification": "avalanche-native-effect.md",
+    "machineRules": "avalanche-native-effect.json",
+    "scope": "T059/T162 native Web acceptance, target, timing, packet and control interfaces now specified; not matched-client verification"
+  }
+}

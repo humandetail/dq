@@ -1,0 +1,533 @@
+{
+  "baselineId": "item-weapon-effects-batch-01",
+  "scope": "Eight selected item weapon components, no whole-item claim",
+  "coverage": {
+    "uniqueItems": 8,
+    "weaponComponentsReady": 8,
+    "weaponComponentsRemaining": 0,
+    "mountedAliasesInScope": 2,
+    "auxiliaryAliasesInScope": 4
+  },
+  "items": {
+    "i149": {
+      "effect": "霜冻攻击",
+      "componentReady": true,
+      "entry": "main/f241/f0",
+      "cell": "装备与道具!H59",
+      "mounts": "I162,I161,I192,I193"
+    },
+    "i153": {
+      "effect": "冰霜吐息",
+      "componentReady": true,
+      "entry": "main/f242/f0",
+      "cell": "装备与道具!H63",
+      "mounts": "I163,I162,I162"
+    },
+    "i173": {
+      "effect": "连环闪电",
+      "componentReady": true,
+      "entry": "main/f243/f1",
+      "cell": "装备与道具!H83",
+      "mounts": "I123,I135,I134"
+    },
+    "i177": {
+      "effect": "连环闪电",
+      "componentReady": true,
+      "entry": "main/f243/f1",
+      "cell": "装备与道具!H87",
+      "mounts": "I123,I125,I135,I134"
+    },
+    "i186": {
+      "effect": "腐蚀",
+      "componentReady": true,
+      "entry": "I202",
+      "cell": "装备与道具!H96",
+      "mounts": "I135,I202"
+    },
+    "i188": {
+      "effect": "腐蚀",
+      "componentReady": true,
+      "entry": "I203",
+      "cell": "装备与道具!H98",
+      "mounts": "I136,I203"
+    },
+    "i204": {
+      "effect": "万箭齐发",
+      "componentReady": true,
+      "entry": "main/f246/f0",
+      "cell": "装备与道具!H114",
+      "mounts": "I151,I150"
+    },
+    "i282": {
+      "effect": "万箭齐发",
+      "componentReady": true,
+      "entry": "main/f246/f0",
+      "cell": "装备与道具!H192",
+      "mounts": "I171"
+    }
+  },
+  "abilityObjects": {
+    "I202": {
+      "jsonIndex": 1125,
+      "alias": "I202",
+      "code": "AIcb",
+      "BuffID1": "B032",
+      "DataB1": 25,
+      "DataE1": 2,
+      "Dur1": 5.0,
+      "HeroDur1": 5.0,
+      "levels": 1,
+      "targs1": "ground,air,ward",
+      "targs2": "_",
+      "targs3": "_",
+      "targs4": "_"
+    },
+    "I203": {
+      "jsonIndex": 1126,
+      "alias": "I203",
+      "code": "AIcb",
+      "BuffID1": "B032",
+      "DataB1": 70,
+      "DataE1": 2,
+      "Dur1": 5.0,
+      "HeroDur1": 5.0,
+      "levels": 1,
+      "targs1": "ground,air,ward",
+      "targs2": "_",
+      "targs3": "_",
+      "targs4": "_"
+    },
+    "T046": {
+      "jsonIndex": 1923,
+      "alias": "T046",
+      "code": "Afrb",
+      "BuffID1": "Bfro",
+      "checkDep": 1,
+      "Dur1": 3.0,
+      "HeroDur1": 2.0,
+      "levels": 1,
+      "targs1": "air,ground",
+      "targs2": "_",
+      "targs3": "_",
+      "targs4": "_"
+    },
+    "T047": {
+      "jsonIndex": 1924,
+      "alias": "T047",
+      "code": "AIob",
+      "BuffID1": "Bfro",
+      "DataE1": 2,
+      "Dur1": 3.0,
+      "HeroDur1": 2.0,
+      "levels": 1,
+      "targs1": "ground,air,ward",
+      "targs2": "_",
+      "targs3": "_",
+      "targs4": "_"
+    },
+    "T048": {
+      "jsonIndex": 1925,
+      "alias": "T048",
+      "code": "AOcl",
+      "Area1": 600.0,
+      "Area2": 600.0,
+      "checkDep": 1,
+      "Cool1": 9.0,
+      "Cool2": 9.0,
+      "DataA1": 1000.0,
+      "DataA2": 2000.0,
+      "DataB1": 5,
+      "DataB2": 7,
+      "levels": 2,
+      "reqLevel": 1,
+      "Rng1": 5000.0,
+      "Rng2": 5000.0,
+      "targs1": "air,ground,enemy,neutral,organic",
+      "targs2": "air,ground,enemy,neutral,organic",
+      "targs3": "_",
+      "targs4": "_"
+    },
+    "T050": {
+      "jsonIndex": 1927,
+      "alias": "T050",
+      "code": "Aroc",
+      "Area1": 900.0,
+      "checkDep": 1,
+      "Cool1": 2.0,
+      "DataB1": 9999999.0,
+      "DataC1": 8,
+      "Dur1": 1.0,
+      "HeroDur1": 1.0,
+      "levels": 1,
+      "targs1": "enemies",
+      "targs2": "_",
+      "targs3": "_",
+      "targs4": "_"
+    }
+  },
+  "weaponObjects": {
+    "q004": {
+      "sourcePath": "reference/map-6.25/units_unitweapons.json",
+      "jsonIndex": 1318,
+      "id": "q004",
+      "fields": {
+        "unitWeapID": "q004",
+        "acquire": 100000.0,
+        "atkType1": "spells",
+        "atkType2": "normal",
+        "cool1": 0.2,
+        "dice1": 1,
+        "dmgplus1": 1,
+        "rangeN1": 100000,
+        "rangeN2": 100000,
+        "RngBuff1": 100000.0,
+        "RngBuff2": 100000.0,
+        "showUI1": 1,
+        "showUI2": 1,
+        "sides1": 1,
+        "targCount1": 1,
+        "targCount2": 1,
+        "targs1": "ground,debris,air,item",
+        "weapsOn": 1,
+        "weapTp1": "normal"
+      }
+    },
+    "q005": {
+      "sourcePath": "reference/map-6.25/units_unitweapons.json",
+      "jsonIndex": 1319,
+      "id": "q005",
+      "fields": {
+        "unitWeapID": "q005",
+        "acquire": 100000.0,
+        "atkType1": "spells",
+        "atkType2": "normal",
+        "cool1": 0.2,
+        "dice1": 1,
+        "dmgplus1": 1,
+        "Qarea1": 360,
+        "rangeN1": 100000,
+        "rangeN2": 100000,
+        "RngBuff1": 100000.0,
+        "RngBuff2": 100000.0,
+        "showUI1": 1,
+        "showUI2": 1,
+        "sides1": 1,
+        "targCount1": 1,
+        "targCount2": 1,
+        "targs1": "ground,debris,air,item",
+        "weapsOn": 1,
+        "weapTp1": "msplash"
+      }
+    },
+    "q007": {
+      "sourcePath": "reference/map-6.25/units_unitweapons.json",
+      "jsonIndex": 1321,
+      "id": "q007",
+      "fields": {
+        "unitWeapID": "q007",
+        "acquire": 2000.0,
+        "atkType1": "hero",
+        "atkType2": "normal",
+        "cool1": 0.9,
+        "dice1": 1,
+        "dmgplus1": 1,
+        "rangeN1": 900,
+        "RngBuff1": 2000.0,
+        "showUI1": 1,
+        "showUI2": 1,
+        "sides1": 1,
+        "targCount1": 1,
+        "targCount2": 1,
+        "targs1": "ground,debris,air,item",
+        "weapsOn": 1,
+        "weapTp1": "missile"
+      }
+    }
+  },
+  "webRules": {
+    "frost": {
+      "i149": "single unit",
+      "i153": "360 closed radius",
+      "carrierDamage": 0,
+      "movementFactor": 0.6,
+      "attackSpeedContribution": -0.6,
+      "duration": 3,
+      "heroDuration": 2
+    },
+    "chain": {
+      "attemptLock": 0.1,
+      "precedence": [
+        "i173",
+        "i177"
+      ],
+      "noPostRollRetry": true,
+      "eachImpact": [
+        1000,
+        2000
+      ],
+      "maxDistinctUnits": [
+        5,
+        7
+      ],
+      "jumpRadius": 600,
+      "firstRange": 5000,
+      "falloff": 0
+    },
+    "corrosion": {
+      "penalties": [
+        -25,
+        -70
+      ],
+      "seconds": 5,
+      "buff": "B032",
+      "sameAttackOrbRule": "one strongest eligible corrosion",
+      "dispel": false
+    },
+    "barrage": {
+      "sourceMaxTargets": 8,
+      "webMaxTotalIncludingPrimary": 10,
+      "volleysPerProc": 1,
+      "chancePct": 25,
+      "successLock": 0.4,
+      "carrierLifetime": 2,
+      "radius": 900,
+      "maximumSecondaryRawDamage": 9999999.0
+    }
+  },
+  "verification": {
+    "originalScriptProbes": [
+      {
+        "name": "q004 reused, lifetime unchanged; stop deadline restarts",
+        "trace": [
+          [
+            "timer",
+            1,
+            10
+          ],
+          [
+            "createWeapon",
+            2,
+            "q004",
+            "ownerPosition",
+            0
+          ],
+          [
+            "order",
+            "weapon",
+            "attack",
+            "one"
+          ],
+          [
+            "timer",
+            2,
+            1
+          ],
+          [
+            "order",
+            "weapon",
+            "attack",
+            "two"
+          ],
+          [
+            "pauseTimer",
+            2
+          ],
+          [
+            "timer",
+            2,
+            1
+          ]
+        ]
+      },
+      {
+        "name": "q005 reused, lifetime unchanged; stop deadline restarts",
+        "trace": [
+          [
+            "timer",
+            1,
+            10
+          ],
+          [
+            "createWeapon",
+            2,
+            "q005",
+            "ownerPosition",
+            0
+          ],
+          [
+            "order",
+            "weapon",
+            "attack",
+            "one"
+          ],
+          [
+            "timer",
+            2,
+            1
+          ],
+          [
+            "order",
+            "weapon",
+            "attack",
+            "two"
+          ],
+          [
+            "pauseTimer",
+            2
+          ],
+          [
+            "timer",
+            2,
+            1
+          ]
+        ]
+      },
+      {
+        "name": "shared chain lock, priority and exact probability",
+        "rank": 1,
+        "trace": [
+          [
+            "timer",
+            1,
+            0.1
+          ],
+          [
+            "roll",
+            15
+          ],
+          [
+            "createTemp",
+            2,
+            "ownerPosition",
+            0,
+            "T048",
+            1,
+            1
+          ],
+          [
+            "userData",
+            "temp",
+            32
+          ],
+          [
+            "order",
+            "temp",
+            "chainlightning",
+            "one"
+          ]
+        ]
+      },
+      {
+        "name": "shared chain lock, priority and exact probability",
+        "rank": 2,
+        "trace": [
+          [
+            "timer",
+            1,
+            0.1
+          ],
+          [
+            "roll",
+            25
+          ],
+          [
+            "createTemp",
+            2,
+            "ownerPosition",
+            0,
+            "T048",
+            2,
+            1
+          ],
+          [
+            "userData",
+            "temp",
+            32
+          ],
+          [
+            "order",
+            "temp",
+            "chainlightning",
+            "one"
+          ]
+        ]
+      },
+      {
+        "name": "shared chain lock, priority and exact probability",
+        "rank": null,
+        "trace": [
+          [
+            "timer",
+            1,
+            0.1
+          ],
+          [
+            "roll",
+            16
+          ]
+        ]
+      },
+      {
+        "name": "q007 copies state18+state19; a blocked attempt still rolls",
+        "trace": [
+          [
+            "roll",
+            25
+          ],
+          [
+            "timer",
+            1,
+            0.4
+          ],
+          [
+            "createTemp",
+            2,
+            "ownerPosition",
+            0,
+            "T050",
+            1,
+            2,
+            "q007"
+          ],
+          [
+            "userData",
+            "temp",
+            32
+          ],
+          [
+            "writeUnitState",
+            "temp",
+            18,
+            133
+          ],
+          [
+            "order",
+            "temp",
+            "attack",
+            "one"
+          ],
+          [
+            "roll",
+            1
+          ]
+        ]
+      }
+    ],
+    "Q61Q64BarrageSelection": {
+      "volleyCount": 1,
+      "targets": [
+        20,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    }
+  },
+  "originalClientTested": false
+}

@@ -1,0 +1,1191 @@
+{
+  "baseline": "bounty-hunter-tracking-v1",
+  "source": {
+    "path": "reference/map-6.25/main.disasm",
+    "sha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+  },
+  "workbooks": {
+    "A089": {
+      "verifiedWorkbooks": [
+        "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+        "图鉴.xlsx"
+      ],
+      "rowColumnsAtoD": {
+        "325": [
+          "情报窃取者<SR>",
+          "G056",
+          1,
+          "学习技能"
+        ],
+        "560": [
+          "赏金猎人<SR>",
+          "H028",
+          1,
+          "学习技能"
+        ]
+      },
+      "sharedColumnsEtoJ": [
+        "投掷飞镖",
+        "A089",
+        6,
+        "向一名敌方单位掷出一枚致命的飞镖，对目标造成伤害和短暂眩晕。只要作用目标周围600范围内存在被追踪术标记的单位，飞镖就能向其弹射(最多弹射6次)。",
+        "等级 1｜对目标造成1000伤害。 耗蓝 50点。冷却 12秒。\n等级 2｜对目标造成1200伤害。 耗蓝 60点。冷却 11秒。\n等级 3｜对目标造成1400伤害。 耗蓝 70点。冷却 10秒。\n等级 4｜对目标造成1600伤害。 耗蓝 80点。冷却 9秒。\n等级 5｜对目标造成1800伤害。 耗蓝 90点。冷却 8秒。\n等级 6｜对目标造成2000伤害。 耗蓝 100点。冷却 7秒。\n伤害类型 法术伤害",
+        "冷却 8.0／7.0；耗蓝 90／100"
+      ]
+    },
+    "A090": {
+      "verifiedWorkbooks": [
+        "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+        "图鉴.xlsx"
+      ],
+      "rowColumnsAtoD": {
+        "326": [
+          "情报窃取者<SR>",
+          "G056",
+          2,
+          "学习技能"
+        ],
+        "561": [
+          "赏金猎人<SR>",
+          "H028",
+          2,
+          "学习技能"
+        ]
+      },
+      "sharedColumnsEtoJ": [
+        "暗影之风",
+        "A090",
+        6,
+        "赏金猎人习惯隐藏在风中，并学会了召唤风的能力，使投掷飞镖能够禁锢并且减速范围敌人。\n被动",
+        "等级 1｜禁锢275范围的敌人2秒，造成700点伤害，并持续减去区域400范围的敌人30%的移速。\n等级 2｜禁锢275范围的敌人2秒，造成900点伤害，并持续减去区域400范围的敌人30%的移速。\n等级 3｜禁锢275范围的敌人2秒，造成1100点伤害，并持续减去区域400范围的敌人30%的移速。\n等级 4｜禁锢275范围的敌人2秒，造成1300点伤害，并持续减去区域400范围的敌人30%的移速。\n等级 5｜禁锢275范围的敌人2秒，造成1500点伤害，并持续减去区域400范围的敌人30%的移速。\n等级 6｜禁锢275范围的敌人2秒，造成1700点伤害，并持续减去区域400范围的敌人30%的移速。\n伤害类型 法术伤害",
+        null
+      ]
+    },
+    "A091": {
+      "verifiedWorkbooks": [
+        "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+        "图鉴.xlsx"
+      ],
+      "rowColumnsAtoD": {
+        "327": [
+          "情报窃取者<SR>",
+          "G056",
+          3,
+          "学习技能"
+        ],
+        "562": [
+          "赏金猎人<SR>",
+          "H028",
+          3,
+          "学习技能"
+        ]
+      },
+      "sharedColumnsEtoJ": [
+        "追踪术",
+        "A091",
+        6,
+        "赏金猎人标记一个单位，降低单位护甲且获得其视野。如果标记期间单位死亡，将会得到额外的赏金(无尽中也能取得一半的赏金)。持续时间：10秒。",
+        "等级 1｜降低目标20点护甲，额外赏金为10~50。 耗蓝 10点。\n等级 2｜降低目标30点护甲，额外赏金为15~60。 耗蓝 15点。\n等级 3｜降低目标40点护甲，额外赏金为20~70。 耗蓝 20点。\n等级 4｜降低目标50点护甲，额外赏金为25~80。 耗蓝 25点。\n等级 5｜降低目标60点护甲，额外赏金为30~90。 耗蓝 30点。\n等级 6｜降低目标70点护甲，额外赏金为50~110。 耗蓝 40点。",
+        "冷却 6.0／5.0；耗蓝 30／40"
+      ]
+    }
+  },
+  "ranks": [
+    {
+      "rank": 1,
+      "dartDamage": 1000,
+      "dartMana": 50,
+      "dartCd": 12,
+      "stompDamage": 700,
+      "armorReduction": 20,
+      "markMana": 10,
+      "markCd": 10,
+      "bounty": [
+        10,
+        50
+      ]
+    },
+    {
+      "rank": 2,
+      "dartDamage": 1200,
+      "dartMana": 60,
+      "dartCd": 11,
+      "stompDamage": 900,
+      "armorReduction": 30,
+      "markMana": 15,
+      "markCd": 9,
+      "bounty": [
+        15,
+        60
+      ]
+    },
+    {
+      "rank": 3,
+      "dartDamage": 1400,
+      "dartMana": 70,
+      "dartCd": 10,
+      "stompDamage": 1100,
+      "armorReduction": 40,
+      "markMana": 20,
+      "markCd": 8,
+      "bounty": [
+        20,
+        70
+      ]
+    },
+    {
+      "rank": 4,
+      "dartDamage": 1600,
+      "dartMana": 80,
+      "dartCd": 9,
+      "stompDamage": 1300,
+      "armorReduction": 50,
+      "markMana": 25,
+      "markCd": 7,
+      "bounty": [
+        25,
+        80
+      ]
+    },
+    {
+      "rank": 5,
+      "dartDamage": 1800,
+      "dartMana": 90,
+      "dartCd": 8,
+      "stompDamage": 1500,
+      "armorReduction": 60,
+      "markMana": 30,
+      "markCd": 6,
+      "bounty": [
+        30,
+        90
+      ]
+    },
+    {
+      "rank": 6,
+      "dartDamage": 2000,
+      "dartMana": 100,
+      "dartCd": 7,
+      "stompDamage": 1700,
+      "armorReduction": 70,
+      "markMana": 40,
+      "markCd": 5,
+      "bounty": [
+        50,
+        110
+      ]
+    }
+  ],
+  "objects": {
+    "A089": [
+      {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 887,
+        "id": "A089",
+        "fields": {
+          "alias": "A089",
+          "code": "AHtb",
+          "BuffID1": "BPSE",
+          "BuffID2": "BPSE",
+          "BuffID3": "BPSE",
+          "BuffID4": "BPSE",
+          "checkDep": 1,
+          "Cool1": 12.0,
+          "Cool2": 11.0,
+          "Cool3": 10.0,
+          "Cool4": 9.0,
+          "Cost1": 50,
+          "Cost2": 60,
+          "Cost3": 70,
+          "Cost4": 80,
+          "Dur1": 0.1,
+          "Dur2": 0.1,
+          "Dur3": 0.1,
+          "Dur4": 0.1,
+          "HeroDur1": 0.1,
+          "HeroDur2": 0.1,
+          "HeroDur3": 0.1,
+          "HeroDur4": 0.1,
+          "levels": 6,
+          "reqLevel": 1,
+          "Rng1": 900.0,
+          "Rng2": 900.0,
+          "Rng3": 900.0,
+          "Rng4": 900.0,
+          "targs1": "enemies",
+          "targs2": "enemies",
+          "targs3": "enemies",
+          "targs4": "enemies"
+        }
+      },
+      {
+        "sourcePath": "reference/map-6.25/war3map.w3a.json",
+        "jsonIndex": 54,
+        "id": "A089",
+        "fields": {
+          "old": "A089",
+          "new": "\u0000\u0000\u0000\u0000",
+          "mods": [
+            {
+              "key": "acdn",
+              "type": 2,
+              "level": 5,
+              "data": 0,
+              "value": 8.0
+            },
+            {
+              "key": "acdn",
+              "type": 2,
+              "level": 6,
+              "data": 0,
+              "value": 7.0
+            },
+            {
+              "key": "amcs",
+              "type": 0,
+              "level": 5,
+              "data": 0,
+              "value": 90
+            },
+            {
+              "key": "amcs",
+              "type": 0,
+              "level": 6,
+              "data": 0,
+              "value": 100
+            }
+          ]
+        }
+      }
+    ],
+    "A090": [
+      {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 888,
+        "id": "A090",
+        "fields": {
+          "alias": "A090",
+          "code": "AOcr",
+          "checkDep": 1,
+          "levels": 6,
+          "reqLevel": 1,
+          "targs1": "air,ground,enemy,neutral",
+          "targs2": "air,ground,enemy,neutral",
+          "targs3": "air,ground,enemy,neutral",
+          "targs4": "air,ground,enemy,neutral"
+        }
+      }
+    ],
+    "A091": [
+      {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 889,
+        "id": "A091",
+        "fields": {
+          "alias": "A091",
+          "code": "Afae",
+          "BuffID1": "B090",
+          "BuffID2": "B090",
+          "BuffID3": "B090",
+          "BuffID4": "B090",
+          "checkDep": 1,
+          "Cool1": 10.0,
+          "Cool2": 9.0,
+          "Cool3": 8.0,
+          "Cool4": 7.0,
+          "Cost1": 10,
+          "Cost2": 15,
+          "Cost3": 20,
+          "Cost4": 25,
+          "DataA1": 20,
+          "DataA2": 30,
+          "DataA3": 40,
+          "DataA4": 50,
+          "DataB1": 1,
+          "DataB2": 1,
+          "DataB3": 1,
+          "DataB4": 1,
+          "Dur1": 10.0,
+          "Dur2": 10.0,
+          "Dur3": 10.0,
+          "Dur4": 10.0,
+          "HeroDur1": 10.0,
+          "HeroDur2": 10.0,
+          "HeroDur3": 10.0,
+          "HeroDur4": 10.0,
+          "levels": 6,
+          "priority": 2,
+          "Rng1": 1300.0,
+          "Rng2": 1300.0,
+          "Rng3": 1300.0,
+          "Rng4": 1300.0,
+          "targs1": "enemies",
+          "targs2": "enemies",
+          "targs3": "enemies",
+          "targs4": "enemies"
+        }
+      },
+      {
+        "sourcePath": "reference/map-6.25/war3map.w3a.json",
+        "jsonIndex": 55,
+        "id": "A091",
+        "fields": {
+          "old": "A091",
+          "new": "\u0000\u0000\u0000\u0000",
+          "mods": [
+            {
+              "key": "acdn",
+              "type": 2,
+              "level": 5,
+              "data": 0,
+              "value": 6.0
+            },
+            {
+              "key": "acdn",
+              "type": 2,
+              "level": 6,
+              "data": 0,
+              "value": 5.0
+            },
+            {
+              "key": "amcs",
+              "type": 0,
+              "level": 5,
+              "data": 0,
+              "value": 30
+            },
+            {
+              "key": "amcs",
+              "type": 0,
+              "level": 6,
+              "data": 0,
+              "value": 40
+            },
+            {
+              "key": "Fae1",
+              "type": 0,
+              "level": 5,
+              "data": 1,
+              "value": 60
+            },
+            {
+              "key": "Fae1",
+              "type": 0,
+              "level": 6,
+              "data": 1,
+              "value": 70
+            }
+          ]
+        }
+      }
+    ],
+    "T090": [
+      {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1967,
+        "id": "T090",
+        "fields": {
+          "alias": "T090",
+          "code": "AHtb",
+          "BuffID1": "BPSE",
+          "BuffID2": "BPSE",
+          "BuffID3": "BPSE",
+          "BuffID4": "BPSE",
+          "checkDep": 1,
+          "DataA1": 1000.0,
+          "DataA2": 1200.0,
+          "DataA3": 1400.0,
+          "DataA4": 1600.0,
+          "Dur1": 0.1,
+          "Dur2": 0.1,
+          "Dur3": 0.1,
+          "Dur4": 0.1,
+          "HeroDur1": 0.1,
+          "HeroDur2": 0.1,
+          "HeroDur3": 0.1,
+          "HeroDur4": 0.1,
+          "levels": 6,
+          "reqLevel": 1,
+          "Rng1": 1000.0,
+          "Rng2": 1000.0,
+          "Rng3": 1000.0,
+          "Rng4": 1000.0,
+          "targs1": "enemies",
+          "targs2": "enemies",
+          "targs3": "enemies",
+          "targs4": "enemies"
+        }
+      },
+      {
+        "sourcePath": "reference/map-6.25/war3map.w3a.json",
+        "jsonIndex": 198,
+        "id": "T090",
+        "fields": {
+          "old": "T090",
+          "new": "\u0000\u0000\u0000\u0000",
+          "mods": [
+            {
+              "key": "Htb1",
+              "type": 2,
+              "level": 5,
+              "data": 1,
+              "value": 1800.0
+            },
+            {
+              "key": "Htb1",
+              "type": 2,
+              "level": 6,
+              "data": 1,
+              "value": 2000.0
+            }
+          ]
+        }
+      }
+    ],
+    "T091": [
+      {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1968,
+        "id": "T091",
+        "fields": {
+          "alias": "T091",
+          "code": "AOws",
+          "Area1": 350.0,
+          "Area2": 350.0,
+          "Area3": 350.0,
+          "Area4": 350.0,
+          "Cool1": 1.0,
+          "Cool2": 1.0,
+          "Cool3": 1.0,
+          "Cool4": 1.0,
+          "DataA1": 700.0,
+          "DataA2": 900.0,
+          "DataA3": 1100.0,
+          "DataA4": 1300.0,
+          "Dur1": 2.0,
+          "Dur2": 2.0,
+          "Dur3": 2.0,
+          "Dur4": 2.0,
+          "HeroDur1": 1.0,
+          "HeroDur2": 1.0,
+          "HeroDur3": 1.0,
+          "HeroDur4": 1.0,
+          "levels": 6,
+          "targs1": "enemies",
+          "targs2": "enemies",
+          "targs3": "enemies",
+          "targs4": "enemies"
+        }
+      },
+      {
+        "sourcePath": "reference/map-6.25/war3map.w3a.json",
+        "jsonIndex": 199,
+        "id": "T091",
+        "fields": {
+          "old": "T091",
+          "new": "\u0000\u0000\u0000\u0000",
+          "mods": [
+            {
+              "key": "Wrs1",
+              "type": 2,
+              "level": 5,
+              "data": 1,
+              "value": 1500.0
+            },
+            {
+              "key": "Wrs1",
+              "type": 2,
+              "level": 6,
+              "data": 1,
+              "value": 1700.0
+            }
+          ]
+        }
+      }
+    ],
+    "T092": [
+      {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 1969,
+        "id": "T092",
+        "fields": {
+          "alias": "T092",
+          "code": "AUau",
+          "Area1": 400.0,
+          "Area2": 400.0,
+          "Area3": 400.0,
+          "Area4": 400.0,
+          "BuffID1": "B089",
+          "BuffID2": "B089",
+          "BuffID3": "B089",
+          "BuffID4": "B089",
+          "checkDep": 1,
+          "DataA1": -0.3,
+          "DataA2": -0.3,
+          "DataA3": -0.3,
+          "DataA4": -0.3,
+          "EfctID1": "X003",
+          "EfctID2": "X003",
+          "EfctID3": "X003",
+          "EfctID4": "X003",
+          "levels": 6,
+          "reqLevel": 1,
+          "targs1": "enemies",
+          "targs2": "enemies",
+          "targs3": "enemies",
+          "targs4": "enemies"
+        }
+      }
+    ],
+    "q024": [
+      {
+        "sourcePath": "reference/map-6.25/units_unitabilities.json",
+        "jsonIndex": 1338,
+        "id": "q024",
+        "fields": {
+          "unitAbilID": "q024",
+          "abilList": "Avul,Aloc",
+          "auto": "_"
+        }
+      },
+      {
+        "sourcePath": "reference/map-6.25/units_unitweapons.json",
+        "jsonIndex": 1338,
+        "id": "q024",
+        "fields": {
+          "unitWeapID": "q024",
+          "acquire": 900.0,
+          "atkType1": "spells",
+          "atkType2": "normal",
+          "cool1": 1.0,
+          "dice1": 1,
+          "dmgplus1": 12,
+          "rangeN1": 10,
+          "RngBuff1": 250.0,
+          "showUI1": 1,
+          "showUI2": 1,
+          "sides1": 2,
+          "targCount1": 1,
+          "targCount2": 1,
+          "targs1": "ground,debris,air,item",
+          "weapTp1": "missile"
+        }
+      }
+    ],
+    "q001": [
+      {
+        "sourcePath": "reference/map-6.25/units_unitabilities.json",
+        "jsonIndex": 1315,
+        "id": "q001",
+        "fields": {
+          "unitAbilID": "q001",
+          "abilList": "Avul,Aloc",
+          "auto": "_"
+        }
+      },
+      {
+        "sourcePath": "reference/map-6.25/units_unitweapons.json",
+        "jsonIndex": 1315,
+        "id": "q001",
+        "fields": {
+          "unitWeapID": "q001",
+          "acquire": 900.0,
+          "atkType1": "spells",
+          "atkType2": "normal",
+          "cool1": 1.0,
+          "dice1": 1,
+          "dmgplus1": 12,
+          "rangeN1": 10,
+          "RngBuff1": 250.0,
+          "showUI1": 1,
+          "showUI2": 1,
+          "sides1": 2,
+          "targCount1": 1,
+          "targCount2": 1,
+          "targs1": "ground,debris,air,item",
+          "weapTp1": "missile"
+        }
+      }
+    ],
+    "B089": [
+      {
+        "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+        "jsonIndex": 323,
+        "id": "B089",
+        "fields": {
+          "alias": "B089"
+        }
+      }
+    ],
+    "B090": [
+      {
+        "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+        "jsonIndex": 324,
+        "id": "B090",
+        "fields": {
+          "alias": "B090"
+        }
+      }
+    ],
+    "X003": [
+      {
+        "sourcePath": "reference/map-6.25/units_abilitybuffdata.json",
+        "jsonIndex": 425,
+        "id": "X003",
+        "fields": {
+          "alias": "X003"
+        }
+      }
+    ],
+    "H028": [
+      {
+        "sourcePath": "reference/map-6.25/units_unitabilities.json",
+        "jsonIndex": 938,
+        "id": "H028",
+        "fields": {
+          "unitAbilID": "H028",
+          "abilList": "Avul,AInv,T033,S181",
+          "auto": "_",
+          "heroAbilList": "A089,A090,A091,T000,P000"
+        }
+      },
+      {
+        "sourcePath": "reference/map-6.25/units_unitweapons.json",
+        "jsonIndex": 938,
+        "id": "H028",
+        "fields": {
+          "unitWeapID": "H028",
+          "acquire": 800.0,
+          "atkType1": "hero",
+          "atkType2": "normal",
+          "backSw1": 0.58,
+          "castbsw": 0.1,
+          "castpt": 0.3,
+          "cool1": 1.2,
+          "dice1": 2,
+          "dmgplus1": 20,
+          "dmgpt1": 0.59,
+          "impactZ": 150.0,
+          "launchY": 70.0,
+          "launchZ": 150.0,
+          "rangeN1": 800,
+          "rangeN2": 800,
+          "RngBuff1": 3500.0,
+          "RngBuff2": 3500.0,
+          "showUI1": 1,
+          "showUI2": 1,
+          "sides1": 4,
+          "targCount1": 1,
+          "targCount2": 1,
+          "targs1": "ground,structure,debris,item,ward",
+          "weapsOn": 1,
+          "weapTp1": "normal",
+          "weapType1": "MetalMediumSlice"
+        }
+      }
+    ],
+    "G056": [
+      {
+        "sourcePath": "reference/map-6.25/units_unitabilities.json",
+        "jsonIndex": 886,
+        "id": "G056",
+        "fields": {
+          "unitAbilID": "G056",
+          "abilList": "Avul,AInv,T033",
+          "auto": "_",
+          "heroAbilList": "A089,A090,A091,T000,P000"
+        }
+      },
+      {
+        "sourcePath": "reference/map-6.25/units_unitweapons.json",
+        "jsonIndex": 886,
+        "id": "G056",
+        "fields": {
+          "unitWeapID": "G056",
+          "acquire": 800.0,
+          "atkType1": "hero",
+          "atkType2": "normal",
+          "backSw1": 0.58,
+          "castbsw": 0.1,
+          "castpt": 0.3,
+          "cool1": 1.2,
+          "dice1": 2,
+          "dmgplus1": 20,
+          "dmgpt1": 0.59,
+          "impactZ": 150.0,
+          "launchY": 70.0,
+          "launchZ": 150.0,
+          "rangeN1": 800,
+          "rangeN2": 800,
+          "RngBuff1": 3500.0,
+          "RngBuff2": 3500.0,
+          "showUI1": 1,
+          "showUI2": 1,
+          "sides1": 4,
+          "targCount1": 1,
+          "targCount2": 1,
+          "targs1": "ground,structure,debris,item,ward",
+          "weapsOn": 1,
+          "weapTp1": "normal",
+          "weapType1": "MetalMediumSlice"
+        }
+      }
+    ]
+  },
+  "literalReferences": {
+    "A089": [
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f7",
+        "key": "k71",
+        "constantLine": 49265,
+        "pc": 206,
+        "sourceLine": 49691,
+        "instruction": "loadk r40 k71"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f78/f0",
+        "key": "k11",
+        "constantLine": 77622,
+        "pc": 20,
+        "sourceLine": 77647,
+        "instruction": "loadk r12 k11"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f78/f1",
+        "key": "k40",
+        "constantLine": 77716,
+        "pc": 128,
+        "sourceLine": 77854,
+        "instruction": "loadk r22 k40"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f291/f14",
+        "key": "k141",
+        "constantLine": 169730,
+        "pc": 610,
+        "sourceLine": 170668,
+        "instruction": "loadk r5 k141"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f291/f27",
+        "key": "k123",
+        "constantLine": 173895,
+        "pc": 1562,
+        "sourceLine": 175753,
+        "instruction": "loadk r14 k123"
+      }
+    ],
+    "A090": [
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f78/f1",
+        "key": "k15",
+        "constantLine": 77691,
+        "pc": 27,
+        "sourceLine": 77750,
+        "instruction": "loadk r12 k15"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f291/f1",
+        "key": "k289",
+        "constantLine": 162281,
+        "pc": 2308,
+        "sourceLine": 164927,
+        "instruction": "loadk r7 k289"
+      }
+    ],
+    "A091": [
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f79/f1",
+        "key": "k7",
+        "constantLine": 78009,
+        "pc": 16,
+        "sourceLine": 78066,
+        "instruction": "loadk r7 k7"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f291/f14",
+        "key": "k146",
+        "constantLine": 169735,
+        "pc": 639,
+        "sourceLine": 170700,
+        "instruction": "loadk r5 k146"
+      }
+    ],
+    "A089_Number": [
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f78",
+        "key": "k0",
+        "constantLine": 77586,
+        "pc": 2,
+        "sourceLine": 77592,
+        "instruction": "settabup u0 k0 r1"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f78/f0",
+        "key": "k2",
+        "constantLine": 77613,
+        "pc": 5,
+        "sourceLine": 77632,
+        "instruction": "gettabup r3 u0 k2"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f78/f1",
+        "key": "k21",
+        "constantLine": 77697,
+        "pc": 51,
+        "sourceLine": 77774,
+        "instruction": "gettabup r6 u0 k21"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f78/f1",
+        "key": "k21",
+        "constantLine": 77697,
+        "pc": 52,
+        "sourceLine": 77775,
+        "instruction": "gettabup r7 u0 k21"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f78/f1",
+        "key": "k21",
+        "constantLine": 77697,
+        "pc": 56,
+        "sourceLine": 77779,
+        "instruction": "gettabup r6 u0 k21"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f78/f1",
+        "key": "k21",
+        "constantLine": 77697,
+        "pc": 61,
+        "sourceLine": 77784,
+        "instruction": "gettabup r6 u0 k21"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f78/f1",
+        "key": "k21",
+        "constantLine": 77697,
+        "pc": 89,
+        "sourceLine": 77814,
+        "instruction": "gettabup r14 u0 k21"
+      }
+    ],
+    "A089_Eff": [
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f78",
+        "key": "k3",
+        "constantLine": 77589,
+        "pc": 7,
+        "sourceLine": 77597,
+        "instruction": "settabup u0 k3 r2"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f291/f1",
+        "key": "k290",
+        "constantLine": 162282,
+        "pc": 2313,
+        "sourceLine": 164932,
+        "instruction": "loadk r4 k290"
+      }
+    ],
+    "A091_Action": [
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f79",
+        "key": "k3",
+        "constantLine": 77896,
+        "pc": 8,
+        "sourceLine": 77908,
+        "instruction": "settabup u0 k3 r1"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f291/f14",
+        "key": "k143",
+        "constantLine": 169732,
+        "pc": 623,
+        "sourceLine": 170681,
+        "instruction": "gettabup r4 u0 k143"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f291/f14",
+        "key": "k143",
+        "constantLine": 169732,
+        "pc": 643,
+        "sourceLine": 170704,
+        "instruction": "gettabup r4 u0 k143"
+      }
+    ],
+    "A091_DefUnits": [
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f78/f1",
+        "key": "k36",
+        "constantLine": 77712,
+        "pc": 108,
+        "sourceLine": 77834,
+        "instruction": "gettabup r16 u0 k36"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f79",
+        "key": "k0",
+        "constantLine": 77893,
+        "pc": 2,
+        "sourceLine": 77902,
+        "instruction": "settabup u0 k0 r1"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f79/f0",
+        "key": "k1",
+        "constantLine": 77929,
+        "pc": 3,
+        "sourceLine": 77948,
+        "instruction": "gettabup r4 u0 k1"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f79/f0",
+        "key": "k1",
+        "constantLine": 77929,
+        "pc": 8,
+        "sourceLine": 77953,
+        "instruction": "gettabup r4 u0 k1"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f79/f1",
+        "key": "k2",
+        "constantLine": 78004,
+        "pc": 6,
+        "sourceLine": 78055,
+        "instruction": "gettabup r4 u0 k2"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f79/f3",
+        "key": "k5",
+        "constantLine": 78224,
+        "pc": 10,
+        "sourceLine": 78235,
+        "instruction": "gettabup r2 u0 k5"
+      }
+    ],
+    "A091_AddMoney": [
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f79",
+        "key": "k4",
+        "constantLine": 77897,
+        "pc": 10,
+        "sourceLine": 77910,
+        "instruction": "settabup u0 k4 r1"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f291/f9",
+        "key": "k73",
+        "constantLine": 168364,
+        "pc": 315,
+        "sourceLine": 168735,
+        "instruction": "gettabup r3 u0 k73"
+      }
+    ],
+    "A091_End": [
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f79",
+        "key": "k6",
+        "constantLine": 77899,
+        "pc": 14,
+        "sourceLine": 77914,
+        "instruction": "settabup u0 k6 r1"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f79/f1",
+        "key": "k9",
+        "constantLine": 78011,
+        "pc": 23,
+        "sourceLine": 78073,
+        "instruction": "gettabup r6 u0 k9"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f79/f2",
+        "key": "k1",
+        "constantLine": 78199,
+        "pc": 3,
+        "sourceLine": 78203,
+        "instruction": "gettabup r1 u0 k1"
+      }
+    ],
+    "B089": [],
+    "B090": []
+  },
+  "pipelineSlices": {
+    "main/f291/f1:2297": {
+      "pc": [
+        2297,
+        2317
+      ],
+      "lines": [
+        164916,
+        164936
+      ]
+    },
+    "main/f291/f14:609": {
+      "pc": [
+        609,
+        627
+      ],
+      "lines": [
+        170667,
+        170686
+      ]
+    },
+    "main/f291/f14:638": {
+      "pc": [
+        638,
+        647
+      ],
+      "lines": [
+        170699,
+        170708
+      ]
+    },
+    "main/f291/f9:315": {
+      "pc": [
+        315,
+        318
+      ],
+      "lines": [
+        168735,
+        168738
+      ]
+    }
+  },
+  "status": {
+    "A089": "ready",
+    "A090": "ready",
+    "A091": "ready"
+  },
+  "bounceEvidence": {
+    "sourceCounterInitial": 1,
+    "sourceCounterStopAfter": 6,
+    "webCounterStopAfter": 7,
+    "actualKey": "Tower_ALL index",
+    "webKey": "castId",
+    "decision": "Q52"
+  },
+  "web": {
+    "bounceMaximumExtra": 6,
+    "bounceRadius": 600,
+    "stomp": {
+      "radius": 275,
+      "duration": 2,
+      "heroDuration": 2
+    },
+    "aura": {
+      "seconds": 4,
+      "radius": 400,
+      "moveFraction": -0.3,
+      "stack": "single"
+    },
+    "track": {
+      "seconds": 10,
+      "range": 1300,
+      "endlessFactor": 0.5,
+      "customHeroFactor": 6
+    }
+  },
+  "validation": {
+    "checks": [
+      "A089 writes caster index before launch then applies scepter marker",
+      "A090 must be learned by resolved owner",
+      "stationary first hit and 5 bounces, including repeated prior targets",
+      "stationary first hit and 6 bounces, including repeated prior targets",
+      "stomp reentry moves scan center but not carrier spawn snapshot",
+      "overlapping cast resets the shared slot and permits old chain to launch bounce 8",
+      "competition can terminate the old projectile after only three bounces",
+      "late hit applies both wind effects before reading its cleared counter",
+      "Q52 independently tracks old and new progress",
+      "Q52 restored old chain closes after its own seventh hit without clearing new progress",
+      "Q52 restored new chain independently completes six total bounces",
+      "last marker and replacement timer survive cancelled old expiry",
+      "missing killer leaves marker intact",
+      "death pays current marker rank and owner, custom hero then endless",
+      "consume once and before payout",
+      "unlearned A091 consumes marker without a draw",
+      "expiry clears all three tracked slots",
+      "dead occupied slot is reusable and cancels its timer",
+      "same-time Death versus marker expiry, expiry first=True",
+      "same-time Death versus marker expiry, expiry first=False"
+    ],
+    "functionLines": {
+      "main/f78": [
+        77575,
+        77598
+      ],
+      "main/f78/f0": [
+        77600,
+        77662
+      ],
+      "main/f78/f1": [
+        77664,
+        77880
+      ],
+      "main/f79": [
+        77882,
+        77915
+      ],
+      "main/f79/f0": [
+        77917,
+        77989
+      ],
+      "main/f79/f1": [
+        77991,
+        78185
+      ],
+      "main/f79/f2": [
+        78187,
+        78206
+      ],
+      "main/f79/f3": [
+        78208,
+        78239
+      ]
+    },
+    "instructionCoverage": {
+      "main/f78": 8,
+      "main/f78/f0": 35,
+      "main/f78/f1": 146,
+      "main/f79": 15,
+      "main/f79/f0": 40,
+      "main/f79/f1": 94,
+      "main/f79/f2": 6,
+      "main/f79/f3": 14,
+      "main/f291/f1": 20,
+      "main/f291/f14": 18
+    }
+  }
+}

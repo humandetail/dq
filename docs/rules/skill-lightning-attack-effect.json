@@ -1,0 +1,3135 @@
+{
+  "schemaVersion": 1,
+  "scope": "Complete N058_60_Action and direct CreateTempAndSetAbilityLv/IsInTable bodies, object fields and scoped T039/Alit/AOcr/N535 Web adaptation. Existing Q37 entry and B03/B04/B05 reused. Not a recursive audit of all damage callees, all lizard abilities or native client implementation.",
+  "source": {
+    "path": "reference/map-6.25/main.disasm",
+    "sha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+    "workbookPath": "图鉴.xlsx",
+    "workbookSha256": "457c8f7e37e19412a0dd072ce941e95604b0b8910860b9e1eb9883e6b82bb6af",
+    "stringsPath": "reference/map-6.25/units_campaignabilitystrings.txt",
+    "stringsSha256": "5240c99230cd441b4c376371a31a7987e65470feed736177473a206c55fbe8cc"
+  },
+  "coreFunction": {
+    "name": "N058_60_Action",
+    "function": "main/f177/f0",
+    "sourceLines": [
+      113340,
+      113435
+    ],
+    "counts": {
+      "instructions": 60,
+      "conditions": 3,
+      "calls": 14,
+      "returnInstructions": 1
+    },
+    "conditions": [
+      {
+        "pc": 15,
+        "line": 113387,
+        "raw": "lt 0 k3 r4",
+        "trueNextPC": 17,
+        "falseNextPC": 19,
+        "meaning": "N058 level>0 selects T039 level1; skip N059/N060 queries"
+      },
+      {
+        "pc": 25,
+        "line": 113398,
+        "raw": "lt 0 k3 r4",
+        "trueNextPC": 27,
+        "falseNextPC": 29,
+        "meaning": "N059 level>0 selects T039 level2; skip N060 query"
+      },
+      {
+        "pc": 35,
+        "line": 113409,
+        "raw": "lt 0 k3 r4",
+        "trueNextPC": 37,
+        "falseNextPC": 38,
+        "meaning": "N060 level>0 selects T039 level3; otherwise keep level0 and continue (outer entry prevents this normally)"
+      }
+    ],
+    "returns": [
+      {
+        "pc": 60,
+        "line": 113435,
+        "raw": "return r0 1"
+      }
+    ]
+  },
+  "helperFunctions": [
+    {
+      "name": "CreateTempAndSetAbilityLv",
+      "function": "main/f7/f20",
+      "sourceLines": [
+        51457,
+        51509
+      ],
+      "counts": {
+        "instructions": 33,
+        "conditions": 1,
+        "calls": 8,
+        "returnInstructions": 2
+      },
+      "conditions": [
+        {
+          "pc": 1,
+          "line": 51476,
+          "raw": "test r6 1",
+          "trueNextPC": 4,
+          "falseNextPC": 3,
+          "meaning": "unitID argument truthy: preserve; nil/false =>q001"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 32,
+          "line": 51508,
+          "raw": "return r7 2"
+        },
+        {
+          "pc": 33,
+          "line": 51509,
+          "raw": "return r0 1"
+        }
+      ]
+    },
+    {
+      "name": "IsInTable",
+      "function": "main/f7/f7",
+      "sourceLines": [
+        50776,
+        50810
+      ],
+      "counts": {
+        "instructions": 17,
+        "conditions": 2,
+        "calls": 1,
+        "returnInstructions": 4
+      },
+      "conditions": [
+        {
+          "pc": 1,
+          "line": 50791,
+          "raw": "eq 0 k0 r0",
+          "trueNextPC": 3,
+          "falseNextPC": 5,
+          "meaning": "object nil =>return-1"
+        },
+        {
+          "pc": 10,
+          "line": 50802,
+          "raw": "eq 0 r7 r0",
+          "trueNextPC": 12,
+          "falseNextPC": 13,
+          "meaning": "table[currentKey] equals object =>return currentKey; otherwise continue pairs loop"
+        }
+      ],
+      "returns": [
+        {
+          "pc": 4,
+          "line": 50794,
+          "raw": "return r2 2"
+        },
+        {
+          "pc": 12,
+          "line": 50804,
+          "raw": "return r5 2"
+        },
+        {
+          "pc": 16,
+          "line": 50809,
+          "raw": "return r2 2"
+        },
+        {
+          "pc": 17,
+          "line": 50810,
+          "raw": "return r0 1"
+        }
+      ]
+    }
+  ],
+  "allFunctionCounts": {
+    "instructions": 110,
+    "conditions": 6,
+    "calls": 23,
+    "returnInstructions": 7
+  },
+  "iteratorBackedge": {
+    "function": "main/f7/f7",
+    "pc": 14,
+    "line": 50807,
+    "raw": "tforloop r4 l9",
+    "targetPC": 9,
+    "nextPC": 15
+  },
+  "workbook": [
+    {
+      "row": 767,
+      "towerName": "雷霆蜥蜴Lv1<R>",
+      "towerId": "n183",
+      "abilityIdCell": "塔技能!F767",
+      "abilityId": "N058",
+      "levelCell": "塔技能!G767",
+      "level": 1,
+      "descriptionCell": "塔技能!H767",
+      "description": "雷霆蜥蜴攻击敌人时有20%概率释放闪电链造成400点法术伤害。",
+      "extraDescription": ""
+    },
+    {
+      "row": 770,
+      "towerName": "雷霆蜥蜴Lv2<R>",
+      "towerId": "n184",
+      "abilityIdCell": "塔技能!F770",
+      "abilityId": "N059",
+      "levelCell": "塔技能!G770",
+      "level": 1,
+      "descriptionCell": "塔技能!H770",
+      "description": "雷霆蜥蜴攻击敌人时有20%概率释放闪电链造成800点法术伤害。",
+      "extraDescription": ""
+    },
+    {
+      "row": 773,
+      "towerName": "雷霆蜥蜴Max<R>",
+      "towerId": "n185",
+      "abilityIdCell": "塔技能!F773",
+      "abilityId": "N060",
+      "levelCell": "塔技能!G773",
+      "level": 1,
+      "descriptionCell": "塔技能!H773",
+      "description": "雷霆蜥蜴攻击敌人时有20%概率释放闪电链造成1800点法术伤害。",
+      "extraDescription": ""
+    }
+  ],
+  "profiles": {
+    "N058": {
+      "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+      "lines": [
+        13668,
+        13679
+      ],
+      "fields": {
+        "Art": "ReplaceableTextures\\CommandButtons\\BTNChainLightning.blp",
+        "Buttonpos": "3,2",
+        "Name": "闪电攻击",
+        "ResearchArt": "ReplaceableTextures\\CommandButtons\\BTNCriticalStrike.blp",
+        "Researchbuttonpos": "2",
+        "Researchhotkey": "C",
+        "Researchtip": "学习致命一击(|cffffcc00C|r) - [|cffffcc00等级 %d|r]",
+        "Researchubertip": "给予一定的概率使得攻击力能大大增强。|n|n|cffffcc00等级 1|r -15%的概率，2倍于一般攻击的伤害值。|n|cffffcc00等级 2|r -15%的概率，3倍于一般攻击的伤害值。|n|cffffcc00等级 3|r -15%的概率，4倍于一般攻击的伤害值。",
+        "Tip": "闪电攻击 - [|cffffcc00等级 1|r]",
+        "Ubertip": "雷霆蜥蜴攻击敌人时有20%概率释放闪电链造成400点法术伤害。"
+      }
+    },
+    "N059": {
+      "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+      "lines": [
+        13680,
+        13691
+      ],
+      "fields": {
+        "Art": "ReplaceableTextures\\CommandButtons\\BTNChainLightning.blp",
+        "Buttonpos": "3,2",
+        "Name": "闪电攻击",
+        "ResearchArt": "ReplaceableTextures\\CommandButtons\\BTNCriticalStrike.blp",
+        "Researchbuttonpos": "2",
+        "Researchhotkey": "C",
+        "Researchtip": "学习致命一击(|cffffcc00C|r) - [|cffffcc00等级 %d|r]",
+        "Researchubertip": "给予一定的概率使得攻击力能大大增强。|n|n|cffffcc00等级 1|r -15%的概率，2倍于一般攻击的伤害值。|n|cffffcc00等级 2|r -15%的概率，3倍于一般攻击的伤害值。|n|cffffcc00等级 3|r -15%的概率，4倍于一般攻击的伤害值。",
+        "Tip": "闪电攻击 - [|cffffcc00等级 2|r]",
+        "Ubertip": "雷霆蜥蜴攻击敌人时有20%概率释放闪电链造成800点法术伤害。"
+      }
+    },
+    "N060": {
+      "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+      "lines": [
+        13692,
+        13703
+      ],
+      "fields": {
+        "Art": "ReplaceableTextures\\CommandButtons\\BTNChainLightning.blp",
+        "Buttonpos": "3,2",
+        "Name": "闪电攻击",
+        "ResearchArt": "ReplaceableTextures\\CommandButtons\\BTNCriticalStrike.blp",
+        "Researchbuttonpos": "2",
+        "Researchhotkey": "C",
+        "Researchtip": "学习致命一击(|cffffcc00C|r) - [|cffffcc00等级 %d|r]",
+        "Researchubertip": "给予一定的概率使得攻击力能大大增强。|n|n|cffffcc00等级 1|r -15%的概率，2倍于一般攻击的伤害值。|n|cffffcc00等级 2|r -15%的概率，3倍于一般攻击的伤害值。|n|cffffcc00等级 3|r -15%的概率，4倍于一般攻击的伤害值。",
+        "Tip": "闪电攻击 - [|cffffcc00等级 3|r]",
+        "Ubertip": "雷霆蜥蜴攻击敌人时有20%概率释放闪电链造成1800点法术伤害。"
+      }
+    },
+    "T039": {
+      "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+      "lines": [
+        19790,
+        19807
+      ],
+      "fields": {
+        "Animnames": "spell,chain",
+        "Art": "ReplaceableTextures\\CommandButtons\\BTNChainLightning.blp",
+        "Buttonpos": ",2",
+        "Hotkey": "C",
+        "LightningEffect": "CLPB,CLSB",
+        "Missileart": "Abilities\\Spells\\Orc\\LightningBolt\\LightningBoltMissile.mdl",
+        "Missilespeed": "1500",
+        "Name": "马甲-闪电攻击",
+        "Order": "chainlightning",
+        "ResearchArt": "ReplaceableTextures\\CommandButtons\\BTNChainLightning.blp",
+        "Researchhotkey": "C",
+        "Researchtip": "学习闪电链(|cffffcc00C|r) - [|cffffcc00等级 %d|r]",
+        "Researchubertip": "投掷出一道能进行跳跃的闪电。每次跳跃都会减小闪电的攻击力。|n|n|cffffcc00等级 1|r - 85点伤害，跳跃4次。|n|cffffcc00等级 2|r - 125点伤害，跳跃6次。|n|cffffcc00等级 3|r - 180点伤害，跳跃8次。",
+        "TargetArt": "Abilities\\Weapons\\Bolt\\BoltImpact.mdl",
+        "Tip": "闪电链(|cffffcc00C|r) - [|cffffcc00等级 1|r],闪电链(|cffffcc00C|r) - [|cffffcc00等级 2|r],闪电链(|cffffcc00C|r) - [|cffffcc00等级 3|r]",
+        "Ubertip": "投掷出一道具有攻击力的闪电，第一个单位造成85点的伤害，然后闪电跳跃向周围4个敌方的其他单位。每次跳跃都会减小闪电的攻击力。,投掷出一道具有攻击力的闪电，第一个单位造成125点的伤害，然后闪电跳跃向周围6个敌方的其他单位。每次跳跃都会减小闪电的攻击力。,投掷出一道具有攻击力的闪电，第一个单位造成180点的伤害，然后闪电跳跃向周围8个敌方的其他单位。每次跳跃都会减小闪电的攻击力。"
+      }
+    },
+    "Alit": {
+      "path": "reference/map-6.25/units_campaignabilitystrings.txt",
+      "lines": [
+        9768,
+        9775
+      ],
+      "fields": {
+        "Art": ",",
+        "LightningEffect": "CHIM",
+        "Missileart": "Abilities\\Weapons\\ChimaeraLightningMissile\\ChimaeraLightningMissile.mdl",
+        "Missilespeed": "1500",
+        "Name": "闪电攻击",
+        "TargetArt": "Abilities\\Weapons\\Bolt\\BoltImpact.mdl"
+      }
+    }
+  },
+  "objectData": {
+    "units_abilitydata.json:AOcl": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 7853,
+      "fields": {
+        "alias": "AOcl",
+        "code": "AOcl",
+        "Area1": 500.0,
+        "Area2": 500.0,
+        "Area3": 500.0,
+        "checkDep": 1,
+        "Cool1": 9.0,
+        "Cool2": 9.0,
+        "Cool3": 9.0,
+        "Cost1": 120,
+        "Cost2": 120,
+        "Cost3": 120,
+        "DataA1": 85.0,
+        "DataA2": 125.0,
+        "DataA3": 180.0,
+        "DataB1": 4,
+        "DataB2": 6,
+        "DataB3": 8,
+        "DataC1": 0.15,
+        "DataC2": 0.15,
+        "DataC3": 0.15,
+        "levels": 3,
+        "reqLevel": 1,
+        "Rng1": 700.0,
+        "Rng2": 700.0,
+        "Rng3": 700.0,
+        "targs1": "air,ground,enemy,neutral,organic",
+        "targs2": "air,ground,enemy,neutral,organic",
+        "targs3": "air,ground,enemy,neutral,organic",
+        "targs4": "_"
+      }
+    },
+    "units_abilitydata.json:AOcr": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 7885,
+      "fields": {
+        "alias": "AOcr",
+        "code": "AOcr",
+        "checkDep": 1,
+        "DataA1": 15.0,
+        "DataA2": 15.0,
+        "DataA3": 15.0,
+        "DataB1": 2.0,
+        "DataB2": 3.0,
+        "DataB3": 4.0,
+        "levels": 3,
+        "reqLevel": 1,
+        "targs1": "air,ground,enemy,neutral",
+        "targs2": "air,ground,enemy,neutral",
+        "targs3": "air,ground,enemy,neutral",
+        "targs4": "_"
+      }
+    },
+    "units_abilitydata.json:Alit": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 11078,
+      "fields": {
+        "alias": "Alit",
+        "code": "Alit",
+        "checkDep": 1,
+        "DataA1": 0.25,
+        "DataB1": 0.25,
+        "levels": 1,
+        "targs1": "air,ground,structure,ward,item,debris",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "units_abilitydata.json:N058": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 24954,
+      "fields": {
+        "alias": "N058",
+        "code": "AOcr",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "air,ground,enemy,neutral",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "units_abilitydata.json:N059": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 24965,
+      "fields": {
+        "alias": "N059",
+        "code": "AOcr",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "air,ground,enemy,neutral",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "units_abilitydata.json:N060": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 24976,
+      "fields": {
+        "alias": "N060",
+        "code": "AOcr",
+        "checkDep": 1,
+        "levels": 1,
+        "reqLevel": 1,
+        "targs1": "air,ground,enemy,neutral",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "units_abilitydata.json:N535": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 27020,
+      "fields": {
+        "alias": "N535",
+        "code": "ANss",
+        "BuffID1": "BNss",
+        "Cool1": 6.0,
+        "levels": 1,
+        "targs1": "_",
+        "targs2": "_",
+        "targs3": "_",
+        "targs4": "_"
+      }
+    },
+    "units_abilitydata.json:T039": {
+      "path": "reference/map-6.25/units_abilitydata.json",
+      "line": 33042,
+      "fields": {
+        "alias": "T039",
+        "code": "AOcl",
+        "Area1": 600.0,
+        "Area2": 600.0,
+        "Area3": 600.0,
+        "checkDep": 1,
+        "Cool1": 9.0,
+        "Cool2": 9.0,
+        "Cool3": 9.0,
+        "DataA1": 400.0,
+        "DataA2": 800.0,
+        "DataA3": 1800.0,
+        "DataB1": 5,
+        "DataB2": 6,
+        "DataB3": 7,
+        "levels": 3,
+        "reqLevel": 1,
+        "Rng1": 2000.0,
+        "Rng2": 2000.0,
+        "Rng3": 2000.0,
+        "targs1": "air,ground,enemy,neutral,organic",
+        "targs2": "air,ground,enemy,neutral,organic",
+        "targs3": "air,ground,enemy,neutral,organic",
+        "targs4": "_"
+      }
+    },
+    "units_unitabilities.json:ma02": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 5730,
+      "fields": {
+        "unitAbilID": "ma02",
+        "abilList": "N535,N536,N537,N538,N539,T015,N534",
+        "auto": "_"
+      }
+    },
+    "units_unitabilities.json:ma03": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 5735,
+      "fields": {
+        "unitAbilID": "ma03",
+        "abilList": "N535,N536,N550,N551,N552,N553,T016,N534",
+        "auto": "_"
+      }
+    },
+    "units_unitabilities.json:ma04": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 5740,
+      "fields": {
+        "unitAbilID": "ma04",
+        "abilList": "N535,N536,N540,N559,N541,N542,T016,N534",
+        "auto": "_"
+      }
+    },
+    "units_unitabilities.json:ma05": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 5745,
+      "fields": {
+        "unitAbilID": "ma05",
+        "abilList": "N535,N536,N543,N548,N549,T016,N534",
+        "auto": "_"
+      }
+    },
+    "units_unitabilities.json:ma06": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 5750,
+      "fields": {
+        "unitAbilID": "ma06",
+        "abilList": "N535,N536,N554,N555,N557,N558,T016,N534",
+        "auto": "_"
+      }
+    },
+    "units_unitabilities.json:mw14": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 5805,
+      "fields": {
+        "unitAbilID": "mw14",
+        "abilList": "T013,N535,N534,N577",
+        "auto": "_"
+      }
+    },
+    "units_unitabilities.json:n183": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 6135,
+      "fields": {
+        "unitAbilID": "n183",
+        "abilList": "Avul,Alit,T033,T035,N061,N058,N159",
+        "auto": "_"
+      }
+    },
+    "units_unitabilities.json:n184": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 6140,
+      "fields": {
+        "unitAbilID": "n184",
+        "abilList": "Avul,Alit,T033,T035,N062,N059,N159",
+        "auto": "_"
+      }
+    },
+    "units_unitabilities.json:n185": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 6145,
+      "fields": {
+        "unitAbilID": "n185",
+        "abilList": "Avul,Alit,T033,T036,N063,N060,N159",
+        "auto": "_"
+      }
+    },
+    "units_unitabilities.json:q001": {
+      "path": "reference/map-6.25/units_unitabilities.json",
+      "line": 6555,
+      "fields": {
+        "unitAbilID": "q001",
+        "abilList": "Avul,Aloc",
+        "auto": "_"
+      }
+    },
+    "units_unitbalance.json:q001": {
+      "path": "reference/map-6.25/units_unitbalance.json",
+      "line": 37578,
+      "fields": {
+        "unitBalanceID": "q001",
+        "bldtm": 20,
+        "bountydice": 6,
+        "bountyplus": 20,
+        "bountysides": 3,
+        "defType": "small",
+        "defUp": 2.0,
+        "HP": 65,
+        "mana0": 1000,
+        "manaN": 1000,
+        "preventPlace": "_",
+        "Primary": "_",
+        "regenHP": 0.25,
+        "regenType": "always",
+        "reptm": 20,
+        "requirePlace": "_",
+        "stockMax": 3,
+        "stockRegen": 30,
+        "tilesets": "*"
+      }
+    },
+    "units_unitweapons.json:q001": {
+      "path": "reference/map-6.25/units_unitweapons.json",
+      "line": 34183,
+      "fields": {
+        "unitWeapID": "q001",
+        "acquire": 900.0,
+        "atkType1": "spells",
+        "atkType2": "normal",
+        "cool1": 1.0,
+        "dice1": 1,
+        "dmgplus1": 12,
+        "rangeN1": 10,
+        "RngBuff1": 250.0,
+        "showUI1": 1,
+        "showUI2": 1,
+        "sides1": 2,
+        "targCount1": 1,
+        "targCount2": 1,
+        "targs1": "ground,debris,air,item",
+        "weapTp1": "missile"
+      }
+    }
+  },
+  "objectOverrides": {
+    "w3aEntries": [],
+    "w3uEntries": [],
+    "abilityIds": [
+      "T039",
+      "N058",
+      "N059",
+      "N060",
+      "Alit"
+    ],
+    "unitIds": [
+      "n183",
+      "n184",
+      "n185",
+      "q001"
+    ],
+    "searched": [
+      "reference/map-6.25/war3map.w3a.json",
+      "reference/map-6.25/war3map.w3u.json"
+    ],
+    "qualification": "absence is not nativezero proof"
+  },
+  "rawSlkEvidence": [
+    {
+      "id": "T039",
+      "line": 29297,
+      "row": 1918,
+      "missingFields": [
+        "DataC1",
+        "DataC2",
+        "DataC3",
+        "Cost1",
+        "Cost2",
+        "Cost3"
+      ]
+    },
+    {
+      "id": "Alit",
+      "line": 9915,
+      "row": 627
+    },
+    {
+      "id": "N058",
+      "line": 22309,
+      "row": 1368,
+      "missingFields": [
+        "DataA1",
+        "DataB1",
+        "DataC1",
+        "DataD1",
+        "DataE1"
+      ]
+    },
+    {
+      "id": "N059",
+      "line": 22318,
+      "row": 1369,
+      "missingFields": [
+        "DataA1",
+        "DataB1",
+        "DataC1",
+        "DataD1",
+        "DataE1"
+      ]
+    },
+    {
+      "id": "N060",
+      "line": 22327,
+      "row": 1370,
+      "missingFields": [
+        "DataA1",
+        "DataB1",
+        "DataC1",
+        "DataD1",
+        "DataE1"
+      ]
+    }
+  ],
+  "originalRules": {
+    "inputs": [
+      "actualSource S=GetEventDamageSource()",
+      "primary T=GetTriggerUnit()",
+      "location=GetUnitLoc(S) before level queries"
+    ],
+    "levelSelection": {
+      "order": [
+        "N058",
+        "N059",
+        "N060"
+      ],
+      "predicate": "abilityLevel(S,id)>0",
+      "values": [
+        1,
+        2,
+        3
+      ],
+      "default": 0,
+      "shortCircuit": true,
+      "defaultReachableThroughNormalEntry": false,
+      "directLevelZeroCallStillCreatesDummy": true
+    },
+    "dummy": {
+      "native": "CreateTempAndSetAbilityLv",
+      "callPC": 47,
+      "callLine": 113422,
+      "unitTypeDefault": "q001",
+      "owner": "owner(S) read immediately before wrapper call",
+      "position": "S position captured before level checks",
+      "facing": 0,
+      "ability": "T039",
+      "level": "selection",
+      "timedLifeBuff": "BHwe",
+      "lifetimeSeconds": 0.5,
+      "userData": "IsInTable(S,Tower_ALL); absent=>-1",
+      "copiesSourceUserData": false,
+      "copiesSourceAbilities": false,
+      "addsSourceToTowerAll": false
+    },
+    "order": {
+      "callPC": 59,
+      "callLine": 113434,
+      "native": "IssueTargetOrder",
+      "source": "new q001",
+      "name": "chainlightning",
+      "target": "original T handle",
+      "returnUsed": false,
+      "retry": false,
+      "alternateTarget": false
+    },
+    "parentDamageReads": 0,
+    "parentDamageWrites": 0,
+    "noLocalQueries": [
+      "target life/type/owner",
+      "mode",
+      "Has_A_Item",
+      "illusion",
+      "mana",
+      "cooldown",
+      "extra random",
+      "attack amount",
+      "TxShow"
+    ],
+    "luaTimers": 0,
+    "luaEffectCallbacks": 0,
+    "removeLocationCalls": 0,
+    "nativeData": {
+      "T039": {
+        "rawPerTarget": [
+          400,
+          800,
+          1800
+        ],
+        "targetCountField": [
+          5,
+          6,
+          7
+        ],
+        "areaField": [
+          600,
+          600,
+          600
+        ],
+        "castRangeField": [
+          2000,
+          2000,
+          2000
+        ],
+        "cooldownSeconds": [
+          9,
+          9,
+          9
+        ],
+        "DataC": "absent",
+        "Cost": "absent",
+        "targets": "air,ground,enemy,neutral,organic"
+      },
+      "Alit": {
+        "graphicDelaySeconds": 0.25,
+        "graphicDurationSeconds": 0.25,
+        "secondProcChanceProven": false
+      },
+      "N058_N060": {
+        "code": "AOcr",
+        "levels": 1,
+        "DataAtoE": "absent",
+        "clientAbsentFieldResolutionProven": false
+      }
+    }
+  },
+  "entryAndIntegrationEvidence": [
+    {
+      "name": "Q37 entry reused",
+      "path": "docs/rules/skill-lightning-attack-proc.md",
+      "function": "main/f291/f1",
+      "pcs": [
+        1804,
+        1838
+      ],
+      "lines": [
+        164396,
+        164431
+      ]
+    },
+    {
+      "name": "temporary source ownership resolution",
+      "function": "main/f291/f1",
+      "pcs": [
+        28,
+        51
+      ],
+      "lines": [
+        162523,
+        162547
+      ]
+    },
+    {
+      "name": "q001 temporary classification initializer",
+      "lines": [
+        49860,
+        49863
+      ]
+    },
+    {
+      "name": "IsTemp classifier",
+      "function": "main/f7/f15",
+      "lines": [
+        51273,
+        51303
+      ]
+    },
+    {
+      "name": "temporary spell effect early return",
+      "function": "main/f291/f14",
+      "lines": [
+        170040,
+        170066
+      ]
+    },
+    {
+      "name": "map magic wrapper chosen as Web packet reference only",
+      "function": "main/f7/f34",
+      "lines": [
+        52062,
+        52088
+      ],
+      "qualification": "T039 does not call this wrapper; its native packet enum is not script-proven"
+    }
+  ],
+  "primaryEvidence": [
+    {
+      "url": "https://classic.battle.net/war3/orc/units/farseer.shtml",
+      "supports": "primary target enemy, subsequent nearby enemy links, stock decreasing damage, asleep secondary permitted when primary also asleep",
+      "doesNotProve": "T039 omitted fields, native nearest/order/repeat/time/packet enum or exact shield interaction"
+    },
+    {
+      "url": "https://classic.battle.net/war3/basics/spellbasics.shtml",
+      "supports": "magic immunity and negative targeted spell shielding",
+      "doesNotProve": "T039 first-vs-secondary shield handling and per-hop timing"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/Units/AbilityMetaData.slk#L2862",
+      "metadata": [
+        {
+          "id": "Ocl1",
+          "field": "Data",
+          "data": 1,
+          "type": "unreal",
+          "label": "Damage per Target",
+          "labelLine": 5933
+        },
+        {
+          "id": "Ocl2",
+          "field": "Data",
+          "data": 2,
+          "type": "int",
+          "label": "Number of Targets Hit",
+          "labelLine": 5934
+        },
+        {
+          "id": "Ocl3",
+          "field": "Data",
+          "data": 3,
+          "type": "unreal",
+          "label": "Damage Reduction per Target",
+          "labelLine": 5935
+        },
+        {
+          "id": "Lit1",
+          "field": "Data",
+          "data": 1,
+          "type": "unreal",
+          "label": "Graphic Delay",
+          "labelLine": 6074
+        },
+        {
+          "id": "Lit2",
+          "field": "Data",
+          "data": 2,
+          "type": "unreal",
+          "label": "Graphic Duration",
+          "labelLine": 6075
+        }
+      ],
+      "additionalLines": [
+        6223,
+        6245
+      ]
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/UI/WorldEditStrings.txt#L5933",
+      "additionalLines": [
+        6074,
+        6075
+      ],
+      "supports": "field labels; DataB number of targets hit, Alit graphic fields"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/plugin/w3x2lni/script/core/slk/frontend_slk.lua#L19",
+      "supports": "converter numeric nil=>0, custom row loaded via code metadata without explicit stock row merge",
+      "limit": "tool implementation, not original client runtime"
+    }
+  ],
+  "decisions": {
+    "Q37": {
+      "status": "confirmed",
+      "probability": 0.2,
+      "managedBy": "skill-lightning-attack-proc.md/json; unchanged in this batch",
+      "preserve": "original consumption point before ability qualification and all outer filters"
+    },
+    "Q24": {
+      "status": "authorized scoped definition",
+      "version": "lightning-attack-native-v1",
+      "notClientVerified": true,
+      "acceptance": {
+        "windupSeconds": 0,
+        "manaCost": 0,
+        "abilityLevelMustBe": [
+          1,
+          2,
+          3
+        ],
+        "invalidLevel": "reject and report integration error; no implicit level1",
+        "dummyMustExistAliveAndCastEnabled": true,
+        "primary": "original T, no reselect",
+        "range": 2000,
+        "geometry": "2D center closed circle, no collision expansion",
+        "validTarget": [
+          "exists",
+          "life>0",
+          "enemy or nonallied neutral relative to dummy",
+          "organic ground or air",
+          "not structure/mechanical/ward",
+          "not invulnerable",
+          "not magic immune",
+          "not Aloc"
+        ],
+        "additionalHeroBossSummonIllusionBan": false,
+        "visionDetectionGate": false,
+        "invalidAttempt": "no cooldown/SPELL_EFFECT/shield consumption; dummy creation and original Q37 RNG remain",
+        "validAttempt": "dummy T039 cooldown9seconds; one SPELL_EFFECT before shield check; IsTemp early exit"
+      },
+      "chain": {
+        "targetCountIncludingFirst": [
+          5,
+          6,
+          7
+        ],
+        "decay": 0,
+        "rawPerTarget": [
+          400,
+          800,
+          1800
+        ],
+        "jumpRadius": 600,
+        "jumpCenter": "preceding hit target position snapshotted before its damage event",
+        "candidateTime": "fresh query after previous complete nested damage returns",
+        "candidateOrder": "B04 ascending unit creation sequence",
+        "repeatSameLogicalId": false,
+        "secondaryMustRemainWithinCasterRange": false,
+        "primarySleepSnapshot": "before first damage",
+        "sleepRule": "exclude currently sleeping secondary unless primaryWasAsleep",
+        "sameEligibilityAsPrimaryExceptCasterRangeAndShield": true,
+        "newUnitsMayJoin": true,
+        "primaryDeathOrRemoval": "retain prior hit-position snapshot and continue",
+        "noCandidates": "stop without retry or rehit"
+      },
+      "damage": {
+        "actualSource": "q001",
+        "attributedOwner": "resolve Tower_ALL[q001.userData] per normal damage event, not cached or repaired",
+        "attack": false,
+        "ranged": false,
+        "attackType": "ATTACK_TYPE_NORMAL (spells)",
+        "damageType": "DAMAGE_TYPE_MAGIC",
+        "weapon": "WEAPON_TYPE_WHOKNOWS",
+        "events": "one independent B03 full damage event per selected target; nested events synchronous, restored parent context",
+        "parentEventWrite": false,
+        "sameAttackOnlyProcRecursion": false
+      },
+      "timing": {
+        "chain": "whole chain synchronous inside IssueTargetOrder",
+        "zeroTimer": false,
+        "projectileSpeedAffectsDamageTime": false,
+        "projectileSpeedVisualOnly": 1500,
+        "dummyDeathSeconds": 0.5,
+        "timedDeath": "shared unit death lifecycle, not new damage",
+        "stopIfDummyDeadOrRemovedBetweenHits": true,
+        "stopIfOriginalTowerDiesButDummyStillValid": false
+      },
+      "N535": {
+        "scope": "only T039 needed here; other abilities outside this batch",
+        "status": "Web choice, not original native proof",
+        "firstTarget": "after valid acceptance and SPELL_EFFECT, if effective shield ready block whole chain",
+        "sharedReadyAt": "same per-unit N535 state used by T049 item-hex-effect-v1",
+        "cooldownSeconds": 6,
+        "readyPredicate": "now>=shieldReadyAt",
+        "consumeOnInvalidPrimary": false,
+        "secondary": "no shield check or consumption because not new targeted cast; other eligibility/mitigation still applies"
+      },
+      "nativeWrappers": {
+        "AOcrIds": [
+          "N058",
+          "N059",
+          "N060"
+        ],
+        "extraCritRolls": 0,
+        "extraFlatDamage": 0,
+        "extraDamageMultiplier": 1,
+        "extraEvasion": 0,
+        "extraNeverMiss": false,
+        "missingZeroMultiplierDoesNotZeroAttack": true,
+        "Alit": "pure visual attached to ordinary attack; no second T039, chance roll or damage packet",
+        "AlitGraphicDelaySeconds": 0.25,
+        "AlitGraphicDurationSeconds": 0.25,
+        "AlitClockOrigin": "ordinary attack commit time; damage timing unchanged",
+        "dummyDoesNotInheritTheseAbilities": true
+      },
+      "basis": "explicit map fields + actual workbook/Ubertip + primary field semantics and official broad rules; scoped defaults/order/time needed where native remains unverified"
+    },
+    "conflicts": "No new proven workbook conflict beyond decided Q37"
+  },
+  "completionBoundary": [
+    "Complete local core and two necessary helper bodies checked; all explicit branch conditions and iterator backedge retained",
+    "Q37 public entry/probability reused, not reimplemented or changed",
+    "Native omitted-field resolution and exact chain acceptance/order/repeat/immunity/shield/timing remain unverified in Warcraft; Q24 gives explicit Web behavior",
+    "No audit of all other N061-N063/N159 lizard abilities, global attack generator, all damage descendants or other chain skills",
+    "No game/client execution; bytecode-native stubs and scoped deterministic acceptance/chain reference checks only"
+  ],
+  "validation": {
+    "sourceVectors": [
+      {
+        "id": "ability_mask_0",
+        "input": {
+          "abilities": [],
+          "directHelperCall": true
+        },
+        "expected": {
+          "T039Level": 0,
+          "dummyCount": 1,
+          "lifetimeSeconds": 0.5,
+          "parentEventWrites": 0,
+          "qualification": "mask0 direct helper probe; not reachable via normal outer gate"
+        }
+      },
+      {
+        "id": "ability_mask_1",
+        "input": {
+          "abilities": [
+            "N058"
+          ],
+          "directHelperCall": true
+        },
+        "expected": {
+          "T039Level": 1,
+          "dummyCount": 1,
+          "lifetimeSeconds": 0.5,
+          "parentEventWrites": 0,
+          "qualification": "mask0 direct helper probe; not reachable via normal outer gate"
+        }
+      },
+      {
+        "id": "ability_mask_2",
+        "input": {
+          "abilities": [
+            "N059"
+          ],
+          "directHelperCall": true
+        },
+        "expected": {
+          "T039Level": 2,
+          "dummyCount": 1,
+          "lifetimeSeconds": 0.5,
+          "parentEventWrites": 0,
+          "qualification": "mask0 direct helper probe; not reachable via normal outer gate"
+        }
+      },
+      {
+        "id": "ability_mask_3",
+        "input": {
+          "abilities": [
+            "N058",
+            "N059"
+          ],
+          "directHelperCall": true
+        },
+        "expected": {
+          "T039Level": 1,
+          "dummyCount": 1,
+          "lifetimeSeconds": 0.5,
+          "parentEventWrites": 0,
+          "qualification": "mask0 direct helper probe; not reachable via normal outer gate"
+        }
+      },
+      {
+        "id": "ability_mask_4",
+        "input": {
+          "abilities": [
+            "N060"
+          ],
+          "directHelperCall": true
+        },
+        "expected": {
+          "T039Level": 3,
+          "dummyCount": 1,
+          "lifetimeSeconds": 0.5,
+          "parentEventWrites": 0,
+          "qualification": "mask0 direct helper probe; not reachable via normal outer gate"
+        }
+      },
+      {
+        "id": "ability_mask_5",
+        "input": {
+          "abilities": [
+            "N058",
+            "N060"
+          ],
+          "directHelperCall": true
+        },
+        "expected": {
+          "T039Level": 1,
+          "dummyCount": 1,
+          "lifetimeSeconds": 0.5,
+          "parentEventWrites": 0,
+          "qualification": "mask0 direct helper probe; not reachable via normal outer gate"
+        }
+      },
+      {
+        "id": "ability_mask_6",
+        "input": {
+          "abilities": [
+            "N059",
+            "N060"
+          ],
+          "directHelperCall": true
+        },
+        "expected": {
+          "T039Level": 2,
+          "dummyCount": 1,
+          "lifetimeSeconds": 0.5,
+          "parentEventWrites": 0,
+          "qualification": "mask0 direct helper probe; not reachable via normal outer gate"
+        }
+      },
+      {
+        "id": "ability_mask_7",
+        "input": {
+          "abilities": [
+            "N058",
+            "N059",
+            "N060"
+          ],
+          "directHelperCall": true
+        },
+        "expected": {
+          "T039Level": 1,
+          "dummyCount": 1,
+          "lifetimeSeconds": 0.5,
+          "parentEventWrites": 0,
+          "qualification": "mask0 direct helper probe; not reachable via normal outer gate"
+        }
+      },
+      {
+        "id": "ability_scalar_not_damage_level",
+        "input": {
+          "abilityLevels": {
+            "N058": 7,
+            "N060": 7
+          }
+        },
+        "expected": {
+          "T039Level": 1
+        }
+      },
+      {
+        "id": "source_position",
+        "input": {
+          "sourcePosition": [
+            100,
+            200
+          ],
+          "targetPosition": [
+            400,
+            500
+          ]
+        },
+        "expected": {
+          "dummyPosition": [
+            100,
+            200
+          ],
+          "facing": 0,
+          "orderTarget": "original target"
+        }
+      },
+      {
+        "id": "lookup_not_copy_userdata",
+        "input": {
+          "sourceUserData": 9,
+          "sourceTableKey": 7
+        },
+        "expected": {
+          "dummyUserData": 7
+        }
+      },
+      {
+        "id": "not_in_table",
+        "input": {
+          "sourceUserData": 9,
+          "sourceTableKey": null
+        },
+        "expected": {
+          "dummyUserData": -1,
+          "appendTowerAll": false
+        }
+      },
+      {
+        "id": "failed_order_not_retried",
+        "input": {
+          "IssueTargetOrderReturn": false
+        },
+        "expected": {
+          "orders": 1,
+          "dummyRetainedUntilLifecycle": true,
+          "parentEventWrites": 0
+        }
+      },
+      {
+        "id": "no_scepter_or_mode_queries",
+        "input": {
+          "Game_Mode": 2,
+          "Has_A_Item": true
+        },
+        "expected": {
+          "extraQueries": 0,
+          "extraDamageFactor": 1
+        }
+      },
+      {
+        "id": "default_dummy_nil",
+        "input": {
+          "helperUnitID": null
+        },
+        "expected": {
+          "createdUnitID": "q001"
+        }
+      },
+      {
+        "id": "default_dummy_false",
+        "input": {
+          "helperUnitID": false
+        },
+        "expected": {
+          "createdUnitID": "q001"
+        }
+      },
+      {
+        "id": "explicit_dummy",
+        "input": {
+          "helperUnitID": "q999"
+        },
+        "expected": {
+          "createdUnitID": "q999",
+          "qualification": "generic wrapper only; this skill supplies no explicit ID"
+        }
+      },
+      {
+        "id": "nil_lookup",
+        "input": {
+          "object": null,
+          "table": {
+            "1": "X"
+          }
+        },
+        "expected": {
+          "index": -1
+        }
+      },
+      {
+        "id": "empty_lookup",
+        "input": {
+          "object": "S",
+          "table": {}
+        },
+        "expected": {
+          "index": -1
+        }
+      },
+      {
+        "id": "lookup_first_matching_iterator",
+        "input": {
+          "object": "S",
+          "pairsOrder": [
+            [
+              9,
+              "S"
+            ],
+            [
+              2,
+              "S"
+            ]
+          ]
+        },
+        "expected": {
+          "index": 9,
+          "minimumIndexGuaranteed": false
+        }
+      },
+      {
+        "id": "chain_fields",
+        "input": {
+          "ability": "T039"
+        },
+        "expected": {
+          "DataA": [
+            400,
+            800,
+            1800
+          ],
+          "DataB": [
+            5,
+            6,
+            7
+          ],
+          "Area": [
+            600,
+            600,
+            600
+          ],
+          "Rng": [
+            2000,
+            2000,
+            2000
+          ],
+          "Cool": [
+            9,
+            9,
+            9
+          ],
+          "DataCExplicit": false,
+          "CostExplicit": false
+        }
+      },
+      {
+        "id": "alit_fields",
+        "input": {
+          "ability": "Alit",
+          "DataA": 0.25,
+          "DataB": 0.25
+        },
+        "expected": {
+          "meaning": [
+            "graphic delay",
+            "graphic duration"
+          ],
+          "secondProbabilityFromTheseFields": false
+        }
+      },
+      {
+        "id": "attachment_separation",
+        "input": {
+          "sourceType": "n183"
+        },
+        "expected": {
+          "sourceHas": [
+            "Alit",
+            "N058"
+          ],
+          "dummyInitialHas": [
+            "Avul",
+            "Aloc"
+          ],
+          "dummyAddedAbility": "T039",
+          "copySourceAbilities": false
+        }
+      }
+    ],
+    "webVectors": [
+      {
+        "id": "level_1_total_targets",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 600,
+              "y": 0
+            },
+            {
+              "id": 3,
+              "x": 1200,
+              "y": 0
+            },
+            {
+              "id": 4,
+              "x": 1800,
+              "y": 0
+            },
+            {
+              "id": 5,
+              "x": 2400,
+              "y": 0
+            },
+            {
+              "id": 6,
+              "x": 3000,
+              "y": 0
+            },
+            {
+              "id": 7,
+              "x": 3600,
+              "y": 0
+            },
+            {
+              "id": 8,
+              "x": 4200,
+              "y": 0
+            },
+            {
+              "id": 9,
+              "x": 4800,
+              "y": 0
+            }
+          ]
+        },
+        "expected": {
+          "status": "complete",
+          "hits": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "amounts": [
+            400,
+            400,
+            400,
+            400,
+            400
+          ],
+          "spellEffects": 1,
+          "totalRaw": 2000
+        }
+      },
+      {
+        "id": "level_2_total_targets",
+        "input": {
+          "kind": "chain",
+          "level": 2,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 600,
+              "y": 0
+            },
+            {
+              "id": 3,
+              "x": 1200,
+              "y": 0
+            },
+            {
+              "id": 4,
+              "x": 1800,
+              "y": 0
+            },
+            {
+              "id": 5,
+              "x": 2400,
+              "y": 0
+            },
+            {
+              "id": 6,
+              "x": 3000,
+              "y": 0
+            },
+            {
+              "id": 7,
+              "x": 3600,
+              "y": 0
+            },
+            {
+              "id": 8,
+              "x": 4200,
+              "y": 0
+            },
+            {
+              "id": 9,
+              "x": 4800,
+              "y": 0
+            }
+          ]
+        },
+        "expected": {
+          "status": "complete",
+          "hits": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "amounts": [
+            800,
+            800,
+            800,
+            800,
+            800,
+            800
+          ],
+          "spellEffects": 1,
+          "totalRaw": 4800
+        }
+      },
+      {
+        "id": "level_3_total_targets",
+        "input": {
+          "kind": "chain",
+          "level": 3,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 600,
+              "y": 0
+            },
+            {
+              "id": 3,
+              "x": 1200,
+              "y": 0
+            },
+            {
+              "id": 4,
+              "x": 1800,
+              "y": 0
+            },
+            {
+              "id": 5,
+              "x": 2400,
+              "y": 0
+            },
+            {
+              "id": 6,
+              "x": 3000,
+              "y": 0
+            },
+            {
+              "id": 7,
+              "x": 3600,
+              "y": 0
+            },
+            {
+              "id": 8,
+              "x": 4200,
+              "y": 0
+            },
+            {
+              "id": 9,
+              "x": 4800,
+              "y": 0
+            }
+          ]
+        },
+        "expected": {
+          "status": "complete",
+          "hits": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "amounts": [
+            1800,
+            1800,
+            1800,
+            1800,
+            1800,
+            1800,
+            1800
+          ],
+          "spellEffects": 1,
+          "totalRaw": 12600
+        }
+      },
+      {
+        "id": "no_repeat",
+        "input": {
+          "kind": "chain",
+          "level": 3,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 100,
+              "y": 0
+            }
+          ]
+        },
+        "expected": {
+          "hits": [
+            1,
+            2
+          ],
+          "amounts": [
+            1800,
+            1800
+          ]
+        }
+      },
+      {
+        "id": "primary_range_closed",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 2000,
+              "y": 0
+            }
+          ]
+        },
+        "expected": {
+          "hits": [
+            1
+          ],
+          "status": "complete"
+        }
+      },
+      {
+        "id": "primary_range_outside",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 2000.001,
+              "y": 0
+            }
+          ]
+        },
+        "expected": {
+          "hits": [],
+          "status": "invalid",
+          "spellEffects": 0
+        }
+      },
+      {
+        "id": "secondary_range_closed",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 360,
+              "y": 480
+            }
+          ]
+        },
+        "expected": {
+          "hits": [
+            1,
+            2
+          ]
+        }
+      },
+      {
+        "id": "secondary_range_outside",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 600.001,
+              "y": 0,
+              "collisionRadius": 128
+            }
+          ]
+        },
+        "expected": {
+          "hits": [
+            1
+          ]
+        }
+      },
+      {
+        "id": "secondary_beyond_caster_range",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 1900,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 2400,
+              "y": 0
+            }
+          ]
+        },
+        "expected": {
+          "hits": [
+            1,
+            2
+          ]
+        }
+      },
+      {
+        "id": "creation_order_not_nearest",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 599,
+              "y": 0
+            },
+            {
+              "id": 3,
+              "x": 1,
+              "y": 0
+            }
+          ]
+        },
+        "expected": {
+          "hits": [
+            1,
+            2,
+            3
+          ]
+        }
+      },
+      {
+        "id": "primary_shield_ready",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0,
+              "shield": true
+            },
+            {
+              "id": 2,
+              "x": 100,
+              "y": 0
+            }
+          ]
+        },
+        "expected": {
+          "status": "shielded",
+          "hits": [],
+          "spellEffects": 1,
+          "shieldReadyAt": {
+            "1": 6
+          }
+        }
+      },
+      {
+        "id": "secondary_shield_not_targeted_cast",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 100,
+              "y": 0,
+              "shield": true
+            }
+          ]
+        },
+        "expected": {
+          "hits": [
+            1,
+            2
+          ],
+          "shieldReadyAt": {
+            "2": 0
+          }
+        }
+      },
+      {
+        "id": "shared_hex_shield_cooling",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0,
+              "shield": true,
+              "shieldReadyAt": 7
+            }
+          ],
+          "now": 2
+        },
+        "expected": {
+          "hits": [
+            1
+          ],
+          "shieldReadyAt": {
+            "1": 7
+          }
+        }
+      },
+      {
+        "id": "shield_exact_ready_boundary",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0,
+              "shield": true,
+              "shieldReadyAt": 7
+            }
+          ],
+          "now": 7
+        },
+        "expected": {
+          "status": "shielded",
+          "hits": [],
+          "shieldReadyAt": {
+            "1": 13
+          }
+        }
+      },
+      {
+        "id": "invalid_primary_does_not_consume_shield",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0,
+              "immune": true,
+              "shield": true
+            }
+          ]
+        },
+        "expected": {
+          "status": "invalid",
+          "hits": [],
+          "spellEffects": 0,
+          "shieldReadyAt": {
+            "1": 0
+          }
+        }
+      },
+      {
+        "id": "secondary_magic_immune_skipped",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 100,
+              "y": 0,
+              "immune": true
+            },
+            {
+              "id": 3,
+              "x": 200,
+              "y": 0
+            }
+          ]
+        },
+        "expected": {
+          "hits": [
+            1,
+            3
+          ]
+        }
+      },
+      {
+        "id": "sleep_primary_awake",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 100,
+              "y": 0,
+              "asleep": true
+            },
+            {
+              "id": 3,
+              "x": 200,
+              "y": 0
+            }
+          ]
+        },
+        "expected": {
+          "hits": [
+            1,
+            3
+          ]
+        }
+      },
+      {
+        "id": "sleep_primary_asleep",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0,
+              "asleep": true
+            },
+            {
+              "id": 2,
+              "x": 100,
+              "y": 0,
+              "asleep": true
+            },
+            {
+              "id": 3,
+              "x": 200,
+              "y": 0
+            }
+          ]
+        },
+        "expected": {
+          "hits": [
+            1,
+            2,
+            3
+          ]
+        }
+      },
+      {
+        "id": "sleep_primary_snapshot",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0,
+              "asleep": true
+            },
+            {
+              "id": 2,
+              "x": 100,
+              "y": 0,
+              "asleep": true
+            }
+          ],
+          "updatesAfterHit": {
+            "1": [
+              {
+                "set": 1,
+                "asleep": false
+              }
+            ]
+          }
+        },
+        "expected": {
+          "hits": [
+            1,
+            2
+          ]
+        }
+      },
+      {
+        "id": "dead_primary_position_retained",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0,
+              "hp": 1
+            },
+            {
+              "id": 2,
+              "x": 600,
+              "y": 0
+            }
+          ]
+        },
+        "expected": {
+          "hits": [
+            1,
+            2
+          ]
+        }
+      },
+      {
+        "id": "removed_primary_position_retained",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 600,
+              "y": 0
+            }
+          ],
+          "updatesAfterHit": {
+            "1": [
+              {
+                "remove": 1
+              }
+            ]
+          }
+        },
+        "expected": {
+          "hits": [
+            1,
+            2
+          ]
+        }
+      },
+      {
+        "id": "moved_primary_position_snapshot",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 600,
+              "y": 0
+            }
+          ],
+          "updatesAfterHit": {
+            "1": [
+              {
+                "set": 1,
+                "x": 9000
+              }
+            ]
+          }
+        },
+        "expected": {
+          "hits": [
+            1,
+            2
+          ]
+        }
+      },
+      {
+        "id": "next_candidate_killed_in_child",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 100,
+              "y": 0
+            },
+            {
+              "id": 3,
+              "x": 200,
+              "y": 0
+            }
+          ],
+          "updatesAfterHit": {
+            "1": [
+              {
+                "kill": 2
+              }
+            ]
+          }
+        },
+        "expected": {
+          "hits": [
+            1,
+            3
+          ]
+        }
+      },
+      {
+        "id": "new_candidate_from_child",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            }
+          ],
+          "updatesAfterHit": {
+            "1": [
+              {
+                "create": {
+                  "id": 2,
+                  "x": 100,
+                  "y": 0
+                }
+              }
+            ]
+          }
+        },
+        "expected": {
+          "hits": [
+            1,
+            2
+          ]
+        }
+      },
+      {
+        "id": "candidate_changes_team",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 100,
+              "y": 0
+            },
+            {
+              "id": 3,
+              "x": 200,
+              "y": 0
+            }
+          ],
+          "updatesAfterHit": {
+            "1": [
+              {
+                "set": 2,
+                "enemy": false
+              }
+            ]
+          }
+        },
+        "expected": {
+          "hits": [
+            1,
+            3
+          ]
+        }
+      },
+      {
+        "id": "candidate_gains_immunity",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 100,
+              "y": 0
+            },
+            {
+              "id": 3,
+              "x": 200,
+              "y": 0
+            }
+          ],
+          "updatesAfterHit": {
+            "1": [
+              {
+                "set": 2,
+                "immune": true
+              }
+            ]
+          }
+        },
+        "expected": {
+          "hits": [
+            1,
+            3
+          ]
+        }
+      },
+      {
+        "id": "candidate_moves_out",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 100,
+              "y": 0
+            },
+            {
+              "id": 3,
+              "x": 200,
+              "y": 0
+            }
+          ],
+          "updatesAfterHit": {
+            "1": [
+              {
+                "set": 2,
+                "x": 9999
+              }
+            ]
+          }
+        },
+        "expected": {
+          "hits": [
+            1,
+            3
+          ]
+        }
+      },
+      {
+        "id": "dummy_removed_mid_chain",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 100,
+              "y": 0
+            }
+          ],
+          "updatesAfterHit": {
+            "1": [
+              {
+                "dummyRemoved": true
+              }
+            ]
+          }
+        },
+        "expected": {
+          "hits": [
+            1
+          ],
+          "status": "source_invalid"
+        }
+      },
+      {
+        "id": "dummy_killed_mid_chain",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 100,
+              "y": 0
+            }
+          ],
+          "updatesAfterHit": {
+            "1": [
+              {
+                "dummyDead": true
+              }
+            ]
+          }
+        },
+        "expected": {
+          "hits": [
+            1
+          ],
+          "status": "source_invalid"
+        }
+      },
+      {
+        "id": "original_source_death_not_dummy_death",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 100,
+              "y": 0
+            }
+          ],
+          "updatesAfterHit": {
+            "1": [
+              {
+                "originalSourceDead": true
+              }
+            ]
+          }
+        },
+        "expected": {
+          "hits": [
+            1,
+            2
+          ]
+        }
+      },
+      {
+        "id": "owner_resolved_per_hit",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 100,
+              "y": 0
+            }
+          ],
+          "updatesAfterHit": {
+            "1": [
+              {
+                "ownerSlot": "newTower"
+              }
+            ]
+          }
+        },
+        "expected": {
+          "hits": [
+            1,
+            2
+          ],
+          "actualSources": [
+            "q001",
+            "q001"
+          ],
+          "attributedOwners": [
+            "oldTower",
+            "newTower"
+          ]
+        }
+      },
+      {
+        "id": "missing_owner_not_repaired",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": 2,
+              "x": 100,
+              "y": 0
+            }
+          ],
+          "attributedOwner": null
+        },
+        "expected": {
+          "hits": [
+            1,
+            2
+          ],
+          "actualSources": [
+            "q001",
+            "q001"
+          ],
+          "attributedOwners": [
+            null,
+            null
+          ]
+        }
+      },
+      {
+        "id": "invalid_primary_alive_False",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0,
+              "alive": false
+            }
+          ]
+        },
+        "expected": {
+          "status": "invalid",
+          "hits": [],
+          "spellEffects": 0
+        }
+      },
+      {
+        "id": "invalid_primary_exists_False",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0,
+              "exists": false
+            }
+          ]
+        },
+        "expected": {
+          "status": "invalid",
+          "hits": [],
+          "spellEffects": 0
+        }
+      },
+      {
+        "id": "invalid_primary_enemy_False",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0,
+              "enemy": false
+            }
+          ]
+        },
+        "expected": {
+          "status": "invalid",
+          "hits": [],
+          "spellEffects": 0
+        }
+      },
+      {
+        "id": "invalid_primary_organic_False",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0,
+              "organic": false
+            }
+          ]
+        },
+        "expected": {
+          "status": "invalid",
+          "hits": [],
+          "spellEffects": 0
+        }
+      },
+      {
+        "id": "invalid_primary_kind_structure",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0,
+              "kind": "structure"
+            }
+          ]
+        },
+        "expected": {
+          "status": "invalid",
+          "hits": [],
+          "spellEffects": 0
+        }
+      },
+      {
+        "id": "invalid_primary_kind_ward",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0,
+              "kind": "ward"
+            }
+          ]
+        },
+        "expected": {
+          "status": "invalid",
+          "hits": [],
+          "spellEffects": 0
+        }
+      },
+      {
+        "id": "invalid_primary_kind_mechanical",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0,
+              "kind": "mechanical"
+            }
+          ]
+        },
+        "expected": {
+          "status": "invalid",
+          "hits": [],
+          "spellEffects": 0
+        }
+      },
+      {
+        "id": "invalid_primary_invulnerable_True",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0,
+              "invulnerable": true
+            }
+          ]
+        },
+        "expected": {
+          "status": "invalid",
+          "hits": [],
+          "spellEffects": 0
+        }
+      },
+      {
+        "id": "invalid_primary_aloc_True",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0,
+              "aloc": true
+            }
+          ]
+        },
+        "expected": {
+          "status": "invalid",
+          "hits": [],
+          "spellEffects": 0
+        }
+      },
+      {
+        "id": "invalid_primary_immune_True",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0,
+              "immune": true
+            }
+          ]
+        },
+        "expected": {
+          "status": "invalid",
+          "hits": [],
+          "spellEffects": 0
+        }
+      },
+      {
+        "id": "allowed_primary_kind",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0,
+              "kind": "air"
+            }
+          ]
+        },
+        "expected": {
+          "hits": [
+            1
+          ]
+        }
+      },
+      {
+        "id": "allowed_primary_hero",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0,
+              "hero": true
+            }
+          ]
+        },
+        "expected": {
+          "hits": [
+            1
+          ]
+        }
+      },
+      {
+        "id": "allowed_primary_bossName",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0,
+              "bossName": true
+            }
+          ]
+        },
+        "expected": {
+          "hits": [
+            1
+          ]
+        }
+      },
+      {
+        "id": "allowed_primary_summoned",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0,
+              "summoned": true
+            }
+          ]
+        },
+        "expected": {
+          "hits": [
+            1
+          ]
+        }
+      },
+      {
+        "id": "allowed_primary_illusion",
+        "input": {
+          "kind": "chain",
+          "level": 1,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0,
+              "illusion": true
+            }
+          ]
+        },
+        "expected": {
+          "hits": [
+            1
+          ]
+        }
+      },
+      {
+        "id": "level_zero_rejected",
+        "input": {
+          "kind": "chain",
+          "level": 0,
+          "primary": 1,
+          "origin": [
+            0,
+            0
+          ],
+          "units": [
+            {
+              "id": 1,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        "expected": {
+          "status": "invalid_level",
+          "hits": [],
+          "spellEffects": 0
+        }
+      },
+      {
+        "id": "packet_and_parent",
+        "input": {
+          "kind": "integration",
+          "parentDamage": 100,
+          "level": 1,
+          "hits": 1,
+          "allMultipliers": 1
+        },
+        "expected": {
+          "packetActualSource": "q001",
+          "attack": false,
+          "ranged": false,
+          "attackType": "ATTACK_TYPE_NORMAL",
+          "damageType": "MAGIC",
+          "rawChild": 400,
+          "parentEventAfter": 100,
+          "sameBranchQ37RollsFromChild": 0,
+          "sameBranchQ36RollsFromChild": 0
+        }
+      },
+      {
+        "id": "alit_and_aocr",
+        "input": {
+          "kind": "native_wrappers",
+          "ordinaryAttackRaw": 100,
+          "ordinaryAttackCommitSeconds": 1
+        },
+        "expected": {
+          "extraNativeCritRolls": 0,
+          "extraNativeDamagePackets": 0,
+          "ordinaryAttackRawAfter": 100,
+          "AlitGraphicStartSeconds": 1.25,
+          "AlitGraphicEndSeconds": 1.5,
+          "ordinaryAttackTimingUnchanged": true
+        }
+      },
+      {
+        "id": "lifetime_and_cooldown",
+        "input": {
+          "kind": "timing",
+          "castTimeSeconds": 5
+        },
+        "expected": {
+          "allChainHitsTimeSeconds": 5,
+          "dummyTimedDeathSeconds": 5.5,
+          "dummyT039ReadyAt": 14,
+          "originalTowerCooldownAdded": 0,
+          "zeroDamageTimersAdded": 0
+        }
+      }
+    ],
+    "method": "source hashes, complete function/condition/return identity, native-stub bytecode probes, source object/profile/workbook extraction, independent scoped Web vectors; no Warcraft or game runtime",
+    "results": {
+      "status": "passed",
+      "functions": 3,
+      "bytecodeInstructionsChecked": 110,
+      "explicitComparisonConditionsChecked": 6,
+      "iteratorBackedgesChecked": 1,
+      "directCallsChecked": 23,
+      "returnInstructionsChecked": 7,
+      "coreBytecodeProbeStates": 30,
+      "wrapperProbeStates": 3,
+      "lookupProbeStates": 5,
+      "sourceVectors": 23,
+      "webVectors": 51,
+      "objectRecords": 20,
+      "profiles": 5,
+      "workbookRows": 3,
+      "localLinksChecked": 21,
+      "sourceHashes": "match",
+      "limitations": "native stubs and a reference Web transition model; not a Warcraft client or game runtime test"
+    }
+  }
+}

@@ -1,0 +1,3341 @@
+{
+  "schema_version": 1,
+  "baseline_id": "overpower-effect-v1",
+  "status": "source-complete-for-listed-bodies; Q34 and Q35 confirmed; native adaptation specified under Q24",
+  "scope": [
+    "A022 core functions",
+    "normal and illusion attack entry",
+    "T007/B003 direct behavior",
+    "necessary A023 order only"
+  ],
+  "workbook": [
+    {
+      "sheet": "塔技能",
+      "row": 190,
+      "unit_id": "G037",
+      "name": "利爪熊将<SR>",
+      "description_cell": "H190",
+      "levels_cell": "I190"
+    },
+    {
+      "sheet": "塔技能",
+      "row": 451,
+      "unit_id": "H006",
+      "name": "熊战士<SR>",
+      "description_cell": "H451",
+      "levels_cell": "I451"
+    }
+  ],
+  "pending_decisions": [
+    {
+      "id": "A022_probability",
+      "status": "confirmed",
+      "workbook_percent": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        17
+      ],
+      "source_threshold": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        17
+      ],
+      "source_roll_inclusive": [
+        0,
+        100
+      ],
+      "source_predicate": "roll<threshold",
+      "source_probabilities": [
+        "6/101",
+        "8/101",
+        "10/101",
+        "12/101",
+        "14/101",
+        "17/101"
+      ],
+      "selected_web": {
+        "authority": "Q34",
+        "percent_by_level": [
+          6,
+          8,
+          10,
+          12,
+          14,
+          17
+        ],
+        "roll_inclusive": [
+          1,
+          100
+        ],
+        "predicate": "roll<=threshold",
+        "threshold_resolver": "preserve original frenzy/Has_A_Item/level order and zero result",
+        "rng_calls": "one at either original skill-present entry, even threshold0; zero without skill"
+      },
+      "question_id": "Q34"
+    },
+    {
+      "id": "A022_attack_speed_input",
+      "status": "confirmed",
+      "workbook_literal": "提升攻击速度500%",
+      "source_additive_DataA_levels1to4": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "source_interpretation": "+400 percentage points of base attack rate; not a direct final interval multiplier",
+      "workbook_literal_input": 5,
+      "selected_web": {
+        "authority": "Q35",
+        "additive_delta_by_level": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        "percent_increase": 500,
+        "aggregate": "one contribution to raw R; effective K and timing use attack-timing-v1"
+      },
+      "warning": "Do not infer fixed20% final attack-rate difference; actual aggregate may be capped",
+      "question_id": "Q35"
+    }
+  ],
+  "source_hashes": {
+    "main.disasm": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1",
+    "main.readable.lua": "d868f14d946f0780313468f5dd783fa4a6cbe39f5c7851d8e4094ef80aa618b9",
+    "units_abilitydata.json": "b772de42ebcfc1d3818298b35dbe81a35826892848c7cbfef70bf5097e481861",
+    "war3map.w3a.json": "d2875f064b389bca471db97121ff7c810d46fbc962ae640ad128d1daa85931bb",
+    "war3mapMisc.txt": "f13e268c2da3ad776b39f230cb55a8eb5721df2bcf1e62c78202236b3f5d3743"
+  },
+  "functions": [
+    {
+      "function": "main/f24/f0",
+      "lines": [
+        62527,
+        62598
+      ],
+      "constants": {
+        "k0": "GetAttacker",
+        "k1": "IsInTable",
+        "k2": "Tower_ALL",
+        "k3": "GetUnitLoc",
+        "k4": "CreateTempAndSetAbilityLv",
+        "k5": "GetOwningPlayer",
+        "k6": 0,
+        "k7": "T007",
+        "k8": "GetUnitAbilityLevel",
+        "k9": "GetId",
+        "k10": "A022",
+        "k11": 0.5,
+        "k12": "RemoveLocation",
+        "k13": "SetUnitUserData",
+        "k14": "IssueImmediateOrder",
+        "k15": "bloodlustoff",
+        "k16": "IssueTargetOrder",
+        "k17": "bloodlust"
+      },
+      "instructions": [
+        {
+          "pc": 1,
+          "line": 62557,
+          "op": "gettabup",
+          "args": [
+            "r0",
+            "u0",
+            "k0"
+          ]
+        },
+        {
+          "pc": 2,
+          "line": 62558,
+          "op": "call",
+          "args": [
+            "r0",
+            "1",
+            "2"
+          ]
+        },
+        {
+          "pc": 3,
+          "line": 62559,
+          "op": "gettabup",
+          "args": [
+            "r1",
+            "u0",
+            "k1"
+          ]
+        },
+        {
+          "pc": 4,
+          "line": 62560,
+          "op": "move",
+          "args": [
+            "r2",
+            "r0"
+          ]
+        },
+        {
+          "pc": 5,
+          "line": 62561,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k2"
+          ]
+        },
+        {
+          "pc": 6,
+          "line": 62562,
+          "op": "call",
+          "args": [
+            "r1",
+            "3",
+            "2"
+          ]
+        },
+        {
+          "pc": 7,
+          "line": 62563,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k3"
+          ]
+        },
+        {
+          "pc": 8,
+          "line": 62564,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ]
+        },
+        {
+          "pc": 9,
+          "line": 62565,
+          "op": "call",
+          "args": [
+            "r2",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "pc": 10,
+          "line": 62566,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k4"
+          ]
+        },
+        {
+          "pc": 11,
+          "line": 62567,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k5"
+          ]
+        },
+        {
+          "pc": 12,
+          "line": 62568,
+          "op": "move",
+          "args": [
+            "r5",
+            "r0"
+          ]
+        },
+        {
+          "pc": 13,
+          "line": 62569,
+          "op": "call",
+          "args": [
+            "r4",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "pc": 14,
+          "line": 62570,
+          "op": "move",
+          "args": [
+            "r5",
+            "r2"
+          ]
+        },
+        {
+          "pc": 15,
+          "line": 62571,
+          "op": "loadk",
+          "args": [
+            "r6",
+            "k6"
+          ]
+        },
+        {
+          "pc": 16,
+          "line": 62572,
+          "op": "loadk",
+          "args": [
+            "r7",
+            "k7"
+          ]
+        },
+        {
+          "pc": 17,
+          "line": 62573,
+          "op": "gettabup",
+          "args": [
+            "r8",
+            "u0",
+            "k8"
+          ]
+        },
+        {
+          "pc": 18,
+          "line": 62574,
+          "op": "move",
+          "args": [
+            "r9",
+            "r0"
+          ]
+        },
+        {
+          "pc": 19,
+          "line": 62575,
+          "op": "gettabup",
+          "args": [
+            "r10",
+            "u0",
+            "k9"
+          ]
+        },
+        {
+          "pc": 20,
+          "line": 62576,
+          "op": "loadk",
+          "args": [
+            "r11",
+            "k10"
+          ]
+        },
+        {
+          "pc": 21,
+          "line": 62577,
+          "op": "call",
+          "args": [
+            "r10",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 22,
+          "line": 62578,
+          "op": "call",
+          "args": [
+            "r8",
+            "0",
+            "2"
+          ]
+        },
+        {
+          "pc": 23,
+          "line": 62579,
+          "op": "loadk",
+          "args": [
+            "r9",
+            "k11"
+          ]
+        },
+        {
+          "pc": 24,
+          "line": 62580,
+          "op": "call",
+          "args": [
+            "r3",
+            "7",
+            "2"
+          ]
+        },
+        {
+          "pc": 25,
+          "line": 62581,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k12"
+          ]
+        },
+        {
+          "pc": 26,
+          "line": 62582,
+          "op": "move",
+          "args": [
+            "r5",
+            "r2"
+          ]
+        },
+        {
+          "pc": 27,
+          "line": 62583,
+          "op": "call",
+          "args": [
+            "r4",
+            "2",
+            "1"
+          ]
+        },
+        {
+          "pc": 28,
+          "line": 62584,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k13"
+          ]
+        },
+        {
+          "pc": 29,
+          "line": 62585,
+          "op": "move",
+          "args": [
+            "r5",
+            "r3"
+          ]
+        },
+        {
+          "pc": 30,
+          "line": 62586,
+          "op": "move",
+          "args": [
+            "r6",
+            "r1"
+          ]
+        },
+        {
+          "pc": 31,
+          "line": 62587,
+          "op": "call",
+          "args": [
+            "r4",
+            "3",
+            "1"
+          ]
+        },
+        {
+          "pc": 32,
+          "line": 62588,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k14"
+          ]
+        },
+        {
+          "pc": 33,
+          "line": 62589,
+          "op": "move",
+          "args": [
+            "r5",
+            "r3"
+          ]
+        },
+        {
+          "pc": 34,
+          "line": 62590,
+          "op": "loadk",
+          "args": [
+            "r6",
+            "k15"
+          ]
+        },
+        {
+          "pc": 35,
+          "line": 62591,
+          "op": "call",
+          "args": [
+            "r4",
+            "3",
+            "1"
+          ]
+        },
+        {
+          "pc": 36,
+          "line": 62592,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k16"
+          ]
+        },
+        {
+          "pc": 37,
+          "line": 62593,
+          "op": "move",
+          "args": [
+            "r5",
+            "r3"
+          ]
+        },
+        {
+          "pc": 38,
+          "line": 62594,
+          "op": "loadk",
+          "args": [
+            "r6",
+            "k17"
+          ]
+        },
+        {
+          "pc": 39,
+          "line": 62595,
+          "op": "move",
+          "args": [
+            "r7",
+            "r0"
+          ]
+        },
+        {
+          "pc": 40,
+          "line": 62596,
+          "op": "call",
+          "args": [
+            "r4",
+            "4",
+            "1"
+          ]
+        },
+        {
+          "pc": 41,
+          "line": 62597,
+          "op": "return",
+          "args": [
+            "r0",
+            "1"
+          ]
+        }
+      ],
+      "labels": {},
+      "scope": "complete",
+      "counts": {
+        "calls": 11,
+        "conditions": 0,
+        "returns": 1,
+        "instructions": 41
+      }
+    },
+    {
+      "function": "main/f24/f1",
+      "lines": [
+        62599,
+        62694
+      ],
+      "constants": {
+        "k0": "GetAttacker",
+        "k1": 0,
+        "k2": "GetUnitAbilityLevel",
+        "k3": "GetId",
+        "k4": "B003",
+        "k5": "Has_A_Item",
+        "k6": false,
+        "k7": "A022",
+        "k8": 1,
+        "k9": 6,
+        "k10": 2,
+        "k11": 8,
+        "k12": 3,
+        "k13": 10,
+        "k14": 4,
+        "k15": 12,
+        "k16": 5,
+        "k17": 14,
+        "k18": 17
+      },
+      "instructions": [
+        {
+          "pc": 1,
+          "line": 62630,
+          "op": "gettabup",
+          "args": [
+            "r0",
+            "u0",
+            "k0"
+          ]
+        },
+        {
+          "pc": 2,
+          "line": 62631,
+          "op": "call",
+          "args": [
+            "r0",
+            "1",
+            "2"
+          ]
+        },
+        {
+          "pc": 3,
+          "line": 62632,
+          "op": "gettabup",
+          "args": [
+            "r1",
+            "u0",
+            "k2"
+          ]
+        },
+        {
+          "pc": 4,
+          "line": 62633,
+          "op": "move",
+          "args": [
+            "r2",
+            "r0"
+          ]
+        },
+        {
+          "pc": 5,
+          "line": 62634,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k3"
+          ]
+        },
+        {
+          "pc": 6,
+          "line": 62635,
+          "op": "loadk",
+          "args": [
+            "r4",
+            "k4"
+          ]
+        },
+        {
+          "pc": 7,
+          "line": 62636,
+          "op": "call",
+          "args": [
+            "r3",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 8,
+          "line": 62637,
+          "op": "call",
+          "args": [
+            "r1",
+            "0",
+            "2"
+          ]
+        },
+        {
+          "pc": 9,
+          "line": 62638,
+          "op": "lt",
+          "args": [
+            "0",
+            "k1",
+            "r1"
+          ]
+        },
+        {
+          "pc": 10,
+          "line": 62639,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l18"
+          ]
+        },
+        {
+          "pc": 11,
+          "line": 62640,
+          "op": "gettabup",
+          "args": [
+            "r1",
+            "u0",
+            "k5"
+          ]
+        },
+        {
+          "pc": 12,
+          "line": 62641,
+          "op": "move",
+          "args": [
+            "r2",
+            "r0"
+          ]
+        },
+        {
+          "pc": 13,
+          "line": 62642,
+          "op": "call",
+          "args": [
+            "r1",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "pc": 14,
+          "line": 62643,
+          "op": "eq",
+          "args": [
+            "0",
+            "r1",
+            "k6"
+          ]
+        },
+        {
+          "pc": 15,
+          "line": 62644,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l18"
+          ]
+        },
+        {
+          "pc": 16,
+          "line": 62645,
+          "op": "loadk",
+          "args": [
+            "r1",
+            "k1"
+          ]
+        },
+        {
+          "pc": 17,
+          "line": 62646,
+          "op": "return",
+          "args": [
+            "r1",
+            "2"
+          ]
+        },
+        {
+          "pc": 18,
+          "line": 62648,
+          "op": "gettabup",
+          "args": [
+            "r1",
+            "u0",
+            "k2"
+          ]
+        },
+        {
+          "pc": 19,
+          "line": 62649,
+          "op": "move",
+          "args": [
+            "r2",
+            "r0"
+          ]
+        },
+        {
+          "pc": 20,
+          "line": 62650,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k3"
+          ]
+        },
+        {
+          "pc": 21,
+          "line": 62651,
+          "op": "loadk",
+          "args": [
+            "r4",
+            "k7"
+          ]
+        },
+        {
+          "pc": 22,
+          "line": 62652,
+          "op": "call",
+          "args": [
+            "r3",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 23,
+          "line": 62653,
+          "op": "call",
+          "args": [
+            "r1",
+            "0",
+            "2"
+          ]
+        },
+        {
+          "pc": 24,
+          "line": 62654,
+          "op": "eq",
+          "args": [
+            "0",
+            "k8",
+            "r1"
+          ]
+        },
+        {
+          "pc": 25,
+          "line": 62655,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l29"
+          ]
+        },
+        {
+          "pc": 26,
+          "line": 62656,
+          "op": "loadk",
+          "args": [
+            "r2",
+            "k9"
+          ]
+        },
+        {
+          "pc": 27,
+          "line": 62657,
+          "op": "return",
+          "args": [
+            "r2",
+            "2"
+          ]
+        },
+        {
+          "pc": 28,
+          "line": 62658,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l56"
+          ]
+        },
+        {
+          "pc": 29,
+          "line": 62660,
+          "op": "eq",
+          "args": [
+            "0",
+            "k10",
+            "r1"
+          ]
+        },
+        {
+          "pc": 30,
+          "line": 62661,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l34"
+          ]
+        },
+        {
+          "pc": 31,
+          "line": 62662,
+          "op": "loadk",
+          "args": [
+            "r2",
+            "k11"
+          ]
+        },
+        {
+          "pc": 32,
+          "line": 62663,
+          "op": "return",
+          "args": [
+            "r2",
+            "2"
+          ]
+        },
+        {
+          "pc": 33,
+          "line": 62664,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l56"
+          ]
+        },
+        {
+          "pc": 34,
+          "line": 62666,
+          "op": "eq",
+          "args": [
+            "0",
+            "k12",
+            "r1"
+          ]
+        },
+        {
+          "pc": 35,
+          "line": 62667,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l39"
+          ]
+        },
+        {
+          "pc": 36,
+          "line": 62668,
+          "op": "loadk",
+          "args": [
+            "r2",
+            "k13"
+          ]
+        },
+        {
+          "pc": 37,
+          "line": 62669,
+          "op": "return",
+          "args": [
+            "r2",
+            "2"
+          ]
+        },
+        {
+          "pc": 38,
+          "line": 62670,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l56"
+          ]
+        },
+        {
+          "pc": 39,
+          "line": 62672,
+          "op": "eq",
+          "args": [
+            "0",
+            "k14",
+            "r1"
+          ]
+        },
+        {
+          "pc": 40,
+          "line": 62673,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l44"
+          ]
+        },
+        {
+          "pc": 41,
+          "line": 62674,
+          "op": "loadk",
+          "args": [
+            "r2",
+            "k15"
+          ]
+        },
+        {
+          "pc": 42,
+          "line": 62675,
+          "op": "return",
+          "args": [
+            "r2",
+            "2"
+          ]
+        },
+        {
+          "pc": 43,
+          "line": 62676,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l56"
+          ]
+        },
+        {
+          "pc": 44,
+          "line": 62678,
+          "op": "eq",
+          "args": [
+            "0",
+            "k16",
+            "r1"
+          ]
+        },
+        {
+          "pc": 45,
+          "line": 62679,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l49"
+          ]
+        },
+        {
+          "pc": 46,
+          "line": 62680,
+          "op": "loadk",
+          "args": [
+            "r2",
+            "k17"
+          ]
+        },
+        {
+          "pc": 47,
+          "line": 62681,
+          "op": "return",
+          "args": [
+            "r2",
+            "2"
+          ]
+        },
+        {
+          "pc": 48,
+          "line": 62682,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l56"
+          ]
+        },
+        {
+          "pc": 49,
+          "line": 62684,
+          "op": "eq",
+          "args": [
+            "0",
+            "k9",
+            "r1"
+          ]
+        },
+        {
+          "pc": 50,
+          "line": 62685,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l54"
+          ]
+        },
+        {
+          "pc": 51,
+          "line": 62686,
+          "op": "loadk",
+          "args": [
+            "r2",
+            "k18"
+          ]
+        },
+        {
+          "pc": 52,
+          "line": 62687,
+          "op": "return",
+          "args": [
+            "r2",
+            "2"
+          ]
+        },
+        {
+          "pc": 53,
+          "line": 62688,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l56"
+          ]
+        },
+        {
+          "pc": 54,
+          "line": 62690,
+          "op": "loadk",
+          "args": [
+            "r2",
+            "k1"
+          ]
+        },
+        {
+          "pc": 55,
+          "line": 62691,
+          "op": "return",
+          "args": [
+            "r2",
+            "2"
+          ]
+        },
+        {
+          "pc": 56,
+          "line": 62693,
+          "op": "return",
+          "args": [
+            "r0",
+            "1"
+          ]
+        }
+      ],
+      "labels": {
+        "l18": 18,
+        "l29": 29,
+        "l34": 34,
+        "l39": 39,
+        "l44": 44,
+        "l49": 49,
+        "l54": 54,
+        "l56": 56
+      },
+      "scope": "complete",
+      "counts": {
+        "calls": 6,
+        "conditions": 8,
+        "returns": 9,
+        "instructions": 56
+      }
+    },
+    {
+      "function": "main/f291/f2",
+      "lines": [
+        167020,
+        167083
+      ],
+      "constants": {
+        "k0": "GetUnitAbilityLevel",
+        "k1": "GetId",
+        "k2": "A022",
+        "k3": 0,
+        "k4": "A022_Get_probability",
+        "k5": "GetRandomInt",
+        "k6": 100,
+        "k7": "A022_Action",
+        "k8": "T316",
+        "k9": "A164_T316_Get_probability",
+        "k10": "A164_T316_Action"
+      },
+      "instructions": [
+        {
+          "pc": 1,
+          "line": 167043,
+          "op": "gettabup",
+          "args": [
+            "r1",
+            "u0",
+            "k0"
+          ]
+        },
+        {
+          "pc": 2,
+          "line": 167044,
+          "op": "move",
+          "args": [
+            "r2",
+            "r0"
+          ]
+        },
+        {
+          "pc": 3,
+          "line": 167045,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k1"
+          ]
+        },
+        {
+          "pc": 4,
+          "line": 167046,
+          "op": "loadk",
+          "args": [
+            "r4",
+            "k2"
+          ]
+        },
+        {
+          "pc": 5,
+          "line": 167047,
+          "op": "call",
+          "args": [
+            "r3",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 6,
+          "line": 167048,
+          "op": "call",
+          "args": [
+            "r1",
+            "0",
+            "2"
+          ]
+        },
+        {
+          "pc": 7,
+          "line": 167049,
+          "op": "lt",
+          "args": [
+            "0",
+            "k3",
+            "r1"
+          ]
+        },
+        {
+          "pc": 8,
+          "line": 167050,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l19"
+          ]
+        },
+        {
+          "pc": 9,
+          "line": 167051,
+          "op": "gettabup",
+          "args": [
+            "r1",
+            "u0",
+            "k4"
+          ]
+        },
+        {
+          "pc": 10,
+          "line": 167052,
+          "op": "call",
+          "args": [
+            "r1",
+            "1",
+            "2"
+          ]
+        },
+        {
+          "pc": 11,
+          "line": 167053,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k5"
+          ]
+        },
+        {
+          "pc": 12,
+          "line": 167054,
+          "op": "loadk",
+          "args": [
+            "r3",
+            "k3"
+          ]
+        },
+        {
+          "pc": 13,
+          "line": 167055,
+          "op": "loadk",
+          "args": [
+            "r4",
+            "k6"
+          ]
+        },
+        {
+          "pc": 14,
+          "line": 167056,
+          "op": "call",
+          "args": [
+            "r2",
+            "3",
+            "2"
+          ]
+        },
+        {
+          "pc": 15,
+          "line": 167057,
+          "op": "lt",
+          "args": [
+            "0",
+            "r2",
+            "r1"
+          ]
+        },
+        {
+          "pc": 16,
+          "line": 167058,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l19"
+          ]
+        },
+        {
+          "pc": 17,
+          "line": 167059,
+          "op": "gettabup",
+          "args": [
+            "r1",
+            "u0",
+            "k7"
+          ]
+        },
+        {
+          "pc": 18,
+          "line": 167060,
+          "op": "call",
+          "args": [
+            "r1",
+            "1",
+            "1"
+          ]
+        },
+        {
+          "pc": 19,
+          "line": 167062,
+          "op": "gettabup",
+          "args": [
+            "r1",
+            "u0",
+            "k0"
+          ]
+        },
+        {
+          "pc": 20,
+          "line": 167063,
+          "op": "move",
+          "args": [
+            "r2",
+            "r0"
+          ]
+        },
+        {
+          "pc": 21,
+          "line": 167064,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k1"
+          ]
+        },
+        {
+          "pc": 22,
+          "line": 167065,
+          "op": "loadk",
+          "args": [
+            "r4",
+            "k8"
+          ]
+        },
+        {
+          "pc": 23,
+          "line": 167066,
+          "op": "call",
+          "args": [
+            "r3",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 24,
+          "line": 167067,
+          "op": "call",
+          "args": [
+            "r1",
+            "0",
+            "2"
+          ]
+        },
+        {
+          "pc": 25,
+          "line": 167068,
+          "op": "lt",
+          "args": [
+            "0",
+            "k3",
+            "r1"
+          ]
+        },
+        {
+          "pc": 26,
+          "line": 167069,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l38"
+          ]
+        },
+        {
+          "pc": 27,
+          "line": 167070,
+          "op": "gettabup",
+          "args": [
+            "r1",
+            "u0",
+            "k9"
+          ]
+        },
+        {
+          "pc": 28,
+          "line": 167071,
+          "op": "move",
+          "args": [
+            "r2",
+            "r0"
+          ]
+        },
+        {
+          "pc": 29,
+          "line": 167072,
+          "op": "call",
+          "args": [
+            "r1",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "pc": 30,
+          "line": 167073,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k5"
+          ]
+        },
+        {
+          "pc": 31,
+          "line": 167074,
+          "op": "loadk",
+          "args": [
+            "r3",
+            "k3"
+          ]
+        },
+        {
+          "pc": 32,
+          "line": 167075,
+          "op": "loadk",
+          "args": [
+            "r4",
+            "k6"
+          ]
+        },
+        {
+          "pc": 33,
+          "line": 167076,
+          "op": "call",
+          "args": [
+            "r2",
+            "3",
+            "2"
+          ]
+        },
+        {
+          "pc": 34,
+          "line": 167077,
+          "op": "lt",
+          "args": [
+            "0",
+            "r2",
+            "r1"
+          ]
+        },
+        {
+          "pc": 35,
+          "line": 167078,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l38"
+          ]
+        },
+        {
+          "pc": 36,
+          "line": 167079,
+          "op": "gettabup",
+          "args": [
+            "r1",
+            "u0",
+            "k10"
+          ]
+        },
+        {
+          "pc": 37,
+          "line": 167080,
+          "op": "call",
+          "args": [
+            "r1",
+            "1",
+            "1"
+          ]
+        },
+        {
+          "pc": 38,
+          "line": 167082,
+          "op": "return",
+          "args": [
+            "r0",
+            "1"
+          ]
+        }
+      ],
+      "labels": {
+        "l19": 19,
+        "l38": 38
+      },
+      "scope": "complete",
+      "counts": {
+        "calls": 10,
+        "conditions": 4,
+        "returns": 1,
+        "instructions": 38
+      }
+    },
+    {
+      "function": "main/f291/f3",
+      "lines": [
+        167084,
+        167401
+      ],
+      "constants": {
+        "k0": "GetAttacker",
+        "k1": "GetTriggerUnit",
+        "k2": "IsUnitIllusion",
+        "k3": "GetUnitAbilityLevel",
+        "k4": "GetId",
+        "k5": "T217",
+        "k6": 0,
+        "k7": "A196_add_num",
+        "k8": "Skill_Auto",
+        "k9": "N706",
+        "k10": "N707",
+        "k11": "N708",
+        "k12": "B135",
+        "k13": "N706_N708_Action",
+        "k14": "A022",
+        "k15": "A022_Get_probability",
+        "k16": "GetRandomInt",
+        "k17": 100,
+        "k18": "A022_Action",
+        "k19": "T316",
+        "k20": "A164_T316_Get_probability",
+        "k21": "A164_T316_Action",
+        "k22": "A023",
+        "k23": "A023_Action",
+        "k24": "A077",
+        "k25": "A078",
+        "k26": "A077_Action",
+        "k27": null,
+        "k28": "A067",
+        "k29": "A148",
+        "k30": "A067_Action",
+        "k31": "N541",
+        "k32": 15,
+        "k33": "N541_Damage",
+        "k34": "P205",
+        "k35": "P205_Action",
+        "k36": "P206",
+        "k37": 10,
+        "k38": "P206_Action",
+        "k39": "P207",
+        "k40": 30,
+        "k41": "P207_Action",
+        "k42": "P208",
+        "k43": "P208_Action",
+        "k44": "Item_Attack_Action"
+      },
+      "instructions": [
+        {
+          "pc": 1,
+          "line": 167142,
+          "op": "gettabup",
+          "args": [
+            "r0",
+            "u0",
+            "k0"
+          ]
+        },
+        {
+          "pc": 2,
+          "line": 167143,
+          "op": "call",
+          "args": [
+            "r0",
+            "1",
+            "2"
+          ]
+        },
+        {
+          "pc": 3,
+          "line": 167144,
+          "op": "gettabup",
+          "args": [
+            "r1",
+            "u0",
+            "k1"
+          ]
+        },
+        {
+          "pc": 4,
+          "line": 167145,
+          "op": "call",
+          "args": [
+            "r1",
+            "1",
+            "2"
+          ]
+        },
+        {
+          "pc": 5,
+          "line": 167146,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k2"
+          ]
+        },
+        {
+          "pc": 6,
+          "line": 167147,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ]
+        },
+        {
+          "pc": 7,
+          "line": 167148,
+          "op": "call",
+          "args": [
+            "r2",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "pc": 8,
+          "line": 167149,
+          "op": "test",
+          "args": [
+            "r2",
+            "0"
+          ]
+        },
+        {
+          "pc": 9,
+          "line": 167150,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l14"
+          ]
+        },
+        {
+          "pc": 10,
+          "line": 167151,
+          "op": "getupval",
+          "args": [
+            "r2",
+            "u1"
+          ]
+        },
+        {
+          "pc": 11,
+          "line": 167152,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ]
+        },
+        {
+          "pc": 12,
+          "line": 167153,
+          "op": "call",
+          "args": [
+            "r2",
+            "2",
+            "1"
+          ]
+        },
+        {
+          "pc": 13,
+          "line": 167154,
+          "op": "return",
+          "args": [
+            "r0",
+            "1"
+          ]
+        },
+        {
+          "pc": 14,
+          "line": 167156,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k3"
+          ]
+        },
+        {
+          "pc": 15,
+          "line": 167157,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ]
+        },
+        {
+          "pc": 16,
+          "line": 167158,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k4"
+          ]
+        },
+        {
+          "pc": 17,
+          "line": 167159,
+          "op": "loadk",
+          "args": [
+            "r5",
+            "k5"
+          ]
+        },
+        {
+          "pc": 18,
+          "line": 167160,
+          "op": "call",
+          "args": [
+            "r4",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 19,
+          "line": 167161,
+          "op": "call",
+          "args": [
+            "r2",
+            "0",
+            "2"
+          ]
+        },
+        {
+          "pc": 20,
+          "line": 167162,
+          "op": "lt",
+          "args": [
+            "0",
+            "k6",
+            "r2"
+          ]
+        },
+        {
+          "pc": 21,
+          "line": 167163,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l25"
+          ]
+        },
+        {
+          "pc": 22,
+          "line": 167164,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k7"
+          ]
+        },
+        {
+          "pc": 23,
+          "line": 167165,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ]
+        },
+        {
+          "pc": 24,
+          "line": 167166,
+          "op": "call",
+          "args": [
+            "r2",
+            "2",
+            "1"
+          ]
+        },
+        {
+          "pc": 25,
+          "line": 167168,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k8"
+          ]
+        },
+        {
+          "pc": 26,
+          "line": 167169,
+          "op": "call",
+          "args": [
+            "r2",
+            "1",
+            "1"
+          ]
+        },
+        {
+          "pc": 27,
+          "line": 167170,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k3"
+          ]
+        },
+        {
+          "pc": 28,
+          "line": 167171,
+          "op": "move",
+          "args": [
+            "r3",
+            "r1"
+          ]
+        },
+        {
+          "pc": 29,
+          "line": 167172,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k4"
+          ]
+        },
+        {
+          "pc": 30,
+          "line": 167173,
+          "op": "loadk",
+          "args": [
+            "r5",
+            "k9"
+          ]
+        },
+        {
+          "pc": 31,
+          "line": 167174,
+          "op": "call",
+          "args": [
+            "r4",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 32,
+          "line": 167175,
+          "op": "call",
+          "args": [
+            "r2",
+            "0",
+            "2"
+          ]
+        },
+        {
+          "pc": 33,
+          "line": 167176,
+          "op": "lt",
+          "args": [
+            "1",
+            "k6",
+            "r2"
+          ]
+        },
+        {
+          "pc": 34,
+          "line": 167177,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l51"
+          ]
+        },
+        {
+          "pc": 35,
+          "line": 167178,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k3"
+          ]
+        },
+        {
+          "pc": 36,
+          "line": 167179,
+          "op": "move",
+          "args": [
+            "r3",
+            "r1"
+          ]
+        },
+        {
+          "pc": 37,
+          "line": 167180,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k4"
+          ]
+        },
+        {
+          "pc": 38,
+          "line": 167181,
+          "op": "loadk",
+          "args": [
+            "r5",
+            "k10"
+          ]
+        },
+        {
+          "pc": 39,
+          "line": 167182,
+          "op": "call",
+          "args": [
+            "r4",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 40,
+          "line": 167183,
+          "op": "call",
+          "args": [
+            "r2",
+            "0",
+            "2"
+          ]
+        },
+        {
+          "pc": 41,
+          "line": 167184,
+          "op": "lt",
+          "args": [
+            "1",
+            "k6",
+            "r2"
+          ]
+        },
+        {
+          "pc": 42,
+          "line": 167185,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l51"
+          ]
+        },
+        {
+          "pc": 43,
+          "line": 167186,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k3"
+          ]
+        },
+        {
+          "pc": 44,
+          "line": 167187,
+          "op": "move",
+          "args": [
+            "r3",
+            "r1"
+          ]
+        },
+        {
+          "pc": 45,
+          "line": 167188,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k4"
+          ]
+        },
+        {
+          "pc": 46,
+          "line": 167189,
+          "op": "loadk",
+          "args": [
+            "r5",
+            "k11"
+          ]
+        },
+        {
+          "pc": 47,
+          "line": 167190,
+          "op": "call",
+          "args": [
+            "r4",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 48,
+          "line": 167191,
+          "op": "call",
+          "args": [
+            "r2",
+            "0",
+            "2"
+          ]
+        },
+        {
+          "pc": 49,
+          "line": 167192,
+          "op": "lt",
+          "args": [
+            "0",
+            "k6",
+            "r2"
+          ]
+        },
+        {
+          "pc": 50,
+          "line": 167193,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l63"
+          ]
+        },
+        {
+          "pc": 51,
+          "line": 167195,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k3"
+          ]
+        },
+        {
+          "pc": 52,
+          "line": 167196,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ]
+        },
+        {
+          "pc": 53,
+          "line": 167197,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k4"
+          ]
+        },
+        {
+          "pc": 54,
+          "line": 167198,
+          "op": "loadk",
+          "args": [
+            "r5",
+            "k12"
+          ]
+        },
+        {
+          "pc": 55,
+          "line": 167199,
+          "op": "call",
+          "args": [
+            "r4",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 56,
+          "line": 167200,
+          "op": "call",
+          "args": [
+            "r2",
+            "0",
+            "2"
+          ]
+        },
+        {
+          "pc": 57,
+          "line": 167201,
+          "op": "le",
+          "args": [
+            "0",
+            "r2",
+            "k6"
+          ]
+        },
+        {
+          "pc": 58,
+          "line": 167202,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l63"
+          ]
+        },
+        {
+          "pc": 59,
+          "line": 167203,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k13"
+          ]
+        },
+        {
+          "pc": 60,
+          "line": 167204,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ]
+        },
+        {
+          "pc": 61,
+          "line": 167205,
+          "op": "move",
+          "args": [
+            "r4",
+            "r1"
+          ]
+        },
+        {
+          "pc": 62,
+          "line": 167206,
+          "op": "call",
+          "args": [
+            "r2",
+            "3",
+            "1"
+          ]
+        },
+        {
+          "pc": 63,
+          "line": 167208,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k3"
+          ]
+        },
+        {
+          "pc": 64,
+          "line": 167209,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ]
+        },
+        {
+          "pc": 65,
+          "line": 167210,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k4"
+          ]
+        },
+        {
+          "pc": 66,
+          "line": 167211,
+          "op": "loadk",
+          "args": [
+            "r5",
+            "k14"
+          ]
+        },
+        {
+          "pc": 67,
+          "line": 167212,
+          "op": "call",
+          "args": [
+            "r4",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 68,
+          "line": 167213,
+          "op": "call",
+          "args": [
+            "r2",
+            "0",
+            "2"
+          ]
+        },
+        {
+          "pc": 69,
+          "line": 167214,
+          "op": "lt",
+          "args": [
+            "0",
+            "k6",
+            "r2"
+          ]
+        },
+        {
+          "pc": 70,
+          "line": 167215,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l81"
+          ]
+        },
+        {
+          "pc": 71,
+          "line": 167216,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k15"
+          ]
+        },
+        {
+          "pc": 72,
+          "line": 167217,
+          "op": "call",
+          "args": [
+            "r2",
+            "1",
+            "2"
+          ]
+        },
+        {
+          "pc": 73,
+          "line": 167218,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k16"
+          ]
+        },
+        {
+          "pc": 74,
+          "line": 167219,
+          "op": "loadk",
+          "args": [
+            "r4",
+            "k6"
+          ]
+        },
+        {
+          "pc": 75,
+          "line": 167220,
+          "op": "loadk",
+          "args": [
+            "r5",
+            "k17"
+          ]
+        },
+        {
+          "pc": 76,
+          "line": 167221,
+          "op": "call",
+          "args": [
+            "r3",
+            "3",
+            "2"
+          ]
+        },
+        {
+          "pc": 77,
+          "line": 167222,
+          "op": "lt",
+          "args": [
+            "0",
+            "r3",
+            "r2"
+          ]
+        },
+        {
+          "pc": 78,
+          "line": 167223,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l81"
+          ]
+        },
+        {
+          "pc": 79,
+          "line": 167224,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k18"
+          ]
+        },
+        {
+          "pc": 80,
+          "line": 167225,
+          "op": "call",
+          "args": [
+            "r2",
+            "1",
+            "1"
+          ]
+        },
+        {
+          "pc": 81,
+          "line": 167227,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k3"
+          ]
+        },
+        {
+          "pc": 82,
+          "line": 167228,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ]
+        },
+        {
+          "pc": 83,
+          "line": 167229,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k4"
+          ]
+        },
+        {
+          "pc": 84,
+          "line": 167230,
+          "op": "loadk",
+          "args": [
+            "r5",
+            "k19"
+          ]
+        },
+        {
+          "pc": 85,
+          "line": 167231,
+          "op": "call",
+          "args": [
+            "r4",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 86,
+          "line": 167232,
+          "op": "call",
+          "args": [
+            "r2",
+            "0",
+            "2"
+          ]
+        },
+        {
+          "pc": 87,
+          "line": 167233,
+          "op": "lt",
+          "args": [
+            "0",
+            "k6",
+            "r2"
+          ]
+        },
+        {
+          "pc": 88,
+          "line": 167234,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l100"
+          ]
+        },
+        {
+          "pc": 89,
+          "line": 167235,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k20"
+          ]
+        },
+        {
+          "pc": 90,
+          "line": 167236,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ]
+        },
+        {
+          "pc": 91,
+          "line": 167237,
+          "op": "call",
+          "args": [
+            "r2",
+            "2",
+            "2"
+          ]
+        },
+        {
+          "pc": 92,
+          "line": 167238,
+          "op": "gettabup",
+          "args": [
+            "r3",
+            "u0",
+            "k16"
+          ]
+        },
+        {
+          "pc": 93,
+          "line": 167239,
+          "op": "loadk",
+          "args": [
+            "r4",
+            "k6"
+          ]
+        },
+        {
+          "pc": 94,
+          "line": 167240,
+          "op": "loadk",
+          "args": [
+            "r5",
+            "k17"
+          ]
+        },
+        {
+          "pc": 95,
+          "line": 167241,
+          "op": "call",
+          "args": [
+            "r3",
+            "3",
+            "2"
+          ]
+        },
+        {
+          "pc": 96,
+          "line": 167242,
+          "op": "lt",
+          "args": [
+            "0",
+            "r3",
+            "r2"
+          ]
+        },
+        {
+          "pc": 97,
+          "line": 167243,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l100"
+          ]
+        },
+        {
+          "pc": 98,
+          "line": 167244,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k21"
+          ]
+        },
+        {
+          "pc": 99,
+          "line": 167245,
+          "op": "call",
+          "args": [
+            "r2",
+            "1",
+            "1"
+          ]
+        },
+        {
+          "pc": 100,
+          "line": 167247,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k3"
+          ]
+        },
+        {
+          "pc": 101,
+          "line": 167248,
+          "op": "move",
+          "args": [
+            "r3",
+            "r0"
+          ]
+        },
+        {
+          "pc": 102,
+          "line": 167249,
+          "op": "gettabup",
+          "args": [
+            "r4",
+            "u0",
+            "k4"
+          ]
+        },
+        {
+          "pc": 103,
+          "line": 167250,
+          "op": "loadk",
+          "args": [
+            "r5",
+            "k22"
+          ]
+        },
+        {
+          "pc": 104,
+          "line": 167251,
+          "op": "call",
+          "args": [
+            "r4",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "pc": 105,
+          "line": 167252,
+          "op": "call",
+          "args": [
+            "r2",
+            "0",
+            "2"
+          ]
+        },
+        {
+          "pc": 106,
+          "line": 167253,
+          "op": "lt",
+          "args": [
+            "0",
+            "k6",
+            "r2"
+          ]
+        },
+        {
+          "pc": 107,
+          "line": 167254,
+          "op": "jmp",
+          "args": [
+            "0",
+            "l110"
+          ]
+        },
+        {
+          "pc": 108,
+          "line": 167255,
+          "op": "gettabup",
+          "args": [
+            "r2",
+            "u0",
+            "k23"
+          ]
+        },
+        {
+          "pc": 109,
+          "line": 167256,
+          "op": "call",
+          "args": [
+            "r2",
+            "1",
+            "1"
+          ]
+        }
+      ],
+      "labels": {
+        "l14": 14,
+        "l25": 25,
+        "l51": 51,
+        "l63": 63,
+        "l81": 81,
+        "l100": 100,
+        "l110": 110,
+        "l129": 129,
+        "l147": 147,
+        "l151": 151,
+        "l169": 169,
+        "l186": 186,
+        "l203": 203,
+        "l220": 220,
+        "l237": 237
+      },
+      "scope": "entry prefix PC1..109 only",
+      "counts": {
+        "calls": 30,
+        "conditions": 11,
+        "returns": 1,
+        "instructions": 109
+      }
+    }
+  ],
+  "objects": {
+    "units_abilitydata.json": [
+      {
+        "line": 14136,
+        "record": {
+          "alias": "A022",
+          "code": "AHad",
+          "checkDep": 1,
+          "Dur2": 4.0,
+          "Dur3": 4.0,
+          "Dur4": 4.0,
+          "HeroDur2": 2.0,
+          "HeroDur3": 2.0,
+          "HeroDur4": 2.0,
+          "levels": 6,
+          "reqLevel": 1,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      {
+        "line": 32651,
+        "record": {
+          "alias": "T007",
+          "code": "Ablo",
+          "BuffID1": "B003",
+          "BuffID2": "B003",
+          "BuffID3": "B003",
+          "BuffID4": "B003",
+          "checkDep": 1,
+          "Cool1": 1.0,
+          "DataA1": 4.0,
+          "DataA2": 4.0,
+          "DataA3": 4.0,
+          "DataA4": 4.0,
+          "Dur1": 60.0,
+          "HeroDur1": 2.0,
+          "HeroDur2": 2.0,
+          "HeroDur3": 3.0,
+          "HeroDur4": 3.0,
+          "levels": 6,
+          "priority": 11,
+          "Rng1": 600.0,
+          "targs1": "friend,invulnerable",
+          "targs2": "friend,invulnerable",
+          "targs3": "friend,invulnerable",
+          "targs4": "friend,invulnerable"
+        }
+      }
+    ],
+    "units_abilitybuffdata.json": [
+      {
+        "line": 744,
+        "record": {
+          "alias": "B003"
+        }
+      }
+    ],
+    "units_unitabilities.json": [
+      {
+        "line": 4204,
+        "record": {
+          "unitAbilID": "G037",
+          "abilList": "Avul,AInv,T033",
+          "auto": "_",
+          "heroAbilList": "A022,A023,A024,T000,P000"
+        }
+      },
+      {
+        "line": 4498,
+        "record": {
+          "unitAbilID": "H006",
+          "abilList": "Avul,AInv,T033,S061",
+          "auto": "_",
+          "heroAbilList": "A022,A023,A024,T000,P000"
+        }
+      }
+    ],
+    "units_unitweapons.json": [
+      {
+        "line": 21160,
+        "record": {
+          "unitWeapID": "G037",
+          "acquire": 800.0,
+          "atkType1": "hero",
+          "atkType2": "hero",
+          "backSw1": 0.567,
+          "backSw2": 0.567,
+          "castbsw": 0.1,
+          "castpt": 0.5,
+          "cool1": 1.2,
+          "cool2": 2.13,
+          "dice1": 1,
+          "dice2": 2,
+          "dmgplus1": 2,
+          "dmgpt1": 0.433,
+          "dmgpt2": 0.433,
+          "impactZ": 60.0,
+          "launchZ": 60.0,
+          "rangeN1": 800,
+          "rangeN2": 800,
+          "RngBuff1": 1000.0,
+          "RngBuff2": 1000.0,
+          "showUI1": 1,
+          "showUI2": 1,
+          "sides1": 18,
+          "sides2": 4,
+          "targCount1": 1,
+          "targCount2": 1,
+          "targs1": "ground,structure,debris,item,ward",
+          "targs2": "ground,structure,debris,air,item,ward",
+          "weapsOn": 1,
+          "weapTp1": "normal",
+          "weapTp2": "missile",
+          "weapType1": "MetalHeavyBash"
+        }
+      },
+      {
+        "line": 22880,
+        "record": {
+          "unitWeapID": "H006",
+          "acquire": 800.0,
+          "atkType1": "hero",
+          "atkType2": "hero",
+          "backSw1": 0.567,
+          "backSw2": 0.567,
+          "castbsw": 0.1,
+          "castpt": 0.5,
+          "cool1": 1.2,
+          "cool2": 2.13,
+          "dice1": 1,
+          "dice2": 2,
+          "dmgplus1": 2,
+          "dmgpt1": 0.433,
+          "dmgpt2": 0.433,
+          "impactZ": 60.0,
+          "launchZ": 60.0,
+          "rangeN1": 800,
+          "rangeN2": 800,
+          "RngBuff1": 1000.0,
+          "RngBuff2": 1000.0,
+          "showUI1": 1,
+          "showUI2": 1,
+          "sides1": 18,
+          "sides2": 4,
+          "targCount1": 1,
+          "targCount2": 1,
+          "targs1": "ground,structure,debris,item,ward",
+          "targs2": "ground,structure,debris,air,item,ward",
+          "weapsOn": 1,
+          "weapTp1": "normal",
+          "weapTp2": "missile",
+          "weapType1": "MetalHeavyBash"
+        }
+      }
+    ]
+  },
+  "ability_overrides": [
+    {
+      "old": "T007",
+      "new": "\u0000\u0000\u0000\u0000",
+      "mods": [
+        {
+          "key": "ahdu",
+          "type": 2,
+          "level": 5,
+          "data": 0,
+          "value": 4.0
+        },
+        {
+          "key": "ahdu",
+          "type": 2,
+          "level": 6,
+          "data": 0,
+          "value": 4.0
+        }
+      ]
+    }
+  ],
+  "source_findings": {
+    "Get_probability": "reads current GetAttacker; B003>0 and Has_A_Item==false returns0; otherwise level1..6 returns6/8/10/12/14/17; unsupported levels0",
+    "Has_A_Item": "existing helper checks membership in A111_113_A OR i310; not inventory-only",
+    "rng": "outside threshold helper, after it; still consumed at threshold0 when A022 level>0",
+    "event": "Player11 EVENT_PLAYER_UNIT_ATTACKED; no successful-hit requirement",
+    "illusion": "separate f291/f2 still tries A022, then T316, then returns before normal body/A023",
+    "normal_order": "T217 bookkeeping ->Skill_Auto ->N706/707/708 target reaction if eligible ->A022 ->T316 ->A023 ->later attacks/equipment",
+    "action": "one q001 via helper at attacker current loc, same owner, facing0, T007 rank=current A022 rank, lifetime0.5; RemoveLocation; userdata=IsInTable(attacker,Tower_ALL); bloodlustoff then bloodlust on original attacker; results ignored",
+    "no_native_attack_count": "no count state or remaining attacks; duration buff, not finite attack charges",
+    "module_speed_writes": "no SetUnitState/extra attack speed write in A022 module",
+    "buff_lookup": "B003 state suppresses ordinary retrigger regardless originating source; Has_A_Item true permits attempt",
+    "no_local_cooldown": "T007 Cool1=1 belongs to a new dummy per proc, not an A022 proc cooldown"
+  },
+  "resolved_fields": {
+    "hero_duration_seconds": [
+      2,
+      2,
+      3,
+      3,
+      4,
+      4
+    ],
+    "hero_duration_provenance": "SLK levels1-4, w3a ahdu level5/6=4",
+    "buff": "B003",
+    "range": 600,
+    "cooldown": 1,
+    "raw_nonhero_duration": "Dur1=60; remaining values not explicit; outside two-hero profile, not used to override workbook duration",
+    "DataA_levels5to6": {
+      "value": [
+        4,
+        4
+      ],
+      "provenance": "w3x2lni tail-fill parser supports extension of last SLK column; Web import choice, not explicit source DataA5/6"
+    },
+    "A022_AHad_template": "holding/level marker in this profile; not an extra devotion aura; A022 own Dur fields do not define frenzy duration",
+    "DataB_missing": "Web movement bonus0, not inherit vanilla +25% from template tooltip",
+    "DataC_missing": "Web visual scale1; no gameplay size change",
+    "T007_tooltip": "vanilla40%/25%/60s is stale template, not actual modified values"
+  },
+  "web_choices": {
+    "authorization": "Q24 native adaptation; Q34 exact probability; Q35 +500% attack-speed input",
+    "profile_units": [
+      "G037",
+      "H006",
+      "their illusions with actual A022"
+    ],
+    "dummy_cast": {
+      "type": "q001",
+      "lifetime_seconds": 0.5,
+      "mana_cost": 0,
+      "cast_point_seconds": 0,
+      "timing": "synchronous T007 cast at original IssueTargetOrder point; nested spell context restored; q001 IsTemp filters item recursion",
+      "autocast": "explicitly disabled before target order",
+      "target": "original attacker exists, alive, friendly to dummy, within600, not magic immune; invulnerable is explicitly permitted by targs",
+      "native_target_details": "Q24 selection for this custom ability; do not import vanilla organic-only or target-list assumptions over friend,invulnerable",
+      "failure": "no B003; chance consumed and helper still expires; caller continues",
+      "expiry": "shared timed-life death at0.5; does not remove already applied target buff"
+    },
+    "status": {
+      "id": "B003",
+      "duration_seconds_by_A022_level": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        4
+      ],
+      "duration_snapshot": "rank at successful application; applies to declared hero/illusion profile, not speculative arbitrary nonhero targets",
+      "stacking": "one additive attackSpeed modifier only; no multiplicative stacking",
+      "refresh": "successful allowed reapplication replaces duration with now+new rank duration and invalidates old generation; not max or sum",
+      "magnitude": 5,
+      "readiness": "no A -> threshold0 while current B003 exists; with A -> normal threshold",
+      "qualification_changes": "query every attack; obtaining/removing A does not itself refresh/remove B003",
+      "dispel": "positive magical buff removable by corresponding dispel; remove only this modifier, invalidate expiry",
+      "death": "remove B003 and invalidate expiry; no resurrection carryover",
+      "dummy_death": "no effect on buff",
+      "new_magic_immunity": "does not by itself poll-remove existing buff; verified ability-specific cleanup remains intact",
+      "attack_count": "unlimited while duration alive; no per-attack charge decrement",
+      "magnitude_authority": "Q35; same additive delta for levels1..6"
+    },
+    "attack_engine_interface": {
+      "modifier": "add exactly5 to raw attack-speed contributions while B003 active; remove the same contribution on expiry, never clamp-write raw R",
+      "must_not": "set cooldown to base/5 or base/6 directly, multiply current IAS by5/6, ignore shared caps, reset attack progress or emit extra attacks",
+      "timing_choice": "Q24: retain remaining normalized attack-phase work when modifier changes; rescale unspent time using old/new effective factors; never retroactively alter completed work",
+      "shared_baseline": "attack-timing-v1: K=clamp(raw R,0.2,5); preserve progress; other ability lifecycles remain separate",
+      "specification": "attack-timing.md"
+    },
+    "save": "B003 identity/generation/source/rank/expiry/modifier, dummy life and userdata, RNG consumption position, B05 queue order, and resolved decision version",
+    "probability": {
+      "authority": "Q34",
+      "percent_by_level": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        17
+      ],
+      "roll_inclusive": [
+        1,
+        100
+      ],
+      "predicate": "roll<=threshold",
+      "threshold_resolver": "preserve original frenzy/Has_A_Item/level order and zero result",
+      "rng_calls": "one at either original skill-present entry, even threshold0; zero without skill"
+    }
+  },
+  "primary_sources": [
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/Units/AbilityMetaData.slk#L4867",
+      "supports": "Blo1 maps DataA for Ablo"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/share/en-US/mpq/UI/WorldEditStrings.txt#L6018",
+      "supports": "Blo1 attack speed increase percent; Blo2 movement; Blo3 scale"
+    },
+    {
+      "url": "https://github.com/actboy168/YDWE/blob/a69c315ebf2886ec54d66200707ab6e38bd3484d/Development/Component/plugin/w3x2lni/script/core/slk/frontend_merge.lua#L18",
+      "supports": "fill_and_copy repeats last table entry for higher levels; tool behavior not runtime proof"
+    },
+    {
+      "url": "https://classic.battle.net/war3/orc/units/shaman.shtml",
+      "supports": "ordinary Bloodlust adds attack/move rate and cannot target magic immune; map values and targs override vanilla stats"
+    },
+    {
+      "url": "https://github.com/Retera/WarsmashModEngine/blob/f9e0aeed4be372d6016519d0e97b384aa873f374/core/src/com/etheller/warsmash/viewer5/handlers/w3x/simulation/combat/attacks/CUnitAttack.java#L185",
+      "supports": "independent implementation clamps total bonus[-0.9,4] before effective timings; not proven map client cap"
+    }
+  ],
+  "global_speed_evidence": {
+    "war3mapMisc": {
+      "AgiAttackSpeedBonus": {
+        "line": 7,
+        "value": 0.002
+      },
+      "FrostAttackSpeedDecrease": {
+        "line": 26,
+        "value": 0.6
+      },
+      "IllusionsGetAttackSpeedBonus": {
+        "line": 41,
+        "value": 1
+      }
+    },
+    "map_explicit_global_cap": "none in inspected war3mapMisc; does not prove uncapped",
+    "source_module_extra_speed_changes": "none",
+    "other_skills_equipment": "not exhaustively recounted; existing aggregate must be retained"
+  },
+  "validation_cases": [
+    {
+      "id": "thresholds",
+      "levels": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "expected": [
+        0,
+        6,
+        8,
+        10,
+        12,
+        14,
+        17,
+        0
+      ]
+    },
+    {
+      "id": "buff_no_a",
+      "level": 6,
+      "B003": true,
+      "Has_A_Item": false,
+      "threshold": 0,
+      "roll_still_consumed": true
+    },
+    {
+      "id": "buff_with_a",
+      "level": 6,
+      "B003": true,
+      "Has_A_Item": true,
+      "threshold": 17
+    },
+    {
+      "id": "no_buff_no_a",
+      "level": 1,
+      "B003": false,
+      "Has_A_Item": false,
+      "threshold": 6
+    },
+    {
+      "id": "legacy_rng_boundaries",
+      "threshold": 17,
+      "rolls": [
+        0,
+        16,
+        17,
+        100
+      ],
+      "success": [
+        true,
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "zero_threshold",
+      "rolls": [
+        0,
+        1,
+        100
+      ],
+      "success": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "no_skill",
+      "level": 0,
+      "expected_rng_calls_at_entry": 0
+    },
+    {
+      "id": "phantom_branch",
+      "illusion": true,
+      "has_A022": true,
+      "expected_A022_attempts": 1,
+      "expected_A023_calls": 0
+    },
+    {
+      "id": "normal_branch",
+      "illusion": false,
+      "has_A022": true,
+      "has_A023": true,
+      "expected_order": [
+        "Skill_Auto",
+        "relevant target reaction",
+        "A022 attempt",
+        "T316 attempt if present",
+        "A023_Action"
+      ]
+    },
+    {
+      "id": "dummy",
+      "source_index": 4,
+      "skill_level": 6,
+      "expected": [
+        "q001",
+        "T007",
+        6,
+        0.5,
+        4,
+        "bloodlustoff",
+        "bloodlust"
+      ]
+    },
+    {
+      "id": "not_in_Tower_ALL",
+      "source_index": -1,
+      "expected_dummy_userdata": -1,
+      "fallback_original_userdata": false
+    },
+    {
+      "id": "duration_levels",
+      "levels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "expected_seconds": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        4
+      ]
+    },
+    {
+      "id": "refresh",
+      "old_expiry_us": 4000000,
+      "applied_at_us": 3000000,
+      "duration_us": 4000000,
+      "expected_expiry_us": 7000000,
+      "stacks": 1
+    },
+    {
+      "id": "refresh_shorter",
+      "old_expiry_us": 7000000,
+      "applied_at_us": 3000000,
+      "duration_us": 2000000,
+      "expected_expiry_us": 5000000
+    },
+    {
+      "id": "dummy_death",
+      "dummy_expires_us": 500000,
+      "buff_expires_us": 2000000,
+      "expected_buff_active_at_us": 1000000
+    },
+    {
+      "id": "scepter_removed",
+      "B003": true,
+      "Has_A_Item_after": false,
+      "expected_next_threshold": 0,
+      "existing_buff_removed": false
+    },
+    {
+      "id": "scepter_added",
+      "B003": true,
+      "Has_A_Item_after": true,
+      "expected_next_threshold": "level threshold",
+      "automatic_refresh": false
+    },
+    {
+      "id": "attack_budget",
+      "number_of_attacks": 100,
+      "duration_not_expired": true,
+      "expected_buff_consumed_by_attacks": false
+    },
+    {
+      "id": "attack_input_only",
+      "other_additive_bonus": 0,
+      "candidate_deltas": [
+        4,
+        5
+      ],
+      "unclamped_factors": [
+        5,
+        6
+      ],
+      "actual_factor": "attack-timing-v1 applies K=clamp(R,0.2,5); selected delta5; delta4 retained as source comparison"
+    },
+    {
+      "id": "conditional_cap_example",
+      "other_additive_bonus": 0,
+      "candidate_deltas": [
+        4,
+        5
+      ],
+      "capped_factors": [
+        5,
+        5
+      ],
+      "status": "Q24 shared Web cap; Q35 delta5 selected, delta4 retained as source comparison",
+      "effective_rate_cap": 5
+    },
+    {
+      "id": "ordinary_magic_immunity_gate",
+      "magic_immune_at_T007_acceptance": true,
+      "expected_new_B003": false,
+      "proc_rng_already_used": true
+    },
+    {
+      "id": "invulnerable_friend",
+      "friend": true,
+      "invulnerable": true,
+      "magic_immune": false,
+      "expected_T007_allowed": true
+    },
+    {
+      "id": "dispel",
+      "at_us": 1000000,
+      "old_expiry_us": 4000000,
+      "expected_B003_after": false,
+      "expected_attack_speed_modifier_after": 0,
+      "old_callback": "no effect"
+    },
+    {
+      "id": "Q34_exact_percentages",
+      "levels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "thresholds": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        17
+      ],
+      "roll_inclusive": [
+        1,
+        100
+      ],
+      "success_count_out_of_100": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        17
+      ]
+    },
+    {
+      "id": "Q34_roll_boundaries",
+      "threshold": 17,
+      "rolls": [
+        1,
+        17,
+        18,
+        100
+      ],
+      "success": [
+        true,
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "Q34_frenzy_no_qualification",
+      "skill_level": 6,
+      "B003": true,
+      "Has_A_Item": false,
+      "threshold": 0,
+      "expected_rng_calls": 1,
+      "success_count_out_of_100": 0
+    },
+    {
+      "id": "Q34_frenzy_with_qualification",
+      "skill_level": 6,
+      "B003": true,
+      "Has_A_Item": true,
+      "threshold": 17,
+      "expected_rng_calls": 1,
+      "success_count_out_of_100": 17
+    },
+    {
+      "id": "Q34_unsupported_level",
+      "skill_level": 7,
+      "threshold": 0,
+      "expected_rng_calls": 1,
+      "success_count_out_of_100": 0
+    },
+    {
+      "id": "Q34_both_entries",
+      "entries": [
+        "normal",
+        "illusion"
+      ],
+      "skill_level": 6,
+      "B003": false,
+      "expected_rng_calls_per_entry": 1,
+      "success_count_out_of_100": 17
+    },
+    {
+      "id": "Q35_all_levels",
+      "levels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "expected_additive_delta": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
+    },
+    {
+      "id": "Q35_slow_and_remove",
+      "before_R": 0.4,
+      "delta": 5,
+      "active_R": 5.4,
+      "active_K": 5,
+      "after_removal_R": 0.4,
+      "after_removal_K": 0.4
+    },
+    {
+      "id": "Q35_preserve_other_bonus",
+      "before_R": 5.6,
+      "delta": 5,
+      "active_R": 10.6,
+      "active_K": 5,
+      "after_removal_R": 5.6,
+      "after_removal_K": 5
+    },
+    {
+      "id": "Q35_refresh_one_modifier",
+      "prior_delta": 5,
+      "new_delta": 5,
+      "effective_modifier_count": 1,
+      "total_delta": 5
+    }
+  ],
+  "limits": [
+    "Q34 and Q35 resolved; source DataA4 remains evidence and is overridden by Web additive delta5",
+    "Shared timing/cap follows attack-timing-v1; other ability lifecycles remain separate; no fixed20% output difference claimed",
+    "Native details are Web choices or cited tool/reimplementation behavior, not client measurement",
+    "Only necessary A023 order referenced; no re-audit of A023 full chain"
+  ]
+}

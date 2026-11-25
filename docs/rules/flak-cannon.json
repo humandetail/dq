@@ -1,0 +1,553 @@
+{
+  "baseline": "flak-cannon-v1",
+  "status": "ready",
+  "source": {
+    "path": "reference/map-6.25/main.disasm",
+    "sha256": "090c15a71b8311a3ab8cfcbf2a7e66ac656b98bad1d7276d5ce0e80add8bd7e1"
+  },
+  "objects": {
+    "A196": [
+      {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 985,
+        "id": "A196",
+        "fields": {
+          "alias": "A196",
+          "code": "Absk",
+          "BuffID1": "B170",
+          "BuffID2": "B170",
+          "BuffID3": "B170",
+          "BuffID4": "B170",
+          "checkDep": 1,
+          "Cool1": 10.0,
+          "Cool2": 9.0,
+          "Cool3": 8.0,
+          "Cool4": 7.0,
+          "Cost1": 30,
+          "Cost2": 35,
+          "Cost3": 40,
+          "Cost4": 45,
+          "Dur1": 12.0,
+          "HeroDur1": 12.0,
+          "levels": 6,
+          "targs1": "_",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      },
+      {
+        "sourcePath": "reference/map-6.25/war3map.w3a.json",
+        "jsonIndex": 122,
+        "id": "A196",
+        "fields": {
+          "old": "A196",
+          "new": "\u0000\u0000\u0000\u0000",
+          "mods": [
+            {
+              "key": "acdn",
+              "type": 2,
+              "level": 5,
+              "data": 0,
+              "value": 6.0
+            },
+            {
+              "key": "acdn",
+              "type": 2,
+              "level": 6,
+              "data": 0,
+              "value": 5.0
+            },
+            {
+              "key": "amcs",
+              "type": 0,
+              "level": 5,
+              "data": 0,
+              "value": 50
+            },
+            {
+              "key": "amcs",
+              "type": 0,
+              "level": 6,
+              "data": 0,
+              "value": 60
+            }
+          ]
+        }
+      }
+    ],
+    "T217": [
+      {
+        "sourcePath": "reference/map-6.25/units_abilitydata.json",
+        "jsonIndex": 2088,
+        "id": "T217",
+        "fields": {
+          "alias": "T217",
+          "code": "Aroc",
+          "Area1": 1300.0,
+          "checkDep": 1,
+          "Cool1": 2.0,
+          "DataA1": 1.0,
+          "DataB1": 9999999.0,
+          "DataC1": 100,
+          "Dur1": 1.0,
+          "HeroDur1": 1.0,
+          "levels": 1,
+          "targs1": "alive,enemies",
+          "targs2": "_",
+          "targs3": "_",
+          "targs4": "_"
+        }
+      }
+    ],
+    "H051": [
+      {
+        "sourcePath": "reference/map-6.25/units_unitweapons.json",
+        "jsonIndex": 961,
+        "id": "H051",
+        "fields": {
+          "unitWeapID": "H051",
+          "acquire": 1000.0,
+          "atkType1": "hero",
+          "atkType2": "hero",
+          "backSw1": 0.85,
+          "backSw2": 0.85,
+          "castbsw": 0.1,
+          "castpt": 0.01,
+          "cool1": 1.2,
+          "cool2": 2.13,
+          "dice1": 2,
+          "dice2": 2,
+          "dmgplus1": 35,
+          "dmgpt1": 0.55,
+          "dmgpt2": 0.55,
+          "impactZ": 60.0,
+          "launchX": 15.0,
+          "launchZ": 66.0,
+          "rangeN1": 1000,
+          "rangeN2": 1000,
+          "RngBuff1": 2000.0,
+          "RngBuff2": 2000.0,
+          "showUI1": 1,
+          "showUI2": 1,
+          "sides1": 4,
+          "sides2": 4,
+          "targCount1": 1,
+          "targCount2": 1,
+          "targs1": "ground,structure,debris,air,item,ward",
+          "targs2": "ground,structure,debris,air,item,ward",
+          "weapsOn": 1,
+          "weapTp1": "missile",
+          "weapTp2": "missile"
+        }
+      }
+    ],
+    "G080": [
+      {
+        "sourcePath": "reference/map-6.25/units_unitweapons.json",
+        "jsonIndex": 910,
+        "id": "G080",
+        "fields": {
+          "unitWeapID": "G080",
+          "acquire": 1000.0,
+          "atkType1": "hero",
+          "atkType2": "hero",
+          "backSw1": 0.85,
+          "backSw2": 0.85,
+          "castbsw": 0.1,
+          "castpt": 0.01,
+          "cool1": 1.2,
+          "cool2": 2.13,
+          "dice1": 2,
+          "dice2": 2,
+          "dmgplus1": 35,
+          "dmgpt1": 0.55,
+          "dmgpt2": 0.55,
+          "impactZ": 60.0,
+          "launchX": 15.0,
+          "launchZ": 66.0,
+          "rangeN1": 1000,
+          "rangeN2": 1000,
+          "RngBuff1": 2000.0,
+          "RngBuff2": 2000.0,
+          "showUI1": 1,
+          "showUI2": 1,
+          "sides1": 4,
+          "sides2": 4,
+          "targCount1": 1,
+          "targCount2": 1,
+          "targs1": "ground,structure,debris,air,item,ward",
+          "targs2": "ground,structure,debris,air,item,ward",
+          "weapsOn": 1,
+          "weapTp1": "missile",
+          "weapTp2": "missile"
+        }
+      }
+    ]
+  },
+  "workbookRows": [
+    {
+      "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+      "sheet": "塔技能",
+      "row": 518,
+      "columns": [
+        6
+      ],
+      "cells": [
+        "矮人直升机<SR>",
+        "H051",
+        2,
+        "学习技能",
+        "高射火炮",
+        "A196",
+        6,
+        "矮人直升机火炮全开，每次攻击都会打击1000范围内的所有敌人。",
+        "等级 1｜持续3秒或维持3次攻击。 耗蓝 30点。\n冷却时间：10秒。\n等级 2｜持续3秒或维持4次攻击。 耗蓝 35点。\n冷却时间：9秒。\n等级 3｜持续3秒或维持4次攻击。 耗蓝 40点。\n冷却时间：8秒。\n等级 4｜持续3秒或维持5次攻击。 耗蓝 45点。\n冷却时间：7秒。\n等级 5｜持续3秒或维持5次攻击。 耗蓝 50点。\n冷却时间：6秒。\n等级 6｜持续3秒或维持6次攻击。 耗蓝 60点。\n冷却时间：5秒。\n伤害类型 物理伤害\n注：法球效果不能叠加。",
+        "冷却 6.0／5.0；耗蓝 50／60"
+      ]
+    },
+    {
+      "sourcePath": "/Users/laihanbin/Downloads/刀圈TD 6.25 图鉴.xlsx",
+      "sheet": "塔技能",
+      "row": 523,
+      "columns": [
+        6
+      ],
+      "cells": [
+        "矮人轰炸机<SR>",
+        "G080",
+        2,
+        "学习技能",
+        "高射火炮",
+        "A196",
+        6,
+        "矮人直升机火炮全开，每次攻击都会打击1000范围内的所有敌人。",
+        "等级 1｜持续3秒或维持3次攻击。 耗蓝 30点。\n冷却时间：10秒。\n等级 2｜持续3秒或维持4次攻击。 耗蓝 35点。\n冷却时间：9秒。\n等级 3｜持续3秒或维持4次攻击。 耗蓝 40点。\n冷却时间：8秒。\n等级 4｜持续3秒或维持5次攻击。 耗蓝 45点。\n冷却时间：7秒。\n等级 5｜持续3秒或维持5次攻击。 耗蓝 50点。\n冷却时间：6秒。\n等级 6｜持续3秒或维持6次攻击。 耗蓝 60点。\n冷却时间：5秒。\n伤害类型 物理伤害\n注：法球效果不能叠加。",
+        "冷却 6.0／5.0；耗蓝 50／60"
+      ]
+    },
+    {
+      "sourcePath": "图鉴.xlsx",
+      "sheet": "塔技能",
+      "row": 518,
+      "columns": [
+        6
+      ],
+      "cells": [
+        "矮人直升机<SR>",
+        "H051",
+        2,
+        "学习技能",
+        "高射火炮",
+        "A196",
+        6,
+        "矮人直升机火炮全开，每次攻击都会打击1000范围内的所有敌人。",
+        "等级 1｜持续3秒或维持3次攻击。 耗蓝 30点。\n冷却时间：10秒。\n等级 2｜持续3秒或维持4次攻击。 耗蓝 35点。\n冷却时间：9秒。\n等级 3｜持续3秒或维持4次攻击。 耗蓝 40点。\n冷却时间：8秒。\n等级 4｜持续3秒或维持5次攻击。 耗蓝 45点。\n冷却时间：7秒。\n等级 5｜持续3秒或维持5次攻击。 耗蓝 50点。\n冷却时间：6秒。\n等级 6｜持续3秒或维持6次攻击。 耗蓝 60点。\n冷却时间：5秒。\n伤害类型 物理伤害\n注：法球效果不能叠加。",
+        "冷却 6.0／5.0；耗蓝 50／60"
+      ]
+    },
+    {
+      "sourcePath": "图鉴.xlsx",
+      "sheet": "塔技能",
+      "row": 523,
+      "columns": [
+        6
+      ],
+      "cells": [
+        "矮人轰炸机<SR>",
+        "G080",
+        2,
+        "学习技能",
+        "高射火炮",
+        "A196",
+        6,
+        "矮人直升机火炮全开，每次攻击都会打击1000范围内的所有敌人。",
+        "等级 1｜持续3秒或维持3次攻击。 耗蓝 30点。\n冷却时间：10秒。\n等级 2｜持续3秒或维持4次攻击。 耗蓝 35点。\n冷却时间：9秒。\n等级 3｜持续3秒或维持4次攻击。 耗蓝 40点。\n冷却时间：8秒。\n等级 4｜持续3秒或维持5次攻击。 耗蓝 45点。\n冷却时间：7秒。\n等级 5｜持续3秒或维持5次攻击。 耗蓝 50点。\n冷却时间：6秒。\n等级 6｜持续3秒或维持6次攻击。 耗蓝 60点。\n冷却时间：5秒。\n伤害类型 物理伤害\n注：法球效果不能叠加。",
+        "冷却 6.0／5.0；耗蓝 50／60"
+      ]
+    }
+  ],
+  "literalReferences": {
+    "A196": [
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f141/f2",
+        "key": "k3",
+        "constantLine": 101356,
+        "pc": 7,
+        "sourceLine": 101378,
+        "instruction": "loadk r5 k3"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f291/f14",
+        "key": "k263",
+        "constantLine": 169852,
+        "pc": 1239,
+        "sourceLine": 171357,
+        "instruction": "loadk r5 k263"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f291/f27",
+        "key": "k204",
+        "constantLine": 173976,
+        "pc": 3067,
+        "sourceLine": 177355,
+        "instruction": "loadk r14 k204"
+      }
+    ],
+    "T217": [
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f7",
+        "key": "k36",
+        "constantLine": 49230,
+        "pc": 104,
+        "sourceLine": 49589,
+        "instruction": "loadk r12 k36"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f141/f0",
+        "key": "k2",
+        "constantLine": 101283,
+        "pc": 4,
+        "sourceLine": 101292,
+        "instruction": "loadk r5 k2"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f141/f2",
+        "key": "k13",
+        "constantLine": 101366,
+        "pc": 40,
+        "sourceLine": 101418,
+        "instruction": "loadk r7 k13"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f291/f1",
+        "key": "k36",
+        "constantLine": 162028,
+        "pc": 171,
+        "sourceLine": 162673,
+        "instruction": "loadk r7 k36"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f291/f3",
+        "key": "k5",
+        "constantLine": 167101,
+        "pc": 17,
+        "sourceLine": 167159,
+        "instruction": "loadk r5 k5"
+      }
+    ],
+    "B170": [
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f141/f0",
+        "key": "k3",
+        "constantLine": 101284,
+        "pc": 10,
+        "sourceLine": 101298,
+        "instruction": "loadk r5 k3"
+      }
+    ],
+    "timer": [
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f134/f0",
+        "key": "k21",
+        "constantLine": 99568,
+        "pc": 61,
+        "sourceLine": 99635,
+        "instruction": "settabup u0 k21 r12"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f141/f0",
+        "key": "k5",
+        "constantLine": 101286,
+        "pc": 14,
+        "sourceLine": 101302,
+        "instruction": "gettabup r3 u0 k5"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f271/f0",
+        "key": "k12",
+        "constantLine": 134500,
+        "pc": 28,
+        "sourceLine": 134539,
+        "instruction": "settabup u0 k12 r5"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f288/f0",
+        "key": "k12",
+        "constantLine": 153550,
+        "pc": 28,
+        "sourceLine": 153589,
+        "instruction": "settabup u0 k12 r5"
+      }
+    ],
+    "IsKillCdSkill": [
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f7",
+        "key": "k38",
+        "constantLine": 49232,
+        "pc": 111,
+        "sourceLine": 49596,
+        "instruction": "settabup u0 k38 r11"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f149/f1",
+        "key": "k29",
+        "constantLine": 104273,
+        "pc": 132,
+        "sourceLine": 104417,
+        "instruction": "gettabup r16 u0 k29"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f268/f1",
+        "key": "k5",
+        "constantLine": 133512,
+        "pc": 9,
+        "sourceLine": 133552,
+        "instruction": "gettabup r3 u0 k5"
+      },
+      {
+        "sourcePath": "reference/map-6.25/main.disasm",
+        "function": "main/f269/f2",
+        "key": "k6",
+        "constantLine": 133840,
+        "pc": 12,
+        "sourceLine": 133895,
+        "instruction": "gettabup r3 u0 k6"
+      }
+    ]
+  },
+  "slices": {
+    "effect": {
+      "function": "main/f291/f14",
+      "pc": [
+        1238,
+        1247
+      ],
+      "sourceLines": [
+        171356,
+        171365
+      ]
+    },
+    "attackStart": {
+      "function": "main/f291/f3",
+      "pc": [
+        1,
+        27
+      ],
+      "sourceLines": [
+        167142,
+        167170
+      ]
+    },
+    "auto": {
+      "function": "main/f291/f27",
+      "pc": [
+        3064,
+        3076
+      ],
+      "sourceLines": [
+        177352,
+        177364
+      ]
+    },
+    "damage": {
+      "function": "main/f291/f1",
+      "pc": [
+        158,
+        179
+      ],
+      "sourceLines": [
+        162660,
+        162681
+      ]
+    },
+    "heldGate": {
+      "function": "main/f7",
+      "pc": [
+        102,
+        111
+      ],
+      "sourceLines": [
+        49587,
+        49596
+      ]
+    }
+  },
+  "web": {
+    "lifetime": 3,
+    "radius": 1000,
+    "maxTargets": null,
+    "internalLock": 0,
+    "sideBaseDamage": 1,
+    "sideBudget": 9999999,
+    "sideSpeed": 1600,
+    "counts": [
+      3,
+      4,
+      4,
+      5,
+      5,
+      6
+    ],
+    "startReserve": true,
+    "autoOpeningCounts": true,
+    "cancellationRefund": false,
+    "lateSpecial": "current T217 and actual attack and non-illusion"
+  },
+  "validation": {
+    "checks": [
+      "source opening attack bypasses pre-decrement but auto grants T217 before firing",
+      "three later attack starts keep grant, even if one never submits",
+      "source final pre-decrement destroys global timer, leaves own orphan",
+      "a late attack packet with lost live T217 skips special",
+      "current T217 qualifies any actual attack hit and common kill gate",
+      "nonattack and illusion packets both skip special",
+      "special preserves three independently invoked item paths and exact target",
+      "Web opening auto consumes one and launches from its own generation",
+      "pre-cancel still consumes, last reserved attack can launch, grant stays live for impacts",
+      "the following start exhausts grant before an uncharged submission",
+      "manual new eligibility midwindup reserves from the replacement just once",
+      "reservation generation and remaining count serialize together",
+      "three-second deadline invalidates only the reservation, not any fired projectile",
+      "existing B05 order decides equal-deadline firing"
+    ],
+    "moduleLines": {
+      "main/f141": [
+        101244,
+        101266
+      ],
+      "main/f141/f0": [
+        101268,
+        101306
+      ],
+      "main/f141/f1": [
+        101308,
+        101337
+      ],
+      "main/f141/f2": [
+        101339,
+        101438
+      ],
+      "main/f141/f3": [
+        101440,
+        101471
+      ]
+    }
+  }
+}

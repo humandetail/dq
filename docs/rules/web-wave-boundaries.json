@@ -1,0 +1,2141 @@
+{
+  "version": "web-wave-boundaries-v1",
+  "status": "derived-from-map-registration-order-and-authorized-web-baseline; specification-checked; no-game-runtime-or-original-client-test",
+  "basis": {
+    "baselineFile": "docs/rules/web-baseline.json",
+    "baselineVersion": "web-baseline-v1",
+    "rule": "B05",
+    "luaFile": "reference/map-6.25/main.readable.lua",
+    "bytecodeFile": "reference/map-6.25/main.disasm",
+    "originalBoundsFile": "docs/rules/waves-data.json",
+    "originalBoundsFileSha256": "ccf39285374d77c41b177afe361a181760b1ebe5a521ece6aa44dcb12c9cebdf"
+  },
+  "scope": {
+    "mainlineWaves": [
+      1,
+      54
+    ],
+    "includesMainlineEveryFifthBossWaves": true,
+    "endless": "ordinary waves only, IsEndLessBos()==false",
+    "excluded": [
+      "mainline 55 Roshan",
+      "welfare/gold waves",
+      "endless boss waves",
+      "deep abyss",
+      "skill-summoned additional units"
+    ]
+  },
+  "countCondition": "Per portal present in the relevant player array at every spawning callback, with the entire spawning window running normally. Counts are newly spawned base-wave units, not simultaneously living units.",
+  "rule": {
+    "timeOrigin": "this wave MonsterShow_time_end() spawning setup",
+    "timeUnit": "microsecond",
+    "stopRegisteredBeforePeriodic": true,
+    "immediateBatchAtZero": true,
+    "periodicOccurrenceReenqueuesWithNewSequence": true,
+    "cancelInvalidatesQueuedOccurrence": true,
+    "validSpawnTimes": "k * interval, integer k >= 0, k * interval < window",
+    "batchesFormula": "(windowMicroseconds + intervalMicroseconds - 1) // intervalMicroseconds",
+    "stopTimeOccurrenceIncluded": false
+  },
+  "sources": {
+    "registration-order": {
+      "luaLines": [
+        127855,
+        127860
+      ],
+      "bytecodeFunction": "main/f294/f12",
+      "bytecodeLines": [
+        183645,
+        183650
+      ],
+      "fact": "delayToStopMon(); next_monster_time(); Trig_monsterShow()"
+    },
+    "one-shot-helper": {
+      "luaLines": [
+        29683,
+        29729
+      ],
+      "fact": "TimerStart(..., duration, false, callback) is registered synchronously; callback calls the stored function directly."
+    },
+    "immediate-and-periodic-spawn": {
+      "luaLines": [
+        [
+          128095,
+          128127
+        ],
+        [
+          128402,
+          128409
+        ]
+      ],
+      "bytecodeFunction": "main/f294/f17",
+      "bytecodeLines": [
+        [
+          184114,
+          184146
+        ],
+        [
+          184432,
+          184439
+        ]
+      ],
+      "fact": "Ordinary waves register the periodic action and also call it directly once. Ordinary endless uses endlessRate; endless bosses take a distinct early return and are excluded here."
+    },
+    "periodic-helper": {
+      "luaLines": [
+        11253,
+        11264
+      ],
+      "fact": "TriggerRegisterTimerEventPeriodic immediately calls TriggerRegisterTimerEvent(trigger, period, true)."
+    },
+    "stop-duration": {
+      "luaLines": [
+        129776,
+        129797
+      ],
+      "bytecodeFunction": "main/f294/f38",
+      "bytecodeLines": [
+        186468,
+        186487
+      ],
+      "fact": "Mainline uses time_of_show[cur_monLv]; ordinary endless uses endlessShow."
+    },
+    "stop-cancels-trigger": {
+      "luaLines": [
+        129799,
+        129812
+      ],
+      "bytecodeFunction": "main/f294/f39",
+      "bytecodeLines": [
+        186505,
+        186515
+      ],
+      "fact": "StopMon synchronously disables and destroys _mon_rate_trig."
+    },
+    "one-unit-per-portal": {
+      "luaLines": [
+        [
+          128056,
+          128093
+        ],
+        [
+          128509,
+          128518
+        ]
+      ],
+      "bytecodeFunction": "main/f294/f16",
+      "bytecodeLines": [
+        183967,
+        184008
+      ],
+      "fact": "Iterate Player_Index_Arr unless Game_Mode==1 and GAME_ENDLESS_TYPE==2; each entry calls the constructor once; constructor calls CreateUnitAtLoc once."
+    },
+    "mainline-window-array": {
+      "luaLines": [
+        126310,
+        126419
+      ],
+      "fact": "time_of_show[1..54] is 40 seconds."
+    },
+    "mainline-interval-array": {
+      "luaLines": [
+        126420,
+        126529
+      ],
+      "fact": "time_of_show_rate[1..54]. Per-wave value and store lines appear in the data rows."
+    },
+    "endless-constants": {
+      "luaLines": [
+        126677,
+        126682
+      ],
+      "fact": "endlessDelay=1, endlessRate=2, endlessShow=14, endlessSpace=14."
+    },
+    "next-wave-separation": {
+      "luaLines": [
+        [
+          126200,
+          126309
+        ],
+        [
+          126530,
+          126639
+        ],
+        [
+          126716,
+          126736
+        ],
+        [
+          129711,
+          129771
+        ]
+      ],
+      "fact": "Next mainline start gaps are 50/54/82 seconds (>40); the next start after an ordinary endless wave is 1+14=15 seconds (>14)."
+    },
+    "endless-capacity-points": {
+      "file": "reference/map-6.25/units_unitdata.json",
+      "pointsLines": {
+        "mw01": 17160,
+        "mw02": 17174,
+        "mw03": 17188,
+        "mw04": 17202
+      },
+      "fact": "All four ordinary endless templates have points=2."
+    }
+  },
+  "mainline": [
+    {
+      "wave": 1,
+      "unitId": "m001",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 700000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 58,
+      "webUnitsPerActivePortal": 58,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39900000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 58,
+        "max": 58
+      },
+      "source": {
+        "window": {
+          "valueLine": 126311,
+          "arrayAssignmentLine": 126361
+        },
+        "interval": {
+          "valueLine": 126421,
+          "arrayAssignmentLine": 126471
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 2,
+      "unitId": "m002",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 700000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 58,
+      "webUnitsPerActivePortal": 58,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39900000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 58,
+        "max": 58
+      },
+      "source": {
+        "window": {
+          "valueLine": 126312,
+          "arrayAssignmentLine": 126362
+        },
+        "interval": {
+          "valueLine": 126422,
+          "arrayAssignmentLine": 126472
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 3,
+      "unitId": "m003",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 700000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 58,
+      "webUnitsPerActivePortal": 58,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39900000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 58,
+        "max": 58
+      },
+      "source": {
+        "window": {
+          "valueLine": 126313,
+          "arrayAssignmentLine": 126363
+        },
+        "interval": {
+          "valueLine": 126423,
+          "arrayAssignmentLine": 126473
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 4,
+      "unitId": "m004",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 700000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 58,
+      "webUnitsPerActivePortal": 58,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39900000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 58,
+        "max": 58
+      },
+      "source": {
+        "window": {
+          "valueLine": 126314,
+          "arrayAssignmentLine": 126364
+        },
+        "interval": {
+          "valueLine": 126424,
+          "arrayAssignmentLine": 126474
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 5,
+      "unitId": "m005",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 5000000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 8,
+      "webUnitsPerActivePortal": 8,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 35000000,
+      "hasPeriodicOccurrenceAtStopTime": true,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 8,
+        "max": 9
+      },
+      "source": {
+        "window": {
+          "valueLine": 126315,
+          "arrayAssignmentLine": 126365
+        },
+        "interval": {
+          "valueLine": 126425,
+          "arrayAssignmentLine": 126475
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 6,
+      "unitId": "m006",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 900000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 45,
+      "webUnitsPerActivePortal": 45,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39600000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 45,
+        "max": 45
+      },
+      "source": {
+        "window": {
+          "valueLine": 126316,
+          "arrayAssignmentLine": 126366
+        },
+        "interval": {
+          "valueLine": 126426,
+          "arrayAssignmentLine": 126476
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 7,
+      "unitId": "m007",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 700000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 58,
+      "webUnitsPerActivePortal": 58,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39900000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 58,
+        "max": 58
+      },
+      "source": {
+        "window": {
+          "valueLine": 126317,
+          "arrayAssignmentLine": 126367
+        },
+        "interval": {
+          "valueLine": 126427,
+          "arrayAssignmentLine": 126477
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 8,
+      "unitId": "m008",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 700000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 58,
+      "webUnitsPerActivePortal": 58,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39900000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 58,
+        "max": 58
+      },
+      "source": {
+        "window": {
+          "valueLine": 126318,
+          "arrayAssignmentLine": 126368
+        },
+        "interval": {
+          "valueLine": 126428,
+          "arrayAssignmentLine": 126478
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 9,
+      "unitId": "m009",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 700000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 58,
+      "webUnitsPerActivePortal": 58,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39900000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 58,
+        "max": 58
+      },
+      "source": {
+        "window": {
+          "valueLine": 126319,
+          "arrayAssignmentLine": 126369
+        },
+        "interval": {
+          "valueLine": 126429,
+          "arrayAssignmentLine": 126479
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 10,
+      "unitId": "m010",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 5000000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 8,
+      "webUnitsPerActivePortal": 8,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 35000000,
+      "hasPeriodicOccurrenceAtStopTime": true,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 8,
+        "max": 9
+      },
+      "source": {
+        "window": {
+          "valueLine": 126320,
+          "arrayAssignmentLine": 126370
+        },
+        "interval": {
+          "valueLine": 126430,
+          "arrayAssignmentLine": 126480
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 11,
+      "unitId": "m011",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 900000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 45,
+      "webUnitsPerActivePortal": 45,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39600000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 45,
+        "max": 45
+      },
+      "source": {
+        "window": {
+          "valueLine": 126321,
+          "arrayAssignmentLine": 126371
+        },
+        "interval": {
+          "valueLine": 126431,
+          "arrayAssignmentLine": 126481
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 12,
+      "unitId": "m012",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 700000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 58,
+      "webUnitsPerActivePortal": 58,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39900000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 58,
+        "max": 58
+      },
+      "source": {
+        "window": {
+          "valueLine": 126322,
+          "arrayAssignmentLine": 126372
+        },
+        "interval": {
+          "valueLine": 126432,
+          "arrayAssignmentLine": 126482
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 13,
+      "unitId": "m013",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 800000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 50,
+      "webUnitsPerActivePortal": 50,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39200000,
+      "hasPeriodicOccurrenceAtStopTime": true,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 50,
+        "max": 51
+      },
+      "source": {
+        "window": {
+          "valueLine": 126323,
+          "arrayAssignmentLine": 126373
+        },
+        "interval": {
+          "valueLine": 126433,
+          "arrayAssignmentLine": 126483
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 14,
+      "unitId": "m014",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 700000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 58,
+      "webUnitsPerActivePortal": 58,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39900000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 58,
+        "max": 58
+      },
+      "source": {
+        "window": {
+          "valueLine": 126324,
+          "arrayAssignmentLine": 126374
+        },
+        "interval": {
+          "valueLine": 126434,
+          "arrayAssignmentLine": 126484
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 15,
+      "unitId": "m015",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 7000000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 6,
+      "webUnitsPerActivePortal": 6,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 35000000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 6,
+        "max": 6
+      },
+      "source": {
+        "window": {
+          "valueLine": 126325,
+          "arrayAssignmentLine": 126375
+        },
+        "interval": {
+          "valueLine": 126435,
+          "arrayAssignmentLine": 126485
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 16,
+      "unitId": "m016",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 700000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 58,
+      "webUnitsPerActivePortal": 58,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39900000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 58,
+        "max": 58
+      },
+      "source": {
+        "window": {
+          "valueLine": 126326,
+          "arrayAssignmentLine": 126376
+        },
+        "interval": {
+          "valueLine": 126436,
+          "arrayAssignmentLine": 126486
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 17,
+      "unitId": "m017",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 700000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 58,
+      "webUnitsPerActivePortal": 58,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39900000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 58,
+        "max": 58
+      },
+      "source": {
+        "window": {
+          "valueLine": 126327,
+          "arrayAssignmentLine": 126377
+        },
+        "interval": {
+          "valueLine": 126437,
+          "arrayAssignmentLine": 126487
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 18,
+      "unitId": "m018",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 700000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 58,
+      "webUnitsPerActivePortal": 58,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39900000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 58,
+        "max": 58
+      },
+      "source": {
+        "window": {
+          "valueLine": 126328,
+          "arrayAssignmentLine": 126378
+        },
+        "interval": {
+          "valueLine": 126438,
+          "arrayAssignmentLine": 126488
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 19,
+      "unitId": "m019",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 700000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 58,
+      "webUnitsPerActivePortal": 58,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39900000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 58,
+        "max": 58
+      },
+      "source": {
+        "window": {
+          "valueLine": 126329,
+          "arrayAssignmentLine": 126379
+        },
+        "interval": {
+          "valueLine": 126439,
+          "arrayAssignmentLine": 126489
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 20,
+      "unitId": "m020",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 7000000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 6,
+      "webUnitsPerActivePortal": 6,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 35000000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 6,
+        "max": 6
+      },
+      "source": {
+        "window": {
+          "valueLine": 126330,
+          "arrayAssignmentLine": 126380
+        },
+        "interval": {
+          "valueLine": 126440,
+          "arrayAssignmentLine": 126490
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 21,
+      "unitId": "m021",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 700000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 58,
+      "webUnitsPerActivePortal": 58,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39900000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 58,
+        "max": 58
+      },
+      "source": {
+        "window": {
+          "valueLine": 126331,
+          "arrayAssignmentLine": 126381
+        },
+        "interval": {
+          "valueLine": 126441,
+          "arrayAssignmentLine": 126491
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 22,
+      "unitId": "m022",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 800000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 50,
+      "webUnitsPerActivePortal": 50,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39200000,
+      "hasPeriodicOccurrenceAtStopTime": true,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 50,
+        "max": 51
+      },
+      "source": {
+        "window": {
+          "valueLine": 126332,
+          "arrayAssignmentLine": 126382
+        },
+        "interval": {
+          "valueLine": 126442,
+          "arrayAssignmentLine": 126492
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 23,
+      "unitId": "m023",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 700000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 58,
+      "webUnitsPerActivePortal": 58,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39900000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 58,
+        "max": 58
+      },
+      "source": {
+        "window": {
+          "valueLine": 126333,
+          "arrayAssignmentLine": 126383
+        },
+        "interval": {
+          "valueLine": 126443,
+          "arrayAssignmentLine": 126493
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 24,
+      "unitId": "m024",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 700000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 58,
+      "webUnitsPerActivePortal": 58,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39900000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 58,
+        "max": 58
+      },
+      "source": {
+        "window": {
+          "valueLine": 126334,
+          "arrayAssignmentLine": 126384
+        },
+        "interval": {
+          "valueLine": 126444,
+          "arrayAssignmentLine": 126494
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 25,
+      "unitId": "m025",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 8000000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 5,
+      "webUnitsPerActivePortal": 5,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 32000000,
+      "hasPeriodicOccurrenceAtStopTime": true,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 5,
+        "max": 6
+      },
+      "source": {
+        "window": {
+          "valueLine": 126335,
+          "arrayAssignmentLine": 126385
+        },
+        "interval": {
+          "valueLine": 126445,
+          "arrayAssignmentLine": 126495
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 26,
+      "unitId": "m026",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 700000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 58,
+      "webUnitsPerActivePortal": 58,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39900000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 58,
+        "max": 58
+      },
+      "source": {
+        "window": {
+          "valueLine": 126336,
+          "arrayAssignmentLine": 126386
+        },
+        "interval": {
+          "valueLine": 126446,
+          "arrayAssignmentLine": 126496
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 27,
+      "unitId": "m027",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 800000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 50,
+      "webUnitsPerActivePortal": 50,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39200000,
+      "hasPeriodicOccurrenceAtStopTime": true,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 50,
+        "max": 51
+      },
+      "source": {
+        "window": {
+          "valueLine": 126337,
+          "arrayAssignmentLine": 126387
+        },
+        "interval": {
+          "valueLine": 126447,
+          "arrayAssignmentLine": 126497
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 28,
+      "unitId": "m028",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 700000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 58,
+      "webUnitsPerActivePortal": 58,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39900000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 58,
+        "max": 58
+      },
+      "source": {
+        "window": {
+          "valueLine": 126338,
+          "arrayAssignmentLine": 126388
+        },
+        "interval": {
+          "valueLine": 126448,
+          "arrayAssignmentLine": 126498
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 29,
+      "unitId": "m029",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 700000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 58,
+      "webUnitsPerActivePortal": 58,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39900000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 58,
+        "max": 58
+      },
+      "source": {
+        "window": {
+          "valueLine": 126339,
+          "arrayAssignmentLine": 126389
+        },
+        "interval": {
+          "valueLine": 126449,
+          "arrayAssignmentLine": 126499
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 30,
+      "unitId": "m030",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 8000000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 5,
+      "webUnitsPerActivePortal": 5,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 32000000,
+      "hasPeriodicOccurrenceAtStopTime": true,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 5,
+        "max": 6
+      },
+      "source": {
+        "window": {
+          "valueLine": 126340,
+          "arrayAssignmentLine": 126390
+        },
+        "interval": {
+          "valueLine": 126450,
+          "arrayAssignmentLine": 126500
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 31,
+      "unitId": "m031",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 700000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 58,
+      "webUnitsPerActivePortal": 58,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39900000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 58,
+        "max": 58
+      },
+      "source": {
+        "window": {
+          "valueLine": 126341,
+          "arrayAssignmentLine": 126391
+        },
+        "interval": {
+          "valueLine": 126451,
+          "arrayAssignmentLine": 126501
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 32,
+      "unitId": "m032",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 800000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 50,
+      "webUnitsPerActivePortal": 50,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39200000,
+      "hasPeriodicOccurrenceAtStopTime": true,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 50,
+        "max": 51
+      },
+      "source": {
+        "window": {
+          "valueLine": 126342,
+          "arrayAssignmentLine": 126392
+        },
+        "interval": {
+          "valueLine": 126452,
+          "arrayAssignmentLine": 126502
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 33,
+      "unitId": "m033",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 700000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 58,
+      "webUnitsPerActivePortal": 58,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39900000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 58,
+        "max": 58
+      },
+      "source": {
+        "window": {
+          "valueLine": 126343,
+          "arrayAssignmentLine": 126393
+        },
+        "interval": {
+          "valueLine": 126453,
+          "arrayAssignmentLine": 126503
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 34,
+      "unitId": "m034",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 700000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 58,
+      "webUnitsPerActivePortal": 58,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39900000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 58,
+        "max": 58
+      },
+      "source": {
+        "window": {
+          "valueLine": 126344,
+          "arrayAssignmentLine": 126394
+        },
+        "interval": {
+          "valueLine": 126454,
+          "arrayAssignmentLine": 126504
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 35,
+      "unitId": "m035",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 8000000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 5,
+      "webUnitsPerActivePortal": 5,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 32000000,
+      "hasPeriodicOccurrenceAtStopTime": true,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 5,
+        "max": 6
+      },
+      "source": {
+        "window": {
+          "valueLine": 126345,
+          "arrayAssignmentLine": 126395
+        },
+        "interval": {
+          "valueLine": 126455,
+          "arrayAssignmentLine": 126505
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 36,
+      "unitId": "m036",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 700000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 58,
+      "webUnitsPerActivePortal": 58,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39900000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 58,
+        "max": 58
+      },
+      "source": {
+        "window": {
+          "valueLine": 126346,
+          "arrayAssignmentLine": 126396
+        },
+        "interval": {
+          "valueLine": 126456,
+          "arrayAssignmentLine": 126506
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 37,
+      "unitId": "m037",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 800000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 50,
+      "webUnitsPerActivePortal": 50,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39200000,
+      "hasPeriodicOccurrenceAtStopTime": true,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 50,
+        "max": 51
+      },
+      "source": {
+        "window": {
+          "valueLine": 126347,
+          "arrayAssignmentLine": 126397
+        },
+        "interval": {
+          "valueLine": 126457,
+          "arrayAssignmentLine": 126507
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 38,
+      "unitId": "m038",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 700000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 58,
+      "webUnitsPerActivePortal": 58,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39900000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 58,
+        "max": 58
+      },
+      "source": {
+        "window": {
+          "valueLine": 126348,
+          "arrayAssignmentLine": 126398
+        },
+        "interval": {
+          "valueLine": 126458,
+          "arrayAssignmentLine": 126508
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 39,
+      "unitId": "m039",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 700000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 58,
+      "webUnitsPerActivePortal": 58,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39900000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 58,
+        "max": 58
+      },
+      "source": {
+        "window": {
+          "valueLine": 126349,
+          "arrayAssignmentLine": 126399
+        },
+        "interval": {
+          "valueLine": 126459,
+          "arrayAssignmentLine": 126509
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 40,
+      "unitId": "m040",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 8000000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 5,
+      "webUnitsPerActivePortal": 5,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 32000000,
+      "hasPeriodicOccurrenceAtStopTime": true,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 5,
+        "max": 6
+      },
+      "source": {
+        "window": {
+          "valueLine": 126350,
+          "arrayAssignmentLine": 126400
+        },
+        "interval": {
+          "valueLine": 126460,
+          "arrayAssignmentLine": 126510
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 41,
+      "unitId": "m041",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 900000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 45,
+      "webUnitsPerActivePortal": 45,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39600000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 45,
+        "max": 45
+      },
+      "source": {
+        "window": {
+          "valueLine": 126351,
+          "arrayAssignmentLine": 126401
+        },
+        "interval": {
+          "valueLine": 126461,
+          "arrayAssignmentLine": 126511
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 42,
+      "unitId": "m042",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 900000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 45,
+      "webUnitsPerActivePortal": 45,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39600000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 45,
+        "max": 45
+      },
+      "source": {
+        "window": {
+          "valueLine": 126352,
+          "arrayAssignmentLine": 126402
+        },
+        "interval": {
+          "valueLine": 126462,
+          "arrayAssignmentLine": 126512
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 43,
+      "unitId": "m043",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 900000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 45,
+      "webUnitsPerActivePortal": 45,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39600000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 45,
+        "max": 45
+      },
+      "source": {
+        "window": {
+          "valueLine": 126353,
+          "arrayAssignmentLine": 126403
+        },
+        "interval": {
+          "valueLine": 126463,
+          "arrayAssignmentLine": 126513
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 44,
+      "unitId": "m044",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 900000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 45,
+      "webUnitsPerActivePortal": 45,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39600000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 45,
+        "max": 45
+      },
+      "source": {
+        "window": {
+          "valueLine": 126354,
+          "arrayAssignmentLine": 126404
+        },
+        "interval": {
+          "valueLine": 126464,
+          "arrayAssignmentLine": 126514
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 45,
+      "unitId": "m045",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 8000000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 5,
+      "webUnitsPerActivePortal": 5,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 32000000,
+      "hasPeriodicOccurrenceAtStopTime": true,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 5,
+        "max": 6
+      },
+      "source": {
+        "window": {
+          "valueLine": 126355,
+          "arrayAssignmentLine": 126405
+        },
+        "interval": {
+          "valueLine": 126465,
+          "arrayAssignmentLine": 126515
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 46,
+      "unitId": "m046",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 1100000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 37,
+      "webUnitsPerActivePortal": 37,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39600000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 37,
+        "max": 37
+      },
+      "source": {
+        "window": {
+          "valueLine": 126356,
+          "arrayAssignmentLine": 126406
+        },
+        "interval": {
+          "valueLine": 126466,
+          "arrayAssignmentLine": 126516
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 47,
+      "unitId": "m047",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 1100000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 37,
+      "webUnitsPerActivePortal": 37,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39600000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 37,
+        "max": 37
+      },
+      "source": {
+        "window": {
+          "valueLine": 126357,
+          "arrayAssignmentLine": 126407
+        },
+        "interval": {
+          "valueLine": 126467,
+          "arrayAssignmentLine": 126517
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 48,
+      "unitId": "m048",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 1100000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 37,
+      "webUnitsPerActivePortal": 37,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39600000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 37,
+        "max": 37
+      },
+      "source": {
+        "window": {
+          "valueLine": 126358,
+          "arrayAssignmentLine": 126408
+        },
+        "interval": {
+          "valueLine": 126468,
+          "arrayAssignmentLine": 126518
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 49,
+      "unitId": "m049",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 1100000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 37,
+      "webUnitsPerActivePortal": 37,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39600000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 37,
+        "max": 37
+      },
+      "source": {
+        "window": {
+          "valueLine": 126359,
+          "arrayAssignmentLine": 126409
+        },
+        "interval": {
+          "valueLine": 126469,
+          "arrayAssignmentLine": 126519
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 50,
+      "unitId": "m050",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 8000000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 5,
+      "webUnitsPerActivePortal": 5,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 32000000,
+      "hasPeriodicOccurrenceAtStopTime": true,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 5,
+        "max": 6
+      },
+      "source": {
+        "window": {
+          "valueLine": 126360,
+          "arrayAssignmentLine": 126410
+        },
+        "interval": {
+          "valueLine": 126470,
+          "arrayAssignmentLine": 126520
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 51,
+      "unitId": "m051",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 1300000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 31,
+      "webUnitsPerActivePortal": 31,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39000000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 31,
+        "max": 31
+      },
+      "source": {
+        "window": {
+          "valueLine": 126411,
+          "arrayAssignmentLine": 126415
+        },
+        "interval": {
+          "valueLine": 126521,
+          "arrayAssignmentLine": 126525
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 52,
+      "unitId": "m052",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 1300000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 31,
+      "webUnitsPerActivePortal": 31,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39000000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 31,
+        "max": 31
+      },
+      "source": {
+        "window": {
+          "valueLine": 126412,
+          "arrayAssignmentLine": 126416
+        },
+        "interval": {
+          "valueLine": 126522,
+          "arrayAssignmentLine": 126526
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 53,
+      "unitId": "m053",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 1300000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 31,
+      "webUnitsPerActivePortal": 31,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39000000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 31,
+        "max": 31
+      },
+      "source": {
+        "window": {
+          "valueLine": 126413,
+          "arrayAssignmentLine": 126417
+        },
+        "interval": {
+          "valueLine": 126523,
+          "arrayAssignmentLine": 126527
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    },
+    {
+      "wave": 54,
+      "unitId": "m054",
+      "spawnWindowMicroseconds": 40000000,
+      "spawnIntervalMicroseconds": 1300000,
+      "unitsPerBatchPerActivePortal": 1,
+      "webBatchesPerActivePortal": 31,
+      "webUnitsPerActivePortal": 31,
+      "firstBatchOffsetMicroseconds": 0,
+      "lastBatchOffsetMicroseconds": 39000000,
+      "hasPeriodicOccurrenceAtStopTime": false,
+      "stopTimeOccurrenceIncluded": false,
+      "originalNativeBatchBounds": {
+        "min": 31,
+        "max": 31
+      },
+      "source": {
+        "window": {
+          "valueLine": 126414,
+          "arrayAssignmentLine": 126418
+        },
+        "interval": {
+          "valueLine": 126524,
+          "arrayAssignmentLine": 126528
+        },
+        "controlFlowEvidence": [
+          "registration-order",
+          "immediate-and-periodic-spawn",
+          "stop-cancels-trigger",
+          "one-unit-per-portal"
+        ]
+      }
+    }
+  ],
+  "endlessOrdinary": {
+    "templatePool": [
+      "mw01",
+      "mw02",
+      "mw03",
+      "mw04"
+    ],
+    "spawnWindowMicroseconds": 14000000,
+    "spawnIntervalMicroseconds": 2000000,
+    "spawnOffsetsMicroseconds": [
+      0,
+      2000000,
+      4000000,
+      6000000,
+      8000000,
+      10000000,
+      12000000
+    ],
+    "webBatchesPerActivePortal": 7,
+    "webUnitsPerActivePortal": 7,
+    "capacityPointsPerUnit": 2,
+    "newlySpawnedCapacityPointsPerActivePortal": 14,
+    "originalNativeBatchBounds": {
+      "min": 7,
+      "max": 8
+    },
+    "hasPeriodicOccurrenceAtStopTime": true,
+    "stopTimeOccurrenceIncluded": false,
+    "sourceEvidence": [
+      "registration-order",
+      "one-shot-helper",
+      "immediate-and-periodic-spawn",
+      "stop-duration",
+      "stop-cancels-trigger",
+      "one-unit-per-portal",
+      "endless-constants",
+      "endless-capacity-points"
+    ]
+  },
+  "verification": {
+    "method": "Independently interpreted numeric Lua array assignments, compared all 54 rows with prior extracted JSON, and simulated (dueMicroseconds, enqueueSequence) heap including cancellation and each periodic re-enqueue. Also compared to exact integer ceiling formula. This checks the specification, not a built game.",
+    "mainlineRowsChecked": 54,
+    "ordinaryEndlessConfigurationsChecked": 1,
+    "mainlineEndpointCollisionWaves": [
+      5,
+      10,
+      13,
+      22,
+      25,
+      27,
+      30,
+      32,
+      35,
+      37,
+      40,
+      45,
+      50
+    ],
+    "mainlineUnitsSumPerContinuouslyActivePortal": 2300,
+    "originalBoundsFileUnmodified": true
+  },
+  "examples": {
+    "localSequencesOmitUnrelatedEvents": true,
+    "mainlineWave5": [
+      {
+        "atMicroseconds": 0,
+        "event": "direct-spawn"
+      },
+      {
+        "atMicroseconds": 5000000,
+        "event": "periodic-spawn",
+        "localSequence": 1
+      },
+      {
+        "atMicroseconds": 10000000,
+        "event": "periodic-spawn",
+        "localSequence": 2
+      },
+      {
+        "atMicroseconds": 15000000,
+        "event": "periodic-spawn",
+        "localSequence": 3
+      },
+      {
+        "atMicroseconds": 20000000,
+        "event": "periodic-spawn",
+        "localSequence": 4
+      },
+      {
+        "atMicroseconds": 25000000,
+        "event": "periodic-spawn",
+        "localSequence": 5
+      },
+      {
+        "atMicroseconds": 30000000,
+        "event": "periodic-spawn",
+        "localSequence": 6
+      },
+      {
+        "atMicroseconds": 35000000,
+        "event": "periodic-spawn",
+        "localSequence": 7
+      },
+      {
+        "atMicroseconds": 40000000,
+        "event": "stop",
+        "localSequence": 0
+      },
+      {
+        "atMicroseconds": 40000000,
+        "event": "cancelled-periodic-occurrence",
+        "localSequence": 8
+      }
+    ],
+    "ordinaryEndless": [
+      {
+        "atMicroseconds": 0,
+        "event": "direct-spawn"
+      },
+      {
+        "atMicroseconds": 2000000,
+        "event": "periodic-spawn",
+        "localSequence": 1
+      },
+      {
+        "atMicroseconds": 4000000,
+        "event": "periodic-spawn",
+        "localSequence": 2
+      },
+      {
+        "atMicroseconds": 6000000,
+        "event": "periodic-spawn",
+        "localSequence": 3
+      },
+      {
+        "atMicroseconds": 8000000,
+        "event": "periodic-spawn",
+        "localSequence": 4
+      },
+      {
+        "atMicroseconds": 10000000,
+        "event": "periodic-spawn",
+        "localSequence": 5
+      },
+      {
+        "atMicroseconds": 12000000,
+        "event": "periodic-spawn",
+        "localSequence": 6
+      },
+      {
+        "atMicroseconds": 14000000,
+        "event": "stop",
+        "localSequence": 0
+      },
+      {
+        "atMicroseconds": 14000000,
+        "event": "cancelled-periodic-occurrence",
+        "localSequence": 7
+      }
+    ]
+  },
+  "remainingVariables": {
+    "webFullWindowCount": null,
+    "actualCompletedCount": [
+      "portal removed from the relevant player array",
+      "game or wave execution ends early",
+      "wave never starts"
+    ],
+    "notAQuantityVariable": "Ordinary endless template randomization changes the unit identity, not the one-unit-per-batch count.",
+    "nativeClient": "The actual Warcraft client ordering at equal timestamps remains unverified. This Web result must not overwrite the original native bounds."
+  }
+}
