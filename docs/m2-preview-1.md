@@ -21,3 +21,9 @@
 ## 回退
 
 在独立工作目录检出上一发布标签，按相同步骤重建，将该版本工作流部署到同一个 Pages 站点。回退前核对存档版本、内容兼容范围和地图版本；不兼容时保留旧记录并提示，不能清空或静默覆盖。本次为首个 M2 Pages 试玩版本，暂无上一 Pages 试玩版本可回退；此段是后续操作方案，不是已通过回退演练的声明。
+
+## 实际发布结果
+
+GitHub Pages 已上线：https://humandetail.github.io/dq/ 。部署源码为 `f069211a79f117ee959fadf52b6ac8866d5e943c`，对应 [成功部署](https://github.com/humandetail/dq/actions/runs/45580502229)。云端 69 项测试、类型检查、生产构建与配置检查通过。线上首页、M2 页面和主 JS 与本地逐字节相同。隔离 Chrome 从 HTTPS 走正常开局、建造，验证模型贴图、Attack／Walk 帧、第二波敌人和抽卡建塔，未发现运行异常。这是试玩冒烟，不是完整 M2 整局验收。
+
+[线上浏览器记录](evidence/m2-preview-1/online-browser.json) · [版本与字节校验](evidence/m2-preview-1/deployment-verification.json)。性能保留用户暂时放行决定。
