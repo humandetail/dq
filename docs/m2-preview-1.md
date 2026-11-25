@@ -14,7 +14,7 @@
 
 ## 重建与部署
 
-源码分支 `codex/m2-preview-1`。执行 `npm ci`、配置检查、`npm run check`、`node tools/prepare-pages.mjs`，将整个 `dist/` 同源发布。Vite 使用相对资源路径，适配 `/dq/` 子目录。`.github/workflows/pages.yml` 在发布分支推送后自动检查并部署；仓库 Settings → Pages 的 Source 应设为 GitHub Actions。
+源码发布到 `main`，准备分支为 `codex/m2-preview-1`。执行 `npm ci`、配置检查、`npm run check`、`node tools/prepare-pages.mjs`，将整个 `dist/` 同源发布。Vite 使用相对资源路径，适配 `/dq/` 子目录。`.github/workflows/pages.yml` 在 main 推送后自动检查并部署，遵守 github-pages 环境允许 main 发布的规则；仓库 Settings → Pages 的 Source 应设为 GitHub Actions。`m2-preview-1` 标签固定试玩源码；其后的部署配置提交不改变游戏内容。
 
 `release.json` 记录构建的源码提交和逐文件摘要。发布标签对应可重建源码；构建内容或玩法变化后应重新验收，不复用旧构建摘要。发布包包含全部模型、贴图与依赖，不要求玩家手选文件。
 
