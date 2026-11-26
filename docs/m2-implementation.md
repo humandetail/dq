@@ -1,8 +1,76 @@
 # M2 开发记录
 
+## 2026-11-26 接手续作
+
+当前工作内容为 `m2-core-30`，配置 `m2-config-1`，地图 `m2-map-5`，存档格式 2。公开地址继续提供 core-12。开发期只做类型检查及受影响的小范围回归，待剩余实现完成后冻结同一候选，集中验收。[执行台账](m2-completion-ledger.md) · [续作断点](m2-work-state.md)
+
+- core-17 的种子 14 第 30 波达到 P006 突破，未取得 SSR，肉山进入场内后 466.491214 战斗秒由实际阵容击杀。core-18 的同种子挑战策略也达到 A10，耗时 449.586798 秒，并完成挑战三级、买书、合成与关店清理；两版其他输入和未达标的终态仍保留。core-19 的原策略均未获得 A10，所见最接近的种子 14 超时时肉山尚有 197178 生命。[core-17 种子 14](evidence/m2-core-17/a10-14.json) · [core-18 挑战局](evidence/m2-core-18/a17-14.json) · [core-19 种子 14](evidence/m2-core-19/a10-14.json)
+- core-19 同址本地更新和回退已通过。core-12 更新至 core-19 保持原活动局和命令。回退时 core-12 阻止覆盖新快照，恢复 core-19 后继续读取。该证据来自两套本地生产包。[浏览器演练](evidence/m2-core-19/localhost-update-rollback.json) · [core-19 源码和构建](evidence/m2-core-19/source-manifest.json)
+- core-20 已观察 m001 实际武器命中死亡、m571 原 ID 重生、b122 自然到期退场。暂停刷新后三个效果与 m571 活单位均重建。[受控 Chrome](evidence/m2-core-20/battle-actions-browser.json)
+- A069 仍从有效学习时记永久攻击和已应用倍率。H021 六档学习后再转 G059 保留 1.7，先转 G059 再学六档得到 2.72；两路攻击贡献均为 540。旧档缺少最后学习形态时从恢复形态初始化，其过去丢失的历史攻击无法自动恢复。[成长测试](../test/m2.test.mjs)
+
+- core-21 的两个敌方模型更换为有 Spell 的库内素材，m032 的 N519 在 Chrome 中成功播放并随快照恢复。13 条资格链均以正常抽卡兑换推进，第 29–31 波实际达到突破。三类终局刷新、挑战商店和三把成品两路有独立受控浏览器记录。[资格链](evidence/m2-core-21/qualifications/) · [模型](evidence/m2-core-21/battle-actions-browser.json) · [A11](evidence/m2-core-21/a11-browser.json) · [A17](evidence/m2-core-21/a17-browser.json) · [A18](evidence/m2-core-21/a18-browser.json)
+- core-22 修正新回调及治疗表现的快照校验，成功恢复并在到期处理后再次刷新。种子 14 第 25 波突破，未取得 SSR，肉山入场后 478.184361 秒由 H038 武器击杀。[复杂快照](evidence/m2-core-22/complex-browser.json) · [种子 14](evidence/m2-core-22/a10-14.json)
+- core-23 接通工人和能量圈持有 i206 的 1100 范围探测，补齐 N519 的首目标、耗蓝、冷却、读档与武器减伤测试。[引擎测试](../test/m2.test.mjs)
+- core-24 修复 b138 替代模型的空蒙皮组，保持原替代资源的几何、贴图和绑定尺寸。Chrome 逐一验证 63 个模型素材和 220 个绑定，并在实际 N576 敌方施法和刷新后观察 b138，成功与击破两个结局有独立引擎断言。[素材渲染](evidence/m2-core-24/model-library-browser.json) · [实际 N576 恢复](evidence/m2-core-24/battle-actions-browser.json)
+- core-25 补 A154 工人和能量圈目标，应用 150 蓝与 10 秒冷却后不换位。109 项自动测试和本地生产包、同址更新回退及外观复验通过。阶段证据保留至最终验收统一评估。[检查](evidence/m2-core-25/check.log) · [阶段构建摘要](evidence/m2-core-25/source-manifest.json) · [同址更新回退](evidence/m2-core-25/localhost-update-rollback.json) · [外观](evidence/m2-core-25/appearance-browser.json)
+- core-26 普通武器按当前槽统一拒绝无效目标。q007 命中记录独立实际源及持有塔。枷锁在目标死亡或被驱散时立即结束该路。遗物之刃读取命中时的原攻速。补齐魔焰低血施法资源事务、封印与 N532 回复以及神能力固定资源同步。类型检查与直接相关回归通过。
+- core-27 至 core-30 完成确认范围内的 N020–N022 手动炮击及 T03 进行中武器阶段，保存弹道、炮击与拾取同刻顺序和攻速变更后的剩余进度。补独立法术来源、守卫在途箭、神能、净化和其他装备回调。新绑定包括 b116 侦查守卫、B165 魔焰和 m998／m999 福利金币宝箱。类型检查、定向引擎及素材解码通过，正式浏览器和正常局留到同一候选复验。共享扫掠改动等待确认。[详细结果](m2-completion-ledger.md)
+
+## m2-core-15 本地回归
+
+A069 的永久攻击和学习时应用的模型倍率写入独立英雄状态。武器在百分比光环之前读取永久攻击，剥级只撤技能等级和自然属性。G059 的模型在渲染时应用 1.6 倍系数，换型不触发学习回调。旧档仅能按保留的技能等级迁移，已经被旧版本扣掉的贡献没有完整历史可用。存档格式仍为 2，兼容 core-14。
+
+受控引擎从 25 级合法学习六档，移除资格塔后使升级跨过 26 级，退回 20 级。永久攻击仍为 540，A069 降至二级，自然力量从 220 降至 180。复验了实际武器伤害、50% 光环、换型、碰撞半径和恢复不重放学习。[引擎测试](../test/m2.test.mjs) · [本地浏览器倍率](evidence/m2-core-15/growth-worker-build-browser.json)
+
+默认工人 w001 的源模型路径为 `units\undead\Acolyte\Acolyte`。Web 复用已随应用交付的 Orckugong1（`src/assets/m2/m001/model.mdx`）与其四张贴图，倍率 0.82，以金色地面圈区分角色。按已保存的移动路径播放 Walk 和朝向，空闲播放 Stand。受控浏览器从拾取途中恢复，读到实际 Walk 和 Stand 帧，且拾取仅结算一次。其余工人外观和权益仍待关闭。[模型绑定](../src/assets/m2/bindings.json) · [模型和贴图摘要](../src/assets/m2/models.json) · [工人浏览器证据](evidence/m2-core-15/worker-browser.json)
+
+74 项测试、类型检查、配置／运行清单／工作簿检查、常规 Chrome 及本地生产冒烟通过。生产包第 2 波截图包含战场中的工人和金色标记。当前产物仅用于本地验证。[测试](evidence/m2-core-15/check.log) · [静态检查](evidence/m2-core-15/static-checks.log) · [常规 Chrome](evidence/m2-core-15/browser.log) · [生产包](evidence/m2-core-15/production-smoke.json) · [第 2 波](evidence/m2-core-15/screenshots/second-wave-model.png) · [构建和补丁摘要](evidence/m2-core-15/source-manifest.json)
+
+A10 按五个预登记种子重跑。种子 14 全程无 SSR，在第 30 波以 P006 达到 21 级，肉山出场后 428.625 战斗秒由 n025 的 N131 击杀。种子 47、811、1709、20261124 分别在第 40、40、54、45 波以 104、107、131、120 点按 C01 判负。各轨迹包含输入、终态和构建摘要。[五局结果](evidence/m2-core-15/a10-summary.json)
+
+## m2-core-14 本地回归
+
+本地内容版本更新为 `m2-core-14`，配置、地图和存档格式仍为 `m2-config-1`、`m2-map-5` 和 2。同地图的 core-13 存档仍在兼容列表。此次构建未冻结为 M2 候选或部署。
+
+| 范围 | 实现 | 验收边界 |
+| --- | --- | --- |
+| A02／A14 武器表现 | 场景从待结算武器事件读取出发点、目的地、速度和战斗时钟。近战继续播放攻击动作和实际命中表现。H021 的 750 射程未改 | 本地生产包首波观察到 H021 的攻击动作和命中标记，远程弹道来自 n001。全对象的死亡及动画验收仍待补。[生产包](evidence/m2-core-14/production-smoke.json) |
+| A01／A08 战棍 | A068／A149 手动入口和现有自动入口共用耗蓝、冷却、力量层及失效事件 | 受控引擎复验无目标、缺蓝、错误形态、到期、恢复和共享冷却。Chrome 从普通开局买经验书，学习后手动施放并收到二次施放的冷却反馈。完整事件分派及换型联动仍有缺口。[浏览器](evidence/m2-core-14/browser.log) |
+| A01／A13 工人反馈 | 区分建造、拾取和交接移动，恢复后使用存档中的工人指令显示结果。待执行的建造反馈独立保留 | 受控 Chrome 恢复暂停中的拾取，同一实例完成移动并落入物品栏一次。[工人恢复](evidence/m2-core-14/worker-resume-browser.json) |
+| A13／A16 本地更新与回退 | 复用存档格式 2，候选接受旧核心版本 | 从 core-12 更新至 core-14 后同一局继续。回退的 core-12 拒绝覆写新快照；恢复 core-14 后可再次读取。此项在同一 localhost 源演练。[本地更新回退](evidence/m2-core-14/local-update-rollback.json) |
+
+正常引擎 A10 重跑五个种子，均未取得 SSR。种子 14 第 30 波完成 P006 突破，塔实例 729（n025）的 N131 在肉山出场后 428.625 战斗秒造成致死。种子 47、811、1709、20261124 分别在第 40、40、54、45 波以 104、107、131、120 点按 C01 判负。记录包含全部正常命令、取得和致死来源。[五种子结果及轨迹](evidence/m2-core-14/a10-summary.json)
+
+A11 从新局按归档正常输入跨构建重放，core-14 在肉山出场后 480 战斗秒超时，无肉山致死事件，命令结果、波次、击杀数与旧轨迹一致。两次自行运行的超时策略分别在第 45 波以 102 点判负、以及第 55 波提前击杀肉山。护符局在第 52 波以 101 点判负，护符留存。护符击杀正常局及三分支刷新仍缺证据。[超时重放](evidence/m2-core-14/a11-timeout-baseline.json) · [原始输入](evidence/m2-core-13/a11-timeout-seed-14.json) · [默认策略](evidence/m2-core-14/a11-timeout-14.json) · [神杖策略](evidence/m2-core-14/a11-timeout-14-scepter.json) · [护符试跑](evidence/m2-core-14/a11-charm-14.json)
+
+通过类型检查、73 项测试和本地生产构建。配置、运行清单及工作簿完整性静态检查通过。公开地址读到 Preview 1、`m2-core-12`，未切换到本地构建。完整 M2 的实现和公开验收继续保持未完成。[检查日志](evidence/m2-core-14/check.log) · [静态检查](evidence/m2-core-14/static-checks.log) · [源码及产物](evidence/m2-core-14/source-manifest.json) · [公开版本读数](evidence/m2-core-14/existing-preview-version.json) · [收口清单](m2-nonperformance-status.md)
+
 ## 当前状态 · 2026-11-25
 
-当前构建为 **m2-core-12**，配置 m2-config-1，地图 m2-map-5，存档格式 2。依据[第二轮验收报告](m2-acceptance-audit-2026-11-25-r2.md)推进。范围仍为 19 条卡片塔系、3 条工人塔系、202 个物品、72 条配方。各 M2 阶段仍有未闭合条件。
+本节记录 **m2-core-13**，配置 `m2-config-1`，地图 `m2-map-5`，存档格式 2。已登记公开版本为 Preview 1（`m2-core-12`）。内容范围维持 19 条卡片塔系、3 条工人塔系、202 个物品、72 条配方，F1–F3 仍按原计划后移。 [Preview 1](https://humandetail.github.io/dq/) · [第三轮报告](m2-acceptance-audit-2026-11-25-r3.md) · [收口清单](m2-nonperformance-status.md)
+
+| 范围 | 已实现 | 已验收与证据 | 尚未关闭 |
+| --- | --- | --- | --- |
+| A02／A08 灵兽、剑雨、炽热之箭 | 单只灵兽移动、避障、指定攻击、停止和存档恢复。剑雨增加弹道及爆炸显示。H012 手动箭在技能射程瞄准，出手时重验目标和扣蓝 | 受控引擎覆盖独立指令、目标失效、动态障碍撤除、剑雨地面和建筑及 debris 单位命中、空军排除、H012 射程与出手付蓝。受控 Chrome 复验旋转后选点、Walk、追击指令同址刷新、停止、到期清除选择及剑雨表现。[浏览器](evidence/m2-core-13/wolf-rain-browser.json) · [检查日志](evidence/m2-core-13/check.log) | 全技能／装备及公共伤害链，完整目标和来源组合，最终候选复验 |
+| A14 素材 | 三种缺动作的静态塔模型在应用内用原模型网格提供攻击后仰和退场下沉 | 39 个素材的静态检查通过，本地生产包实测前两波、英雄塔攻击和抽卡建塔。受控 Chrome 在 24 个绑定对象中观察到 19 个实际攻击的后仰及全部 24 个界面回收时的下沉。[逐 ID](evidence/m2-core-13/model-action-substitutes.json) · [浏览器轨迹](evidence/m2-core-13/model-actions-browser.json) · [生产包](evidence/m2-core-13/production-smoke.json) | 全对象所需动作、正式结算下的死亡与恢复后重建 |
+| A10 正常引擎局 | 保留正式波次、经济、C01 和归因字段 | 五种子全部命令已保留。14 第 30 波完成 P006 突破，未用 SSR，第 55 波由 n025 的 N131 在肉山出场后 428.625 秒击杀。47、811、1709、20261124 分别在第 40、40、54、45 波按 C01 判负。[五局](evidence/m2-core-13/normal-runs.json) · [种子 14](evidence/m2-core-13/a10-seed-14.json) · [命令重放](evidence/m2-core-13/a10-replay.json) | 内容收口后的冻结版本复跑及正式浏览器整局 |
+| A11 结算 | 三条结算分支沿用原规则，新增正常结算轨迹记录 | 正常种子 14 另一预算策略到第 55 波，肉山在场满 480 战斗秒、无肉山击杀，超时清场并以胜利结算。[正常超时](evidence/m2-core-13/a11-timeout-seed-14.json) | 正常护符无杀手分支及候选正式浏览器的三分支刷新。保留护符的试跑受 C01 判负，最远第 53 波 130 点。[全部试跑](evidence/m2-core-13/a11-normal-attempts.json) |
+| A06／A07 资格链 | 复用正常抽卡、指定兑换、建造、消费和等级流程 | P001–P013 在 core-13 全部正常取得、升满并突破到 21 级。均使用实际 R 卡兑换，建造第 20–32 波、升满第 22–34 波、突破第 31–34 波，直接升级 3230–4880 金。每局留有材料、费用、波次和输入。[13 链正常轨迹](evidence/m2-core-13/qualification-runs.json) | 资格失效与死亡、形态和装备组合，内容收口后的候选复验 |
+| SSR | H012 手动箭共享实际武器发射。两张 SSR 延续正常获取入口 | 正常引擎局种子 6 第 32 波抽中 i502 并建成 H005，实际使用 A019／A020、记录 5 次命中。种子 8 第 20 波获得 i503 并建成 H012，实际使用 A041／A042、记录 13 次命中。[双 SSR 正常局](evidence/m2-core-13/ssr-normal.json) | 逐等级完整成长、被动、法球、神杖与装备联动，以及最终冻结版本复验 |
+| A17／A18 | 复用正常经济和正式商店入口 | 正常引擎 A17 种子 14 完成三阶，第 37 波花 18600 金从挑战商店购入 i266 并合成 i265。A18 种子 1709 第 39 波掉 i404，拾箱后购钥开箱，消耗两件，炼魂数保持 1。受控 Chrome 分别复验商店关门清理和三把刀两路刷新。[A17 正常](evidence/m2-core-13/a17-normal-seed-14.json) · [A18 正常](evidence/m2-core-13/a18-normal-seed-1709.json) · [A17 受控](evidence/m2-core-13/a17-browser.json) · [A18 受控](evidence/m2-core-13/a18-browser.json) | A17 候选正式界面的逐阶预约与结算、关店复验、A18 三把刀分别正常开出与候选同址刷新 |
+| A13／A16 更新与回退 | 读取 core-12、core-13，沿用存档格式 2 | 在同一 localhost 地址用两个生产包完成更新、回退拒绝覆写、恢复本地新版本继续。Preview 1 重建主包与线上文件摘要一致。另用受控 Chrome 恢复持续效果、在途箭、召唤、施工、待领奖和肉山倒计时，复核命令和随机状态。完整本地流程同时复验双标签接管、旧快照拒绝、事务失败及重新打开。[完整本地 Chrome](evidence/m2-core-13/browser.log) · [复杂恢复](evidence/m2-core-13/complex-browser.json) · [浏览器演练](evidence/m2-core-13/update-rollback-browser.json) | 发布后同址的兼容、复杂快照及完整浏览器流程 |
+| M2-09／10 | 绑定工作树、内容版本及生产包 SHA-256 | `npm run check` 通过 72 项、类型检查和生产构建。[检查日志](evidence/m2-core-13/check.log) · [源码与构建摘要](evidence/m2-core-13/source-manifest.json) | A01–A18 最终候选、同址续局及线上回退。各任务保持按整项条件验收 |
+
+正常击杀复现用 `M2_PLAN=scepter M2_OPENING=i576 M2_BOSS_RESERVE=38 node checks/m2-normal-run.mjs 14`。独立移动使用原对象碰撞半径 25。四档对象缺少原生速度字段，按暴雪灵兽参考基础移速 320。剑雨地物依原范围目标规则处理，静态地形保留。 [灵兽原始基线](https://classic.battle.net/war3/orc/units/spiritwolf.shtml) · [剑雨及范围规则](rules/creep-skill-family-001-053.md#黑暗剑雨-n045047)
+
+性能按用户决定暂时放行，历史样本继续保留。恢复状态、持久化和命令正确性仍按功能验收。
+
+## 历史记录
+
+### m2-core-12 实现与验收
+
+当时验证构建为 **m2-core-12**，配置 m2-config-1，地图 m2-map-5，存档格式 2。依据[第二轮验收报告](m2-acceptance-audit-2026-11-25-r2.md)推进。范围仍为 19 条卡片塔系、3 条工人塔系、202 个物品、72 条配方。各 M2 阶段仍有未闭合条件。
 
 | 范围 | 已实现 | 已验收与证据 | 尚未关闭 |
 | --- | --- | --- | --- |
@@ -19,8 +87,6 @@
 性能优化与性能通过判定本轮按用户决定暂时放行。历史原始数据保留在 core-11 与第二轮审计证据中。本轮的浏览器验证用于核对状态、命令、存档和界面功能。
 
 死亡箱钥掉落会按已核规则消耗战斗随机数。种子 14 当前正常击杀复现用 `M2_PLAN=scepter M2_OPENING=i576 M2_BOSS_RESERVE=38 node checks/m2-normal-run.mjs 14`。相较原策略，第 38 波起为 i217 暂停非必要升级和抽卡，所有操作通过正常命令。A17 用 `M2_A17=1 M2_A17_BANK=1 M2_A17_BANK_WAVE=22 M2_A17_MATERIAL_WAVE=26 M2_OPENING=i576 node checks/m2-normal-run.mjs 14`。A18 加 `M2_A18=1` 记录死亡产物和正常开箱。复杂快照用 `M2_COMPLEX_ONLY=1 node checks/m2-browser.mjs` 复验。本地构建未发布。生产资源在本地预览中实际加载，记录攻击帧、第一／二波模型及抽卡建塔模型。 [生产构建冒烟](evidence/m2-core-12/production-smoke.json) · [第一／二波截图](evidence/m2-core-12/production-screenshots/second-wave-model.png)
-
-## 历史记录
 
 ### m2-core-11 实现与验收
 

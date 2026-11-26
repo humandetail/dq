@@ -47,3 +47,16 @@ button:focus-visible { outline: 2px solid #efcf84; outline-offset: 3px; }
 #camera-status { color: #efcf84; }
 
 #structures > div > p, #structures > div > .controls { flex-basis: 100%; }
+
+.worker-title {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1;
+  color: #ffe6a3;
+  background: #182624df;
+  border: 1px solid #b28e51;
+  border-radius: .3rem;
+  padding: .15rem .4rem;
+  white-space: nowrap;
+}

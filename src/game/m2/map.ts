@@ -71,6 +71,7 @@ export const map = {
   activityWaypoint: 15,
   worker: { x: -288, y: -128 },
   energyCircle: { x: -192, y: 0 },
+  runeAnchor: { x: 288, y: 0 },
   waypoints,
 };
 

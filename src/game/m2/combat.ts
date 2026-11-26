@@ -29,6 +29,33 @@ export type Weapon = {
   splashTargets?: string[];
 };
 
+export type WeaponPhase = {
+  workUs: number;
+  recordedUs: number;
+  dueUs: number;
+  timerId: number;
+};
+
+export type WeaponTiming = {
+  version: 1;
+  slot: number;
+  rawRate: number;
+  cycleUs: number;
+  pointUs: number;
+  recoveryUs: number;
+  cooldown?: WeaponPhase;
+  windup?: WeaponPhase;
+  backswing?: WeaponPhase;
+};
+
+export function weaponPhaseDelay(workUs: number, rate: number) {
+  return workUs > 0 ? Math.max(1, Math.round(workUs / rate)) : 0;
+}
+
+export function weaponScheduleRate(rawRate: number) {
+  return Math.min(5, Math.max(.2, rawRate));
+}
+
 export const weapons: Record<string, Weapon[]> = { ...source };
 for (const base of [122, 132]) for (let rank = 0; rank < 6; rank++) {
   weapons["b" + (base + rank)] = [{
@@ -60,16 +87,23 @@ export const unitTargetType = new Map(units.map(row => [row.unitID, row.targType
 export type WeaponShot = {
   towerId: number;
   sourceTemplate: string;
-  targetId: number;
+  targetId?: number;
+  objectId?: number;
   weapon: Weapon;
   raw: number;
   point: Point;
   destination: Point;
-  summon?: { id: number; green: number; blue: number; attack: number; banner: boolean; skillId?: string };
+  summon?: { id: number; point?: Point; banner: boolean; skillId?: string; illusion?: true;
+    contract?: { green: number; blue: number; baseAttack: number } };
   orbBonus?: number;
   frost?: number;
   artilleryMiss?: boolean;
+  artilleryCritical?: { multiplier: number; sureHit: boolean; fixedBonus: number };
   corrosion?: number;
+  attackEquipment?: string[];
+  secondary?: true;
+  fixedHitBonus?: number;
+  divineCritical?: { chance: number; multiple: number };
 };
 
 const { positiveArmorCoefficient, negativeArmorExponentialBase } = rules.rules.B01;

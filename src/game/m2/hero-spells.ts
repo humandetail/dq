@@ -14,9 +14,25 @@ export const heroSpells = {
   A152: { range: 1000, autoRange: 1000, mana: [20, 35, 50, 65, 80, 95], cooldown: [14, 13, 12, 11, 10, 9], damage: [500, 1000, 1500, 2000, 2500, 3000] },
 } as const;
 export type HeroSpell = keyof typeof heroSpells;
+export const heroAutoCastOrder: readonly HeroSpell[] = [
+  "A170", "A172", "A019", "A020", "A042", "A041", "A094", "A092", "A093", "A171", "A151", "A152",
+];
+export type CastableHeroSkill = HeroSpell | "A068" | "A149";
+
+export function heroSpellTargetMode(skillId: CastableHeroSkill) {
+  if (skillId === "A041" || skillId === "A068" || skillId === "A149") return "self";
+  if (skillId === "A020" || skillId === "A042" || skillId === "A092" || skillId === "A093" || skillId === "A151") return "unit";
+  return "point";
+}
+
+export function isCastableHeroSkill(skillId: string): skillId is CastableHeroSkill {
+  return skillId === "A068" || skillId === "A149" || Object.hasOwn(heroSpells, skillId);
+}
 
 export type SpellSweep = {
   towerId: number;
+  sourceId?: number;
+  startedUs?: number;
   name: string;
   x: number;
   y: number;
@@ -30,6 +46,7 @@ export type SpellSweep = {
   traveled: number;
   hit: number[];
   slow?: number;
+  aim?: { x: number; y: number };
   targets?: string[];
   budget?: number;
 };

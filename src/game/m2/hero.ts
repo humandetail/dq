@@ -1,5 +1,6 @@
 import experience from "../../../docs/rules/experience-sharing.json" with { type: "json" };
 import baseline from "../../../docs/rules/web-baseline.json" with { type: "json" };
+import type { DivineForm } from "./divine.ts";
 import { towerLevels } from "./content.ts";
 
 export const heroThresholds = baseline.rules.B02.tables1To30.cumulativeHeroLevelThresholds;
@@ -13,6 +14,8 @@ export type Hero = {
   ranks: Record<string, number>;
   paid: string[];
   talentAttributes?: number;
+  divineForm?: DivineForm;
+  growthBonus?: { attack: number; modelScale: number; learnedIn?: string };
   natural: Record<typeof attributes[number], number>;
 };
 
@@ -51,7 +54,28 @@ export function learnHeroSkill(hero: Hero, templateId: string, skillId: string) 
   hero.points--;
   hero.ranks[skillId] = (hero.ranks[skillId] ?? 0) + 1;
   hero.paid.push(skillId);
+  if (skillId === "P000") hero.divineForm ??= { id: "P200", stars: 1 };
+  if (skillId === "A069") {
+    const rank = hero.ranks[skillId];
+    hero.growthBonus = { attack: (hero.growthBonus?.attack ?? 0) + 90, modelScale: growthScale(rank), learnedIn: templateId };
+  }
   return true;
+}
+
+function growthScale(rank: number) {
+  return (5 + 2 * rank) / 10;
+}
+
+export function restoreHeroGrowth(hero: Hero, templateId: string) {
+  const rank = hero.ranks.A069 ?? 0;
+  if (!hero.growthBonus && rank > 0) {
+    hero.growthBonus = { attack: rank * 90, modelScale: growthScale(rank) };
+  }
+  if (hero.growthBonus) hero.growthBonus.learnedIn ??= templateId;
+}
+
+export function heroModelScale(hero: Hero | undefined, templateId: string) {
+  return hero?.growthBonus ? hero.growthBonus.modelScale * ((hero.growthBonus.learnedIn ?? templateId) === "G059" ? 1.6 : 1) : 1;
 }
 
 export function addHeroExperience(hero: Hero, templateId: string, amount: number, hasQualification: () => boolean, onLevel?: () => void) {
@@ -82,7 +106,10 @@ export function addHeroExperience(hero: Hero, templateId: string, amount: number
   }
 }
 
-export function bookExperience(book: "i127" | "i128", level: number) {
+export function bookExperience(book: "i127" | "i128" | "i312" | "i313" | "i314", level: number) {
   if (level >= maxLevel) return 0;
-  return book === "i127" ? 1400 : experience.variableBookAward.levels1To29[level - 1].scriptAmount;
+  if (book === "i127") return 1400;
+  if (book === "i312") return 2000;
+  if (book === "i313") return 20000;
+  return experience.variableBookAward.levels1To29[level - 1].scriptAmount;
 }

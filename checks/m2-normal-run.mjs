@@ -35,7 +35,7 @@ const roadSamples = map.waypoints.flatMap(waypoint => waypoint.next.flatMap(inde
 }));
 
 const buildIndex = await readFile(new URL("../dist/m2.html", import.meta.url), "utf8").catch(() => "");
-const bundlePath = buildIndex.match(/src="(\/assets\/m2-[^"]+\.js)"/)?.[1];
+const bundlePath = buildIndex.match(/src="\.?((?:\/assets\/)m2-[^"]+\.js)"/)?.[1];
 const bundle = bundlePath && await readFile(new URL("../dist" + bundlePath, import.meta.url));
 const bundleSha256 = bundle && sha256(bundle);
 
@@ -58,9 +58,16 @@ function run(seed) {
   const challengeBankWave = Number(process.env.M2_A17_BANK_WAVE ?? 28);
   const challengeMaterialWave = Number(process.env.M2_A17_MATERIAL_WAVE ?? Infinity);
   const seekChest = process.env.M2_A18 === "1";
+  const wishForChests = seekChest && process.env.M2_CHEST_WISH === "1";
+  const settlementScenario = process.env.M2_A11;
+  const secondHeroCard = process.env.M2_SECOND_HERO;
+  assert.ok(!secondHeroCard || configuration.cardPools.SR.includes(secondHeroCard), "Unknown second hero card");
+  assert.ok(!settlementScenario || ["charm", "timeout"].includes(settlementScenario));
+  let charmSettlement;
   const challengeUnits = ["m521", "m522", "m523"];
   const challengeEvidence = [];
   let challengeProduct;
+  let challengeClosure;
   const challengeMaterials = [];
   const challengeMysteryStock = [];
   let lastChallengeStock;
@@ -74,6 +81,18 @@ function run(seed) {
   let bossHealth = null;
   let peak = { enemies: 0, events: 0, bytes: 0 };
   const sampled = () => {
+    if (challengeClosure) {
+      const active = match.enemies.filter(enemy => enemy.challengeId === challengeClosure.reservationId);
+      const pending = match.queue.pending.some(event => event.payload.type === "challenge-spawn" &&
+        event.payload.challengeId === challengeClosure.reservationId);
+      if (match.challengeShopOpen) {
+        challengeClosure.arrivals = Math.max(challengeClosure.arrivals, active.length);
+        challengeClosure.pendingBeforeClose ||= pending;
+      } else {
+        challengeClosure.closed ??= { atUs: match.queue.nowUs, wave: match.wave, active: active.length, pending,
+          registered: !!match.challenges?.[challengeClosure.reservationId] };
+      }
+    }
     if (seekChallenge && match.mysteryShopOpen) {
       const stock = JSON.stringify(match.mysteryStock);
       if (stock !== lastChallengeStock) {
@@ -224,7 +243,7 @@ function run(seed) {
     if (item && !keepWithWorker) return command({ type: "transfer-item", itemId: item.id, towerId: tower.id });
   }
 
-  command({ type: "choose-talent", choice: process.env.M2_TALENT ?? "W005" });
+  command({ type: "choose-talent", choice: process.env.M2_TALENT ?? (wishForChests ? "W004" : "W005") });
   command({ type: "use-item", itemId: match.inventory.find(item => item.itemId === "i004").id });
   const hero = command({ type: "choose-opening", card: opening });
   build({ type: "build-card", cardId: hero.createdId });
@@ -248,10 +267,13 @@ function run(seed) {
   let lastWave = 0;
   const ssrComplete = () => ssrRun?.hits > 0 && ssrSkills.every(id => ssrRun.casts[id]);
   while (match.phase === "running" && (!qualificationTarget || breakthrough?.qualification !== qualificationTarget)) {
-    if (ssrTarget && (ssrComplete() || match.wave >= (process.env.M2_SSR_RESERVE ? 38 : 30))) break;
+    if (ssrTarget && !settlementScenario && (ssrComplete() || match.wave >= (process.env.M2_SSR_RESERVE ? 38 : 30))) break;
     if (qualificationTarget && assignedQualification && assignedQualification !== qualificationTarget) break;
     if (match.queue.nowUs >= decision) {
       decision = match.queue.nowUs + 4 * second;
+      if (process.env.M2_WORKER_BENEFIT === "1" && match.queue.nowUs >= (match.workerBenefitReadyUs ?? 0)) {
+        command({ type: "claim-worker-benefit" });
+      }
       for (const tower of match.structures) {
         if (!tower.hero || tower.pending) continue;
         for (const skill of learnableSkills(tower.templateId)) {
@@ -267,7 +289,7 @@ function run(seed) {
       }
       const tierTwoKey = carriedItem("i412");
       if (tierTwoKey && carriedItem("i402")) command({ type: "use-item", itemId: tierTwoKey.id });
-      const drawSsr = ssrTarget && !ssrRun && !match.cards.some(card => card.card === ssrTarget);
+      const drawSsr = ssrTarget && !seekChest && !ssrRun && !match.cards.some(card => card.card === ssrTarget);
       for (const item of match.inventory) {
         if (item.slot !== null && item.towerId === undefined &&
             (["i001", "i002", "i006"].includes(item.itemId) || drawSsr && ["i003", "i005"].includes(item.itemId)))
@@ -288,6 +310,34 @@ function run(seed) {
       }
 
       const activeHero = match.structures.find(tower => tower.hero);
+      if (process.env.M2_PICK_RUNES === "1") {
+        const rune = match.inventory.find(item => item.slot === null && /^i7(?:18|19|20|21|22|23)$/.test(item.itemId));
+        if (rune && !match.approach) command({ type: "pick-up-item", itemId: rune.id });
+      }
+      if (process.env.M2_BOSS_SWAP === "1" && match.wave === 55 && activeHero?.scepterSwap) {
+        const boss = match.enemies.find(enemy => enemy.unitId === "mBOS");
+        if (boss) {
+          const distance = tower => Math.hypot(tower.x - boss.x, tower.y - boss.y);
+          if (distance(activeHero) > 850) {
+            const relay = match.structures.filter(tower => tower !== activeHero && !tower.pending)
+              .sort((a, b) => distance(a) - distance(b) || a.id - b.id)[0];
+            if (relay && distance(relay) < distance(activeHero) - 180) {
+              command({ type: "cast-scepter-swap", towerId: activeHero.id, targetId: relay.id });
+            }
+          }
+        }
+      }
+      if (process.env.M2_SWARM_SWAP === "1" && match.wave >= 45 && match.wave < 55 &&
+          activeHero?.scepterSwap && activeHero.scepterSwap.readyUs <= match.queue.nowUs && containmentPoints(match) >= 65) {
+        const inReach = tower => match.enemies.filter(enemy =>
+          (tower.x - enemy.x) ** 2 + (tower.y - enemy.y) ** 2 <= 850 ** 2).length;
+        const relay = match.structures.filter(tower => tower !== activeHero && !tower.pending)
+          .map(tower => ({ id: tower.id, nearby: inReach(tower) }))
+          .sort((a, b) => b.nearby - a.nearby || a.id - b.id)[0];
+        if (relay && relay.nearby >= inReach(activeHero) + 5) {
+          command({ type: "cast-scepter-swap", towerId: activeHero.id, targetId: relay.id });
+        }
+      }
       const chain = activeHero && qualificationChains.get(activeHero.qualification);
       const readySsr = ssrTarget && match.cards.find(card => card.card === ssrTarget && card.slot !== null);
       if (readySsr && !ssrRun) {
@@ -302,7 +352,26 @@ function run(seed) {
         ...(qualificationTarget && chain ? [chain.card] : []), "i601", "i606", "i609", "i603", "i608", "i604",
       ])];
       for (const card of match.cards.filter(card => card.slot !== null)) {
-        if (card.card !== ssrTarget && !card.card.startsWith("c") && cardTemplates.get(card.card)?.rarity !== "R") command({ type: "drop-card", cardId: card.id });
+        if (card.card !== ssrTarget && (card.card !== secondHeroCard || match.wave < 34) && !card.card.startsWith("c") && cardTemplates.get(card.card)?.rarity !== "R") {
+          command({ type: "drop-card", cardId: card.id });
+        }
+      }
+      const secondHero = secondHeroCard && match.structures.find(tower => tower !== activeHero &&
+        cardTemplates.get(secondHeroCard).root === tower.templateId);
+      const spareHeroCard = secondHeroCard && !secondHero && match.wave >= 38 &&
+        match.cards.find(card => card.card === secondHeroCard && card.slot !== null);
+      if (spareHeroCard) {
+        if (match.population + spareHeroCard.hp <= match.populationLimit) {
+          build({ type: "build-card", cardId: spareHeroCard.id });
+        } else {
+          const ordinary = [...match.structures].reverse().find(tower => !tower.pending &&
+            /^n02[1-5]$/.test(tower.templateId) && Math.hypot(tower.x - match.worker.x, tower.y - match.worker.y) <= 1000);
+          if (ordinary) command({ type: "recycle-tower", towerId: ordinary.id });
+        }
+      }
+      if (secondHero && !secondHero.pending && secondHero.hero?.level < 15 && match.gold >= 6000) {
+        const purchase = command({ type: "buy-book", bookId: "i128" });
+        if (purchase?.ok) command({ type: "use-book", itemId: purchase.createdId, towerId: secondHero.id });
       }
       const anchorTower = match.structures.some(tower => cardPriority.some(id => cardTemplates.get(id).levels.some(level => level.id === tower.templateId)));
       const highAttackCard = match.cards.filter(card => card.slot !== null && cardPriority.includes(card.card))
@@ -347,6 +416,22 @@ function run(seed) {
         if (match.wave >= 29) acquireAndEquip("i228", archer, 1200);
         if (match.wave >= 36) acquireAndEquip("i206", archer, 1700);
       }
+      if (settlementScenario === "charm" && process.env.M2_A11_ITEM && match.wave >= Number(process.env.M2_A11_ITEM_WAVE ?? 49)) {
+        const itemId = process.env.M2_A11_ITEM;
+        const archer = match.structures.find(tower => tower.templateId === "n005");
+        const carrier = (itemFields.get(itemId)?.Level ?? 0) <= 3
+          ? archer : hasActiveProvider ? activeHero : undefined;
+        if (carrier && !equipped(itemId)) {
+          const loadout = match.inventory.filter(item => item.towerId === carrier.id && item.slot !== null);
+          if (loadout.length === 6) {
+            const redundant = loadout.some(item => item.itemId === "i209") && loadout.find(item => item.itemId === "i115");
+            const aura = carrier !== archer && loadout.find(item => item.itemId === "i198");
+            if (redundant) command({ type: "drop-item", itemId: redundant.id });
+            else if (archer && aura) command({ type: "transfer-item", itemId: aura.id, towerId: archer.id });
+          }
+          acquireAndEquip(itemId, carrier, 0);
+        }
+      }
       if (!savingChallengeGold && activeHero && match.wave >= 26 && !equipped("i138") && !savingForScepter()) acquireAndEquip("i137", activeHero, 100);
       if (hasActiveProvider) {
         for (const id of ["i132", "i134", "i263"]) {
@@ -390,7 +475,9 @@ function run(seed) {
       }
       const cardCount = match.cards.filter(card => card.slot !== null).length;
       const occupied = cardCount + match.inventory.filter(item => item.slot !== null && item.towerId === undefined).length + match.books.length;
-      if (drawSsr && match.wave >= 11 && match.gold >= 6500 && occupied < 6) {
+      if (secondHeroCard && !secondHero && !spareHeroCard && match.wave >= 38 && match.gold >= 17_000 && occupied < 5) {
+        command({ type: "draw", draw: "i005" });
+      } else if (drawSsr && match.wave >= 11 && match.gold >= 6500 && occupied < 6) {
         command({ type: "draw", draw: "i003" });
       } else if (!savingChallengeGold && !savingBossGold && !(drawSsr && process.env.M2_SSR_RESERVE && match.wave >= 10) && match.wave >= 9 &&
           match.gold >= (hasActiveProvider ? (match.wave >= 26 ? spendingFloor : 3800) : 3100) && occupied < 6 && cardCount < 5) {
@@ -407,6 +494,13 @@ function run(seed) {
           containmentPoints(match) < 15) {
         const family = [2, 3, 4].find(family => (match.challengeStages?.[family] ?? 0) === 0);
         if (family !== undefined) command({ type: "reserve-challenge", unitId: "m5" + family + "1" });
+      }
+      const beforeChallengeClose = mainline[53].startUs - match.queue.nowUs;
+      if (seekChallenge && challengeProduct?.crafted && !challengeClosure && match.challengeShopOpen &&
+          beforeChallengeClose > 18 * second && beforeChallengeClose <= 30 * second) {
+        const reservation = command({ type: "reserve-challenge", unitId: "m531" });
+        if (reservation?.ok) challengeClosure = { reservationId: reservation.createdId, atUs: match.queue.nowUs,
+          arrivals: 0, pendingBeforeClose: false };
       }
       if (seekChallenge && !challengeProduct && match.challengeStock?.i266 && match.gold >= (itemFields.get("i266").goldcost ?? 0)) {
         const beforeGold = match.gold;
@@ -448,6 +542,10 @@ function run(seed) {
         if (crafted) challengeProduct.crafted = { id: crafted.id, wave: match.wave, atUs: match.queue.nowUs };
       }
       if (seekChest && match.wave >= 30) {
+        if (wishForChests && match.talent?.id === "W014" && match.queue.nowUs >= match.talent.readyUs &&
+            (!carriedItem("i404") || !carriedItem("i414"))) {
+          command({ type: "cast-talent" });
+        }
         const box = carriedItem("i404");
         const key = carriedItem("i414");
         if (box && key) {
@@ -487,7 +585,15 @@ function run(seed) {
     }
     const nextWave = mainline[match.wave];
     const charm = carriedItem("i278");
-    if (charm && match.wave >= 45 && match.wave < 55 && nextWave &&
+    if (settlementScenario === "charm" && charm && match.wave === 55 && !charmSettlement &&
+        match.enemies.some(enemy => enemy.unitId === "mBOS")) {
+      const before = { kills: match.kills ?? 0, gold: match.gold, score: match.killScore ?? 0 };
+      command({ type: "use-item", itemId: charm.id });
+      charmSettlement = { itemId: charm.id, before, input: inputs.at(-1), after: {
+        kills: match.kills ?? 0, gold: match.gold, score: match.killScore ?? 0, phase: match.phase,
+        remaining: match.enemies.length, creditedFinisher: match.finalHit?.towerId ?? null,
+      } };
+    } else if (settlementScenario !== "charm" && charm && match.wave >= 45 && match.wave < 55 && nextWave &&
         nextWave.startUs - match.queue.nowUs < second &&
         containmentPoints(match) + nextWave.points * nextWave.unitsPerBatch > 100) {
       command({ type: "use-item", itemId: charm.id });
@@ -506,7 +612,11 @@ function run(seed) {
   const designatedExchange = providerBuild && inputs.find(entry => entry.action.type === "exchange" &&
     entry.outcome?.createdId === providerBuild.action.cardId);
   return { seed, opening, strategy: scepterPlan ? "scepter" : "default", layout: entryOpening ? "entry" : "center",
-    ...(seekChallenge ? { challengeEvidence, challengeProduct: challengeProduct ?? null, challengeMaterials, challengeMysteryStock } : {}),
+    ...(settlementScenario ? { settlementEvidence: { scenario: settlementScenario, charm: charmSettlement ?? null,
+      charmRemaining: !!carriedItem("i278"), phase: match.phase, killScore: match.killScore ?? 0,
+      bossAtEnd: match.enemies.some(enemy => enemy.unitId === "mBOS") } } : {}),
+    ...(seekChallenge ? { challengeEvidence, challengeProduct: challengeProduct ?? null, challengeMaterials, challengeMysteryStock,
+      challengeClosure: challengeClosure ?? null } : {}),
     ...(seekChest ? { chestEvidence } : {}),
     ...(ssrTarget ? { ssrEvidence: { requested: ssrTarget, ...ssrRun, completed: !!ssrComplete() } } : {}),
     ...(qualificationTarget ? { qualificationEvidence: {
@@ -595,8 +705,15 @@ const summary = { contentVersion, configurationVersion: configuration.version, c
   mapVersion, bundlePath, bundleSha256, runs: [] };
 if (process.env.M2_REPLAY) {
   const saved = JSON.parse(await readFile(process.env.M2_REPLAY, "utf8"));
-  for (const key of ["contentVersion", "configurationVersion", "configSha256", "mapVersion", "bundleSha256"]) {
+  for (const key of ["configurationVersion", "configSha256", "mapVersion"]) {
     assert.equal(saved[key], summary[key], key);
+  }
+  if (process.env.M2_REPLAY_BASELINE === "1") {
+    assert.ok(!process.env.M2_RESUME_PEAK, "Cross-build replay must start from a normal new match");
+    summary.baseline = { contentVersion: saved.contentVersion, bundleSha256: saved.bundleSha256,
+      inputLogSha256: saved.runs.map(record => ({ seed: record.seed, sha256: record.inputLogSha256 })) };
+  } else {
+    for (const key of ["contentVersion", "bundleSha256"]) assert.equal(saved[key], summary[key], key);
   }
   if (process.env.M2_RESUME_PEAK) {
     const { selected } = JSON.parse(await readFile(process.env.M2_RESUME_PEAK, "utf8"));

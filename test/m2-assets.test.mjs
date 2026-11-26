@@ -16,12 +16,17 @@ function assertHash(bytes, expected) {
 test("M2-03 tower and mainline samples match catalog files and decode every material texture and required sequence", async () => {
   for (const id of ["H021", "H029", "H038", "H044", "n001", "n006", "n021", "m001"]) assert.ok(manifest[id]);
   const unitIds = [...towerLevels.keys(), ...[...cards.values()].flatMap(card => card.forms.map(form => form.id).filter(Boolean)),
-    ...waves.map(wave => wave.unitId), ...challengeTemplates.map(template => template.unitId), "m998", "m999", "e008", "e009", "b138"];
+    ...waves.map(wave => wave.unitId), ...challengeTemplates.map(template => template.unitId), "m998", "m999", "e008", "e009", "b116", "b138", "nsha"];
   for (let rank = 0; rank < 8; rank++) unitIds.push("b" + (103 + rank));
   for (const base of [122, 132]) for (let rank = 0; rank < 6; rank++) unitIds.push("b" + (base + rank));
   for (const id of unitIds) {
     assert.ok(bindings[id]?.original, id);
     assert.ok(manifest[bindings[id]?.asset], id);
+  }
+  for (const id of ["m998", "m999"]) {
+    const asset = manifest[bindings[id].asset];
+    assert.equal(asset.libraryName, "dragonsoulchest");
+    assert.equal(asset.loop, "Stand");
   }
   for (const [id, entry] of Object.entries(manifest)) {
     async function read(name, hash) {
@@ -31,7 +36,14 @@ test("M2-03 tower and mainline samples match catalog files and decode every mate
     }
     const model = parseMDX(await read("model.mdx", entry.mdxSha256));
     assert.ok(model.Geosets.length > 0 && (entry.static || model.Bones.length > 0), id);
-    for (const name of entry.static ? [entry.loop] : entry.staticStructure ? ["Stand"] : entry.noWalk ? ["Stand", "Attack", "Death"] : ["Stand", "Walk", "Attack", "Death"]) {
+    for (const mesh of model.Geosets) {
+      for (const group of new Set(mesh.VertexGroup)) {
+        assert.ok(mesh.Groups[group]?.length && mesh.Groups[group].every(node => model.Nodes[node]), `${id}: matrix group ${group}`);
+      }
+    }
+    const expectedClips = id === bindings.b116.asset ? ["Stand", "Death"] :
+      entry.static ? [entry.loop] : entry.staticStructure ? ["Stand"] : entry.noWalk ? ["Stand", "Attack", "Death"] : ["Stand", "Walk", "Attack", "Death"];
+    for (const name of expectedClips) {
       const clip = model.Sequences.find(animation => animation.Name.trim().toLowerCase().startsWith(name.toLowerCase()) && (entry.static || animation.Interval[1] > animation.Interval[0]));
       assert.ok(clip, `${id}: ${name}`);
     }

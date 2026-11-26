@@ -2,7 +2,8 @@
 type Radial = { kind: "stomp" | "clap" | "howl"; radius: number; amount: number; slow?: number };
 type Wave = { kind: "wave"; range: number; radius: number; speed: number; amount: number; air: boolean };
 type TowerSpell = { id: string; cost: number; cooldown: number; cast: number; search: number; effect:
-  Radial | Wave | { kind: "purge"; range: number } | { kind: "wolves"; unit: string } | { kind: "sword-rain"; amount: number } };
+  Radial | Wave | { kind: "purge"; range: number } | { kind: "wolves"; unit: string } |
+  { kind: "sword-rain"; amount: number } | { kind: "frenzy"; amount: number } };
 
 const spells = new Map<string, TowerSpell[]>();
 function bind(unit: string, spell: TowerSpell) {
@@ -29,6 +30,11 @@ for (let index = 0; index < 5; index++) {
 
 bind("n254", { id: "N116", cost: 30, cooldown: 6, cast: .5, search: 700,
   effect: { kind: "purge", range: 800 } });
+
+for (let index = 0; index < 3; index++) {
+  bind("n" + (183 + index), { id: "N06" + (1 + index), cost: 30 + index * 10,
+    cooldown: 10, cast: 0, search: 0, effect: { kind: "frenzy", amount: [.2, .4, .6][index] } });
+}
 
 for (let index = 0; index < 4; index++) {
   const unit = "n" + (173 + index);

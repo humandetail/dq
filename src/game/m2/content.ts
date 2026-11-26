@@ -13,8 +13,8 @@ import rewardPacks from "../../../docs/rules/item-reward-packs-batch-01.json" wi
 import sessions from "../../../docs/rules/session-and-task-state.json" with { type: "json" };
 
 export { configuration };
-export const contentVersion = "m2-core-12";
-export const previousContentVersions = ["m2-core-2", "m2-core-3", "m2-core-4", "m2-core-5", "m2-core-6", "m2-core-7", "m2-core-8", "m2-core-9", "m2-core-10", "m2-core-11"] as const;
+export const contentVersion = "m2-core-30";
+export const previousContentVersions = ["m2-core-2", "m2-core-3", "m2-core-4", "m2-core-5", "m2-core-6", "m2-core-7", "m2-core-8", "m2-core-9", "m2-core-10", "m2-core-11", "m2-core-12", "m2-core-13", "m2-core-14", "m2-core-15", "m2-core-16", "m2-core-17", "m2-core-18", "m2-core-19", "m2-core-20", "m2-core-21", "m2-core-22", "m2-core-23", "m2-core-24", "m2-core-25", "m2-core-26", "m2-core-27", "m2-core-28", "m2-core-29"] as const;
 export const saveFormatVersion = 2;
 
 const cardRoots: Record<string, string> = {

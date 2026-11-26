@@ -1,0 +1,11 @@
+
+> check
+> npm run typecheck && npm test && npm run build
+
+
+> typecheck
+> tsc --noEmit
+
+src/game/m2/match.ts(394,59): error TS7006: Parameter 'type' implicitly has an 'any' type.
+src/game/m2/match.ts(1472,32): error TS2550: Property 'findLastIndex' does not exist on type 'string[]'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2023' or later.
+src/game/m2/match.ts(1472,46): error TS7006: Parameter 'id' implicitly has an 'any' type.

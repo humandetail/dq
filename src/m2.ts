@@ -1,18 +1,21 @@
+import { isDivineBook } from "./game/m2/divine.ts";
+import { appearanceChoice, appearanceChoices, appearanceSlots, appearanceUnlocked, type Appearance, type AppearanceSlot } from "./game/m2/appearance.ts";
 import { configuration, cardTemplates, directBuilds, firelordSkin, itemFields, items, openingChoices, ordinaryGoods, prayerBooks, qualificationChains, towerLevels, waveRewards, workerTowers } from "./game/m2/content.ts";
-import { canChooseOpening, canMoveItem, circleId, containmentPoints, flameArrowTargets, inspectBuildPlacement, isActiveTowerEquipment, creditTime, drain, enqueue, newMatch, qualified, restoreHeroState, transmuteTargets, usableWorkerItem, type Action, type Match } from "./game/m2/match.ts";
+import { weapons } from "./game/m2/combat.ts";
+import { artilleryItems, canChooseOpening, canMoveItem, circleId, containmentPoints, controlEquipmentTargets, flameArrowTargets, heroSpellTargets, inspectBuildPlacement, isActiveTowerEquipment, isKnowledgeBook, isTargetedEquipment, creditTime, drain, enqueue, newMatch, purgeTargets, qualified, restoreHeroState, transmuteTargets, usableWorkerItem, wolfTargets, type Action, type Match } from "./game/m2/match.ts";
 import { createM2SaveStore, StaleM2Checkpoint, type Checkpoint } from "./game/m2/save.ts";
 import { learnableSkills, learningLevel } from "./game/m2/hero.ts";
 import { talentChoices, talentRules } from "./game/m2/talents.ts";
 import { challengeTemplates } from "./game/m2/shops.ts";
 import { emptySeasons, seasonDefinitions, seasonNames, startSeasons, type Seasons } from "./game/m2/seasons.ts";
 import { towerSpells } from "./game/m2/tower-spells.ts";
-import { heroSpells, type HeroSpell } from "./game/m2/hero-spells.ts";
+import { heroSpellTargetMode, isCastableHeroSkill, type HeroSpell } from "./game/m2/hero-spells.ts";
 import { waves } from "./game/m2/waves.ts";
 import { mapVersion } from "./game/m2/map.ts";
 import { createM2Scene } from "./m2-scene.ts";
 import "./m2.css";
 
-type Profile = { score: number; claims: string[]; seasons?: Seasons; enabledSkins?: string[] };
+type Profile = { score: number; claims: string[]; seasons?: Seasons; enabledSkins?: string[]; appearance?: Appearance };
 type Saved = Checkpoint<Profile, Match>;
 type Head = Pick<Saved, "revision" | "activeMatchId">;
 type Placement = Extract<Action, { type: "build-worker-tower" | "build-card" }>;
@@ -46,8 +49,14 @@ function validSeasons(value: unknown) {
   });
 }
 
+function validAppearance(value: unknown): value is Appearance | undefined {
+  if (value === undefined) return true;
+  return record(value) && Object.entries(value).every(([slot, choice]) =>
+    appearanceSlots.includes(slot as AppearanceSlot) && typeof choice === "string" && !!appearanceChoice(slot as AppearanceSlot, choice));
+}
+
 function validProfile(value: unknown): value is Profile {
-  return record(value) && nonnegativeInteger(value.score) &&
+  return record(value) && nonnegativeInteger(value.score) && validAppearance(value.appearance) &&
     Array.isArray(value.claims) && value.claims.every(claim => typeof claim === "string") && validSeasons(value.seasons) && (value.enabledSkins === undefined ||
       Array.isArray(value.enabledSkins) && value.enabledSkins.every(id => typeof id === "string"));
 }
@@ -56,23 +65,49 @@ function validHero(value: unknown) {
   return record(value) && nonnegativeInteger(value.level) && Number(value.level) >= 1 && Number(value.level) <= 30 &&
     nonnegativeInteger(value.xp) && nonnegativeInteger(value.points) &&
     (value.talentAttributes === undefined || nonnegativeInteger(value.talentAttributes)) &&
+    (value.divineForm === undefined || record(value.divineForm) && typeof value.divineForm.id === "string" &&
+      (value.divineForm.id === "P200" ? value.divineForm.stars === 1 :
+        /^P2(?:0[1-9]|1[0-9]|2[0-2])$/.test(value.divineForm.id) && nonnegativeInteger(value.divineForm.stars) &&
+        Number(value.divineForm.stars) >= 1 && Number(value.divineForm.stars) <= 10)) &&
+    (value.growthBonus === undefined || record(value.growthBonus) && nonnegativeInteger(value.growthBonus.attack) &&
+      finite(value.growthBonus.modelScale) && Number(value.growthBonus.modelScale) > 0 &&
+      (value.growthBonus.learnedIn === undefined || ["H021", "G059"].includes(String(value.growthBonus.learnedIn)))) &&
     record(value.ranks) && Object.values(value.ranks).every(nonnegativeInteger) &&
     Array.isArray(value.paid) && value.paid.every(id => typeof id === "string") &&
     record(value.natural) && [value.natural.STR, value.natural.AGI, value.natural.INT].every(finite);
+}
+
+function validArtilleryTarget(value: unknown) {
+  return value === undefined || record(value) && (point(value.point) || nonnegativeInteger(value.objectId));
+}
+
+function validWeaponTiming(attack: unknown) {
+  if (attack === undefined) return true;
+  if (!record(attack)) return false;
+  const { timing } = attack;
+  return validArtilleryTarget(attack.artillery) && (timing === undefined || record(timing) && timing.version === 1 &&
+    (timing.slot === 1 || timing.slot === 2) && finite(timing.rawRate) &&
+    [timing.cycleUs, timing.pointUs, timing.recoveryUs, attack.startedUs, attack.readyUs].every(nonnegativeInteger) &&
+    Number(timing.cycleUs) > 0 && typeof attack.winding === "boolean" &&
+    [timing.cooldown, timing.windup, timing.backswing].every(phase => phase === undefined ||
+      record(phase) && finite(phase.workUs) && Number(phase.workUs) >= 0 &&
+      [phase.recordedUs, phase.dueUs, phase.timerId].every(nonnegativeInteger) &&
+      Number(phase.dueUs) >= Number(phase.recordedUs)));
 }
 
 function validRun(value: unknown): value is Match {
   if (!record(value) || typeof value.matchId !== "string" || !record(value.queue) || !record(value.clock)) return false;
   const { queue, clock } = value;
   const eventTypes = new Set([
-    "movement", "start-wave", "spawn", "stop-wave", "welfare-spawn", "welfare-end",
-    "boss-timeout", "command", "finish-construction", "commit-talent", "challenge-spawn", "weapon-fire", "weapon-ready", "weapon-impact", "hero-spell", "tower-spell", "sword-rain-emit", "sword-rain-travel", "spell-sweep", "contract-expire", "magic-arrow", "magic-arrow-restore", "hero-leash", "summon-expire", "detector-expire", "mana-debt", "spell-zones", "equipment-lightning", "equipment-burn", "immolation", "frost-expire", "avalanche", "stun-expire", "tree-grab-expire", "enemy-cast", "enemy-speed-expire", "enemy-form-end", "enemy-egg-end",
+    "movement", "worker-benefit", "start-wave", "spawn", "stop-wave", "welfare-spawn", "welfare-end",
+    "divine-effect-end", "hero-spell-end", "weapon-backswing-end", "weapon-rate-end", "equipment-volley", "ice-path-impact", "auto-control-equipment", "equipment-hex-end",
+    "boss-timeout", "command", "finish-construction", "commit-talent", "challenge-spawn", "weapon-fire", "weapon-ready", "weapon-impact", "spawn-rune", "demonflame", "scepter-swap", "hero-spell", "tower-spell", "sword-rain-emit", "sword-rain-travel", "spell-sweep", "contract-expire", "magic-arrow", "magic-arrow-restore", "hero-leash", "summon-expire", "detector-expire", "mana-debt", "spell-zones", "equipment-snow", "equipment-seal-end", "equipment-doom-impact", "equipment-hex-damage", "equipment-frost", "equipment-lightning", "equipment-burn", "immolation", "frost-expire", "avalanche", "stun-expire", "tree-grab-expire", "enemy-cast", "enemy-speed-expire", "enemy-summon-expire", "enemy-form-end", "enemy-egg-end",
   ]);
   const validStock = (stock: unknown) => stock === undefined || record(stock) &&
     Object.entries(stock).every(([id, count]) => items.has(id) && nonnegativeInteger(count) && Number(count) <= 4);
-  return validSeasons(value.seasons) &&
+  return validSeasons(value.seasons) && validAppearance(value.appearance) &&
     [value.seasonScore, value.seasonRevision, value.seasonalChallengeUnlocks, value.transmuteReadyUs].every(entry => entry === undefined || nonnegativeInteger(entry)) &&
-    (value.seasonalFourHeroes === undefined || value.seasonalFourHeroes === true) &&
+    [value.seasonalFourHeroes, value.seasonalOverdraftSurvival].every(entry => entry === undefined || entry === true) &&
     validStock(value.mysteryStock) && validStock(value.challengeStock) &&
     (value.waveRewardSlots === undefined || Array.isArray(value.waveRewardSlots) &&
       value.waveRewardSlots.length === waveRewards.length && value.waveRewardSlots.every(status => nonnegativeInteger(status) && status <= 3)) &&
@@ -80,9 +115,15 @@ function validRun(value: unknown): value is Match {
     (value.challengeScore === undefined || nonnegativeInteger(value.challengeScore)) &&
     (value.killScore === undefined || nonnegativeInteger(value.killScore)) &&
     (value.kills === undefined || nonnegativeInteger(value.kills)) &&
+    (value.battleAnimations === undefined || Array.isArray(value.battleAnimations) && value.battleAnimations.length <= 64 &&
+      value.battleAnimations.every(effect => record(effect) && point(effect) && nonnegativeInteger(effect.atUs) &&
+        typeof effect.unitId === "string" && (effect.kind === "death" || effect.kind === "revive" || effect.kind === "artillery-impact" ||
+          (effect.kind === "heal-link" || effect.kind === "weapon-link" || effect.kind === "spell-link") && point(effect.target)))) &&
     (value.recentHits === undefined || Array.isArray(value.recentHits) && value.recentHits.length <= 64 &&
       value.recentHits.every(hit => record(hit) && point(hit) && finite(hit.amount) &&
-        [hit.atUs, hit.targetId, hit.casterId].every(nonnegativeInteger))) &&
+        [hit.atUs, hit.targetId].every(nonnegativeInteger) && Number.isSafeInteger(hit.casterId))) &&
+    (value.swordRainImpacts === undefined || Array.isArray(value.swordRainImpacts) && value.swordRainImpacts.every(entry =>
+      record(entry) && point(entry) && nonnegativeInteger(entry.atUs))) &&
     (value.challengeReadyUs === undefined || nonnegativeInteger(value.challengeReadyUs)) &&
     (value.challengeStages === undefined || Array.isArray(value.challengeStages) && value.challengeStages.length === 8 &&
       value.challengeStages.every(stage => nonnegativeInteger(stage) && stage <= 3)) &&
@@ -108,20 +149,35 @@ function validRun(value: unknown): value is Match {
       nonnegativeInteger(enemy.id) && finite(enemy.speed) && finite(enemy.radius) && Array.isArray(enemy.initialOverlaps)) &&
     Array.isArray(value.structures) && value.structures.every(tower => record(tower) && point(tower) &&
       nonnegativeInteger(tower.id) && typeof tower.templateId === "string" && towerLevels.has(tower.templateId) &&
+      validWeaponTiming(tower.attack) && validArtilleryTarget(tower.artilleryOrder) &&
+      (tower.scepterWard === undefined || typeof tower.scepterWard === "boolean") &&
       (tower.hero === undefined || validHero(tower.hero)) &&
+      (tower.life === undefined || record(tower.life) &&
+        [tower.life.hp, tower.life.maximum, tower.life.staticMaximum, tower.life.regen].every(finite) &&
+        nonnegativeInteger(tower.life.lastUs)) &&
       [tower.flameTarget, tower.swordRainToken].every(entry => entry === undefined || nonnegativeInteger(entry)) &&
       (tower.pending === null || record(tower.pending) && nonnegativeInteger(tower.pending.timer))) &&
     (value.summons === undefined || Array.isArray(value.summons) && value.summons.every(summon =>
       record(summon) && point(summon) && nonnegativeInteger(summon.id) && summon.pending === null &&
-      typeof summon.templateId === "string" && /^(?:b10[3-9]|b110|b12[2-7]|b13[2-7])$/.test(summon.templateId) &&
-      record(summon.summon) && nonnegativeInteger(summon.summon.ownerId) &&
+      validWeaponTiming(summon.attack) &&
+      typeof summon.templateId === "string" && record(summon.summon) &&
+      (/^(?:b10[3-9]|b110|b12[2-7]|b13[2-7])$/.test(summon.templateId) ||
+        summon.summon.illusion === true && !!towerLevels.get(summon.templateId)?.growth) && nonnegativeInteger(summon.summon.ownerId) &&
       (summon.summon.independent === undefined || summon.summon.independent === true && /^b10[3-6]$/.test(summon.templateId)) &&
+      (summon.wolfOrder === undefined || summon.summon.independent === true && record(summon.wolfOrder) &&
+        Array.isArray(summon.wolfOrder.path) && summon.wolfOrder.path.every(point) &&
+        (summon.wolfOrder.type === "move" && point(summon.wolfOrder.point) ||
+          summon.wolfOrder.type === "attack" && nonnegativeInteger(summon.wolfOrder.targetId))) &&
+      (summon.walkDirection === undefined || point(summon.walkDirection)) &&
+      (summon.spawnOverlaps === undefined || Array.isArray(summon.spawnOverlaps) && summon.spawnOverlaps.every(nonnegativeInteger)) &&
       [summon.summon.attack, summon.summon.speed, summon.summon.green, summon.summon.blue].every(finite))) &&
     (value.detectors === undefined || Array.isArray(value.detectors) && value.detectors.every(detector =>
-      record(detector) && point(detector) && nonnegativeInteger(detector.id) && nonnegativeInteger(detector.ownerId))) &&
+      record(detector) && point(detector) && nonnegativeInteger(detector.id) && nonnegativeInteger(detector.ownerId) &&
+      (detector.hp === undefined || finite(detector.hp) && Number(detector.hp) > 0))) &&
     Array.isArray(value.cards) && value.cards.every(card => record(card) && nonnegativeInteger(card.id) &&
       typeof card.card === "string" && cardTemplates.has(card.card) && point(card.point) &&
-      finite(card.hp) && nonnegativeInteger(card.charges) && Number(card.charges) > 0) &&
+      finite(card.hp) && (card.invulnerable === undefined || card.invulnerable === true) &&
+      nonnegativeInteger(card.charges) && Number(card.charges) > 0) &&
     (value.openingChoicesUnlocked === undefined || typeof value.openingChoicesUnlocked === "boolean") &&
     (value.chestReadyUs === undefined || nonnegativeInteger(value.chestReadyUs)) &&
     (value.openedChests === undefined || nonnegativeInteger(value.openedChests)) &&
@@ -130,6 +186,8 @@ function validRun(value: unknown): value is Match {
       (item.slot === null || nonnegativeInteger(item.slot) && Number(item.slot) < 6) &&
       (item.towerId === undefined || item.slot !== null && (item.towerId === circleId ||
         (value.structures as Array<{ id: number }>).some(tower => tower.id === item.towerId))) &&
+      (item.invulnerable === undefined || item.invulnerable === true) &&
+      (item.hp === undefined || finite(item.hp) && Number(item.hp) > 0) &&
       nonnegativeInteger(item.charges) && point(item.point))) &&
     (value.books === undefined || Array.isArray(value.books) && value.books.every(book =>
       record(book) && nonnegativeInteger(book.id) && nonnegativeInteger(book.slot) && Number(book.slot) < 6 &&
@@ -155,7 +213,11 @@ let lastSave = previousTime;
 let jobs: Promise<unknown> = Promise.resolve();
 let lastControls = "";
 let pendingCommand: string | undefined;
-let pendingBuildKey: string | undefined;
+let pendingBuild: { commandId: string; key: string } | undefined;
+let scoutWard: { itemId: number; towerId: number; mode: "scout" | "snow" } | undefined;
+let pointSpell: { towerId: number; skillId: HeroSpell; label: string } | undefined;
+let artilleryTowerId: number | undefined;
+let wolfMoveId: number | undefined;
 const compatibleMap = () => !!run && run.mapVersion === mapVersion;
 let releaseWriter: (() => void) | undefined;
 
@@ -170,6 +232,7 @@ function send(action: Action) {
   if (enqueue(run, { id, matchId: run.matchId, action })) {
     pendingCommand = id;
     el("feedback").textContent = run.clock.paused ? "指令已排队，继续后执行。" : "指令已排队。";
+    return id;
   }
 }
 
@@ -228,6 +291,8 @@ function showSeasonTasks() {
 
 function showControls() {
   showSeasonTasks();
+  const wolves = run?.summons?.filter(unit => unit.summon?.independent) ?? [];
+  const availableWolfTargets = wolves.map(unit => wolfTargets(run!, unit.id));
   const arrowTargets = new Map(run?.structures.flatMap(tower => {
     const targets = flameArrowTargets(run!, tower.id);
     return targets ? [[tower.id, targets] as const] : [];
@@ -239,10 +304,33 @@ function showControls() {
   el("challenge-status").textContent = challengeWait > 0 ? `下次预约还需 ${challengeWait} 秒` : "";
   const challengeReady = challengeWait === 0;
   const talentReady = !!run?.talent && run.queue.nowUs >= Math.max(run.talent.readyUs, run.talent.busyUntilUs);
+  const aimedSpells = new Map<string, ReturnType<typeof heroSpellTargets>>();
+  if (run) {
+    for (const tower of run.structures) {
+      for (const [id, rank] of Object.entries(tower.hero?.ranks ?? {})) {
+        if (!rank || !isCastableHeroSkill(id) || heroSpellTargetMode(id) !== "unit") continue;
+        aimedSpells.set(`${tower.id}/${id}`, heroSpellTargets(run, tower.id, id as HeroSpell));
+      }
+    }
+  }
+  const equipmentTargets = new Map<number, ReturnType<typeof controlEquipmentTargets>>();
+  if (run) {
+    for (const item of run.inventory ?? []) {
+      if (item.towerId !== undefined && item.slot !== null && isTargetedEquipment(item.itemId)) {
+        equipmentTargets.set(item.id, controlEquipmentTargets(run, item.towerId, item.itemId));
+      }
+    }
+  }
   const key = JSON.stringify([
     goldTargets?.map(enemy => enemy.id), goldReady, run?.talent, talentReady, challengeReady, run?.challengeShopOpen, run?.challengeStages, run?.challengeStock,
-    run?.waveRewardSlots, run?.overdraftOpen, run?.overdraftPoints, run?.mysteryShopOpen, run?.mysteryRefreshed, run?.mysteryStock, run?.matchId, run?.phase, run?.openingCard, run?.openingChoicesUnlocked, run?.inventory, run?.qualificationShopOpen, run?.cards, run?.books, run?.structures.map(({ id, x, y, templateId, pending, qualification, hero, flameArrows, swordRainToken }) =>
-      [id, x, y, templateId, pending, qualification, hero, flameArrows, swordRainToken, arrowTargets.get(id)?.map(enemy => enemy.id)]), writer !== undefined, busy, build?.key,
+    run?.waveRewardSlots, run?.overdraftOpen, run?.overdraftPoints, run?.mysteryShopOpen, run?.mysteryRefreshed, run?.mysteryStock, run?.matchId, run?.phase, run?.openingCard, run?.openingChoicesUnlocked, run?.inventory, run?.qualificationShopOpen, run?.cards, run?.books, run?.structures.map(({ id, x, y, templateId, pending, qualification, hero, flameArrows, swordRainToken, snow, scepterSwap, scepterWard }) =>
+      [id, x, y, templateId, pending, qualification, hero, flameArrows, swordRainToken, snow?.token, scepterSwap?.grant, scepterWard, arrowTargets.get(id)?.map(enemy => enemy.id)]),
+    wolves.map((unit, index) => [unit.id, unit.wolfOrder?.type, availableWolfTargets[index].map(enemy => enemy.id)]),
+    run?.workerSharing, run && run.queue.nowUs >= (run.workerBenefitReadyUs ?? 0),
+    run?.snowDuration, run?.appearance, run?.seasons?.spring.unlocks, run?.seasons?.summer.unlocks,
+    writer !== undefined, busy, build?.key, wolfMoveId, scoutWard, pointSpell, artilleryTowerId,
+    [...aimedSpells].map(([id, enemies]) => [id, enemies.map(enemy => enemy.id)]),
+    [...equipmentTargets].map(([id, enemies]) => [id, enemies.map(enemy => enemy.id)]),
   ]);
   if (lastControls === key) return;
   lastControls = key;
@@ -318,6 +406,7 @@ function showControls() {
   builds.replaceChildren();
   for (const tower of Object.keys(directBuilds) as Array<keyof typeof directBuilds>) {
     addButton(builds, `${workerTowers.get(tower)!.name} · ${directBuilds[tower].gold} 金`, () => {
+      clearPlacement();
       build = { key: tower, label: workerTowers.get(tower)!.name, action: { type: "build-worker-tower", tower } };
       el("feedback").textContent = "建造区已高亮。移动鼠标查看落点，左键放置，Esc 取消。";
     }).setAttribute("aria-pressed", String(build?.key === tower));
@@ -351,6 +440,38 @@ function showControls() {
     addButton(row, "转交", () => send({
       type: "transfer-item", itemId, towerId: targets.value === "" ? undefined : Number(targets.value),
     }));
+  }
+
+  const benefits = el("worker-benefits");
+  benefits.replaceChildren();
+  if (run) {
+    addButton(benefits, "领取福利", () => send({ type: "claim-worker-benefit" }),
+      locked || run.queue.nowUs < (run.workerBenefitReadyUs ?? 0));
+    const share = addButton(benefits, run.workerSharing ? "关闭助手加成分享" : "开启助手加成分享",
+      () => send({ type: "toggle-worker-sharing" }), locked);
+    share.setAttribute("aria-pressed", String(Boolean(run.workerSharing)));
+  }
+  const appearance = el("worker-appearance");
+  appearance.replaceChildren();
+  if (run) {
+    const labels = { worker: "工人外观", circle: "能量圈外观", aura: "工人光环", wings: "工人羽翼", title: "工人称号", accent: "工人装饰" } as const;
+    for (const [slot, name] of Object.entries(labels) as [keyof typeof labels, string][]) {
+      const label = document.createElement("label");
+      label.textContent = name;
+      const choices = document.createElement("select");
+      choices.setAttribute("aria-label", name);
+      choices.append(new Option("默认", ""));
+      for (const choice of appearanceChoices.filter(choice => choice.slot === slot)) {
+        const option = new Option(choice.name, choice.id);
+        option.disabled = !appearanceUnlocked(choice, run.seasons);
+        choices.append(option);
+      }
+      choices.value = run.appearance?.[slot] ?? "";
+      choices.disabled = locked;
+      choices.onchange = () => send({ type: "choose-appearance", slot, choice: choices.value || undefined });
+      label.append(choices);
+      appearance.append(label);
+    }
   }
 
   const inventory = el("worker-items");
@@ -391,6 +512,7 @@ function showControls() {
     addButton(cards, card.slot === null ? `拾取 ${cardName(card.card)}` : cardName(card.card), () => {
       if (card.slot === null) send({ type: "pick-up-card", cardId: card.id });
       else {
+        clearPlacement();
         build = { key: String(card.id), label: cardName(card.card), action: { type: "build-card", cardId: card.id } };
         el("feedback").textContent = "建造区已高亮。移动鼠标查看落点，左键放置，Esc 取消。";
       }
@@ -410,7 +532,35 @@ function showControls() {
       const name = items.get(item.itemId)!.name;
       gear.textContent = `${name}${item.charges > 1 ? " ×" + item.charges : ""} `;
       if (towerId !== circleId && isActiveTowerEquipment(item.itemId) && item.slot !== null) {
-        addButton(gear, "施放" + name, () => send({ type: "cast-equipment", itemId: item.id, towerId }), locked);
+        const label = item.itemId === "i330" ? "熄灭魔焰" : item.itemId === "i332" ? "点燃魔焰" : "施放" + name;
+        addButton(gear, label, () => send({ type: "cast-equipment", itemId: item.id, towerId }), locked);
+      }
+      const eligible = equipmentTargets.get(item.id);
+      if (eligible) {
+        const targets = document.createElement("select");
+        targets.setAttribute("aria-label", name + "目标");
+        for (const enemy of eligible) targets.append(new Option(`${enemy.unitId} #${enemy.id}`, String(enemy.id)));
+        gear.append(targets);
+        addButton(gear, "施放" + name, () => send({ type: "cast-equipment", towerId, itemId: item.id, targetId: Number(targets.value) }),
+          locked || !targets.options.length);
+      }
+      if (item.itemId === "i325" && towerId !== circleId) {
+        const duration = document.createElement("select");
+        duration.setAttribute("aria-label", "落雪引导时长");
+        for (let seconds = 1; seconds <= 4; seconds++) duration.append(new Option(`${seconds}秒`, String(seconds)));
+        duration.value = String(run?.snowDuration ?? 4);
+        duration.onchange = () => send({ type: "set-snow-duration", seconds: Number(duration.value) });
+        gear.append(duration);
+        addButton(gear, "施放落雪", () => {
+          clearPlacement();
+          scoutWard = { itemId: item.id, towerId, mode: "snow" };
+        }, locked);
+      }
+      if (item.itemId === "i235" && run?.structures.some(tower => tower.id === towerId && tower.hero && !tower.pending)) {
+        addButton(gear, "放置侦查守卫", () => {
+          clearPlacement();
+          scoutWard = { itemId: item.id, towerId, mode: "scout" };
+        }, locked);
       }
       if (canMoveItem(item.itemId)) {
         addItemTransfer(gear, item.id, name, towerId);
@@ -439,6 +589,27 @@ function showControls() {
       addButton(row, "取消", () => send({ type: "cancel-construction", towerId: tower.id }));
     } else {
       showEquipment(row, tower.id);
+      if (weapons[tower.templateId]?.some(weapon => weapon.kind === "artillery")) {
+        addButton(row, "炮击地面", () => {
+          clearPlacement();
+          artilleryTowerId = tower.id;
+          el("feedback").textContent = "左键选择炮击落点，Esc 取消。";
+        }, locked).setAttribute("aria-pressed", String(artilleryTowerId === tower.id));
+        const targets = artilleryItems(run!, tower.id);
+        if (targets.length) {
+          const select = document.createElement("select");
+          select.setAttribute("aria-label", "炮击物品目标");
+          for (const target of targets) {
+            const name = "card" in target ? cardName(target.card) : items.get(target.itemId)!.name;
+            select.append(new Option(`${name} #${target.id}`, String(target.id)));
+          }
+          row.append(select);
+          addButton(row, "炮击物品", () => {
+            clearPlacement();
+            send({ type: "attack-ground-item", towerId: tower.id, objectId: Number(select.value) });
+          }, locked);
+        }
+      }
       if (talent?.id === "W018") {
         addButton(row, "神兵天降", () => send({ type: "cast-talent", towerId: tower.id }), locked || !talentReady);
       }
@@ -449,6 +620,7 @@ function showControls() {
       if (hero) {
         const stat = document.createElement("p");
         stat.textContent = `等级 ${hero.level} · 经验 ${hero.xp} · 技能点 ${hero.points}${hero.talentAttributes ? " · 天赋三围 +" + hero.talentAttributes : ""}${qualified(activeMatch, tower.id) ? " · 突破资格生效" : ""}`;
+        if (hero.divineForm) stat.textContent += ` · 神能 ${hero.divineForm.id} · ${hero.divineForm.stars} 星`;
         row.append(stat);
         const skills = document.createElement("div");
         skills.className = "controls";
@@ -459,9 +631,40 @@ function showControls() {
             `学习${skill.name} Lv${rank + 1}（需 ${required} 级）`;
           addButton(skills, label, () => send({ type: "learn-skill", towerId: tower.id, skillId: skill.skillId }),
             locked || hero.points < 1 || required === undefined || hero.level < required);
-          if (rank && Object.hasOwn(heroSpells, skill.skillId)) {
-            addButton(skills, `施放${skill.name}`, () => send({ type: "cast-hero", towerId: tower.id, skillId: skill.skillId as HeroSpell }));
+          const { skillId } = skill;
+          if (rank && isCastableHeroSkill(skillId)) {
+            const mode = heroSpellTargetMode(skillId);
+            if (mode === "point") {
+              const name = skillId === "A094" && tower.scepterWard ? "强化群蛇守卫" : skill.name;
+              addButton(skills, `施放${name}`, () => {
+                clearPlacement();
+                pointSpell = { towerId: tower.id, skillId: skillId as HeroSpell, label: name };
+              }, locked);
+            } else if (mode === "unit") {
+              const targets = document.createElement("select");
+              targets.setAttribute("aria-label", skill.name + "目标");
+              for (const enemy of aimedSpells.get(`${tower.id}/${skillId}`) ?? []) {
+                targets.append(new Option(`${enemy.unitId} #${enemy.id}`, String(enemy.id)));
+              }
+              skills.append(targets);
+              addButton(skills, `施放${skill.name}`, () => send({ type: "cast-hero", towerId: tower.id, skillId,
+                targetId: Number(targets.value) }), locked || targets.options.length === 0);
+            } else {
+              addButton(skills, `施放${skill.name}`, () => send({ type: "cast-hero", towerId: tower.id, skillId }), locked);
+            }
           }
+        }
+        if (tower.scepterSwap) {
+          const target = document.createElement("select");
+          target.setAttribute("aria-label", "移形换位目标");
+          for (const ally of [...activeMatch.structures, ...(activeMatch.summons ?? [])]) {
+            if (ally !== tower && !ally.pending) target.append(new Option(`${structureName(ally.templateId)} #${ally.id}`, String(ally.id)));
+          }
+          target.append(new Option("自身", String(tower.id)), new Option("工人（无法换位）", "-1"),
+            new Option("能量圈（无法换位）", String(circleId)));
+          skills.append(target);
+          addButton(skills, "移形换位", () => send({ type: "cast-scepter-swap", towerId: tower.id, targetId: Number(target.value) }),
+            locked || target.options.length === 0);
         }
         if (tower.templateId === firelordSkin.from) {
           addButton(skills, "切换火焰领主", () => send({ type: "choose-skin", towerId: tower.id, choice: firelordSkin.choice }), locked);
@@ -469,6 +672,12 @@ function showControls() {
         for (const book of activeMatch.books ?? []) {
           const name = prayerBooks.find(entry => entry.id === book.bookId)!.name;
           addButton(skills, `使用${name}`, () => send({ type: "use-book", itemId: book.id, towerId: tower.id }));
+        }
+        for (const book of activeMatch.inventory ?? []) {
+          if (book.slot !== null && (isKnowledgeBook(book.itemId) || isDivineBook(book.itemId))) {
+            addButton(skills, `使用${items.get(book.itemId)!.name} #${book.id}`,
+              () => send({ type: "use-book", itemId: book.id, towerId: tower.id }), locked);
+          }
         }
         row.append(skills);
       }
@@ -483,12 +692,27 @@ function showControls() {
         addButton(row, "手动发射灼热之箭", () => send({ type: "cast-flame-arrow", towerId: tower.id, targetId: Number(select.value) }),
           locked || targets.length === 0);
       }
+      if (tower.snow) addButton(row, "停止落雪", () => send({ type: "stop-tower-cast", towerId: tower.id }));
+      if (tower.spellWindup !== undefined) addButton(row, "取消施法", () => send({ type: "stop-tower-cast", towerId: tower.id }));
+      if (tower.leashToken !== undefined) addButton(row, "停止枷锁", () => send({ type: "stop-tower-cast", towerId: tower.id }));
       if (tower.swordRainToken !== undefined) {
         addButton(row, "停止黑暗剑雨", () => send({ type: "stop-tower-cast", towerId: tower.id }));
       }
       for (const spell of towerSpells.get(tower.templateId) ?? []) {
         const binding = towerLevels.get(tower.templateId)?.bindings.find(entry => entry.skillId === spell.id);
-        if (binding) addButton(row, "施放" + binding.name, () => send({ type: "cast-tower", towerId: tower.id, skillId: spell.id }));
+        if (!binding) continue;
+        const cast = { type: "cast-tower" as const, towerId: tower.id, skillId: spell.id };
+        if (spell.effect.kind !== "purge") {
+          addButton(row, "施放" + binding.name, () => send(cast));
+          continue;
+        }
+        const targets = document.createElement("select");
+        targets.setAttribute("aria-label", binding.name + "目标");
+        for (const enemy of purgeTargets(activeMatch, tower, spell.effect.range)) {
+          targets.append(new Option(`${enemy.unitId} #${enemy.id}`, String(enemy.id)));
+        }
+        row.append(targets);
+        addButton(row, "施放" + binding.name, () => send({ ...cast, targetId: Number(targets.value) }), locked || !targets.options.length);
       }
       addButton(row, "回收", () => {
         if (hero) {
@@ -504,6 +728,32 @@ function showControls() {
         send({ type: "recycle-tower", towerId: tower.id });
       });
     }
+    structures.append(row);
+  }
+  for (const [index, wolf] of wolves.entries()) {
+    const row = document.createElement("div");
+    row.dataset.wolfId = String(wolf.id);
+    const label = document.createElement("span");
+    const order = wolf.wolfOrder?.type;
+    label.textContent = `灵兽 Lv${Number(wolf.templateId.slice(1)) - 102} #${wolf.id} · ${order === "move" ? "移动" : order === "attack" ? "追击" : "待命"}`;
+    row.append(label);
+    addButton(row, wolfMoveId === wolf.id ? "选取目的地" : "移动灵兽", () => {
+      clearPlacement();
+      wolfMoveId = wolf.id;
+    }, locked);
+    const select = document.createElement("select");
+    select.setAttribute("aria-label", "灵兽攻击目标");
+    const targets = availableWolfTargets[index];
+    for (const enemy of targets) select.append(new Option(`${enemy.unitId} #${enemy.id}`, String(enemy.id)));
+    row.append(select);
+    addButton(row, "攻击目标", () => {
+      wolfMoveId = undefined;
+      send({ type: "attack-with-wolf", unitId: wolf.id, targetId: Number(select.value) });
+    }, locked || targets.length === 0);
+    addButton(row, "停止灵兽", () => {
+      wolfMoveId = undefined;
+      send({ type: "stop-wolf", unitId: wolf.id });
+    }, locked);
     structures.append(row);
   }
 }
@@ -531,9 +781,17 @@ for (const chain of qualificationChains.values()) {
 el("exchange").onclick = () => send({ type: "exchange", qualification: select.value });
 
 let draw: Awaited<ReturnType<typeof createM2Scene>> | undefined;
-function cancelPlacement() {
+function clearPlacement() {
+  scoutWard = undefined;
+  pointSpell = undefined;
+  wolfMoveId = undefined;
+  artilleryTowerId = undefined;
   build = undefined;
-  el("feedback").textContent = "已取消选塔。";
+}
+function cancelPlacement() {
+  const choosingPoint = wolfMoveId !== undefined || scoutWard !== undefined || pointSpell !== undefined || artilleryTowerId !== undefined;
+  clearPlacement();
+  el("feedback").textContent = choosingPoint ? "已取消选择目的地。" : "已取消选塔。";
 }
 el("cancel-placement").onclick = cancelPlacement;
 el("reset-view").onclick = () => draw?.resetView();
@@ -545,15 +803,44 @@ el("zoom-in").onclick = () => draw?.zoomView(1.2);
 el("zoom-out").onclick = () => draw?.zoomView(1 / 1.2);
 window.addEventListener("keydown", event => { if (event.key === "Escape") cancelPlacement(); });
 void createM2Scene(el<HTMLCanvasElement>("field"), point => {
+  if (artilleryTowerId !== undefined && writable()) {
+    const towerId = artilleryTowerId;
+    artilleryTowerId = undefined;
+    send({ type: "attack-ground", towerId, point });
+    return;
+  }
+  if (pointSpell && writable()) {
+    const { towerId, skillId } = pointSpell;
+    pointSpell = undefined;
+    send({ type: "cast-hero", towerId, skillId, point });
+    return;
+  }
+  if (scoutWard && writable()) {
+    const { mode, itemId, towerId } = scoutWard;
+    send({ type: mode === "scout" ? "place-scout-ward" : "cast-equipment", itemId, towerId, point });
+    scoutWard = undefined;
+    return;
+  }
+  if (wolfMoveId !== undefined && writable()) {
+    const unitId = wolfMoveId;
+    wolfMoveId = undefined;
+    send({ type: "move-wolf", unitId, point });
+    return;
+  }
   if (!build || !run || !writable()) return;
-  if (pendingCommand) { el("feedback").textContent = "工人正在执行建造指令，请稍候。"; return; }
+  if (pendingBuild) { el("feedback").textContent = "工人正在执行建造指令，请稍候。"; return; }
   const result = inspectBuildPlacement(run, { ...build.action, point });
   if (!result.ok) { el("feedback").textContent = rejection[result.reason] + "，可移动鼠标重新选位置。"; return; }
-  pendingBuildKey = build.key;
-  send({ ...build.action, point });
+  const commandId = send({ ...build.action, point });
+  if (commandId) pendingBuild = { commandId, key: build.key };
 }, message => {
+  const approach = run?.approach?.command.action.type;
+  const workerStatus = approach === "pick-up-card" ? "工人正在前往拾取塔卡。" :
+    approach === "pick-up-item" ? "工人正在前往拾取物品。" :
+    approach === "transfer-item" ? "工人正在前往交接物品。" :
+    approach ? "工人正在前往建造位置，到达后开始施工。" : undefined;
   const status = !compatibleMap() && run ? "旧地图存档已保留，请点击重开进入新地图。" :
-    run?.approach ? "工人正在前往建造位置，到达后开始施工。" : message;
+    workerStatus ?? message;
   if (el("placement-status").textContent !== status) el("placement-status").textContent = status;
 }, view => {
   el("view-oblique").setAttribute("aria-pressed", String(view.preset === "oblique"));
@@ -579,12 +866,21 @@ function createMatch() {
   const value = new URLSearchParams(location.search).get("seed");
   const requested = value === null || !/^\d+$/.test(value) ? NaN : Number(value);
   const seed = requested >= 0 && requested <= 0xffffffff ? requested : crypto.getRandomValues(new Uint32Array(1))[0];
-  return newMatch(crypto.randomUUID(), seed, profile.seasons ?? emptySeasons());
+  const match = newMatch(crypto.randomUUID(), seed, profile.seasons ?? emptySeasons());
+  if (profile.appearance) match.appearance = { ...profile.appearance };
+  return match;
 }
 
 function restore(checkpoint: Saved | undefined) {
   if (!checkpoint) return;
   head = { revision: checkpoint.revision, activeMatchId: checkpoint.activeMatchId };
+  if (run?.matchId !== checkpoint.run.matchId) {
+    pendingCommand = undefined;
+    pendingBuild = undefined;
+    pointSpell = undefined;
+    scoutWard = undefined;
+    artilleryTowerId = undefined;
+  }
   run = checkpoint.run;
   profile = { ...checkpoint.profile, score: checkpoint.profile.score - matchScore(run) };
   run.seasons ??= structuredClone(profile.seasons ?? emptySeasons());
@@ -596,7 +892,7 @@ function matchScore(match: Match) {
 }
 
 function checkpointProfile(match: Match): Profile {
-  return { ...profile, seasons: match.seasons, score: profile.score + matchScore(match),
+  return { ...profile, seasons: match.seasons, appearance: match.appearance, score: profile.score + matchScore(match),
     enabledSkins: [...new Set([...(profile.enabledSkins ?? []), firelordSkin.unlock])] };
 }
 
@@ -639,11 +935,17 @@ el("restart").onclick = () => {
     const latestProfile = checkpointProfile(run);
     const fresh = createMatch();
     fresh.seasons = structuredClone(latestProfile.seasons ?? emptySeasons());
+    if (latestProfile.appearance) fresh.appearance = { ...latestProfile.appearance };
     head = await writer.restart(head, latestProfile, fresh);
     profile = latestProfile;
     run = fresh;
     build = undefined;
+    wolfMoveId = undefined;
+    pointSpell = undefined;
+    scoutWard = undefined;
+    artilleryTowerId = undefined;
     pendingCommand = undefined;
+    pendingBuild = undefined;
     recycleConfirmation = undefined;
     el("feedback").textContent = "已重开。";
     el("save").textContent = `已保存 · 修订 ${head.revision}`;
@@ -706,14 +1008,27 @@ function frame() {
     const wave = run.wave;
     const constructions = run.structures.filter(tower => tower.pending).length;
     const seasonRevision = run.seasonRevision;
+    const workerCommand = run.approach?.command.id;
     const deadline = performance.now() + 7;
     drain(run, 32_000, () => performance.now() >= deadline);
-    if (run && pendingCommand && Object.hasOwn(run.commandResults, pendingCommand)) {
-      const outcome = run.commandResults[pendingCommand];
-      el("feedback").textContent = outcome.ok ? "操作已执行。" : rejection[outcome.reason];
-      if (outcome.ok && pendingBuildKey === build?.key) build = undefined;
-      pendingBuildKey = undefined;
-      pendingCommand = undefined;
+    const results = run.commandResults;
+    const completed = [...new Set([workerCommand, pendingBuild?.commandId, pendingCommand])].filter(
+      (id): id is string => id !== undefined && Object.hasOwn(results, id));
+    if (completed.length) {
+      const outcomes = completed.map(id => results[id]);
+      el("feedback").textContent = outcomes.map(outcome => {
+        if (!outcome.ok) return rejection[outcome.reason];
+        const result = outcome.divineBook;
+        if (result === "ineligible") return "目标的神能形态不符合条件，道具已返还。";
+        if (result === "max-stars") return "神能已达十星，道具已返还。";
+        if (result === "failed") return "神能升星失败，已消耗充能。";
+        return result ? `神能 ${result.id} · ${result.stars} 星` : "操作已执行。";
+      }).join(" ");
+      if (pendingBuild && completed.includes(pendingBuild.commandId)) {
+        if (run.commandResults[pendingBuild.commandId].ok && pendingBuild.key === build?.key) build = undefined;
+        pendingBuild = undefined;
+      }
+      if (pendingCommand && completed.includes(pendingCommand)) pendingCommand = undefined;
     }
     if (run.phase !== phase || run.wave !== wave || run.seasonRevision !== seasonRevision || Object.keys(run.commandResults).length !== before ||
       run.structures.filter(tower => tower.pending).length !== constructions ||
@@ -732,19 +1047,37 @@ function frame() {
     const hitStatus = el("last-hit");
     hitStatus.hidden = latestHit === undefined;
     if (latestHit) {
-      const source = run.structures.find(tower => tower.id === latestHit.casterId);
-      hitStatus.textContent = `${source ? structureName(source.templateId) : "己方塔"} 命中 · ${Math.round(latestHit.amount * 10) / 10} 伤害`;
+      const source = [...run.structures, ...(run.summons ?? [])].find(tower => tower.id === latestHit.casterId);
+      hitStatus.textContent = `${source ? structureName(source.templateId) : latestHit.sourceTemplate ?? "己方塔"} 命中 · ${Math.round(latestHit.amount * 10) / 10} 伤害`;
     }
     const boss = run.enemies.find(enemy => enemy.unitId === "mBOS");
     el("boss").textContent = boss && run.bossDeadlineUs !== null
       ? `肉山 ${Math.ceil(boss.hp).toLocaleString("zh-CN")} 生命 · 剩余 ${Math.ceil((run.bossDeadlineUs - run.queue.nowUs) / 1_000_000)} 秒` : "";
+    const benefit = run.lastWorkerBenefit;
+    const label = el("worker-benefit-result");
+    label.textContent = benefit && run.queue.nowUs - benefit.atUs < 8_000_000 ?
+      `${benefit.source === "J006" ? "自动发放福利" : "领取福利"} · +${benefit.amount} 金` : "";
     el("pause").textContent = run.clock.paused ? "继续" : "暂停";
     el("speed").textContent = `${run.clock.speed}×`;
   }
+  const selectedBuild = build?.action;
+  if (selectedBuild?.type === "build-card" &&
+      !run?.cards.some(card => card.id === selectedBuild.cardId && card.slot !== null)) build = undefined;
+  if (pointSpell && !run?.structures.some(tower =>
+    tower.id === pointSpell?.towerId && !tower.pending && tower.hero?.ranks[pointSpell.skillId])) pointSpell = undefined;
+  if (scoutWard && (!run?.inventory?.some(item => item.id === scoutWard?.itemId && item.towerId === scoutWard?.towerId && item.slot !== null) ||
+    !run.structures.some(tower => tower.id === scoutWard?.towerId && !tower.pending))) scoutWard = undefined;
+  if (!writable() || !run?.summons?.some(unit => unit.id === wolfMoveId && unit.summon?.independent)) wolfMoveId = undefined;
+  if (!writable() || !run?.structures.some(tower => tower.id === artilleryTowerId && !tower.pending)) artilleryTowerId = undefined;
   showControls();
-  el("cancel-placement").hidden = !build;
-  el("field").classList.toggle("placing", !!build);
-  if (!document.hidden) draw?.(compatibleMap() ? run : undefined, writable() ? build : undefined);
+  const choosingPoint = wolfMoveId !== undefined || Boolean(pointSpell) || Boolean(scoutWard) || artilleryTowerId !== undefined;
+  el("cancel-placement").hidden = !build && !choosingPoint;
+  el("cancel-placement").textContent = choosingPoint ? "取消选择" : "取消放置";
+  el("field").classList.toggle("placing", !!build || choosingPoint);
+  if (!document.hidden) draw?.(compatibleMap() ? run : undefined, writable() ? build : undefined, wolfMoveId,
+    artilleryTowerId !== undefined ? "炮击地面 · 左键选择落点，Esc 取消" : pointSpell ? `${pointSpell.label} · 左键选择施法地点，Esc 取消` :
+    scoutWard?.mode === "scout" ? "侦查守卫 · 左键选择英雄 500 范围内的位置，Esc 取消" :
+    scoutWard?.mode === "snow" ? "落雪 · 左键选择施法地点，Esc 取消" : undefined);
   scheduleFrame();
 }
 document.addEventListener("visibilitychange", scheduleFrame);

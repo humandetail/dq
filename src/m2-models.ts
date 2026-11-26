@@ -32,18 +32,20 @@ export async function loadM2Model(id: ModelId, gl: WebGL2RenderingContext | WebG
     if (!Object.hasOwn(entry.textures, texture.Image)) throw new Error(`M2 缺少贴图：${id}/${texture.Image}`);
   }
 
-  const clips = new Map([...new Set(["Stand", "Walk", "Attack", "Death", entry.loop])].map(name => {
+  const clips = new Map([...new Set(["Stand", "Walk", "Attack", "Death", "Spell", entry.loop])].map(name => {
     const exact = model.Sequences.findIndex(clip => clip.Name.trim().toLowerCase() === name.toLowerCase());
     const index = exact >= 0 ? exact : model.Sequences.findIndex(clip => clip.Name.trim().toLowerCase().startsWith(name.toLowerCase()));
-    if (index < 0 && !("staticStructure" in entry) && !("static" in entry) && !(name === "Walk" && "noWalk" in entry)) throw new Error(`M2 缺少动画：${id}/${name}`);
+    if (index < 0 && name !== "Spell" && !("staticStructure" in entry) && !("static" in entry) && !(name === "Walk" && "noWalk" in entry)) throw new Error(`M2 缺少动画：${id}/${name}`);
     return [name, index];
   }));
+  const spellSlam = model.Sequences.findIndex(sequence => /^attack slam\b/i.test(sequence.Name.trim()));
   const renderer = new ModelRenderer(model);
   renderer.initGL(gl);
   renderer.setTeamColor([0.74, 0.45, 0.19]);
   for (const [name, image] of textures) renderer.setTextureImageData(name, [image]);
   const nativeUp = new THREE.Matrix4().makeRotationX(-Math.PI / 2);
   const rotation = new THREE.Matrix4();
+  const tilt = new THREE.Matrix4();
   const view = new THREE.Matrix4();
   const eye = new THREE.Vector3();
   const degrees = new THREE.Quaternion();
@@ -51,12 +53,20 @@ export async function loadM2Model(id: ModelId, gl: WebGL2RenderingContext | WebG
   const floor = "baseZ" in entry ? entry.baseZ * modelScale : 0;
   const modelSize = new THREE.Vector3(modelScale, modelScale, modelScale);
 
-  return (camera: THREE.Camera, x: number, z: number, facing: number, elapsedMs: number, clip?: "Stand" | "Walk" | "Attack" | "Death", size = 1) => {
+  return (camera: THREE.Camera, x: number, z: number, facing: number, elapsedMs: number, clip?: "Stand" | "Walk" | "Attack" | "Death" | "Spell", size = 1, lift = 0) => {
     const requested = clips.get(clip ?? entry.loop)!;
-    const index = requested >= 0 ? requested : clips.get(entry.loop)!;
+    const index = requested >= 0 ? requested : clip === "Spell" && spellSlam >= 0 ? spellSlam : clips.get(entry.loop)!;
     const [start, end] = model.Sequences[index].Interval;
+    const substitute = requested < 0 && (clip === "Spell" ||
+      "staticStructure" in entry && (clip === "Attack" || clip === "Death")) ? clip : undefined;
+    const progress = substitute ? THREE.MathUtils.clamp(elapsedMs / (substitute === "Death" ? 720 : substitute === "Attack" ? 500 : 450), 0, 1) : undefined;
+    const recoil = substitute === "Attack" ? Math.sin(progress! * Math.PI) : 0;
+    const casting = substitute === "Spell" && spellSlam < 0 ? Math.sin(progress! * Math.PI) : 0;
+    const height = substitute === "Death" ? Math.max(.03, 1 - progress!) : 1 + casting * .12;
     modelSize.setScalar(modelScale * size);
-    rotation.makeRotationY(facing).multiply(nativeUp).scale(modelSize).setPosition(x, .035 - floor * size, z);
+    modelSize.z *= height;
+    rotation.makeRotationY(facing).multiply(tilt.makeRotationX(recoil * .14)).multiply(nativeUp)
+      .scale(modelSize).setPosition(x, lift + .035 - floor * size * height, z);
     view.multiplyMatrices(camera.matrixWorldInverse, rotation);
     eye.copy(camera.position).applyMatrix4(rotation.clone().invert());
     degrees.setFromRotationMatrix(camera.matrixWorld);
@@ -66,6 +76,6 @@ export async function loadM2Model(id: ModelId, gl: WebGL2RenderingContext | WebG
       elapsedMs % Math.max(1, end - start)));
     renderer.update(0);
     renderer.render(view.elements as unknown as Matrix, camera.projectionMatrix.elements as unknown as Matrix, {});
-    return renderer.getFrame();
+    return { frame: renderer.getFrame(), substitute, progress };
   };
 }

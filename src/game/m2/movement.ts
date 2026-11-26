@@ -6,12 +6,16 @@ export type Mobile = Disk & {
   layer: MovementLayer;
   speed: number;
   speedBuff?: number;
+  windwalkSpeed?: number;
   auraSpeed?: number;
   purge?: { middleUs: number; endUs: number; factor: number };
   clapSlow?: { untilUs: number; factor: number };
   stunUntilUs?: number;
+  doomUntilUs?: number;
+  hexUntilUs?: number;
   leashes?: number[];
   frost?: { factor: number; expiresUs: number };
+  coldArrow?: { factor: number; expiresUs: number };
   previousWaypoint: number | null;
   waypoint: number;
   initialOverlaps: number[];
@@ -39,10 +43,11 @@ export function movementSweep(unit: Mobile, obstacles: readonly Pick<Mobile, "id
 }
 
 export function moveAlongRoute(unit: Mobile, others: Parameters<typeof movementSweep>[1], roll: () => number, blocked: readonly Rect[] = []) {
-  const speed = unit.speed * (unit.frost?.factor ?? 1) * (unit.speedBuff ?? 1) *
-    (unit.auraSpeed ?? 1) * (unit.clapSlow?.factor ?? 1);
-  const reduced = unit.purge && speed > 0 ? Math.max(50, speed * unit.purge.factor) : speed;
-  let remaining = unit.stunUntilUs || unit.leashes?.length ? 0 : reduced / 32;
+  const speed = unit.speed * Math.min(unit.frost?.factor ?? 1, unit.coldArrow?.factor ?? 1) * (unit.speedBuff ?? 1) *
+    (unit.auraSpeed ?? 1) * (unit.clapSlow?.factor ?? 1) * (unit.windwalkSpeed ?? 1);
+  const reduced = unit.hexUntilUs && unit.speed > 0 ? 100 :
+    unit.purge && speed > 0 ? Math.max(50, speed * unit.purge.factor) : speed;
+  let remaining = unit.stunUntilUs || unit.doomUntilUs || unit.leashes?.length ? 0 : reduced / 32;
   if (!(remaining > 0)) return;
   const sweep = movementSweep(unit, others, blocked);
   unit.insideRegions ??= waypointRegions.flatMap((region, id) => contains(region, unit) ? [id] : []);
@@ -88,13 +93,14 @@ export function moveAlongRoute(unit: Mobile, others: Parameters<typeof movementS
 }
 
 export function moveUnits(units: Mobile[], roll: () => number, blocked: readonly Rect[] = [],
-  occupants: Parameters<typeof movementSweep>[1] = []) {
-  const others = occupants.length ? [...units, ...occupants] : units;
+  occupants: Parameters<typeof movementSweep>[1] = [], phasing?: ReadonlySet<number>) {
+  const obstacles = phasing?.size ? units.filter(unit => !phasing.has(unit.id)) : units;
+  const others = occupants.length ? [...obstacles, ...occupants] : obstacles;
   for (const unit of units) {
-    moveAlongRoute(unit, others, roll, blocked);
+    moveAlongRoute(unit, phasing?.has(unit.id) ? [] : others, roll, blocked);
     if (unit.initialOverlaps.length) {
       unit.initialOverlaps = unit.initialOverlaps.filter(id => {
-        const other = units.find(candidate => candidate.id === id);
+        const other = others.find(candidate => candidate.id === id);
         return other !== undefined && overlaps(unit, other);
       });
     }

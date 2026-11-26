@@ -1,7 +1,7 @@
 // Run with CHROME_BIN set to the local Chrome executable.
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
-import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { mkdir, mkdtemp, readFile, rename, rm, symlink, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import { setTimeout as delay } from "node:timers/promises";
@@ -176,19 +176,519 @@ try {
     await page.wait(learn + "?.disabled === false");
     await page.evaluate(learn + ".click()");
     await page.wait(contains("#structures", "学习山崩 Lv2"));
+    await click(page, "#prayer button");
+    await page.wait(contains("#books", "经验书 ×1"));
+    await page.evaluate(`[...document.querySelectorAll("#structures button")].find(button => button.textContent === "使用经验书").click()`);
+    const learnGrowth = `[...document.querySelectorAll("#structures button")].find(button => button.textContent.startsWith("学习长大"))`;
+    await page.wait(learnGrowth + "?.disabled === false");
+    await page.evaluate(learnGrowth + ".click()");
+    const scaleNear = scale => `Math.abs(Number(document.querySelector("#field").dataset.growthModelSize) - ${scale}) < .000001`;
+    await page.wait(scaleNear(.7));
     const skin = `[...document.querySelectorAll("#structures button")].find(button => button.textContent === "切换火焰领主")`;
     await page.wait(skin + "?.disabled === false");
     await page.evaluate(skin + ".click()");
     await page.wait(contains("#structures", "火焰领主<SR> · G059"));
     await page.wait(read("#field") + "?.dataset.renderedTowers.includes('G059')");
+    await page.wait(scaleNear(.7));
     await page.wait(contains("#save", "已保存"));
     await capture(page, "firelord-g059");
     await page.send("Page.reload");
     await page.wait(contains("#structures", "火焰领主<SR> · G059"));
+    await page.wait(scaleNear(.7));
     assert.equal(await page.evaluate(contains("#structures", "学习山崩 Lv2")), true);
     assert.equal(await page.evaluate(skin + " === undefined"), true);
   }
-  if (process.env.M2_COMPLEX_ONLY === "1") {
+  if (process.env.M2_UPDATE_ROOT) {
+    assert.ok(origin && new URL(origin).hostname === "127.0.0.1");
+    const { configuration, contentVersion } = await import("../src/game/m2/content.ts");
+    const { database, slot } = configuration.persistence;
+    const root = path.resolve(process.env.M2_UPDATE_ROOT);
+    const preview = path.resolve(process.env.M2_PREVIEW1_DIST);
+    const candidate = path.resolve(process.env.M2_CANDIDATE_DIST);
+    async function switchBuild(directory) {
+      const next = root + ".next";
+      await symlink(directory, next, "dir");
+      await rename(next, root);
+    }
+    const snapshot = `(async () => {
+      const db = await new Promise((resolve, reject) => {
+        const request = indexedDB.open(${JSON.stringify(database)}, 1);
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => reject(request.error);
+      });
+      return new Promise((resolve, reject) => {
+        const request = db.transaction("profiles", "readonly").objectStore("profiles").get(${JSON.stringify(slot)});
+        request.onsuccess = () => { db.close(); resolve(request.result); };
+        request.onerror = () => { db.close(); reject(request.error); };
+      });
+    })()`;
+    async function readWhen(page, condition) {
+      return page.wait(`(async () => {
+        const current = await (${snapshot});
+        return current && (${condition}) ? current : null;
+      })()`);
+    }
+    await switchBuild(preview);
+    const page = await openTab(url);
+    await page.wait(read('[data-item-id="i004"]') + "?.disabled === false");
+    await click(page, '[data-item-id="i004"]');
+    await page.wait(read("#choices button") + "?.disabled === false");
+    await click(page, "#choices button");
+    const played = await readWhen(page, "current.run.openingCard === 'i564'");
+    assert.equal(played.contentVersion, "m2-core-12");
+    await click(page, "#pause");
+    const before = await readWhen(page, "current.run.clock.paused && current.run.queue.nowUs === current.run.clock.targetUs");
+
+    await switchBuild(candidate);
+    await page.send("Page.reload", { ignoreCache: true });
+    await page.wait(read("#speed") + "?.disabled === false");
+    await click(page, "#speed");
+    const updated = await readWhen(page, `current.contentVersion === ${JSON.stringify(contentVersion)} && current.run.clock.speed === 4`);
+    assert.equal(updated.activeMatchId, before.activeMatchId);
+    assert.equal(updated.run.queue.nowUs, before.run.queue.nowUs);
+    assert.deepEqual(updated.run.commandResults, before.run.commandResults);
+    assert.deepEqual(updated.profile, before.profile);
+
+    await switchBuild(preview);
+    await page.send("Page.reload", { ignoreCache: true });
+    await page.wait(contains("#save", "不兼容"));
+    assert.equal(await page.evaluate(read("#restart") + ".disabled"), true);
+    const rollback = await page.evaluate(snapshot);
+    assert.deepEqual(rollback, updated);
+
+    await switchBuild(candidate);
+    await page.send("Page.reload", { ignoreCache: true });
+    await page.wait(read("#speed") + "?.disabled === false");
+    const resumed = await page.evaluate(snapshot);
+    assert.ok(resumed.revision >= updated.revision);
+    assert.deepEqual({ ...resumed, revision: updated.revision }, updated);
+    await page.close();
+    assert.deepEqual(runtimeErrors, []);
+    console.log(JSON.stringify({ type: "controlled-same-origin-build-rehearsal", url,
+      preview: before.contentVersion, candidate: updated.contentVersion, slot,
+      matchId: updated.activeMatchId, revisions: [before.revision, updated.revision, rollback.revision, resumed.revision],
+      rollbackRetainedOriginal: true, resumedAfterRestoringCandidate: true }, null, 2));
+  } else if (process.env.M2_BATTLE_ACTIONS_ONLY === "1") {
+    assert.ok(!origin);
+    const setup = await openTab(base + "/src/game/m2/save.ts");
+    await setup.wait("location.pathname.endsWith('/save.ts') && document.readyState === 'complete'");
+    const events = await setup.evaluate(`(async () => {
+      const { createM2SaveStore } = await import("/src/game/m2/save.ts");
+      const { newMatch, drain } = await import("/src/game/m2/match.ts");
+      const { scheduleEvent } = await import("/src/game/event-queue.ts");
+      const { weapons } = await import("/src/game/m2/combat.ts");
+      const run = newMatch(crypto.randomUUID(), 811);
+      run.queue.pending.length = 0;
+      scheduleEvent(run.queue, 1, { type: "start-wave", index: 0 });
+      run.clock.targetUs = 1;
+      drain(run, 1000);
+      const point = { x: 0, y: -96 };
+      const enemy = Object.assign(run.enemies[0], { ...point, hp: 50, armor: 0 });
+      const reanimated = { ...enemy, id: 900, unitId: "m571", x: 160, maxHp: 400, abilities: ["N582"] };
+      const caster = { ...enemy, id: 903, unitId: "m032", x: 310, hp: 800, mana: 200, manaMax: 200, abilities: ["N519"] };
+      const phoenix = { ...enemy, id: 904, unitId: "m050", x: -310, mana: 300, manaMax: 300, abilities: ["N576"] };
+      run.enemies = [enemy, reanimated, caster, phoenix];
+      const tower = { ...point, id: 901, templateId: "n001", radius: 0, pending: null, qualification: null };
+      const summon = { ...tower, id: 902, templateId: "b122", x: -180 };
+      run.structures = [tower];
+      run.summons = [summon];
+      run.queue.pending.length = 0;
+      for (const target of [enemy, reanimated]) scheduleEvent(run.queue, 1, { type: "weapon-impact", travelUs: 0, shot: {
+        towerId: tower.id, targetId: target.id, sourceTemplate: tower.templateId, destination: target,
+        weapon: { ...weapons.n001[0], homing: false, attackType: "chaos" }, point, raw: 200,
+      } });
+      scheduleEvent(run.queue, 1, { type: "summon-expire", unitId: summon.id });
+      scheduleEvent(run.queue, 1, { type: "enemy-cast", enemyId: caster.id, skill: "N519", targetId: -1, point: run.worker });
+      scheduleEvent(run.queue, 1, { type: "enemy-cast", enemyId: phoenix.id, skill: "N576", point: phoenix });
+      run.clock.targetUs = 90_000;
+      drain(run, 1000);
+      run.clock.paused = true;
+      const valid = value => value && typeof value === "object";
+      await createM2SaveStore(valid, valid).withWriter(session => session.commit(undefined, { score: 0, claims: [] }, run));
+      return run.battleAnimations;
+    })()`);
+    assert.deepEqual(events.map(event => [event.unitId, event.kind]), [["m001", "death"], ["m571", "revive"], ["b122", "death"]]);
+    await setup.close();
+    const page = await openTab(url);
+    const playback = read("#field") + "?.dataset.battleDeaths === 'm001,b122' && " +
+      read("#field") + "?.dataset.battleRevives === 'm571' && " + read("#field") + "?.dataset.renderedEnemies.includes('m571') && " +
+      read("#field") + "?.dataset.castingEnemies.includes('m032') && " +
+      read("#field") + "?.dataset.renderedEnemies.split(',').includes('b138') && !" + read("#field") + "?.dataset.renderedEnemies.split(',').includes('m050')";
+    await page.wait(playback);
+    await capture(page, "battle-death-and-revive");
+    await page.send("Page.reload");
+    await page.wait(playback);
+    await page.close();
+    assert.deepEqual(runtimeErrors, []);
+    console.log(JSON.stringify({ type: "controlled-browser-battle-actions", casting: "m032/N519", egg: "m050/N576 → b138",
+      events, reloaded: true }, null, 2));
+  } else if (process.env.M2_MODEL_LIBRARY_ONLY === "1") {
+    assert.ok(!origin, "Model library inspection needs the local Vite source server");
+    const manifest = JSON.parse(await readFile("src/assets/m2/models.json", "utf8"));
+    const bindings = JSON.parse(await readFile("src/assets/m2/bindings.json", "utf8"));
+    const entries = Object.entries(manifest).map(([asset, definition]) => ({
+      asset, textureCount: Object.keys(definition.textures).length, loop: definition.loop,
+    }));
+    const loaded = {};
+    for (let first = 0; first < entries.length; first += 12) {
+      const page = await openTab(base + "/src/game/m2/save.ts");
+      await page.wait("location.pathname.endsWith('/save.ts') && document.readyState === 'complete'");
+      const batch = entries.slice(first, first + 12);
+      Object.assign(loaded, await page.evaluate(`(async () => {
+        const { loadM2Model } = await import("/src/m2-models.ts");
+        const { PerspectiveCamera } = await import("/node_modules/three/build/three.module.js");
+        const canvas = document.createElement("canvas");
+        const gl = canvas.getContext("webgl2");
+        const camera = new PerspectiveCamera(45, 1, .01, 30);
+        camera.position.set(0, 2, 4);
+        camera.lookAt(0, 0, 0);
+        camera.updateMatrixWorld();
+        gl.viewport(0, 0, canvas.width, canvas.height);
+        const frames = {};
+        for (const entry of ${JSON.stringify(batch)}) {
+          try {
+            const model = await loadM2Model(entry.asset, gl);
+            const start = model(camera, 0, 0, 0, 0).frame;
+            const later = model(camera, 0, 0, 0, 127).frame;
+            const error = gl.getError();
+            if (error !== gl.NO_ERROR) throw new Error("WebGL error " + error);
+            frames[entry.asset] = { textureCount: entry.textureCount, loop: entry.loop, start, later };
+          } catch (error) {
+            frames[entry.asset] = { error: String(error) };
+          }
+        }
+        return frames;
+      })()`));
+      await page.close();
+    }
+    assert.deepEqual(runtimeErrors, []);
+    for (const [id, binding] of Object.entries(bindings)) assert.ok(loaded[binding.asset], id);
+    console.log(JSON.stringify({ type: "browser-model-library", assets: loaded, bindings }, null, 2));
+    assert.deepEqual(Object.keys(loaded).filter(asset => loaded[asset].error), []);
+  } else if (process.env.M2_MODEL_ACTIONS_ONLY === "1") {
+    assert.ok(!origin);
+    const review = JSON.parse(await readFile("docs/evidence/m2-core-13/model-action-substitutes.json", "utf8"));
+    const entries = review.entries.map(({ id, missingNativeActions }) => ({ id, missingNativeActions }));
+    const setup = await openTab(base + "/src/game/m2/save.ts");
+    await setup.wait("location.pathname.endsWith('/save.ts') && document.readyState === 'complete'");
+    await setup.evaluate(`(async () => {
+      const { createM2SaveStore } = await import("/src/game/m2/save.ts");
+      const { newMatch, drain } = await import("/src/game/m2/match.ts");
+      const { scheduleEvent } = await import("/src/game/event-queue.ts");
+      const valid = value => value && typeof value === "object";
+      const run = newMatch(crypto.randomUUID(), 811);
+      run.queue.pending.length = 0;
+      scheduleEvent(run.queue, 1, { type: "start-wave", index: 0 });
+      run.clock.targetUs = 1;
+      drain(run, 10_000);
+      const [enemy] = run.enemies;
+      run.enemies = [Object.assign(enemy, { x: 0, y: 0, hp: 1e9, maxHp: 1e9, speed: 0 })];
+      run.queue.pending.length = 0;
+      for (const [index, entry] of ${JSON.stringify(entries)}.entries()) {
+        run.structures.push({ id: 900 + index, templateId: entry.id, x: 160 * (index % 6 - 2.5),
+          y: 150 * (Math.floor(index / 6) - 1.5), population: 1, radius: 0, pending: null, qualification: null });
+      }
+      run.population = run.structures.length;
+      scheduleEvent(run.queue, 31_250, { type: "movement" }, 31_250);
+      run.clock.paused = true;
+      await createM2SaveStore(valid, valid).withWriter(session => session.commit(undefined, { score: 0, claims: [] }, run));
+    })()`);
+    await setup.close();
+    const page = await openTab(url);
+    await page.wait(read("#pause") + "?.disabled === false && " + contains("#pause", "继续"));
+    await page.wait(`(() => {
+      const rendered = new Set(document.querySelector("#field").dataset.renderedTowers?.split(","));
+      return ${JSON.stringify(entries.map(entry => entry.id))}.every(id => rendered.has(id));
+    })()`);
+    await page.evaluate(`window.verifiedM2Actions = {};
+      const field = document.querySelector("#field");
+      new MutationObserver(() => {
+        for (const entry of (field.dataset.towerActionSubstitutes ?? "").split(",")) {
+          const [id, action, progress] = entry.split(":");
+          if (Number(progress) > 0) window.verifiedM2Actions[id + ":" + action] ??= Number(progress);
+        }
+      }).observe(field, { attributes: true, attributeFilter: ["data-tower-action-substitutes"] });
+      true`);
+    const keys = action => JSON.stringify(entries.filter(entry => entry.missingNativeActions.includes(action))
+      .map(entry => entry.id + ":" + action));
+    await click(page, "#pause");
+    await page.wait(keys("Attack") + ".every(key => window.verifiedM2Actions[key])");
+    await capture(page, "model-action-substitutes");
+    await page.evaluate(`[...document.querySelectorAll("#structures button")].filter(button => button.textContent === "回收")
+      .forEach(button => button.click())`);
+    await page.wait(keys("Death") + ".every(key => window.verifiedM2Actions[key])");
+    const actions = await page.evaluate("window.verifiedM2Actions");
+    await page.close();
+    assert.deepEqual(runtimeErrors, []);
+    console.log(JSON.stringify({ type: "controlled-browser-model-action-substitutes", seed: 811,
+      attack: "ordinary weapon", death: "UI recycle", actions }, null, 2));
+  } else if (process.env.M2_WOLF_RAIN_ONLY === "1") {
+    assert.ok(!origin);
+    const setup = await openTab(base + "/src/game/m2/save.ts");
+    await setup.wait("location.pathname.endsWith('/save.ts') && document.readyState === 'complete'");
+    const matchId = await setup.evaluate(`(async () => {
+      const { createM2SaveStore } = await import("/src/game/m2/save.ts");
+      const { newMatch, drain } = await import("/src/game/m2/match.ts");
+      const { scheduleEvent } = await import("/src/game/event-queue.ts");
+      const valid = value => value && typeof value === "object";
+      const run = newMatch(crypto.randomUUID(), 811);
+      run.queue.pending.length = 0;
+      scheduleEvent(run.queue, 1, { type: "start-wave", index: 0 });
+      run.clock.targetUs = 1;
+      drain(run, 10_000);
+      const [enemy] = run.enemies;
+      Object.assign(enemy, { x: 500, y: 280, hp: 1_000_000, maxHp: 1_000_000, speed: 0 });
+      run.enemies = [enemy];
+      run.queue.pending.length = 0;
+      const tower = (id, templateId, x, y) => ({
+        id, templateId, x, y, pending: null, qualification: null, population: 5, radius: 72,
+      });
+      run.structures.push(tower(900, "n173", -225, 0), tower(901, "n174", 380, 455),
+        tower(902, "n001", -50, 355), tower(903, "n006", 105, 390), tower(904, "n021", -170, -350));
+      run.population = 25;
+      scheduleEvent(run.queue, 31_250, { type: "movement" }, 31_250);
+      run.clock.paused = true;
+      await createM2SaveStore(valid, valid).withWriter(session => session.commit(undefined, { score: 0, claims: [] }, run));
+      return run.matchId;
+    })()`);
+    await setup.close();
+    const page = await openTab(url);
+    await page.wait(read("#field") + "?.dataset.ready === 'true'");
+    await page.wait(read("#pause") + "?.disabled === false && " + contains("#pause", "继续"));
+    await click(page, "#pause");
+    const [arrows, impacts, ...attackSubstitutes] = await Promise.all([
+      page.wait("Number(" + read("#field") + "?.dataset.swordRainArrows) || null"),
+      page.wait("Number(" + read("#field") + "?.dataset.swordRainImpacts) || null"),
+      ...["n001", "n006"].map(id => page.wait(`(() => {
+        const source = document.querySelector("#field").dataset.towerActionSubstitutes ?? "";
+        const match = source.split(",").find(entry => entry.startsWith("${id}:Attack:"));
+        return match && Number(match.split(":")[2]) > 0 ? match : null;
+      })()`)),
+    ]);
+    await capture(page, "sword-rain");
+    const wolfSelector = "[data-wolf-id]";
+    await page.wait(read(wolfSelector));
+    const wolfId = await page.evaluate(read(wolfSelector) + ".dataset.wolfId");
+    const wolfRow = `[data-wolf-id="${wolfId}"]`;
+    await click(page, wolfRow + " button");
+    await page.wait(read("#field") + "?.dataset.placement === 'wolf'");
+    await click(page, "#rotate-right");
+    await place(page, 225, 0);
+    await page.wait(read("#field") + "?.dataset.walkingWolves.split(',').includes(" + JSON.stringify(wolfId) + ") && " +
+      read("#field") + "?.dataset.renderedTowers.includes('b103')");
+    const attack = `[...document.querySelectorAll('${wolfRow} button')].find(button => button.textContent === "攻击目标")`;
+    await page.wait(attack + "?.disabled === false");
+    await page.evaluate(attack + ".click()");
+    await page.wait(contains(wolfRow, "追击"));
+    await click(page, "#pause");
+    await page.wait(contains("#pause", "继续"));
+    const readOrder = `(async () => {
+      const { createM2SaveStore } = await import("/src/game/m2/save.ts");
+      const valid = value => value && typeof value === "object";
+      const row = await createM2SaveStore(valid, valid).read();
+      const unit = row.run.summons?.find(entry => entry.id === Number(${JSON.stringify(wolfId)}));
+      return row.run.clock.paused && unit?.wolfOrder?.type === "attack"
+        ? { matchId: row.run.matchId, order: unit.wolfOrder.type, targetId: unit.wolfOrder.targetId,
+            contentVersion: row.contentVersion } : null;
+    })()`;
+    const stored = await page.wait(readOrder);
+    await capture(page, "wolf-order");
+    assert.equal(stored.matchId, matchId);
+    await page.send("Page.reload");
+    await page.wait(contains(wolfRow, "追击"));
+    const restored = await page.wait(readOrder);
+    assert.deepEqual(restored, stored);
+    const stop = `[...document.querySelectorAll('${wolfRow} button')].find(button => button.textContent === "停止灵兽")`;
+    await page.wait(stop + "?.disabled === false");
+    await page.evaluate(stop + ".click()");
+    await click(page, "#pause");
+    await page.wait(contains(wolfRow, "待命"));
+    await click(page, wolfRow + " button");
+    await page.wait(read("#field") + "?.dataset.placement === 'wolf'");
+    await page.wait("!(" + read(wolfRow) + ")");
+    assert.equal(await page.evaluate(read("#field") + "?.dataset.placement"), "idle");
+    const removalSubstitutes = [];
+    for (const id of ["n001", "n006", "n021"]) {
+      const recycle = `[...document.querySelectorAll("#structures > div")].find(row => row.firstElementChild?.textContent.includes(" · ${id}"))
+        ?.querySelector("button:last-child")`;
+      await page.wait(recycle + "?.textContent === '回收'");
+      await page.evaluate(recycle + ".click()");
+      removalSubstitutes.push(await page.wait(`(() => {
+        const source = document.querySelector("#field").dataset.towerActionSubstitutes ?? "";
+        const match = source.split(",").find(entry => entry.startsWith("${id}:Death:"));
+        return match && Number(match.split(":")[2]) > 0 ? match : null;
+      })()`));
+    }
+    await page.close();
+    assert.deepEqual(runtimeErrors, []);
+    console.log(JSON.stringify({ type: "controlled-browser-wolf-rain", wolfId: Number(wolfId), visual: { arrows, impacts }, stored, restored,
+      movement: "rotated map click and Walk", stopped: true, expiredSelectionCleared: true,
+      attackSubstitutes, removalSubstitutes }, null, 2));
+  } else if (process.env.M2_APPEARANCE_ONLY === "1") {
+    async function openAppearancePage() {
+      const tab = await openTab(url);
+      await tab.send("Emulation.setDeviceMetricsOverride", { width: 900, height: 640, deviceScaleFactor: 1, mobile: false });
+      return tab;
+    }
+    let page = await openAppearancePage();
+    await page.wait(read("#field") + "?.dataset.workerModel === 'w001'");
+    await page.wait(read("#pause") + "?.disabled === false");
+    const choose = async (label, id) => {
+      const control = read(`#worker-appearance select[aria-label="${label}"]`);
+      await page.wait(control + "?.disabled === false");
+      if (!await page.evaluate(contains("#pause", "继续"))) {
+        await click(page, "#pause");
+        await page.wait(contains("#pause", "继续"));
+      }
+      await page.evaluate(`(() => { const element = ${control}; element.value = ${JSON.stringify(id)};
+        element.dispatchEvent(new Event("change", { bubbles: true })); })()`);
+      await click(page, "#pause");
+      await page.wait(contains("#feedback", "操作已执行"));
+      await click(page, "#pause");
+      await page.wait(contains("#pause", "继续"));
+    };
+    const models = [];
+    for (const [index, choice] of ["S002", "S003", "S004", "S005", "S006", "S007", "S008", "S009", "S010",
+      "S511", "S512", "S513", "S514", "S515", "S516", "S517", "S518"].entries()) {
+      const unit = "g" + String(index + 2).padStart(3, "0");
+      await choose("工人外观", choice);
+      await page.wait(read("#field") + `?.dataset.workerModel === '${unit}'`, 170);
+      models.push({ unit, choice, frame: await page.evaluate(read("#field") + ".dataset.workerModelFrame") });
+    }
+    const cosmetics = [];
+    for (const [label, field, attachment] of [["工人光环", "workerAura", false], ["工人羽翼", "workerAttachments", true],
+      ["工人装饰", "workerAttachments", true], ["工人称号", null, false]]) {
+      const control = read(`#worker-appearance select[aria-label="${label}"]`);
+      const choices = await page.evaluate(`[...${control}.options].filter(option => option.value && !option.disabled)
+        .map(option => [option.value, option.textContent.replace("（工人）", "")])`);
+      for (const [id, name] of choices) {
+        await choose(label, id);
+        if (field) {
+          const value = read("#field") + `?.dataset.${field}`;
+          await page.wait(attachment ? value + `?.split(",").includes("${id}")` : value + ` === "${id}"`);
+        } else await page.wait(contains(".worker-title", name));
+        cosmetics.push(id);
+      }
+    }
+    const gated = [
+      ["能量圈外观", "S542", "circleModel", "g200"], ["能量圈外观", "S547", "circleModel", "g202"],
+      ["工人光环", "S543", "workerAura", "S543"], ["工人光环", "S549", "workerAura", "S549"],
+      ["工人羽翼", "S604", "workerAttachments", "S604"], ["工人羽翼", "S607", "workerAttachments", "S607"],
+    ];
+    const reachableGated = gated.filter(([label]) => label !== "能量圈外观");
+    for (const [label, id] of gated) assert.equal(await page.evaluate(read(`[aria-label="${label}"] option[value="${id}"]`) + ".disabled"), true);
+    await choose("能量圈外观", "S545");
+    await page.wait(read("#field") + "?.dataset.circleModel === 'g201'");
+    await choose("工人光环", "S537");
+    await page.wait(read("#field") + "?.dataset.workerAura === 'S537'");
+    await choose("工人羽翼", "S603");
+    await page.wait(read("#field") + "?.dataset.workerAttachments.includes('S603')");
+    await choose("工人装饰", "S900");
+    await page.wait(read("#field") + "?.dataset.workerAttachments.includes('S900')");
+    await choose("工人称号", "S719");
+    await page.wait(contains(".worker-title", "国泰民安"));
+    assert.equal(await page.evaluate(read("#field") + ".dataset.assetError"), undefined);
+    await page.wait(contains("#save", "已保存"));
+    await page.send("Page.reload");
+    await page.wait(read("#field") + "?.dataset.workerModel === 'g018'");
+    await page.wait(read("#field") + "?.dataset.workerAura === 'S537'");
+    await page.wait(read("#restart") + "?.disabled === false");
+    await page.restart();
+    await page.wait(read("#field") + "?.dataset.workerModel === 'g018'");
+    await choose("工人光环", "");
+    await page.wait(read("#field") + "?.dataset.workerAura === ''");
+    await page.close();
+    if (!origin) {
+      const setup = await openTab(base + "/src/game/m2/save.ts");
+      await setup.wait("location.pathname.endsWith('/save.ts') && document.readyState === 'complete'");
+      await setup.evaluate(`(async () => {
+        const { newMatch } = await import("/src/game/m2/match.ts");
+        const { creditSeason, startSeasons, seasonDefinitions } = await import("/src/game/m2/seasons.ts");
+        const { createM2SaveStore } = await import("/src/game/m2/save.ts");
+        const initial = startSeasons();
+        for (const season of ["spring", "summer"]) for (const [id, data] of Object.entries(seasonDefinitions[season].tasks)) {
+          initial.score += creditSeason(initial.seasons, season, Number(id), data["4"]);
+        }
+        const newRun = newMatch(crypto.randomUUID(), 811, initial.seasons);
+        newRun.clock.paused = true;
+        const valid = value => value && typeof value === "object";
+        await createM2SaveStore(valid, valid).withWriter(session => session.restart(session.checkpoint,
+          { ...initial, claims: [] }, newRun));
+      })()`);
+      await setup.close();
+      page = await openAppearancePage();
+      await page.wait(read('#worker-appearance select[aria-label="能量圈外观"]') + "?.disabled === false");
+      for (const [label, id] of gated.filter(([label]) => label === "能量圈外观")) {
+        assert.equal(await page.evaluate(read(`[aria-label="${label}"] option[value="${id}"]`) + ".disabled"), true);
+      }
+      for (const [label, id, field, expected] of reachableGated) {
+        await page.wait(read(`[aria-label="${label}"] option[value="${id}"]`) + "?.disabled === false");
+        await choose(label, id);
+        await page.wait(read("#field") + `?.dataset.${field}.split(",").includes("${expected}")`);
+      }
+      await page.wait(contains("#save", "已保存"));
+      await page.send("Page.reload");
+      await page.wait(read("#field") + "?.dataset.workerAura === 'S549' && " +
+        read("#field") + "?.dataset.workerAttachments.includes('S607')");
+      await page.close();
+    }
+    assert.deepEqual(runtimeErrors, []);
+    console.log(JSON.stringify({ type: "appearance-browser", models, cosmetics, gated: gated.map(([, id]) => id),
+      gatedUnlocked: origin ? [] : reachableGated.map(([, id]) => id), circle: "g201", aura: "S537",
+      wings: "S603", accent: "S900", title: "S719", reload: true, restart: true, remove: true }, null, 2));
+  } else if (process.env.M2_WORKER_RESUME_ONLY === "1") {
+    assert.equal(origin, undefined, "The worker resume fixture requires the local Vite server");
+    const setup = await openTab(base + "/");
+    const before = await setup.evaluate(`(async () => {
+      const { createM2SaveStore } = await import("/src/game/m2/save.ts");
+      const { drain, enqueue, newMatch } = await import("/src/game/m2/match.ts");
+      const valid = value => value && typeof value === "object";
+      const run = newMatch(crypto.randomUUID(), 811);
+      const start = run.worker;
+      run.inventory.push({ id: 900, itemId: "i308", charges: 0, slot: null, point: { x: 288, y: -160 } });
+      enqueue(run, { id: "worker-pickup", matchId: run.matchId, action: { type: "pick-up-item", itemId: 900 } });
+      run.clock.targetUs = 250_000;
+      while (drain(run, 1000) === "pending") {}
+      if (run.approach?.command.id !== "worker-pickup" || run.worker.x === start.x) {
+        throw new Error("Worker did not reach an in-progress pickup before the checkpoint");
+      }
+      run.clock.paused = true;
+      await createM2SaveStore(valid, valid).withWriter(session => session.commit(undefined, { score: 0, claims: [] }, run));
+      return { position: run.worker, tick: run.queue.nowUs, matchId: run.matchId };
+    })()`);
+    await setup.close();
+    const page = await openTab(url);
+    await page.wait(contains("#pause", "继续") + " && " + read("#pause") + "?.disabled === false");
+    await page.wait(contains("#placement-status", "工人正在前往拾取物品。"));
+    await page.wait(read("#field") + ".dataset.workerModel === 'w001' && " +
+      read("#field") + ".dataset.workerModelClip === 'Walk'");
+    const walkFrame = await page.evaluate(read("#field") + ".dataset.workerModelFrame");
+    await click(page, "#pause");
+    await page.wait(contains("#feedback", "操作已执行。"));
+    await page.wait("!" + contains("#placement-status", "工人正在前往拾取物品。"));
+    await page.wait(read("#field") + ".dataset.workerModelClip === 'Stand'");
+    const standFrame = await page.evaluate(read("#field") + ".dataset.workerModelFrame");
+    assert.notEqual(standFrame, walkFrame);
+    assert.equal(await page.evaluate(read("#field") + ".dataset.assetError"), undefined);
+    const after = await page.wait(`(async () => {
+      const { createM2SaveStore } = await import("/src/game/m2/save.ts");
+      const valid = value => value && typeof value === "object";
+      const row = await createM2SaveStore(valid, valid).read();
+      if (!row?.run.commandResults["worker-pickup"]?.ok) return;
+      const { run } = row;
+      return { position: run.worker, tick: run.queue.nowUs, matchId: run.matchId,
+        contentVersion: row.contentVersion, configVersion: row.configVersion, saveVersion: row.formatVersion, revision: row.revision,
+        approach: run.approach, items: run.inventory.filter(item => item.id === 900) };
+    })()`);
+    assert.equal(after.matchId, before.matchId);
+    assert.ok(after.tick > before.tick && after.position.x > before.position.x);
+    assert.equal(after.approach, null);
+    assert.equal(after.items.length, 1);
+    assert.ok(Number.isInteger(after.items[0].slot));
+    console.log(JSON.stringify({ kind: "controlled browser", seed: 811, before, after, model: "w001",
+      walkFrame, standFrame, status: "passed" }));
+    await page.close();
+  } else if (process.env.M2_COMPLEX_ONLY === "1") {
     assert.ok(!origin);
     const setup = await openTab(base + "/src/game/m2/save.ts");
     await setup.wait("location.pathname.endsWith('/save.ts') && document.readyState === 'complete'");
@@ -217,8 +717,18 @@ try {
       if (!boss) throw new Error("The official wave timer did not create Roshan.");
       const actor = (id, templateId, x, y) => ({ id, templateId, x, y, pending: null,
         radius: 72, population: 0, qualification: null });
-      const ready = [actor(900, "H029", boss.x + 550, boss.y), actor(901, "n142", boss.x + 650, boss.y)];
+      const ready = [actor(900, "H029", boss.x + 550, boss.y), actor(901, "n142", boss.x + 650, boss.y),
+        actor(902, "H012", boss.x + 625, boss.y)];
       ready[0].hero = newHero("H029");
+      ready[2].hero = newHero("H012");
+      ready[2].hero.ranks.A041 = 1;
+      ready[2].hero.natural.INT += 40;
+      ready[2].hero.divineForm = { id: "P217", stars: 2 };
+      boss.spellShieldReadyUs = run.queue.nowUs + 10_000_000;
+      const healer = { ...boss, id: 905, unitId: "m561", abilities: ["N712"], x: boss.x + 100,
+        mana: 1000, manaMax: 1000, hp: 50, maxHp: 250 };
+      const ally = { ...healer, id: 906, unitId: "m014", abilities: [], x: boss.x + 180 };
+      run.enemies.push(healer, ally);
       run.structures.push(...ready);
       run.inventory.push(...["i196", "i326"].map((itemId, index) =>
         ({ id: 700 + index, itemId, charges: index, slot: index, point: { x: ready[0].x, y: ready[0].y }, towerId: 900 })));
@@ -227,13 +737,21 @@ try {
       command("arrow", { type: "cast-flame-arrow", towerId: 901, targetId: boss.id });
       scheduleEvent(run.queue, 1, { type: "weapon-ready", towerId: 901 });
       command("construction", { type: "build-worker-tower", tower: "n021", point: { x: -288, y: -160 } });
+      run.inventory.push({ id: 702, itemId: "i276", charges: 0, slot: 0, point: ready[2], towerId: 902 });
+      command("seal", { type: "cast-equipment", towerId: 902, itemId: 702, targetId: boss.id });
+      scheduleEvent(run.queue, 0, { type: "enemy-cast", enemyId: healer.id, skill: "N712", point: healer });
+      run.randomState = 1;
+      command("strafe", { type: "cast-hero", towerId: 902, skillId: "A041" });
       advance(310_000);
       enqueue(run, { id: "reward", matchId: run.matchId, action: { type: "claim-wave", slot: 0 } });
       run.clock.paused = true;
       const snapshot = { version: 2, matchId: run.matchId, randomState: run.randomState, clock: run.queue.nowUs,
         gold: run.gold, effectUntil: run.structures[0].manaPotionUntilUs, projectile: run.queue.pending.some(event => event.payload.type === "weapon-impact"),
         summons: run.summons.length, construction: run.structures.some(tower => tower.pending),
-        reward: run.waveRewardSlots[0], bossDeadline: run.bossDeadlineUs };
+        reward: run.waveRewardSlots[0], bossDeadline: run.bossDeadlineUs,
+        newEvents: run.queue.pending.map(event => event.payload.type).filter(type =>
+          ["hero-spell-end", "divine-effect-end", "equipment-seal-end"].includes(type)).sort(),
+        healLink: run.battleAnimations.some(effect => effect.kind === "heal-link") };
       await createM2SaveStore(valid, valid).withWriter(session => session.commit(undefined, { score: 0, claims: [] }, run));
       return snapshot;
     })()`);
@@ -242,6 +760,8 @@ try {
     assert.equal(initial.summons, 1);
     assert.ok(initial.effectUntil > initial.clock && initial.bossDeadline > initial.clock);
     assert.equal(initial.reward, 2);
+    assert.deepEqual(initial.newEvents, ["divine-effect-end", "equipment-seal-end", "hero-spell-end"]);
+    assert.equal(initial.healLink, true);
     await setup.close();
     const page = await openTab(url);
     await page.wait(read("#pause") + "?.disabled === false && " + contains("#pause", "继续"));
@@ -257,13 +777,18 @@ try {
         summons: run.summons?.length ?? 0, construction: run.structures.some(tower => tower.pending),
         reward: run.waveRewardSlots[0], rewardCount: run.inventory.filter(item => item.itemId === "i402").length,
         potionCount: run.inventory.filter(item => item.id === 701).length, bossDeadline: run.bossDeadlineUs,
-        commands: run.commandResults, resolvedArrow: run.recentHits?.some(hit => hit.casterId === 901) ?? false };
+        commands: run.commandResults, resolvedArrow: run.recentHits?.some(hit => hit.casterId === 901) ?? false,
+        newEvents: run.queue.pending.map(event => event.payload.type).filter(type =>
+          ["hero-spell-end", "divine-effect-end", "equipment-seal-end"].includes(type)).sort(),
+        healLink: run.battleAnimations.some(effect => effect.kind === "heal-link") };
     })()`;
     const before = await page.evaluate(snapshot("true"));
     assert.equal(before.randomState, initial.randomState);
     assert.equal(before.clock, initial.clock);
     assert.equal(before.gold, initial.gold);
     assert.equal(before.potionCount, 0);
+    assert.deepEqual(before.newEvents, initial.newEvents);
+    assert.equal(before.healLink, true);
     await click(page, "#pause");
     const after = await page.wait(snapshot("run.waveRewardSlots[0] === 3 && !run.structures.some(tower => tower.pending) && run.recentHits?.some(hit => hit.casterId === 901)"));
     assert.equal(after.matchId, initial.matchId);
@@ -272,17 +797,94 @@ try {
     assert.equal(after.bossDeadline, initial.bossDeadline);
     assert.equal(after.rewardCount, 1);
     assert.equal(after.resolvedArrow, true);
-    assert.ok(["arrow", "construction", "necromancy", "potion", "reward"].every(id => after.commands[id].ok));
+    assert.ok(["arrow", "construction", "necromancy", "potion", "reward", "seal", "strafe"].every(id => after.commands[id].ok));
+    assert.ok(!after.newEvents.includes("hero-spell-end"));
+    const completed = await page.wait(snapshot("!run.queue.pending.some(event => ['divine-effect-end', 'equipment-seal-end'].includes(event.payload.type))"));
+    assert.deepEqual(completed.newEvents, []);
+    assert.equal(completed.rewardCount, 1);
     await page.send("Page.reload");
     await page.wait(contains("#boss", "肉山"));
     const refreshed = await page.evaluate(snapshot("true"));
     assert.equal(refreshed.rewardCount, 1);
     assert.equal(refreshed.potionCount, 0);
     assert.equal(refreshed.bossDeadline, initial.bossDeadline);
-    assert.deepEqual(refreshed.commands, after.commands);
-    console.log(JSON.stringify({ type: "controlled-browser-indexeddb", initial, before, after, refreshed }, null, 2));
+    assert.deepEqual(refreshed.commands, completed.commands);
+    assert.deepEqual(refreshed.newEvents, []);
+    console.log(JSON.stringify({ type: "controlled-browser-indexeddb", initial, before, after, completed, refreshed }, null, 2));
     await page.close();
     assert.deepEqual(runtimeErrors, []);
+  } else if (process.env.M2_A11_BROWSER_ONLY === "1") {
+    assert.ok(!origin);
+    const branches = [];
+    for (const branch of ["weapon", "charm", "timeout"]) {
+      const setup = await openTab(base + "/src/game/m2/save.ts");
+      await setup.wait("location.pathname.endsWith('/save.ts') && document.readyState === 'complete'");
+      await setup.evaluate(`(async () => {
+        const { createM2SaveStore } = await import("/src/game/m2/save.ts");
+        const { newMatch, enqueue, drain } = await import("/src/game/m2/match.ts");
+        const { scheduleEvent } = await import("/src/game/event-queue.ts");
+        const { weapons } = await import("/src/game/m2/combat.ts");
+        const { waves } = await import("/src/game/m2/waves.ts");
+        const run = newMatch(crypto.randomUUID(), 811);
+        const branch = "${branch}";
+        const wave = waves[54];
+        run.kills = 40;
+        run.queue.pending.length = 0;
+        run.queue.nowUs = wave.startUs - 1;
+        run.bossArrivalUs = wave.startUs;
+        scheduleEvent(run.queue, 1, { type: "start-wave", index: 54 });
+        const advance = time => {
+          run.clock.targetUs = time;
+          while (drain(run, 10_000) === "pending") {}
+        };
+        advance(wave.startUs);
+        if (branch === "charm") {
+          enqueue(run, { id: "reward", matchId: run.matchId, action: { type: "claim-wave", slot: 4 } });
+          advance(run.queue.nowUs + 1);
+          if (!run.commandResults.reward?.ok) throw new Error("Missing charm reward");
+        } else if (branch === "weapon") {
+          const boss = run.enemies.find(enemy => enemy.unitId === "mBOS");
+          const point = { x: boss.x, y: boss.y };
+          const tower = { ...point, id: 900, templateId: "n001", radius: 0, population: 0, qualification: null, pending: null };
+          run.structures.push(tower);
+          scheduleEvent(run.queue, 1_000_000, { type: "weapon-impact", shot: { towerId: tower.id,
+            weapon: { ...weapons.n001[0], homing: false, attackType: "chaos" }, raw: 100_000_000,
+            targetId: boss.id, point, destination: point, sourceTemplate: tower.templateId }, travelUs: 0 });
+        } else advance(wave.deadlineUs - 1_000_000);
+        run.clock.paused = true;
+        const valid = value => value && typeof value === "object";
+        await createM2SaveStore(valid, valid).withWriter(async session => {
+          const profile = { score: 0, claims: [] };
+          if (session.checkpoint) await session.restart(session.checkpoint, profile, run);
+          else await session.commit(undefined, profile, run);
+        });
+      })()`);
+      await setup.close();
+      const page = await openTab(url);
+      await page.wait(read("#pause") + "?.disabled === false");
+      await click(page, "#pause");
+      if (branch === "charm") await click(page, '[data-item-id="i278"]');
+      const terminal = `(async () => {
+        const { createM2SaveStore } = await import("/src/game/m2/save.ts");
+        const valid = value => value && typeof value === "object";
+        const { run, revision } = await createM2SaveStore(valid, valid).read();
+        return run.phase === "won" ? { matchId: run.matchId, revision, result: run.result, kills: run.kills,
+          score: run.killScore, survivors: run.enemies.length, finisher: run.finalHit?.towerId ?? null,
+          charmRemaining: run.inventory.some(item => item.itemId === "i278" && item.slot !== null) } : null;
+      })()`;
+      const observed = await page.wait(terminal);
+      assert.equal(observed.result.reason, branch === "timeout" ? "timeout" : "boss-killed");
+      assert.equal(observed.kills, branch === "weapon" ? 41 : 40);
+      assert.equal(observed.finisher, branch === "weapon" ? 900 : null);
+      assert.equal(observed.survivors, 0);
+      assert.equal(observed.charmRemaining, false);
+      await page.send("Page.reload");
+      assert.deepEqual(await page.wait(terminal), observed);
+      branches.push({ branch, ...observed, reloaded: true });
+      await page.close();
+    }
+    assert.deepEqual(runtimeErrors, []);
+    console.log(JSON.stringify({ type: "controlled-browser-a11", branches }, null, 2));
   } else if (process.env.M2_A17_BROWSER_ONLY === "1") {
     assert.ok(!origin);
     const setup = await openTab(base + "/src/game/m2/save.ts");
@@ -459,7 +1061,8 @@ try {
     await checkFirelord(page);
     await page.close();
     assert.deepEqual(runtimeErrors, []);
-    console.log("M2 Chrome checks passed: Firelord model and skill ranks after reload.");
+    console.log(JSON.stringify({ type: "local-browser-growth-model", seed: 811, learnedSize: .7, formSize: 1.12,
+      restoredSize: 1.12, status: "passed" }));
   } else if (peakFixture) {
     const { fixture, command, fixtureSha256, fixtureId, contentVersion } = JSON.parse(await readFile(peakFixture, "utf8"));
     const samples = [];
@@ -578,9 +1181,13 @@ try {
     await material.wait(read("#field") + "?.dataset.enemyModelFrame !== " + JSON.stringify(sample));
     assert.match(await material.evaluate(read("#wave") + ".textContent"), /第 1\/55 波/);
     await material.wait(contains("#last-hit", "伤害"));
-    await material.wait("Number(" + read("#field") + ".dataset.visibleShots) > 0");
+    const projectileSources = await material.wait(`(() => {
+      const sources = document.querySelector("#field").dataset.projectileSources;
+      return sources === "n001" ? sources : false;
+    })()`);
     await material.wait("Number(" + read("#field") + ".dataset.visibleHits) > 0");
     await material.wait(read("#field") + "?.dataset.towerModelClip === 'Attack'");
+    assert.ok(!(await material.evaluate(read("#field") + ".dataset.projectileSources")).split(",").includes("H021"));
     if (process.env.M2_SCREENSHOT) {
       await material.evaluate(`new Promise((resolve, reject) => {
         const field = document.querySelector("#field");
@@ -621,9 +1228,16 @@ try {
     await capture(material, "draw-tower-model");
     assert.equal(await material.evaluate(read("#field") + ".dataset.assetError"), undefined);
     assert.deepEqual(runtimeErrors, []);
-    console.log(JSON.stringify({ url, seed: 811, frames, firstWalkFrame: sample, secondWave, drawnCard, drawTower, status: "passed" }));
+    console.log(JSON.stringify({ url, seed: 811, frames, firstWalkFrame: sample, projectileSources, secondWave, drawnCard, drawTower, status: "passed" }));
     await material.close();
   } else {
+    async function openingGold(tab) {
+      await tab.wait(contains("#worker-benefit-result", "自动发放福利"));
+      const label = await tab.evaluate(read("#worker-benefit-result") + ".textContent");
+      const bonus = Number(label.match(/\+(\d+) 金/)?.[1]);
+      assert.ok(bonus >= 84 && bonus <= 120 && bonus % 4 === 0);
+      return 2000 + bonus;
+    }
     const a = await openTab(url);
     await a.wait(read("#restart") + "?.disabled === false");
     await a.wait(contains("#resources", "2000 金 · 0 木 · 人口 0/30"));
@@ -647,6 +1261,7 @@ try {
     await click(a, "#choices button");
     await a.wait(read("#opening") + "?.hidden");
     await a.wait(read("#field") + "?.dataset.ready === 'true'");
+    const firstOpeningGold = await openingGold(a);
     await a.send("Page.bringToFront");
     await capture(a, "map");
     await click(a, "#pause");
@@ -688,7 +1303,7 @@ try {
     await place(a, 0, 0);
     await a.wait(contains("#feedback", "此处不可建造"));
     assert.equal(await a.evaluate("document.querySelector('#builds button').getAttribute('aria-pressed')"), "true");
-    assert.ok(await a.evaluate(contains("#resources", "2000 金")));
+    assert.ok(await a.evaluate(contains("#resources", `${firstOpeningGold} 金`)));
     await a.send("Input.dispatchKeyEvent", { type: "keyDown", key: "Escape", code: "Escape" });
     await a.wait(read("#cancel-placement") + ".hidden");
     await click(a, "#builds button");
@@ -719,8 +1334,14 @@ try {
     await a.wait(read("#cards button") + " !== null");
     await click(a, "#pause");
     await a.wait(contains("#pause", "继续"));
-    await a.wait(contains("#save", "已保存"));
-    const closedWallet = await a.evaluate(read("#resources") + ".textContent");
+    const closedWallet = await a.wait(`(async () => {
+      const { createM2SaveStore } = await import("/src/game/m2/save.ts");
+      const valid = value => value && typeof value === "object";
+      const { run, profile } = await createM2SaveStore(valid, valid).read();
+      if (!run.clock.paused || run.clock.targetUs !== run.queue.nowUs) return false;
+      const wallet = run.gold + " 金 · " + run.lumber + " 木 · 人口 " + run.population + "/" + run.populationLimit + " · 积分 " + profile.score;
+      return ${read("#resources")}.textContent === wallet && wallet;
+    })()`);
     const b = await openTab(url);
     await b.wait(contains("#save", "另一个标签页"));
     assert.equal(await b.evaluate(read("#draws button") + ".disabled"), true);
@@ -747,6 +1368,7 @@ try {
     await click(b, "#restart");
     await b.wait(contains("#feedback", "已重开"));
     await b.wait(contains("#resources", "2000 金"));
+    const prayerOpeningGold = await openingGold(b);
     await b.wait(read("#field") + "?.dataset.ready === 'true'");
     await b.wait(read('[data-item-id="i004"]') + "?.disabled === false");
     await click(b, '[data-item-id="i004"]');
@@ -760,7 +1382,18 @@ try {
     await b.wait(contains("#books", "经验书 ×1"));
     await b.evaluate("[...document.querySelectorAll('#structures button')].find(b => b.textContent === '使用经验书').click()");
     await b.wait(contains("#structures", "等级 7 · 经验 1400"));
-    await b.wait(contains("#resources", "1200 金"));
+    await b.wait(contains("#resources", `${prayerOpeningGold - 800} 金`));
+    const learnBuff = `[...document.querySelectorAll("#structures button")]
+      .find(button => button.textContent.startsWith("学习战棍"))`;
+    const castBuff = `[...document.querySelectorAll("#structures button")]
+      .find(button => button.textContent === "施放战棍")`;
+    await b.wait(learnBuff + "?.disabled === false");
+    await b.evaluate(learnBuff + ".click()");
+    await b.wait(castBuff + "?.disabled === false");
+    await b.evaluate(castBuff + ".click()");
+    await b.wait(contains("#feedback", "操作已执行。"));
+    await b.evaluate(castBuff + ".click()");
+    await b.wait(contains("#feedback", "操作仍在冷却"));
     await click(b, "#speed");
     await b.wait(contains("#speed", "4×"));
     const displayedTime = () => b.evaluate(`(() => {
@@ -793,13 +1426,14 @@ try {
     await b.evaluate("window.confirm = () => true");
     await click(b, "#restart");
     await b.wait(contains("#feedback", "已重开"));
+    const shopOpeningGold = await openingGold(b);
     await b.wait(read("#buy-ordinary") + "?.disabled === false");
     await b.evaluate(read("#ordinary-goods") + ".value = 'i241'");
     await click(b, "#buy-ordinary");
-    await b.wait(contains("#resources", "1150 金"));
+    await b.wait(contains("#resources", `${shopOpeningGold - 850} 金`));
     await b.evaluate(read("#ordinary-goods") + ".value = 'i242'");
     await click(b, "#buy-ordinary");
-    await b.wait(contains("#resources", "200 金"));
+    await b.wait(contains("#resources", `${shopOpeningGold - 1800} 金`));
     assert.equal(await b.evaluate("[...document.querySelectorAll('#worker-items span')].some(item => item.textContent === '提尔的祝福')"), true);
     await b.close();
 
