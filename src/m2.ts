@@ -1,3 +1,4 @@
+import { createCommandUI } from "./m2-command.ts";
 import { isDivineBook } from "./game/m2/divine.ts";
 import { appearanceChoice, appearanceChoices, appearanceSlots, appearanceUnlocked, type Appearance, type AppearanceSlot } from "./game/m2/appearance.ts";
 import { configuration, cardTemplates, directBuilds, firelordSkin, itemFields, items, openingChoices, ordinaryGoods, prayerBooks, qualificationChains, towerLevels, waveRewards, workerTowers } from "./game/m2/content.ts";
@@ -119,6 +120,8 @@ function validRun(value: unknown): value is Match {
       value.battleAnimations.every(effect => record(effect) && point(effect) && nonnegativeInteger(effect.atUs) &&
         typeof effect.unitId === "string" && (effect.kind === "death" || effect.kind === "revive" || effect.kind === "artillery-impact" ||
           (effect.kind === "heal-link" || effect.kind === "weapon-link" || effect.kind === "spell-link") && point(effect.target)))) &&
+    (value.damageEvents === undefined || Array.isArray(value.damageEvents) && value.damageEvents.every(hit =>
+      record(hit) && point(hit) && finite(hit.amount) && nonnegativeInteger(hit.atUs))) &&
     (value.recentHits === undefined || Array.isArray(value.recentHits) && value.recentHits.length <= 64 &&
       value.recentHits.every(hit => record(hit) && point(hit) && finite(hit.amount) &&
         [hit.atUs, hit.targetId].every(nonnegativeInteger) && Number.isSafeInteger(hit.casterId))) &&
@@ -149,6 +152,8 @@ function validRun(value: unknown): value is Match {
       nonnegativeInteger(enemy.id) && finite(enemy.speed) && finite(enemy.radius) && Array.isArray(enemy.initialOverlaps)) &&
     Array.isArray(value.structures) && value.structures.every(tower => record(tower) && point(tower) &&
       nonnegativeInteger(tower.id) && typeof tower.templateId === "string" && towerLevels.has(tower.templateId) &&
+      (tower.autoModes === undefined || record(tower.autoModes) && Object.values(tower.autoModes).every(value => typeof value === "boolean")) &&
+      (tower.focusTarget === undefined || nonnegativeInteger(tower.focusTarget)) &&
       validWeaponTiming(tower.attack) && validArtilleryTarget(tower.artilleryOrder) &&
       (tower.scepterWard === undefined || typeof tower.scepterWard === "boolean") &&
       (tower.hero === undefined || validHero(tower.hero)) &&
@@ -801,7 +806,8 @@ el("rotate-left").onclick = () => draw?.rotateView(-1);
 el("rotate-right").onclick = () => draw?.rotateView(1);
 el("zoom-in").onclick = () => draw?.zoomView(1.2);
 el("zoom-out").onclick = () => draw?.zoomView(1 / 1.2);
-window.addEventListener("keydown", event => { if (event.key === "Escape") cancelPlacement(); });
+const commandUI = createCommandUI({ match: () => compatibleMap() ? run : undefined, scene: () => draw, send, writable,
+  cancel: clearPlacement, placing: () => !!build || !!pointSpell || !!scoutWard || wolfMoveId !== undefined || artilleryTowerId !== undefined });
 void createM2Scene(el<HTMLCanvasElement>("field"), point => {
   if (artilleryTowerId !== undefined && writable()) {
     const towerId = artilleryTowerId;
@@ -1078,6 +1084,7 @@ function frame() {
     artilleryTowerId !== undefined ? "炮击地面 · 左键选择落点，Esc 取消" : pointSpell ? `${pointSpell.label} · 左键选择施法地点，Esc 取消` :
     scoutWard?.mode === "scout" ? "侦查守卫 · 左键选择英雄 500 范围内的位置，Esc 取消" :
     scoutWard?.mode === "snow" ? "落雪 · 左键选择施法地点，Esc 取消" : undefined);
+  commandUI.update(compatibleMap() ? run : undefined);
   scheduleFrame();
 }
 document.addEventListener("visibilitychange", scheduleFrame);

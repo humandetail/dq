@@ -20,6 +20,10 @@ import { waves, welfareTemplates } from "./waves.ts";
 type TalentCast = { type: "cast-talent"; towerId?: number };
 
 export type Action =
+  | { type: "move-worker"; point: Point }
+  | { type: "stop-worker" }
+  | { type: "focus-target"; towerId: number; targetId?: number }
+  | { type: "set-auto-mode"; towerId: number; key: string; enabled: boolean }
   | { type: "choose-talent"; choice: string }
   | { type: "claim-worker-benefit" }
   | { type: "toggle-worker-sharing" }
@@ -192,6 +196,8 @@ type Construction = Disk & {
   attack?: { targetId?: number; readyUs: number; winding: boolean; startedUs: number; flameBonus?: number;
     manualFlame?: true; timing?: WeaponTiming; artillery?: ArtilleryTarget };
   artilleryOrder?: ArtilleryTarget;
+  focusTarget?: number;
+  autoModes?: Record<string, boolean>;
   lastAttackUs?: number;
   lastCastUs?: number;
   spellWindup?: number;
@@ -332,6 +338,7 @@ export type Match = {
   equipmentBurnTimer?: number;
   battleAnimations?: (Point & { atUs: number; unitId: string;
     kind: "death" | "revive" | "heal-link" | "weapon-link" | "spell-link" | "artillery-impact"; target?: Point })[];
+  damageEvents?: { atUs: number; x: number; y: number; amount: number }[];
   recentHits?: { atUs: number; x: number; y: number; targetId: number; casterId: number; ownerId?: number; sourceTemplate?: string; amount: number; deadUnitId?: string }[];
   killScore?: number;
   welfareDamage?: number;
@@ -2901,9 +2908,12 @@ function startWeapon(state: Match, tower: Construction) {
   if (!manual) delete tower.flameTarget;
   for (const spell of towerSpells.get(tower.templateId) ?? []) {
     if ((spell.effect.kind === "wolves" || spell.effect.kind === "sword-rain") &&
-      beginTowerSpell(state, tower, spell.id, true).ok) return;
+      tower.autoModes?.[spell.id] !== false && beginTowerSpell(state, tower, spell.id, true).ok) return;
   }
-  const current = manual || state.enemies.find(enemy => enemy.id === (tower.tauntedTarget ?? tower.attack?.targetId));
+  const focus = state.enemies.find(enemy => enemy.id === tower.focusTarget && canSeeEnemy(state, enemy) &&
+    slots.some(slot => inWeaponRange(tower, enemy, slot, weaponRange(slot, gear), false, now)));
+  if (!focus) delete tower.focusTarget;
+  const current = manual || focus || state.enemies.find(enemy => enemy.id === (tower.tauntedTarget ?? tower.attack?.targetId));
   if (!current && tower.tauntedTarget !== undefined) delete tower.tauntedTarget;
   let target: Enemy | undefined;
   let weapon: Weapon | undefined;
@@ -2918,13 +2928,13 @@ function startWeapon(state: Match, tower: Construction) {
   }
   if (target && weapon) {
     const book = necromancyPriority.find(id => gear.some(item => item.itemId === id));
-    if (book) useNecromancy(state, tower, book);
+    if (book && tower.autoModes?.[book] !== false) useNecromancy(state, tower, book);
     const ring = gear.find(item => item.itemId === "i238");
-    if (ring) useRestoration(state, tower, ring);
+    if (ring && tower.autoModes?.[ring.itemId] !== false) useRestoration(state, tower, ring);
   }
   for (const id of ["i276", "i281"] as const) {
     const equipped = gear.find(item => item.itemId === id);
-    if (!equipped || now < (tower.controlEquipmentReady?.[id] ?? 0)) continue;
+    if (!equipped || tower.autoModes?.[id] === false || now < (tower.controlEquipmentReady?.[id] ?? 0)) continue;
     const range = id === "i281" ? 900 : 950;
     const boss = controlEquipmentTargets(state, tower.id, id).find(enemy => mapBoss(enemy) &&
       (id !== "i276" || !enemy.seal) && (enemy.x - tower.x) ** 2 + (enemy.y - tower.y) ** 2 <= range ** 2);
@@ -2932,13 +2942,13 @@ function startWeapon(state: Match, tower: Construction) {
       itemId: equipped.id, targetId: boss.id });
   }
   const snow = gear.find(item => item.itemId === "i325");
-  if (snow && now >= (tower.snowReadyUs ?? 0)) {
+  if (snow && tower.autoModes?.[snow.itemId] !== false && now >= (tower.snowReadyUs ?? 0)) {
     const next = state.enemies.find(enemy => enemy.hp > 0 && (tower.x - enemy.x) ** 2 + (tower.y - enemy.y) ** 2 <= 800 ** 2);
     if (next) scheduleEvent(state.queue, 0, { type: "auto-control-equipment", towerId: tower.id,
       itemId: snow.id, point: { x: next.x, y: next.y } });
   }
   const heart = gear.find(item => item.itemId === "i332");
-  if (heart && tower.demonflameAuto !== false && state.enemies.some(enemy => enemy.hp > 0 &&
+  if (heart && tower.autoModes?.[heart.itemId] !== false && tower.demonflameAuto !== false && state.enemies.some(enemy => enemy.hp > 0 &&
       (tower.x - enemy.x) ** 2 + (tower.y - enemy.y) ** 2 <= 700 ** 2)) {
     const life = syncTowerLife(state, tower);
     if (life.hp >= life.maximum) switchDemonflame(state, tower, heart);
@@ -2947,15 +2957,15 @@ function startWeapon(state: Match, tower: Construction) {
   const hero = tower.hero;
   if (hero && !manual) {
     for (const skillId of heroAutoCastOrder) {
-      if (hero.ranks[skillId] && beginHeroSpell(state, tower, skillId, true).ok) return;
+      if (hero.ranks[skillId] && tower.autoModes?.[skillId] !== false && beginHeroSpell(state, tower, skillId, true).ok) return;
     }
   }
   for (const spell of towerSpells.get(tower.templateId) ?? []) {
     if (spell.effect.kind === "wolves" || spell.effect.kind === "sword-rain") continue;
-    if (beginTowerSpell(state, tower, spell.id, true).ok && spell.effect.kind !== "frenzy") return;
+    if (tower.autoModes?.[spell.id] !== false && beginTowerSpell(state, tower, spell.id, true).ok && spell.effect.kind !== "frenzy") return;
   }
   if (state.phase !== "running") return;
-  activateTreeGrab(state, tower);
+  if (tower.autoModes?.[tower.templateId === "G059" ? "A149" : "A068"] !== false) activateTreeGrab(state, tower);
   triggerDivineEffect(state, tower, "attack");
   const untouchable = [2, 1, 0].find(index => target.abilities?.includes("N70" + (6 + index)));
   if (untouchable !== undefined && (tower.untouchable?.untilUs ?? -1) < now) {
@@ -3385,6 +3395,9 @@ function damageEnemy(state: Match, tower: Construction | undefined, sourceTempla
   if (source && enemy.hp < hpBefore) {
     const hits = state.recentHits ??= [];
     if (hits.length >= 64) hits.shift();
+    const damageEvents = state.damageEvents ??= [];
+    while (damageEvents.length && now - damageEvents[0].atUs > us(1.2)) damageEvents.shift();
+    damageEvents.push({ atUs: now, x: enemy.x, y: enemy.y, amount: hpBefore - enemy.hp });
     hits.push({ atUs: now, x: enemy.x, y: enemy.y, targetId: enemy.id, casterId: source.id, ownerId: tower?.id,
       sourceTemplate, amount: hpBefore - enemy.hp, ...(enemy.hp === 0 ? { deadUnitId: enemy.unitId } : {}) });
   }
@@ -4108,6 +4121,27 @@ function chooseSkin(state: Match, towerId: number, choice: string): Result {
 
 function execute(state: Match, action: Action): Result {
   switch (action.type) {
+    case "move-worker": return staticSweep(action.point, action.point, 1, "fly") ? { ok: true } : { ok: false, reason: "placement" };
+    case "stop-worker":
+      if (state.approach) recordResult(state, state.approach.command, { ok: false, reason: "range" });
+      state.approach = null;
+      return { ok: true };
+    case "set-auto-mode": {
+      const tower = state.structures.find(tower => tower.id === action.towerId);
+      if (!tower || ![...(towerLevels.get(tower.templateId)?.bindings.map(binding => binding.skillId) ?? []),
+        ...(state.inventory ?? []).filter(item => item.towerId === tower.id).map(item => item.itemId)].includes(action.key)) return { ok: false, reason: "missing" };
+      (tower.autoModes ??= {})[action.key] = action.enabled;
+      return { ok: true };
+    }
+    case "focus-target": {
+      const tower = state.structures.find(tower => tower.id === action.towerId && !tower.pending);
+      if (!tower) return { ok: false, reason: "missing" };
+      if (action.targetId !== undefined && !state.enemies.some(enemy => enemy.id === action.targetId && canSeeEnemy(state, enemy) &&
+        weapons[tower.templateId]?.some(weapon => inWeaponRange(tower, enemy, weapon, weaponRange(weapon, towerGear(state, tower)), false, state.queue.nowUs)))) return { ok: false, reason: "range" };
+      tower.focusTarget = action.targetId;
+      return { ok: true };
+    }
+
     case "choose-talent": {
       const choice = talentChoices.find(entry => entry.choice === action.choice);
       if (!choice || state.talent) return { ok: false, reason: "missing" };
@@ -4508,7 +4542,11 @@ function startApproach(state: Match, command: Command) {
   const { action } = command;
   let target: Point | undefined;
   let range = 100;
-  if (action.type === "build-card" || action.type === "build-worker-tower") {
+  if (action.type === "move-worker") {
+    if (!staticSweep(action.point, action.point, 1, "fly")) return false;
+    target = action.point;
+    range = 2;
+  } else if (action.type === "build-card" || action.type === "build-worker-tower") {
     target = buildAnchor(action.point, towerRadius, state.structures);
   } else if (action.type === "pick-up-card") {
     target = state.cards.find(card => card.id === action.cardId && card.slot === null)?.point;
@@ -4542,7 +4580,8 @@ function moveWorker(state: Match) {
   const sweep = movementSweep(worker, state.enemies);
   let budget = worker.speed / 32;
   if (!approach.path.length || !sweep(worker, approach.path[0])) {
-    approach.path = findApproachPath(worker, approach.point, range, sweep) ?? [];
+    approach.path = (approach.command.action.type === "move-worker" ? findPath(worker, approach.point, sweep)?.points :
+      findApproachPath(worker, approach.point, range, sweep)) ?? [];
   }
   while (budget > 0 && approach.path.length) {
     const next = approach.path[0];
@@ -4771,9 +4810,13 @@ export function drain(state: Match, eventLimit: number, shouldYield?: () => bool
         if (tower?.snow?.token === event.token) finishSnow(state, tower);
         break;
       }
-      case "auto-control-equipment":
-        execute(state, { type: "cast-equipment", towerId: event.towerId, itemId: event.itemId, targetId: event.targetId, point: event.point });
+      case "auto-control-equipment": {
+        const tower = state.structures.find(tower => tower.id === event.towerId);
+        const item = state.inventory?.find(item => item.id === event.itemId);
+        if (tower && item && tower.autoModes?.[item.itemId] !== false)
+          execute(state, { type: "cast-equipment", towerId: event.towerId, itemId: event.itemId, targetId: event.targetId, point: event.point });
         break;
+      }
       case "equipment-seal-end": {
         const target = state.enemies.find(enemy => enemy.id === event.targetId);
         if (target?.seal && target.seal.untilUs <= state.queue.nowUs) {

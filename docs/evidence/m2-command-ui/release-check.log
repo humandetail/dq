@@ -1,0 +1,715 @@
+{"status": "passed", "counts": {"items": 202, "recipes": 72, "kinds": {"局内道具": 33, "局内装备／组件": 112, "制作书": 57}, "excludedWorkbookItems": 41}, "runtimeTested": false}
+116 skill IDs, 202 items, 1 form entries
+
+> check
+> npm run typecheck && npm test && npm run build
+
+
+> typecheck
+> tsc --noEmit
+
+
+> test
+> node --test
+
+4:35:59 PM [vite] (client) Re-optimizing dependencies because vite config has changed
+4:36:00 PM [vite] (client) [optimizer] scanning dependencies...
+✔ Vite serves the application page and its TypeScript entry (3052.004647ms)
+4:36:02 PM [vite] (client) [optimizer] bundling dependencies...
+✔ economy commits in sequence and each operation handles retry and restore (51.625888ms)
+✔ last shop stock and shared recipe materials can be committed only once (0.897512ms)
+✔ C01 accepts equality, applies upgrades before attacks, and stops before attacks on overrun (9.645827ms)
+✔ later batches permit temporary overrun and later clears wait for the progress prefix (4.106612ms)
+✔ a later first batch checks residual enemies and counts only in-bounds containment points (12.059201ms)
+✔ real content clears mainline, continues past endless wave five and restores deterministically (3347.0578ms)
+✔ clock replay matches at 1×, 4× and after paused or chunked recovery (233.813423ms)
+✔ official batches spawn without overlap and avoid collisions while moving (8.844426ms)
+✔ M1 content has valid placement, versions, and wave references (5.419612ms)
+✔ opening gold and first-wave rewards fund all five economy actions for either draw (10.905522ms)
+✔ every M1 unit ships a linked MDX, a BLP1 texture, and a moving attack clip (181.446919ms)
+✔ same-time callbacks keep enqueue order, including cancellation and zero delay (14.47986ms)
+✔ periodic timers keep their cadence and identity across sliced snapshot recovery (2.484778ms)
+✔ terminal dispatch stops catch-up at the event before another same-time callback (0.715325ms)
+✔ M2-03 tower and mainline samples match catalog files and decode every material texture and required sequence (10991.887281ms)
+✔ command auto modes survive snapshot and default on in a new match (196.108641ms)
+✔ worker move uses approach path and stop cancels it (7.75516ms)
+✔ fixed tower focus accepts only reachable enemies and releases invalid targets (22.697174ms)
+✔ M2 content resolves the configured pools, qualification providers, skills, worker chains and recipes (164.861118ms)
+✔ M2 opening, construction, cancellation and refund are ordered and survive a snapshot (28.164425ms)
+✔ all 13 M2 qualification chains consume five cards at the exchange and require completed Max construction (64.896617ms)
+✔ M2 bounded queue drains equivalently at 1×, 4×, paused and restored in slices (613.062566ms)
+✔ the M2 scheduler executes 2300 regular arrivals and cancels the tied last batch before timeout (998.039316ms)
+✔ ordinary and final-boss C01 use the first batch atomically, permit equality, and ignore the outside (4252.598593ms)
+✔ M2 placement respects disk boundaries and route sweeps avoid crossing occupied disks (4.673357ms)
+✔ A02 head-on traffic replans and passes on the same layer without overlap (42.707421ms)
+✔ A02 detours static terrain, waits when boxed in, and resumes after removal (15.587504ms)
+✔ A02 following units keep their spacing and complete multiple laps (101.72751ms)
+✔ A02 actual waves keep live residual enemies, save the route, and obey next-wave C01 (19669.729851ms)
+✔ A02 far build approaches without spending, then commits after snapshot recovery (7.385789ms)
+✔ A02 placement rejects an unaffordable or over-capacity build without partial state (2.791747ms)
+✔ reference layout has usable building plots, keeps roads clear, and connects all rings (4.591693ms)
+✔ horizontal connectors match the vertical outer-middle-inner chains and stop before the centre (0.952897ms)
+✔ M2 hero learning spends one point, requires the next rank level, and resumes without replay (1.679509ms)
+✔ M2 last prerequisite recycle immediately removes qualification and the next level strips to twenty (0.841281ms)
+✔ M2 recycling a completed level-two arrow tower pays object points only once (0.906435ms)
+✔ M2 prayer books share six worker slots, stack on an open slot purchase and grant XP only once (2.86257ms)
+✔ starter gifts keep item order, defer the choice until use and survive retry (2.126012ms)
+✔ chest use consumes the oldest slotted matching box and one key before reward delivery (1.755753ms)
+✔ worker auto-craft uses separate copies, re-enters on pickup and cannot consume twice (1.164761ms)
+✔ normal shop materials craft a real recipe at the source prices (0.92752ms)
+✔ worker talent book is one-time and wave milestones preserve the active cooldown across resume (2.025295ms)
+✔ talent card transactions use exact slots and eligible pools, and relocation keeps instance identity (1.426519ms)
+✔ equipment transfer preserves the instance and enforces new admission after qualification is lost (1.315879ms)
+✔ W013 applies only to heroes and W019 grows on an actual level or promotion (1.002185ms)
+✔ mystery stock uses seven draws, caps duplicates, refreshes only once manually and survives failed buys (1.056334ms)
+✔ 24 challenge stages retain source templates and grant stage rewards once after actual death callbacks (12.157606ms)
+✔ m523 reward book purchases once, crafts i265 and wave 54 removes both living and pending challenge units (0.573215ms)
+✔ ordinary attacks and immolation earn repeatable bounty and XP on a real wave (688.512092ms)
+✔ full worker inventory can buy immediate lumber, and wave reward retries keep one instance (1.191047ms)
+✔ stage-45 charm uses the no-killer death route once, including a live Boss (3.077418ms)
+✔ overdraft applies to subsequent mainline spawn at closure and preserves its welfare multiplier points (1.496304ms)
+✔ each circle sword converts at 1400 only after an attributed monster death (1.870914ms)
+✔ a real tower weapon commits the fatal Boss hit and stops scheduled events (1.839147ms)
+✔ Shadow Shaman casts eight independent wards with attacks and expiry surviving a snapshot (204.963867ms)
+✔ season points cross original reward nodes once and keep deferred tasks inactive (1.401446ms)
+✔ Q22 applies absent solo support on restore without crediting the same reward twice (1.806335ms)
+✔ all 13 M2 season tasks honor thresholds, eligible nodes and refresh without reissuing rewards (1.168975ms)
+✔ season counters respond to real welfare, terminal, overdraft, draw, construction and challenge callbacks (9.894605ms)
+✔ A18 fixture distinguishes the forged sword and chest paths for all three items (32.200832ms)
+✔ i256 uses a live selected target, rewards the worker without a kill and recovers its cooldown (2.049362ms)
+✔ N116 commits the target at effect time, clears positive effects and restores staged movement (9.301855ms)
+✔ N116 skips an immune target at selection and never replaces an invalidated target at effect time (3.555595ms)
+✔ N001 and N002 keep their ordinary projectile and lock the armed bonus before windup (2.43859ms)
+✔ N041 through N044 summon two independent wolves with tiered Feedback and finite duration (26.910326ms)
+✔ a single wolf takes a routed move, an explicit attack and a stop across a saved order (90.035857ms)
+✔ A18 real death dispatch drops the four-tier chest or key once at the death point (3.505929ms)
+✔ N045 through N047 retain a fixed field, stage 120 arrows, and resume deterministically (145.558909ms)
+✔ sword rain hits enemy structures and unit debris without destroying terrain or hitting air (2.042672ms)
+✔ Q20 transforms a real Tiny tower in place and persists the skill slots and equipment transaction (8.06586ms)
+✔ Max Necromancy uses live gear and mana, shares the cooldown and expires its two registered entities (4.328647ms)
+✔ Q46 growth attack survives qualification downgrade, restore and form change (7.544602ms)
+✔ manual self-buff settles without a target and shares automatic cooldown after restore (7.678205ms)
+✔ mana restoration settles charges and independent Soul Ring debt across a snapshot (2.699257ms)
+✔ H005 actual casts settle every rank and A021 multiplies their nonlethal magic hits (19.045767ms)
+✔ H012 ranks drive arrow costs, Strafe duration and Devour's independent timed attack contribution (10.595248ms)
+✔ H012 manual orb uses its 1300 range and charges only after a valid windup (1.386269ms)
+✔ H012 automatic flame yields to eligible corrosion while a manually aimed arrow uses only its own orb (1.790988ms)
+✔ N001 manual flame runs one equipment spell effect at release and its auto toggle produces none (0.901299ms)
+✔ T03 gear changes preserve elapsed weapon work across windup, cooldown and saved backswing (1.758495ms)
+✔ T03 a rate change ordered before a due windup preserves its timer and uses the new rate for recovery (1.191341ms)
+✔ T03 i304 changes only the remaining fraction of a running cooldown (1.542396ms)
+✔ T03 restores a b106 cooldown that finishes before its windup without launching twice (3.724559ms)
+✔ N061–N063 frenzy uses the bound spell cost, preserves its rank through an upgrade, and replaces on recast (2.75301ms)
+✔ N088 has a closed aura radius, does not stack equal sources, and updates movement and running attack timing (2.215685ms)
+✔ N517 chills the melee striker's active recovery and cooldown, then restores its rate after a saved tick (1.499708ms)
+✔ A067 avalanche uses a distinct same-clock source and interrupts only eligible ground targets (2.846824ms)
+✔ N003 applies physical bash to magic-immune ground and adds damage without stunning structures (1.704733ms)
+✔ N006 stomp damages structures but filters immune units before applying stun (3.574363ms)
+✔ N007 selects visible side targets by creation ID and keeps one shared raw weapon amount (3.29917ms)
+✔ N020–N022 manual fire uses closed weapon range, fixed flight and splash without attacking nearby items (16.620446ms)
+✔ N020–N022 a targeted ground item and same-time pickup keep their queue order across restore (3.861285ms)
+✔ N020 removes a destroyed ground card and finishes the worker's obsolete pickup order (1.254065ms)
+✔ B03 entry zero skips reactions while N533 zero still consumes an existing N526 shield (1.37505ms)
+✔ ordinary weapons reject protected targets before acquisition and before hit rolls (6.991154ms)
+✔ i204 assigns one actual q007 source to the volley and retains its owning tower (3.173081ms)
+✔ q007 queues one capped volley, keeps captured attack, and rechecks its primary after a saved handoff (2.104267ms)
+✔ N068 reads unclamped attack speed and zeros the parent after its separate range damage (2.72233ms)
+✔ Q36 and Q37 each consume their own roll on attack damage without a matching ability (0.695195ms)
+✔ N017 T038 hits at sweep contact, preserves its q001 after retirement, and survives reload past the caster lifetime (3.598168ms)
+✔ N054 commits its closed-area child packets in creation order before the original hit (2.322717ms)
+✔ Q45 applies a cold-arrow slot without overwriting equipped frost and leaves immune targets slowed by neither arrow (2.408632ms)
+✔ N058 submits a separate T039 chain in range order with one actual source and only a primary shield check (1.595137ms)
+✔ Alit presents the ordinary lizard attack after its visual delay independently of T039 (2.317673ms)
+✔ i322 reads the owner's current raw attack speed when the sweep hits (1.570106ms)
+✔ a serpent ward arrow survives natural expiry and resolves with no attribution after its owner leaves (1.474492ms)
+✔ N525 checks the owner position only for actual temporary sources and skips the absent owner (4.065714ms)
+✔ a naturally expired ward preserves green and blue contracts on an already committed arrow after reload (5.460366ms)
+✔ B03 i263 executes its divine child before committing the unchanged parent amount (0.812087ms)
+✔ q025 execution bypasses both N521 protection and T202 overdraft reduction (3.143442ms)
+✔ N582–N584 reanimate in place on strict overkill without registering a death (3.476577ms)
+✔ N536 dispels frost above ten percent, while an independent BPSE survives the purge (1.15158ms)
+✔ dispelling or killing one A093 target ends its channel without releasing a different target (3.432329ms)
+✔ N709 reads the previous resistance for a magic packet and updates at the current life threshold (1.220456ms)
+✔ Demonflame toggles in its original slot and restores the next self-damage tick (10.251571ms)
+✔ A069 applies the template multiplier at the time of each real learning event (0.757791ms)
+✔ i310 grants A154 only at pickup, gives its initial cooldown and revokes it on transfer (4.670856ms)
+✔ i312–i314 grant their own experience values and keep independent 180 second cooldowns (8.983422ms)
+✔ N518 hides after its fade and i206 reveals it only while an equipped source is in range (2.396442ms)
+✔ N519 chooses the first nearby tower, survives a cast snapshot, and reduces its next weapon shot (2.352948ms)
+✔ N511 taunts only towers that can accept an ordinary attack order (1.091454ms)
+✔ N576 uses one independent egg and resolves surviving and destroyed snapshots differently (2.084079ms)
+✔ N706–N708 apply two-second attack slows once per active mark (4.311009ms)
+✔ N710–N712 spend mana at effect and apply their distinct low-life or summon behavior (3.753613ms)
+✔ i235 rejects an out-of-range site and preserves a placed detector after its caster is recycled (1.947741ms)
+✔ P000 learning installs P200 and the divine book reads the saved form independently of the rank (2.444038ms)
+✔ divine crystal failure consumes its charge and a max-star gem refunds via ordinary delivery (2.909847ms)
+✔ a ground rune bypasses a full bag and a no-killer charm records the Boss death (3.249311ms)
+✔ manual spell targets distinguish empty ground from a missing unit and survive the windup snapshot (2.806265ms)
+✔ A092 reserves the first slot for the shielded primary target and orders eligible fork links by creation (4.373664ms)
+✔ i310 changes the learned ward slot at pickup and existing A095 wards outlive the item transfer (3.880571ms)
+✔ i200 and i265 compose their documented magic-resistance penetration in the live damage path (0.469754ms)
+✔ i276 seals life directly and returns eighty percent of the amount after a saved six-second window (1.194488ms)
+✔ i276 accounts for N532 regeneration before sealing and before returning life (2.520801ms)
+✔ i276 automatic order saves the exact item and does not spend after an earlier same-clock transfer (6.169829ms)
+✔ i281 starts the shared lock on launch and waits for actual missile contact after restore (3.315918ms)
+✔ i325 completes only the elapsed whole seconds when stopped after restoring the channel (1.868406ms)
+✔ i325 queues the selected ground point at 800 outside weapon range and rechecks the exact item (2.44851ms)
+✔ i325 applies i327 then P222 to the remaining cooldown when a saved channel ends early (1.007867ms)
+✔ Q18 J006 pays at 5 and 120 battle seconds, while J001 keeps its own cooldown (0.838581ms)
+✔ serpent contracts run inside B03, skip an entry-zero parent, and resolve green before blue (1.564391ms)
+✔ T044 pulses without damage and T045 casts a targetless shell only when its caster can act (5.084867ms)
+✔ T049 interrupts the windup, overrides movement and leaves its delayed physical packet independent of hex (3.199531ms)
+✔ i279 consumes two eligible casts and keeps its own flame source after recycling and restoration (1.97422ms)
+✔ P217 runs before the ash hood on an eligible instant cast and expires after restoring (1.082979ms)
+✔ ash hood saves charges without a center and rechecks current health between magic and divine waves (1.00408ms)
+✔ A151 scepter arrow takes the first same-time shield or restores its own life debit after reload (3.74567ms)
+✔ A151 a saved partial homing step uses the elapsed flight when its target moves (1.350991ms)
+✔ A020 scepter can select the same still-living unit for two separately sourced bolts (4.326844ms)
+✔ restored spell windup cancels before effect without mana, cooldown or item callbacks (3.075424ms)
+✔ A093 stopping the primary link leaves the independently sourced link running after reload (2.544768ms)
+✔ A171 queues each discovered target once and its launched hammer can hit after the caster is recycled (1.821141ms)
+✔ A172 keeps separate zone casters and resolves touching circles after its owner leaves (1.698636ms)
+✔ m052 death marks nearby actual units; its weakened owner does not halve a distant ward arrow (1.08432ms)
+✔ i327 grows maximum mana without healing, then reads actual cooldown at ENDCAST before P222 (0.99467ms)
+✔ i722 copies weapon inputs once and keeps the illusion's own prior critical instances (9.28098ms)
+✔ restoring an older complete snapshot upgrades its content version and rejects malformed records (55.607437ms)
+ℹ tests 158
+ℹ suites 0
+ℹ pass 158
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 31234.175734
+
+> build
+> vite build
+
+vite v8.3.8 building client environment for production...
+transforming...
+✓ 355 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                             3.05 kB │ gzip:   1.15 kB
+dist/assets/texture-5-BmItRiuJ.blp          4.14 kB
+dist/assets/model-DV5FykcY.mdx              4.18 kB
+dist/assets/texture-2-C52NrY7l.blp          4.49 kB
+dist/assets/texture-2-CVVekr4I.blp          4.83 kB
+dist/assets/texture-3-fAxH4i3o.blp          4.95 kB
+dist/assets/texture-6-mtoe6CS1.blp          5.00 kB
+dist/assets/model-5JOFgEsE.mdx              5.21 kB
+dist/m2.html                                5.23 kB │ gzip:   1.84 kB
+dist/assets/texture-2-DePEOUFI.blp          5.34 kB
+dist/assets/texture-11-BpsYX4bV.blp         5.49 kB
+dist/assets/model-B0_aIEOY.mdx              5.60 kB
+dist/assets/texture-2-CieX8lkJ.blp          5.88 kB
+dist/assets/texture-6-BqgIk84y.blp          6.23 kB
+dist/assets/texture-0-CKZ1_xov.blp          6.43 kB
+dist/assets/texture-3-C6V4-D5m.blp          7.15 kB
+dist/assets/texture-2-nmiNb5zj.blp          7.44 kB
+dist/assets/texture-5-Dj0YMl18.blp          7.48 kB
+dist/assets/texture-3-CPgBkaPq.blp          7.66 kB
+dist/assets/texture-2-OYpXLWgo.blp          7.90 kB
+dist/assets/texture-3-BjxARqkd.blp          8.00 kB
+dist/assets/texture-0-BHJno7mK.blp          8.10 kB
+dist/assets/texture-1-DShSgphU.blp          8.23 kB
+dist/assets/texture-2-DHRuMf4D.blp          8.60 kB
+dist/assets/texture-3-dOJtrziK.blp          9.46 kB
+dist/assets/texture-3-CntjQuig.blp          9.74 kB
+dist/assets/texture-4-B1F7YEUI.blp          9.80 kB
+dist/assets/texture-1-DflULX5J.blp          9.87 kB
+dist/assets/texture-1-BE2zYr3D.blp         10.15 kB
+dist/assets/texture-4-D6DlfrBa.blp         10.15 kB
+dist/assets/texture-5-DY87rd1u.blp         10.27 kB
+dist/assets/texture-4-D7BESEfF.blp         10.53 kB
+dist/assets/texture-4-CYR3GQcU.blp         10.61 kB
+dist/assets/texture-1-QPtEnteV.blp         10.91 kB
+dist/assets/texture-4-Arlu7mYE.blp         11.12 kB
+dist/assets/texture-4-BZXUssOW.blp         11.82 kB
+dist/assets/texture-4-C8jvJo7H.blp         11.99 kB
+dist/assets/texture-0-D3u4xdWf.blp         12.07 kB
+dist/assets/texture-0-BEIX7lh-.blp         12.10 kB
+dist/assets/texture-1-DB1TLjRh.blp         12.10 kB
+dist/assets/texture-1-DRhwbzc_.blp         12.10 kB
+dist/assets/texture-1-NYKyBvLq.blp         12.10 kB
+dist/assets/texture-2-B0qKu7ch.blp         12.10 kB
+dist/assets/texture-2-VoMM-A5B.blp         12.10 kB
+dist/assets/texture-1-SalqlgrG.blp         12.52 kB
+dist/assets/texture-1-CngwnqUx.blp         12.67 kB
+dist/assets/texture-4-CCyz40rM.blp         12.94 kB
+dist/assets/texture-7-CoeJ3Mff.blp         13.32 kB
+dist/assets/texture-0-DpeijtoL.blp         14.07 kB
+dist/assets/texture-2-DjGUIFBH.blp         15.01 kB
+dist/assets/texture-6-DAKakcbC.blp         15.17 kB
+dist/assets/texture-2-ef7afkEk.blp         15.35 kB
+dist/assets/texture-1-Dz86hKpG.blp         15.77 kB
+dist/assets/texture-5-ChXZZcAa.blp         16.15 kB
+dist/assets/texture-1-BjHOgMKH.blp         16.43 kB
+dist/assets/model-sIWad0Qf.mdx             16.78 kB
+dist/assets/texture-3-go5ww6Qp.blp         17.87 kB
+dist/assets/texture-5-Ces7deLg.blp         19.18 kB
+dist/assets/texture-3-Geuto8j5.blp         20.21 kB
+dist/assets/texture-1-C5bcCunN.blp         20.59 kB
+dist/assets/texture-1-BjMH-8m8.blp         21.27 kB
+dist/assets/texture-1-Bp-OO-yG.blp         22.72 kB
+dist/assets/texture-3-CIO0XOWe.blp         22.89 kB
+dist/assets/texture-4-DX19cP4M.blp         23.12 kB
+dist/assets/texture-2-Bcaff3nN.blp         23.61 kB
+dist/assets/texture-0-CeKFJxiy.blp         24.36 kB
+dist/assets/texture-1-DovbOOLd.blp         25.06 kB
+dist/assets/texture-1-CEhq295X.blp         25.44 kB
+dist/assets/texture-3-CKWMKQ0I.blp         25.98 kB
+dist/assets/texture-1-DOxxxQoC.blp         26.60 kB
+dist/assets/texture-0-BVxJLZY1.blp         27.62 kB
+dist/assets/texture-3-CrjtLvaQ.blp         27.87 kB
+dist/assets/texture-2-Bvb4JpZg.blp         28.42 kB
+dist/assets/texture-1-CoacQL44.blp         30.33 kB
+dist/assets/texture-3-Dyx10uqo.blp         30.76 kB
+dist/assets/texture-1-D-wSncGz.blp         33.34 kB
+dist/assets/texture-3-C7gPM8G0.blp         34.06 kB
+dist/assets/texture-4-QRz5PruU.blp         35.51 kB
+dist/assets/texture-2-BZHyBfUn.blp         36.23 kB
+dist/assets/texture-0-Ci3iiCXE.blp         36.28 kB
+dist/assets/texture-2-B80y6F8n.blp         36.65 kB
+dist/assets/model-RdV0of0a.mdx             37.48 kB
+dist/assets/texture-0-CQU1uPHV.blp         37.67 kB
+dist/assets/texture-3-CBGLBbyz.blp         38.65 kB
+dist/assets/texture-0-CxODg8eK.blp         38.94 kB
+dist/assets/texture-0-DIt3_w8i.blp         40.02 kB
+dist/assets/texture-1-B-8xeSZ9.blp         40.90 kB
+dist/assets/texture-1-Csr-5ARn.blp         41.46 kB
+dist/assets/texture-0-DKMpAGxi.blp         42.60 kB
+dist/assets/texture-2-ZzUvnXBJ.blp         43.53 kB
+dist/assets/texture-1-xY7FPKPv.blp         43.85 kB
+dist/assets/model-BhjUWEZa.mdx             44.36 kB
+dist/assets/texture-0-B0bp6d9I.blp         44.87 kB
+dist/assets/texture-0-BGIVNh5d.blp         44.87 kB
+dist/assets/texture-0-BQE0p89f.blp         44.87 kB
+dist/assets/texture-0-DQe57Hiz.blp         44.87 kB
+dist/assets/texture-0-aVCOUwkL.blp         44.87 kB
+dist/assets/texture-0-huREouOz.blp         44.87 kB
+dist/assets/texture-5-C1J2otNa.blp         46.68 kB
+dist/assets/texture-1-BisYW1vm.blp         47.37 kB
+dist/assets/texture-8-CeAzaEvA.blp         48.26 kB
+dist/assets/model-CtFhSvUf.mdx             50.95 kB
+dist/assets/texture-1-Dx3dmWTz.blp         54.39 kB
+dist/assets/texture-8-DRcEQHAm.blp         56.79 kB
+dist/assets/model-DLwGQ_li.mdx             57.61 kB
+dist/assets/model-CVtApLy6.mdx             62.77 kB
+dist/assets/texture-0-DOj9Vb8y.blp         62.85 kB
+dist/assets/texture-0-UBsQHvst.blp         66.14 kB
+dist/assets/texture-0-DfghWR6a.blp         68.10 kB
+dist/assets/texture-9-B7unpVBo.blp         68.82 kB
+dist/assets/texture-2-DH9sGVEQ.blp         69.29 kB
+dist/assets/texture-1-BZwwphTQ.blp         69.46 kB
+dist/assets/texture-3-DI-hlj8d.blp         70.74 kB
+dist/assets/texture-0-oYpqMT2X.blp         71.10 kB
+dist/assets/texture-2-ayYCvlvx.blp         71.15 kB
+dist/assets/texture-0-CSaoV6wg.blp         72.71 kB
+dist/assets/texture-0-C8mXi1xI.blp         74.23 kB
+dist/assets/texture-1-CNmWPTaJ.blp         74.78 kB
+dist/assets/model-Cb4JNk_P.mdx             75.89 kB
+dist/assets/model-BMn-vfYK.mdx             76.39 kB
+dist/assets/texture-0-BunMP0v9.blp         77.02 kB
+dist/assets/texture-4-BRuazXsT.blp         77.46 kB
+dist/assets/texture-1-xPdsB8r0.blp         79.69 kB
+dist/assets/texture-0-Him732zt.blp         80.53 kB
+dist/assets/texture-0-BeJ17tkC.blp         80.90 kB
+dist/assets/texture-0-DhQWGgaW.blp         81.88 kB
+dist/assets/texture-2-cDo-nmGX.blp         82.97 kB
+dist/assets/model-ChNrEL9d.mdx             82.99 kB
+dist/assets/texture-1-Bx8omln0.blp         83.17 kB
+dist/assets/texture-0-CvAnRVJo.blp         84.09 kB
+dist/assets/texture-0-BmRo-uN1.blp         84.80 kB
+dist/assets/texture-0-jRrEOmwP.blp         85.73 kB
+dist/assets/texture-0-C-QFqLgz.blp         86.18 kB
+dist/assets/texture-1-5ABJoOPO.blp         88.00 kB
+dist/assets/texture-0-DYsaFSri.blp         89.31 kB
+dist/assets/texture-0-BW7z2A1q.blp         89.31 kB
+dist/assets/texture-0-BXW6bvv7.blp         90.47 kB
+dist/assets/texture-0-IsHzgYRo.blp         90.83 kB
+dist/assets/texture-1-BLR3_BuZ.blp         93.78 kB
+dist/assets/texture-0-C57_tKoy.blp         95.40 kB
+dist/assets/model-DDbAzS-d.mdx            104.06 kB
+dist/assets/texture-0-B-S0vqa2.blp        107.98 kB
+dist/assets/model-BX960hX3.mdx            109.61 kB
+dist/assets/texture-0-HKNoGzhM.blp        110.03 kB
+dist/assets/texture-0-CwKc0AXC.blp        112.79 kB
+dist/assets/texture-9-B4YKlWKr.blp        114.97 kB
+dist/assets/texture-2-Nrow9f48.blp        117.05 kB
+dist/assets/model-DaDjDxxU.mdx            118.31 kB
+dist/assets/model-CafgRUrG.mdx            118.38 kB
+dist/assets/texture-2-CT2zY7KC.blp        120.60 kB
+dist/assets/texture-10-C76cl7z6.blp       120.83 kB
+dist/assets/texture-2-BWlkssaP.blp        123.13 kB
+dist/assets/model-D0w7z4-d.mdx            124.22 kB
+dist/assets/texture-0-BC0-TLVZ.blp        126.29 kB
+dist/assets/texture-2-CNTE9F0O.blp        130.32 kB
+dist/assets/texture-0-DEuRHwzF.blp        132.95 kB
+dist/assets/texture-0-B-jsItyD.blp        141.31 kB
+dist/assets/texture-0-DHi3l4EU.blp        143.58 kB
+dist/assets/texture-1-3_PevNZ7.blp        147.08 kB
+dist/assets/texture-1-BxEdWCuk.blp        152.28 kB
+dist/assets/model-CcCMGgCM.mdx            152.40 kB
+dist/assets/texture-3-Dw1qIJvW.blp        154.68 kB
+dist/assets/texture-1-q6YVJj4s.blp        166.69 kB
+dist/assets/model-D2Ds-j1M.mdx            167.73 kB
+dist/assets/texture-0-CQYV_Xzi.blp        174.53 kB
+dist/assets/texture-0-DP5lztDF.blp        175.94 kB
+dist/assets/texture-0-DwuNfyLG.blp        175.94 kB
+dist/assets/texture-1-FlgJZj0Z.blp        175.94 kB
+dist/assets/texture-2-qAScNNwb.blp        175.94 kB
+dist/assets/texture-2-BZ_OhR_I.blp        175.96 kB
+dist/assets/texture-0-BH4QTS10.blp        176.12 kB
+dist/assets/model-DGc1IDqX.mdx            180.95 kB
+dist/assets/texture-0-BrRaIAKL.blp        186.69 kB
+dist/assets/texture-0-DWyygO0A.blp        190.61 kB
+dist/assets/model-Dxfldem8.mdx            192.76 kB
+dist/assets/texture-0-Du4UYtVW.blp        200.54 kB
+dist/assets/texture-3-C3GYcYRE.blp        217.48 kB
+dist/assets/texture-3-DG4uShkE.blp        224.78 kB
+dist/assets/texture-4-BiQDxLh0.blp        229.21 kB
+dist/assets/texture-1-D4iyNNCA.blp        231.32 kB
+dist/assets/texture-6-iNJJ_8YZ.blp        239.80 kB
+dist/assets/texture-0-hnkc2_s5.blp        250.41 kB
+dist/assets/model-B4-4l4mo.mdx            257.17 kB
+dist/assets/model-D7UCONbE.mdx            260.60 kB
+dist/assets/model-DKIs4KA3.mdx            281.71 kB
+dist/assets/texture-1-BisqB3zP.blp        284.28 kB
+dist/assets/texture-0-BlZE3wfc.blp        290.15 kB
+dist/assets/model-BLRvZfyM.mdx            296.85 kB
+dist/assets/model-D_3ImA_g.mdx            306.88 kB
+dist/assets/texture-4-IggMvpZP.blp        308.61 kB
+dist/assets/model-BlNE3Jx6.mdx            314.54 kB
+dist/assets/model-IAUbE6fw.mdx            317.79 kB
+dist/assets/texture-3-BjvYEv_T.blp        325.38 kB
+dist/assets/model-C-xsq9rB.mdx            330.93 kB
+dist/assets/model-DMxsgEVi.mdx            339.83 kB
+dist/assets/model-DVGKtPV5.mdx            362.16 kB
+dist/assets/model-BeLcWMe9.mdx            397.29 kB
+dist/assets/model-BVAVk60k.mdx            397.68 kB
+dist/assets/texture-0-C8Eo_RFj.blp        403.26 kB
+dist/assets/model-RWl02H3t.mdx            408.90 kB
+dist/assets/texture-7-wxkNApd4.blp        418.83 kB
+dist/assets/texture-7-CerZBm0t.blp        431.22 kB
+dist/assets/model-D_H06OZX.mdx            433.19 kB
+dist/assets/texture-4-Bpba3L3O.blp        442.81 kB
+dist/assets/texture-1-B0wH0vJ1.blp        446.61 kB
+dist/assets/model-BWYj57Zh.mdx            459.46 kB
+dist/assets/model-Du2gt-u9.mdx            473.31 kB
+dist/assets/model-kjzyMpZe.mdx            508.21 kB
+dist/assets/model-CfG4LP-Y.mdx            511.72 kB
+dist/assets/model-DLK7Xp_0.mdx            523.19 kB
+dist/assets/model-BSBI8XNz.mdx            531.65 kB
+dist/assets/model-DyTNBJE6.mdx            546.07 kB
+dist/assets/texture-0-B1iIWCzm.blp        567.87 kB
+dist/assets/model-D4eWvrJ_.mdx            571.65 kB
+dist/assets/model-C5k6xjgi.mdx            572.21 kB
+dist/assets/model-CWM2LVby.mdx            576.76 kB
+dist/assets/model-BQDUrho4.mdx            584.12 kB
+dist/assets/command-icons-mmxrIivc.jpg    586.97 kB
+dist/assets/model-BHfZnNmL.mdx            587.54 kB
+dist/assets/texture-0-CJd5y-TR.blp        700.23 kB
+dist/assets/texture-2-BnyDyh63.blp        700.23 kB
+dist/assets/texture-3-secBm68g.blp        700.23 kB
+dist/assets/model-C-qNtu6B.mdx            775.61 kB
+dist/assets/model-B9GMLz8Q.mdx            787.33 kB
+dist/assets/texture-1-Bb8VaTXB.blp        866.12 kB
+dist/assets/texture-5-CE-ZE-Tm.blp        931.73 kB
+dist/assets/model-T5y6mbQO.mdx          1,100.41 kB
+dist/assets/texture-0-CaCTaTMD.blp      1,122.23 kB
+dist/assets/texture-0-DB4sdjUb.blp      1,139.47 kB
+dist/assets/texture-0-DeiAB1FT.blp      1,180.75 kB
+dist/assets/model-Oz7qSD_2.mdx          1,322.76 kB
+dist/assets/model-Dqy4zwjk.mdx          1,391.28 kB
+dist/assets/texture-0-9V8Bv-p-.blp      1,480.87 kB
+dist/assets/texture-0-DS_S3Ids.blp      1,614.45 kB
+dist/assets/model-D4UvJCAR.mdx          1,963.23 kB
+dist/assets/model-BpEHo9eY.mdx          2,132.79 kB
+dist/assets/model-3AWyNfym.mdx          2,744.01 kB
+dist/assets/texture-0-oSjMCUjB.blp      2,770.91 kB
+dist/assets/model-BuZxSklM.mdx          2,836.71 kB
+dist/assets/model-CK7FSqHA.mdx          2,880.47 kB
+dist/assets/index-Da9WCTQG.css              3.22 kB │ gzip:   1.37 kB
+dist/assets/m2-BcGkpbSx.css                12.21 kB │ gzip:   3.57 kB
+dist/assets/model--LwxO8DO.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-9geUNbzP.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-B6RTgmyX.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-B70AOR8I.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-B7dqjz6Z.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-BDMiV43G.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-BEVZOG3V.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-BFvCW1VO.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-BIaci73Q.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-BWo7SfNN.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-BbKC-jAz.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-Bf_0Gp3O.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-BhLMfrHd.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-Bn_KpTIb.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-BoAf-s4f.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-BovrR2dF.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-BpXtXAt7.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-BwmAQaal.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-C4tDGV0L.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-C5KFarHN.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-CCrUMdsx.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-CFW4t2Hs.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-CKI_SvCh.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-CS_0xRfZ.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-C_uDEi1J.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-CbPRshK-.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-Cg4wxuYy.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-CicTjKxV.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-CoBuFThz.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-Cp6v3ctW.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-CrVHlQ1C.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-CsnQ-Oeh.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-Cyq3ac-2.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-D-j-MhZ3.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-D0gL2EEs.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-D3aM44jN.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-D8x9yppr.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-DC-rjE65.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-DPd8iaQ9.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-DPzgShfA.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-DQFjFiQx.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-DSNnhf6c.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-DX8TjKBj.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-DYAQmaOR.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-DbJKfqA6.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-Df84V1WN.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-DiQyO9R0.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-DmlxCFLR.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-Dqka64YD.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-Dyk5Ldj1.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-J7P1Svqt.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-QYYpTx3u.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-WMOvImVa.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-WdbN0c7V.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-c8GaE9HW.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-dO0-mPfC.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-kVdlNPZE.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-lkIq5ReF.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/model-zzFIpHby.js               0.07 kB │ gzip:   0.09 kB
+dist/assets/texture-0-70rovHtw.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-AGs-A71t.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-B7Bg3EzG.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-BAOkLM1O.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-BB5VGJL7.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-BHHcDn59.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-BKHejLsU.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-BKi56qrY.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-BQfGe5V_.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-BUUzIReB.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-BY7kWEC8.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-BYHZn0_b.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-B_qP_TyG.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-BcUeO1eP.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-BnZpIeZx.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-BsQkFtiY.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-Bsnu9b6f.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-C0NP68Fr.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-C2SCOHzR.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-C49HHz85.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-C7JsDv83.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-C7uyGuxl.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-CF1YXMzu.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-CFvrpjBO.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-CMOTf0x8.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-CSyL_xB8.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-CU04YXAL.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-CWGRtsDX.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-Cl294Ny2.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-Cqj8drOe.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-CtKKcQFp.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-CvleC_6i.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-CwolgZhm.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-D-mThSrv.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-D3uI_fsY.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-D41mDUyU.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-D7SBzaXa.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-D9Rv0Cns.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-DBEJANka.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-DEnGRgoy.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-DFpwDH8c.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-DMAIM7Ky.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-DS6ZqiDe.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-DVitamvY.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-DbXrZ8cg.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-De7FJ3Qj.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-DeG_u852.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-DfSgx8et.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-Drp0BxSh.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-Du_7db6o.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-ENDwcdri.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-FeASrglq.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-GYgH0zCz.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-Mr6R0G_q.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-RXxWrCx_.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-Ri3d36cZ.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-VBLXW1L5.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-Y1AImoeE.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-a6k1UefV.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-cPTQc8Ao.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-nDIU__x7.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-opUzZxBy.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-sxiSXGeZ.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-ycsyC_U0.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1--kRkxK0R.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-7wTgEhzm.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-B5pqg2qJ.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-BAGsZwMk.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-BC1rSH0y.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-BIVzsbp0.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-BJxeW9e9.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-BUY9MKM-.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-BVwsbxMu.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-BVxwdAXj.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-BiPxmTx3.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-BkFuGTK7.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-BnRwpaRk.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-BreZXu_i.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-Bwrq17G8.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-Bye2iLNt.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-C-oLqO1A.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-C71E1Yq3.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-CBnwiCQU.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-CCBMmExc.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-CCWRLC6q.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-CHj7bNJo.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-CLmb5ftj.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-CSfv2hi0.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-CcDzly5X.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-CoJ-DbR6.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-CuKJq7yo.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-DE5IZS02.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-DMyMjyqO.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-DQ6H2EYg.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-DV3VYLkQ.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-Dga1XEMS.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-DmnRRM-z.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-DowlNfVG.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-Dw5-cIjF.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-FI8xbxSo.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-NE65a5sT.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-ZCqpvCCu.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-cVp_Gt5i.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-duxI3F1X.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-vzGNszgs.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-1-xpG-Gxzi.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-2-4geYCMDR.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-2-B2Hsm4TG.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-2-B4ccqEGx.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-2-B59GCaPV.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-2-B7mraBx1.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-2-B9UTRoHt.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-2-BEUhFAn8.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-2-BFQ1lgr-.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-2-BRBM5OAS.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-2-BTX0utH5.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-2-Ba-pF0fr.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-2-Bc7e8rP8.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-2-BgZpwJN7.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-2-BnRCMIQ1.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-2-BxGCuyKB.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-2-C2gwWIdm.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-2-C6bougwO.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-2-CBnwiCQU.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-2-CitV13lx.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-2-D6JFBSDJ.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-2-D6W2uo-C.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-2-D9fsBXdG.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-2-DLY76QMp.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-2-DSmWmplu.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-2-Dd4DdB_M.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-2-DmxBWad2.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-2-Dsc1K3H7.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-2-FI8xbxSo.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-2-JubwQ8h7.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-2-hTI1vG8C.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-3-8H3tNLM0.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-3-B0CVl0DJ.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-3-B4ccqEGx.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-3-BKcoR1-S.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-3-BL9eEX9f.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-3-BU8Fb16N.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-3-BaZTiJsV.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-3-BgWOOiiY.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-3-C12qYWvf.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-3-C4VGvgOn.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-3-CFyFgCr8.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-3-CLE1It--.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-3-CkP5J8Ym.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-3-ClETksjT.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-3-DBYDVYch.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-3-DIeB5gJu.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-3-DQEqlXww.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-3-De3CmRSR.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-3-DjFKCkSS.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-3-Dnbt1XcA.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-3-HZY7fYw6.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-3-OAOk0K09.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-3-SLJSaB_7.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-4-8AtqL3IV.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-4-B5eEc8dP.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-4-BNf5Ox5x.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-4-C2pBYIHv.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-4-CJtmF12J.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-4-CbqVmPON.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-4-CnJRYeoU.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-4-Cu3J4X0D.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-4-DP8bKxTp.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-4-DPaPdLIk.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-4-DhSXOxny.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-4-DjkaHKvl.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-4-vT2sdLgJ.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-4-zlbG-y8F.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-5-BEW3C8vB.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-5-BoUhsG_U.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-5-BsgLlu1k.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-5-DpV1URcd.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-5-JubwQ8h7.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-5-Zmnv2Ye6.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-5-rWwxbaNq.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-5-woBkAgVr.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-6-CLaf7ElZ.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-6-Di0rkkvg.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-6-DppMDT0V.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-6-DvgEDQHM.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-7-B30OIXzF.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-7-BV7q8snO.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-7-C_2EZLvE.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-8--t4bp75x.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-8-CX3j7OP5.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-9-C7hnOrJf.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-9-DjX85Wrd.js           0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-10-CGESc00l.js          0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-11-DgnZC6Lm.js          0.08 kB │ gzip:   0.10 kB
+dist/assets/texture-0-BxQrH7yQ.js           1.86 kB │ gzip:   0.17 kB
+dist/assets/texture-3-COgpxlc5.js           1.88 kB │ gzip:   0.73 kB
+dist/assets/model-BeBk358u.js               3.41 kB │ gzip:   0.85 kB
+dist/assets/model-CjYrFU0Q.js               3.45 kB │ gzip:   1.13 kB
+dist/assets/model-maoQ1nTa.js               3.75 kB │ gzip:   1.09 kB
+dist/assets/model-ZtaYt-1z.js               3.91 kB │ gzip:   1.15 kB
+dist/assets/model-B2djY-xP.js               4.04 kB │ gzip:   1.20 kB
+dist/assets/model-D-OukDF0.js               4.04 kB │ gzip:   1.21 kB
+dist/assets/model-DgnFWGcW.js               4.04 kB │ gzip:   1.21 kB
+dist/assets/texture-1-BY0LSD5U.js           4.09 kB │ gzip:   1.99 kB
+dist/assets/texture-1-CbFeO4hO.js           4.09 kB │ gzip:   1.99 kB
+dist/assets/texture-1-D1AKRFIK.js           4.09 kB │ gzip:   1.99 kB
+dist/assets/texture-2-BY0LSD5U.js           4.09 kB │ gzip:   1.99 kB
+dist/assets/texture-1-6nhlr3vp.js           4.51 kB │ gzip:   2.38 kB
+dist/assets/texture-2-Trmxakgm.js           4.61 kB │ gzip:   2.41 kB
+dist/assets/texture-1-CQAsiKXL.js           4.89 kB │ gzip:   1.91 kB
+dist/assets/texture-1-DAaMno5j.js           5.28 kB │ gzip:   2.27 kB
+dist/assets/texture-4-DAaMno5j.js           5.28 kB │ gzip:   2.27 kB
+dist/assets/index-Dkxu4LVP.js              79.01 kB │ gzip:  18.17 kB
+dist/assets/war3-model-jV3W8p2u.js        724.87 kB │ gzip: 169.73 kB
+dist/assets/m2-_KtRz8_u.js              5,123.07 kB │ gzip: 612.59 kB
+
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 1.92s

@@ -182,9 +182,9 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
   }
 
   canvas.addEventListener("pointerdown", event => {
-    if (event.button === 1 || event.button === 2) {
+    if (event.button === 1) {
       event.preventDefault();
-      drag = { clientX: event.clientX, clientY: event.clientY, rotate: event.button === 1 || event.shiftKey };
+      drag = { clientX: event.clientX, clientY: event.clientY, rotate: event.shiftKey };
       canvas.setPointerCapture(event.pointerId);
     }
   });
@@ -268,7 +268,7 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
     boundaryMaterial.opacity = build ? 1 : .65;
     canvas.style.cursor = build || wolfId !== undefined || pointPrompt ? "crosshair" : "grab";
     preview.visible = !!build && !!state && !!hover;
-    let message = build ? `正在放置 ${build.label} · 将鼠标移到浅绿建造区` : "先选择右侧的塔卡或工人塔，再点击金色边界内的浅绿建造区。";
+    let message = build ? `正在放置 ${build.label} · 将鼠标移到浅绿建造区` : "选择工人建造或塔卡，再点击浅绿建造区。";
     if (build && state && hover) {
       const result = inspectBuildPlacement(state, { ...build.action, point: hover });
       const point = result.ok ? result.disk : { x: Math.round(hover.x / gridSize) * gridSize, y: Math.round(hover.y / gridSize) * gridSize };
@@ -611,5 +611,11 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
     canvas.dataset.renderedEnemies = [...renderedEnemies].join(",");
     canvas.dataset.castingEnemies = [...castingEnemies].join(",");
   };
-  return Object.assign(render, { resetView, setView, rotateView, zoomView });
+  return Object.assign(render, { resetView, setView, rotateView, zoomView, pointAt,
+    focusAt(point: Point) { focus.set(toWorld(point.x), 0, toWorld(point.y)); project(); },
+    screenAt(point: Point) {
+      const vector = new THREE.Vector3(toWorld(point.x), 1, toWorld(point.y)).project(camera);
+      return { x: (vector.x + 1) * canvas.clientWidth / 2, y: (1 - vector.y) * canvas.clientHeight / 2 };
+    }
+  });
 }

@@ -32,6 +32,8 @@ jobs:
       - run: node tools/build-m2-runtime-coverage.mjs --check
       - run: npm run check
       - run: node tools/prepare-pages.mjs
+        env:
+          M2_RELEASE_VERSION: m2-core-30-ui-1
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:

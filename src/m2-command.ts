@@ -1,0 +1,700 @@
+import { cardTemplates, items, ordinaryGoods, prayerBooks, recipes, recycleRate, towerLevels } from './game/m2/content.ts';
+import { effectiveAttributes, weapons } from './game/m2/combat.ts';
+import { learnableSkills, learningLevel } from './game/m2/hero.ts';
+import { towerSpells } from './game/m2/tower-spells.ts';
+import { heroSpellTargetMode, isCastableHeroSkill, heroSpells } from './game/m2/hero-spells.ts';
+import { canChooseOpening, canSeeEnemy, isActiveTowerEquipment, isTargetedEquipment, type Action, type Match } from './game/m2/match.ts';
+import type { createM2Scene } from './m2-scene.ts';
+import type { Point } from './game/m2/map.ts';
+import './m2-command.css';
+type Scene = Awaited<ReturnType<typeof createM2Scene>>;
+type Unit = Match['structures'][number];
+type Target = {
+    action: (point: Point, id?: number) => Action;
+    kind: 'point' | 'enemy' | 'ally';
+    label: string;
+    command?: string;
+};
+const keys = ['q', 'w', 'e', 'r', 'a', 's', 'd', 'f', 'z', 'x', 'c', 'v'];
+const itemKeys = ['q', 'w', 'e', 'a', 's', 'd'];
+const iconById: Record<string, number> = { H021: 0, G059: 0, H044: 1, H029: 2, nsha: 3, A067: 4, A068: 5, A069: 6, i101: 8, i102: 9, i105: 10, i109: 11, i110: 12, i117: 13, i310: 14, i193: 15 };
+const art = (id: string) => iconById[id];
+export function createCommandUI(options: {
+    match: () => Match | undefined;
+    scene: () => Scene | undefined;
+    send: (action: Action) => string | undefined;
+    writable: () => boolean;
+    cancel: () => void;
+    placing: () => boolean;
+}) {
+    const get = (id: string) => document.getElementById(id)!;
+    const canvas = get('field') as HTMLCanvasElement;
+    const aside = document.querySelector('aside')!;
+    const main = document.querySelector('main')!;
+    let selection: number[] = [-1];
+    let current = -1;
+    let enemyId: number | undefined;
+    let learning = false;
+    let target: Target | undefined;
+    let carrying: number | undefined;
+    let modal = '';
+    let matchId = '';
+    let openingShown = false;
+    let lastRender = '';
+    let commands: (() => void)[] = [];
+    let dragStart: {
+        x: number;
+        y: number;
+    } | undefined;
+    let suppressClick = false;
+    const groups = new Map<string, number[]>();
+    let lastGroup = { key: '', at: 0 };
+    const seenHits = new WeakSet<object>();
+    const markers = new Map<string, HTMLElement>();
+    const floating: {
+        node: HTMLElement;
+        point: Point;
+        start: number;
+        lane: number;
+    }[] = [];
+    const announce = (message: string) => { get('feedback').textContent = message; };
+    const button = (label: string, action: () => void, disabled = false) => {
+        const element = document.createElement('button');
+        element.textContent = label;
+        element.disabled = disabled;
+        element.onclick = action;
+        return element;
+    };
+    const painted = (element: HTMLElement, id: string) => {
+        const index = art(id);
+        if (index !== undefined) {
+            element.classList.add('painted');
+            element.style.backgroundPosition = `${index % 4 * 100 / 3}% ${Math.floor(index / 4) * 100 / 3}%`;
+        }
+    };
+    document.body.classList.add('command-ui');
+    const header = document.querySelector('header')!;
+    header.querySelector('h1')!.textContent = 'TD3';
+    header.querySelector('p')!.remove();
+    header.append(get('resources'), get('wave'), get('boss'));
+    const tools = document.createElement('nav');
+    tools.className = 'command-tools';
+    for (const name of ['商店', '合成', '图鉴', '对局'])
+        tools.append(button(name, () => open(name)));
+    main.append(tools);
+    const overlay = document.createElement('div');
+    overlay.className = 'unit-overlay';
+    main.querySelector('.battlefield')!.append(overlay);
+    const shortcuts = document.createElement('div');
+    shortcuts.className = 'hero-shortcuts';
+    main.append(shortcuts);
+    const dock = document.createElement('section');
+    dock.className = 'command-dock';
+    dock.innerHTML = '<div class="selection-strip"></div><div class="dock-body"><section class="unit-info"></section><section class="unit-inventory"><h3>物品栏 <small>Alt＋Q/W/E/A/S/D</small></h3><div class="six-slots"></div></section><section class="unit-commands"><h3>指令</h3><div class="twelve-slots"></div></section></div>';
+    main.append(dock);
+    const backdrop = document.createElement('div');
+    backdrop.className = 'command-backdrop';
+    backdrop.hidden = true;
+    const window = document.createElement('section');
+    window.className = 'command-window';
+    window.setAttribute('role', 'dialog');
+    window.setAttribute('aria-modal', 'true');
+    window.setAttribute('aria-label', '管理窗口');
+    const tabs = document.createElement('nav');
+    for (const name of ['商店', '合成', '图鉴', '对局'])
+        tabs.append(button(name, () => open(name)));
+    tabs.append(button('关闭 · Esc', close));
+    const content = document.createElement('div');
+    content.className = 'command-content';
+    const shop = document.createElement('section');
+    shop.className = 'live-shop';
+    const search = document.createElement('input');
+    search.placeholder = '搜索商品名称';
+    search.setAttribute('aria-label', '搜索商品');
+    const goods = document.createElement('div');
+    goods.className = 'live-goods';
+    const shopBody = document.createElement('div'); shopBody.className = 'shop-body';
+    const goodsDetail = document.createElement('section'); goodsDetail.className = 'goods-detail';
+    shopBody.append(goods, goodsDetail); shop.append(search, shopBody);
+    let selectedGood = 'i110';
+    const codex = document.createElement('section');
+    codex.className = 'live-codex';
+    const recipe = document.createElement('section');
+    recipe.className = 'live-recipes';
+    content.append(shop, recipe, codex, aside);
+    window.append(tabs, content);
+    backdrop.append(window);
+    document.body.append(backdrop);
+    const status = document.createElement('div');
+    status.className = 'command-status';
+    status.append(get('feedback'), get('save'));
+    document.body.append(status);
+    // Existing progression and special transactions keep their original event handlers.
+    const sections = [...aside.children];
+    const sectionTab = new Map<Element, string>();
+    for (const section of sections) {
+        const name = section.querySelector('h2')?.textContent;
+        sectionTab.set(section, name === '商店' ? 'legacy' : name === '神秘商店' || name === '挑战商店' ? '商店' : '对局');
+    }
+    function showShop() {
+        const state = options.match();
+        goods.replaceChildren();
+        for (const entry of ordinaryGoods.values()) {
+            if (!entry.name.includes(search.value) || !entry.shop || prayerBooks.some(book => book.id === entry.id) || ['i001', 'i002', 'i003', 'i005'].includes(entry.id))
+                continue;
+            const card = document.createElement('article');
+            const icon = document.createElement('div');
+            icon.className = 'goods-art';
+            painted(icon, entry.id);
+            if (art(entry.id) === undefined)
+                icon.textContent = entry.name.slice(0, 2);
+            const name = document.createElement('strong');
+            name.textContent = entry.name;
+            const price = document.createElement('span');
+            price.textContent = `${entry.gold} 金${entry.lumber ? ` · ${entry.lumber} 木` : ''}`;
+            card.classList.toggle('selected', selectedGood === entry.id);
+            card.tabIndex=0; card.setAttribute('role','button');card.setAttribute('aria-label',entry.name);
+            const choose=()=>{selectedGood=entry.id;showShop();};card.onclick=choose;card.onkeydown=event=>{if(event.key==='Enter'){event.preventDefault();choose();}};
+            card.append(icon, name, price);
+            goods.append(card);
+        }
+        if (!goods.children.length) goods.textContent = '没有匹配的商品';
+        goodsDetail.replaceChildren();
+        const selected=ordinaryGoods.get(selectedGood)!;
+        const icon=document.createElement('div');icon.className='goods-art';painted(icon,selected.id);
+        const title=document.createElement('h2');title.textContent=selected.name;
+        const source=document.createElement('p');source.textContent=selected.shop;
+        const description=document.createElement('p');description.textContent=recipes.has(selected.id)?'配方：'+recipes.get(selected.id)!.map(id=>items.get(id)!.name).join(' ＋ '):isActiveTowerEquipment(selected.id)||isTargetedEquipment(selected.id)?'主动装备 · 携带后在物品栏使用。':'携带生效；可交接给英雄或用于合成。';
+        const price=document.createElement('p');price.className='detail-price';price.textContent=`${selected.gold} 金${selected.lumber?' · '+selected.lumber+' 木':''}`;
+        const buy=button('购买',()=>options.send({type:'buy-item',itemId:selected.id}),!options.writable()||!state||state.gold<selected.gold||state.lumber<selected.lumber);
+        const hint=document.createElement('small');hint.textContent='购买物品送至工人物品栏；满包按既有规则处理。';
+        goodsDetail.append(icon,title,source,description,price,buy,hint);
+    }
+    search.oninput = showShop;
+    function open(name: string) {
+        modal = name;
+        backdrop.hidden = false;
+        window.setAttribute('aria-label', name);
+        shop.hidden = name !== '商店';
+        recipe.hidden = name !== '合成';
+        codex.hidden = name !== '图鉴';
+        for (const section of sections)
+            section.classList.toggle('outside-tab', sectionTab.get(section) !== name);
+        aside.hidden = name === '图鉴' || name === '合成';
+        tabs.querySelectorAll('button').forEach(node => node.classList.toggle('active', node.textContent === name));
+        if (name === '商店')
+            showShop();
+        if (name === '图鉴') {
+            codex.replaceChildren();
+            for (const entry of towerLevels.values()) {
+                const row = document.createElement('article');
+                row.textContent = `${entry.name} · ${entry.id ?? ''}　${entry.bindings.map(binding => binding.name).join(' / ')}`;
+                codex.append(row);
+            }
+            for (const entry of items.values()) {
+                const row = document.createElement('article');
+                row.textContent = `${entry.name} · ${entry.id}`;
+                codex.append(row);
+            }
+        }
+        if (name === '合成') {
+            recipe.replaceChildren();
+            const title = document.createElement('h2');
+            title.textContent = '制作书合成';
+            const copy = document.createElement('p');
+            copy.textContent = '同一背包集齐配方材料，拾取最后一件时自动合成。';
+            recipe.append(title, copy);
+            for (const [result, materials] of recipes) {
+                const row = document.createElement('article');
+                row.className = 'recipe-entry';
+                const name = document.createElement('h3');
+                name.textContent = items.get(result)!.name;
+                const material = document.createElement('p');
+                material.textContent = materials.map(id => items.get(id)?.name ?? id).join(' ＋ ');
+                row.append(name, material);
+                recipe.append(row);
+            }
+            // The original worker inventory includes the authoritative use-book transactions.
+            recipe.append(button('打开工人物品与制作书', () => { select(-1); open('对局'); get('worker-items').scrollIntoView({ block: 'center' }); }));
+        }
+        (tabs.querySelector('.active') as HTMLButtonElement)?.focus();
+    }
+    function close() { modal = ''; backdrop.hidden = true; canvas.focus(); }
+    backdrop.onclick = event => { if (event.target === backdrop)
+        close(); };
+    canvas.tabIndex = 0;
+    const unit = (id = current) => [...(options.match()?.structures ?? []), ...(options.match()?.summons ?? [])].find(tower => tower.id === id);
+    function select(id: number, additive = false) {
+        if (carrying !== undefined) {
+            options.send({ type: 'transfer-item', itemId: carrying, towerId: id === -1 ? undefined : id });
+            carrying = undefined;
+            return;
+        }
+        enemyId = undefined;
+        if (additive) {
+            selection = selection.includes(id) ? selection.filter(entry => entry !== id) : [...selection, id];
+            current = selection.includes(id) ? id : selection[0] ?? -2;
+        }
+        else {
+            selection = [id];
+            current = id;
+        }
+        learning = false;
+        lastRender = '';
+    }
+    function cancel() {
+        if (modal) {
+            close();
+            return;
+        }
+        if (target || carrying !== undefined || options.placing()) {
+            target = undefined;
+            carrying = undefined;
+            options.cancel();
+            announce('已取消操作');
+            return;
+        }
+        if (learning) {
+            learning = false;
+            lastRender = '';
+            return;
+        }
+        selection = [];
+        current = -2;
+        enemyId = undefined;
+        lastRender = '';
+    }
+    function aim(value: Target) { target = value; options.cancel(); announce(value.label + ' · 左键选择目标，右键取消'); }
+    function useItem(slot: number) {
+        const state = options.match();
+        const item = state?.inventory?.find(item => item.slot === slot && item.towerId === (current === -1 ? undefined : current));
+        const book = current === -1 ? state?.books?.find(book=>book.slot===slot) : undefined;
+        if(book){aim({kind:'ally',label:prayerBooks.find(entry=>entry.id===book.bookId)!.name,action:(_point,id)=>({type:'use-book',itemId:book.id,towerId:id!})});return;}
+        if (!item) return;
+        if (current === -1) {
+            if (item.itemId === 'i256')
+                aim({ kind: 'enemy', label: '点金', action: (_point, id) => ({ type: 'use-item', itemId: item.id, targetId: id }) });
+            else
+                options.send({ type: 'use-item', itemId: item.id });
+            return;
+        }
+        if (isTargetedEquipment(item.itemId))
+            aim({ kind: 'enemy', label: items.get(item.itemId)!.name, action: (_point, id) => ({ type: 'cast-equipment', itemId: item.id, towerId: current, targetId: id }) });
+        else if (item.itemId === 'i325' || item.itemId === 'i235')
+            aim({ kind: 'point', label: items.get(item.itemId)!.name, action: point => item.itemId === 'i235' ? ({ type: 'place-scout-ward', itemId: item.id, towerId: current, point }) : ({ type: 'cast-equipment', itemId: item.id, towerId: current, point }) });
+        else if (isActiveTowerEquipment(item.itemId))
+            options.send({ type: 'cast-equipment', itemId: item.id, towerId: current });
+        else
+            announce('被动装备');
+    }
+    function renderDock(state: Match) {
+        const tower = unit();
+        const enemy = state.enemies.find(enemy => enemy.id === enemyId);
+        const signature = JSON.stringify([state.matchId, selection, current, enemyId, learning, tower?.hero, tower?.templateId, tower?.autoModes, state.inventory, state.cards, state.gold, state.lumber, options.writable(), enemy?.hp, tower?.life?.hp, Math.floor(state.queue.nowUs / 1000000)]);
+        if (signature === lastRender)
+            return;
+        lastRender = signature;
+        const strip = dock.querySelector('.selection-strip')!;
+        strip.replaceChildren();
+        for (const id of selection) {
+            const entry = unit(id);
+            const node = button(id === -1 ? '工人' : towerLevels.get(entry?.templateId ?? '')?.name ?? '灵兽', () => select(id));
+            node.classList.toggle('active', id === current);
+            node.ondblclick = () => options.scene()?.focusAt(id === -1 ? state.worker : entry!);
+            strip.append(node);
+        }
+        const info = dock.querySelector('.unit-info')!;
+        info.replaceChildren();
+        const portrait = document.createElement('div');
+        portrait.className = 'unit-portrait';
+        painted(portrait, current === -1 ? 'nsha' : tower?.templateId ?? '');
+        const detail = document.createElement('div');
+        const title = document.createElement('h2');
+        title.textContent = enemy ? `${enemy.unitId} #${enemy.id}` : current === -1 ? '工人' : tower ? towerLevels.get(tower.templateId)?.name ?? tower.templateId : '未选择单位';
+        detail.append(title);
+        const stats = document.createElement('p');
+        if (enemy)
+            stats.textContent = `生命 ${Math.ceil(enemy.hp)} · 速度 ${enemy.speed}`;
+        else if (tower) {
+            const gear = state.inventory?.filter(item => item.towerId === tower.id).map(item => item.itemId) ?? [];
+            const attributes = tower.hero ? effectiveAttributes(tower.hero, gear) : undefined;
+            stats.textContent = `${tower.hero ? `等级 ${tower.hero.level} · 经验 ${tower.hero.xp} · 技能点 ${tower.hero.points}\n` : ''}${attributes ? `力量 ${Math.floor(attributes.STR)}　敏捷 ${Math.floor(attributes.AGI)}　智力 ${Math.floor(attributes.INT)}\n` : ''}射程 ${weapons[tower.templateId]?.[0]?.max ?? 0}${tower.life ? ` · 生命 ${Math.ceil(tower.life.hp)}/${Math.ceil(tower.life.maximum)}` : ''}`;
+        }
+        else if (current === -1)
+            stats.textContent = '右键移动／拾取 · 自动前往建造与交接';
+        if (tower?.mana !== undefined)
+            stats.textContent += `\n魔法 ${Math.floor(tower.mana)}/${Math.floor(tower.manaMaximum ?? tower.mana)}`;
+        detail.append(stats, button('详细操作', () => open('对局')));
+        info.append(portrait, detail);
+        const inventory = dock.querySelector('.six-slots')!;
+        inventory.replaceChildren();
+        for (let slot = 0; slot < 6; slot++) {
+            const item = state.inventory?.find(item => item.slot === slot && item.towerId === (current === -1 ? undefined : current));
+            const card = current === -1 ? state.cards.find(card => card.slot === slot) : undefined;
+            const book = current === -1 ? state.books?.find(book=>book.slot===slot) : undefined;
+            const name = book ? prayerBooks.find(entry=>entry.id===book.bookId)!.name : item ? items.get(item.itemId)!.name : card ? cardTemplates.get(card.card)!.name : '';
+            const node = button(name, () => card ? (() => { const nodes = [...get('cards').querySelectorAll('button')]; nodes.find(node => node.textContent === `${cardTemplates.get(card.card)!.name} · ${cardTemplates.get(card.card)!.rarity}`)?.click(); })() : useItem(slot), !options.writable() || !!enemy || current === -2);
+            node.title = name + (item ? '\n左键使用；右键交接；Alt＋右键切换主动装备自动模式' : '');
+            if (item) {
+                painted(node, item.itemId);
+                node.classList.toggle('auto', tower?.autoModes?.[item.itemId] !== false && isActiveTowerEquipment(item.itemId));
+            }
+            const key = document.createElement('kbd');
+            key.textContent = '⌥' + itemKeys[slot].toUpperCase();
+            node.append(key);
+            node.oncontextmenu = event => { event.preventDefault(); if (!item)
+                return; if (event.altKey && tower && (isActiveTowerEquipment(item.itemId) || isTargetedEquipment(item.itemId) || item.itemId === 'i325'))
+                options.send({ type: 'set-auto-mode', towerId: tower.id, key: item.itemId, enabled: tower.autoModes?.[item.itemId] === false });
+            else {
+                carrying = item.id;
+                announce(`交接${name} · 左键点击目标单位`);
+            } };
+            inventory.append(node);
+        }
+        const grid = dock.querySelector('.twelve-slots')!;
+        grid.replaceChildren();
+        commands = [];
+        const add = (label: string, action: () => void, disabled = false, id?: string, toggle?: () => void) => {
+            const index = commands.length;
+            commands.push(action);
+            const node = button(label, action, disabled || !options.writable());
+            const key = document.createElement('kbd');
+            key.textContent = keys[index].toUpperCase();
+            node.append(key);
+            if (id) {
+                painted(node, id);
+                node.dataset.skill = id;
+                node.classList.toggle('auto', !learning && !!toggle && tower?.autoModes?.[id] !== false);
+            }
+            if (toggle)
+                node.oncontextmenu = event => { event.preventDefault(); toggle(); };
+            grid.append(node);
+            return node;
+        };
+        if (tower) {
+            for (const skill of learnableSkills(tower.templateId).slice(0, 3)) {
+                const rank = tower.hero?.ranks[skill.skillId] ?? 0;
+                const required = tower.hero && learningLevel(tower.hero, tower.templateId, skill.skillId);
+                const castable = isCastableHeroSkill(skill.skillId);
+                const node = add(`${skill.name} ${rank}`, () => {
+                    if (learning) {
+                        options.send({ type: 'learn-skill', towerId: tower.id, skillId: skill.skillId });
+                        learning = false;
+                        lastRender = '';
+                        return;
+                    }
+                    if (isCastableHeroSkill(skill.skillId)) {
+                        const mode = heroSpellTargetMode(skill.skillId);
+                        if (mode === 'self')
+                            options.send({ type: 'cast-hero', towerId: tower.id, skillId: skill.skillId });
+                        else
+                            aim({ kind: mode === 'unit' ? 'enemy' : 'point', label: skill.name, action: (point, id) => ({ type: 'cast-hero', towerId: tower.id, skillId: skill.skillId as keyof typeof heroSpells, ...(mode === 'unit' ? { targetId: id } : { point }) }) });
+                    }
+                }, learning ? !tower.hero || !tower.hero.points || required === undefined || tower.hero.level < required : !rank || !castable, skill.skillId, castable ? () => options.send({ type: 'set-auto-mode', towerId: tower.id, key: skill.skillId, enabled: tower.autoModes?.[skill.skillId] === false }) : undefined);
+                node.title = `${skill.name} · ${castable ? '主动' : '被动'} · 等级 ${rank}${required !== undefined ? `\n下一级需要英雄 ${required} 级` : ''}`;
+                const ready = tower.heroSpellReady?.[skill.skillId as keyof typeof heroSpells] ?? tower.towerSpellReady?.[skill.skillId] ?? ((skill.skillId === 'A068' || skill.skillId === 'A149') ? tower.treeGrab?.readyUs : 0) ?? 0;
+                if (!learning && ready > state.queue.nowUs) {
+                    const timer = document.createElement('span');
+                    timer.className = 'skill-cooldown';
+                    timer.textContent = String(Math.ceil((ready - state.queue.nowUs) / 1000000));
+                    node.append(timer);
+                }
+                if (learning && skill.skillId === 'A067')
+                    node.title += `\n名义伤害 ${[0, 150, 275, 420, 650, 860, 1120][rank]} → ${[0, 150, 275, 420, 650, 860, 1120][Math.min(6, rank + 1)]}`;
+                if (learning && skill.skillId === 'A069')
+                    node.title += `\n累计攻击加成 ${rank * 90} → ${(rank + 1) * 90}`;
+                const profile = heroSpells[skill.skillId as keyof typeof heroSpells];
+                if (learning && profile)
+                    node.title += `\n伤害 ${profile.damage[Math.min(Math.max(0, rank - 1), profile.damage.length - 1)]} → ${profile.damage[Math.min(rank, profile.damage.length - 1)]}`;
+            }
+            if (!tower.hero)
+                for (const spell of (towerSpells.get(tower.templateId) ?? []).slice(0, 3)) {
+                    const name = towerLevels.get(tower.templateId)?.bindings.find(binding => binding.skillId === spell.id)?.name ?? spell.id;
+                    add(name, () => spell.effect.kind === 'purge' ? aim({kind:'enemy',label:name,action:(_point,id)=>({type:'cast-tower',towerId:tower.id,skillId:spell.id,targetId:id})}) : options.send({ type: 'cast-tower', towerId: tower.id, skillId: spell.id }), false, spell.id, () => options.send({ type: 'set-auto-mode', towerId: tower.id, key: spell.id, enabled: tower.autoModes?.[spell.id] === false }));
+                }
+            while (commands.length < 3)
+                add('', () => { }, true);
+            add(learning ? '返回' : '学习技能', () => { learning = !learning; lastRender = ''; }, !tower.hero);
+            if (learning) {
+                for (const skill of learnableSkills(tower.templateId).slice(3, 6)) {
+                    const required = tower.hero && learningLevel(tower.hero, tower.templateId, skill.skillId);
+                    add(skill.name, () => { options.send({ type: 'learn-skill', towerId: tower.id, skillId: skill.skillId }); learning = false; lastRender = ''; }, !tower.hero?.points || required === undefined || tower.hero.level < required);
+                }
+            }
+            add('攻击', () => aim({ kind: 'enemy', label: '集火', action: (_point, id) => ({ type: 'focus-target', towerId: tower.id, targetId: id }) }));
+            add('停止', () => { options.send(tower.summon?.independent ? { type: 'stop-wolf', unitId: tower.id } : { type: 'focus-target', towerId: tower.id }); options.send({ type: 'stop-tower-cast', towerId: tower.id }); });
+            add('升级', () => options.send({ type: 'upgrade-tower', towerId: tower.id }), !towerLevels.get(tower.templateId)?.upgrade);
+            add('回收', () => {
+                const equipped = state.inventory?.filter(item => item.towerId === tower.id) ?? [];
+                if ((tower.hero || equipped.length) && !confirm(`回收${title.textContent}？返还 ${Math.floor((towerLevels.get(tower.templateId)?.fields.points?.value ?? 0) * recycleRate)} 金；普通装备留地，开局包、箱钥匙及魔焰等特殊物品按规则销毁。当前携带 ${equipped.length} 件。`))
+                    return;
+                options.send({ type: tower.pending ? 'cancel-construction' : 'recycle-tower', towerId: tower.id });
+            });
+        }
+        else if (current === -1) {
+            add('建造', () => { open('对局'); get('builds').scrollIntoView({ block: 'center' }); });
+            add('塔卡', () => { open('对局'); get('cards').scrollIntoView({ block: 'center' }); });
+            add('抽卡', () => { open('对局'); get('draws').scrollIntoView({ block: 'center' }); });
+            add('天赋', () => { open('对局'); get('talents').scrollIntoView({ block: 'center' }); });
+            add('移动', () => aim({ kind: 'point', label: '移动工人', action: point => ({ type: 'move-worker', point }) }));
+            add('停止', () => options.send({ type: 'stop-worker' }));
+        }
+        while (grid.children.length < 12) {
+            const empty = document.createElement('div');
+            empty.className = 'empty-command';
+            grid.append(empty);
+        }
+        shortcuts.replaceChildren();
+        for (const id of [-1, ...state.structures.filter(tower => tower.hero).map(tower => tower.id)]) {
+            const entry = unit(id);
+            const node = button(id === -1 ? '工人' : towerLevels.get(entry!.templateId)!.name, () => select(id));
+            painted(node, id === -1 ? 'nsha' : entry!.templateId);
+            node.ondblclick = () => options.scene()?.focusAt(id === -1 ? state.worker : entry!);
+            shortcuts.append(node);
+        }
+    }
+    function objects(state: Match) {
+        return [{ id: -1, kind: 'ally', point: state.worker }, ...state.structures.map(tower => ({ id: tower.id, kind: 'ally', point: tower })), ...(state.summons ?? []).filter(unit => unit.summon?.independent).map(unit => ({ id: unit.id, kind: 'ally', point: unit })), ...state.enemies.filter(enemy => canSeeEnemy(state, enemy)).map(enemy => ({ id: enemy.id, kind: 'enemy', point: enemy })), ...(state.inventory ?? []).filter(item => item.slot === null).map(item => ({ id: item.id, kind: 'item', point: item.point })), ...state.cards.filter(card => card.slot === null).map(card => ({ id: card.id, kind: 'card', point: card.point }))];
+    }
+    const local = (event: MouseEvent) => { const box = canvas.getBoundingClientRect(); return { x: event.clientX - box.left, y: event.clientY - box.top }; };
+    function pick(event: MouseEvent) {
+        const state = options.match(), scene = options.scene();
+        if (!state || !scene)
+            return;
+        const point = local(event);
+        return objects(state).map(object => ({ ...object, screen: scene.screenAt(object.point) })).filter(object => Math.hypot(object.screen.x - point.x, object.screen.y - point.y) < 30).sort((a, b) => Math.hypot(a.screen.x - point.x, a.screen.y - point.y) - Math.hypot(b.screen.x - point.x, b.screen.y - point.y))[0];
+    }
+    canvas.addEventListener('click', event => {
+        if (suppressClick) {
+            suppressClick = false;
+            event.stopImmediatePropagation();
+            return;
+        }
+        if (modal)
+            return;
+        const hit = pick(event);
+        const point = options.scene()?.pointAt(event);
+        if (!point)
+            return;
+        if (target) {
+            event.stopImmediatePropagation();
+            if ((target.kind === 'enemy' && hit?.kind !== 'enemy') || (target.kind === 'ally' && (hit?.kind !== 'ally' || hit.id===-1))) {
+                announce('请选择敌方目标');
+                return;
+            }
+            target.command = options.send(target.action(point, hit?.id));
+            return;
+        }
+        if (options.placing())
+            return;
+        if (hit?.kind === 'ally')
+            select(hit.id, event.shiftKey);
+        else if (hit?.kind === 'enemy') {
+            enemyId = hit.id;
+            selection = [];
+            current = -2;
+            lastRender = '';
+        }
+    }, true);
+    canvas.addEventListener('contextmenu', event => {
+        event.preventDefault();
+        if (modal)
+            return;
+        if (target || carrying !== undefined || options.placing()) {
+            cancel();
+            return;
+        }
+        const hit = pick(event);
+        const point = options.scene()?.pointAt(event);
+        if (!point)
+            return;
+        for (const id of selection) {
+            const tower = unit(id);
+            if (hit?.kind === 'enemy') {
+                if (tower)
+                    options.send(tower.summon?.independent ? { type: 'attack-with-wolf', unitId: id, targetId: hit.id } : { type: 'focus-target', towerId: id, targetId: hit.id });
+            }
+            else if (id === -1)
+                options.send(hit?.kind === 'item' ? { type: 'pick-up-item', itemId: hit.id } : hit?.kind === 'card' ? { type: 'pick-up-card', cardId: hit.id } : { type: 'move-worker', point });
+            else if (tower?.summon?.independent)
+                options.send({ type: 'move-wolf', unitId: id, point });
+        }
+    });
+    const box = document.createElement('div');
+    box.className = 'selection-box';
+    box.hidden = true;
+    overlay.append(box);
+    canvas.addEventListener('pointerdown', event => { if (event.button === 0 && !target && !options.placing() && !modal)
+        dragStart = local(event); });
+    canvas.addEventListener('pointermove', event => { if (!dragStart)
+        return; const end = local(event); if (Math.hypot(end.x - dragStart.x, end.y - dragStart.y) < 8)
+        return; box.hidden = false; Object.assign(box.style, { left: Math.min(end.x, dragStart.x) + 'px', top: Math.min(end.y, dragStart.y) + 'px', width: Math.abs(end.x - dragStart.x) + 'px', height: Math.abs(end.y - dragStart.y) + 'px' }); });
+    globalThis.addEventListener('pointerup', event => {
+        if (dragStart && !box.hidden) {
+            const end = local(event);
+            const state = options.match(), scene = options.scene();
+            if (state && scene) {
+                const ids = objects(state).filter(object => object.kind === 'ally').filter(object => { const p = scene.screenAt(object.point); return p.x >= Math.min(end.x, dragStart!.x) && p.x <= Math.max(end.x, dragStart!.x) && p.y >= Math.min(end.y, dragStart!.y) && p.y <= Math.max(end.y, dragStart!.y); }).map(object => object.id);
+                selection = event.shiftKey ? [...new Set([...selection, ...ids])] : ids;
+                current = selection[0] ?? -2;
+                enemyId = undefined;
+                lastRender = '';
+            }
+            suppressClick = true;
+        }
+        dragStart = undefined;
+        box.hidden = true;
+    });
+    globalThis.addEventListener('keydown', event => {
+        const typing = event.target instanceof HTMLInputElement || event.target instanceof HTMLSelectElement || event.target instanceof HTMLTextAreaElement;
+        if (event.key === 'Escape') {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            cancel();
+            return;
+        }
+        if (typing)
+            return;
+        if (event.code === 'Space') {
+            event.preventDefault();
+            get('pause').click();
+            return;
+        }
+        if (modal)
+            return;
+        if (event.key === 'Tab') {
+            event.preventDefault();
+            if (selection.length) {
+                current = selection[(selection.indexOf(current) + 1) % selection.length];
+                lastRender = '';
+            }
+            return;
+        }
+        if (/^[0-9]$/.test(event.key)) {
+            event.preventDefault();
+            if (event.ctrlKey)
+                groups.set(event.key, [...selection]);
+            else {
+                selection = [...(groups.get(event.key) ?? [])];
+                current = selection[0] ?? -2;
+                enemyId = undefined;
+                lastRender = '';
+                if (lastGroup.key === event.key && performance.now() - lastGroup.at < 350) {
+                    const entry = current === -1 ? options.match()?.worker : unit();
+                    if (entry)
+                        options.scene()?.focusAt(entry);
+                }
+                lastGroup = { key: event.key, at: performance.now() };
+            }
+            return;
+        }
+        const key = event.key.toLowerCase();
+        if (event.altKey) {
+            const index = itemKeys.indexOf(key);
+            if (index >= 0) {
+                event.preventDefault();
+                useItem(index);
+            }
+            return;
+        }
+        const index = keys.indexOf(key);
+        if (index >= 0) {
+            event.preventDefault();
+            (dock.querySelector('.twelve-slots')!.children[index] as HTMLButtonElement)?.click();
+        }
+    }, true);
+    // Choosing build cards in the management window returns to the battlefield.
+    for (const id of ['builds', 'cards', 'structures'])
+        get(id).addEventListener('click', () => { if (options.placing())
+            close(); });
+    return {
+        update(state: Match | undefined) {
+            if (!state)
+                return;
+            if (matchId !== state.matchId) {
+                matchId = state.matchId;
+                selection = [-1];
+                current = -1;
+                enemyId = undefined;
+                target = undefined;
+                carrying = undefined;
+                groups.clear();
+                openingShown = false;
+                lastRender = '';
+            }
+            selection = selection.filter(id => id === -1 || unit(id));
+            if (current !== -1 && !unit() && enemyId === undefined) {
+                current = selection[0] ?? -2;
+                lastRender = '';
+            }
+            if (target?.command && state.commandResults[target.command]) {
+                if (state.commandResults[target.command].ok)
+                    target = undefined;
+                else {
+                    announce('目标无效或技能未就绪，请重新选择');
+                    target.command = undefined;
+                }
+            }
+            if(!openingShown && canChooseOpening(state)){openingShown=true;open('对局');}
+            renderDock(state);
+            const scene = options.scene();
+            if (!scene)
+                return;
+            const live = new Set<string>();
+            for (const object of objects(state)) {
+                if (object.kind === 'item' || object.kind === 'card')
+                    continue;
+                const key = object.kind + object.id;
+                live.add(key);
+                let node = markers.get(key);
+                if (!node) {
+                    node = document.createElement('div');
+                    node.className = 'unit-marker';
+                    overlay.append(node);
+                    markers.set(key, node);
+                }
+                const p = scene.screenAt(object.point);
+                node.style.left = p.x + 'px';
+                node.style.top = p.y + 'px';
+                const tower = object.kind === 'ally' ? unit(object.id) : undefined;
+                const enemy = object.kind === 'enemy' ? state.enemies.find(enemy => enemy.id === object.id) : undefined;
+                const ratio = enemy ? enemy.hp / (enemy.maxHp ?? enemy.hp) : tower?.life ? tower.life.hp / tower.life.maximum : 1;
+                node.classList.toggle('enemy', !!enemy);
+                node.classList.toggle('selected', selection.includes(object.id) && object.kind === 'ally');
+                node.style.setProperty('--hp', String(Math.max(0, ratio) * 100) + '%');
+                node.title = tower ? towerLevels.get(tower.templateId)?.name ?? '' : '工人';
+            }
+            for (const [key, node] of markers)
+                if (!live.has(key)) {
+                    node.remove();
+                    markers.delete(key);
+                }
+            for (const hit of state.damageEvents ?? state.recentHits ?? []) {
+                if (seenHits.has(hit))
+                    continue;
+                seenHits.add(hit);
+                if (state.queue.nowUs - hit.atUs > 1000000)
+                    continue;
+                const node = document.createElement('span');
+                node.className = 'live-damage';
+                node.textContent = String(Math.round(hit.amount));
+                const lane = floating.filter(entry => Math.hypot(entry.point.x - hit.x, entry.point.y - hit.y) < 100).length;
+                overlay.append(node);
+                floating.push({ node, point: hit, start: performance.now(), lane });
+            }
+            for (let i = floating.length - 1; i >= 0; i--) {
+                const entry = floating[i];
+                const age = performance.now() - entry.start;
+                if (age > 1000) {
+                    entry.node.remove();
+                    floating.splice(i, 1);
+                    continue;
+                }
+                const p = scene.screenAt(entry.point);
+                entry.node.style.left = p.x + 'px';
+                entry.node.style.top = (p.y - 15 - entry.lane * 23 - age * .05) + 'px';
+                entry.node.style.opacity = String(Math.min(1, (1000 - age) / 250));
+            }
+        }
+    };
+}

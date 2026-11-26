@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>TD3 · 指挥界面</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main id="game">
+    <header class="topbar metal">
+      <button class="brand" id="menu-button" aria-label="操作说明"><b>TD3</b><span class="mode">个人 · 普通</span></button>
+      <div class="resources" aria-label="资源">
+        <span><i class="resource-icon gold-icon"></i><strong id="gold">8,640</strong><small>金币</small></span>
+        <span><i class="resource-icon wood-icon"></i><strong>328</strong><small>木材</small></span>
+        <span><i class="resource-icon population-icon"></i><strong>65<span class="muted"> / 90</span></strong><small>人口</small></span>
+      </div>
+      <div class="wave"><b>第 <strong>18</strong> 波<span> / 55</span></b><span>下一波 <strong id="wave-countdown">00:42</strong></span></div>
+      <div class="time-controls"><span id="clock">16:28</span><button id="speed-button" title="切换速度">1×</button><button id="pause-button" aria-label="暂停" title="暂停 / 继续 · 空格"><svg viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></svg></button></div>
+    </header>
+
+    <section id="battlefield" aria-label="战场">
+      <canvas id="field" aria-label="循环战场"></canvas>
+      <div class="field-vignette"></div>
+      <div id="unit-overlays"></div>
+      <div id="damage-layer" aria-hidden="true"></div>
+      <div id="selection-box" hidden></div>
+      <div id="cast-ring" hidden></div>
+      <nav class="hero-shortcuts" id="hero-shortcuts" aria-label="快速选择"></nav>
+      <div class="containment"><span class="diamond"></span><span>容怪 <b>38</b><span class="muted"> / 100</span></span><div class="containment-track"><i></i></div></div>
+      <nav class="global-actions" aria-label="全局操作">
+        <button data-open="shop"><svg viewBox="0 0 24 24"><path d="M4 9h16l-2-5H6L4 9Zm1 0v11h14V9M9 20v-7h6v7"/></svg><span>商店</span></button>
+        <button data-open="craft"><svg viewBox="0 0 24 24"><path d="m5 3 5 2 1 5-3 3-5-1-1-5 4 4 3-3-4-5ZM11 13l8 8 3-3-8-8"/></svg><span>合成</span></button>
+        <button data-open="codex"><svg viewBox="0 0 24 24"><path d="M12 6C8 3 4 4 3 5v15c4-2 7-1 9 0 2-1 5-2 9 0V5c-1-1-5-2-9 1Zm0 0v14"/></svg><span>图鉴</span></button>
+      </nav>
+      <div class="camera-actions"><button id="reset-camera" title="复位视角"><svg viewBox="0 0 24 24"><path d="M4 10a8 8 0 1 1 1 8M4 3v7h7"/></svg></button></div>
+      <div id="paused-label" hidden>已暂停 <kbd>空格继续</kbd></div>
+      <div id="order-hint" hidden></div>
+      <div id="notification" role="status" hidden></div>
+      <div class="loading" id="loading">正在进入战场<span></span></div>
+    </section>
+
+    <footer class="command-deck metal">
+      <div class="selection-strip"><div id="party" aria-label="当前选择"></div><span id="selection-caption">当前选择 · 小小</span><span class="deck-help">Tab 切换单位<span>右键下令</span></span></div>
+      <div class="deck-body">
+        <section class="unit-info" aria-label="选中单位属性">
+          <div class="portrait-column"><div id="portrait" class="portrait art" style="--art:0"><span id="level-badge">18</span></div><div class="meter health"><i></i><span id="health-label">2,460 / 2,460</span></div><div class="meter mana"><i></i><span id="mana-label">480 / 620</span></div></div>
+          <div class="unit-details"><div class="unit-title"><h1 id="unit-name">小小</h1><span id="unit-rarity">SR</span></div><p id="unit-role">力量英雄 · 近战</p><div class="stats" id="stats"></div><div class="xp"><div><span>经验</span><span>1,240 / 1,800</span></div><div class="xp-track"><i></i></div></div><button class="text-button" id="details-button">详细属性 <span>›</span></button></div>
+        </section>
+        <section class="inventory" aria-label="物品栏"><div class="section-heading"><h2>物品栏</h2><span id="inventory-count">4 / 6</span></div><div id="inventory-grid"></div><p class="inventory-help">左键使用 · 右键转交</p></section>
+        <section class="commands" aria-label="命令面板"><div class="section-heading"><h2 id="command-title">指令</h2><span id="skill-points">可学习 <b>1</b></span></div><div id="command-grid"></div></section>
+      </div>
+    </footer>
+    <div id="tooltip" role="tooltip" hidden></div>
+
+    <div class="modal-backdrop" id="market-backdrop" hidden>
+      <section class="market-window metal" role="dialog" aria-modal="true" aria-labelledby="market-title">
+        <header class="market-header"><h2 id="market-title" class="sr-only">商店</h2><nav class="market-tabs" aria-label="商店、合成和图鉴"><i id="tab-indicator"></i><button data-tab="shop" class="active">商店</button><button data-tab="craft">合成</button><button data-tab="codex">图鉴</button></nav><button class="close-button" id="close-market" aria-label="关闭窗口">× <kbd>Esc</kbd></button></header>
+        <div class="market-toolbar"><div class="filters" id="filters"></div><label class="search"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/></svg><input id="search" placeholder="搜索名称" autocomplete="off" aria-label="搜索名称"><kbd>/</kbd></label></div>
+        <div class="market-content"><div id="goods-list"></div><aside class="item-detail" id="item-detail"></aside></div>
+        <footer class="market-footer"><span><span class="live-dot"></span><span id="market-running">战斗进行中</span><kbd>空格</kbd> 暂停</span><span>购买物品送至工人物品栏</span></footer>
+      </section>
+    </div>
+    <div class="modal-backdrop" id="confirm-backdrop" hidden><section class="small-dialog metal" role="dialog" aria-modal="true" aria-labelledby="confirm-title"><h2 id="confirm-title">回收小小？</h2><p id="confirm-copy"></p><div><button id="cancel-recycle">保留单位</button><button class="primary" id="confirm-recycle">确认回收</button></div></section></div>
+    <div class="modal-backdrop" id="help-backdrop" hidden><section class="help-dialog metal" role="dialog" aria-modal="true" aria-labelledby="help-title"><button class="close-button" id="close-help" aria-label="关闭操作说明">× <kbd>Esc</kbd></button><h2 id="help-title">操作方式</h2><dl><dt>选择与指挥</dt><dd>左键选择 · Shift 多选 · 拖动框选 · 右键下令</dd><dt>编队</dt><dd>Ctrl + 数字编队 · 数字选择 · 双击定位 · Tab 切换</dd><dt>镜头</dt><dd>中键平移 · Shift + 中键旋转 · 滚轮缩放</dd><dt>技能与物品</dt><dd>QWER / ASDF / ZXCV 施放指令 · Alt + QWE / ASD 使用物品</dd><dt>自动施法</dt><dd>右键技能切换 · Alt + 右键物品切换 · 亮边表示自动</dd><dt>取消与暂停</dt><dd>右键 / Esc 取消操作 · 空格暂停 / 继续</dd></dl><button class="primary" id="help-done">返回战场</button></section></div>
+  </main>
+  <script type="module" src="./ui.js"></script>
+</body>
+</html>
