@@ -8,6 +8,7 @@ export const gameStartUs = us(5);
 const multiplier = waveSource.difficultyHpAndManaMultipliers[1];
 const mobility = new Map(pathing.mainMnnnAndEndlessMobilityObjects.map(row => [row.unitId, row]));
 const templates = new Map(Object.entries(enemyRules.templates));
+export const enemyTemplateAbilities = (id: string) => templates.get(id)?.abilities ?? [];
 
 export const waves = waveSource.waves.map(wave => {
   const boundary = boundaries.mainline[wave.wave - 1];
@@ -33,7 +34,7 @@ export const waves = waveSource.waves.map(wave => {
     radius: mobility.get(wave.unitId)?.balance.record.collision ?? 1,
     layer: finalBoss || movement?.movetp === "fly" ? "fly" as const : "ground" as const,
     points: wave.capacityPointsPerUnit,
-    abilities: templates.get(wave.unitId)?.abilities ?? [],
+    abilities: enemyTemplateAbilities(wave.unitId),
   };
 });
 

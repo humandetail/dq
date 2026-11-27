@@ -75,18 +75,29 @@ export function addM2Terrain(scene: THREE.Scene) {
   const trunkShape = new THREE.CylinderGeometry(.055, .09, .6, 5);
   const crownShape = new THREE.ConeGeometry(.34, .8, 6);
   const rockShape = new THREE.DodecahedronGeometry(.35, 0);
+  const boundaryTrees = 52;
+  const trees = map.obstacles.length * 11 + boundaryTrees;
+  const trunks = new THREE.InstancedMesh(trunkShape, bark, trees);
+  const crowns = new THREE.InstancedMesh(crownShape, foliage, trees * 3);
+  const rocks = new THREE.InstancedMesh(rockShape, rock, boundaryTrees);
+  const transform = new THREE.Object3D();
+  function put(mesh: THREE.InstancedMesh, index: number) {
+    transform.updateMatrix();
+    mesh.setMatrixAt(index, transform.matrix);
+  }
+  let treeIndex = 0;
   function tree(x: number, y: number, ground: number, height: number) {
-    const trunk = new THREE.Mesh(trunkShape, bark);
-    trunk.position.set(world(x), ground + .3 * height, world(y));
-    trunk.scale.setScalar(height);
-    scene.add(trunk);
+    transform.position.set(world(x), ground + .3 * height, world(y));
+    transform.scale.setScalar(height);
+    transform.rotation.y = 0;
+    put(trunks, treeIndex);
     for (const level of [0, 1, 2]) {
-      const crown = new THREE.Mesh(crownShape, foliage);
-      crown.position.set(world(x), ground + (.6 + level * .22) * height, world(y));
-      crown.scale.setScalar(height * (1 - .18 * level));
-      crown.rotation.y = random() * Math.PI;
-      scene.add(crown);
+      transform.position.set(world(x), ground + (.6 + level * .22) * height, world(y));
+      transform.scale.setScalar(height * (1 - .18 * level));
+      transform.rotation.y = random() * Math.PI;
+      put(crowns, treeIndex * 3 + level);
     }
+    treeIndex++;
   }
   for (const area of map.obstacles) {
     for (let i = 0; i < 11; i++) {
@@ -94,16 +105,16 @@ export function addM2Terrain(scene: THREE.Scene) {
         area.minY + 15 + random() * (area.maxY - area.minY - 30), .32, .65 + random() * .9);
     }
   }
-  for (let i = 0; i < 52; i++) {
+  for (let i = 0; i < boundaryTrees; i++) {
     const x = i % 2 ? -1380 + random() * 65 : 1315 + random() * 65;
     const y = -1320 + random() * 2640;
     tree(x, y, -.01, .55 + random() * .65);
-    const stone = new THREE.Mesh(rockShape, rock);
-    stone.position.set(world(x) + .16, .12, world(y) + .35);
-    stone.scale.set(.5 + random(), .55, .5 + random());
-    stone.rotation.y = random() * 6;
-    scene.add(stone);
+    transform.position.set(world(x) + .16, .12, world(y) + .35);
+    transform.scale.set(.5 + random(), .55, .5 + random());
+    transform.rotation.y = random() * 6;
+    put(rocks, i);
   }
+  scene.add(trunks, crowns, rocks);
 
   const border = map.containment;
   const borderPoints: Point[] = [
@@ -112,14 +123,17 @@ export function addM2Terrain(scene: THREE.Scene) {
   ];
   const stone = new THREE.MeshStandardMaterial({ color: "#b2a184", map: cliff });
   const post = new THREE.CylinderGeometry(.11, .17, .31, 6);
+  const posts = new THREE.InstancedMesh(post, stone, borderPoints.length * 13);
+  transform.rotation.y = 0;
+  transform.scale.setScalar(1);
   for (let edge = 0; edge < borderPoints.length; edge++) {
     const a = borderPoints[edge], b = borderPoints[(edge + 1) % borderPoints.length];
     for (let i = 0; i < 13; i++) {
-      const body = new THREE.Mesh(post, stone);
-      body.position.set(world(a.x + (b.x - a.x) * i / 13), .14, world(a.y + (b.y - a.y) * i / 13));
-      scene.add(body);
+      transform.position.set(world(a.x + (b.x - a.x) * i / 13), .14, world(a.y + (b.y - a.y) * i / 13));
+      put(posts, edge * 13 + i);
     }
   }
+  scene.add(posts);
 
   const portalStone = new THREE.MeshStandardMaterial({ color: "#8c8171", map: cliff });
   const ember = new THREE.MeshStandardMaterial({ color: "#deba79", emissive: "#ae5d32", emissiveIntensity: .8 });

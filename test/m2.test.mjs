@@ -2,7 +2,8 @@ import { scheduleEvent } from "../src/game/event-queue.ts";
 import { heroThresholds } from "../src/game/m2/hero.ts";
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { configuration, cards, chestPools, items, openingChoices, qualificationChains, recipes, seasonTasks, workerTowers } from "../src/game/m2/content.ts";
+import m2Configuration from "../docs/m2-configuration.json" with { type: "json" };
+import { configuration, cards, chestPools, items, m2Cards, m2Items, openingChoices, qualificationChains, recipes, seasonTasks, workerTowers } from "../src/game/m2/content.ts";
 import { buildAnchor, chooseWaypoint, map, roadEdges, mapVersion } from "../src/game/m2/map.ts";
 import { canSeeEnemy, circleId, containmentPoints, creditTime, drain, enqueue, grantHeroExperience, newMatch, qualified, removeDeadEnemy, restoreHeroState, talentHeroDamageFactor } from "../src/game/m2/match.ts";
 import { movementSweep, moveAlongRoute, moveUnits } from "../src/game/m2/movement.ts";
@@ -22,18 +23,27 @@ function submit(state, id, action) {
   return state.commandResults[id];
 }
 
+function controlledOpening(matchId, card) {
+  for (let seed = 1; seed <= 100; seed++) {
+    const match = newMatch(matchId, seed);
+    if (match.openingCandidates.includes(card)) return match;
+  }
+  throw new Error(`Controlled fixture did not offer ${card}`);
+}
+
 function openHeroChoices(state) {
   const pack = state.inventory.find(item => item.itemId === "i004");
   assert.equal(submit(state, "open-starter", { type: "use-item", itemId: pack.id }).ok, true);
 }
 
-test("M2 content resolves the configured pools, qualification providers, skills, worker chains and recipes", () => {
-  assert.deepEqual(openingChoices, ["i564", "i581", "i569", "i576"]);
-  assert.deepEqual(openingChoices.map(id => cards.get(id).name), ["小小", "双头龙", "暗影萨满", "复仇之魂"]);
+test("Historical M2 content and the active pools resolve their qualification providers, skills, worker chains and recipes", () => {
+  assert.deepEqual(m2Configuration.openingChoiceOrder, ["i564", "i581", "i569", "i576"]);
+  assert.deepEqual(m2Configuration.openingChoiceOrder.map(id => m2Cards.get(id).name), ["小小", "双头龙", "暗影萨满", "复仇之魂"]);
+  assert.deepEqual(openingChoices, [...m2Configuration.openingChoiceOrder, "i551", "i552", "i553", "i554", "i555", "i556", "i557", "i558", "i559", "i560", "i561", "i562", "i563", "i565", "i566", "i567", "i568", "i570", "i572", "i573", "i574", "i575", "i578", "i579", "i580", "i582", "i583", "i584", "i585", "i586", "i587", "i588", "i589", "i590", "i591", "i592", "i593", "i594", "i595", "i596", "i597"]);
   assert.equal(cards.get("i564").levels[0].fields.STR.value, 28);
   assert.equal(cards.get("i564").levels[0].growth.fields.AGI.selectedValue, 0);
-  assert.deepEqual([...cards.keys()], Object.values(configuration.cardPools).flat());
-  assert.equal(cards.size, 19);
+  assert.deepEqual([...m2Cards.keys()], Object.values(configuration.cardPools).flat().filter(id => m2Cards.has(id)));
+  assert.equal(m2Cards.size, 19);
   assert.equal(workerTowers.size, 3);
   for (const tower of [...cards.values(), ...workerTowers.values()]) {
     for (let i = 1; i < tower.levels.length; i++) {
@@ -48,23 +58,27 @@ test("M2 content resolves the configured pools, qualification providers, skills,
   for (const chain of qualificationChains.values()) {
     assert.equal(chain.levels.at(-1).id, chain.requireUnit);
   }
-  assert.equal(items.size, 202);
-  assert.equal(recipes.size, 72);
+  assert.equal(m2Items.size, 202);
+  assert.equal([...recipes.keys()].filter(id => m2Items.has(id)).length, 72);
   assert.deepEqual(recipes.get("i265"), ["i266", "i308"]);
   for (const material of [...recipes.values()].flat()) assert.ok(items.has(material), material);
-  assert.deepEqual(chestPools.get("i404").find(group => group.weight === 30).entries, ["i502", "i503"]);
-  assert.equal(seasonTasks.spring.length + seasonTasks.summer.length, 13);
+  assert.deepEqual(m2Configuration.chestOverrides.i404.entries, ["i502", "i503"]);
+  assert.deepEqual(chestPools.get("i404").find(group => group.weight === 30).entries, ["i501", "i502", "i503", "i504"]);
+  assert.equal(seasonTasks.spring.length + seasonTasks.summer.length, 18);
+  assert.ok(["1", "2", "3", "9"].every(restored => seasonTasks.spring.some(([id]) => id === restored)));
+  assert.ok(seasonTasks.summer.some(([id]) => id === "1"));
 });
 
 test("M2 opening, construction, cancellation and refund are ordered and survive a snapshot", () => {
   let state = newMatch("start", 47);
   openHeroChoices(state);
+  const [selected, other] = state.openingCandidates;
   const openingRandomState = state.randomState;
-  const choice = submit(state, "initial", { type: "choose-opening", card: "i581" });
+  const choice = submit(state, "initial", { type: "choose-opening", card: selected });
   assert.equal(choice.ok, true);
   assert.equal(state.randomState, openingRandomState);
-  assert.equal(enqueue(state, { id: "initial", matchId: state.matchId, action: { type: "choose-opening", card: "i581" } }), false);
-  assert.equal(submit(state, "second", { type: "choose-opening", card: "i569" }).ok, false);
+  assert.equal(enqueue(state, { id: "initial", matchId: state.matchId, action: { type: "choose-opening", card: selected } }), false);
+  assert.equal(submit(state, "second", { type: "choose-opening", card: other }).ok, false);
 
   const openCard = state.cards[0];
   const bad = submit(state, "bad", { type: "build-card", cardId: openCard.id, point: { x: 0, y: 0 } });
@@ -86,7 +100,7 @@ test("M2 opening, construction, cancellation and refund are ordered and survive 
   assert.equal(submit(state, "cancel", { type: "cancel-construction", towerId: construction.createdId }).ok, true);
   assert.equal(state.population, 0);
   assert.equal(state.cards.length, 1);
-  assert.equal(state.cards[0].card, "i581");
+  assert.equal(state.cards[0].card, selected);
   assert.notEqual(state.cards[0].id, openCard.id);
   assert.deepEqual(state.cards[0].point, { x: -288, y: -160 });
   advanceTo(state, 2 * second);
@@ -335,7 +349,7 @@ test("A02 far build approaches without spending, then commits after snapshot rec
 
 test("A02 placement rejects an unaffordable or over-capacity build without partial state", () => {
   const point = { x: -288, y: -160 };
-  const state = newMatch("placement-resources", 47);
+  const state = controlledOpening("placement-resources", "i564");
   state.gold = 99;
   assert.equal(submit(state, "gold", { type: "build-worker-tower", tower: "n001", point }).reason, "resources");
   assert.deepEqual([state.gold, state.population, state.structures.length], [99, 0, 0]);
@@ -406,7 +420,7 @@ test("horizontal connectors match the vertical outer-middle-inner chains and sto
 });
 
 test("M2 hero learning spends one point, requires the next rank level, and resumes without replay", () => {
-  let state = newMatch("learn", 47);
+  let state = controlledOpening("learn", "i564");
   openHeroChoices(state);
   const card = submit(state, "opening-card", { type: "choose-opening", card: "i564" });
   const tower = submit(state, "hero-build", { type: "build-card", cardId: card.createdId, point: { x: -288, y: -160 } });
@@ -433,7 +447,7 @@ test("M2 hero learning spends one point, requires the next rank level, and resum
 });
 
 test("M2 last prerequisite recycle immediately removes qualification and the next level strips to twenty", () => {
-  const state = newMatch("recycle", 47);
+  const state = controlledOpening("recycle", "i564");
   openHeroChoices(state);
   state.gold = 100_000;
   const card = submit(state, "opening-card", { type: "choose-opening", card: "i564" });
@@ -489,7 +503,7 @@ test("M2 recycling a completed level-two arrow tower pays object points only onc
 });
 
 test("M2 prayer books share six worker slots, stack on an open slot purchase and grant XP only once", () => {
-  let state = newMatch("prayer-books", 47);
+  let state = controlledOpening("prayer-books", "i564");
   openHeroChoices(state);
   const card = submit(state, "opening-card", { type: "choose-opening", card: "i564" });
   const tower = submit(state, "hero-build", { type: "build-card", cardId: card.createdId, point: { x: -288, y: -160 } });
@@ -525,9 +539,9 @@ test("M2 prayer books share six worker slots, stack on an open slot purchase and
 test("starter gifts keep item order, defer the choice until use and survive retry", () => {
   let state = newMatch("starter-order", 47);
   const [starter, newbie] = state.inventory;
-  assert.equal(submit(state, "too-soon", { type: "choose-opening", card: "i564" }).reason, "opening");
+  assert.equal(submit(state, "too-soon", { type: "choose-opening", card: state.openingCandidates[0] }).reason, "opening");
   let initializedRng = 47;
-  for (let draw = 0; draw < 20; draw++) initializedRng = (Math.imul(initializedRng, 1664525) + 1013904223) >>> 0;
+  for (let draw = 0; draw < 20 + (openingChoices.length > 4 ? 4 : 0); draw++) initializedRng = (Math.imul(initializedRng, 1664525) + 1013904223) >>> 0;
   assert.deepEqual([starter.itemId, newbie.itemId, state.randomState], ["i004", "i006", initializedRng]);
   openHeroChoices(state);
   const rng = (Math.imul(initializedRng, 1664525) + 1013904223) >>> 0;
@@ -537,7 +551,7 @@ test("starter gifts keep item order, defer the choice until use and survive retr
   state = JSON.parse(JSON.stringify(state));
   assert.equal(submit(state, "duplicate-pack", { type: "use-item", itemId: starter.id }).ok, false);
   assert.equal(state.randomState, rng);
-  assert.equal(submit(state, "actual-choice", { type: "choose-opening", card: "i564" }).ok, true);
+  assert.equal(submit(state, "actual-choice", { type: "choose-opening", card: state.openingCandidates[0] }).ok, true);
   assert.equal(state.randomState, rng);
   assert.equal(submit(state, "newbie", { type: "use-item", itemId: newbie.id }).ok, true);
   assert.equal(state.inventory.find(item => ["i131", "i133", "i262"].includes(item.itemId)).slot, null);
@@ -766,7 +780,7 @@ test("24 challenge stages retain source templates and grant stage rewards once a
     }
     if (template.family === 0) {
       const [min, max] = [[30, 120], [100, 260], [240, 400]][template.stage];
-      assert.ok(state.challengeScore >= min && state.challengeScore <= max);
+      assert.ok(state.activityScore >= min && state.activityScore <= max);
     } else if (template.stage === 0) assert.equal(state.gold, 5000);
     else if (template.stage === 1) assert.equal(state.lumber, 300);
     else assert.equal(Object.values(state.challengeStock)[0], 1);
@@ -793,7 +807,7 @@ test("m523 reward book purchases once, crafts i265 and wave 54 removes both livi
 });
 
 test("ordinary attacks and immolation earn repeatable bounty and XP on a real wave", () => {
-  let state = newMatch("combat-loop", 811);
+  let state = controlledOpening("combat-loop", "i564");
   openHeroChoices(state);
   const opening = submit(state, "hero-card", { type: "choose-opening", card: "i564" });
   const hero = submit(state, "build-hero", { type: "build-card", cardId: opening.createdId, point: { x: -288, y: -160 } });
@@ -914,7 +928,7 @@ test("a real tower weapon commits the fatal Boss hit and stops scheduled events"
 });
 
 test("Shadow Shaman casts eight independent wards with attacks and expiry surviving a snapshot", () => {
-  const state = newMatch("ward-combat-fixture", 811);
+  const state = controlledOpening("ward-combat-fixture", "i569");
   openHeroChoices(state);
   const choice = submit(state, "opening", { type: "choose-opening", card: "i569" });
   const built = submit(state, "hero", { type: "build-card", cardId: choice.createdId, point: { x: -288, y: -160 } });
@@ -940,7 +954,7 @@ test("Shadow Shaman casts eight independent wards with attacks and expiry surviv
   assert.ok(target.hp < target.maxHp);
 });
 
-test("season points cross original reward nodes once and keep deferred tasks inactive", async () => {
+test("season points credit restored tasks and cross each original reward node once", async () => {
   const { startSeasons, creditSeason } = await import("../src/game/m2/seasons.ts");
   const { seasons, score } = startSeasons();
   assert.equal(score, 60);
@@ -950,11 +964,13 @@ test("season points cross original reward nodes once and keep deferred tasks ina
   assert.equal(seasons.summer.points, 30);
   const restored = JSON.parse(JSON.stringify(seasons));
   assert.equal(creditSeason(restored, "spring", 7, 666), 0);
+  assert.equal(creditSeason(restored, "spring", 1, 13), 70);
   assert.equal(creditSeason(restored, "spring", 1, 13), 0);
   assert.equal(creditSeason(restored, "spring", 4, 33), 0);
-  assert.equal(creditSeason(restored, "spring", 5, 20), 70);
-  assert.equal(restored.spring.points, 100);
-  assert.equal(restored.spring.unlocks.length, 1);
+  assert.equal(creditSeason(restored, "spring", 5, 20), 0);
+  assert.equal(restored.spring.points, 130);
+  assert.deepEqual(restored.spring.nodes, [1, 4, 7, 10]);
+  assert.deepEqual(restored.spring.unlocks, ["k543"]);
   assert.equal(creditSeason(restored, "spring", 5, 1), 0);
 });
 
@@ -2123,14 +2139,14 @@ test("B03 entry zero skips reactions while N533 zero still consumes an existing 
   const { state, enemy, shot, impact } = await damagePipelineFixture();
   enemy.abilities = ["N526", "N533"];
   enemy.barrier = { hits: 5, untilUs: second };
-  state.randomState = 1; // The first draw is 24.
+  state.randomState = 1; // N533 uses the fifth draw (6), after four global weapon proc draws.
   impact({ ...shot, raw: 0 });
   impact(shot);
   const restored = structuredClone(state);
   advanceTo(restored, state.queue.nowUs + 1, 1);
   assert.equal(restored.enemies[0].barrier.hits, 4);
   assert.equal(restored.enemies[0].hp, 1000);
-  assert.equal(restored.randomState, 2165703038); // N533, then the two global attack proc rolls.
+  assert.equal(restored.randomState, 217083232);
 });
 
 test("ordinary weapons reject protected targets before acquisition and before hit rolls", async () => {
@@ -2214,14 +2230,14 @@ test("N068 reads unclamped attack speed and zeros the parent after its separate 
   }
 });
 
-test("Q36 and Q37 each consume their own roll on attack damage without a matching ability", async () => {
+test("the two infernal checks and Q36/Q37 each roll on attack damage without a matching ability", async () => {
   const { state, enemy, shot, impact } = await damagePipelineFixture();
   state.randomState = 1972;
   const next = prior => (Math.imul(prior, 1664525) + 1013904223) >>> 0;
   impact(shot);
   advanceTo(state, state.queue.nowUs + 1);
   assert.equal(enemy.hp, 900);
-  assert.equal(state.randomState, next(next(1972)));
+  assert.equal(state.randomState, next(next(next(next(1972)))));
 });
 
 test("N017 T038 hits at sweep contact, preserves its q001 after retirement, and survives reload past the caster lifetime", async () => {
@@ -2304,7 +2320,7 @@ test("N058 submits a separate T039 chain in range order with one actual source a
     const lowId = { ...enemy, id: 938, x: tower.x + 600, abilities: ["N535"] };
     const immune = { ...enemy, id: 937, x: tower.x + 100, abilities: ["T060"] };
     state.enemies.push(highId, lowId, immune);
-    state.randomState = 1972;
+    state.randomState = 1149; // The fourth draw is exactly N058's 20% threshold.
     impact({ ...shot, sourceTemplate: tower.templateId });
     advanceTo(state, state.queue.nowUs + 1);
     const chain = state.recentHits.filter(hit => hit.sourceTemplate === "q001");
@@ -2410,7 +2426,7 @@ test("a naturally expired ward preserves green and blue contracts on an already 
 test("B03 i263 executes its divine child before committing the unchanged parent amount", async () => {
   const { state, tower, enemy, shot, impact } = await damagePipelineFixture();
   state.inventory = [{ id: 902, itemId: "i263", towerId: tower.id, slot: 0, point: tower, charges: 0 }];
-  state.randomState = 1; // 24, above the 20% divine critical threshold.
+  state.randomState = 870; // The fifth draw is 21, just above the 20% divine critical threshold.
   impact(shot);
   advanceTo(state, state.queue.nowUs + 1);
   assert.equal(state.recentHits.length, 2);
@@ -2423,20 +2439,30 @@ test("B03 i263 executes its divine child before committing the unchanged parent 
   assert.ok(Math.abs(enemy.hp - 861.114) < 1e-8);
 });
 
-test("q025 execution bypasses both N521 protection and T202 overdraft reduction", async () => {
+test("q025 respects the first N521 protection and bypasses an existing grave and T202", async () => {
   const { newHero } = await import("../src/game/m2/hero.ts");
-  const { state, tower, enemy } = await damagePipelineFixture();
-  tower.templateId = "H012";
-  tower.hero = newHero("H012");
-  tower.hero.ranks.A042 = 1;
-  enemy.abilities = ["N521"];
-  enemy.overdraftArmor = 100;
-  enemy.hp = enemy.maxHp = 1_000_000;
-  assert.equal(submit(state, "deathpact", { type: "cast-hero", towerId: tower.id, skillId: "A042" }).ok, true);
-  advanceTo(state, state.queue.nowUs + second);
-  assert.equal(state.enemies.length, 0);
-  assert.equal(state.kills, 1);
-  assert.equal(enemy.graveUntilUs, undefined);
+  for (const initialProtection of [true, false]) {
+    const { state, tower, enemy } = await damagePipelineFixture();
+    tower.templateId = "H012";
+    tower.hero = newHero("H012");
+    tower.hero.ranks.A042 = 1;
+    enemy.abilities = initialProtection ? ["N521"] : [];
+    if (!initialProtection) enemy.graveUntilUs = state.queue.nowUs + 6 * second;
+    enemy.overdraftArmor = 100;
+    enemy.hp = enemy.maxHp = 1_000_000;
+    assert.equal(submit(state, "deathpact", { type: "cast-hero", towerId: tower.id, skillId: "A042" }).ok, true);
+    advanceTo(state, state.queue.nowUs + second);
+    if (initialProtection) {
+      assert.equal(state.enemies.length, 1);
+      assert.equal(enemy.hp, 1_000_000);
+      assert.deepEqual(enemy.abilities, []);
+      assert.ok(enemy.graveUntilUs > state.queue.nowUs);
+      assert.equal(state.kills ?? 0, 0);
+    } else {
+      assert.equal(state.enemies.length, 0);
+      assert.equal(state.kills, 1);
+    }
+  }
 });
 
 test("N582–N584 reanimate in place on strict overkill without registering a death", async () => {
@@ -2779,8 +2805,16 @@ test("N706–N708 apply two-second attack slows once per active mark", async () 
     advanceTo(state, state.queue.nowUs + 1);
     const expected = { attackSlow, movement, untilUs: state.queue.nowUs + 2 * second };
     assert.deepEqual(tower.untouchable, expected);
+    const carrier = state.queue.pending.find(event => event.payload.type === "untouchable-carrier-expire");
+    assert.equal(carrier.dueUs, state.queue.nowUs + 500_000);
+    assert.deepEqual(carrier.payload, { type: "untouchable-carrier-expire", ownerId: enemy.id, targetId: tower.id,
+      point: { x: tower.x, y: tower.y }, rank: Number(id.at(-1)) - 5 });
     const restored = structuredClone(state);
     advanceTo(restored, state.queue.nowUs + 100_000);
+    assert.deepEqual(restored.structures[0].untouchable, expected);
+    assert.deepEqual(restored.queue.pending.find(event => event.timerId === carrier.timerId), carrier);
+    advanceTo(restored, carrier.dueUs);
+    assert.equal(restored.queue.pending.some(event => event.timerId === carrier.timerId), false);
     assert.deepEqual(restored.structures[0].untouchable, expected);
   }
 });
@@ -3302,7 +3336,7 @@ test("i279 consumes two eligible casts and keeps its own flame source after recy
   tower.hero.ranks.A068 = 1;
   tower.population = 20;
   tower.lastAttackTarget = { x: tower.x + 400, y: tower.y };
-  Object.assign(enemy, { x: tower.x + 700, hp: 10_000, maxHp: 10_000 });
+  Object.assign(enemy, { x: tower.x + 550, hp: 10_000, maxHp: 10_000 });
   state.inventory = [{ id: 902, itemId: "i279", towerId: tower.id, slot: 0, point: { ...map.worker }, charges: 0 }];
   const cast = { type: "cast-hero", towerId: tower.id, skillId: "A068" };
   assert.ok(submit(state, "charge", cast).ok);

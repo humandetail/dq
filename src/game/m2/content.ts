@@ -2,8 +2,9 @@ import itemLifecycle from "../../../docs/rules/item-lifecycle.json" with { type:
 import progression from "../../../docs/rules/hero-progression.json" with { type: "json" };
 import summon from "../../../docs/rules/summon-and-delivery.json" with { type: "json" };
 import economy from "../../../docs/rules/economy-data.json" with { type: "json" };
-import configuration from "../../../docs/m2-configuration.json" with { type: "json" };
+import m2Configuration from "../../../docs/m2-configuration.json" with { type: "json" };
 import itemIndex from "../../../docs/m2-item-index.json" with { type: "json" };
+import m3ItemIndex from "./m3-items.json" with { type: "json" };
 import qualifications from "../../../docs/rules/qualification-lifecycle.json" with { type: "json" };
 import towerLifecycle from "../../../docs/rules/tower-lifecycle.json" with { type: "json" };
 import skillSources from "../../../docs/rules/skill-source-coverage.json" with { type: "json" };
@@ -12,18 +13,31 @@ import skins from "../../../docs/rules/skin-and-transformation.json" with { type
 import rewardPacks from "../../../docs/rules/item-reward-packs-batch-01.json" with { type: "json" };
 import sessions from "../../../docs/rules/session-and-task-state.json" with { type: "json" };
 
-export { configuration };
+const restoredNormalCards = ["i702", "i703", "i704", "i705", "i708", "i709", "i711", "i712", "i713", "i714", "i715", "i716", "i717"];
+export const configuration = {
+  ...m2Configuration,
+  cardPools: {
+    ...m2Configuration.cardPools,
+    N: [...m2Configuration.cardPools.N, ...restoredNormalCards].sort(),
+    SR: [...m2Configuration.cardPools.SR, "i551", "i552", "i553", "i554", "i555", "i556", "i557", "i558", "i559", "i560", "i561", "i562", "i563", "i565", "i566", "i567", "i568", "i570", "i571", "i572", "i573", "i574", "i575", "i577", "i578", "i579", "i580", "i582", "i583", "i584", "i585", "i586", "i587", "i588", "i589", "i590", "i591", "i592", "i593", "i594", "i595", "i596", "i597"],
+    SSR: [...m2Configuration.cardPools.SSR, "i501", "i504", "i505", "i506", "i507", "i508", "i509", "i510"],
+  },
+  openingChoiceOrder: [...m2Configuration.openingChoiceOrder, "i551", "i552", "i553", "i554", "i555", "i556", "i557", "i558", "i559", "i560", "i561", "i562", "i563", "i565", "i566", "i567", "i568", "i570", "i572", "i573", "i574", "i575", "i578", "i579", "i580", "i582", "i583", "i584", "i585", "i586", "i587", "i588", "i589", "i590", "i591", "i592", "i593", "i594", "i595", "i596", "i597"],
+  chestOverrides: {
+    ...m2Configuration.chestOverrides,
+    i404: { ...m2Configuration.chestOverrides.i404, entries: m2Configuration.chestOverrides.i404.originalEntries },
+  },
+  deferredSeasonTasks: {
+    spring: [], summer: [],
+  } as Record<"spring" | "summer", number[]>,
+
+};
 export const contentVersion = "m2-core-30";
 export const previousContentVersions = ["m2-core-2", "m2-core-3", "m2-core-4", "m2-core-5", "m2-core-6", "m2-core-7", "m2-core-8", "m2-core-9", "m2-core-10", "m2-core-11", "m2-core-12", "m2-core-13", "m2-core-14", "m2-core-15", "m2-core-16", "m2-core-17", "m2-core-18", "m2-core-19", "m2-core-20", "m2-core-21", "m2-core-22", "m2-core-23", "m2-core-24", "m2-core-25", "m2-core-26", "m2-core-27", "m2-core-28", "m2-core-29"] as const;
 export const saveFormatVersion = 2;
 
-const cardRoots: Record<string, string> = {
-  i701: "n147", i706: "n141", i707: "n190", i710: "n249",
-  i601: "n168", i602: "n173", i603: "n186", i604: "n177", i605: "n183",
-  i606: "n156", i607: "n153", i608: "n164", i609: "n159",
-  i564: "H021", i581: "H044", i569: "H029", i576: "H038",
-  i503: "H012", i502: "H005",
-};
+const cardCatalog = new Map(summon.cards.map(card => [card.itemId, card]));
+const exchangeOnlyCards = { SSR: ["i545", "i547", "i548", "i549", "i550"] };
 
 const targetedCards: Record<string, string> = {
   i701: "c001", i706: "c002", i707: "c004", i710: "c003",
@@ -41,7 +55,9 @@ const upgrades = new Map(Object.entries(upgradeEdges).map(([edge, cost]) => {
 const heroGrowth = new Map(progression.growthRecords.map(record => [record.unitId, record]));
 const learning = new Map(progression.learningRequirements.map(record => [record.abilityId, record]));
 export const summonCards = new Map(summon.cards
-  .filter(card => Object.hasOwn(cardRoots, card.itemId) || Object.values(targetedCards).includes(card.itemId))
+  .filter(card => Object.values(configuration.cardPools).some(pool => pool.includes(card.itemId)) ||
+    Object.values(exchangeOnlyCards).some(pool => pool.includes(card.itemId)) ||
+    Object.values(targetedCards).includes(card.itemId))
   .map(card => [card.itemId, card]));
 const readiness = new Map(Object.entries(skillReadiness.skills));
 const bindings = new Map<string, { skillId: string; name: string; origin: string; levelCap: string; rules: string[]; requiredHeroLevels?: number[] }[]>();
@@ -79,13 +95,15 @@ function towerLine(root: string) {
   return { root, name: levels[0].name.replace(/(?:Lv\d+)?<[^>]+>$/, ""), levels, forms };
 }
 
-export const cards = new Map(Object.entries(configuration.cardPools).flatMap(([rarity, pool]) =>
-  pool.map(id => {
-    const root = cardRoots[id];
-    if (!root) throw new Error(`Missing M2 tower root for ${id}`);
-    return [id, { id, rarity, targetedCard: targetedCards[id], ...towerLine(root) }] as const;
-  }),
-));
+function cardEntries(pools: Record<string, string[]>) {
+  return Object.entries(pools).flatMap(([rarity, pool]) => pool.map(id => {
+    const card = cardCatalog.get(id)!;
+    return [id, { id, rarity, targetedCard: targetedCards[id], ...towerLine(card.targetUnitId) }] as const;
+  }));
+}
+
+export const m2Cards = new Map(cardEntries(m2Configuration.cardPools));
+export const cards = new Map(cardEntries(configuration.cardPools));
 export const workerTowers = new Map(Object.keys(directBuilds).map(id => [id, towerLine(id)]));
 export const footprintTowers = new Set([
   ...[...workerTowers.values()].flatMap(line => line.levels.map(level => level.id)),
@@ -98,6 +116,28 @@ export const towerLevels = new Map([...cards.values(), ...workerTowers.values()]
 // Q20 opens the only skin of the selected M2 hero lines, f005.
 export const firelordSkin = { choice: "S212", unlock: "k157", from: "H021", to: "G059" } as const;
 export const firelordSkillSlots: Readonly<Record<string, string>> = { A067: "A148", A068: "A149" };
+// Stage new heroes and their permanent forms for controlled verification.
+for (const id of ["H022", "G066", "G073", "H024", "G036", "H010", "G046", "H017", "G032", "G033", "G067", "H033", "G057", "G058", "H031", "G048", "H008", "G047", "H059", "G079", "H004", "G039", "H011", "G051", "G063", "H042", "G061", "H036", "E016", "H009", "G044", "H006", "G037", "H013", "G040", "G041", "H007", "G052", "H019", "G012", "G049", "G054", "H001", "G053", "H016", "G074", "H002", "G035", "G043", "H052", "G076", "H020", "G022", "H040", "G068", "H025", "G042", "H026", "G069", "H028", "G056", "H030", "G060", "H035", "H039", "G064", "H045", "G070", "H048", "H041", "G072", "H055", "H051", "G080"]) towerLevels.set(id, towerLine(id).levels[0]);
+for (const id of ["H014", "G038", "G050", "H015", "G055", "H037", "G062", "H050", "G071", "H057"]) towerLevels.set(id, towerLine(id).levels[0]);
+export const dragonForms = [
+  ["E001", "E002", "E003", "E004", "E005", "E006"],
+  ["E023", "E024", "E025", "E026", "E027", "E028"],
+] as const;
+for (const id of ["H003", "G077", ...dragonForms.flat()]) towerLevels.set(id, towerLine(id).levels[0]);
+towerLevels.set("H034", towerLine("H034").levels[0]);
+towerLevels.set("H023", towerLine("H023").levels[0]);
+export const alchemistForms = ["E010", "E011", "E012", "E013", "E014", "E015"] as const;
+for (const id of ["H032", ...alchemistForms]) towerLevels.set(id, towerLine(id).levels[0]);
+export const lycanForms = ["E017", "E018", "E019", "E020", "E021", "E022"] as const;
+export const lycanFormRanks = new Map<string, number>(lycanForms.map((id, index) => [id, index + 1]));
+for (const id of ["H043", ...lycanForms]) towerLevels.set(id, towerLine(id).levels[0]);
+towerLevels.set("H047", towerLine("H047").levels[0]);
+for (const id of ["H049", "H053", "H054", "H058", "G075", "H061"]) towerLevels.set(id, towerLine(id).levels[0]);
+for (const id of ["H046", "G065"]) towerLevels.set(id, towerLine(id).levels[0]);
+towerLevels.set("H056", towerLine("H056").levels[0]);
+for (const id of ["H060", "G078"]) towerLevels.set(id, towerLine(id).levels[0]);
+export const beastmasterHawks = ["b162", "b163", "b164", "b165", "b166", "b167"] as const;
+export const beastmasterBoars = ["b168", "b169", "b170", "b171", "b172", "b173"] as const;
 const firelord = towerLine(firelordSkin.to).levels[0];
 towerLevels.set(firelord.id, {
   ...firelord,
@@ -109,7 +149,7 @@ towerLevels.set(firelord.id, {
     ...binding, skillId: firelordSkillSlots[binding.skillId] ?? binding.skillId,
   })),
 });
-export const cardTemplates = new Map([...cards.values()]
+export const cardTemplates = new Map([...cards.values(), ...cardEntries(exchangeOnlyCards).map(([, card]) => card)]
   .flatMap(card => card.targetedCard ? [[card.id, card], [card.targetedCard, card]] : [[card.id, card]]));
 export const rarityPools = new Map(Object.entries(configuration.cardPools));
 
@@ -120,12 +160,21 @@ export const qualificationChains = new Map(qualifications.qualifications.map(({ 
   return [id, { id, requireUnit, card: provider.id, targetedCard: provider.targetedCard, levels: provider.levels }];
 }));
 
-export const items = new Map(itemIndex.items.map(item => [item.id, item]));
-export const recipes = new Map(itemIndex.items.filter(item => item.materialsInSourceOrder)
+const restoredItems = new Set(["i207", "i208", "i224", "i225", "i226", "i227", "i230", "i231", "i232", "i233", "i238", "i239",
+  "i243", "i244", "i245", "i246", "i247", "i248", "i249", "i250", "i251", "i252", "i253", "i254",
+  "i272", "i273", "i274", "i275", "i282", "i283"]);
+export const m2Items = new Map(itemIndex.items.map(item => [item.id, item]));
+const runtimeItems = [...itemIndex.items, ...m3ItemIndex.filter(item => restoredItems.has(item.id))];
+export const items = new Map(runtimeItems.map(item => [item.id, item]));
+export const recipes = new Map(runtimeItems.filter(item => item.materialsInSourceOrder)
   .sort((a, b) => a.recipeIndex! - b.recipeIndex!)
   .map(item => [item.id, item.materialsInSourceOrder!] as const));
 export const itemFields = new Map(itemLifecycle.objectRows.filter(row => items.has(row.id))
   .map(row => [row.id, row.fields]));
+export const pawnGold = new Map(itemLifecycle.objectRows.flatMap(row => {
+  const gold = row.workbookGold?.value ?? row.fields.goldcost;
+  return items.has(row.id) && gold !== null ? [[row.id, gold] as const] : [];
+}));
 export const itemChargeInheritance = new Set(itemLifecycle.tables.inheritance.ids);
 export const itemExclusions = itemLifecycle.tables.exclusions.map(group => group.members);
 export const itemChargeStacks = new Set(itemLifecycle.tables.stackMerge.ids);
@@ -174,7 +223,7 @@ export const waveRewards = [
   { shown: 35, claimable: 45, itemId: "i278" },
 ];
 
-export const ordinaryGoods = new Map(itemIndex.items.flatMap(item => {
+export const ordinaryGoods = new Map(runtimeItems.flatMap(item => {
   const shop = item.sourceAcquisitionText.split("、")[0];
   if (!/^(饰品店|武器铺|制作书|成品商店|杂货铺|祈祷神庙)/.test(shop)) return [];
   const fields = economy.items.find(row => row.id === item.id)?.fields;

@@ -1,4 +1,4 @@
-name: M2 preview Pages
+name: M3 preview Pages
 
 on:
   push:
@@ -30,10 +30,10 @@ jobs:
       - run: npm ci
       - run: python3 tools/check-m2-configuration.py
       - run: node tools/build-m2-runtime-coverage.mjs --check
+      - run: python3 tools/check-m3-configuration.py
+      - run: node tools/check-m3-runtime-coverage.mjs --complete
       - run: npm run check
       - run: node tools/prepare-pages.mjs
-        env:
-          M2_RELEASE_VERSION: m2-core-30-ui-1
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:

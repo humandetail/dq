@@ -3,14 +3,15 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TD3 · M2 试玩版 · 指挥界面更新</title>
+    <link rel="icon" href="data:,">
+    <title>TD3 · M3</title>
     <script type="module" src="/src/m2.ts"></script>
   </head>
   <body>
     <header>
       <div>
-        <h1>TD3 · M2 试玩版 · 指挥界面更新</h1>
-        <p>55 波主线试玩，建议桌面 Chrome。部分技能、装备联动与模型动作仍在完善，存档仅保存在当前浏览器。</p>
+        <h1>TD3 · M3</h1>
+        <p>55 波主线，档案保存在当前浏览器。</p>
       </div>
       <div class="controls">
         <button id="pause" disabled>暂停</button>
@@ -49,6 +50,8 @@
         <button id="overdraft" hidden>透支</button>
         <p id="feedback" role="status"></p>
         <p id="save" role="status">正在读取档案</p>
+        <button id="cancel-save-wait" hidden>取消等待</button>
+        <button id="retry-save" hidden>重试</button>
         <details><summary>季节任务与解锁</summary><div id="season-tasks"></div></details>
         <section>
           <h2>工人道具</h2>
@@ -70,6 +73,15 @@
           <p class="build-help">选一座塔 → 在地图浅绿区域放置</p>
           <div id="builds" class="controls"></div>
         </section>
+        <details id="hero-exchange" hidden>
+          <summary>英雄兑换</summary>
+          <div id="hero-exchange-offers" class="controls"></div>
+        </details>
+        <details>
+          <summary>活动商店</summary>
+          <p id="event-balance"></p>
+          <div id="event-boxes" class="controls"></div>
+        </details>
         <section>
           <h2>抽卡</h2>
           <div id="draws" class="controls"></div>

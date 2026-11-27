@@ -1,7 +1,7 @@
 // Keep gameplay evidence separate from the source-rule object's readiness.
 import assert from "node:assert/strict";
 import { readFileSync, writeFileSync } from "node:fs";
-import { cards, configuration, contentVersion, items, ordinaryGoods, recipes, workerTowers,
+import { m2Cards as cards, configuration, m2Items as items, ordinaryGoods, recipes, workerTowers,
   chestKeys } from "../src/game/m2/content.ts";
 import { heroSpells } from "../src/game/m2/hero-spells.ts";
 import { towerSpells } from "../src/game/m2/tower-spells.ts";
@@ -220,7 +220,7 @@ for (const id of ["N001", "N002"]) namedSubcases.get(id).push({
 });
 assert.equal(itemRows.length, 202);
 assert.equal(cards.size + workerTowers.size, 22);
-const output = JSON.stringify({ contentVersion, scope: "m2-config-1",
+const output = JSON.stringify({ contentVersion: "m2-core-30", scope: "m2-config-1",
   definitions: "状态针对本行剩余行为。已有执行入口的行为仍按验收证据登记。未实现包含尚未映射到确认入口的行为。",
   skills: [...skillRows.values()].sort((a, b) => a.id.localeCompare(b.id)).map(row => ({
     ...row, status: row.entry ? "已实现待验" : "未实现",

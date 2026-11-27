@@ -1,0 +1,407 @@
+{
+  "version": "m3-config-1",
+  "status": "target-scope-not-runtime-content",
+  "basis": "docs/development-plan-m3.md",
+  "cardPools": {
+    "N": [
+      "i701",
+      "i702",
+      "i703",
+      "i704",
+      "i705",
+      "i706",
+      "i707",
+      "i708",
+      "i709",
+      "i710",
+      "i711",
+      "i712",
+      "i713",
+      "i714",
+      "i715",
+      "i716",
+      "i717"
+    ],
+    "R": [
+      "i601",
+      "i602",
+      "i603",
+      "i604",
+      "i605",
+      "i606",
+      "i607",
+      "i608",
+      "i609"
+    ],
+    "SR": [
+      "i551",
+      "i552",
+      "i553",
+      "i554",
+      "i555",
+      "i556",
+      "i557",
+      "i558",
+      "i559",
+      "i560",
+      "i561",
+      "i562",
+      "i563",
+      "i564",
+      "i565",
+      "i566",
+      "i567",
+      "i568",
+      "i569",
+      "i570",
+      "i571",
+      "i572",
+      "i573",
+      "i574",
+      "i575",
+      "i576",
+      "i577",
+      "i578",
+      "i579",
+      "i580",
+      "i581",
+      "i582",
+      "i583",
+      "i584",
+      "i585",
+      "i586",
+      "i587",
+      "i588",
+      "i589",
+      "i590",
+      "i591",
+      "i592",
+      "i593",
+      "i594",
+      "i595",
+      "i596",
+      "i597"
+    ],
+    "SSR": [
+      "i501",
+      "i502",
+      "i503",
+      "i504",
+      "i505",
+      "i506",
+      "i507",
+      "i508",
+      "i509",
+      "i510"
+    ]
+  },
+  "opening": {
+    "pool": [
+      "i551",
+      "i552",
+      "i553",
+      "i554",
+      "i555",
+      "i556",
+      "i557",
+      "i558",
+      "i559",
+      "i560",
+      "i561",
+      "i562",
+      "i563",
+      "i564",
+      "i565",
+      "i566",
+      "i567",
+      "i568",
+      "i569",
+      "i570",
+      "i572",
+      "i573",
+      "i574",
+      "i575",
+      "i576",
+      "i578",
+      "i579",
+      "i580",
+      "i581",
+      "i582",
+      "i583",
+      "i584",
+      "i585",
+      "i586",
+      "i587",
+      "i588",
+      "i589",
+      "i590",
+      "i591",
+      "i592",
+      "i593",
+      "i594",
+      "i595",
+      "i596",
+      "i597"
+    ],
+    "choiceCount": 4,
+    "withoutReplacement": true,
+    "ban": false
+  },
+  "cardRolls": {
+    "i001": {
+      "gold": 1000,
+      "ranges": [
+        [
+          1,
+          79,
+          "N"
+        ],
+        [
+          80,
+          100,
+          "R"
+        ]
+      ]
+    },
+    "i002": {
+      "gold": 2500,
+      "ranges": [
+        [
+          1,
+          9,
+          "SR"
+        ],
+        [
+          10,
+          79,
+          "R"
+        ],
+        [
+          80,
+          100,
+          "N"
+        ]
+      ]
+    },
+    "i003": {
+      "gold": 5000,
+      "ranges": [
+        [
+          1,
+          7,
+          "SSR"
+        ],
+        [
+          8,
+          41,
+          "SR"
+        ],
+        [
+          42,
+          100,
+          "R"
+        ]
+      ]
+    },
+    "i005": {
+      "gold": 13000,
+      "ranges": [
+        [
+          1,
+          13,
+          "SSR"
+        ],
+        [
+          14,
+          100,
+          "SR"
+        ]
+      ]
+    }
+  },
+  "luckPercentByLevel": [
+    0,
+    10,
+    13,
+    16,
+    19,
+    25
+  ],
+  "blackCard": {
+    "initialSrWeight": 100,
+    "resetSelectedWeightTo": 100,
+    "upgradeBaseGold": 500,
+    "upgradeGoldPerExcessWeight": 11,
+    "upgradeRolls": [
+      [
+        1,
+        1,
+        3
+      ],
+      [
+        2,
+        24,
+        2
+      ],
+      [
+        25,
+        100,
+        1
+      ]
+    ],
+    "incrementFormula": "floor(weight * multiplier * 15 / 100)"
+  },
+  "chestOverrides": {
+    "i404": {
+      "groupIndex": 2,
+      "weight": 30,
+      "originalEntries": [
+        "i501",
+        "i502",
+        "i503",
+        "i504"
+      ],
+      "entries": [
+        "i501",
+        "i502",
+        "i503",
+        "i504"
+      ]
+    }
+  },
+  "inheritedItemIndex": "docs/m2-item-index.json",
+  "restoredItems": [
+    "i207",
+    "i208",
+    "i224",
+    "i225",
+    "i226",
+    "i227",
+    "i230",
+    "i231",
+    "i232",
+    "i233",
+    "i238",
+    "i239",
+    "i243",
+    "i244",
+    "i245",
+    "i246",
+    "i247",
+    "i248",
+    "i249",
+    "i250",
+    "i251",
+    "i252",
+    "i253",
+    "i254",
+    "i272",
+    "i273",
+    "i274",
+    "i275",
+    "i282",
+    "i283"
+  ],
+  "heroExchanges": {
+    "mall": {
+      "offers": {
+        "i549": {
+          "card": "i549",
+          "consumeSR": 1,
+          "limitPerRun": 1
+        },
+        "i548": {
+          "card": "i548",
+          "consumeSR": 1,
+          "limitPerRun": 1
+        },
+        "i547": {
+          "card": "i547",
+          "consumeSR": 1,
+          "limitPerRun": 1
+        },
+        "i545": {
+          "card": "i545",
+          "consumeSR": 1,
+          "limitPerRun": 1
+        }
+      },
+      "sharedLimit": 1,
+      "sharedLimitFromWave41": 2
+    },
+    "score": {
+      "offers": {
+        "i550": {
+          "card": "i550",
+          "consumeSR": 1,
+          "score": 60
+        },
+        "i546": {
+          "card": "i506",
+          "consumeSR": 1,
+          "score": 100
+        }
+      },
+      "sharedLimit": 1
+    }
+  },
+  "restoredSeasonTasks": {
+    "spring": [
+      1,
+      2,
+      3,
+      9
+    ],
+    "summer": [
+      1
+    ]
+  },
+  "eventOffers": {
+    "y005": "y006",
+    "y007": "y008",
+    "y009": "y010"
+  },
+  "excluded": {
+    "noKnownTowerEntry": [
+      "b000",
+      "b001",
+      "b002",
+      "b003",
+      "n011",
+      "n012",
+      "n013",
+      "n014",
+      "n015",
+      "H027",
+      "G045"
+    ],
+    "noKnownItemEntry": [
+      "i301",
+      "texp",
+      "tgxp",
+      "tkno"
+    ],
+    "deferredModeItems": [
+      "i234",
+      "i236",
+      "i237",
+      "i329",
+      "i421",
+      "i422",
+      "i800"
+    ]
+  },
+  "persistence": {
+    "database": "td3-m3",
+    "slot": "current",
+    "lock": "td3-m3:profile:default:writer",
+    "ownership": "exclusive-web-lock-no-timeout-takeover",
+    "commit": "single-idb-transaction-profile-and-run-cas",
+    "compareFields": [
+      "revision",
+      "activeMatchId"
+    ],
+    "autosaveRealSeconds": 5,
+    "flushImportantActions": true
+  }
+}

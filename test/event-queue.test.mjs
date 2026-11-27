@@ -70,3 +70,20 @@ test("terminal dispatch stops catch-up at the event before another same-time cal
   assert.equal(queue.nowUs, 1);
   assert.equal(queue.pending.length, 1);
 });
+
+test("a suspended dispatch claims its event once and leaves later same-time work queued", () => {
+  const queue = createEventQueue();
+  const periodic = scheduleEvent(queue, 1, "begin", 2);
+  scheduleEvent(queue, 1, "next");
+  const seen = [];
+  assert.equal(advanceEvents(queue, 1, 10, ({ payload }) => {
+    seen.push(payload);
+    return "yield";
+  }), "pending");
+  assert.equal(queue.nowUs, 1);
+  assert.deepEqual(queue.pending.map(({ dueUs, payload }) => [dueUs, payload]), [[1, "next"], [3, "begin"]]);
+  assert.equal(cancelEvent(queue, periodic), true);
+  scheduleEvent(queue, 0, "end");
+  assert.equal(advanceEvents(queue, 2, 10, ({ payload }) => { seen.push(payload); }), "reached");
+  assert.deepEqual(seen, ["begin", "next", "end"]);
+});

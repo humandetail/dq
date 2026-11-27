@@ -19,6 +19,7 @@ test("M2-03 tower and mainline samples match catalog files and decode every mate
     ...waves.map(wave => wave.unitId), ...challengeTemplates.map(template => template.unitId), "m998", "m999", "e008", "e009", "b116", "b138", "nsha"];
   for (let rank = 0; rank < 8; rank++) unitIds.push("b" + (103 + rank));
   for (const base of [122, 132]) for (let rank = 0; rank < 6; rank++) unitIds.push("b" + (base + rank));
+  for (let rank = 0; rank < 6; rank++) unitIds.push("n" + (255 + rank));
   for (const id of unitIds) {
     assert.ok(bindings[id]?.original, id);
     assert.ok(manifest[bindings[id]?.asset], id);
@@ -52,7 +53,7 @@ test("M2-03 tower and mainline samples match catalog files and decode every mate
       const { file, sha256 } = entry.textures[name];
       const image = getBLPImageData(decodeBLP(await read(file, sha256)), 0);
       assert.equal(image.data.length, 4 * image.width * image.height);
-      assert.ok(image.data.some((value, index) => index % 4 === 3 && value > 0));
+      assert.ok(image.data.some((value, index) => index % 4 === 3 && value > 0), `${id}: ${name} texture alpha`);
     }
   }
 });

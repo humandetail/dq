@@ -1,9 +1,10 @@
+import { eventBoxes } from "./game/m2/event-boxes.ts";
 import { cardTemplates, items, ordinaryGoods, prayerBooks, recipes, recycleRate, towerLevels } from './game/m2/content.ts';
 import { effectiveAttributes, weapons } from './game/m2/combat.ts';
 import { learnableSkills, learningLevel } from './game/m2/hero.ts';
-import { towerSpells } from './game/m2/tower-spells.ts';
-import { heroSpellTargetMode, isCastableHeroSkill, heroSpells } from './game/m2/hero-spells.ts';
-import { canChooseOpening, canSeeEnemy, isActiveTowerEquipment, isTargetedEquipment, type Action, type Match } from './game/m2/match.ts';
+import { pointTowerSpell, towerSpells } from './game/m2/tower-spells.ts';
+import { heroAutoCastOrder, heroSpellTargetMode, isCastableHeroSkill, heroSpells } from './game/m2/hero-spells.ts';
+import { activeHeroSkill, attackOrb, bearAbilities, canChooseOpening, canSeeEnemy, circleId, doomAbilities, isActiveTowerEquipment, isPointTargetedTowerEquipment, isTargetedEquipment, itemSaleQuote, type Action, type Match } from './game/m2/match.ts';
 import type { createM2Scene } from './m2-scene.ts';
 import type { Point } from './game/m2/map.ts';
 import './m2-command.css';
@@ -24,6 +25,7 @@ export function createCommandUI(options: {
     scene: () => Scene | undefined;
     send: (action: Action) => string | undefined;
     writable: () => boolean;
+    refreshManagement: () => void;
     cancel: () => void;
     placing: () => boolean;
 }) {
@@ -49,7 +51,9 @@ export function createCommandUI(options: {
     let suppressClick = false;
     const groups = new Map<string, number[]>();
     let lastGroup = { key: '', at: 0 };
-    const seenHits = new WeakSet<object>();
+    let damageTimestamp = -1;
+    let damageAtTimestamp = 0;
+    let usesDamageEvents = false;
     const markers = new Map<string, HTMLElement>();
     const floating: {
         node: HTMLElement;
@@ -116,6 +120,8 @@ export function createCommandUI(options: {
     const shopBody = document.createElement('div'); shopBody.className = 'shop-body';
     const goodsDetail = document.createElement('section'); goodsDetail.className = 'goods-detail';
     shopBody.append(goods, goodsDetail); shop.append(search, shopBody);
+    const pawn = document.createElement('section');
+    let pawnSignature = '';
     let selectedGood = 'i110';
     const codex = document.createElement('section');
     codex.className = 'live-codex';
@@ -135,6 +141,29 @@ export function createCommandUI(options: {
     for (const section of sections) {
         const name = section.querySelector('h2')?.textContent;
         sectionTab.set(section, name === '商店' ? 'legacy' : name === '神秘商店' || name === '挑战商店' ? '商店' : '对局');
+    }
+    function showPawn(state: Match | undefined, shopName: string) {
+        const writable = options.writable();
+        const offers = state?.inventory?.flatMap(item => {
+            const quote = itemSaleQuote(state, item, shopName);
+            return quote === undefined ? [] : [{ item, quote }];
+        }) ?? [];
+        const signature = JSON.stringify([state?.matchId, shopName, writable, offers.map(({ item, quote }) => [item.id, item.towerId, quote])]);
+        if (signature === pawnSignature) return;
+        pawnSignature = signature;
+        pawn.hidden = !offers.length;
+        pawn.replaceChildren();
+        if (!offers.length) return;
+        const title = document.createElement('h2');
+        title.textContent = '出售物品';
+        const choices = document.createElement('div');
+        choices.className = 'controls';
+        for (const { item, quote } of offers) {
+            const owner = item.towerId === undefined ? '工人' : item.towerId === circleId ? '能量圈' : towerLevels.get(unit(item.towerId)?.templateId ?? '')?.name ?? '灵兽';
+            choices.append(button(`出售 ${items.get(item.itemId)!.name} · ${quote} 金 · ${owner}`,
+                () => options.send({ type: 'sell-item', itemId: item.id, shop: shopName }), !writable));
+        }
+        pawn.append(title, choices);
     }
     function showShop() {
         const state = options.match();
@@ -164,11 +193,12 @@ export function createCommandUI(options: {
         const icon=document.createElement('div');icon.className='goods-art';painted(icon,selected.id);
         const title=document.createElement('h2');title.textContent=selected.name;
         const source=document.createElement('p');source.textContent=selected.shop;
-        const description=document.createElement('p');description.textContent=recipes.has(selected.id)?'配方：'+recipes.get(selected.id)!.map(id=>items.get(id)!.name).join(' ＋ '):isActiveTowerEquipment(selected.id)||isTargetedEquipment(selected.id)?'主动装备 · 携带后在物品栏使用。':'携带生效；可交接给英雄或用于合成。';
+        const description=document.createElement('p');description.textContent=recipes.has(selected.id)?'配方：'+recipes.get(selected.id)!.map(id=>items.get(id)!.name).join(' ＋ '):isActiveTowerEquipment(selected.id)||isTargetedEquipment(selected.id)||isPointTargetedTowerEquipment(selected.id)?'主动装备 · 携带后在物品栏使用。':'携带生效；可交接给英雄或用于合成。';
         const price=document.createElement('p');price.className='detail-price';price.textContent=`${selected.gold} 金${selected.lumber?' · '+selected.lumber+' 木':''}`;
         const buy=button('购买',()=>options.send({type:'buy-item',itemId:selected.id}),!options.writable()||!state||state.gold<selected.gold||state.lumber<selected.lumber);
         const hint=document.createElement('small');hint.textContent='购买物品送至工人物品栏；满包按既有规则处理。';
-        goodsDetail.append(icon,title,source,description,price,buy,hint);
+        goodsDetail.append(icon,title,source,description,price,buy,hint,pawn);
+        showPawn(state, selected.shop);
     }
     search.oninput = showShop;
     function open(name: string) {
@@ -182,6 +212,7 @@ export function createCommandUI(options: {
             section.classList.toggle('outside-tab', sectionTab.get(section) !== name);
         aside.hidden = name === '图鉴' || name === '合成';
         tabs.querySelectorAll('button').forEach(node => node.classList.toggle('active', node.textContent === name));
+        if (name === '对局' || name === '商店') options.refreshManagement();
         if (name === '商店')
             showShop();
         if (name === '图鉴') {
@@ -274,13 +305,15 @@ export function createCommandUI(options: {
         if (current === -1) {
             if (item.itemId === 'i256')
                 aim({ kind: 'enemy', label: '点金', action: (_point, id) => ({ type: 'use-item', itemId: item.id, targetId: id }) });
+            else if (isPointTargetedTowerEquipment(item.itemId))
+                announce('需要交接给可施法的塔');
             else
                 options.send({ type: 'use-item', itemId: item.id });
             return;
         }
         if (isTargetedEquipment(item.itemId))
             aim({ kind: 'enemy', label: items.get(item.itemId)!.name, action: (_point, id) => ({ type: 'cast-equipment', itemId: item.id, towerId: current, targetId: id }) });
-        else if (item.itemId === 'i325' || item.itemId === 'i235')
+        else if (isPointTargetedTowerEquipment(item.itemId) || item.itemId === 'i235')
             aim({ kind: 'point', label: items.get(item.itemId)!.name, action: point => item.itemId === 'i235' ? ({ type: 'place-scout-ward', itemId: item.id, towerId: current, point }) : ({ type: 'cast-equipment', itemId: item.id, towerId: current, point }) });
         else if (isActiveTowerEquipment(item.itemId))
             options.send({ type: 'cast-equipment', itemId: item.id, towerId: current });
@@ -290,7 +323,11 @@ export function createCommandUI(options: {
     function renderDock(state: Match) {
         const tower = unit();
         const enemy = state.enemies.find(enemy => enemy.id === enemyId);
-        const signature = JSON.stringify([state.matchId, selection, current, enemyId, learning, tower?.hero, tower?.templateId, tower?.autoModes, state.inventory, state.cards, state.gold, state.lumber, options.writable(), enemy?.hp, tower?.life?.hp, Math.floor(state.queue.nowUs / 1000000)]);
+        const equipped = state.inventory?.filter(item => item.slot !== null && item.towerId === (current === -1 ? undefined : current));
+        const signature = JSON.stringify([state.matchId, selection, current, enemyId, learning, tower?.hero,
+            tower?.templateId, tower?.autoModes, tower?.flameArrows, tower?.morphShift?.attribute, equipped,
+            current === -1 ? [state.cards, state.books, state.gold, state.lumber] : null,
+            options.writable(), enemy && Math.ceil(enemy.hp), tower?.life && Math.ceil(tower.life.hp), Math.floor(state.queue.nowUs / 1000000)]);
         if (signature === lastRender)
             return;
         lastRender = signature;
@@ -310,7 +347,7 @@ export function createCommandUI(options: {
         painted(portrait, current === -1 ? 'nsha' : tower?.templateId ?? '');
         const detail = document.createElement('div');
         const title = document.createElement('h2');
-        title.textContent = enemy ? `${enemy.unitId} #${enemy.id}` : current === -1 ? '工人' : tower ? towerLevels.get(tower.templateId)?.name ?? tower.templateId : '未选择单位';
+        title.textContent = enemy ? `${enemy.unitId} #${enemy.id}` : current === -1 ? '工人' : tower ? towerLevels.get(tower.templateId)?.name ?? (tower.bear ? '熊灵' : tower.templateId) : '未选择单位';
         detail.append(title);
         const stats = document.createElement('p');
         if (enemy)
@@ -332,7 +369,7 @@ export function createCommandUI(options: {
             const item = state.inventory?.find(item => item.slot === slot && item.towerId === (current === -1 ? undefined : current));
             const card = current === -1 ? state.cards.find(card => card.slot === slot) : undefined;
             const book = current === -1 ? state.books?.find(book=>book.slot===slot) : undefined;
-            const name = book ? prayerBooks.find(entry=>entry.id===book.bookId)!.name : item ? items.get(item.itemId)!.name : card ? cardTemplates.get(card.card)!.name : '';
+            const name = book ? prayerBooks.find(entry=>entry.id===book.bookId)!.name : item ? (eventBoxes.get(item.itemId) ?? items.get(item.itemId))!.name : card ? cardTemplates.get(card.card)!.name : '';
             const node = button(name, () => card ? (() => { const nodes = [...get('cards').querySelectorAll('button')]; nodes.find(node => node.textContent === `${cardTemplates.get(card.card)!.name} · ${cardTemplates.get(card.card)!.rarity}`)?.click(); })() : useItem(slot), !options.writable() || !!enemy || current === -2);
             node.title = name + (item ? '\n左键使用；右键交接；Alt＋右键切换主动装备自动模式' : '');
             if (item) {
@@ -343,7 +380,7 @@ export function createCommandUI(options: {
             key.textContent = '⌥' + itemKeys[slot].toUpperCase();
             node.append(key);
             node.oncontextmenu = event => { event.preventDefault(); if (!item)
-                return; if (event.altKey && tower && (isActiveTowerEquipment(item.itemId) || isTargetedEquipment(item.itemId) || item.itemId === 'i325'))
+                return; if (event.altKey && tower && (isActiveTowerEquipment(item.itemId) || item.itemId === 'i276' || item.itemId === 'i281' || item.itemId === 'i325'))
                 options.send({ type: 'set-auto-mode', towerId: tower.id, key: item.itemId, enabled: tower.autoModes?.[item.itemId] === false });
             else {
                 carrying = item.id;
@@ -375,7 +412,9 @@ export function createCommandUI(options: {
             for (const skill of learnableSkills(tower.templateId).slice(0, 3)) {
                 const rank = tower.hero?.ranks[skill.skillId] ?? 0;
                 const required = tower.hero && learningLevel(tower.hero, tower.templateId, skill.skillId);
-                const castable = isCastableHeroSkill(skill.skillId);
+                const orb = rank && skill.skillId === 'A083' ? attackOrb(tower) : undefined;
+                const spellId = activeHeroSkill(tower, skill.skillId);
+                const castable = isCastableHeroSkill(spellId);
                 const node = add(`${skill.name} ${rank}`, () => {
                     if (learning) {
                         options.send({ type: 'learn-skill', towerId: tower.id, skillId: skill.skillId });
@@ -383,15 +422,27 @@ export function createCommandUI(options: {
                         lastRender = '';
                         return;
                     }
-                    if (isCastableHeroSkill(skill.skillId)) {
-                        const mode = heroSpellTargetMode(skill.skillId);
-                        if (mode === 'self')
-                            options.send({ type: 'cast-hero', towerId: tower.id, skillId: skill.skillId });
-                        else
-                            aim({ kind: mode === 'unit' ? 'enemy' : 'point', label: skill.name, action: (point, id) => ({ type: 'cast-hero', towerId: tower.id, skillId: skill.skillId as keyof typeof heroSpells, ...(mode === 'unit' ? { targetId: id } : { point }) }) });
+                    if (orb) {
+                        aim({ kind: 'enemy', label: orb.name,
+                            action: (_point, targetId) => ({ type: 'cast-flame-arrow', towerId: tower.id, targetId: targetId! }) });
+                        return;
                     }
-                }, learning ? !tower.hero || !tower.hero.points || required === undefined || tower.hero.level < required : !rank || !castable, skill.skillId, castable ? () => options.send({ type: 'set-auto-mode', towerId: tower.id, key: skill.skillId, enabled: tower.autoModes?.[skill.skillId] === false }) : undefined);
-                node.title = `${skill.name} · ${castable ? '主动' : '被动'} · 等级 ${rank}${required !== undefined ? `\n下一级需要英雄 ${required} 级` : ''}`;
+                    if (castable) {
+                        const mode = heroSpellTargetMode(spellId);
+                        if (mode === 'self')
+                            options.send({ type: 'cast-hero', towerId: tower.id, skillId: spellId });
+                        else
+                            aim({ kind: mode === 'unit' ? 'enemy' : mode === 'ally' ? 'ally' : 'point', label: skill.name,
+                                action: (point, id) => ({ type: 'cast-hero', towerId: tower.id, skillId: spellId,
+                                    ...(mode === 'point' ? { point } : { targetId: id }) }) });
+                    }
+                }, learning ? !tower.hero || !tower.hero.points || required === undefined || tower.hero.level < required : !rank || !castable && !orb, learning ? skill.skillId : spellId, orb ?
+                    () => options.send({ type: 'toggle-flame-arrows', towerId: tower.id }) :
+                    castable ? () => options.send({ type: 'set-auto-mode', towerId: tower.id, key: skill.skillId,
+                        enabled: skill.skillId === 'A091' ? tower.autoModes?.A091 !== true : tower.autoModes?.[skill.skillId] === false }) : undefined);
+                if (orb) node.classList.toggle('auto', !learning && (tower.flameArrows ?? orb.defaultAuto));
+                if (skill.skillId === 'A091') node.classList.toggle('auto', !learning && tower.autoModes?.A091 === true);
+                node.title = `${skill.name} · ${castable || orb ? '主动' : '被动'} · 等级 ${rank}${required !== undefined ? `\n下一级需要英雄 ${required} 级` : ''}`;
                 const ready = tower.heroSpellReady?.[skill.skillId as keyof typeof heroSpells] ?? tower.towerSpellReady?.[skill.skillId] ?? ((skill.skillId === 'A068' || skill.skillId === 'A149') ? tower.treeGrab?.readyUs : 0) ?? 0;
                 if (!learning && ready > state.queue.nowUs) {
                     const timer = document.createElement('span');
@@ -404,13 +455,67 @@ export function createCommandUI(options: {
                 if (learning && skill.skillId === 'A069')
                     node.title += `\n累计攻击加成 ${rank * 90} → ${(rank + 1) * 90}`;
                 const profile = heroSpells[skill.skillId as keyof typeof heroSpells];
-                if (learning && profile)
+                if (learning && skill.skillId === 'A238') {
+                    const fixedDamage = (level: number) => level === 0 ? 0 : 1000 + 500 * level;
+                    node.title += `\n固定伤害 ${fixedDamage(rank)} → ${fixedDamage(Math.min(rank + 1, 6))}，另计生命比例和击杀层数伤害`;
+                } else if (learning && profile)
                     node.title += `\n伤害 ${profile.damage[Math.min(Math.max(0, rank - 1), profile.damage.length - 1)]} → ${profile.damage[Math.min(rank, profile.damage.length - 1)]}`;
+            }
+            if (!learning) for (const { id, rank, name } of doomAbilities(tower)) {
+                const castable = isCastableHeroSkill(id);
+                const auto = castable && heroAutoCastOrder.includes(id as keyof typeof heroSpells);
+                const node = add(`${name} ${rank}`, () => {
+                    if (!castable) return;
+                    const mode = heroSpellTargetMode(id);
+                    const action = { type: 'cast-hero' as const, towerId: tower.id, skillId: id };
+                    if (mode === 'self') options.send(action);
+                    else aim({ kind: mode === 'unit' ? 'enemy' : mode === 'ally' ? 'ally' : 'point', label: name,
+                        action: (point, targetId) => ({ ...action, ...(mode === 'point' ? { point } : { targetId }) }) });
+                }, !castable, id, auto ? () => options.send({ type: 'set-auto-mode', towerId: tower.id, key: id,
+                    enabled: tower.autoModes?.[id] === false }) : undefined);
+                const ready = tower.heroSpellReady?.[id as keyof typeof heroSpells] ?? 0;
+                if (ready > state.queue.nowUs) {
+                    const timer = document.createElement('span');
+                    timer.className = 'skill-cooldown';
+                    timer.textContent = String(Math.ceil((ready - state.queue.nowUs) / 1000000));
+                    node.append(timer);
+                }
+            }
+            if (tower.hero?.ranks.A106) {
+                const cloud = add('雷云', () => aim({ kind: 'point', label: '雷云', action: point =>
+                    ({ type: 'cast-hero', towerId: tower.id, skillId: 'A106', point }) }), learning, 'A106',
+                    () => options.send({ type: 'set-auto-mode', towerId: tower.id, key: 'A106', enabled: tower.autoModes?.A106 === false }));
+                const ready = tower.heroSpellReady?.A106 ?? 0;
+                if (!learning && ready > state.queue.nowUs) {
+                    const timer = document.createElement('span');
+                    timer.className = 'skill-cooldown';
+                    timer.textContent = String(Math.ceil((ready - state.queue.nowUs) / 1000000));
+                    cloud.append(timer);
+                }
+            }
+            if (!learning && tower.hero?.ranks.A225) {
+                for (const [attribute, label] of [['AGI', '敏捷'], ['STR', '力量']] as const) {
+                    const active = tower.morphShift?.attribute === attribute;
+                    add(active ? '停止转' + label : '转为' + label, () => options.send({ type: 'toggle-morph', towerId: tower.id, attribute }),
+                        false, attribute === 'AGI' ? active ? 'A227' : 'A226' : active ? 'A229' : 'A228');
+                }
+            }
+            for (const ability of bearAbilities(tower)) {
+                add(ability.name, () => options.send({ type: 'cast-tower', towerId: tower.id, skillId: ability.id }),
+                    false, ability.id, ability.mana > 0 ? () => options.send({ type: 'set-auto-mode', towerId: tower.id,
+                        key: ability.id, enabled: tower.autoModes?.[ability.id] === false }) : undefined);
             }
             if (!tower.hero)
                 for (const spell of (towerSpells.get(tower.templateId) ?? []).slice(0, 3)) {
                     const name = towerLevels.get(tower.templateId)?.bindings.find(binding => binding.skillId === spell.id)?.name ?? spell.id;
-                    add(name, () => spell.effect.kind === 'purge' ? aim({kind:'enemy',label:name,action:(_point,id)=>({type:'cast-tower',towerId:tower.id,skillId:spell.id,targetId:id})}) : options.send({ type: 'cast-tower', towerId: tower.id, skillId: spell.id }), false, spell.id, () => options.send({ type: 'set-auto-mode', towerId: tower.id, key: spell.id, enabled: tower.autoModes?.[spell.id] === false }));
+                    const cast = { type: 'cast-tower' as const, towerId: tower.id, skillId: spell.id };
+                    add(name, () => {
+                        if (pointTowerSpell(spell.id)) aim({ kind: 'point', label: name, action: point => ({ ...cast, point }) });
+                        else if (spell.effect.kind === 'bloodlust') aim({ kind: 'ally', label: name, action: (_point, targetId) => ({ ...cast, targetId }) });
+                        else if (spell.effect.kind === 'purge' || spell.effect.kind === 'slow' || spell.effect.kind === 'boulder')
+                            aim({ kind: 'enemy', label: name, action: (_point, targetId) => ({ ...cast, targetId }) });
+                        else options.send(cast);
+                    }, false, spell.id, () => options.send({ type: 'set-auto-mode', towerId: tower.id, key: spell.id, enabled: tower.autoModes?.[spell.id] === false }));
                 }
             while (commands.length < 3)
                 add('', () => { }, true);
@@ -454,7 +559,7 @@ export function createCommandUI(options: {
         }
     }
     function objects(state: Match) {
-        return [{ id: -1, kind: 'ally', point: state.worker }, ...state.structures.map(tower => ({ id: tower.id, kind: 'ally', point: tower })), ...(state.summons ?? []).filter(unit => unit.summon?.independent).map(unit => ({ id: unit.id, kind: 'ally', point: unit })), ...state.enemies.filter(enemy => canSeeEnemy(state, enemy)).map(enemy => ({ id: enemy.id, kind: 'enemy', point: enemy })), ...(state.inventory ?? []).filter(item => item.slot === null).map(item => ({ id: item.id, kind: 'item', point: item.point })), ...state.cards.filter(card => card.slot === null).map(card => ({ id: card.id, kind: 'card', point: card.point }))];
+        return [{ id: -1, kind: 'ally', point: state.worker }, ...state.structures.map(tower => ({ id: tower.id, kind: 'ally', point: tower })), ...(state.summons ?? []).filter(unit => unit.summon?.independent || unit.bear).map(unit => ({ id: unit.id, kind: 'ally', point: unit })), ...state.enemies.filter(enemy => canSeeEnemy(state, enemy)).map(enemy => ({ id: enemy.id, kind: 'enemy', point: enemy })), ...(state.inventory ?? []).filter(item => item.slot === null).map(item => ({ id: item.id, kind: 'item', point: item.point })), ...state.cards.filter(card => card.slot === null).map(card => ({ id: card.id, kind: 'card', point: card.point }))];
     }
     const local = (event: MouseEvent) => { const box = canvas.getBoundingClientRect(); return { x: event.clientX - box.left, y: event.clientY - box.top }; };
     function pick(event: MouseEvent) {
@@ -608,6 +713,7 @@ export function createCommandUI(options: {
         get(id).addEventListener('click', () => { if (options.placing())
             close(); });
     return {
+        managementVisible: () => modal === '对局' || modal === '商店',
         update(state: Match | undefined) {
             if (!state)
                 return;
@@ -621,6 +727,11 @@ export function createCommandUI(options: {
                 groups.clear();
                 openingShown = false;
                 lastRender = '';
+                damageTimestamp = -1;
+                damageAtTimestamp = 0;
+                usesDamageEvents = false;
+                for (const entry of floating) entry.node.remove();
+                floating.length = 0;
             }
             selection = selection.filter(id => id === -1 || unit(id));
             if (current !== -1 && !unit() && enemyId === undefined) {
@@ -636,15 +747,13 @@ export function createCommandUI(options: {
                 }
             }
             if(!openingShown && canChooseOpening(state)){openingShown=true;open('对局');}
+            if (modal === '商店') showPawn(state, ordinaryGoods.get(selectedGood)!.shop);
             renderDock(state);
             const scene = options.scene();
             if (!scene)
                 return;
             const live = new Set<string>();
-            for (const object of objects(state)) {
-                if (object.kind === 'item' || object.kind === 'card')
-                    continue;
-                const key = object.kind + object.id;
+            function refreshMarker(key: string, point: Point, ratio: number, enemy: boolean, selected: boolean, title: string) {
                 live.add(key);
                 let node = markers.get(key);
                 if (!node) {
@@ -653,26 +762,47 @@ export function createCommandUI(options: {
                     overlay.append(node);
                     markers.set(key, node);
                 }
-                const p = scene.screenAt(object.point);
+                const p = scene!.screenAt(point);
                 node.style.left = p.x + 'px';
                 node.style.top = p.y + 'px';
-                const tower = object.kind === 'ally' ? unit(object.id) : undefined;
-                const enemy = object.kind === 'enemy' ? state.enemies.find(enemy => enemy.id === object.id) : undefined;
-                const ratio = enemy ? enemy.hp / (enemy.maxHp ?? enemy.hp) : tower?.life ? tower.life.hp / tower.life.maximum : 1;
-                node.classList.toggle('enemy', !!enemy);
-                node.classList.toggle('selected', selection.includes(object.id) && object.kind === 'ally');
+                node.classList.toggle('enemy', enemy);
+                node.classList.toggle('selected', selected);
                 node.style.setProperty('--hp', String(Math.max(0, ratio) * 100) + '%');
-                node.title = tower ? towerLevels.get(tower.templateId)?.name ?? '' : '工人';
+                if (node.title !== title) node.title = title;
+            }
+            refreshMarker('ally-1', state.worker, 1, false, selection.includes(-1), '工人');
+            for (const tower of [...state.structures, ...(state.summons ?? []).filter(unit => unit.summon?.independent || unit.bear)]) {
+                refreshMarker('ally' + tower.id, tower, tower.life ? tower.life.hp / tower.life.maximum : 1, false,
+                    selection.includes(tower.id), towerLevels.get(tower.templateId)?.name ?? (tower.bear ? '熊灵' : '灵兽'));
+            }
+            for (const enemy of state.enemies) {
+                if (canSeeEnemy(state, enemy)) refreshMarker('enemy' + enemy.id, enemy, enemy.hp / (enemy.maxHp ?? enemy.hp),
+                    true, false, '工人');
             }
             for (const [key, node] of markers)
                 if (!live.has(key)) {
                     node.remove();
                     markers.delete(key);
                 }
+            if (!usesDamageEvents && state.damageEvents) {
+                usesDamageEvents = true;
+                damageTimestamp = -1;
+                damageAtTimestamp = 0;
+            }
+            let previousTimestamp = -1;
+            let occurrence = 0;
             for (const hit of state.damageEvents ?? state.recentHits ?? []) {
-                if (seenHits.has(hit))
+                if (hit.atUs !== previousTimestamp) {
+                    previousTimestamp = hit.atUs;
+                    occurrence = 0;
+                }
+                occurrence++;
+                // Worker views clone the history. Its order within one game
+                // timestamp distinguishes even identical damage packets.
+                if (hit.atUs < damageTimestamp || (hit.atUs === damageTimestamp && occurrence <= damageAtTimestamp))
                     continue;
-                seenHits.add(hit);
+                damageTimestamp = hit.atUs;
+                damageAtTimestamp = occurrence;
                 if (state.queue.nowUs - hit.atUs > 1000000)
                     continue;
                 const node = document.createElement('span');
@@ -682,9 +812,10 @@ export function createCommandUI(options: {
                 overlay.append(node);
                 floating.push({ node, point: hit, start: performance.now(), lane });
             }
+            const now = performance.now();
             for (let i = floating.length - 1; i >= 0; i--) {
                 const entry = floating[i];
-                const age = performance.now() - entry.start;
+                const age = now - entry.start;
                 if (age > 1000) {
                     entry.node.remove();
                     floating.splice(i, 1);
