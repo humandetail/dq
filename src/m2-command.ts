@@ -8,6 +8,7 @@ import { activeHeroSkill, attackOrb, bearAbilities, canChooseOpening, canSeeEnem
 import type { createM2Scene } from './m2-scene.ts';
 import type { Point } from './game/m2/map.ts';
 import './m2-command.css';
+import { setCommandIcon } from './m2-icons.ts';
 type Scene = Awaited<ReturnType<typeof createM2Scene>>;
 type Unit = Match['structures'][number];
 type Target = {
@@ -84,8 +85,15 @@ export function createCommandUI(options: {
     header.append(get('resources'), get('wave'), get('boss'));
     const tools = document.createElement('nav');
     tools.className = 'command-tools';
-    for (const name of ['商店', '合成', '图鉴', '对局'])
-        tools.append(button(name, () => open(name)));
+    const managementTabs = ['商店', '合成', '图鉴', '对局'] as const;
+    const managementButton = (name: typeof managementTabs[number]) => {
+        const entry = button(name, () => open(name));
+        if (name === '商店') setCommandIcon(entry, 'shop', name);
+        if (name === '合成') setCommandIcon(entry, 'combine');
+        if (name === '图鉴') setCommandIcon(entry, 'codex', name);
+        return entry;
+    };
+    tools.append(...managementTabs.map(managementButton));
     const battlefield = main.querySelector('.battlefield')!;
     const toolbar = document.createElement('div');
     toolbar.className = 'command-toolbar';
@@ -112,7 +120,11 @@ export function createCommandUI(options: {
     const inventoryButton = button('物品', () => {
         const inventory = dock.classList.toggle('show-inventory');
         inventoryButton.textContent = inventory ? '指令' : '物品';
+        setCommandIcon(inventoryButton, inventory ? 'commands' : 'inventory');
     });
+    setCommandIcon(orderButton, 'order');
+    setCommandIcon(inventoryButton, 'inventory');
+    setCommandIcon(moreButton, 'more', '更多操作');
     touchTools.append(orderButton, inventoryButton, moreButton);
     const heading = document.createElement('div');
     heading.className = 'dock-heading';
@@ -123,7 +135,9 @@ export function createCommandUI(options: {
     const touchPrompt = document.createElement('p');
     touchPrompt.setAttribute('role', 'status');
     const touchChoices = document.createElement('div');
-    touchActions.append(touchPrompt, touchChoices, button('取消', cancel));
+    const cancelTarget = button('取消', cancel);
+    setCommandIcon(cancelTarget, 'close', '取消当前操作');
+    touchActions.append(touchPrompt, touchChoices, cancelTarget);
     context.append(placementBar, touchActions);
     function setTouchMode(mode: typeof touchMode) {
         if (mode && (target || carrying !== undefined || options.placing())) cancel();
@@ -143,9 +157,10 @@ export function createCommandUI(options: {
     window.setAttribute('aria-modal', 'true');
     window.setAttribute('aria-label', '管理窗口');
     const tabs = document.createElement('nav');
-    for (const name of ['商店', '合成', '图鉴', '对局'])
-        tabs.append(button(name, () => open(name)));
-    tabs.append(button('关闭', close));
+    tabs.append(...managementTabs.map(managementButton));
+    const closeWindow = button('关闭', close);
+    setCommandIcon(closeWindow, 'close', '关闭窗口');
+    tabs.append(closeWindow);
     const content = document.createElement('div');
     content.className = 'command-content';
     const shop = document.createElement('section');
@@ -420,7 +435,9 @@ export function createCommandUI(options: {
             stats.textContent = '自动前往建造与交接';
         if (tower?.mana !== undefined)
             stats.textContent += `\n魔法 ${Math.floor(tower.mana)}/${Math.floor(tower.manaMaximum ?? tower.mana)}`;
-        detail.append(stats, button('详情', () => open('对局')));
+        const details = button('详情', () => open('对局'));
+        setCommandIcon(details, 'info', '详情');
+        detail.append(stats, details);
         info.append(portrait, detail);
         const inventory = dock.querySelector('.six-slots')!;
         inventory.replaceChildren();
@@ -606,15 +623,20 @@ export function createCommandUI(options: {
                 }
             while (commands.length < 3)
                 add('', () => { }, true);
-            add(learning ? '返回' : '学习技能', () => { learning = !learning; lastRender = ''; }, !tower.hero);
+            const learn = add(learning ? '返回' : '学习技能', () => { learning = !learning; lastRender = ''; }, !tower.hero);
+            if (learning) setCommandIcon(learn, 'back', '退出技能学习');
             if (learning) {
                 for (const skill of learnableSkills(tower.templateId).slice(3, 6)) {
                     const required = tower.hero && learningLevel(tower.hero, tower.templateId, skill.skillId);
                     add(skill.name, () => { options.send({ type: 'learn-skill', towerId: tower.id, skillId: skill.skillId }); learning = false; lastRender = ''; }, !tower.hero?.points || required === undefined || tower.hero.level < required);
                 }
             }
-            add('攻击', () => aim({ kind: 'enemy', label: '集火', action: (_point, id) => ({ type: 'focus-target', towerId: tower.id, targetId: id }) }));
-            add('停止', () => { options.send(tower.summon?.independent ? { type: 'stop-wolf', unitId: tower.id } : { type: 'focus-target', towerId: tower.id }); options.send({ type: 'stop-tower-cast', towerId: tower.id }); });
+            setCommandIcon(add('攻击', () => aim({ kind: 'enemy', label: '集火', action: (_point, id) => ({ type: 'focus-target', towerId: tower.id, targetId: id }) })), 'attack', '攻击／集火');
+            const stop = add('停止', () => {
+                options.send(tower.summon?.independent ? { type: 'stop-wolf', unitId: tower.id } : { type: 'focus-target', towerId: tower.id });
+                options.send({ type: 'stop-tower-cast', towerId: tower.id });
+            });
+            setCommandIcon(stop, 'stop', '停止');
             add('升级', () => options.send({ type: 'upgrade-tower', towerId: tower.id }), !towerLevels.get(tower.templateId)?.upgrade);
             add('回收', () => {
                 const equipped = state.inventory?.filter(item => item.towerId === tower.id) ?? [];
@@ -624,12 +646,14 @@ export function createCommandUI(options: {
             });
         }
         else if (current === -1) {
-            add('建造', () => { open('对局'); get('builds').scrollIntoView({ block: 'center' }); });
+            const build = add('建造', () => { open('对局'); get('builds').scrollIntoView({ block: 'center' }); });
+            setCommandIcon(build, 'build');
             add('塔卡', () => { open('对局'); get('cards').scrollIntoView({ block: 'center' }); });
             add('抽卡', () => { open('对局'); get('draws').scrollIntoView({ block: 'center' }); });
             add('天赋', () => { open('对局'); get('talents').scrollIntoView({ block: 'center' }); });
-            add('移动', () => aim({ kind: 'point', label: '移动工人', action: point => ({ type: 'move-worker', point }) }));
-            add('停止', () => options.send({ type: 'stop-worker' }));
+            const move = add('移动', () => aim({ kind: 'point', label: '移动工人', action: point => ({ type: 'move-worker', point }) }));
+            setCommandIcon(move, 'move', '移动工人');
+            setCommandIcon(add('停止', () => options.send({ type: 'stop-worker' })), 'stop', '停止');
         }
         while (grid.children.length < 12) {
             const empty = document.createElement('div');
