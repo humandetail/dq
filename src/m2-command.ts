@@ -198,7 +198,9 @@ export function createCommandUI(options: {
     context.append(status);
     // Existing progression and special transactions keep their original event handlers.
     const sections = [...aside.children];
+    const openingPanel = '选择开局英雄';
     const workerPanels = new Map([
+        [openingPanel, get('opening')],
         ['工人建造', get('builds').closest('section')!],
         ['塔卡', get('cards').closest('section')!],
         ['抽卡', get('draws').closest('section')!],
@@ -291,12 +293,12 @@ export function createCommandUI(options: {
         aside.hidden = name === '图鉴' || name === '合成';
         tabs.querySelectorAll('button').forEach(node => node.classList.toggle('active', node.textContent === name));
         if (workerPanel || name === '对局' || name === '商店') options.refreshManagement();
-        if (name === '商店') {
+        if (name === '商店' || name === openingPanel) {
             window.append(get('feedback'));
-            showShop();
         } else {
             status.prepend(get('feedback'));
         }
+        if (name === '商店') showShop();
         if (name === '图鉴') {
             codex.replaceChildren();
             for (const entry of towerLevels.values()) {
@@ -351,7 +353,9 @@ export function createCommandUI(options: {
             recipe.append(button('打开工人物品与制作书', () => { select(-1); open('对局'); get('worker-items').scrollIntoView({ block: 'center' }); }));
         }
         content.scrollTop = 0;
-        (tabs.querySelector<HTMLButtonElement>('.active') ?? closeWindow).focus();
+        const firstControl = name === openingPanel ? get('choices').querySelector<HTMLButtonElement>('button:enabled') :
+            tabs.querySelector<HTMLButtonElement>('.active');
+        (firstControl ?? closeWindow).focus();
     }
     function close() {
         modal = '';
@@ -925,6 +929,7 @@ export function createCommandUI(options: {
                 setTouchMode(undefined);
                 groups.clear();
                 openingShown = false;
+                if (modal === openingPanel) close();
                 lastRender = '';
                 damageTimestamp = -1;
                 damageAtTimestamp = 0;
@@ -948,8 +953,13 @@ export function createCommandUI(options: {
             }
             if (!openingShown && canChooseOpening(state)) {
                 openingShown = true;
-                open('对局');
-                get('opening').scrollIntoView({ block: 'center' });
+                open(openingPanel);
+            } else if (openingShown && state.openingCard !== null) {
+                openingShown = false;
+                if (modal === openingPanel || modal === '对局') close();
+                carrying = undefined;
+                select(-1);
+                showInventory(true);
             }
             if (modal === '商店') showPawn(state, ordinaryGoods.get(selectedGood)!.shop);
             const held = carrying === undefined ? undefined : state.inventory?.find(item => item.id === carrying);
