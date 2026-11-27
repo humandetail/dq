@@ -284,6 +284,18 @@
   gap: .4em .6em;
 }
 
+#worker-appearance { flex-direction: column; margin-block: 10px; }
+#worker-appearance summary { padding-block: 8px; cursor: pointer; }
+.appearance-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(86px, 1fr));
+  gap: 6px;
+}
+.command-ui .appearance-options button { display: grid; justify-items: center; align-content: start; gap: 4px; }
+.appearance-options .original-icon-inline { width: 36px; height: 36px; margin: 0; }
+.command-ui .appearance-options .command-icon-label::before { width: 36px; height: 36px; }
+.command-ui .appearance-options button[aria-pressed="true"] { border-color: var(--gold); background: #35412b; }
+
 .original-map-images {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 256px));

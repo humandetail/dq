@@ -880,6 +880,30 @@ function addButton(parent: HTMLElement, label: string, action: () => void, disab
   return button;
 }
 
+const appearance = el("worker-appearance");
+const appearanceLabels: Record<AppearanceSlot, string> = {
+  worker: "工人外观", circle: "能量圈外观", aura: "工人光环", wings: "工人羽翼", title: "工人称号", accent: "工人装饰",
+};
+const appearanceOptions = appearanceSlots.flatMap(slot => {
+  const group = document.createElement("details");
+  group.name = appearance.id;
+  const summary = document.createElement("summary");
+  summary.textContent = appearanceLabels[slot];
+  const choices = document.createElement("div");
+  choices.className = "appearance-options";
+  choices.setAttribute("role", "group");
+  choices.setAttribute("aria-label", appearanceLabels[slot]);
+  group.append(summary, choices);
+  appearance.append(group);
+  return [undefined, ...appearanceChoices.filter(choice => choice.slot === slot)].map(choice => {
+    const control = addButton(choices, choice?.name.replace(/（(?:工人|能量圈)）$/, "") ?? "默认",
+      () => send({ type: "choose-appearance", slot, choice: choice?.id }), true, choice?.id);
+    control.value = choice?.id ?? "";
+    if (!control.querySelector("img")) setCommandIcon(control, choice ? "info" : "retry");
+    return { slot, choice, control };
+  });
+});
+
 function cardName(id: string) {
   const card = cardTemplates.get(id);
   return card ? `${card.name} · ${card.rarity}` : id;
@@ -1100,27 +1124,12 @@ function showControls() {
       () => send({ type: "toggle-worker-sharing" }), locked);
     share.setAttribute("aria-pressed", String(Boolean(run.workerSharing)));
   }
-  const appearance = el("worker-appearance");
-  appearance.replaceChildren();
-  if (run) {
-    const labels = { worker: "工人外观", circle: "能量圈外观", aura: "工人光环", wings: "工人羽翼", title: "工人称号", accent: "工人装饰" } as const;
-    for (const [slot, name] of Object.entries(labels) as [keyof typeof labels, string][]) {
-      const label = document.createElement("label");
-      label.textContent = name;
-      const choices = document.createElement("select");
-      choices.setAttribute("aria-label", name);
-      choices.append(new Option("默认", ""));
-      for (const choice of appearanceChoices.filter(choice => choice.slot === slot)) {
-        const option = new Option(choice.name, choice.id);
-        option.disabled = !appearanceUnlocked(choice, run.seasons);
-        choices.append(option);
-      }
-      choices.value = run.appearance?.[slot] ?? "";
-      choices.disabled = locked;
-      choices.onchange = () => send({ type: "choose-appearance", slot, choice: choices.value || undefined });
-      label.append(choices);
-      appearance.append(label);
-    }
+  appearance.hidden = !run;
+  for (const { slot, choice, control } of appearanceOptions) {
+    const unlocked = !choice || appearanceUnlocked(choice, run?.seasons);
+    control.disabled = locked || !unlocked;
+    control.title = unlocked ? "" : "尚未解锁";
+    control.setAttribute("aria-pressed", String(run?.appearance?.[slot] === choice?.id));
   }
 
   const eventShop = el("event-boxes");
@@ -1897,8 +1906,13 @@ function advanceTransaction(current: Match, transaction: NonNullable<typeof pend
     lastSave = performance.now();
     el("save").textContent = `已保存 · 修订 ${head.revision}`;
     const reward = outcome?.eventReward;
-    if (outcome) el("feedback").textContent = reward
-      ? `获得 ${reward.amount} ${reward.currency === "score" ? "积分" : "碎片"}` : "操作已执行。";
+    if (reward) {
+      el("feedback").textContent = `获得 ${reward.amount} ${reward.currency === "score" ? "积分" : "碎片"}`;
+    } else if (outcome) {
+      const droppedOpeningCard = transaction.action.type === "choose-opening" &&
+        draft.cards.some(card => card.id === outcome.createdId && card.slot === null);
+      el("feedback").textContent = droppedOpeningCard ? "工人背包已满，塔卡掉在工人脚边。" : "操作已执行。";
+    }
   }).catch(error => {
     el("feedback").textContent = "存档失败，请重新操作。";
     handleStorageError(error);

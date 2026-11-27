@@ -188,6 +188,16 @@ try {
     await click(tab, ".command-window > nav button:last-child");
     await tab.wait(read(".command-backdrop") + ".hidden");
   }
+  const appearanceGroup = label => `#worker-appearance [role="group"][aria-label="${label}"]`;
+  const appearanceButton = (label, id) => `${appearanceGroup(label)} button[value="${id}"]`;
+  async function openAppearanceGroup(tab, label) {
+    await openManagement(tab);
+    const group = read(appearanceGroup(label));
+    await tab.wait(group + " !== null");
+    if (!await tab.evaluate(group + ".parentElement.open")) {
+      await tab.evaluate(group + ".parentElement.querySelector('summary').click()");
+    }
+  }
   async function buyOrdinary(tab, id) {
     if (!m3) {
       await tab.wait(read("#buy-ordinary") + "?.disabled === false");
@@ -290,15 +300,20 @@ try {
       return card.name + " · " + card.rarity;
     });
     const buttons = "[...document.querySelectorAll('#choices button')].map(button => button.textContent)";
-    await openManagement(page);
-    await page.wait(read('[data-item-id="i004"]') + "?.disabled === false");
-    await click(page, '[data-item-id="i004"]');
+    const starter = original.run.inventory.find(item => item.itemId === "i004");
+    const starterSlot = `.six-slots button:nth-child(${starter.slot + 1})`;
+    await page.wait(read("#field") + "?.dataset.ready === 'true' && " + read(starterSlot) + "?.disabled === false");
+    assert.equal(await page.evaluate(read(starterSlot) + ".checkVisibility()"), true);
+    await click(page, starterSlot);
     await page.wait(read("#choices button") + "?.disabled === false");
+    const picker = '.command-window[aria-label="选择开局英雄"]';
+    assert.equal(await page.evaluate(read(picker) + "?.checkVisibility()"), true);
     assert.deepEqual(await page.evaluate(buttons), labels);
     await page.wait(`(async () => (await (${snapshot})).run.openingChoicesUnlocked)()`);
+    await page.send("Emulation.setDeviceMetricsOverride", { width: 390, height: 844, deviceScaleFactor: 1, mobile: true });
     await page.evaluate("window.__m3BeforeOpeningReload = true");
     await page.send("Page.reload");
-    await page.wait("window.__m3BeforeOpeningReload !== true && " + read("#choices button") + "?.disabled === false");
+    await page.wait("window.__m3BeforeOpeningReload !== true && " + read(picker) + "?.checkVisibility() && " + read("#choices button") + "?.disabled === false");
     assert.deepEqual(await page.evaluate(buttons), labels);
     const reopened = await page.evaluate(snapshot);
     assert.equal(reopened.activeMatchId, original.activeMatchId);
@@ -310,6 +325,9 @@ try {
       return current.run.openingCard === ${JSON.stringify(candidates[0])} && current;
     })()`);
     assert.deepEqual(selected.run.cards.map(card => card.card), [candidates[0]]);
+    assert.equal(selected.run.cards[0].slot, starter.slot);
+    await page.wait(read(".command-backdrop") + ".hidden && " + read(starterSlot) + "?.checkVisibility() && " +
+      contains(starterSlot, cardTemplates.get(candidates[0]).name));
     await page.evaluate("window.__m3BeforeOpeningReload = true");
     await page.send("Page.reload");
     await page.wait("window.__m3BeforeOpeningReload !== true && " + read("#restart") + "?.disabled === false && " + read("#opening") + "?.hidden");
@@ -1384,19 +1402,19 @@ try {
     const shown = contains(title, label) + " && " + read(title) + "?.checkVisibility()";
     await page.wait(read("#field") + "?.dataset.ready === 'true' && " + read("#pause") + "?.disabled === false");
     assert.equal(await page.evaluate(read(title) + "?.checkVisibility()"), false);
-    await openManagement(page);
-    const selector = '#worker-appearance select[aria-label="工人称号"]';
+    await page.send("Emulation.setDeviceMetricsOverride", { width: 390, height: 844, deviceScaleFactor: 1, mobile: true });
+    await openAppearanceGroup(page, "工人称号");
+    const selector = appearanceButton("工人称号", "S719");
     const control = read(selector);
     await page.wait(control + "?.checkVisibility() && !" + control + ".disabled");
+    assert.equal(await page.evaluate(control + ".textContent"), label);
+    assert.ok(await page.evaluate(control + ".querySelector('img')?.src.includes('gtma')"));
+    await page.evaluate(read(appearanceGroup("工人称号")) + ".parentElement.scrollIntoView({ block: 'start' })");
+    await capture(page, "worker-appearance-icons");
     const revision = await page.evaluate(read("#save") + ".textContent");
-    await page.evaluate(`(() => {
-      const select = ${control};
-      select.value = "S719";
-      if (select.selectedOptions[0]?.disabled || select.value !== "S719") return false;
-      select.dispatchEvent(new Event("change", { bubbles: true }));
-      return true;
-    })()`).then(selected => assert.ok(selected, "S719 must be an enabled normal option"));
+    await click(page, selector);
     await page.wait(shown);
+    await page.wait(control + ".getAttribute('aria-pressed') === 'true'");
     await closeManagement(page);
     await page.wait(contains("#save", "已保存") + " && " + read("#save") + ".textContent !== " + JSON.stringify(revision));
     await capture(page, "worker-title-selected");
@@ -1418,14 +1436,14 @@ try {
     await page.wait(read("#field") + "?.dataset.workerModel === 'w001'");
     await page.wait(read("#pause") + "?.disabled === false");
     const choose = async (label, id) => {
-      const control = read(`#worker-appearance select[aria-label="${label}"]`);
-      await page.wait(control + "?.disabled === false");
+      await openAppearanceGroup(page, label);
+      const selector = appearanceButton(label, id);
+      await page.wait(read(selector) + "?.disabled === false");
       if (!await page.evaluate(contains("#pause", "继续"))) {
         await click(page, "#pause");
         await page.wait(contains("#pause", "继续"));
       }
-      await page.evaluate(`(() => { const element = ${control}; element.value = ${JSON.stringify(id)};
-        element.dispatchEvent(new Event("change", { bubbles: true })); })()`);
+      await click(page, selector);
       await click(page, "#pause");
       await page.wait(contains("#feedback", "操作已执行"));
       await click(page, "#pause");
@@ -1442,9 +1460,9 @@ try {
     const cosmetics = [];
     for (const [label, field, attachment] of [["工人光环", "workerAura", false], ["工人羽翼", "workerAttachments", true],
       ["工人装饰", "workerAttachments", true], ["工人称号", null, false]]) {
-      const control = read(`#worker-appearance select[aria-label="${label}"]`);
-      const choices = await page.evaluate(`[...${control}.options].filter(option => option.value && !option.disabled)
-        .map(option => [option.value, option.textContent.replace("（工人）", "")])`);
+      const control = read(appearanceGroup(label));
+      const choices = await page.evaluate(`[...${control}.querySelectorAll('button:enabled')].filter(option => option.value)
+        .map(option => [option.value, option.textContent])`);
       for (const [id, name] of choices) {
         await choose(label, id);
         if (field) {
@@ -1459,8 +1477,7 @@ try {
       ["工人光环", "S543", "workerAura", "S543"], ["工人光环", "S549", "workerAura", "S549"],
       ["工人羽翼", "S604", "workerAttachments", "S604"], ["工人羽翼", "S607", "workerAttachments", "S607"],
     ];
-    const reachableGated = gated.filter(([label]) => label !== "能量圈外观");
-    for (const [label, id] of gated) assert.equal(await page.evaluate(read(`[aria-label="${label}"] option[value="${id}"]`) + ".disabled"), true);
+    for (const [label, id] of gated) assert.equal(await page.evaluate(read(appearanceButton(label, id)) + ".disabled"), true);
     await choose("能量圈外观", "S545");
     await page.wait(read("#field") + "?.dataset.circleModel === 'g201'");
     await choose("工人光环", "S537");
@@ -1501,12 +1518,7 @@ try {
       })()`);
       await setup.close();
       page = await openAppearancePage();
-      await page.wait(read('#worker-appearance select[aria-label="能量圈外观"]') + "?.disabled === false");
-      for (const [label, id] of gated.filter(([label]) => label === "能量圈外观")) {
-        assert.equal(await page.evaluate(read(`[aria-label="${label}"] option[value="${id}"]`) + ".disabled"), true);
-      }
-      for (const [label, id, field, expected] of reachableGated) {
-        await page.wait(read(`[aria-label="${label}"] option[value="${id}"]`) + "?.disabled === false");
+      for (const [label, id, field, expected] of gated) {
         await choose(label, id);
         await page.wait(read("#field") + `?.dataset.${field}.split(",").includes("${expected}")`);
       }
@@ -1518,7 +1530,7 @@ try {
     }
     assert.deepEqual(runtimeErrors, []);
     console.log(JSON.stringify({ type: "appearance-browser", models, cosmetics, gated: gated.map(([, id]) => id),
-      gatedUnlocked: origin ? [] : reachableGated.map(([, id]) => id), circle: "g201", aura: "S537",
+      gatedUnlocked: origin ? [] : gated.map(([, id]) => id), circle: "g201", aura: "S537",
       wings: "S603", accent: "S900", title: "S719", reload: true, restart: true, remove: true }, null, 2));
   } else if (process.env.M2_WORKER_RESUME_ONLY === "1") {
     assert.equal(origin, undefined, "The worker resume fixture requires the local Vite server");
