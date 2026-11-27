@@ -1,0 +1,206 @@
+{
+  "status": "not-observed",
+  "frozen": "/Volumes/personal/www/td3-m3-worker-damage-ui.WDKR7Z",
+  "seed": 73020,
+  "initialStateSha256": "ba3760cf06ad83e9f6d2f49028016210482b6ffbfccf04da0b1f1c2cde157d1f",
+  "inputLogSha256": "ea1b6c26d0eb77470eed895dcaf1b6b54adf1e54b8eb05fc91babe69492bb2a4",
+  "matchedPrefix": 394,
+  "prefixSha256": "556a003b68912e81066330fcaf29cc355f70067cd07e2658292bfa39f25d527e",
+  "originalFifth": {
+    "wave": 40,
+    "atUs": 2290400395,
+    "id": 2340,
+    "unitId": "m040",
+    "nativeTarget": "ground",
+    "abilities": [
+      "T018",
+      "N534"
+    ],
+    "coldArrow": {
+      "factor": 0.85,
+      "expiresUs": 2293076431
+    },
+    "stats": {
+      "STR": 315,
+      "AGI": 228,
+      "INT": 350
+    },
+    "loadout": [
+      "i198",
+      "i263",
+      "i327",
+      "i138",
+      "i217",
+      "i188"
+    ],
+    "nativeModifiers": {
+      "wispLinks": []
+    },
+    "hp": 36796.2475391731
+  },
+  "before": {
+    "atUs": 2290000394,
+    "wave": 40,
+    "gold": 2860,
+    "gear": [
+      "i198",
+      "i263",
+      "i327",
+      "i138",
+      "i217",
+      "i188"
+    ],
+    "stats": {
+      "STR": 315,
+      "AGI": 228,
+      "INT": 350
+    },
+    "item": {
+      "id": 2007,
+      "towerId": 8,
+      "slot": 2,
+      "point": {
+        "x": -240,
+        "y": 944
+      }
+    },
+    "readyUs": 2289020392,
+    "mana": 64.76657921199849,
+    "target": {
+      "id": 2340,
+      "unitId": "m040",
+      "hp": 41287.282812979545,
+      "quills": {
+        "stacks": 4,
+        "timerId": 783087
+      }
+    }
+  },
+  "sale": {
+    "result": {
+      "ok": true
+    },
+    "proceeds": 1032
+  },
+  "purchaseGold": 3400,
+  "afterEquip": {
+    "atUs": 2290000397,
+    "wave": 40,
+    "gold": 492,
+    "gear": [
+      "i263",
+      "i327",
+      "i138",
+      "i217",
+      "i188",
+      "i147"
+    ],
+    "stats": {
+      "STR": 355,
+      "AGI": 228,
+      "INT": 350
+    },
+    "item": {
+      "id": 2007,
+      "towerId": 8,
+      "slot": 2,
+      "point": {
+        "x": -240,
+        "y": 944
+      }
+    },
+    "readyUs": 2289020392,
+    "mana": 0.00003153,
+    "target": {
+      "id": 2340,
+      "unitId": "m040",
+      "hp": 41287.282812979545,
+      "quills": {
+        "stacks": 4,
+        "timerId": 783087
+      }
+    }
+  },
+  "expiry": 2295400392,
+  "afterCast": {
+    "atUs": 2295000391,
+    "wave": 40,
+    "gold": 565,
+    "gear": [
+      "i263",
+      "i327",
+      "i138",
+      "i217",
+      "i188",
+      "i147"
+    ],
+    "stats": {
+      "STR": 355,
+      "AGI": 228,
+      "INT": 350
+    },
+    "item": {
+      "id": 2007,
+      "towerId": 8,
+      "slot": 2,
+      "point": {
+        "x": -240,
+        "y": 944
+      }
+    },
+    "readyUs": 2289020392,
+    "mana": 49.752054075000004,
+    "target": {
+      "id": 2340,
+      "unitId": "m040",
+      "hp": 38062.19074303165,
+      "quills": {
+        "stacks": 4,
+        "timerId": 783087
+      }
+    }
+  },
+  "projectedMana": 78.82493694,
+  "targetRange": 1056.7648447903678,
+  "targetStillLive": true,
+  "commands": [
+    {
+      "id": "395",
+      "atUs": 2290000394,
+      "action": {
+        "type": "sell-item",
+        "itemId": 899,
+        "shop": "武器铺二"
+      },
+      "outcome": {
+        "ok": true
+      }
+    },
+    {
+      "id": "396",
+      "atUs": 2290000395,
+      "action": {
+        "type": "buy-item",
+        "itemId": "i147"
+      },
+      "outcome": {
+        "ok": true,
+        "createdId": 2343
+      }
+    },
+    {
+      "id": "397",
+      "atUs": 2290000396,
+      "action": {
+        "type": "transfer-item",
+        "itemId": 2343,
+        "towerId": 8
+      },
+      "outcome": {
+        "ok": true,
+        "createdId": 2343
+      },
+      "resolvedThroughUs": 2290000397
+    }
+  ]
+}

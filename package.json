@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "typecheck": "tsc --noEmit",
-    "test": "node --test",
+    "test": "node --conditions=td3-legacy-battlefield --test && node --test test/m3-original-battlefield.test.mjs",
     "build": "vite build",
     "check": "npm run typecheck && npm test && npm run build",
     "preview": "vite preview --host 127.0.0.1"
@@ -22,5 +22,11 @@
   "dependencies": {
     "three": "0.180.0",
     "war3-model": "4.0.1"
+  },
+  "imports": {
+    "#battlefield": {
+      "td3-legacy-battlefield": "./src/game/m2/legacy-battlefield.ts",
+      "default": "./src/game/m2/original-battlefield.ts"
+    }
   }
 }

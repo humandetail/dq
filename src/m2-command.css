@@ -256,3 +256,90 @@
     height: 15px;
   }
 }
+.command-ui .original-icon-tile {
+  background-image: linear-gradient(transparent 30%, #000c), var(--original-icon);
+  background-size: 100% 100%, contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-shadow: 0 1px 3px #000, 0 1px 2px #000;
+}
+
+.command-ui .goods-art.original-icon-tile {
+  background-image: var(--original-icon);
+  background-size: contain;
+}
+
+.original-icon-inline {
+  width: 1.6em;
+  height: 1.6em;
+  margin-inline-end: .4em;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+.original-icon-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .4em .6em;
+}
+
+.original-map-images {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 256px));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.original-map-images figure { margin: 0; }
+.original-map-images img { display: block; width: 100%; height: auto; }
+.original-map-images figcaption { margin-top: 4px; }
+
+.ground-marker {
+  position: absolute;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  min-height: 22px;
+  max-width: 132px;
+  padding: 1px 5px;
+  border: 1px solid #cbac67;
+  background: #1a2119f5;
+  color: #f6e3b3;
+  font-size: 11px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.ground-marker .original-icon-inline { flex: none; }
+.ground-marker.energy-marker { border-color: #77baa5; color: #d2f1dc; }
+.ground-marker.selected { border-width: 2px; }
+.command-ui #orbit-view[aria-pressed="true"] { border-color: var(--gold); color: #f6e3b3; }
+.command-ui .command-backdrop:has(.worker-dialog) {
+  display: grid;
+  place-items: center;
+  padding: 12px;
+}
+.command-ui .command-window.worker-dialog {
+  position: relative;
+  width: min(100%, 560px);
+  height: auto;
+  max-height: min(70dvh, 480px);
+}
+.command-ui .worker-dialog > nav {
+  position: absolute;
+  inset: 6px 6px auto auto;
+  z-index: 1;
+  width: auto;
+  height: auto;
+  padding: 0;
+  border: 0;
+}
+.command-ui .worker-dialog > nav button:not(:last-child) { display: none; }
+.worker-dialog .command-content { padding: 12px; }
+.command-ui .worker-dialog aside section:not(.outside-tab) { margin: 0; }
+.worker-dialog section h2 { padding-inline-end: 48px; }
+
+@media (pointer: coarse) {
+  .command-ui #orbit-view { display: none; }
+}

@@ -178,9 +178,12 @@ export function completeRouteSpan(unit: Mobile, span: RouteSpan, roll: () => num
   if (span.endsAt === "corner") unit.path?.shift();
   if (typeof span.endsAt === "number") {
     regions.push(span.endsAt);
-    unit.waypoint = chooseWaypoint(span.endsAt, unit.previousWaypoint, roll);
-    unit.previousWaypoint = span.endsAt;
-    delete unit.path;
+    const next = chooseWaypoint(span.endsAt, unit.previousWaypoint, roll);
+    if (next !== undefined) {
+      unit.waypoint = next;
+      unit.previousWaypoint = span.endsAt;
+      delete unit.path;
+    }
   }
   unit.insideRegions = regions;
 }
@@ -245,9 +248,12 @@ export function moveAlongRoute(unit: Mobile, others: Obstacles, roll: () => numb
       unit.y += (point.y - unit.y) * t;
       remaining -= step * t;
       unit.insideRegions = [...unit.insideRegions.filter(id => contains(waypointRegions[id], unit)), entry.id];
-      unit.waypoint = chooseWaypoint(entry.id, unit.previousWaypoint, roll);
-      unit.previousWaypoint = entry.id;
-      unit.path = undefined;
+      const nextWaypoint = chooseWaypoint(entry.id, unit.previousWaypoint, roll);
+      if (nextWaypoint !== undefined) {
+        unit.waypoint = nextWaypoint;
+        unit.previousWaypoint = entry.id;
+        unit.path = undefined;
+      }
     } else {
       unit.x = point.x;
       unit.y = point.y;

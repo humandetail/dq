@@ -1,6 +1,6 @@
 import type { OverBudgetSlice, SimulationInput, SimulationOutput } from "./m2-simulation-protocol.ts";
 import { createCommandUI } from "./m2-command.ts";
-import { setCommandIcon } from "./m2-icons.ts";
+import { prependOriginalIcon, setCommandIcon } from "./m2-icons.ts";
 import { isDivineBook } from "./game/m2/divine.ts";
 import { appearanceChoice, appearanceChoices, appearanceSlots, appearanceUnlocked, type Appearance, type AppearanceSlot } from "./game/m2/appearance.ts";
 import { configuration, cardTemplates, directBuilds, firelordSkin, itemFields, items, openingChoices, ordinaryGoods, prayerBooks, qualificationChains, towerLevels, waveRewards, workerTowers } from "./game/m2/content.ts";
@@ -870,11 +870,12 @@ function send(action: Action) {
   }
 }
 
-function addButton(parent: HTMLElement, label: string, action: () => void, disabled = !writable()) {
+function addButton(parent: HTMLElement, label: string, action: () => void, disabled = !writable(), iconId?: string) {
   const button = document.createElement("button");
   button.textContent = label;
   button.disabled = disabled;
   button.addEventListener("click", action);
+  if (iconId) prependOriginalIcon(button, iconId);
   parent.append(button);
   return button;
 }
@@ -882,6 +883,12 @@ function addButton(parent: HTMLElement, label: string, action: () => void, disab
 function cardName(id: string) {
   const card = cardTemplates.get(id);
   return card ? `${card.name} · ${card.rarity}` : id;
+}
+
+function placeCard(id: number, card: string) {
+  clearPlacement();
+  build = { key: String(id), label: cardName(card), action: { type: "build-card", cardId: id } };
+  el("feedback").textContent = "";
 }
 
 function structureName(id: string) {
@@ -988,7 +995,7 @@ function showControls() {
     const status = run?.waveRewardSlots?.[slot] ?? 0;
     if (status === 1 || status === 2) {
       addButton(rewards, `第 ${reward.claimable} 波奖励 · ${items.get(reward.itemId)!.name}`,
-        () => send({ type: "claim-wave", slot }), locked || status !== 2);
+        () => send({ type: "claim-wave", slot }), locked || status !== 2, reward.itemId);
     }
   }
   const overdraft = el<HTMLButtonElement>("overdraft");
@@ -1009,7 +1016,8 @@ function showControls() {
       if (!count) continue;
       const fields = itemFields.get(itemId)!;
       const price = [fields.goldcost && `${fields.goldcost} 金`, fields.lumbercost && `${fields.lumbercost} 木`].filter(Boolean).join("、");
-      addButton(panel, `${items.get(itemId)!.name} ×${count}${price ? " · " + price : ""}`, () => send({ type: "buy-special", shop, itemId }));
+      addButton(panel, `${items.get(itemId)!.name} ×${count}${price ? " · " + price : ""}`,
+        () => send({ type: "buy-special", shop, itemId }), locked, itemId);
     }
   }
   if (run?.mysteryShopOpen && !run.mysteryRefreshed) {
@@ -1039,7 +1047,7 @@ function showControls() {
   const choices = el("choices");
   choices.replaceChildren();
   for (const card of run?.openingCandidates ?? []) {
-    addButton(choices, cardName(card), () => send({ type: "choose-opening", card }), locked);
+    addButton(choices, cardName(card), () => send({ type: "choose-opening", card }), locked, card);
   }
 
   const builds = el("builds");
@@ -1061,7 +1069,7 @@ function showControls() {
   const prayer = el("prayer");
   prayer.replaceChildren();
   for (const book of prayerBooks) {
-    addButton(prayer, `${book.name} · ${book.gold} 金`, () => send({ type: "buy-book", bookId: book.id }));
+    addButton(prayer, `${book.name} · ${book.gold} 金`, () => send({ type: "buy-book", bookId: book.id }), locked, book.id);
   }
 
   const pack = el("books");
@@ -1120,7 +1128,7 @@ function showControls() {
   if (run) {
     for (const [offer, box] of eventBoxOffers) {
       addButton(eventShop, `${box.name} · ${eventBoxCost} 活动积分`,
-        () => send({ type: "buy-event-box", offer }), locked || !!pendingTransaction || (run.activityScore ?? 0) < eventBoxCost);
+        () => send({ type: "buy-event-box", offer }), locked || !!pendingTransaction || (run.activityScore ?? 0) < eventBoxCost, offer);
     }
   }
 
@@ -1132,7 +1140,7 @@ function showControls() {
     const blocked = definition.cost ? run.scoreHeroClaimed || spendableScore(run) < definition.cost :
       run.mallHeroClaims?.includes(offer) || (run.mallHeroClaims?.length ?? 0) >= mallHeroLimit(run.wave);
     addButton(offers, `${cardName(definition.card)} · 1 张 SR${definition.cost ? ` ＋ ${definition.cost} 积分` : ""}`,
-      () => send({ type: "exchange-hero", offer }), locked || !!blocked || !!pendingTransaction);
+      () => send({ type: "exchange-hero", offer }), locked || !!blocked || !!pendingTransaction, definition.card);
   }
 
   const inventory = el("worker-items");
@@ -1141,6 +1149,7 @@ function showControls() {
     const name = (eventBoxes.get(item.itemId) ?? items.get(item.itemId))!.name + (item.charges > 1 ? ` ×${item.charges}` : "");
     const row = document.createElement("div");
     row.className = "controls";
+    prependOriginalIcon(row, item.itemId);
     if (item.slot === null) {
       addButton(row, `拾取${name}`, () => send({ type: "pick-up-item", itemId: item.id }));
     } else {
@@ -1172,12 +1181,8 @@ function showControls() {
   for (const card of [...run?.cards ?? []].sort((a, b) => (a.slot ?? 6) - (b.slot ?? 6))) {
     addButton(cards, card.slot === null ? `拾取 ${cardName(card.card)}` : cardName(card.card), () => {
       if (card.slot === null) send({ type: "pick-up-card", cardId: card.id });
-      else {
-        clearPlacement();
-        build = { key: String(card.id), label: cardName(card.card), action: { type: "build-card", cardId: card.id } };
-        el("feedback").textContent = "";
-      }
-    }).setAttribute("aria-pressed", String(build?.key === String(card.id)));
+      else placeCard(card.id, card.card);
+    }, locked, card.card).setAttribute("aria-pressed", String(build?.key === String(card.id)));
     if (card.slot !== null) {
       if (!card.bound) addButton(cards, `丢下 ${cardName(card.card)}`, () => send({ type: "drop-card", cardId: card.id }));
       if (talent?.id === "W012" && card.slot !== 0) {
@@ -1192,6 +1197,7 @@ function showControls() {
       const gear = document.createElement("div");
       const name = (eventBoxes.get(item.itemId) ?? items.get(item.itemId))!.name;
       gear.textContent = `${name}${item.charges > 1 ? " ×" + item.charges : ""} `;
+      prependOriginalIcon(gear, item.itemId);
       if (towerId !== circleId && isActiveTowerEquipment(item.itemId) && item.slot !== null) {
         const label = item.itemId === "i330" ? "熄灭魔焰" : item.itemId === "i332" ? "点燃魔焰" : "施放" + name;
         addButton(gear, label, () => send({ type: "cast-equipment", itemId: item.id, towerId }), locked);
@@ -1297,8 +1303,9 @@ function showControls() {
           const required = learningLevel(hero, tower.templateId, skill.skillId);
           const label = required === undefined ? `${skill.name} Lv${rank}` :
             `学习${skill.name} Lv${rank + 1}（需 ${required} 级）`;
-          addButton(skills, label, () => send({ type: "learn-skill", towerId: tower.id, skillId: skill.skillId }),
+          const learn = addButton(skills, label, () => send({ type: "learn-skill", towerId: tower.id, skillId: skill.skillId }),
             locked || hero.points < 1 || required === undefined || hero.level < required);
+          prependOriginalIcon(learn, skill.skillId, true);
           if (rank) addHeroCast(activeHeroSkill(tower, skill.skillId), skill.name);
           if (rank && skill.skillId === "A091") {
             const enabled = tower.autoModes?.A091 === true;
@@ -1337,7 +1344,7 @@ function showControls() {
             addButton(skills, `施放${label}`, () => {
               clearPlacement();
               pointSpell = { action: { type: "cast-hero", towerId: tower.id, skillId: skillId as HeroSpell }, label };
-            }, locked);
+            }, locked, skillId);
           } else if (mode === "unit" || mode === "ally") {
             const targets = document.createElement("select");
             targets.setAttribute("aria-label", name + "目标");
@@ -1346,9 +1353,9 @@ function showControls() {
             }
             skills.append(targets);
             addButton(skills, `施放${name}`, () => send({ type: "cast-hero", towerId: tower.id, skillId,
-              targetId: Number(targets.value) }), locked || targets.options.length === 0);
+              targetId: Number(targets.value) }), locked || targets.options.length === 0, skillId);
           } else {
-            addButton(skills, `施放${name}`, () => send({ type: "cast-hero", towerId: tower.id, skillId }), locked);
+            addButton(skills, `施放${name}`, () => send({ type: "cast-hero", towerId: tower.id, skillId }), locked, skillId);
           }
         }
         if (hero.ranks.A106) {
@@ -1540,7 +1547,17 @@ function cancelPlacement() {
   el("feedback").textContent = choosingPoint ? "已取消选择目的地。" : "已取消选塔。";
 }
 el("cancel-placement").onclick = cancelPlacement;
-el("reset-view").onclick = () => draw?.resetView();
+const orbitControl = el<HTMLButtonElement>("orbit-view");
+orbitControl.onclick = () => {
+  const active = orbitControl.getAttribute("aria-pressed") !== "true";
+  orbitControl.setAttribute("aria-pressed", String(active));
+  draw?.setOrbit(active);
+};
+el("reset-view").onclick = () => {
+  orbitControl.setAttribute("aria-pressed", "false");
+  draw?.setOrbit(false);
+  draw?.resetView();
+};
 el("view-oblique").onclick = () => draw?.setView("oblique");
 el("view-top").onclick = () => draw?.setView("top");
 el("rotate-left").onclick = () => draw?.rotateView(-1);
@@ -1558,7 +1575,7 @@ setCommandIcon(el("reset-view"), "recenter", "复位视角");
 setCommandIcon(el("cancel-placement"), "close", "取消放置");
 setCommandIcon(el("cancel-save-wait"), "close", "取消等待");
 setCommandIcon(el("retry-save"), "retry", "重试存档");
-const commandUI = createCommandUI({ match: () => compatibleMap() ? run : undefined, scene: () => draw, send, writable,
+const commandUI = createCommandUI({ match: () => compatibleMap() ? run : undefined, scene: () => draw, send, writable, placeCard,
   refreshManagement: showControls, cancel: clearPlacement, placing: () => !!build || !!pointSpell || !!scoutWard || wolfMoveId !== undefined || artilleryTowerId !== undefined });
 const sceneReady = createM2Scene(el<HTMLCanvasElement>("field"), point => {
   if (artilleryTowerId !== undefined && writable()) {

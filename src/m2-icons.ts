@@ -1,3 +1,26 @@
+import originalIcons from './assets/original-icons/index.json' with { type: 'json' };
+
+const icons: Readonly<Record<string, { default: string; learn?: string }>> = originalIcons;
+
+export function originalIconUrl(id: string, learning = false) {
+    const icon = icons[id];
+    if (!icon) return;
+    const filename = (learning ? icon.learn : undefined) ?? icon.default;
+    const basename = filename.slice(0, -'.png'.length);
+    return new URL(`./assets/original-icons/${basename}.png?no-inline`, import.meta.url).href;
+}
+
+export function prependOriginalIcon(element: HTMLElement, id: string, learning = false) {
+    const url = originalIconUrl(id, learning);
+    if (!url) return;
+    const image = document.createElement('img');
+    image.className = 'original-icon-inline';
+    image.src = url;
+    image.alt = '';
+    image.loading = 'lazy';
+    element.prepend(image);
+}
+
 const paths = {
     pause: 'M9 5v14M15 5v14',
     play: 'M8 5v14l11-7z',

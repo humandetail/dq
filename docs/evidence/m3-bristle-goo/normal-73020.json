@@ -1,0 +1,203 @@
+{
+  "version": "m3-dev-1",
+  "configuration": "m3-config-1",
+  "policy": "m3-r02-bristleback-1-actual-opening-continuation-support",
+  "cardId": "i584",
+  "samples": [
+    {
+      "seed": 73020,
+      "source": [
+        [
+          "src/game/m2/match.ts",
+          "c830887fe5ed6f3a31d359dd86b9bb0d18bae67633a9652203058f29fec3af88"
+        ],
+        [
+          "src/game/m2/content.ts",
+          "0534cdbf3588c3e84e840ead6e2d5db8dcb5c9b5d8bf41d5eb9f3e0929a7889c"
+        ],
+        [
+          "src/game/m2/combat.ts",
+          "d360366e128802e18c1c343e9a6e35183fea3313e11db5229c9b2f97fbb787d0"
+        ],
+        [
+          "src/game/m2/movement.ts",
+          "9c5e412a614dd2816cc57b1996158380c7925f6b81c8c488ecbdf2a9caac3922"
+        ],
+        [
+          "src/game/m2/hero-spells.ts",
+          "d6d3be7b94712ef9278621f22ab5fec60bdeba322ce8301643187ec4b745f245"
+        ],
+        [
+          "src/game/m2/weapons.json",
+          "8cdf7eb5b89cba10995745ad91494f152e918a61f79ee92071b0b07338ef1a97"
+        ],
+        [
+          "docs/m3-configuration.json",
+          "aafd409af2051dd97a8add1f62f93455253f2b5368f1b09fe835e39157e7aed9"
+        ]
+      ],
+      "initialStateSha256": "647953da91f8f1d897a7024c956dc9ee8cdbfc3cf62f15835c4f93dbffea13ba",
+      "candidates": [
+        "i584",
+        "i560",
+        "i589",
+        "i568"
+      ],
+      "opening": "i584",
+      "heroId": 8,
+      "effects": {
+        "H047/A182": {
+          "atUs": 62806250,
+          "x": -989.8042,
+          "y": -16,
+          "targetId": 30,
+          "casterId": 8,
+          "ownerId": 8,
+          "sourceTemplate": "H047",
+          "amount": 60,
+          "deadUnitId": "m001"
+        },
+        "H047/A181": {
+          "atUs": 405497500,
+          "targetId": 329,
+          "sourceId": 349,
+          "armor": {
+            "level": 1,
+            "value": 5
+          },
+          "slow": {
+            "factor": 0.92,
+            "untilUs": 410497500
+          }
+        }
+      },
+      "commands": [
+        {
+          "atUs": 1500011,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A181"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 2500012,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 2500013,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 3500014,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 5500015,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 58500016,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A182"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 83500017,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A183"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 131500018,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 220500019,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 311500020,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 360500021,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        }
+      ],
+      "continuation": {
+        "cardInstance": 7,
+        "wave": 0,
+        "prefixInputs": 11,
+        "inputLogSha256": "c54b03387987858876d46b58074e70307c8c134ba541eb37e2f82d89e82b6da4"
+      },
+      "end": {
+        "phase": "running",
+        "wave": 18,
+        "atUs": 995500022
+      },
+      "status": "failed"
+    }
+  ]
+}

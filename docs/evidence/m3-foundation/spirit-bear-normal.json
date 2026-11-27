@@ -1,0 +1,741 @@
+{
+  "content": "m3-dev-1",
+  "configuration": "m3-config-1",
+  "policy": "m3-r02-spirit-bear-1",
+  "source": [
+    [
+      "src/game/m2/match.ts",
+      "8101363dbbfe45fd0b4b7513141a1a1efef20e19b27cb71e00af05f8871a0ff8"
+    ],
+    [
+      "src/game/m2/hero-spells.ts",
+      "034cceb09f042b0c7977bece419f291ab79d40fa5078d0e4c10ef05fc7cf6d31"
+    ],
+    [
+      "src/game/m2/content.ts",
+      "cb503fc70ac3abf2c4b9e1f66a81c8369719ff0c98e7782b46ac5285f4e28b50"
+    ],
+    [
+      "src/game/m2/weapons.json",
+      "c5ba735fe6cf6fff7574d7a70790c1d5baf2b5cf4245d67b39513bfeceaa0789"
+    ],
+    [
+      "docs/m3-configuration.json",
+      "aafd409af2051dd97a8add1f62f93455253f2b5368f1b09fe835e39157e7aed9"
+    ]
+  ],
+  "samples": [
+    {
+      "seed": 14,
+      "initialStateSha256": "be1f0ece55b053abe51f8843ca8ecbf7a82afb26459aa362c839e555b197f342",
+      "opening": "i569",
+      "candidates": [
+        "i569",
+        "i554",
+        "i565",
+        "i576"
+      ],
+      "commands": [
+        {
+          "atUs": 0,
+          "wave": 0,
+          "action": {
+            "type": "choose-talent",
+            "choice": "W005"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 2,
+          "wave": 0,
+          "action": {
+            "type": "choose-opening",
+            "card": "i569"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          }
+        }
+      ],
+      "status": "candidate-not-offered"
+    },
+    {
+      "seed": 47,
+      "initialStateSha256": "2fb34c1283e4d48ee9fa64c6fc31449e6734ea80c82c6c2eb9b663a0b1a384eb",
+      "opening": "i574",
+      "candidates": [
+        "i564",
+        "i574",
+        "i565",
+        "i554"
+      ],
+      "heroId": 8,
+      "forms": [
+        "H036",
+        "E016"
+      ],
+      "bears": [
+        [
+          13,
+          {
+            "templateId": "n255",
+            "seenUs": 6000010,
+            "firstInherited": 33
+          }
+        ],
+        [
+          121,
+          {
+            "templateId": "n256",
+            "seenUs": 120500015,
+            "firstInherited": 67
+          }
+        ],
+        [
+          251,
+          {
+            "templateId": "n257",
+            "seenUs": 255500018,
+            "firstInherited": 100
+          }
+        ]
+      ],
+      "effects": {
+        "frenzy": true,
+        "roar": false,
+        "ensnare": true,
+        "bearHit": true,
+        "keptPrior": true,
+        "recall": true,
+        "replacementCarriesItem": false
+      },
+      "commands": [
+        {
+          "atUs": 0,
+          "wave": 0,
+          "action": {
+            "type": "choose-talent",
+            "choice": "W005"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 2,
+          "wave": 0,
+          "action": {
+            "type": "choose-opening",
+            "card": "i574"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          }
+        },
+        {
+          "atUs": 3,
+          "wave": 0,
+          "action": {
+            "type": "build-card",
+            "cardId": 7,
+            "point": {
+              "x": -288,
+              "y": -1024
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          }
+        },
+        {
+          "atUs": 2500004,
+          "wave": 0,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n021",
+            "point": {
+              "x": 288,
+              "y": -1024
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          }
+        },
+        {
+          "atUs": 4000005,
+          "wave": 0,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n001",
+            "point": {
+              "x": -288,
+              "y": -640
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 10
+          }
+        },
+        {
+          "atUs": 5500006,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 2
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 5500007,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 4
+          },
+          "result": {
+            "ok": true,
+            "createdId": 12
+          }
+        },
+        {
+          "atUs": 5500008,
+          "wave": 0,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A125"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 5500009,
+          "wave": 0,
+          "action": {
+            "type": "cast-hero",
+            "towerId": 8,
+            "skillId": "A125"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 45000010,
+          "wave": 1,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A127"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 45000011,
+          "wave": 1,
+          "action": {
+            "type": "cast-hero",
+            "towerId": 8,
+            "skillId": "A127"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 68500012,
+          "wave": 1,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A126"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 120000013,
+          "wave": 2,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A125"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 120000014,
+          "wave": 2,
+          "action": {
+            "type": "cast-hero",
+            "towerId": 8,
+            "skillId": "A125"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 120500015,
+          "wave": 2,
+          "action": {
+            "type": "cast-tower",
+            "towerId": 121,
+            "skillId": "N138"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 255000016,
+          "wave": 5,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A125"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 255000017,
+          "wave": 5,
+          "action": {
+            "type": "cast-hero",
+            "towerId": 8,
+            "skillId": "A125"
+          },
+          "result": {
+            "ok": true
+          }
+        }
+      ],
+      "end": {
+        "phase": "failed",
+        "wave": 15,
+        "atUs": 813000000
+      },
+      "status": "partial"
+    },
+    {
+      "seed": 811,
+      "initialStateSha256": "e63f290323078bde6384654bb539c4e6f736b1368143c8ff3dfc876ff2af0f30",
+      "opening": "i574",
+      "candidates": [
+        "i574",
+        "i565",
+        "i557",
+        "i576"
+      ],
+      "heroId": 8,
+      "forms": [
+        "H036",
+        "E016"
+      ],
+      "bears": [
+        [
+          13,
+          {
+            "templateId": "n255",
+            "seenUs": 6000010,
+            "firstInherited": 33
+          }
+        ],
+        [
+          120,
+          {
+            "templateId": "n256",
+            "seenUs": 120500015,
+            "firstInherited": 67
+          }
+        ],
+        [
+          251,
+          {
+            "templateId": "n257",
+            "seenUs": 253500018,
+            "firstInherited": 100
+          }
+        ]
+      ],
+      "effects": {
+        "frenzy": true,
+        "roar": false,
+        "ensnare": true,
+        "bearHit": true,
+        "keptPrior": true,
+        "recall": true,
+        "replacementCarriesItem": false
+      },
+      "commands": [
+        {
+          "atUs": 0,
+          "wave": 0,
+          "action": {
+            "type": "choose-talent",
+            "choice": "W005"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 2,
+          "wave": 0,
+          "action": {
+            "type": "choose-opening",
+            "card": "i574"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          }
+        },
+        {
+          "atUs": 3,
+          "wave": 0,
+          "action": {
+            "type": "build-card",
+            "cardId": 7,
+            "point": {
+              "x": -288,
+              "y": -1024
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          }
+        },
+        {
+          "atUs": 2500004,
+          "wave": 0,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n021",
+            "point": {
+              "x": 288,
+              "y": -1024
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          }
+        },
+        {
+          "atUs": 4000005,
+          "wave": 0,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n001",
+            "point": {
+              "x": -288,
+              "y": -640
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 10
+          }
+        },
+        {
+          "atUs": 5500006,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 2
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 5500007,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 4
+          },
+          "result": {
+            "ok": true,
+            "createdId": 12
+          }
+        },
+        {
+          "atUs": 5500008,
+          "wave": 0,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A125"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 5500009,
+          "wave": 0,
+          "action": {
+            "type": "cast-hero",
+            "towerId": 8,
+            "skillId": "A125"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 45000010,
+          "wave": 1,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A127"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 45000011,
+          "wave": 1,
+          "action": {
+            "type": "cast-hero",
+            "towerId": 8,
+            "skillId": "A127"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 68500012,
+          "wave": 1,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A126"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 120000013,
+          "wave": 2,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A125"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 120000014,
+          "wave": 2,
+          "action": {
+            "type": "cast-hero",
+            "towerId": 8,
+            "skillId": "A125"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 120500015,
+          "wave": 2,
+          "action": {
+            "type": "cast-tower",
+            "towerId": 120,
+            "skillId": "N138"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 253000016,
+          "wave": 5,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A125"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 253000017,
+          "wave": 5,
+          "action": {
+            "type": "cast-hero",
+            "towerId": 8,
+            "skillId": "A125"
+          },
+          "result": {
+            "ok": true
+          }
+        }
+      ],
+      "end": {
+        "phase": "failed",
+        "wave": 15,
+        "atUs": 813000000
+      },
+      "status": "partial"
+    },
+    {
+      "seed": 1709,
+      "initialStateSha256": "f33387b1088a42ae8837438957492e9736db91119c058a81015be115ca1dc01d",
+      "opening": "i555",
+      "candidates": [
+        "i555",
+        "i553",
+        "i565",
+        "i557"
+      ],
+      "commands": [
+        {
+          "atUs": 0,
+          "wave": 0,
+          "action": {
+            "type": "choose-talent",
+            "choice": "W005"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 2,
+          "wave": 0,
+          "action": {
+            "type": "choose-opening",
+            "card": "i555"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          }
+        }
+      ],
+      "status": "candidate-not-offered"
+    },
+    {
+      "seed": 20261124,
+      "initialStateSha256": "9a66aa0f076dd623b32077f7ffdaa099ff20f6c765a4f851c4251af125e0db9b",
+      "opening": "i555",
+      "candidates": [
+        "i555",
+        "i553",
+        "i564",
+        "i557"
+      ],
+      "commands": [
+        {
+          "atUs": 0,
+          "wave": 0,
+          "action": {
+            "type": "choose-talent",
+            "choice": "W005"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 2,
+          "wave": 0,
+          "action": {
+            "type": "choose-opening",
+            "card": "i555"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          }
+        }
+      ],
+      "status": "candidate-not-offered"
+    }
+  ]
+}

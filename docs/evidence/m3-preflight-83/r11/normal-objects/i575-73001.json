@@ -1,0 +1,257 @@
+{
+  "seed": 73001,
+  "card": "i575",
+  "template": "H037",
+  "candidates": [
+    "i575",
+    "i579",
+    "i569",
+    "i552"
+  ],
+  "initialStateSha256": "2888c72b9a85dc911c0bc4263bb81b9e9be6fc6f91b963a06c8cf39638fbade0",
+  "sourceInputSha256": "d344a9ccacd3b0289240b754985713db831e49a8e2eb205d1ee925700e1182e6",
+  "openingInstance": 7,
+  "heroId": 8,
+  "heroStartUs": 5500009,
+  "learned": {
+    "A132": {
+      "level": 1,
+      "rank": 1,
+      "atUs": 5500010
+    },
+    "A133": {
+      "level": 2,
+      "rank": 1,
+      "atUs": 45500011
+    },
+    "A134": {
+      "level": 3,
+      "rank": 1,
+      "atUs": 69500013
+    }
+  },
+  "observations": {
+    "A132": {
+      "wave": 1,
+      "atUs": 37500000,
+      "event": "hero-spell",
+      "hits": [
+        {
+          "atUs": 37500000,
+          "x": 31.462600000000002,
+          "y": -1232,
+          "targetId": 13,
+          "casterId": 8,
+          "ownerId": 8,
+          "sourceTemplate": "H037",
+          "amount": 12,
+          "deadUnitId": "m001"
+        }
+      ]
+    },
+    "A133": {
+      "wave": 1,
+      "atUs": 46000012,
+      "targetId": 9,
+      "buff": {
+        "rank": 1,
+        "untilUs": 53000012
+      }
+    },
+    "A134": {
+      "wave": 5,
+      "atUs": 242000014,
+      "targetId": 247,
+      "enemy": "m005",
+      "lockUntilUs": 247000014
+    }
+  },
+  "commands": [
+    {
+      "atUs": 0,
+      "wave": 0,
+      "action": {
+        "type": "choose-talent",
+        "choice": "W005"
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 1,
+      "wave": 0,
+      "action": {
+        "type": "use-item",
+        "itemId": 1
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 2,
+      "wave": 0,
+      "action": {
+        "type": "choose-opening",
+        "card": "i575"
+      },
+      "result": {
+        "ok": true,
+        "createdId": 7
+      }
+    },
+    {
+      "atUs": 3,
+      "wave": 0,
+      "action": {
+        "type": "build-card",
+        "cardId": 7,
+        "point": {
+          "x": -288,
+          "y": -1024
+        }
+      },
+      "result": {
+        "ok": true,
+        "createdId": 8
+      }
+    },
+    {
+      "atUs": 2500004,
+      "wave": 0,
+      "action": {
+        "type": "build-worker-tower",
+        "tower": "n021",
+        "point": {
+          "x": 288,
+          "y": -1024
+        }
+      },
+      "result": {
+        "ok": true,
+        "createdId": 9
+      }
+    },
+    {
+      "atUs": 4000005,
+      "wave": 0,
+      "action": {
+        "type": "build-worker-tower",
+        "tower": "n001",
+        "point": {
+          "x": -288,
+          "y": -640
+        }
+      },
+      "result": {
+        "ok": true,
+        "createdId": 10
+      }
+    },
+    {
+      "atUs": 5500006,
+      "wave": 0,
+      "action": {
+        "type": "use-item",
+        "itemId": 2
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 5500007,
+      "wave": 0,
+      "action": {
+        "type": "use-item",
+        "itemId": 4
+      },
+      "result": {
+        "ok": true,
+        "createdId": 12
+      }
+    },
+    {
+      "atUs": 5500008,
+      "wave": 0,
+      "action": {
+        "type": "transfer-item",
+        "itemId": 11,
+        "towerId": 8
+      },
+      "result": {
+        "ok": false,
+        "reason": "equipment"
+      }
+    },
+    {
+      "atUs": 5500009,
+      "wave": 0,
+      "action": {
+        "type": "learn-skill",
+        "towerId": 8,
+        "skillId": "A132"
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 45500010,
+      "wave": 1,
+      "action": {
+        "type": "learn-skill",
+        "towerId": 8,
+        "skillId": "A133"
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 45500011,
+      "wave": 1,
+      "action": {
+        "type": "cast-hero",
+        "towerId": 8,
+        "skillId": "A133",
+        "targetId": 9
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 69500012,
+      "wave": 1,
+      "action": {
+        "type": "learn-skill",
+        "towerId": 8,
+        "skillId": "A134"
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 241500013,
+      "wave": 5,
+      "action": {
+        "type": "cast-hero",
+        "towerId": 8,
+        "skillId": "A134",
+        "targetId": 247
+      },
+      "result": {
+        "ok": true
+      }
+    }
+  ],
+  "seasonSummer1": 0,
+  "end": {
+    "wave": 5,
+    "phase": "running"
+  },
+  "status": "base-observations-complete"
+}

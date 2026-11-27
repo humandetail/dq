@@ -1,0 +1,126 @@
+{
+  "version": "m3-dev-1",
+  "configuration": "m3-config-1",
+  "policy": "m3-r02-lycan-1-actual-opening-continuation",
+  "cardId": "i580",
+  "samples": [
+    {
+      "seed": 73017,
+      "source": [
+        [
+          "src/game/m2/match.ts",
+          "ecad9038b41fb7473b0aed8386d5948b8284625bd157fd94003a5c8cb0177551"
+        ],
+        [
+          "src/game/m2/content.ts",
+          "0534cdbf3588c3e84e840ead6e2d5db8dcb5c9b5d8bf41d5eb9f3e0929a7889c"
+        ],
+        [
+          "src/game/m2/combat.ts",
+          "d360366e128802e18c1c343e9a6e35183fea3313e11db5229c9b2f97fbb787d0"
+        ],
+        [
+          "src/game/m2/movement.ts",
+          "d8005a8134bd38132e72b6446d225b3b3e38436c1fc02ec2ba8efb72888477df"
+        ],
+        [
+          "src/game/m2/hero-spells.ts",
+          "95bb26fe9320121bff51a88b8f5dd9b0c2d1ff4096a0db9c900444da62d9b40b"
+        ],
+        [
+          "src/game/m2/weapons.json",
+          "8cdf7eb5b89cba10995745ad91494f152e918a61f79ee92071b0b07338ef1a97"
+        ],
+        [
+          "docs/m3-configuration.json",
+          "aafd409af2051dd97a8add1f62f93455253f2b5368f1b09fe835e39157e7aed9"
+        ]
+      ],
+      "initialStateSha256": "24cdb4f8c42529ba0e366ec3a374e5e0ab6a2ebd741cb623d4a7ae7fee46b480",
+      "candidates": [
+        "i580",
+        "i579",
+        "i588",
+        "i557"
+      ],
+      "opening": "i580",
+      "heroId": 8,
+      "effects": {
+        "H043/A167": {
+          "atUs": 42423750,
+          "x": -94.3342,
+          "y": -848,
+          "targetId": 17,
+          "casterId": 21,
+          "ownerId": 8,
+          "sourceTemplate": "b150",
+          "amount": 29.199999999999996,
+          "deadUnitId": "m001"
+        },
+        "H043/A168": {
+          "atUs": 72986250,
+          "x": -924.4658,
+          "y": -16,
+          "targetId": 47,
+          "casterId": 67,
+          "ownerId": 8,
+          "sourceTemplate": "b150",
+          "amount": 60,
+          "deadUnitId": "m001",
+          "rank": 1
+        },
+        "H043/A169": {
+          "templateId": "E017",
+          "atUs": 89764915
+        }
+      },
+      "commands": [
+        {
+          "atUs": 1500011,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A167"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 59500012,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A168"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 89500013,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A169"
+          },
+          "result": {
+            "ok": true
+          }
+        }
+      ],
+      "continuation": {
+        "cardInstance": 7,
+        "wave": 0,
+        "prefixInputs": 11,
+        "inputLogSha256": "e8be87b9d5fa44c51a21e9e93d66bb0416f00bc187cf2c4ad5da3f21c33b5e14"
+      },
+      "end": {
+        "phase": "running",
+        "wave": 2,
+        "atUs": 90500014
+      },
+      "status": "passed"
+    }
+  ]
+}

@@ -1,0 +1,246 @@
+{
+  "seed": 73002,
+  "card": "i558",
+  "template": "H013",
+  "candidates": [
+    "i558",
+    "i554",
+    "i586",
+    "i555"
+  ],
+  "initialStateSha256": "64a677470a5ee25aaf5571117d41399cc10505c0cf291b48b5e01bcce92adadc",
+  "sourceInputSha256": "dc472187570e7c2afdd6ca87413ad8ff0b1ed5a758423da648b52f3dd0204037",
+  "openingInstance": 7,
+  "heroId": 8,
+  "heroStartUs": 3500007,
+  "learned": {
+    "A043": {
+      "level": 1,
+      "rank": 1,
+      "atUs": 3500008
+    },
+    "A044": {
+      "level": 2,
+      "rank": 1,
+      "atUs": 44500009
+    },
+    "A045": {
+      "level": 3,
+      "rank": 1,
+      "atUs": 68500010
+    }
+  },
+  "observations": {
+    "A043": {
+      "wave": 1,
+      "atUs": 37000000,
+      "hits": [
+        {
+          "atUs": 37000000,
+          "x": 0,
+          "y": -1280,
+          "targetId": 11,
+          "casterId": 12,
+          "ownerId": 8,
+          "sourceTemplate": "q008",
+          "amount": 60,
+          "deadUnitId": "m001"
+        }
+      ]
+    },
+    "A045": {
+      "wave": 1,
+      "atUs": 68800011,
+      "hits": [
+        {
+          "atUs": 68800011,
+          "x": -12.530188664533673,
+          "y": -1224.2886793482642,
+          "targetId": 60,
+          "casterId": 61,
+          "ownerId": 8,
+          "sourceTemplate": "q002",
+          "amount": 60,
+          "deadUnitId": "m001"
+        }
+      ]
+    },
+    "A044": {
+      "wave": 2,
+      "atUs": 93029585,
+      "rawEnemy": {
+        "id": 83,
+        "unitId": "m002",
+        "hp": 144,
+        "armor": 0,
+        "abilities": [],
+        "complexArmor": false
+      },
+      "maximum": 90.97143999999999,
+      "actual": {
+        "atUs": 93029585,
+        "x": 213.85875000000001,
+        "y": -1232,
+        "targetId": 83,
+        "casterId": 8,
+        "ownerId": 8,
+        "sourceTemplate": "H013",
+        "amount": 144,
+        "deadUnitId": "m002"
+      },
+      "multiplier": 2.3,
+      "gear": [],
+      "weaponSlot": 1,
+      "natural": {
+        "STR": 15,
+        "AGI": 26,
+        "INT": 16
+      },
+      "cleanMelee": true
+    }
+  },
+  "diagnostics": [],
+  "commands": [
+    {
+      "atUs": 0,
+      "wave": 0,
+      "action": {
+        "type": "choose-talent",
+        "choice": "W005"
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 1,
+      "wave": 0,
+      "action": {
+        "type": "use-item",
+        "itemId": 1
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 2,
+      "wave": 0,
+      "action": {
+        "type": "choose-opening",
+        "card": "i558"
+      },
+      "result": {
+        "ok": true,
+        "createdId": 7
+      }
+    },
+    {
+      "atUs": 3,
+      "wave": 0,
+      "action": {
+        "type": "build-card",
+        "cardId": 7,
+        "point": {
+          "x": -288,
+          "y": -1024
+        }
+      },
+      "result": {
+        "ok": true,
+        "createdId": 8
+      }
+    },
+    {
+      "atUs": 2500004,
+      "wave": 0,
+      "action": {
+        "type": "use-item",
+        "itemId": 2
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 2500005,
+      "wave": 0,
+      "action": {
+        "type": "use-item",
+        "itemId": 4
+      },
+      "result": {
+        "ok": true,
+        "createdId": 10
+      }
+    },
+    {
+      "atUs": 2500006,
+      "wave": 0,
+      "action": {
+        "type": "transfer-item",
+        "itemId": 9,
+        "towerId": 8
+      },
+      "result": {
+        "ok": false,
+        "reason": "missing"
+      }
+    },
+    {
+      "atUs": 3500007,
+      "wave": 0,
+      "action": {
+        "type": "learn-skill",
+        "towerId": 8,
+        "skillId": "A043"
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 44500008,
+      "wave": 1,
+      "action": {
+        "type": "learn-skill",
+        "towerId": 8,
+        "skillId": "A044"
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 68500009,
+      "wave": 1,
+      "action": {
+        "type": "learn-skill",
+        "towerId": 8,
+        "skillId": "A045"
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 68500010,
+      "wave": 1,
+      "action": {
+        "type": "cast-hero",
+        "towerId": 8,
+        "skillId": "A045",
+        "targetId": 60
+      },
+      "result": {
+        "ok": true
+      }
+    }
+  ],
+  "seasonSummer1": 0,
+  "end": {
+    "wave": 2,
+    "phase": "running"
+  },
+  "status": "base-observations-complete"
+}

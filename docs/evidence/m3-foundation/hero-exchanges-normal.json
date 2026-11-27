@@ -1,0 +1,3460 @@
+{
+  "content": "m3-dev-1",
+  "configuration": "m3-config-1",
+  "policy": "m3-r03-opening-1",
+  "source": [
+    [
+      "src/game/m2/match.ts",
+      "298382ab3f325eda254ca0c40050e243b599881285029b25becf6eb5b64cd7af"
+    ],
+    [
+      "src/game/m2/hero-exchange.ts",
+      "d4e5a40296647bb072620c312b06b48f0874bd41fd97c212fedaad70c8f7780a"
+    ],
+    [
+      "src/game/m2/content.ts",
+      "cb503fc70ac3abf2c4b9e1f66a81c8369719ff0c98e7782b46ac5285f4e28b50"
+    ],
+    [
+      "docs/m3-configuration.json",
+      "aafd409af2051dd97a8add1f62f93455253f2b5368f1b09fe835e39157e7aed9"
+    ]
+  ],
+  "samples": [
+    {
+      "seed": 14,
+      "offer": "i549",
+      "initialSha256": "576d0e1442d45a7717482112036a01acbe0bc69b3f5536647124c941f492f04a",
+      "candidates": [
+        "i569",
+        "i554",
+        "i565",
+        "i576"
+      ],
+      "starterCard": "i569",
+      "received": {
+        "id": 8,
+        "card": "i549",
+        "slot": 0,
+        "point": {
+          "x": -288,
+          "y": -128
+        },
+        "invulnerable": true,
+        "hp": 20,
+        "charges": 0
+      },
+      "built": "H024",
+      "first": {
+        "ok": true,
+        "createdId": 8
+      },
+      "repeat": {
+        "ok": false,
+        "reason": "stock"
+      },
+      "commands": [
+        {
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "before": {
+            "score": 60,
+            "atUs": 0,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": []
+          }
+        },
+        {
+          "action": {
+            "type": "choose-opening",
+            "card": "i569"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "before": {
+            "score": 60,
+            "atUs": 1,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              7
+            ]
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i549"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          },
+          "before": {
+            "score": 60,
+            "atUs": 2,
+            "cardIds": [
+              7
+            ]
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i549"
+          },
+          "result": {
+            "ok": false,
+            "reason": "stock"
+          },
+          "before": {
+            "score": 60,
+            "atUs": 3,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "build-card",
+            "cardId": 8,
+            "point": {
+              "x": -288,
+              "y": -160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          },
+          "before": {
+            "score": 60,
+            "atUs": 4,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [],
+            "spring9": 1
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "seed": 47,
+      "offer": "i549",
+      "initialSha256": "7b6cd806ef1c1ac7398a352da52fdf7d5774c7ce1ffe56a73361672b29beb05e",
+      "candidates": [
+        "i564",
+        "i574",
+        "i565",
+        "i554"
+      ],
+      "starterCard": "i564",
+      "received": {
+        "id": 8,
+        "card": "i549",
+        "slot": 0,
+        "point": {
+          "x": -288,
+          "y": -128
+        },
+        "invulnerable": true,
+        "hp": 20,
+        "charges": 0
+      },
+      "built": "H024",
+      "first": {
+        "ok": true,
+        "createdId": 8
+      },
+      "repeat": {
+        "ok": false,
+        "reason": "stock"
+      },
+      "commands": [
+        {
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "before": {
+            "score": 60,
+            "atUs": 0,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": []
+          }
+        },
+        {
+          "action": {
+            "type": "choose-opening",
+            "card": "i564"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "before": {
+            "score": 60,
+            "atUs": 1,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              7
+            ]
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i549"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          },
+          "before": {
+            "score": 60,
+            "atUs": 2,
+            "cardIds": [
+              7
+            ]
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i549"
+          },
+          "result": {
+            "ok": false,
+            "reason": "stock"
+          },
+          "before": {
+            "score": 60,
+            "atUs": 3,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "build-card",
+            "cardId": 8,
+            "point": {
+              "x": -288,
+              "y": -160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          },
+          "before": {
+            "score": 60,
+            "atUs": 4,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [],
+            "spring9": 1
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "seed": 811,
+      "offer": "i549",
+      "initialSha256": "aea059b7bb497df975d7f0abb9c3cef7c7c4f88bcfdd1272a480bd7017ab5392",
+      "candidates": [
+        "i574",
+        "i565",
+        "i557",
+        "i576"
+      ],
+      "starterCard": "i574",
+      "received": {
+        "id": 8,
+        "card": "i549",
+        "slot": 0,
+        "point": {
+          "x": -288,
+          "y": -128
+        },
+        "invulnerable": true,
+        "hp": 20,
+        "charges": 0
+      },
+      "built": "H024",
+      "first": {
+        "ok": true,
+        "createdId": 8
+      },
+      "repeat": {
+        "ok": false,
+        "reason": "stock"
+      },
+      "commands": [
+        {
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "before": {
+            "score": 60,
+            "atUs": 0,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": []
+          }
+        },
+        {
+          "action": {
+            "type": "choose-opening",
+            "card": "i574"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "before": {
+            "score": 60,
+            "atUs": 1,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              7
+            ]
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i549"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          },
+          "before": {
+            "score": 60,
+            "atUs": 2,
+            "cardIds": [
+              7
+            ]
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i549"
+          },
+          "result": {
+            "ok": false,
+            "reason": "stock"
+          },
+          "before": {
+            "score": 60,
+            "atUs": 3,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "build-card",
+            "cardId": 8,
+            "point": {
+              "x": -288,
+              "y": -160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          },
+          "before": {
+            "score": 60,
+            "atUs": 4,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [],
+            "spring9": 1
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "seed": 1709,
+      "offer": "i549",
+      "initialSha256": "f4deeebf82fa681e3ef9bcfe3a42acb4052a5d35e6004dcde5a436d3026e7051",
+      "candidates": [
+        "i555",
+        "i553",
+        "i565",
+        "i557"
+      ],
+      "starterCard": "i555",
+      "received": {
+        "id": 8,
+        "card": "i549",
+        "slot": 0,
+        "point": {
+          "x": -288,
+          "y": -128
+        },
+        "invulnerable": true,
+        "hp": 20,
+        "charges": 0
+      },
+      "built": "H024",
+      "first": {
+        "ok": true,
+        "createdId": 8
+      },
+      "repeat": {
+        "ok": false,
+        "reason": "stock"
+      },
+      "commands": [
+        {
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "before": {
+            "score": 60,
+            "atUs": 0,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": []
+          }
+        },
+        {
+          "action": {
+            "type": "choose-opening",
+            "card": "i555"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "before": {
+            "score": 60,
+            "atUs": 1,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              7
+            ]
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i549"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          },
+          "before": {
+            "score": 60,
+            "atUs": 2,
+            "cardIds": [
+              7
+            ]
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i549"
+          },
+          "result": {
+            "ok": false,
+            "reason": "stock"
+          },
+          "before": {
+            "score": 60,
+            "atUs": 3,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "build-card",
+            "cardId": 8,
+            "point": {
+              "x": -288,
+              "y": -160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          },
+          "before": {
+            "score": 60,
+            "atUs": 4,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [],
+            "spring9": 1
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "seed": 20261124,
+      "offer": "i549",
+      "initialSha256": "55b5b687defe79add8b6d9cf47a076ffbd3e589036f7811b47f224fee4974502",
+      "candidates": [
+        "i555",
+        "i553",
+        "i564",
+        "i557"
+      ],
+      "starterCard": "i555",
+      "received": {
+        "id": 8,
+        "card": "i549",
+        "slot": 0,
+        "point": {
+          "x": -288,
+          "y": -128
+        },
+        "invulnerable": true,
+        "hp": 20,
+        "charges": 0
+      },
+      "built": "H024",
+      "first": {
+        "ok": true,
+        "createdId": 8
+      },
+      "repeat": {
+        "ok": false,
+        "reason": "stock"
+      },
+      "commands": [
+        {
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "before": {
+            "score": 60,
+            "atUs": 0,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": []
+          }
+        },
+        {
+          "action": {
+            "type": "choose-opening",
+            "card": "i555"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "before": {
+            "score": 60,
+            "atUs": 1,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              7
+            ]
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i549"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          },
+          "before": {
+            "score": 60,
+            "atUs": 2,
+            "cardIds": [
+              7
+            ]
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i549"
+          },
+          "result": {
+            "ok": false,
+            "reason": "stock"
+          },
+          "before": {
+            "score": 60,
+            "atUs": 3,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "build-card",
+            "cardId": 8,
+            "point": {
+              "x": -288,
+              "y": -160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          },
+          "before": {
+            "score": 60,
+            "atUs": 4,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [],
+            "spring9": 1
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "seed": 14,
+      "offer": "i548",
+      "initialSha256": "908783a5e2a5426620f17d3ba3df4cb3bd87d6f80d10371f44125e9950cf4434",
+      "candidates": [
+        "i569",
+        "i554",
+        "i565",
+        "i576"
+      ],
+      "starterCard": "i569",
+      "received": {
+        "id": 8,
+        "card": "i548",
+        "slot": 0,
+        "point": {
+          "x": -288,
+          "y": -128
+        },
+        "invulnerable": true,
+        "hp": 20,
+        "charges": 0
+      },
+      "built": "H031",
+      "first": {
+        "ok": true,
+        "createdId": 8
+      },
+      "repeat": {
+        "ok": false,
+        "reason": "stock"
+      },
+      "commands": [
+        {
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "before": {
+            "score": 60,
+            "atUs": 0,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": []
+          }
+        },
+        {
+          "action": {
+            "type": "choose-opening",
+            "card": "i569"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "before": {
+            "score": 60,
+            "atUs": 1,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              7
+            ]
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i548"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          },
+          "before": {
+            "score": 60,
+            "atUs": 2,
+            "cardIds": [
+              7
+            ]
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i548"
+          },
+          "result": {
+            "ok": false,
+            "reason": "stock"
+          },
+          "before": {
+            "score": 60,
+            "atUs": 3,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "build-card",
+            "cardId": 8,
+            "point": {
+              "x": -288,
+              "y": -160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          },
+          "before": {
+            "score": 60,
+            "atUs": 4,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [],
+            "spring9": 1
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "seed": 47,
+      "offer": "i548",
+      "initialSha256": "19f7858f8e4828ee199b50e2eeae3f2199cdf3f1589df8ede705f1ba8fa9bbf8",
+      "candidates": [
+        "i564",
+        "i574",
+        "i565",
+        "i554"
+      ],
+      "starterCard": "i564",
+      "received": {
+        "id": 8,
+        "card": "i548",
+        "slot": 0,
+        "point": {
+          "x": -288,
+          "y": -128
+        },
+        "invulnerable": true,
+        "hp": 20,
+        "charges": 0
+      },
+      "built": "H031",
+      "first": {
+        "ok": true,
+        "createdId": 8
+      },
+      "repeat": {
+        "ok": false,
+        "reason": "stock"
+      },
+      "commands": [
+        {
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "before": {
+            "score": 60,
+            "atUs": 0,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": []
+          }
+        },
+        {
+          "action": {
+            "type": "choose-opening",
+            "card": "i564"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "before": {
+            "score": 60,
+            "atUs": 1,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              7
+            ]
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i548"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          },
+          "before": {
+            "score": 60,
+            "atUs": 2,
+            "cardIds": [
+              7
+            ]
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i548"
+          },
+          "result": {
+            "ok": false,
+            "reason": "stock"
+          },
+          "before": {
+            "score": 60,
+            "atUs": 3,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "build-card",
+            "cardId": 8,
+            "point": {
+              "x": -288,
+              "y": -160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          },
+          "before": {
+            "score": 60,
+            "atUs": 4,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [],
+            "spring9": 1
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "seed": 811,
+      "offer": "i548",
+      "initialSha256": "4cf34d6d384641d77a5d2d23f785cfe8e10a53aacf6daf0de190b92e96307931",
+      "candidates": [
+        "i574",
+        "i565",
+        "i557",
+        "i576"
+      ],
+      "starterCard": "i574",
+      "received": {
+        "id": 8,
+        "card": "i548",
+        "slot": 0,
+        "point": {
+          "x": -288,
+          "y": -128
+        },
+        "invulnerable": true,
+        "hp": 20,
+        "charges": 0
+      },
+      "built": "H031",
+      "first": {
+        "ok": true,
+        "createdId": 8
+      },
+      "repeat": {
+        "ok": false,
+        "reason": "stock"
+      },
+      "commands": [
+        {
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "before": {
+            "score": 60,
+            "atUs": 0,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": []
+          }
+        },
+        {
+          "action": {
+            "type": "choose-opening",
+            "card": "i574"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "before": {
+            "score": 60,
+            "atUs": 1,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              7
+            ]
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i548"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          },
+          "before": {
+            "score": 60,
+            "atUs": 2,
+            "cardIds": [
+              7
+            ]
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i548"
+          },
+          "result": {
+            "ok": false,
+            "reason": "stock"
+          },
+          "before": {
+            "score": 60,
+            "atUs": 3,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "build-card",
+            "cardId": 8,
+            "point": {
+              "x": -288,
+              "y": -160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          },
+          "before": {
+            "score": 60,
+            "atUs": 4,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [],
+            "spring9": 1
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "seed": 1709,
+      "offer": "i548",
+      "initialSha256": "3cc617a3f33ddeaf62d8ca1691ca1580bd4d5f65fd63ec1341c4528cc7f4b643",
+      "candidates": [
+        "i555",
+        "i553",
+        "i565",
+        "i557"
+      ],
+      "starterCard": "i555",
+      "received": {
+        "id": 8,
+        "card": "i548",
+        "slot": 0,
+        "point": {
+          "x": -288,
+          "y": -128
+        },
+        "invulnerable": true,
+        "hp": 20,
+        "charges": 0
+      },
+      "built": "H031",
+      "first": {
+        "ok": true,
+        "createdId": 8
+      },
+      "repeat": {
+        "ok": false,
+        "reason": "stock"
+      },
+      "commands": [
+        {
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "before": {
+            "score": 60,
+            "atUs": 0,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": []
+          }
+        },
+        {
+          "action": {
+            "type": "choose-opening",
+            "card": "i555"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "before": {
+            "score": 60,
+            "atUs": 1,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              7
+            ]
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i548"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          },
+          "before": {
+            "score": 60,
+            "atUs": 2,
+            "cardIds": [
+              7
+            ]
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i548"
+          },
+          "result": {
+            "ok": false,
+            "reason": "stock"
+          },
+          "before": {
+            "score": 60,
+            "atUs": 3,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "build-card",
+            "cardId": 8,
+            "point": {
+              "x": -288,
+              "y": -160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          },
+          "before": {
+            "score": 60,
+            "atUs": 4,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [],
+            "spring9": 1
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "seed": 20261124,
+      "offer": "i548",
+      "initialSha256": "78141ac89e709cf2bda8189b584092f51f3b822b0f2eb24a30f0f7f96b27bcd6",
+      "candidates": [
+        "i555",
+        "i553",
+        "i564",
+        "i557"
+      ],
+      "starterCard": "i555",
+      "received": {
+        "id": 8,
+        "card": "i548",
+        "slot": 0,
+        "point": {
+          "x": -288,
+          "y": -128
+        },
+        "invulnerable": true,
+        "hp": 20,
+        "charges": 0
+      },
+      "built": "H031",
+      "first": {
+        "ok": true,
+        "createdId": 8
+      },
+      "repeat": {
+        "ok": false,
+        "reason": "stock"
+      },
+      "commands": [
+        {
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "before": {
+            "score": 60,
+            "atUs": 0,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": []
+          }
+        },
+        {
+          "action": {
+            "type": "choose-opening",
+            "card": "i555"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "before": {
+            "score": 60,
+            "atUs": 1,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              7
+            ]
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i548"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          },
+          "before": {
+            "score": 60,
+            "atUs": 2,
+            "cardIds": [
+              7
+            ]
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i548"
+          },
+          "result": {
+            "ok": false,
+            "reason": "stock"
+          },
+          "before": {
+            "score": 60,
+            "atUs": 3,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "build-card",
+            "cardId": 8,
+            "point": {
+              "x": -288,
+              "y": -160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          },
+          "before": {
+            "score": 60,
+            "atUs": 4,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [],
+            "spring9": 1
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "seed": 14,
+      "offer": "i545",
+      "initialSha256": "021c58cecac0276dff98a90da624ebd0d84ef5d1e66f8501703db2be87ac1ef0",
+      "candidates": [
+        "i569",
+        "i554",
+        "i565",
+        "i576"
+      ],
+      "starterCard": "i569",
+      "received": {
+        "id": 8,
+        "card": "i545",
+        "slot": 0,
+        "point": {
+          "x": -288,
+          "y": -128
+        },
+        "invulnerable": true,
+        "hp": 20,
+        "charges": 0
+      },
+      "built": "H059",
+      "first": {
+        "ok": true,
+        "createdId": 8
+      },
+      "repeat": {
+        "ok": false,
+        "reason": "stock"
+      },
+      "commands": [
+        {
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "before": {
+            "score": 60,
+            "atUs": 0,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": []
+          }
+        },
+        {
+          "action": {
+            "type": "choose-opening",
+            "card": "i569"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "before": {
+            "score": 60,
+            "atUs": 1,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              7
+            ]
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i545"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          },
+          "before": {
+            "score": 60,
+            "atUs": 2,
+            "cardIds": [
+              7
+            ]
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i545"
+          },
+          "result": {
+            "ok": false,
+            "reason": "stock"
+          },
+          "before": {
+            "score": 60,
+            "atUs": 3,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "build-card",
+            "cardId": 8,
+            "point": {
+              "x": -288,
+              "y": -160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          },
+          "before": {
+            "score": 60,
+            "atUs": 4,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [],
+            "spring9": 1
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "seed": 47,
+      "offer": "i545",
+      "initialSha256": "d73f092108c99b6ce8a6ae0bab3ae02af08575fe31f82739887796f93373c47e",
+      "candidates": [
+        "i564",
+        "i574",
+        "i565",
+        "i554"
+      ],
+      "starterCard": "i564",
+      "received": {
+        "id": 8,
+        "card": "i545",
+        "slot": 0,
+        "point": {
+          "x": -288,
+          "y": -128
+        },
+        "invulnerable": true,
+        "hp": 20,
+        "charges": 0
+      },
+      "built": "H059",
+      "first": {
+        "ok": true,
+        "createdId": 8
+      },
+      "repeat": {
+        "ok": false,
+        "reason": "stock"
+      },
+      "commands": [
+        {
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "before": {
+            "score": 60,
+            "atUs": 0,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": []
+          }
+        },
+        {
+          "action": {
+            "type": "choose-opening",
+            "card": "i564"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "before": {
+            "score": 60,
+            "atUs": 1,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              7
+            ]
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i545"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          },
+          "before": {
+            "score": 60,
+            "atUs": 2,
+            "cardIds": [
+              7
+            ]
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i545"
+          },
+          "result": {
+            "ok": false,
+            "reason": "stock"
+          },
+          "before": {
+            "score": 60,
+            "atUs": 3,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "build-card",
+            "cardId": 8,
+            "point": {
+              "x": -288,
+              "y": -160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          },
+          "before": {
+            "score": 60,
+            "atUs": 4,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [],
+            "spring9": 1
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "seed": 811,
+      "offer": "i545",
+      "initialSha256": "833ee89928f96e43609b4df1814ee64c81157f857d38ae747024de7565c11dd8",
+      "candidates": [
+        "i574",
+        "i565",
+        "i557",
+        "i576"
+      ],
+      "starterCard": "i574",
+      "received": {
+        "id": 8,
+        "card": "i545",
+        "slot": 0,
+        "point": {
+          "x": -288,
+          "y": -128
+        },
+        "invulnerable": true,
+        "hp": 20,
+        "charges": 0
+      },
+      "built": "H059",
+      "first": {
+        "ok": true,
+        "createdId": 8
+      },
+      "repeat": {
+        "ok": false,
+        "reason": "stock"
+      },
+      "commands": [
+        {
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "before": {
+            "score": 60,
+            "atUs": 0,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": []
+          }
+        },
+        {
+          "action": {
+            "type": "choose-opening",
+            "card": "i574"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "before": {
+            "score": 60,
+            "atUs": 1,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              7
+            ]
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i545"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          },
+          "before": {
+            "score": 60,
+            "atUs": 2,
+            "cardIds": [
+              7
+            ]
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i545"
+          },
+          "result": {
+            "ok": false,
+            "reason": "stock"
+          },
+          "before": {
+            "score": 60,
+            "atUs": 3,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "build-card",
+            "cardId": 8,
+            "point": {
+              "x": -288,
+              "y": -160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          },
+          "before": {
+            "score": 60,
+            "atUs": 4,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [],
+            "spring9": 1
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "seed": 1709,
+      "offer": "i545",
+      "initialSha256": "1afafba957a987e3befd1337f43794308588312d19149f743c34ac3dc93d814f",
+      "candidates": [
+        "i555",
+        "i553",
+        "i565",
+        "i557"
+      ],
+      "starterCard": "i555",
+      "received": {
+        "id": 8,
+        "card": "i545",
+        "slot": 0,
+        "point": {
+          "x": -288,
+          "y": -128
+        },
+        "invulnerable": true,
+        "hp": 20,
+        "charges": 0
+      },
+      "built": "H059",
+      "first": {
+        "ok": true,
+        "createdId": 8
+      },
+      "repeat": {
+        "ok": false,
+        "reason": "stock"
+      },
+      "commands": [
+        {
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "before": {
+            "score": 60,
+            "atUs": 0,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": []
+          }
+        },
+        {
+          "action": {
+            "type": "choose-opening",
+            "card": "i555"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "before": {
+            "score": 60,
+            "atUs": 1,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              7
+            ]
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i545"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          },
+          "before": {
+            "score": 60,
+            "atUs": 2,
+            "cardIds": [
+              7
+            ]
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i545"
+          },
+          "result": {
+            "ok": false,
+            "reason": "stock"
+          },
+          "before": {
+            "score": 60,
+            "atUs": 3,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "build-card",
+            "cardId": 8,
+            "point": {
+              "x": -288,
+              "y": -160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          },
+          "before": {
+            "score": 60,
+            "atUs": 4,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [],
+            "spring9": 1
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "seed": 20261124,
+      "offer": "i545",
+      "initialSha256": "0228cc8773d04d6f9da1986601ed4b11a44bc9df9087e516eadff172cd05674c",
+      "candidates": [
+        "i555",
+        "i553",
+        "i564",
+        "i557"
+      ],
+      "starterCard": "i555",
+      "received": {
+        "id": 8,
+        "card": "i545",
+        "slot": 0,
+        "point": {
+          "x": -288,
+          "y": -128
+        },
+        "invulnerable": true,
+        "hp": 20,
+        "charges": 0
+      },
+      "built": "H059",
+      "first": {
+        "ok": true,
+        "createdId": 8
+      },
+      "repeat": {
+        "ok": false,
+        "reason": "stock"
+      },
+      "commands": [
+        {
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "before": {
+            "score": 60,
+            "atUs": 0,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": []
+          }
+        },
+        {
+          "action": {
+            "type": "choose-opening",
+            "card": "i555"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "before": {
+            "score": 60,
+            "atUs": 1,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              7
+            ]
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i545"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          },
+          "before": {
+            "score": 60,
+            "atUs": 2,
+            "cardIds": [
+              7
+            ]
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i545"
+          },
+          "result": {
+            "ok": false,
+            "reason": "stock"
+          },
+          "before": {
+            "score": 60,
+            "atUs": 3,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "build-card",
+            "cardId": 8,
+            "point": {
+              "x": -288,
+              "y": -160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          },
+          "before": {
+            "score": 60,
+            "atUs": 4,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [],
+            "spring9": 1
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "seed": 14,
+      "offer": "i550",
+      "initialSha256": "f0c0e24d840e09468afe796397d72a0ad65420360674e860810be71dc5a61b3c",
+      "candidates": [
+        "i569",
+        "i554",
+        "i565",
+        "i576"
+      ],
+      "starterCard": "i569",
+      "received": {
+        "id": 8,
+        "card": "i550",
+        "slot": 0,
+        "point": {
+          "x": -288,
+          "y": -128
+        },
+        "invulnerable": true,
+        "hp": 20,
+        "charges": 0
+      },
+      "built": "H017",
+      "first": {
+        "ok": true,
+        "createdId": 8
+      },
+      "repeat": {
+        "ok": false,
+        "reason": "stock"
+      },
+      "commands": [
+        {
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "before": {
+            "score": 60,
+            "atUs": 0,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": []
+          }
+        },
+        {
+          "action": {
+            "type": "choose-opening",
+            "card": "i569"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "before": {
+            "score": 60,
+            "atUs": 1,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              7
+            ]
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i550"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          },
+          "before": {
+            "score": 60,
+            "atUs": 2,
+            "cardIds": [
+              7
+            ]
+          },
+          "after": {
+            "score": 0,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i550"
+          },
+          "result": {
+            "ok": false,
+            "reason": "stock"
+          },
+          "before": {
+            "score": 0,
+            "atUs": 3,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 0,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "build-card",
+            "cardId": 8,
+            "point": {
+              "x": -288,
+              "y": -160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          },
+          "before": {
+            "score": 0,
+            "atUs": 4,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 0,
+            "cardIds": [],
+            "spring9": 1
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "seed": 47,
+      "offer": "i550",
+      "initialSha256": "7ec82d6dc307dec3c044e504be3b561d58d9808bc49645261367a47ca7c635bc",
+      "candidates": [
+        "i564",
+        "i574",
+        "i565",
+        "i554"
+      ],
+      "starterCard": "i564",
+      "received": {
+        "id": 8,
+        "card": "i550",
+        "slot": 0,
+        "point": {
+          "x": -288,
+          "y": -128
+        },
+        "invulnerable": true,
+        "hp": 20,
+        "charges": 0
+      },
+      "built": "H017",
+      "first": {
+        "ok": true,
+        "createdId": 8
+      },
+      "repeat": {
+        "ok": false,
+        "reason": "stock"
+      },
+      "commands": [
+        {
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "before": {
+            "score": 60,
+            "atUs": 0,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": []
+          }
+        },
+        {
+          "action": {
+            "type": "choose-opening",
+            "card": "i564"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "before": {
+            "score": 60,
+            "atUs": 1,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              7
+            ]
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i550"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          },
+          "before": {
+            "score": 60,
+            "atUs": 2,
+            "cardIds": [
+              7
+            ]
+          },
+          "after": {
+            "score": 0,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i550"
+          },
+          "result": {
+            "ok": false,
+            "reason": "stock"
+          },
+          "before": {
+            "score": 0,
+            "atUs": 3,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 0,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "build-card",
+            "cardId": 8,
+            "point": {
+              "x": -288,
+              "y": -160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          },
+          "before": {
+            "score": 0,
+            "atUs": 4,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 0,
+            "cardIds": [],
+            "spring9": 1
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "seed": 811,
+      "offer": "i550",
+      "initialSha256": "49851968e2f8d2588223ae34cb2cf3ce1e2e33220ef036efc7a6ad46dd4f8369",
+      "candidates": [
+        "i574",
+        "i565",
+        "i557",
+        "i576"
+      ],
+      "starterCard": "i574",
+      "received": {
+        "id": 8,
+        "card": "i550",
+        "slot": 0,
+        "point": {
+          "x": -288,
+          "y": -128
+        },
+        "invulnerable": true,
+        "hp": 20,
+        "charges": 0
+      },
+      "built": "H017",
+      "first": {
+        "ok": true,
+        "createdId": 8
+      },
+      "repeat": {
+        "ok": false,
+        "reason": "stock"
+      },
+      "commands": [
+        {
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "before": {
+            "score": 60,
+            "atUs": 0,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": []
+          }
+        },
+        {
+          "action": {
+            "type": "choose-opening",
+            "card": "i574"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "before": {
+            "score": 60,
+            "atUs": 1,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              7
+            ]
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i550"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          },
+          "before": {
+            "score": 60,
+            "atUs": 2,
+            "cardIds": [
+              7
+            ]
+          },
+          "after": {
+            "score": 0,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i550"
+          },
+          "result": {
+            "ok": false,
+            "reason": "stock"
+          },
+          "before": {
+            "score": 0,
+            "atUs": 3,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 0,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "build-card",
+            "cardId": 8,
+            "point": {
+              "x": -288,
+              "y": -160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          },
+          "before": {
+            "score": 0,
+            "atUs": 4,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 0,
+            "cardIds": [],
+            "spring9": 1
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "seed": 1709,
+      "offer": "i550",
+      "initialSha256": "76d8dc35024ef1d9a87d5aad14649a81d658c36a01dd12415654b05f1786dfb2",
+      "candidates": [
+        "i555",
+        "i553",
+        "i565",
+        "i557"
+      ],
+      "starterCard": "i555",
+      "received": {
+        "id": 8,
+        "card": "i550",
+        "slot": 0,
+        "point": {
+          "x": -288,
+          "y": -128
+        },
+        "invulnerable": true,
+        "hp": 20,
+        "charges": 0
+      },
+      "built": "H017",
+      "first": {
+        "ok": true,
+        "createdId": 8
+      },
+      "repeat": {
+        "ok": false,
+        "reason": "stock"
+      },
+      "commands": [
+        {
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "before": {
+            "score": 60,
+            "atUs": 0,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": []
+          }
+        },
+        {
+          "action": {
+            "type": "choose-opening",
+            "card": "i555"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "before": {
+            "score": 60,
+            "atUs": 1,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              7
+            ]
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i550"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          },
+          "before": {
+            "score": 60,
+            "atUs": 2,
+            "cardIds": [
+              7
+            ]
+          },
+          "after": {
+            "score": 0,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i550"
+          },
+          "result": {
+            "ok": false,
+            "reason": "stock"
+          },
+          "before": {
+            "score": 0,
+            "atUs": 3,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 0,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "build-card",
+            "cardId": 8,
+            "point": {
+              "x": -288,
+              "y": -160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          },
+          "before": {
+            "score": 0,
+            "atUs": 4,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 0,
+            "cardIds": [],
+            "spring9": 1
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "seed": 20261124,
+      "offer": "i550",
+      "initialSha256": "a99966e206035e10366d0dcc5063f2b229e0cf3337812c132069b99158b3f5ce",
+      "candidates": [
+        "i555",
+        "i553",
+        "i564",
+        "i557"
+      ],
+      "starterCard": "i555",
+      "received": {
+        "id": 8,
+        "card": "i550",
+        "slot": 0,
+        "point": {
+          "x": -288,
+          "y": -128
+        },
+        "invulnerable": true,
+        "hp": 20,
+        "charges": 0
+      },
+      "built": "H017",
+      "first": {
+        "ok": true,
+        "createdId": 8
+      },
+      "repeat": {
+        "ok": false,
+        "reason": "stock"
+      },
+      "commands": [
+        {
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "before": {
+            "score": 60,
+            "atUs": 0,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": []
+          }
+        },
+        {
+          "action": {
+            "type": "choose-opening",
+            "card": "i555"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "before": {
+            "score": 60,
+            "atUs": 1,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              7
+            ]
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i550"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          },
+          "before": {
+            "score": 60,
+            "atUs": 2,
+            "cardIds": [
+              7
+            ]
+          },
+          "after": {
+            "score": 0,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i550"
+          },
+          "result": {
+            "ok": false,
+            "reason": "stock"
+          },
+          "before": {
+            "score": 0,
+            "atUs": 3,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 0,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          }
+        },
+        {
+          "action": {
+            "type": "build-card",
+            "cardId": 8,
+            "point": {
+              "x": -288,
+              "y": -160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          },
+          "before": {
+            "score": 0,
+            "atUs": 4,
+            "cardIds": [
+              8
+            ],
+            "spring9": 1
+          },
+          "after": {
+            "score": 0,
+            "cardIds": [],
+            "spring9": 1
+          }
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "seed": 14,
+      "offer": "i546",
+      "initialSha256": "0acb6be84480b6bf26e77303a7bffd08dd534242714c001feaef95795cc4615b",
+      "candidates": [
+        "i569",
+        "i554",
+        "i565",
+        "i576"
+      ],
+      "starterCard": "i569",
+      "received": false,
+      "first": {
+        "ok": false,
+        "reason": "resources"
+      },
+      "repeat": null,
+      "commands": [
+        {
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "before": {
+            "score": 60,
+            "atUs": 0,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": []
+          }
+        },
+        {
+          "action": {
+            "type": "choose-opening",
+            "card": "i569"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "before": {
+            "score": 60,
+            "atUs": 1,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              7
+            ]
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i546"
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "before": {
+            "score": 60,
+            "atUs": 2,
+            "cardIds": [
+              7
+            ]
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              7
+            ]
+          }
+        }
+      ],
+      "status": "requires-ordinary-score"
+    },
+    {
+      "seed": 47,
+      "offer": "i546",
+      "initialSha256": "71355804ef766d2ebf22d9fe8acad8cf09742151695f4604ce73e0ad175aedbb",
+      "candidates": [
+        "i564",
+        "i574",
+        "i565",
+        "i554"
+      ],
+      "starterCard": "i564",
+      "received": false,
+      "first": {
+        "ok": false,
+        "reason": "resources"
+      },
+      "repeat": null,
+      "commands": [
+        {
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "before": {
+            "score": 60,
+            "atUs": 0,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": []
+          }
+        },
+        {
+          "action": {
+            "type": "choose-opening",
+            "card": "i564"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "before": {
+            "score": 60,
+            "atUs": 1,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              7
+            ]
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i546"
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "before": {
+            "score": 60,
+            "atUs": 2,
+            "cardIds": [
+              7
+            ]
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              7
+            ]
+          }
+        }
+      ],
+      "status": "requires-ordinary-score"
+    },
+    {
+      "seed": 811,
+      "offer": "i546",
+      "initialSha256": "089e326e107091ac530ca456ca43b5af5ff5cad05cb5e720c62a8ee888fb222f",
+      "candidates": [
+        "i574",
+        "i565",
+        "i557",
+        "i576"
+      ],
+      "starterCard": "i574",
+      "received": false,
+      "first": {
+        "ok": false,
+        "reason": "resources"
+      },
+      "repeat": null,
+      "commands": [
+        {
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "before": {
+            "score": 60,
+            "atUs": 0,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": []
+          }
+        },
+        {
+          "action": {
+            "type": "choose-opening",
+            "card": "i574"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "before": {
+            "score": 60,
+            "atUs": 1,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              7
+            ]
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i546"
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "before": {
+            "score": 60,
+            "atUs": 2,
+            "cardIds": [
+              7
+            ]
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              7
+            ]
+          }
+        }
+      ],
+      "status": "requires-ordinary-score"
+    },
+    {
+      "seed": 1709,
+      "offer": "i546",
+      "initialSha256": "796ab0a938f74f3e163971d24ac95470fff59685b75df8cff5584fef6604aca2",
+      "candidates": [
+        "i555",
+        "i553",
+        "i565",
+        "i557"
+      ],
+      "starterCard": "i555",
+      "received": false,
+      "first": {
+        "ok": false,
+        "reason": "resources"
+      },
+      "repeat": null,
+      "commands": [
+        {
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "before": {
+            "score": 60,
+            "atUs": 0,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": []
+          }
+        },
+        {
+          "action": {
+            "type": "choose-opening",
+            "card": "i555"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "before": {
+            "score": 60,
+            "atUs": 1,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              7
+            ]
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i546"
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "before": {
+            "score": 60,
+            "atUs": 2,
+            "cardIds": [
+              7
+            ]
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              7
+            ]
+          }
+        }
+      ],
+      "status": "requires-ordinary-score"
+    },
+    {
+      "seed": 20261124,
+      "offer": "i546",
+      "initialSha256": "9066813106f0d3331a30d7f8ae1a3b8a9d849cddb4e9eee3aa183ea66f07ca2e",
+      "candidates": [
+        "i555",
+        "i553",
+        "i564",
+        "i557"
+      ],
+      "starterCard": "i555",
+      "received": false,
+      "first": {
+        "ok": false,
+        "reason": "resources"
+      },
+      "repeat": null,
+      "commands": [
+        {
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "before": {
+            "score": 60,
+            "atUs": 0,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": []
+          }
+        },
+        {
+          "action": {
+            "type": "choose-opening",
+            "card": "i555"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "before": {
+            "score": 60,
+            "atUs": 1,
+            "cardIds": []
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              7
+            ]
+          }
+        },
+        {
+          "action": {
+            "type": "exchange-hero",
+            "offer": "i546"
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "before": {
+            "score": 60,
+            "atUs": 2,
+            "cardIds": [
+              7
+            ]
+          },
+          "after": {
+            "score": 60,
+            "cardIds": [
+              7
+            ]
+          }
+        }
+      ],
+      "status": "requires-ordinary-score"
+    }
+  ]
+}

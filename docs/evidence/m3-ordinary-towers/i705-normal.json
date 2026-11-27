@@ -1,0 +1,7933 @@
+{
+  "version": "m3-dev-1",
+  "configuration": "m3-config-1",
+  "cardId": "i705",
+  "chain": [
+    "n214",
+    "n215",
+    "n216",
+    "n217",
+    "H018"
+  ],
+  "policy": "m3-r02-ogre-1",
+  "samples": [
+    {
+      "seed": 14,
+      "source": [
+        [
+          "src/game/m2/match.ts",
+          "b648d566e834b27dac0389dc0ac3c54489316318c4a912cf9baa5222363445c7"
+        ],
+        [
+          "src/game/m2/content.ts",
+          "c7e5db551a24cb21daa7ddc4972414199031edff2771f1da681bb86e3a4364cd"
+        ],
+        [
+          "src/game/m2/combat.ts",
+          "9979ca16bc8dbef9b503f0db0d910dc071f6315519af89b7971b35dfa7e3be60"
+        ],
+        [
+          "src/game/m2/weapons.json",
+          "0e89795f32569a2267c6e94cc1bc778bd21548fce71efe85635f158a1f374502"
+        ]
+      ],
+      "initialStateSha256": "66c8dd5198890629ec3b123df46eb39287e4e4da5f04bc422efb825898d9badf",
+      "initial": {
+        "gold": 2000,
+        "lumber": 0,
+        "opening": [
+          "i581",
+          "i576",
+          "i565",
+          "i564"
+        ]
+      },
+      "opening": "i564",
+      "elapsedDraws": 4,
+      "levels": [
+        {
+          "id": "n214",
+          "atUs": 198000026,
+          "wave": 4
+        },
+        {
+          "id": "n215",
+          "atUs": 241000028,
+          "wave": 5
+        },
+        {
+          "id": "n216",
+          "atUs": 248000030,
+          "wave": 5
+        },
+        {
+          "id": "n217",
+          "atUs": 316000032,
+          "wave": 5
+        },
+        {
+          "id": "H018",
+          "atUs": 610000168,
+          "wave": 11
+        }
+      ],
+      "effects": {
+        "n214": {
+          "atUs": 200060000,
+          "skillId": "N089",
+          "ally": 8,
+          "bloodlust": {
+            "untilUs": 205060000,
+            "amount": 0.2
+          }
+        },
+        "n215": {
+          "atUs": 246810000,
+          "skillId": "N090",
+          "ally": 225,
+          "bloodlust": {
+            "untilUs": 251810000,
+            "amount": 0.3
+          }
+        },
+        "n216": {
+          "atUs": 249310000,
+          "skillId": "N091",
+          "ally": 8,
+          "bloodlust": {
+            "untilUs": 254310000,
+            "amount": 0.4
+          }
+        },
+        "n217": {
+          "atUs": 325060000,
+          "skillId": "N092",
+          "ally": 8,
+          "bloodlust": {
+            "untilUs": 330060000,
+            "amount": 0.5
+          }
+        },
+        "H018": {
+          "hit": {
+            "atUs": 627240666,
+            "x": -214.31169414294197,
+            "y": -816,
+            "targetId": 557,
+            "casterId": 225,
+            "ownerId": 225,
+            "sourceTemplate": "H018",
+            "amount": 650.483983448276,
+            "deadUnitId": "m011"
+          },
+          "skillId": "A058"
+        }
+      },
+      "end": {
+        "phase": "running",
+        "wave": 11,
+        "atUs": 628000169,
+        "gold": 5623
+      },
+      "status": "passed",
+      "commands": [
+        {
+          "atUs": 0,
+          "wave": 0,
+          "action": {
+            "type": "choose-talent",
+            "choice": "W005"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 1,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2,
+          "wave": 0,
+          "action": {
+            "type": "choose-opening",
+            "card": "i564"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000,
+          "obtained": "i564"
+        },
+        {
+          "atUs": 3,
+          "wave": 0,
+          "action": {
+            "type": "build-card",
+            "cardId": 7,
+            "point": {
+              "x": -288,
+              "y": -1024
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500004,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 2
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500005,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 4
+          },
+          "result": {
+            "ok": true,
+            "createdId": 10
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500006,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 5
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500007,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 6
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500008,
+          "wave": 0,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 9,
+            "towerId": 8
+          },
+          "result": {
+            "ok": false,
+            "reason": "missing"
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500009,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 9
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500010,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 10
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500011,
+          "wave": 0,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2104
+        },
+        {
+          "atUs": 2500012,
+          "wave": 0,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 12
+          },
+          "goldBefore": 2104,
+          "goldAfter": 1104,
+          "obtained": "i704"
+        },
+        {
+          "atUs": 2500013,
+          "wave": 0,
+          "action": {
+            "type": "drop-card",
+            "cardId": 12
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1104,
+          "goldAfter": 1104
+        },
+        {
+          "atUs": 3500014,
+          "wave": 0,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1104,
+          "goldAfter": 1104
+        },
+        {
+          "atUs": 12500015,
+          "wave": 0,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 14
+          },
+          "goldBefore": 1220,
+          "goldAfter": 220,
+          "obtained": "i711"
+        },
+        {
+          "atUs": 12500016,
+          "wave": 0,
+          "action": {
+            "type": "drop-card",
+            "cardId": 14
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 220,
+          "goldAfter": 220
+        },
+        {
+          "atUs": 49500017,
+          "wave": 1,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 306,
+          "goldAfter": 306
+        },
+        {
+          "atUs": 79500018,
+          "wave": 1,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A069"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 597,
+          "goldAfter": 597
+        },
+        {
+          "atUs": 120500019,
+          "wave": 2,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 130
+          },
+          "goldBefore": 1177,
+          "goldAfter": 177,
+          "obtained": "i715"
+        },
+        {
+          "atUs": 120500020,
+          "wave": 2,
+          "action": {
+            "type": "drop-card",
+            "cardId": 130
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 177,
+          "goldAfter": 177
+        },
+        {
+          "atUs": 122500021,
+          "wave": 2,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 195,
+          "goldAfter": 411
+        },
+        {
+          "atUs": 138500022,
+          "wave": 3,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 534,
+          "goldAfter": 534
+        },
+        {
+          "atUs": 180500023,
+          "wave": 3,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 897,
+          "goldAfter": 897
+        },
+        {
+          "atUs": 194500024,
+          "wave": 4,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 219
+          },
+          "goldBefore": 1008,
+          "goldAfter": 8,
+          "obtained": "i705"
+        },
+        {
+          "atUs": 195500025,
+          "wave": 4,
+          "action": {
+            "type": "build-card",
+            "cardId": 219,
+            "point": {
+              "x": 288,
+              "y": -1024
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 225
+          },
+          "goldBefore": 18,
+          "goldAfter": 28
+        },
+        {
+          "atUs": 224000026,
+          "wave": 4,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A069"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 407,
+          "goldAfter": 407
+        },
+        {
+          "atUs": 240000027,
+          "wave": 4,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1014,
+          "goldAfter": 294
+        },
+        {
+          "atUs": 243000028,
+          "wave": 5,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 324,
+          "goldAfter": 824
+        },
+        {
+          "atUs": 247000029,
+          "wave": 5,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 871,
+          "goldAfter": 51
+        },
+        {
+          "atUs": 279000030,
+          "wave": 5,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 517,
+          "goldAfter": 517
+        },
+        {
+          "atUs": 315000031,
+          "wave": 5,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 946,
+          "goldAfter": 6
+        },
+        {
+          "atUs": 363000032,
+          "wave": 6,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1004,
+          "goldAfter": 1316
+        },
+        {
+          "atUs": 409000033,
+          "wave": 7,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1756,
+          "goldAfter": 1756
+        },
+        {
+          "atUs": 480000034,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3622,
+          "goldAfter": 3622
+        },
+        {
+          "atUs": 481000035,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3622,
+          "goldAfter": 3622
+        },
+        {
+          "atUs": 482000036,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3638,
+          "goldAfter": 3638
+        },
+        {
+          "atUs": 483000037,
+          "wave": 9,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 3653,
+          "goldAfter": 4553
+        },
+        {
+          "atUs": 483000038,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4553,
+          "goldAfter": 4553
+        },
+        {
+          "atUs": 484000039,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4553,
+          "goldAfter": 4553
+        },
+        {
+          "atUs": 485000040,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4566,
+          "goldAfter": 4566
+        },
+        {
+          "atUs": 486000041,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4594,
+          "goldAfter": 4594
+        },
+        {
+          "atUs": 487000042,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4624,
+          "goldAfter": 4624
+        },
+        {
+          "atUs": 488000043,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4668,
+          "goldAfter": 4668
+        },
+        {
+          "atUs": 489000044,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4668,
+          "goldAfter": 4668
+        },
+        {
+          "atUs": 490000045,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4668,
+          "goldAfter": 4668
+        },
+        {
+          "atUs": 491000046,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4699,
+          "goldAfter": 4699
+        },
+        {
+          "atUs": 492000047,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4699,
+          "goldAfter": 4699
+        },
+        {
+          "atUs": 493000048,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4714,
+          "goldAfter": 4714
+        },
+        {
+          "atUs": 494000049,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4714,
+          "goldAfter": 4714
+        },
+        {
+          "atUs": 495000050,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4729,
+          "goldAfter": 4729
+        },
+        {
+          "atUs": 496000051,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4764,
+          "goldAfter": 4764
+        },
+        {
+          "atUs": 497000052,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4764,
+          "goldAfter": 4764
+        },
+        {
+          "atUs": 498000053,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4778,
+          "goldAfter": 4778
+        },
+        {
+          "atUs": 499000054,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4808,
+          "goldAfter": 4808
+        },
+        {
+          "atUs": 500000055,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4824,
+          "goldAfter": 4824
+        },
+        {
+          "atUs": 501000056,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4839,
+          "goldAfter": 4839
+        },
+        {
+          "atUs": 502000057,
+          "wave": 9,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A069"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 4853,
+          "goldAfter": 4853
+        },
+        {
+          "atUs": 502000058,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4853,
+          "goldAfter": 4853
+        },
+        {
+          "atUs": 503000059,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4853,
+          "goldAfter": 4853
+        },
+        {
+          "atUs": 504000060,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4869,
+          "goldAfter": 4869
+        },
+        {
+          "atUs": 505000061,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4869,
+          "goldAfter": 4869
+        },
+        {
+          "atUs": 506000062,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4885,
+          "goldAfter": 4885
+        },
+        {
+          "atUs": 507000063,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4885,
+          "goldAfter": 4885
+        },
+        {
+          "atUs": 508000064,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4885,
+          "goldAfter": 4885
+        },
+        {
+          "atUs": 509000065,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4901,
+          "goldAfter": 4901
+        },
+        {
+          "atUs": 510000066,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4916,
+          "goldAfter": 4916
+        },
+        {
+          "atUs": 511000067,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4931,
+          "goldAfter": 4931
+        },
+        {
+          "atUs": 512000068,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4963,
+          "goldAfter": 4963
+        },
+        {
+          "atUs": 513000069,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4985,
+          "goldAfter": 4985
+        },
+        {
+          "atUs": 514000070,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5009,
+          "goldAfter": 5009
+        },
+        {
+          "atUs": 515000071,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5031,
+          "goldAfter": 5031
+        },
+        {
+          "atUs": 516000072,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5100,
+          "goldAfter": 5100
+        },
+        {
+          "atUs": 517000073,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5123,
+          "goldAfter": 5123
+        },
+        {
+          "atUs": 518000074,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5123,
+          "goldAfter": 5123
+        },
+        {
+          "atUs": 519000075,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5159,
+          "goldAfter": 5159
+        },
+        {
+          "atUs": 520000076,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5174,
+          "goldAfter": 5174
+        },
+        {
+          "atUs": 521000077,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5197,
+          "goldAfter": 5197
+        },
+        {
+          "atUs": 522000078,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5246,
+          "goldAfter": 5246
+        },
+        {
+          "atUs": 523000079,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5246,
+          "goldAfter": 5246
+        },
+        {
+          "atUs": 524000080,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5246,
+          "goldAfter": 5246
+        },
+        {
+          "atUs": 525000081,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5274,
+          "goldAfter": 5274
+        },
+        {
+          "atUs": 526000082,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5287,
+          "goldAfter": 5287
+        },
+        {
+          "atUs": 527000083,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5287,
+          "goldAfter": 5287
+        },
+        {
+          "atUs": 528000084,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5287,
+          "goldAfter": 5287
+        },
+        {
+          "atUs": 529000085,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5331,
+          "goldAfter": 5331
+        },
+        {
+          "atUs": 530000086,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5374,
+          "goldAfter": 5374
+        },
+        {
+          "atUs": 531000087,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5416,
+          "goldAfter": 5416
+        },
+        {
+          "atUs": 532000088,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5416,
+          "goldAfter": 5416
+        },
+        {
+          "atUs": 533000089,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5443,
+          "goldAfter": 5443
+        },
+        {
+          "atUs": 534000090,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5443,
+          "goldAfter": 5443
+        },
+        {
+          "atUs": 535000091,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5443,
+          "goldAfter": 5443
+        },
+        {
+          "atUs": 536000092,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5443,
+          "goldAfter": 5443
+        },
+        {
+          "atUs": 537000093,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5443,
+          "goldAfter": 5443
+        },
+        {
+          "atUs": 538000094,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5470,
+          "goldAfter": 5470
+        },
+        {
+          "atUs": 539000095,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5495,
+          "goldAfter": 5495
+        },
+        {
+          "atUs": 540000096,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5521,
+          "goldAfter": 5521
+        },
+        {
+          "atUs": 541000097,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5521,
+          "goldAfter": 5521
+        },
+        {
+          "atUs": 542000098,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5565,
+          "goldAfter": 5565
+        },
+        {
+          "atUs": 543000099,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5612,
+          "goldAfter": 5612
+        },
+        {
+          "atUs": 544000100,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5663,
+          "goldAfter": 5663
+        },
+        {
+          "atUs": 545000101,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5663,
+          "goldAfter": 5663
+        },
+        {
+          "atUs": 546000102,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5663,
+          "goldAfter": 5663
+        },
+        {
+          "atUs": 547000103,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5689,
+          "goldAfter": 5689
+        },
+        {
+          "atUs": 548000104,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5714,
+          "goldAfter": 5714
+        },
+        {
+          "atUs": 549000105,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5714,
+          "goldAfter": 5714
+        },
+        {
+          "atUs": 550000106,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5764,
+          "goldAfter": 5764
+        },
+        {
+          "atUs": 551000107,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5819,
+          "goldAfter": 5819
+        },
+        {
+          "atUs": 552000108,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5846,
+          "goldAfter": 5846
+        },
+        {
+          "atUs": 553000109,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5873,
+          "goldAfter": 5873
+        },
+        {
+          "atUs": 554000110,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5873,
+          "goldAfter": 5873
+        },
+        {
+          "atUs": 555000111,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5901,
+          "goldAfter": 5901
+        },
+        {
+          "atUs": 556000112,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5956,
+          "goldAfter": 5956
+        },
+        {
+          "atUs": 557000113,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6007,
+          "goldAfter": 6007
+        },
+        {
+          "atUs": 558000114,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6007,
+          "goldAfter": 6007
+        },
+        {
+          "atUs": 559000115,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6032,
+          "goldAfter": 6032
+        },
+        {
+          "atUs": 560000116,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6032,
+          "goldAfter": 6032
+        },
+        {
+          "atUs": 561000117,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6032,
+          "goldAfter": 6032
+        },
+        {
+          "atUs": 562000118,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6032,
+          "goldAfter": 6032
+        },
+        {
+          "atUs": 563000119,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6032,
+          "goldAfter": 6032
+        },
+        {
+          "atUs": 564000120,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6059,
+          "goldAfter": 6059
+        },
+        {
+          "atUs": 565000121,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6059,
+          "goldAfter": 6059
+        },
+        {
+          "atUs": 566000122,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6086,
+          "goldAfter": 6086
+        },
+        {
+          "atUs": 567000123,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6086,
+          "goldAfter": 6086
+        },
+        {
+          "atUs": 568000124,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6139,
+          "goldAfter": 6139
+        },
+        {
+          "atUs": 569000125,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6164,
+          "goldAfter": 6164
+        },
+        {
+          "atUs": 570000126,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6192,
+          "goldAfter": 6192
+        },
+        {
+          "atUs": 571000127,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6192,
+          "goldAfter": 6192
+        },
+        {
+          "atUs": 572000128,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6220,
+          "goldAfter": 6220
+        },
+        {
+          "atUs": 573000129,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6246,
+          "goldAfter": 6246
+        },
+        {
+          "atUs": 574000130,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6300,
+          "goldAfter": 6300
+        },
+        {
+          "atUs": 575000131,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6300,
+          "goldAfter": 6300
+        },
+        {
+          "atUs": 576000132,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6353,
+          "goldAfter": 6353
+        },
+        {
+          "atUs": 577000133,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6353,
+          "goldAfter": 6353
+        },
+        {
+          "atUs": 578000134,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6353,
+          "goldAfter": 6353
+        },
+        {
+          "atUs": 579000135,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6353,
+          "goldAfter": 6353
+        },
+        {
+          "atUs": 580000136,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6353,
+          "goldAfter": 6353
+        },
+        {
+          "atUs": 581000137,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6380,
+          "goldAfter": 6380
+        },
+        {
+          "atUs": 582000138,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6408,
+          "goldAfter": 6408
+        },
+        {
+          "atUs": 583000139,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6408,
+          "goldAfter": 6408
+        },
+        {
+          "atUs": 584000140,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6408,
+          "goldAfter": 6408
+        },
+        {
+          "atUs": 585000141,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6408,
+          "goldAfter": 6408
+        },
+        {
+          "atUs": 586000142,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6460,
+          "goldAfter": 6460
+        },
+        {
+          "atUs": 587000143,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6486,
+          "goldAfter": 6486
+        },
+        {
+          "atUs": 588000144,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6486,
+          "goldAfter": 6486
+        },
+        {
+          "atUs": 589000145,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6486,
+          "goldAfter": 6486
+        },
+        {
+          "atUs": 590000146,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6486,
+          "goldAfter": 6486
+        },
+        {
+          "atUs": 591000147,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6486,
+          "goldAfter": 6486
+        },
+        {
+          "atUs": 592000148,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6486,
+          "goldAfter": 6486
+        },
+        {
+          "atUs": 593000149,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6486,
+          "goldAfter": 6486
+        },
+        {
+          "atUs": 594000150,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6514,
+          "goldAfter": 6514
+        },
+        {
+          "atUs": 595000151,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6514,
+          "goldAfter": 6514
+        },
+        {
+          "atUs": 596000152,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6539,
+          "goldAfter": 6539
+        },
+        {
+          "atUs": 597000153,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6539,
+          "goldAfter": 6539
+        },
+        {
+          "atUs": 598000154,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6539,
+          "goldAfter": 6539
+        },
+        {
+          "atUs": 599000155,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6539,
+          "goldAfter": 6539
+        },
+        {
+          "atUs": 600000156,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 7419,
+          "goldAfter": 7419
+        },
+        {
+          "atUs": 601000157,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 7419,
+          "goldAfter": 7419
+        },
+        {
+          "atUs": 602000158,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 7419,
+          "goldAfter": 7419
+        },
+        {
+          "atUs": 603000159,
+          "wave": 10,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 7447,
+          "goldAfter": 8527
+        },
+        {
+          "atUs": 603000160,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 8527,
+          "goldAfter": 8527
+        },
+        {
+          "atUs": 604000161,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 8527,
+          "goldAfter": 8527
+        },
+        {
+          "atUs": 605000162,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 8527,
+          "goldAfter": 8527
+        },
+        {
+          "atUs": 606000163,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 8527,
+          "goldAfter": 8527
+        },
+        {
+          "atUs": 607000164,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 8527,
+          "goldAfter": 8527
+        },
+        {
+          "atUs": 608000165,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 8527,
+          "goldAfter": 8527
+        },
+        {
+          "atUs": 609000166,
+          "wave": 11,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 225
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 8552,
+          "goldAfter": 5552
+        },
+        {
+          "atUs": 610000167,
+          "wave": 11,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 225,
+            "skillId": "A058"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 5552,
+          "goldAfter": 5552
+        },
+        {
+          "atUs": 626000168,
+          "wave": 11,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 225,
+            "skillId": "A059"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 5603,
+          "goldAfter": 5603
+        }
+      ]
+    },
+    {
+      "seed": 47,
+      "source": [
+        [
+          "src/game/m2/match.ts",
+          "b648d566e834b27dac0389dc0ac3c54489316318c4a912cf9baa5222363445c7"
+        ],
+        [
+          "src/game/m2/content.ts",
+          "c7e5db551a24cb21daa7ddc4972414199031edff2771f1da681bb86e3a4364cd"
+        ],
+        [
+          "src/game/m2/combat.ts",
+          "9979ca16bc8dbef9b503f0db0d910dc071f6315519af89b7971b35dfa7e3be60"
+        ],
+        [
+          "src/game/m2/weapons.json",
+          "0e89795f32569a2267c6e94cc1bc778bd21548fce71efe85635f158a1f374502"
+        ]
+      ],
+      "initialStateSha256": "d93b162952c0f147286b4a02e595fe1d58020a1d952379510d4b25cc07fc2695",
+      "initial": {
+        "gold": 2000,
+        "lumber": 0,
+        "opening": [
+          "i564",
+          "i565",
+          "i555",
+          "i569"
+        ]
+      },
+      "opening": "i564",
+      "elapsedDraws": 7,
+      "levels": [
+        {
+          "id": "n214",
+          "atUs": 364000036,
+          "wave": 6
+        },
+        {
+          "id": "n215",
+          "atUs": 367000037,
+          "wave": 6
+        },
+        {
+          "id": "n216",
+          "atUs": 436000039,
+          "wave": 8
+        },
+        {
+          "id": "n217",
+          "atUs": 481000040,
+          "wave": 9
+        },
+        {
+          "id": "H018",
+          "atUs": 610000075,
+          "wave": 11
+        }
+      ],
+      "effects": {
+        "n214": {
+          "atUs": 365060000,
+          "skillId": "N089",
+          "ally": 350,
+          "bloodlust": {
+            "untilUs": 370060000,
+            "amount": 0.2
+          }
+        },
+        "n215": {
+          "atUs": 368060000,
+          "skillId": "N090",
+          "ally": 8,
+          "bloodlust": {
+            "untilUs": 373060000,
+            "amount": 0.3
+          }
+        },
+        "n216": {
+          "atUs": 437060000,
+          "skillId": "N091",
+          "ally": 8,
+          "bloodlust": {
+            "untilUs": 442060000,
+            "amount": 0.4
+          }
+        },
+        "n217": {
+          "atUs": 482060000,
+          "skillId": "N092",
+          "ally": 350,
+          "bloodlust": {
+            "untilUs": 487060000,
+            "amount": 0.5
+          }
+        },
+        "H018": {
+          "hit": {
+            "atUs": 614386922,
+            "x": 257.7418718675574,
+            "y": -432,
+            "targetId": 536,
+            "casterId": 350,
+            "ownerId": 350,
+            "sourceTemplate": "H018",
+            "amount": 610.896,
+            "deadUnitId": "m009"
+          },
+          "skillId": "A058"
+        }
+      },
+      "end": {
+        "phase": "running",
+        "wave": 11,
+        "atUs": 615000076,
+        "gold": 2193
+      },
+      "status": "passed",
+      "commands": [
+        {
+          "atUs": 0,
+          "wave": 0,
+          "action": {
+            "type": "choose-talent",
+            "choice": "W005"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 1,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2,
+          "wave": 0,
+          "action": {
+            "type": "choose-opening",
+            "card": "i564"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000,
+          "obtained": "i564"
+        },
+        {
+          "atUs": 3,
+          "wave": 0,
+          "action": {
+            "type": "build-card",
+            "cardId": 7,
+            "point": {
+              "x": -288,
+              "y": -1024
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500004,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 2
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500005,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 4
+          },
+          "result": {
+            "ok": true,
+            "createdId": 10
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500006,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 5
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500007,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 6
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500008,
+          "wave": 0,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 9,
+            "towerId": 8
+          },
+          "result": {
+            "ok": false,
+            "reason": "missing"
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500009,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 9
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500010,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 10
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500011,
+          "wave": 0,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2084
+        },
+        {
+          "atUs": 2500012,
+          "wave": 0,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 12
+          },
+          "goldBefore": 2084,
+          "goldAfter": 1084,
+          "obtained": "i603"
+        },
+        {
+          "atUs": 2500013,
+          "wave": 0,
+          "action": {
+            "type": "drop-card",
+            "cardId": 12
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1084,
+          "goldAfter": 1084
+        },
+        {
+          "atUs": 3500014,
+          "wave": 0,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1084,
+          "goldAfter": 1084
+        },
+        {
+          "atUs": 12500015,
+          "wave": 0,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 14
+          },
+          "goldBefore": 1200,
+          "goldAfter": 200,
+          "obtained": "i608"
+        },
+        {
+          "atUs": 12500016,
+          "wave": 0,
+          "action": {
+            "type": "drop-card",
+            "cardId": 14
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 200,
+          "goldAfter": 200
+        },
+        {
+          "atUs": 49500017,
+          "wave": 1,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 285,
+          "goldAfter": 285
+        },
+        {
+          "atUs": 87500018,
+          "wave": 2,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A069"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 576,
+          "goldAfter": 576
+        },
+        {
+          "atUs": 120500019,
+          "wave": 2,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 134
+          },
+          "goldBefore": 1186,
+          "goldAfter": 186,
+          "obtained": "i712"
+        },
+        {
+          "atUs": 120500020,
+          "wave": 2,
+          "action": {
+            "type": "drop-card",
+            "cardId": 134
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 186,
+          "goldAfter": 186
+        },
+        {
+          "atUs": 122500021,
+          "wave": 2,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 204,
+          "goldAfter": 380
+        },
+        {
+          "atUs": 128500022,
+          "wave": 2,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 466,
+          "goldAfter": 466
+        },
+        {
+          "atUs": 175500023,
+          "wave": 3,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 798,
+          "goldAfter": 798
+        },
+        {
+          "atUs": 200500024,
+          "wave": 4,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 235
+          },
+          "goldBefore": 1000,
+          "goldAfter": 0,
+          "obtained": "i715"
+        },
+        {
+          "atUs": 200500025,
+          "wave": 4,
+          "action": {
+            "type": "drop-card",
+            "cardId": 235
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 0,
+          "goldAfter": 0
+        },
+        {
+          "atUs": 232500026,
+          "wave": 4,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A069"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 303,
+          "goldAfter": 303
+        },
+        {
+          "atUs": 242500027,
+          "wave": 5,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 913,
+          "goldAfter": 1373
+        },
+        {
+          "atUs": 242500028,
+          "wave": 5,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 278
+          },
+          "goldBefore": 1373,
+          "goldAfter": 373,
+          "obtained": "i704"
+        },
+        {
+          "atUs": 242500029,
+          "wave": 5,
+          "action": {
+            "type": "drop-card",
+            "cardId": 278
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 373,
+          "goldAfter": 373
+        },
+        {
+          "atUs": 286500030,
+          "wave": 5,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 293
+          },
+          "goldBefore": 1012,
+          "goldAfter": 12,
+          "obtained": "i607"
+        },
+        {
+          "atUs": 286500031,
+          "wave": 5,
+          "action": {
+            "type": "drop-card",
+            "cardId": 293
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 12,
+          "goldAfter": 12
+        },
+        {
+          "atUs": 288500032,
+          "wave": 5,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 42,
+          "goldAfter": 42
+        },
+        {
+          "atUs": 360500033,
+          "wave": 6,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 346
+          },
+          "goldBefore": 1219,
+          "goldAfter": 219,
+          "obtained": "i705"
+        },
+        {
+          "atUs": 361500034,
+          "wave": 6,
+          "action": {
+            "type": "build-card",
+            "cardId": 346,
+            "point": {
+              "x": 288,
+              "y": -1024
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 350
+          },
+          "goldBefore": 233,
+          "goldAfter": 246
+        },
+        {
+          "atUs": 364000035,
+          "wave": 6,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 260,
+          "goldAfter": 764
+        },
+        {
+          "atUs": 366000036,
+          "wave": 6,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 778,
+          "goldAfter": 58
+        },
+        {
+          "atUs": 421000037,
+          "wave": 7,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 627,
+          "goldAfter": 627
+        },
+        {
+          "atUs": 435000038,
+          "wave": 8,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 824,
+          "goldAfter": 4
+        },
+        {
+          "atUs": 480000039,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1542,
+          "goldAfter": 602
+        },
+        {
+          "atUs": 484000040,
+          "wave": 9,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 659,
+          "goldAfter": 1307
+        },
+        {
+          "atUs": 515000041,
+          "wave": 9,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A069"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1813,
+          "goldAfter": 1813
+        },
+        {
+          "atUs": 579000042,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3005,
+          "goldAfter": 3005
+        },
+        {
+          "atUs": 580000043,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3005,
+          "goldAfter": 3005
+        },
+        {
+          "atUs": 581000044,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3060,
+          "goldAfter": 3060
+        },
+        {
+          "atUs": 582000045,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3060,
+          "goldAfter": 3060
+        },
+        {
+          "atUs": 583000046,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3088,
+          "goldAfter": 3088
+        },
+        {
+          "atUs": 584000047,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3088,
+          "goldAfter": 3088
+        },
+        {
+          "atUs": 585000048,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3143,
+          "goldAfter": 3143
+        },
+        {
+          "atUs": 586000049,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3170,
+          "goldAfter": 3170
+        },
+        {
+          "atUs": 587000050,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3195,
+          "goldAfter": 3195
+        },
+        {
+          "atUs": 588000051,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3195,
+          "goldAfter": 3195
+        },
+        {
+          "atUs": 589000052,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3195,
+          "goldAfter": 3195
+        },
+        {
+          "atUs": 590000053,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3195,
+          "goldAfter": 3195
+        },
+        {
+          "atUs": 591000054,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3195,
+          "goldAfter": 3195
+        },
+        {
+          "atUs": 592000055,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3195,
+          "goldAfter": 3195
+        },
+        {
+          "atUs": 593000056,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3195,
+          "goldAfter": 3195
+        },
+        {
+          "atUs": 594000057,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3195,
+          "goldAfter": 3195
+        },
+        {
+          "atUs": 595000058,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3223,
+          "goldAfter": 3223
+        },
+        {
+          "atUs": 596000059,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3248,
+          "goldAfter": 3248
+        },
+        {
+          "atUs": 597000060,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3248,
+          "goldAfter": 3248
+        },
+        {
+          "atUs": 598000061,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3273,
+          "goldAfter": 3273
+        },
+        {
+          "atUs": 599000062,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3273,
+          "goldAfter": 3273
+        },
+        {
+          "atUs": 600000063,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4153,
+          "goldAfter": 4153
+        },
+        {
+          "atUs": 601000064,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4181,
+          "goldAfter": 4181
+        },
+        {
+          "atUs": 602000065,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4207,
+          "goldAfter": 4207
+        },
+        {
+          "atUs": 603000066,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4207,
+          "goldAfter": 4207
+        },
+        {
+          "atUs": 604000067,
+          "wave": 10,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 4234,
+          "goldAfter": 4954
+        },
+        {
+          "atUs": 604000068,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4954,
+          "goldAfter": 4954
+        },
+        {
+          "atUs": 605000069,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4981,
+          "goldAfter": 4981
+        },
+        {
+          "atUs": 606000070,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4981,
+          "goldAfter": 4981
+        },
+        {
+          "atUs": 607000071,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5008,
+          "goldAfter": 5008
+        },
+        {
+          "atUs": 608000072,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5008,
+          "goldAfter": 5008
+        },
+        {
+          "atUs": 609000073,
+          "wave": 11,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 350
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 5035,
+          "goldAfter": 2035
+        },
+        {
+          "atUs": 610000074,
+          "wave": 11,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 350,
+            "skillId": "A058"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2063,
+          "goldAfter": 2063
+        },
+        {
+          "atUs": 613000075,
+          "wave": 11,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 350,
+            "skillId": "A059"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2142,
+          "goldAfter": 2142
+        }
+      ]
+    },
+    {
+      "seed": 811,
+      "source": [
+        [
+          "src/game/m2/match.ts",
+          "b648d566e834b27dac0389dc0ac3c54489316318c4a912cf9baa5222363445c7"
+        ],
+        [
+          "src/game/m2/content.ts",
+          "c7e5db551a24cb21daa7ddc4972414199031edff2771f1da681bb86e3a4364cd"
+        ],
+        [
+          "src/game/m2/combat.ts",
+          "9979ca16bc8dbef9b503f0db0d910dc071f6315519af89b7971b35dfa7e3be60"
+        ],
+        [
+          "src/game/m2/weapons.json",
+          "0e89795f32569a2267c6e94cc1bc778bd21548fce71efe85635f158a1f374502"
+        ]
+      ],
+      "initialStateSha256": "28ec64b13ea06a2d4903ad55311562e6f23190acc04887dbc8df2cb4263c9c3b",
+      "initial": {
+        "gold": 2000,
+        "lumber": 0,
+        "opening": [
+          "i565",
+          "i555",
+          "i576",
+          "i581"
+        ]
+      },
+      "opening": "i581",
+      "elapsedDraws": 7,
+      "levels": [],
+      "effects": {},
+      "end": {
+        "phase": "failed",
+        "wave": 9,
+        "atUs": 473000000,
+        "gold": 982,
+        "result": {
+          "reason": "capacity",
+          "points": 116,
+          "atUs": 473000000
+        }
+      },
+      "status": "failed",
+      "commands": [
+        {
+          "atUs": 0,
+          "wave": 0,
+          "action": {
+            "type": "choose-talent",
+            "choice": "W005"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 1,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2,
+          "wave": 0,
+          "action": {
+            "type": "choose-opening",
+            "card": "i581"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000,
+          "obtained": "i581"
+        },
+        {
+          "atUs": 3,
+          "wave": 0,
+          "action": {
+            "type": "build-card",
+            "cardId": 7,
+            "point": {
+              "x": -288,
+              "y": -1024
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500004,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 2
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500005,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 4
+          },
+          "result": {
+            "ok": true,
+            "createdId": 10
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500006,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 5
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500007,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 6
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500008,
+          "wave": 0,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 9,
+            "towerId": 8
+          },
+          "result": {
+            "ok": false,
+            "reason": "missing"
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500009,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 9
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500010,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 10
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500011,
+          "wave": 0,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2060
+        },
+        {
+          "atUs": 2500012,
+          "wave": 0,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 12
+          },
+          "goldBefore": 2060,
+          "goldAfter": 1060,
+          "obtained": "i608"
+        },
+        {
+          "atUs": 2500013,
+          "wave": 0,
+          "action": {
+            "type": "drop-card",
+            "cardId": 12
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1060,
+          "goldAfter": 1060
+        },
+        {
+          "atUs": 3500014,
+          "wave": 0,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A170"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1060,
+          "goldAfter": 1060
+        },
+        {
+          "atUs": 12500015,
+          "wave": 0,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 14
+          },
+          "goldBefore": 1148,
+          "goldAfter": 148,
+          "obtained": "i603"
+        },
+        {
+          "atUs": 12500016,
+          "wave": 0,
+          "action": {
+            "type": "drop-card",
+            "cardId": 14
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 148,
+          "goldAfter": 148
+        },
+        {
+          "atUs": 51500017,
+          "wave": 1,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A171"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 232,
+          "goldAfter": 232
+        },
+        {
+          "atUs": 97500018,
+          "wave": 2,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A172"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 539,
+          "goldAfter": 539
+        },
+        {
+          "atUs": 120500019,
+          "wave": 2,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 166
+          },
+          "goldBefore": 1053,
+          "goldAfter": 53,
+          "obtained": "i709"
+        },
+        {
+          "atUs": 120500020,
+          "wave": 2,
+          "action": {
+            "type": "drop-card",
+            "cardId": 166
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 53,
+          "goldAfter": 53
+        },
+        {
+          "atUs": 122500021,
+          "wave": 2,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 86,
+          "goldAfter": 246
+        },
+        {
+          "atUs": 138500022,
+          "wave": 3,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A170"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 460,
+          "goldAfter": 460
+        },
+        {
+          "atUs": 182500023,
+          "wave": 3,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A171"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 800,
+          "goldAfter": 800
+        },
+        {
+          "atUs": 217500024,
+          "wave": 4,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 340
+          },
+          "goldBefore": 1005,
+          "goldAfter": 5,
+          "obtained": "i709"
+        },
+        {
+          "atUs": 217500025,
+          "wave": 4,
+          "action": {
+            "type": "drop-card",
+            "cardId": 340
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 5,
+          "goldAfter": 5
+        },
+        {
+          "atUs": 242500026,
+          "wave": 5,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 615,
+          "goldAfter": 1135
+        },
+        {
+          "atUs": 242500027,
+          "wave": 5,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 362
+          },
+          "goldBefore": 1135,
+          "goldAfter": 135,
+          "obtained": "i715"
+        },
+        {
+          "atUs": 242500028,
+          "wave": 5,
+          "action": {
+            "type": "drop-card",
+            "cardId": 362
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 135,
+          "goldAfter": 135
+        },
+        {
+          "atUs": 269500029,
+          "wave": 5,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A172"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 257,
+          "goldAfter": 257
+        },
+        {
+          "atUs": 360500030,
+          "wave": 6,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 432
+          },
+          "goldBefore": 1416,
+          "goldAfter": 416,
+          "obtained": "i604"
+        },
+        {
+          "atUs": 360500031,
+          "wave": 6,
+          "action": {
+            "type": "drop-card",
+            "cardId": 432
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 416,
+          "goldAfter": 416
+        },
+        {
+          "atUs": 362500032,
+          "wave": 6,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 432,
+          "goldAfter": 984
+        },
+        {
+          "atUs": 370500033,
+          "wave": 6,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 439
+          },
+          "goldBefore": 1030,
+          "goldAfter": 30,
+          "obtained": "i701"
+        },
+        {
+          "atUs": 370500034,
+          "wave": 6,
+          "action": {
+            "type": "drop-card",
+            "cardId": 439
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 30,
+          "goldAfter": 30
+        },
+        {
+          "atUs": 402500035,
+          "wave": 7,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A170"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 236,
+          "goldAfter": 236
+        }
+      ]
+    },
+    {
+      "seed": 1709,
+      "source": [
+        [
+          "src/game/m2/match.ts",
+          "b648d566e834b27dac0389dc0ac3c54489316318c4a912cf9baa5222363445c7"
+        ],
+        [
+          "src/game/m2/content.ts",
+          "c7e5db551a24cb21daa7ddc4972414199031edff2771f1da681bb86e3a4364cd"
+        ],
+        [
+          "src/game/m2/combat.ts",
+          "9979ca16bc8dbef9b503f0db0d910dc071f6315519af89b7971b35dfa7e3be60"
+        ],
+        [
+          "src/game/m2/weapons.json",
+          "0e89795f32569a2267c6e94cc1bc778bd21548fce71efe85635f158a1f374502"
+        ]
+      ],
+      "initialStateSha256": "500c991927ed0fb336020461a4ccc9c11807ae34afcc3d2a137def64e17bfc92",
+      "initial": {
+        "gold": 2000,
+        "lumber": 0,
+        "opening": [
+          "i576",
+          "i569",
+          "i565",
+          "i555"
+        ]
+      },
+      "opening": "i569",
+      "elapsedDraws": 3,
+      "levels": [
+        {
+          "id": "n214",
+          "atUs": 125000022,
+          "wave": 2
+        },
+        {
+          "id": "n215",
+          "atUs": 196000025,
+          "wave": 4
+        },
+        {
+          "id": "n216",
+          "atUs": 243000027,
+          "wave": 5
+        },
+        {
+          "id": "n217",
+          "atUs": 261000029,
+          "wave": 5
+        }
+      ],
+      "effects": {
+        "n214": {
+          "atUs": 126060000,
+          "skillId": "N089",
+          "ally": 8,
+          "bloodlust": {
+            "untilUs": 131060000,
+            "amount": 0.2
+          }
+        },
+        "n215": {
+          "atUs": 197560000,
+          "skillId": "N090",
+          "ally": 8,
+          "bloodlust": {
+            "untilUs": 202560000,
+            "amount": 0.3
+          }
+        },
+        "n216": {
+          "atUs": 244060000,
+          "skillId": "N091",
+          "ally": 8,
+          "bloodlust": {
+            "untilUs": 249060000,
+            "amount": 0.4
+          }
+        },
+        "n217": {
+          "atUs": 265060000,
+          "skillId": "N092",
+          "ally": 161,
+          "bloodlust": {
+            "untilUs": 270060000,
+            "amount": 0.5
+          }
+        }
+      },
+      "end": {
+        "phase": "failed",
+        "wave": 10,
+        "atUs": 527000000,
+        "gold": 5254,
+        "result": {
+          "reason": "capacity",
+          "points": 113,
+          "atUs": 527000000
+        }
+      },
+      "status": "failed",
+      "commands": [
+        {
+          "atUs": 0,
+          "wave": 0,
+          "action": {
+            "type": "choose-talent",
+            "choice": "W005"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 1,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2,
+          "wave": 0,
+          "action": {
+            "type": "choose-opening",
+            "card": "i569"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000,
+          "obtained": "i569"
+        },
+        {
+          "atUs": 3,
+          "wave": 0,
+          "action": {
+            "type": "build-card",
+            "cardId": 7,
+            "point": {
+              "x": -288,
+              "y": -1024
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500004,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 2
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500005,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 4
+          },
+          "result": {
+            "ok": true,
+            "createdId": 10
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500006,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 5
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500007,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 6
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500008,
+          "wave": 0,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 9,
+            "towerId": 8
+          },
+          "result": {
+            "ok": false,
+            "reason": "missing"
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500009,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 9
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500010,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 10
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500011,
+          "wave": 0,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2080
+        },
+        {
+          "atUs": 2500012,
+          "wave": 0,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 12
+          },
+          "goldBefore": 2080,
+          "goldAfter": 1080,
+          "obtained": "i703"
+        },
+        {
+          "atUs": 2500013,
+          "wave": 0,
+          "action": {
+            "type": "drop-card",
+            "cardId": 12
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1080,
+          "goldAfter": 1080
+        },
+        {
+          "atUs": 3500014,
+          "wave": 0,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A094"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1080,
+          "goldAfter": 1080
+        },
+        {
+          "atUs": 12500015,
+          "wave": 0,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 14
+          },
+          "goldBefore": 1192,
+          "goldAfter": 192,
+          "obtained": "i709"
+        },
+        {
+          "atUs": 12500016,
+          "wave": 0,
+          "action": {
+            "type": "drop-card",
+            "cardId": 14
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 192,
+          "goldAfter": 192
+        },
+        {
+          "atUs": 47500017,
+          "wave": 1,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A092"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 276,
+          "goldAfter": 276
+        },
+        {
+          "atUs": 73500018,
+          "wave": 1,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A093"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 567,
+          "goldAfter": 567
+        },
+        {
+          "atUs": 121500019,
+          "wave": 2,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 157
+          },
+          "goldBefore": 1006,
+          "goldAfter": 6,
+          "obtained": "i705"
+        },
+        {
+          "atUs": 122500020,
+          "wave": 2,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 6,
+          "goldAfter": 110
+        },
+        {
+          "atUs": 122500021,
+          "wave": 2,
+          "action": {
+            "type": "build-card",
+            "cardId": 157,
+            "point": {
+              "x": 288,
+              "y": -1024
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 161
+          },
+          "goldBefore": 110,
+          "goldAfter": 110
+        },
+        {
+          "atUs": 151000022,
+          "wave": 3,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A094"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 335,
+          "goldAfter": 335
+        },
+        {
+          "atUs": 195000023,
+          "wave": 4,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A092"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 727,
+          "goldAfter": 727
+        },
+        {
+          "atUs": 195000024,
+          "wave": 4,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 727,
+          "goldAfter": 7
+        },
+        {
+          "atUs": 242000025,
+          "wave": 5,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 829,
+          "goldAfter": 9
+        },
+        {
+          "atUs": 243000026,
+          "wave": 5,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 9,
+          "goldAfter": 589
+        },
+        {
+          "atUs": 253000027,
+          "wave": 5,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A093"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 715,
+          "goldAfter": 715
+        },
+        {
+          "atUs": 260000028,
+          "wave": 5,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 964,
+          "goldAfter": 24
+        },
+        {
+          "atUs": 321000029,
+          "wave": 5,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A094"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 615,
+          "goldAfter": 615
+        },
+        {
+          "atUs": 363000030,
+          "wave": 6,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1621,
+          "goldAfter": 2029
+        },
+        {
+          "atUs": 447000031,
+          "wave": 8,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A092"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2620,
+          "goldAfter": 2620
+        },
+        {
+          "atUs": 480000032,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4013,
+          "goldAfter": 4013
+        },
+        {
+          "atUs": 481000033,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4026,
+          "goldAfter": 4026
+        },
+        {
+          "atUs": 482000034,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4026,
+          "goldAfter": 4026
+        },
+        {
+          "atUs": 483000035,
+          "wave": 9,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 4026,
+          "goldAfter": 4890
+        },
+        {
+          "atUs": 483000036,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4890,
+          "goldAfter": 4890
+        },
+        {
+          "atUs": 484000037,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4890,
+          "goldAfter": 4890
+        },
+        {
+          "atUs": 485000038,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4890,
+          "goldAfter": 4890
+        },
+        {
+          "atUs": 486000039,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4920,
+          "goldAfter": 4920
+        },
+        {
+          "atUs": 487000040,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4934,
+          "goldAfter": 4934
+        },
+        {
+          "atUs": 488000041,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4934,
+          "goldAfter": 4934
+        },
+        {
+          "atUs": 489000042,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4947,
+          "goldAfter": 4947
+        },
+        {
+          "atUs": 490000043,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4963,
+          "goldAfter": 4963
+        },
+        {
+          "atUs": 491000044,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4976,
+          "goldAfter": 4976
+        },
+        {
+          "atUs": 492000045,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4976,
+          "goldAfter": 4976
+        },
+        {
+          "atUs": 493000046,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4976,
+          "goldAfter": 4976
+        },
+        {
+          "atUs": 494000047,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4976,
+          "goldAfter": 4976
+        },
+        {
+          "atUs": 495000048,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4990,
+          "goldAfter": 4990
+        },
+        {
+          "atUs": 496000049,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5021,
+          "goldAfter": 5021
+        },
+        {
+          "atUs": 497000050,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5021,
+          "goldAfter": 5021
+        },
+        {
+          "atUs": 498000051,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5021,
+          "goldAfter": 5021
+        },
+        {
+          "atUs": 499000052,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5021,
+          "goldAfter": 5021
+        },
+        {
+          "atUs": 500000053,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5034,
+          "goldAfter": 5034
+        },
+        {
+          "atUs": 501000054,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5034,
+          "goldAfter": 5034
+        },
+        {
+          "atUs": 502000055,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5050,
+          "goldAfter": 5050
+        },
+        {
+          "atUs": 503000056,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5050,
+          "goldAfter": 5050
+        },
+        {
+          "atUs": 504000057,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5063,
+          "goldAfter": 5063
+        },
+        {
+          "atUs": 505000058,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5076,
+          "goldAfter": 5076
+        },
+        {
+          "atUs": 506000059,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5091,
+          "goldAfter": 5091
+        },
+        {
+          "atUs": 507000060,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5091,
+          "goldAfter": 5091
+        },
+        {
+          "atUs": 508000061,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5106,
+          "goldAfter": 5106
+        },
+        {
+          "atUs": 509000062,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5106,
+          "goldAfter": 5106
+        },
+        {
+          "atUs": 510000063,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5121,
+          "goldAfter": 5121
+        },
+        {
+          "atUs": 511000064,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5121,
+          "goldAfter": 5121
+        },
+        {
+          "atUs": 512000065,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5121,
+          "goldAfter": 5121
+        },
+        {
+          "atUs": 513000066,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5121,
+          "goldAfter": 5121
+        },
+        {
+          "atUs": 514000067,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5135,
+          "goldAfter": 5135
+        },
+        {
+          "atUs": 515000068,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5195,
+          "goldAfter": 5195
+        },
+        {
+          "atUs": 516000069,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5210,
+          "goldAfter": 5210
+        },
+        {
+          "atUs": 517000070,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5226,
+          "goldAfter": 5226
+        },
+        {
+          "atUs": 518000071,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5226,
+          "goldAfter": 5226
+        },
+        {
+          "atUs": 519000072,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5226,
+          "goldAfter": 5226
+        },
+        {
+          "atUs": 520000073,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5226,
+          "goldAfter": 5226
+        },
+        {
+          "atUs": 521000074,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5241,
+          "goldAfter": 5241
+        },
+        {
+          "atUs": 522000075,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5241,
+          "goldAfter": 5241
+        },
+        {
+          "atUs": 523000076,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5254,
+          "goldAfter": 5254
+        },
+        {
+          "atUs": 524000077,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5254,
+          "goldAfter": 5254
+        },
+        {
+          "atUs": 525000078,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5254,
+          "goldAfter": 5254
+        },
+        {
+          "atUs": 526000079,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 161
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5254,
+          "goldAfter": 5254
+        }
+      ]
+    },
+    {
+      "seed": 20261124,
+      "source": [
+        [
+          "src/game/m2/match.ts",
+          "b648d566e834b27dac0389dc0ac3c54489316318c4a912cf9baa5222363445c7"
+        ],
+        [
+          "src/game/m2/content.ts",
+          "c7e5db551a24cb21daa7ddc4972414199031edff2771f1da681bb86e3a4364cd"
+        ],
+        [
+          "src/game/m2/combat.ts",
+          "9979ca16bc8dbef9b503f0db0d910dc071f6315519af89b7971b35dfa7e3be60"
+        ],
+        [
+          "src/game/m2/weapons.json",
+          "0e89795f32569a2267c6e94cc1bc778bd21548fce71efe85635f158a1f374502"
+        ]
+      ],
+      "initialStateSha256": "6f64dbbcc5994e03332d09dfc89d7453a27cc7632c95a14f23996afc51e38bfc",
+      "initial": {
+        "gold": 2000,
+        "lumber": 0,
+        "opening": [
+          "i576",
+          "i569",
+          "i564",
+          "i555"
+        ]
+      },
+      "opening": "i564",
+      "elapsedDraws": 5,
+      "levels": [
+        {
+          "id": "n214",
+          "atUs": 246000030,
+          "wave": 5
+        },
+        {
+          "id": "n215",
+          "atUs": 279000031,
+          "wave": 5
+        },
+        {
+          "id": "n216",
+          "atUs": 312000033,
+          "wave": 5
+        },
+        {
+          "id": "n217",
+          "atUs": 361000034,
+          "wave": 6
+        },
+        {
+          "id": "H018",
+          "atUs": 610000170,
+          "wave": 11
+        }
+      ],
+      "effects": {
+        "n214": {
+          "atUs": 247060000,
+          "skillId": "N089",
+          "ally": 283,
+          "bloodlust": {
+            "untilUs": 252060000,
+            "amount": 0.2
+          }
+        },
+        "n215": {
+          "atUs": 280060000,
+          "skillId": "N090",
+          "ally": 8,
+          "bloodlust": {
+            "untilUs": 285060000,
+            "amount": 0.3
+          }
+        },
+        "n216": {
+          "atUs": 313060000,
+          "skillId": "N091",
+          "ally": 8,
+          "bloodlust": {
+            "untilUs": 318060000,
+            "amount": 0.4
+          }
+        },
+        "n217": {
+          "atUs": 362060000,
+          "skillId": "N092",
+          "ally": 8,
+          "bloodlust": {
+            "untilUs": 367060000,
+            "amount": 0.5
+          }
+        },
+        "H018": {
+          "hit": {
+            "atUs": 614315357,
+            "x": 621.7936047768806,
+            "y": -1200,
+            "targetId": 505,
+            "casterId": 283,
+            "ownerId": 283,
+            "sourceTemplate": "H018",
+            "amount": 333.0604854382517,
+            "deadUnitId": "m009"
+          },
+          "skillId": "A058"
+        }
+      },
+      "end": {
+        "phase": "running",
+        "wave": 11,
+        "atUs": 615000171,
+        "gold": 4566
+      },
+      "status": "passed",
+      "commands": [
+        {
+          "atUs": 0,
+          "wave": 0,
+          "action": {
+            "type": "choose-talent",
+            "choice": "W005"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 1,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2,
+          "wave": 0,
+          "action": {
+            "type": "choose-opening",
+            "card": "i564"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000,
+          "obtained": "i564"
+        },
+        {
+          "atUs": 3,
+          "wave": 0,
+          "action": {
+            "type": "build-card",
+            "cardId": 7,
+            "point": {
+              "x": -288,
+              "y": -1024
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500004,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 2
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500005,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 4
+          },
+          "result": {
+            "ok": true,
+            "createdId": 10
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500006,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 5
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500007,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 6
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500008,
+          "wave": 0,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 9,
+            "towerId": 8
+          },
+          "result": {
+            "ok": false,
+            "reason": "missing"
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500009,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 9
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500010,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 10
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500011,
+          "wave": 0,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2052
+        },
+        {
+          "atUs": 2500012,
+          "wave": 0,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 12
+          },
+          "goldBefore": 2052,
+          "goldAfter": 1052,
+          "obtained": "i707"
+        },
+        {
+          "atUs": 2500013,
+          "wave": 0,
+          "action": {
+            "type": "drop-card",
+            "cardId": 12
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1052,
+          "goldAfter": 1052
+        },
+        {
+          "atUs": 3500014,
+          "wave": 0,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1052,
+          "goldAfter": 1052
+        },
+        {
+          "atUs": 12500015,
+          "wave": 0,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 14
+          },
+          "goldBefore": 1136,
+          "goldAfter": 136,
+          "obtained": "i708"
+        },
+        {
+          "atUs": 12500016,
+          "wave": 0,
+          "action": {
+            "type": "drop-card",
+            "cardId": 14
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 136,
+          "goldAfter": 136
+        },
+        {
+          "atUs": 48500017,
+          "wave": 1,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 221,
+          "goldAfter": 221
+        },
+        {
+          "atUs": 77500018,
+          "wave": 1,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A069"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 519,
+          "goldAfter": 519
+        },
+        {
+          "atUs": 120500019,
+          "wave": 2,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 132
+          },
+          "goldBefore": 1039,
+          "goldAfter": 39,
+          "obtained": "i609"
+        },
+        {
+          "atUs": 120500020,
+          "wave": 2,
+          "action": {
+            "type": "drop-card",
+            "cardId": 132
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 39,
+          "goldAfter": 39
+        },
+        {
+          "atUs": 122500021,
+          "wave": 2,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 48,
+          "goldAfter": 160
+        },
+        {
+          "atUs": 144500022,
+          "wave": 3,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 368,
+          "goldAfter": 368
+        },
+        {
+          "atUs": 180500023,
+          "wave": 3,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 732,
+          "goldAfter": 732
+        },
+        {
+          "atUs": 209500024,
+          "wave": 4,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 249
+          },
+          "goldBefore": 1003,
+          "goldAfter": 3,
+          "obtained": "i714"
+        },
+        {
+          "atUs": 209500025,
+          "wave": 4,
+          "action": {
+            "type": "drop-card",
+            "cardId": 249
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 3,
+          "goldAfter": 3
+        },
+        {
+          "atUs": 227500026,
+          "wave": 4,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A069"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 225,
+          "goldAfter": 225
+        },
+        {
+          "atUs": 242500027,
+          "wave": 5,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 930,
+          "goldAfter": 1250
+        },
+        {
+          "atUs": 242500028,
+          "wave": 5,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 282
+          },
+          "goldBefore": 1250,
+          "goldAfter": 250,
+          "obtained": "i705"
+        },
+        {
+          "atUs": 243500029,
+          "wave": 5,
+          "action": {
+            "type": "build-card",
+            "cardId": 282,
+            "point": {
+              "x": 288,
+              "y": -1024
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 283
+          },
+          "goldBefore": 250,
+          "goldAfter": 292
+        },
+        {
+          "atUs": 278000030,
+          "wave": 5,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 722,
+          "goldAfter": 2
+        },
+        {
+          "atUs": 286000031,
+          "wave": 5,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 102,
+          "goldAfter": 102
+        },
+        {
+          "atUs": 311000032,
+          "wave": 5,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1045,
+          "goldAfter": 225
+        },
+        {
+          "atUs": 360000033,
+          "wave": 6,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1381,
+          "goldAfter": 441
+        },
+        {
+          "atUs": 363000034,
+          "wave": 6,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 485,
+          "goldAfter": 821
+        },
+        {
+          "atUs": 412000035,
+          "wave": 7,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1317,
+          "goldAfter": 1317
+        },
+        {
+          "atUs": 480000036,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3104,
+          "goldAfter": 3104
+        },
+        {
+          "atUs": 481000037,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3117,
+          "goldAfter": 3117
+        },
+        {
+          "atUs": 482000038,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3147,
+          "goldAfter": 3147
+        },
+        {
+          "atUs": 483000039,
+          "wave": 9,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 3160,
+          "goldAfter": 3592
+        },
+        {
+          "atUs": 483000040,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3592,
+          "goldAfter": 3592
+        },
+        {
+          "atUs": 484000041,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3607,
+          "goldAfter": 3607
+        },
+        {
+          "atUs": 485000042,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3622,
+          "goldAfter": 3622
+        },
+        {
+          "atUs": 486000043,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3622,
+          "goldAfter": 3622
+        },
+        {
+          "atUs": 487000044,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3638,
+          "goldAfter": 3638
+        },
+        {
+          "atUs": 488000045,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3651,
+          "goldAfter": 3651
+        },
+        {
+          "atUs": 489000046,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3667,
+          "goldAfter": 3667
+        },
+        {
+          "atUs": 490000047,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3696,
+          "goldAfter": 3696
+        },
+        {
+          "atUs": 491000048,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3696,
+          "goldAfter": 3696
+        },
+        {
+          "atUs": 492000049,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3710,
+          "goldAfter": 3710
+        },
+        {
+          "atUs": 493000050,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3739,
+          "goldAfter": 3739
+        },
+        {
+          "atUs": 494000051,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3739,
+          "goldAfter": 3739
+        },
+        {
+          "atUs": 495000052,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3739,
+          "goldAfter": 3739
+        },
+        {
+          "atUs": 496000053,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3753,
+          "goldAfter": 3753
+        },
+        {
+          "atUs": 497000054,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3766,
+          "goldAfter": 3766
+        },
+        {
+          "atUs": 498000055,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3780,
+          "goldAfter": 3780
+        },
+        {
+          "atUs": 499000056,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3794,
+          "goldAfter": 3794
+        },
+        {
+          "atUs": 500000057,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3810,
+          "goldAfter": 3810
+        },
+        {
+          "atUs": 501000058,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3825,
+          "goldAfter": 3825
+        },
+        {
+          "atUs": 502000059,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3825,
+          "goldAfter": 3825
+        },
+        {
+          "atUs": 503000060,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3839,
+          "goldAfter": 3839
+        },
+        {
+          "atUs": 504000061,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3853,
+          "goldAfter": 3853
+        },
+        {
+          "atUs": 505000062,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3867,
+          "goldAfter": 3867
+        },
+        {
+          "atUs": 506000063,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3867,
+          "goldAfter": 3867
+        },
+        {
+          "atUs": 507000064,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3881,
+          "goldAfter": 3881
+        },
+        {
+          "atUs": 508000065,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3909,
+          "goldAfter": 3909
+        },
+        {
+          "atUs": 509000066,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3922,
+          "goldAfter": 3922
+        },
+        {
+          "atUs": 510000067,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3922,
+          "goldAfter": 3922
+        },
+        {
+          "atUs": 511000068,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3922,
+          "goldAfter": 3922
+        },
+        {
+          "atUs": 512000069,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3936,
+          "goldAfter": 3936
+        },
+        {
+          "atUs": 513000070,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3950,
+          "goldAfter": 3950
+        },
+        {
+          "atUs": 514000071,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3966,
+          "goldAfter": 3966
+        },
+        {
+          "atUs": 515000072,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3966,
+          "goldAfter": 3966
+        },
+        {
+          "atUs": 516000073,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3980,
+          "goldAfter": 3980
+        },
+        {
+          "atUs": 517000074,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3980,
+          "goldAfter": 3980
+        },
+        {
+          "atUs": 518000075,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3996,
+          "goldAfter": 3996
+        },
+        {
+          "atUs": 519000076,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 3996,
+          "goldAfter": 3996
+        },
+        {
+          "atUs": 520000077,
+          "wave": 9,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A069"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 4012,
+          "goldAfter": 4012
+        },
+        {
+          "atUs": 520000078,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4012,
+          "goldAfter": 4012
+        },
+        {
+          "atUs": 521000079,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4028,
+          "goldAfter": 4028
+        },
+        {
+          "atUs": 522000080,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4041,
+          "goldAfter": 4041
+        },
+        {
+          "atUs": 523000081,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4068,
+          "goldAfter": 4068
+        },
+        {
+          "atUs": 524000082,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4068,
+          "goldAfter": 4068
+        },
+        {
+          "atUs": 525000083,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4121,
+          "goldAfter": 4121
+        },
+        {
+          "atUs": 526000084,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4137,
+          "goldAfter": 4137
+        },
+        {
+          "atUs": 527000085,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4191,
+          "goldAfter": 4191
+        },
+        {
+          "atUs": 528000086,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4191,
+          "goldAfter": 4191
+        },
+        {
+          "atUs": 529000087,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4191,
+          "goldAfter": 4191
+        },
+        {
+          "atUs": 530000088,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4229,
+          "goldAfter": 4229
+        },
+        {
+          "atUs": 531000089,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4229,
+          "goldAfter": 4229
+        },
+        {
+          "atUs": 532000090,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4275,
+          "goldAfter": 4275
+        },
+        {
+          "atUs": 533000091,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4294,
+          "goldAfter": 4294
+        },
+        {
+          "atUs": 534000092,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4313,
+          "goldAfter": 4313
+        },
+        {
+          "atUs": 535000093,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4366,
+          "goldAfter": 4366
+        },
+        {
+          "atUs": 536000094,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4366,
+          "goldAfter": 4366
+        },
+        {
+          "atUs": 537000095,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4393,
+          "goldAfter": 4393
+        },
+        {
+          "atUs": 538000096,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4445,
+          "goldAfter": 4445
+        },
+        {
+          "atUs": 539000097,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4471,
+          "goldAfter": 4471
+        },
+        {
+          "atUs": 540000098,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4471,
+          "goldAfter": 4471
+        },
+        {
+          "atUs": 541000099,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4471,
+          "goldAfter": 4471
+        },
+        {
+          "atUs": 542000100,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4497,
+          "goldAfter": 4497
+        },
+        {
+          "atUs": 543000101,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4540,
+          "goldAfter": 4540
+        },
+        {
+          "atUs": 544000102,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4557,
+          "goldAfter": 4557
+        },
+        {
+          "atUs": 545000103,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4557,
+          "goldAfter": 4557
+        },
+        {
+          "atUs": 546000104,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4638,
+          "goldAfter": 4638
+        },
+        {
+          "atUs": 547000105,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4638,
+          "goldAfter": 4638
+        },
+        {
+          "atUs": 548000106,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4664,
+          "goldAfter": 4664
+        },
+        {
+          "atUs": 549000107,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4664,
+          "goldAfter": 4664
+        },
+        {
+          "atUs": 550000108,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4664,
+          "goldAfter": 4664
+        },
+        {
+          "atUs": 551000109,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4716,
+          "goldAfter": 4716
+        },
+        {
+          "atUs": 552000110,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4741,
+          "goldAfter": 4741
+        },
+        {
+          "atUs": 553000111,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4741,
+          "goldAfter": 4741
+        },
+        {
+          "atUs": 554000112,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4741,
+          "goldAfter": 4741
+        },
+        {
+          "atUs": 555000113,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4741,
+          "goldAfter": 4741
+        },
+        {
+          "atUs": 556000114,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4741,
+          "goldAfter": 4741
+        },
+        {
+          "atUs": 557000115,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4741,
+          "goldAfter": 4741
+        },
+        {
+          "atUs": 558000116,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4760,
+          "goldAfter": 4760
+        },
+        {
+          "atUs": 559000117,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4760,
+          "goldAfter": 4760
+        },
+        {
+          "atUs": 560000118,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4803,
+          "goldAfter": 4803
+        },
+        {
+          "atUs": 561000119,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4829,
+          "goldAfter": 4829
+        },
+        {
+          "atUs": 562000120,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4829,
+          "goldAfter": 4829
+        },
+        {
+          "atUs": 563000121,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4875,
+          "goldAfter": 4875
+        },
+        {
+          "atUs": 564000122,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4928,
+          "goldAfter": 4928
+        },
+        {
+          "atUs": 565000123,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4928,
+          "goldAfter": 4928
+        },
+        {
+          "atUs": 566000124,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4956,
+          "goldAfter": 4956
+        },
+        {
+          "atUs": 567000125,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4956,
+          "goldAfter": 4956
+        },
+        {
+          "atUs": 568000126,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4984,
+          "goldAfter": 4984
+        },
+        {
+          "atUs": 569000127,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 4984,
+          "goldAfter": 4984
+        },
+        {
+          "atUs": 570000128,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5010,
+          "goldAfter": 5010
+        },
+        {
+          "atUs": 571000129,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5010,
+          "goldAfter": 5010
+        },
+        {
+          "atUs": 572000130,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5037,
+          "goldAfter": 5037
+        },
+        {
+          "atUs": 573000131,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5065,
+          "goldAfter": 5065
+        },
+        {
+          "atUs": 574000132,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5065,
+          "goldAfter": 5065
+        },
+        {
+          "atUs": 575000133,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5065,
+          "goldAfter": 5065
+        },
+        {
+          "atUs": 576000134,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5111,
+          "goldAfter": 5111
+        },
+        {
+          "atUs": 577000135,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5136,
+          "goldAfter": 5136
+        },
+        {
+          "atUs": 578000136,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5161,
+          "goldAfter": 5161
+        },
+        {
+          "atUs": 579000137,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5161,
+          "goldAfter": 5161
+        },
+        {
+          "atUs": 580000138,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5189,
+          "goldAfter": 5189
+        },
+        {
+          "atUs": 581000139,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5240,
+          "goldAfter": 5240
+        },
+        {
+          "atUs": 582000140,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5265,
+          "goldAfter": 5265
+        },
+        {
+          "atUs": 583000141,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5265,
+          "goldAfter": 5265
+        },
+        {
+          "atUs": 584000142,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5293,
+          "goldAfter": 5293
+        },
+        {
+          "atUs": 585000143,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5318,
+          "goldAfter": 5318
+        },
+        {
+          "atUs": 586000144,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5318,
+          "goldAfter": 5318
+        },
+        {
+          "atUs": 587000145,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5318,
+          "goldAfter": 5318
+        },
+        {
+          "atUs": 588000146,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5318,
+          "goldAfter": 5318
+        },
+        {
+          "atUs": 589000147,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5318,
+          "goldAfter": 5318
+        },
+        {
+          "atUs": 590000148,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5461,
+          "goldAfter": 5461
+        },
+        {
+          "atUs": 591000149,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5486,
+          "goldAfter": 5486
+        },
+        {
+          "atUs": 592000150,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5514,
+          "goldAfter": 5514
+        },
+        {
+          "atUs": 593000151,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5540,
+          "goldAfter": 5540
+        },
+        {
+          "atUs": 594000152,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5540,
+          "goldAfter": 5540
+        },
+        {
+          "atUs": 595000153,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5540,
+          "goldAfter": 5540
+        },
+        {
+          "atUs": 596000154,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5566,
+          "goldAfter": 5566
+        },
+        {
+          "atUs": 597000155,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5566,
+          "goldAfter": 5566
+        },
+        {
+          "atUs": 598000156,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5566,
+          "goldAfter": 5566
+        },
+        {
+          "atUs": 599000157,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5566,
+          "goldAfter": 5566
+        },
+        {
+          "atUs": 600000158,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6593,
+          "goldAfter": 6593
+        },
+        {
+          "atUs": 601000159,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6593,
+          "goldAfter": 6593
+        },
+        {
+          "atUs": 602000160,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6593,
+          "goldAfter": 6593
+        },
+        {
+          "atUs": 603000161,
+          "wave": 10,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 6620,
+          "goldAfter": 7380
+        },
+        {
+          "atUs": 603000162,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 7380,
+          "goldAfter": 7380
+        },
+        {
+          "atUs": 604000163,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 7408,
+          "goldAfter": 7408
+        },
+        {
+          "atUs": 605000164,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 7434,
+          "goldAfter": 7434
+        },
+        {
+          "atUs": 606000165,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 7434,
+          "goldAfter": 7434
+        },
+        {
+          "atUs": 607000166,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 7434,
+          "goldAfter": 7434
+        },
+        {
+          "atUs": 608000167,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 7434,
+          "goldAfter": 7434
+        },
+        {
+          "atUs": 609000168,
+          "wave": 11,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 283
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 7462,
+          "goldAfter": 4462
+        },
+        {
+          "atUs": 610000169,
+          "wave": 11,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 283,
+            "skillId": "A058"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 4462,
+          "goldAfter": 4462
+        },
+        {
+          "atUs": 614000170,
+          "wave": 11,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 283,
+            "skillId": "A059"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 4539,
+          "goldAfter": 4539
+        }
+      ]
+    }
+  ]
+}

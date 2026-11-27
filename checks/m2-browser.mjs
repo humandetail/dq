@@ -21,7 +21,10 @@ const perfDurationMs = Number(process.env.M3_PERF_DURATION_MS ?? 20_000);
 const perfAutosave = process.env.M3_PERF_AUTOSAVE !== "0";
 assert.ok(Number.isSafeInteger(perfDurationMs) && perfDurationMs > 1000 && perfDurationMs <= 600_000);
 if (origin && peakFixture && !m3) throw new Error("Published fixture loading uses the M3 checkpoint format");
-const server = origin ? undefined : await createServer({ server: { host: "127.0.0.1", port: 0, watch: null } });
+const server = origin ? undefined : await createServer({
+  server: { host: "127.0.0.1", port: 0, watch: null },
+  resolve: { conditions: ["td3-legacy-battlefield", "module", "browser", "development|production"] },
+});
 await server?.listen();
 const base = (origin ?? server.resolvedUrls.local[0]).replace(/\/$/, "");
 const chrome = spawn(process.env.CHROME_BIN ?? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", [
@@ -808,6 +811,10 @@ try {
     const page = await openTab(url);
     await page.send("Page.bringToFront");
     await page.wait(read("#field") + "?.dataset.ready === 'true' && " + read("#pause") + "?.disabled === false");
+    assert.deepEqual(await page.evaluate(`(() => {
+      const { terrainGrid, terrainDoodads, assetError } = document.querySelector("#field").dataset;
+      return [terrainGrid, terrainDoodads, assetError ?? null];
+    })()`), ["96x96", "69+90", null]);
     await click(page, "#pause");
     await page.wait(contains("#pause", "继续"));
     await capture(page, "terrain-oblique");
@@ -816,8 +823,73 @@ try {
     await capture(page, "terrain-top");
     await clickVisible(page, "#view-oblique");
     await page.wait(read("#field") + ".dataset.cameraPitch === '45'");
+    await openManagement(page);
+    await click(page, "#builds button");
+    await hover(page, 0, 0);
+    await page.wait(read("#field") + ".dataset.placement === 'invalid'");
+    await hover(page, -1792, 832);
+    await page.wait(read("#field") + ".dataset.placement === 'invalid'");
+    await hover(page, -2240, 832);
+    await page.wait(read("#field") + ".dataset.placement === 'valid'");
+    await capture(page, "terrain-build-preview");
+    await place(page, -2240, 832);
+    await click(page, "#pause");
+    await page.wait(read("#field") + "?.dataset.renderedTowers.includes('n001')");
+    await page.wait(read("#field") + "?.dataset.renderedEnemies.includes('m001')", 1800);
+    await capture(page, "terrain-first-wave");
+    assert.equal(await page.evaluate(`(() => {
+      const gl = document.querySelector("#field").getContext("webgl2");
+      return gl.getParameter(gl.VERTEX_ARRAY_BINDING) === null;
+    })()`), true);
+    await click(page, "#pause");
+    await page.wait(contains("#pause", "继续"));
+    for (const [width, height] of [[390, 844], [844, 390]]) {
+      await page.send("Emulation.setDeviceMetricsOverride", { width, height, deviceScaleFactor: 1, mobile: true });
+      await page.send("Emulation.setTouchEmulationEnabled", { enabled: true, maxTouchPoints: 5 });
+      await page.wait(`innerWidth === ${width} && document.documentElement.scrollWidth <= innerWidth`);
+      const centre = await page.evaluate(`(() => {
+        const box = document.querySelector("#field").getBoundingClientRect();
+        return {x: box.left + box.width / 2, y: box.top + box.height / 2};
+      })()`);
+      const zoom = await page.evaluate(read("#field") + ".dataset.cameraZoom");
+      const points = (dx, dy) => [{ id: 1, x: centre.x - dx, y: centre.y - dy }, { id: 2, x: centre.x + dx, y: centre.y + dy }];
+      await page.send("Input.dispatchTouchEvent", { type: "touchStart", touchPoints: points(20, 0) });
+      await page.send("Input.dispatchTouchEvent", { type: "touchMove", touchPoints: points(34, 7) });
+      await page.send("Input.dispatchTouchEvent", { type: "touchEnd", touchPoints: [] });
+      await page.wait(`Number(document.querySelector("#field").dataset.cameraZoom) > ${Number(zoom)}`);
+      await click(page, "#reset-view");
+      await capture(page, `terrain-mobile-${width}`);
+    }
+    const image = await page.evaluate('document.querySelector(".original-map-images img")?.src');
     await page.close();
+    assert.ok(image, "Production preview exposes a same-origin map image");
+    const helper = await openTab(image);
+    await helper.wait("location.pathname.endsWith('.png') && document.readyState === 'complete'");
+    const persisted = (usePreviousMap = false) => `new Promise((resolve, reject) => {
+      const request = indexedDB.open("td3-m3");
+      request.onerror = () => reject(request.error);
+      request.onsuccess = () => {
+        const db = request.result, tx = db.transaction("profiles", ${JSON.stringify(usePreviousMap ? "readwrite" : "readonly")});
+        const store = tx.objectStore("profiles"), get = store.get("current");
+        get.onsuccess = () => {
+          if (${usePreviousMap}) {
+            get.result.run.mapVersion = "m2-map-5";
+            store.put(get.result, "current");
+          }
+        };
+        tx.oncomplete = () => { db.close(); resolve([get.result.run.mapVersion, get.result.activeMatchId, get.result.revision]); };
+        tx.onabort = () => reject(tx.error);
+      };
+    })`;
+    const oldSave = await helper.evaluate(persisted(true));
+    await helper.close();
+    const legacy = await openTab(url);
+    await legacy.wait(contains("#placement-status", "旧地图存档已保留"));
+    assert.equal(await legacy.evaluate(read("#pause") + ".disabled"), true);
+    assert.deepEqual(await legacy.evaluate(persisted()), oldSave);
+    await legacy.close();
     assert.deepEqual(runtimeErrors, []);
+    console.log("M3 terrain: production assets, two camera views, placement, first wave, mobile gestures and prior map save retention passed");
   } else if (process.env.M3_COLD_ONLY === "1") {
     assert.ok(m3 && origin, "Cold start requires a production build");
     const runs = [];

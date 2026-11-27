@@ -1,0 +1,257 @@
+{
+  "seed": 73018,
+  "card": "i561",
+  "template": "H016",
+  "candidates": [
+    "i561",
+    "i554",
+    "i570",
+    "i562"
+  ],
+  "initialStateSha256": "40b3a30c0d6b53b066da830ae6638f79fe24b6162aeedd7b72fcd58aab1a1ba9",
+  "sourceInputSha256": "58605591f62cd128a793f3e22eddd2ac9579c8ea2921b33cdb38cfece9692825",
+  "openingInstance": 7,
+  "heroId": 8,
+  "heroStartUs": 5500009,
+  "learned": {
+    "A052": {
+      "level": 1,
+      "rank": 1,
+      "atUs": 5500010
+    },
+    "A053": {
+      "level": 2,
+      "rank": 1,
+      "atUs": 45500011
+    },
+    "A054": {
+      "level": 3,
+      "rank": 1,
+      "atUs": 67500012
+    }
+  },
+  "observations": {
+    "A052": {
+      "wave": 1,
+      "atUs": 39083647,
+      "bounce": {
+        "remaining": 2,
+        "visited": [
+          14,
+          15
+        ]
+      },
+      "hits": [
+        {
+          "atUs": 39083647,
+          "x": 68.19200000000001,
+          "y": -1232,
+          "targetId": 15,
+          "casterId": 8,
+          "ownerId": 8,
+          "sourceTemplate": "H016",
+          "amount": 12,
+          "deadUnitId": "m001"
+        }
+      ]
+    },
+    "A053": {
+      "wave": 1,
+      "atUs": 48185276,
+      "rank": 1,
+      "expectedBonus": 100,
+      "alliedTowerId": 10,
+      "rawBeforeImpact": 125,
+      "hit": {
+        "atUs": 48185276,
+        "x": 68.51780000000001,
+        "y": -1232,
+        "targetId": 28,
+        "casterId": 10,
+        "ownerId": 10,
+        "sourceTemplate": "n001",
+        "amount": 12,
+        "deadUnitId": "m001"
+      }
+    },
+    "A054": {
+      "wave": 1,
+      "atUs": 68712500,
+      "hits": [
+        {
+          "atUs": 68712500,
+          "x": -13.439680055715723,
+          "y": -1239.6809598328525,
+          "targetId": 59,
+          "casterId": 8,
+          "ownerId": 8,
+          "sourceTemplate": "H016",
+          "amount": 60,
+          "deadUnitId": "m001"
+        }
+      ]
+    }
+  },
+  "commands": [
+    {
+      "atUs": 0,
+      "wave": 0,
+      "action": {
+        "type": "choose-talent",
+        "choice": "W005"
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 1,
+      "wave": 0,
+      "action": {
+        "type": "use-item",
+        "itemId": 1
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 2,
+      "wave": 0,
+      "action": {
+        "type": "choose-opening",
+        "card": "i561"
+      },
+      "result": {
+        "ok": true,
+        "createdId": 7
+      }
+    },
+    {
+      "atUs": 3,
+      "wave": 0,
+      "action": {
+        "type": "build-card",
+        "cardId": 7,
+        "point": {
+          "x": -288,
+          "y": -1024
+        }
+      },
+      "result": {
+        "ok": true,
+        "createdId": 8
+      }
+    },
+    {
+      "atUs": 2500004,
+      "wave": 0,
+      "action": {
+        "type": "build-worker-tower",
+        "tower": "n021",
+        "point": {
+          "x": 288,
+          "y": -1024
+        }
+      },
+      "result": {
+        "ok": true,
+        "createdId": 9
+      }
+    },
+    {
+      "atUs": 4000005,
+      "wave": 0,
+      "action": {
+        "type": "build-worker-tower",
+        "tower": "n001",
+        "point": {
+          "x": -288,
+          "y": -640
+        }
+      },
+      "result": {
+        "ok": true,
+        "createdId": 10
+      }
+    },
+    {
+      "atUs": 5500006,
+      "wave": 0,
+      "action": {
+        "type": "use-item",
+        "itemId": 2
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 5500007,
+      "wave": 0,
+      "action": {
+        "type": "use-item",
+        "itemId": 4
+      },
+      "result": {
+        "ok": true,
+        "createdId": 12
+      }
+    },
+    {
+      "atUs": 5500008,
+      "wave": 0,
+      "action": {
+        "type": "transfer-item",
+        "itemId": 11,
+        "towerId": 8
+      },
+      "result": {
+        "ok": false,
+        "reason": "equipment"
+      }
+    },
+    {
+      "atUs": 5500009,
+      "wave": 0,
+      "action": {
+        "type": "learn-skill",
+        "towerId": 8,
+        "skillId": "A052"
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 45500010,
+      "wave": 1,
+      "action": {
+        "type": "learn-skill",
+        "towerId": 8,
+        "skillId": "A053"
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 67500011,
+      "wave": 1,
+      "action": {
+        "type": "learn-skill",
+        "towerId": 8,
+        "skillId": "A054"
+      },
+      "result": {
+        "ok": true
+      }
+    }
+  ],
+  "seasonSummer1": 0,
+  "end": {
+    "wave": 1,
+    "phase": "running"
+  },
+  "status": "base-observations-complete"
+}

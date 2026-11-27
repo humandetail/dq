@@ -1,4 +1,4 @@
-import { gridSize, map, segmentEntry, type MovementLayer, type Point, type Rect } from "./map.ts";
+import { gridSize, map, pathing, segmentEntry, type MovementLayer, type Point, type Rect } from "./map.ts";
 
 const directions = [[1, 0], [0, 1], [-1, 0], [0, -1], [1, 1], [-1, 1], [-1, -1], [1, -1]];
 const columns = (map.bounds.maxX - map.bounds.minX) / gridSize;
@@ -35,14 +35,17 @@ export function staticSweep(start: Point, end: Point, radius: number, layer: Mov
   const minY = Math.min(start.y, end.y) - radius, maxY = Math.max(start.y, end.y) + radius;
   const bounds = map.bounds;
   if (!(minX >= bounds.minX && minY >= bounds.minY && maxX < bounds.maxX && maxY < bounds.maxY)) return false;
-  if (layer === "fly") return true;
+  if (layer === "fly" && !pathing) return true;
 
   const radiusSquared = radius ** 2;
   function clears(rect: Rect) {
+    if (pathing && radius === 0 && start.x === end.x && start.y === end.y) {
+      return start.x < rect.minX || start.x >= rect.maxX || start.y < rect.minY || start.y >= rect.maxY;
+    }
     return maxX <= rect.minX || minX >= rect.maxX || maxY <= rect.minY || minY >= rect.maxY ||
-      rectDistanceSquared(start, end, rect) >= radiusSquared;
+      (pathing && radius === 0 ? rectDistanceSquared(start, end, rect) > 0 : rectDistanceSquared(start, end, rect) >= radiusSquared);
   }
-  return map.obstacles.every(clears) && blocked.every(clears);
+  return (pathing?.[layer] ?? map.obstacles).every(clears) && (layer === "fly" || blocked.every(clears));
 }
 
 type Sweep = (from: Point, to: Point) => boolean;
@@ -96,6 +99,7 @@ export function findPath(start: Point, goal: Point, sweep: Sweep) {
 }
 
 export function* findPathSteps(start: Point, goal: Point, sweep: Sweep): Generator<void, { points: Point[]; cost: number } | undefined> {
+  if (pathing && sweep(start, goal)) return { points: [goal], cost: distance(start, goal) * gridCost };
   const starts = connectors(start, point => sweep(start, point));
   const ends = connectors(goal, point => sweep(point, goal));
   if (!starts.length || !ends.length) return;

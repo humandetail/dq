@@ -1,0 +1,99 @@
+{
+  "contentVersion": "m3-dev-1",
+  "configurationVersion": "m3-config-1",
+  "configSha256": "294e04e5eae840e755e4d2f7fb70de6fb7e65a640863a743c53843803dc8ca96",
+  "kind": "normal-engine-source",
+  "runtimeConfig": "docs/m2-configuration.json",
+  "targetConfigSha256": "aafd409af2051dd97a8add1f62f93455253f2b5368f1b09fe835e39157e7aed9",
+  "strategyVersion": "m3-normal-2",
+  "mapVersion": "m2-map-5",
+  "runs": [
+    {
+      "seed": 73003,
+      "result": {
+        "reason": "boss-killed",
+        "atUs": 3177250298
+      },
+      "kills": 2272,
+      "status": "replay-matched",
+      "terminal": {
+        "path": "/Volumes/personal/www/td3/docs/evidence/m3-foundation/endgame-full/a11/r4-terminal/terminal-73003.json",
+        "sha256": "1d04e0c7743ecc5053c9071ed078c302c6a9e0a59c3e8f05efa298044caab740"
+      },
+      "settlementEvidence": {
+        "scenario": "charm",
+        "claim": {
+          "instanceId": 2375,
+          "wave": 45,
+          "input": {
+            "atUs": 2531250246,
+            "action": {
+              "type": "claim-wave",
+              "slot": 4
+            },
+            "outcome": {
+              "ok": true,
+              "createdId": 2375
+            }
+          }
+        },
+        "charm": {
+          "itemId": 2375,
+          "before": {
+            "kills": 2272,
+            "gold": 2586,
+            "score": 0
+          },
+          "input": {
+            "atUs": 3177250297,
+            "action": {
+              "type": "use-item",
+              "itemId": 2375
+            },
+            "outcome": {
+              "ok": true
+            }
+          },
+          "after": {
+            "kills": 2272,
+            "gold": 2586,
+            "score": 56,
+            "phase": "won",
+            "remaining": 0,
+            "creditedFinisher": null
+          }
+        },
+        "charmRemaining": false,
+        "phase": "won",
+        "killScore": 56,
+        "bossAtEnd": false
+      },
+      "seasonProgress": {
+        "spring": {
+          "counts": {
+            "4": 1,
+            "7": 666,
+            "8": 1
+          },
+          "points": 40,
+          "nodes": [
+            1,
+            4
+          ],
+          "unlocks": []
+        },
+        "summer": {
+          "counts": {
+            "3": 2,
+            "7": 666
+          },
+          "points": 30,
+          "nodes": [
+            1
+          ],
+          "unlocks": []
+        }
+      }
+    }
+  ]
+}

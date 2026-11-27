@@ -1,0 +1,68 @@
+Sample 1: preparing PF03-queuedEvents on the same origin
+Sample 1: loading the compiled application
+Sample 1: ANGLE (Intel, ANGLE Metal Renderer: Intel(R) Iris(TM) Plus Graphics, Unspecified Version); recording 20000 ms at 4×
+{
+  "fixtureId": "PF03-queuedEvents",
+  "fixtureSha256": "a11aac66818851393e74ebf75785927412aa3074b0c0ebe0d3bf72191d500542",
+  "contentVersion": "m3-dev-1",
+  "url": "http://127.0.0.1:4206/m2.html?seed=14",
+  "hardwareRequested": true,
+  "status": "diagnostic-cpu-profile",
+  "freezeSeconds": 0,
+  "perfDurationMs": 20000,
+  "autosave": true,
+  "inputPlan": {
+    "source": "f687c232f09f32e2c72eac5a9ddb0f61ad1310bc0e09a8d006459625ac65abc6",
+    "commands": 303,
+    "uiProbe": "alternate camera clicks from 1s every 10s"
+  },
+  "samples": [
+    {
+      "wallMs": 20007.70000000596,
+      "endReason": "deadline",
+      "stalledOrHidden": false,
+      "outcome": "47:44 · 第 50/55 波 · 容怪 81/100 · 击杀 2109",
+      "save": "已保存 · 修订 6",
+      "replayed": 1,
+      "environment": {
+        "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/158.0.0.0 Safari/537.36",
+        "renderer": "ANGLE (Intel, ANGLE Metal Renderer: Intel(R) Iris(TM) Plus Graphics, Unspecified Version)",
+        "size": [
+          1440,
+          900
+        ],
+        "dpr": 1,
+        "hidden": false
+      },
+      "replayFailures": [],
+      "progression": {
+        "firstAtUs": 2807500257,
+        "lastAtUs": 2863958226,
+        "firstBacklogUs": 0,
+        "lastBacklogUs": 23499630,
+        "maxBacklogUs": 23499630
+      },
+      "dispatchedInputs": 2,
+      "commandsCanceledByTerminal": [],
+      "commandsRejectedAtTerminal": [],
+      "inputsUnconfirmed": 0,
+      "inputsNotObservedByDeadline": 0,
+      "medianFps": 40.322580637892905,
+      "frameP95Ms": 33.899999998509884,
+      "frameP99Ms": 44.100000001490116,
+      "inputP95Ms": 42.79999999701977,
+      "inputP99Ms": 42.79999999701977,
+      "drainP95Ms": 11.600000001490116,
+      "renderP95Ms": 21.399999998509884,
+      "controlP95Ms": 0,
+      "commandUiP95Ms": 2.2000000029802322,
+      "copyP95Ms": 4.699999995529652,
+      "putCallP95Ms": 2.6999999955296516,
+      "commitP95Ms": 80.19999999552965,
+      "renderedFrames": 790,
+      "saves": 5,
+      "intervals": 789,
+      "animationIntervals": 788
+    }
+  ]
+}

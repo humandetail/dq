@@ -1,0 +1,2531 @@
+{
+  "contentVersion": "m3-dev-1",
+  "configurationVersion": "m3-config-1",
+  "configSha256": "294e04e5eae840e755e4d2f7fb70de6fb7e65a640863a743c53843803dc8ca96",
+  "kind": "normal-engine-source",
+  "runtimeConfig": "docs/m2-configuration.json",
+  "targetConfigSha256": "aafd409af2051dd97a8add1f62f93455253f2b5368f1b09fe835e39157e7aed9",
+  "strategyVersion": "m3-normal-2",
+  "mapVersion": "m2-map-5",
+  "runs": [
+    {
+      "seed": 73033,
+      "opening": "i583",
+      "candidates": [
+        "i583",
+        "i579",
+        "i570",
+        "i563"
+      ],
+      "preferences": [
+        "i581",
+        "i564",
+        "i569",
+        "i576"
+      ],
+      "openingFallback": "first-saved-candidate",
+      "strategy": "default",
+      "layout": "center",
+      "qualificationEvidence": {
+        "actualAssignment": true,
+        "requested": "P001",
+        "assigned": "P001",
+        "maxProvider": {
+          "id": 1618,
+          "templateId": "n189",
+          "atUs": 1803000127,
+          "wave": 32
+        },
+        "providerBuild": {
+          "atUs": 1742000122,
+          "action": {
+            "type": "build-card",
+            "cardId": 1615,
+            "point": {
+              "x": -672,
+              "y": -256
+            }
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 1618
+          },
+          "wave": 30,
+          "acquisition": {
+            "card": "c007",
+            "root": "n186"
+          }
+        },
+        "designatedExchange": {
+          "atUs": 1738000121,
+          "action": {
+            "type": "exchange",
+            "qualification": "P001"
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 1615
+          },
+          "wave": 30,
+          "acquisition": {
+            "materials": [
+              {
+                "id": 469,
+                "card": "i607",
+                "slot": 1
+              },
+              {
+                "id": 1456,
+                "card": "i605",
+                "slot": 2
+              },
+              {
+                "id": 1507,
+                "card": "i603",
+                "slot": 3
+              },
+              {
+                "id": 1597,
+                "card": "i608",
+                "slot": 4
+              },
+              {
+                "id": 1612,
+                "card": "i605",
+                "slot": 5
+              }
+            ],
+            "obtainedCard": "c007",
+            "receivedId": 1615
+          }
+        },
+        "upgrades": [
+          {
+            "atUs": 1750000123,
+            "action": {
+              "type": "upgrade-tower",
+              "towerId": 1618
+            },
+            "outcome": {
+              "ok": true
+            },
+            "wave": 30,
+            "acquisition": {
+              "from": "n186",
+              "to": "n187",
+              "gold": 1500,
+              "wood": 0,
+              "seconds": 1,
+              "populationDelta": 0
+            }
+          },
+          {
+            "atUs": 1782000124,
+            "action": {
+              "type": "upgrade-tower",
+              "towerId": 1618
+            },
+            "outcome": {
+              "ok": true
+            },
+            "wave": 31,
+            "acquisition": {
+              "from": "n187",
+              "to": "n188",
+              "gold": 1500,
+              "wood": 0,
+              "seconds": 1,
+              "populationDelta": 0
+            }
+          },
+          {
+            "atUs": 1802000126,
+            "action": {
+              "type": "upgrade-tower",
+              "towerId": 1618
+            },
+            "outcome": {
+              "ok": true
+            },
+            "wave": 31,
+            "acquisition": {
+              "from": "n188",
+              "to": "n189",
+              "gold": 1500,
+              "wood": 0,
+              "seconds": 1,
+              "populationDelta": 0
+            }
+          }
+        ],
+        "directUpgradeCost": {
+          "gold": 4500,
+          "wood": 0
+        },
+        "completed": true
+      },
+      "wave": 32,
+      "kills": 1432,
+      "capital": {
+        "gold": 4003,
+        "lumber": 1670
+      },
+      "roster": [
+        {
+          "templateId": "H046",
+          "x": -288,
+          "y": -160,
+          "level": 21,
+          "items": [
+            "i198",
+            "i204",
+            "i134"
+          ]
+        },
+        {
+          "templateId": "n025",
+          "x": 192,
+          "y": -224,
+          "items": []
+        },
+        {
+          "templateId": "n005",
+          "x": 192,
+          "y": -32,
+          "items": [
+            "i173",
+            "i186"
+          ]
+        },
+        {
+          "templateId": "n025",
+          "x": -288,
+          "y": 640,
+          "items": []
+        },
+        {
+          "templateId": "n025",
+          "x": 672,
+          "y": 352,
+          "items": []
+        },
+        {
+          "templateId": "n025",
+          "x": -672,
+          "y": -448,
+          "items": []
+        },
+        {
+          "templateId": "n163",
+          "x": 672,
+          "y": -448,
+          "items": []
+        },
+        {
+          "templateId": "n025",
+          "x": -672,
+          "y": 448,
+          "items": []
+        },
+        {
+          "templateId": "n025",
+          "x": 192,
+          "y": -1024,
+          "items": []
+        },
+        {
+          "templateId": "n025",
+          "x": 288,
+          "y": 640,
+          "items": []
+        },
+        {
+          "templateId": "n189",
+          "x": -672,
+          "y": -256,
+          "items": []
+        }
+      ],
+      "initialStateSha256": "c3147db51c823e663ab9a9161a3b960773b71e9beafe7593196101bc7a5e9413",
+      "breakthrough": {
+        "wave": 32,
+        "atUs": 1808000128,
+        "tower": "H046",
+        "towerId": 8,
+        "level": 21,
+        "qualification": "P001"
+      },
+      "finalHit": null,
+      "usedSsr": [],
+      "clearedA10": false,
+      "bossArrivalUs": null,
+      "bossDeadlineUs": null,
+      "bossHealth": null,
+      "peak": {
+        "enemies": 50,
+        "events": 113,
+        "bytes": 64061
+      },
+      "waves": [
+        {
+          "wave": 1,
+          "atUs": 37000016,
+          "kills": 0,
+          "gold": 12,
+          "lumber": 0,
+          "containment": 1,
+          "hero": 1
+        },
+        {
+          "wave": 2,
+          "atUs": 87000017,
+          "kills": 39,
+          "gold": 343,
+          "lumber": 39,
+          "containment": 20,
+          "hero": 2
+        },
+        {
+          "wave": 3,
+          "atUs": 137000020,
+          "kills": 107,
+          "gold": 64,
+          "lumber": 107,
+          "containment": 10,
+          "hero": 4
+        },
+        {
+          "wave": 4,
+          "atUs": 187000021,
+          "kills": 159,
+          "gold": 526,
+          "lumber": 159,
+          "containment": 16,
+          "hero": 5
+        },
+        {
+          "wave": 5,
+          "atUs": 241000023,
+          "kills": 222,
+          "gold": 766,
+          "lumber": 222,
+          "containment": 11,
+          "hero": 6
+        },
+        {
+          "wave": 6,
+          "atUs": 323000028,
+          "kills": 240,
+          "gold": 355,
+          "lumber": 296,
+          "containment": 1,
+          "hero": 7
+        },
+        {
+          "wave": 7,
+          "atUs": 373000028,
+          "kills": 275,
+          "gold": 1431,
+          "lumber": 331,
+          "containment": 11,
+          "hero": 7
+        },
+        {
+          "wave": 8,
+          "atUs": 423000030,
+          "kills": 326,
+          "gold": 620,
+          "lumber": 382,
+          "containment": 18,
+          "hero": 8
+        },
+        {
+          "wave": 9,
+          "atUs": 473000030,
+          "kills": 381,
+          "gold": 1420,
+          "lumber": 437,
+          "containment": 21,
+          "hero": 8
+        },
+        {
+          "wave": 10,
+          "atUs": 527000032,
+          "kills": 450,
+          "gold": 1201,
+          "lumber": 506,
+          "containment": 10,
+          "hero": 9
+        },
+        {
+          "wave": 11,
+          "atUs": 609000036,
+          "kills": 467,
+          "gold": 1854,
+          "lumber": 579,
+          "containment": 1,
+          "hero": 10
+        },
+        {
+          "wave": 12,
+          "atUs": 659000040,
+          "kills": 496,
+          "gold": 366,
+          "lumber": 608,
+          "containment": 17,
+          "hero": 10
+        },
+        {
+          "wave": 13,
+          "atUs": 709000041,
+          "kills": 539,
+          "gold": 1285,
+          "lumber": 651,
+          "containment": 32,
+          "hero": 11
+        },
+        {
+          "wave": 14,
+          "atUs": 759250046,
+          "kills": 600,
+          "gold": 1102,
+          "lumber": 712,
+          "containment": 21,
+          "hero": 12
+        },
+        {
+          "wave": 15,
+          "atUs": 813250048,
+          "kills": 660,
+          "gold": 212,
+          "lumber": 772,
+          "containment": 19,
+          "hero": 12
+        },
+        {
+          "wave": 16,
+          "atUs": 895250056,
+          "kills": 678,
+          "gold": 1170,
+          "lumber": 790,
+          "containment": 19,
+          "hero": 12
+        },
+        {
+          "wave": 17,
+          "atUs": 945250058,
+          "kills": 732,
+          "gold": 1738,
+          "lumber": 871,
+          "containment": 23,
+          "hero": 13
+        },
+        {
+          "wave": 18,
+          "atUs": 995250068,
+          "kills": 795,
+          "gold": 2612,
+          "lumber": 937,
+          "containment": 18,
+          "hero": 14
+        },
+        {
+          "wave": 19,
+          "atUs": 1045250070,
+          "kills": 854,
+          "gold": 1523,
+          "lumber": 996,
+          "containment": 17,
+          "hero": 14
+        },
+        {
+          "wave": 20,
+          "atUs": 1099250073,
+          "kills": 909,
+          "gold": 2685,
+          "lumber": 1051,
+          "containment": 20,
+          "hero": 15
+        },
+        {
+          "wave": 21,
+          "atUs": 1181250076,
+          "kills": 930,
+          "gold": 2608,
+          "lumber": 1086,
+          "containment": 15,
+          "hero": 15
+        },
+        {
+          "wave": 22,
+          "atUs": 1231250086,
+          "kills": 978,
+          "gold": 1304,
+          "lumber": 1162,
+          "containment": 25,
+          "hero": 16
+        },
+        {
+          "wave": 23,
+          "atUs": 1281250087,
+          "kills": 1024,
+          "gold": 1164,
+          "lumber": 1208,
+          "containment": 29,
+          "hero": 16
+        },
+        {
+          "wave": 24,
+          "atUs": 1331000094,
+          "kills": 1076,
+          "gold": 681,
+          "lumber": 1260,
+          "containment": 35,
+          "hero": 17
+        },
+        {
+          "wave": 25,
+          "atUs": 1385500096,
+          "kills": 1148,
+          "gold": 2032,
+          "lumber": 1332,
+          "containment": 21,
+          "hero": 17
+        },
+        {
+          "wave": 26,
+          "atUs": 1467000106,
+          "kills": 1162,
+          "gold": 3036,
+          "lumber": 1366,
+          "containment": 13,
+          "hero": 17
+        },
+        {
+          "wave": 27,
+          "atUs": 1517000109,
+          "kills": 1207,
+          "gold": 2351,
+          "lumber": 1425,
+          "containment": 26,
+          "hero": 18
+        },
+        {
+          "wave": 28,
+          "atUs": 1567000113,
+          "kills": 1258,
+          "gold": 2384,
+          "lumber": 1475,
+          "containment": 16,
+          "hero": 18
+        },
+        {
+          "wave": 29,
+          "atUs": 1617000114,
+          "kills": 1306,
+          "gold": 1184,
+          "lumber": 1523,
+          "containment": 26,
+          "hero": 18
+        },
+        {
+          "wave": 30,
+          "atUs": 1671000115,
+          "kills": 1356,
+          "gold": 3047,
+          "lumber": 1573,
+          "containment": 34,
+          "hero": 19
+        },
+        {
+          "wave": 31,
+          "atUs": 1753000124,
+          "kills": 1389,
+          "gold": 872,
+          "lumber": 1606,
+          "containment": 6,
+          "hero": 19
+        },
+        {
+          "wave": 32,
+          "atUs": 1803000127,
+          "kills": 1420,
+          "gold": 3007,
+          "lumber": 1651,
+          "containment": 33,
+          "hero": 20
+        }
+      ],
+      "survivors": {
+        "m030": 2,
+        "m031": 19,
+        "m032": 6
+      },
+      "inputs": [
+        {
+          "atUs": 0,
+          "action": {
+            "type": "choose-talent",
+            "choice": "W005"
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 0
+        },
+        {
+          "atUs": 1,
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 0
+        },
+        {
+          "atUs": 2,
+          "action": {
+            "type": "choose-opening",
+            "card": "i583"
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 7
+          },
+          "wave": 0
+        },
+        {
+          "atUs": 3,
+          "action": {
+            "type": "build-card",
+            "cardId": 7,
+            "point": {
+              "x": -288,
+              "y": -160
+            }
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 8
+          },
+          "wave": 0,
+          "acquisition": {
+            "card": "i583",
+            "root": "H046"
+          }
+        },
+        {
+          "atUs": 4,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n021",
+            "point": {
+              "x": 192,
+              "y": -224
+            }
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 9
+          },
+          "wave": 0
+        },
+        {
+          "atUs": 1250005,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n001",
+            "point": {
+              "x": 192,
+              "y": -32
+            }
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 10
+          },
+          "wave": 0
+        },
+        {
+          "atUs": 1500006,
+          "action": {
+            "type": "use-item",
+            "itemId": 2
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 0
+        },
+        {
+          "atUs": 1500007,
+          "action": {
+            "type": "use-item",
+            "itemId": 4
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 12
+          },
+          "wave": 0
+        },
+        {
+          "atUs": 1500008,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 5,
+            "towerId": 0
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 5
+          },
+          "wave": 0
+        },
+        {
+          "atUs": 1500009,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 11,
+            "towerId": 0
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 11
+          },
+          "wave": 0
+        },
+        {
+          "atUs": 1500010,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 12,
+            "towerId": 0
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 12
+          },
+          "wave": 0
+        },
+        {
+          "atUs": 1500011,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A178"
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 0
+        },
+        {
+          "atUs": 5500012,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 0,
+          "acquisition": {
+            "from": "n021",
+            "to": "n022",
+            "gold": 320,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 5500013,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 0,
+          "acquisition": {
+            "from": "n001",
+            "to": "n002",
+            "gold": 320,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 9500014,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 0,
+          "acquisition": {
+            "from": "n022",
+            "to": "n023",
+            "gold": 620,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 9500015,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 0,
+          "acquisition": {
+            "from": "n002",
+            "to": "n003",
+            "gold": 620,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 61500016,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A179"
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 1
+        },
+        {
+          "atUs": 89500017,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A180"
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 2
+        },
+        {
+          "atUs": 129500018,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 2,
+          "acquisition": {
+            "from": "n023",
+            "to": "n024",
+            "gold": 1050,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 133500019,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A178"
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 2
+        },
+        {
+          "atUs": 169500020,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A179"
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 3
+        },
+        {
+          "atUs": 217500021,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A180"
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 4
+        },
+        {
+          "atUs": 225500022,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 4,
+          "acquisition": {
+            "from": "n003",
+            "to": "n004",
+            "gold": 1050,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 241500023,
+          "action": {
+            "type": "claim-wave",
+            "slot": 0
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 247
+          },
+          "wave": 5
+        },
+        {
+          "atUs": 241500024,
+          "action": {
+            "type": "use-item",
+            "itemId": 6
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 248
+          },
+          "wave": 5
+        },
+        {
+          "atUs": 241500025,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 248,
+            "towerId": 0
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 248
+          },
+          "wave": 5
+        },
+        {
+          "atUs": 269500026,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A178"
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 5
+        },
+        {
+          "atUs": 313500027,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 5,
+          "acquisition": {
+            "from": "n024",
+            "to": "n025",
+            "gold": 1550,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 389500028,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 7,
+          "acquisition": {
+            "from": "n004",
+            "to": "n005",
+            "gold": 1550,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 401500029,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A179"
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 7
+        },
+        {
+          "atUs": 477500030,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A180"
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 9
+        },
+        {
+          "atUs": 505500031,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 469
+          },
+          "wave": 9,
+          "acquisition": {
+            "gold": 2500,
+            "obtainedCard": "i607",
+            "receivedId": 469
+          }
+        },
+        {
+          "atUs": 529500032,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 482,
+            "towerId": 0
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 482
+          },
+          "wave": 10
+        },
+        {
+          "atUs": 573500033,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A178"
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 10
+        },
+        {
+          "atUs": 597500034,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 493
+          },
+          "wave": 10,
+          "acquisition": {
+            "gold": 2500,
+            "obtainedCard": "i705",
+            "receivedId": 493
+          }
+        },
+        {
+          "atUs": 601500035,
+          "action": {
+            "type": "drop-card",
+            "cardId": 493
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 10
+        },
+        {
+          "atUs": 609500036,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n021",
+            "point": {
+              "x": -288,
+              "y": 640
+            }
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 498
+          },
+          "wave": 11
+        },
+        {
+          "atUs": 613500037,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 498
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 11,
+          "acquisition": {
+            "from": "n021",
+            "to": "n022",
+            "gold": 320,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 617500038,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 498
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 11,
+          "acquisition": {
+            "from": "n022",
+            "to": "n023",
+            "gold": 620,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 637500039,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 498
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 11,
+          "acquisition": {
+            "from": "n023",
+            "to": "n024",
+            "gold": 1050,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 665500040,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A179"
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 12
+        },
+        {
+          "atUs": 717500041,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 498
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 13,
+          "acquisition": {
+            "from": "n024",
+            "to": "n025",
+            "gold": 1550,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 745500042,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n021",
+            "point": {
+              "x": 672,
+              "y": 352
+            }
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 647
+          },
+          "wave": 13
+        },
+        {
+          "atUs": 749750043,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 647
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 13,
+          "acquisition": {
+            "from": "n021",
+            "to": "n022",
+            "gold": 320,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 753750044,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A180"
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 13
+        },
+        {
+          "atUs": 753750045,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 647
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 13,
+          "acquisition": {
+            "from": "n022",
+            "to": "n023",
+            "gold": 620,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 761750046,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 647
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 14,
+          "acquisition": {
+            "from": "n023",
+            "to": "n024",
+            "gold": 1050,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 809750047,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 647
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 14,
+          "acquisition": {
+            "from": "n024",
+            "to": "n025",
+            "gold": 1550,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 813750048,
+          "action": {
+            "type": "claim-wave",
+            "slot": 1
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 708
+          },
+          "wave": 15
+        },
+        {
+          "atUs": 813750049,
+          "action": {
+            "type": "use-item",
+            "itemId": 708
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 709
+          },
+          "wave": 15,
+          "acquisition": {
+            "obtainedCard": "i586",
+            "receivedId": 709
+          }
+        },
+        {
+          "atUs": 813750050,
+          "action": {
+            "type": "drop-card",
+            "cardId": 709
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 15
+        },
+        {
+          "atUs": 817750051,
+          "action": {
+            "type": "reserve-challenge",
+            "unitId": "m521"
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 710
+          },
+          "wave": 15
+        },
+        {
+          "atUs": 841750052,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n021",
+            "point": {
+              "x": -672,
+              "y": -448
+            }
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 727
+          },
+          "wave": 15
+        },
+        {
+          "atUs": 850750053,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 727
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 15,
+          "acquisition": {
+            "from": "n021",
+            "to": "n022",
+            "gold": 320,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 854750054,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 727
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 15,
+          "acquisition": {
+            "from": "n022",
+            "to": "n023",
+            "gold": 620,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 858750055,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 727
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 15,
+          "acquisition": {
+            "from": "n023",
+            "to": "n024",
+            "gold": 1050,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 926750056,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A178"
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 16
+        },
+        {
+          "atUs": 926750057,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 727
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 16,
+          "acquisition": {
+            "from": "n024",
+            "to": "n025",
+            "gold": 1550,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 962750058,
+          "action": {
+            "type": "buy-item",
+            "itemId": "i199"
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 816
+          },
+          "wave": 17
+        },
+        {
+          "atUs": 962750059,
+          "action": {
+            "type": "buy-item",
+            "itemId": "i101"
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 817
+          },
+          "wave": 17
+        },
+        {
+          "atUs": 962750060,
+          "action": {
+            "type": "buy-item",
+            "itemId": "i102"
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 818
+          },
+          "wave": 17
+        },
+        {
+          "atUs": 962750061,
+          "action": {
+            "type": "buy-item",
+            "itemId": "i103"
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 821
+          },
+          "wave": 17
+        },
+        {
+          "atUs": 962750062,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 821,
+            "towerId": 8
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 821
+          },
+          "wave": 17
+        },
+        {
+          "atUs": 974750063,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A179"
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 17
+        },
+        {
+          "atUs": 974750064,
+          "action": {
+            "type": "buy-item",
+            "itemId": "i174"
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 839
+          },
+          "wave": 17
+        },
+        {
+          "atUs": 974750065,
+          "action": {
+            "type": "buy-item",
+            "itemId": "i175"
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 840
+          },
+          "wave": 17
+        },
+        {
+          "atUs": 974750066,
+          "action": {
+            "type": "buy-item",
+            "itemId": "i176"
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 842
+          },
+          "wave": 17
+        },
+        {
+          "atUs": 974750067,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 842,
+            "towerId": 10
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 842
+          },
+          "wave": 17
+        },
+        {
+          "atUs": 1018750068,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 906
+          },
+          "wave": 18,
+          "acquisition": {
+            "gold": 2500,
+            "obtainedCard": "i597",
+            "receivedId": 906
+          }
+        },
+        {
+          "atUs": 1022750069,
+          "action": {
+            "type": "drop-card",
+            "cardId": 906
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 18
+        },
+        {
+          "atUs": 1082750070,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 993
+          },
+          "wave": 19,
+          "acquisition": {
+            "gold": 2500,
+            "obtainedCard": "i567",
+            "receivedId": 993
+          }
+        },
+        {
+          "atUs": 1086750071,
+          "action": {
+            "type": "drop-card",
+            "cardId": 993
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 19
+        },
+        {
+          "atUs": 1094750072,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A180"
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 19
+        },
+        {
+          "atUs": 1102750073,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 1003,
+            "towerId": 0
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 482
+          },
+          "wave": 20
+        },
+        {
+          "atUs": 1110750074,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 1007
+          },
+          "wave": 20,
+          "acquisition": {
+            "gold": 2500,
+            "obtainedCard": "i609",
+            "receivedId": 1007
+          }
+        },
+        {
+          "atUs": 1110750075,
+          "action": {
+            "type": "reserve-challenge",
+            "unitId": "m531"
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 1008
+          },
+          "wave": 20
+        },
+        {
+          "atUs": 1182750076,
+          "action": {
+            "type": "build-card",
+            "cardId": 1007,
+            "point": {
+              "x": 672,
+              "y": -448
+            }
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 1039
+          },
+          "wave": 21,
+          "acquisition": {
+            "card": "i609",
+            "root": "n159"
+          }
+        },
+        {
+          "atUs": 1190750077,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 1039
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 21,
+          "acquisition": {
+            "from": "n159",
+            "to": "n160",
+            "gold": 1000,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 1194750078,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 1039
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 21,
+          "acquisition": {
+            "from": "n160",
+            "to": "n161",
+            "gold": 1000,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 1202750079,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 1039
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 21,
+          "acquisition": {
+            "from": "n161",
+            "to": "n162",
+            "gold": 1000,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 1206750080,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 1039
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 21,
+          "acquisition": {
+            "from": "n162",
+            "to": "n163",
+            "gold": 1000,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 1210750081,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A178"
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 21
+        },
+        {
+          "atUs": 1210750082,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n021",
+            "point": {
+              "x": -672,
+              "y": 448
+            }
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 1086
+          },
+          "wave": 21
+        },
+        {
+          "atUs": 1219750083,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 1086
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 21,
+          "acquisition": {
+            "from": "n021",
+            "to": "n022",
+            "gold": 320,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 1223750084,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 1086
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 21,
+          "acquisition": {
+            "from": "n022",
+            "to": "n023",
+            "gold": 620,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 1227750085,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 1086
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 21,
+          "acquisition": {
+            "from": "n023",
+            "to": "n024",
+            "gold": 1050,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 1247750086,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 1086
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 22,
+          "acquisition": {
+            "from": "n024",
+            "to": "n025",
+            "gold": 1550,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 1307750087,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n021",
+            "point": {
+              "x": 192,
+              "y": -1024
+            }
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 1207
+          },
+          "wave": 23
+        },
+        {
+          "atUs": 1317000088,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 1207
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 23,
+          "acquisition": {
+            "from": "n021",
+            "to": "n022",
+            "gold": 320,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 1321000089,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A179"
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 23
+        },
+        {
+          "atUs": 1321000090,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 1207
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 23,
+          "acquisition": {
+            "from": "n022",
+            "to": "n023",
+            "gold": 620,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 1321000091,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 1223
+          },
+          "wave": 23,
+          "acquisition": {
+            "gold": 2500,
+            "obtainedCard": "i716",
+            "receivedId": 1223
+          }
+        },
+        {
+          "atUs": 1325000092,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 1207
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 23,
+          "acquisition": {
+            "from": "n023",
+            "to": "n024",
+            "gold": 1050,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 1325000093,
+          "action": {
+            "type": "drop-card",
+            "cardId": 1223
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 23
+        },
+        {
+          "atUs": 1349000094,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 1207
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 24,
+          "acquisition": {
+            "from": "n024",
+            "to": "n025",
+            "gold": 1550,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 1381000095,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n021",
+            "point": {
+              "x": 288,
+              "y": 640
+            }
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 1296
+          },
+          "wave": 24
+        },
+        {
+          "atUs": 1386000096,
+          "action": {
+            "type": "claim-wave",
+            "slot": 2
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 1297
+          },
+          "wave": 25
+        },
+        {
+          "atUs": 1386000097,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 1297,
+            "towerId": 0
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 1297
+          },
+          "wave": 25
+        },
+        {
+          "atUs": 1390000098,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 1296
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 25,
+          "acquisition": {
+            "from": "n021",
+            "to": "n022",
+            "gold": 320,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 1394000099,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 1296
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 25,
+          "acquisition": {
+            "from": "n022",
+            "to": "n023",
+            "gold": 620,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 1398000100,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 1296
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 25,
+          "acquisition": {
+            "from": "n023",
+            "to": "n024",
+            "gold": 1050,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 1410000101,
+          "action": {
+            "type": "reserve-challenge",
+            "unitId": "m541"
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 1307
+          },
+          "wave": 25
+        },
+        {
+          "atUs": 1442000102,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 1296
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 25,
+          "acquisition": {
+            "from": "n024",
+            "to": "n025",
+            "gold": 1550,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 1450000103,
+          "action": {
+            "type": "buy-item",
+            "itemId": "i176"
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 1319
+          },
+          "wave": 25
+        },
+        {
+          "atUs": 1450000104,
+          "action": {
+            "type": "buy-item",
+            "itemId": "i187"
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 1321
+          },
+          "wave": 25
+        },
+        {
+          "atUs": 1450000105,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 1321,
+            "towerId": 10
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 1321
+          },
+          "wave": 25
+        },
+        {
+          "atUs": 1474000106,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A180"
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 26
+        },
+        {
+          "atUs": 1474000107,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 1337
+          },
+          "wave": 26,
+          "acquisition": {
+            "gold": 2500,
+            "obtainedCard": "i717",
+            "receivedId": 1337
+          }
+        },
+        {
+          "atUs": 1478000108,
+          "action": {
+            "type": "drop-card",
+            "cardId": 1337
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 26
+        },
+        {
+          "atUs": 1538000109,
+          "action": {
+            "type": "buy-item",
+            "itemId": "i205"
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 1424
+          },
+          "wave": 27
+        },
+        {
+          "atUs": 1538000110,
+          "action": {
+            "type": "buy-item",
+            "itemId": "i126"
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 1426
+          },
+          "wave": 27
+        },
+        {
+          "atUs": 1538000111,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 1426,
+            "towerId": 8
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 1426
+          },
+          "wave": 27
+        },
+        {
+          "atUs": 1562000112,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 1456
+          },
+          "wave": 27,
+          "acquisition": {
+            "gold": 2500,
+            "obtainedCard": "i605",
+            "receivedId": 1456
+          }
+        },
+        {
+          "atUs": 1598000113,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 1507
+          },
+          "wave": 28,
+          "acquisition": {
+            "gold": 2500,
+            "obtainedCard": "i603",
+            "receivedId": 1507
+          }
+        },
+        {
+          "atUs": 1622000114,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "T000"
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 29
+        },
+        {
+          "atUs": 1674000115,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 1589,
+            "towerId": 0
+          },
+          "outcome": {
+            "ok": false,
+            "reason": "full"
+          },
+          "wave": 30
+        },
+        {
+          "atUs": 1674000116,
+          "action": {
+            "type": "drop-item",
+            "itemId": 1589
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 30
+        },
+        {
+          "atUs": 1674000117,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 1592
+          },
+          "wave": 30,
+          "acquisition": {
+            "gold": 2500,
+            "obtainedCard": "i709",
+            "receivedId": 1592
+          }
+        },
+        {
+          "atUs": 1678000118,
+          "action": {
+            "type": "drop-card",
+            "cardId": 1592
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 30
+        },
+        {
+          "atUs": 1682000119,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 1597
+          },
+          "wave": 30,
+          "acquisition": {
+            "gold": 2500,
+            "obtainedCard": "i608",
+            "receivedId": 1597
+          }
+        },
+        {
+          "atUs": 1734000120,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 1612
+          },
+          "wave": 30,
+          "acquisition": {
+            "gold": 2500,
+            "obtainedCard": "i605",
+            "receivedId": 1612
+          }
+        },
+        {
+          "atUs": 1738000121,
+          "action": {
+            "type": "exchange",
+            "qualification": "P001"
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 1615
+          },
+          "wave": 30,
+          "acquisition": {
+            "materials": [
+              {
+                "id": 469,
+                "card": "i607",
+                "slot": 1
+              },
+              {
+                "id": 1456,
+                "card": "i605",
+                "slot": 2
+              },
+              {
+                "id": 1507,
+                "card": "i603",
+                "slot": 3
+              },
+              {
+                "id": 1597,
+                "card": "i608",
+                "slot": 4
+              },
+              {
+                "id": 1612,
+                "card": "i605",
+                "slot": 5
+              }
+            ],
+            "obtainedCard": "c007",
+            "receivedId": 1615
+          }
+        },
+        {
+          "atUs": 1742000122,
+          "action": {
+            "type": "build-card",
+            "cardId": 1615,
+            "point": {
+              "x": -672,
+              "y": -256
+            }
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 1618
+          },
+          "wave": 30,
+          "acquisition": {
+            "card": "c007",
+            "root": "n186"
+          }
+        },
+        {
+          "atUs": 1750000123,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 1618
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 30,
+          "acquisition": {
+            "from": "n186",
+            "to": "n187",
+            "gold": 1500,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 1782000124,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 1618
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 31,
+          "acquisition": {
+            "from": "n187",
+            "to": "n188",
+            "gold": 1500,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 1790000125,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "T000"
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 31
+        },
+        {
+          "atUs": 1802000126,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 1618
+          },
+          "outcome": {
+            "ok": true
+          },
+          "wave": 31,
+          "acquisition": {
+            "from": "n188",
+            "to": "n189",
+            "gold": 1500,
+            "wood": 0,
+            "seconds": 1,
+            "populationDelta": 0
+          }
+        },
+        {
+          "atUs": 1806000127,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 1458,
+            "towerId": 8
+          },
+          "outcome": {
+            "ok": true,
+            "createdId": 1458
+          },
+          "wave": 32
+        }
+      ],
+      "inputLogSha256": "32bd1cca41d69b625c4d5be13afbfc71a2b9a0735e5c702d2201cb5d1098dac7"
+    }
+  ]
+}
