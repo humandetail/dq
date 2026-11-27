@@ -56,6 +56,7 @@ starts = re.findall(r"DefineStartLocation\((\d+), ([\d.-]+), ([\d.-]+)\)", (SOUR
 data = {
     "bounds": [int(x), int(y), int(x) + width * 32, int(y) + height * 32],
     "ground": base64.b64encode(bytes(v[2] & 15 for v in verts)).decode(),
+    "groundVariation": base64.b64encode(bytes(v[3] & 31 for v in verts)).decode(),
     "vertices": [columns, rows],
     "spawn": source["spawn_centers"]["0"],
     "worker": [float(v) for v in next(start[1:] for start in starts if start[0] == "0")],

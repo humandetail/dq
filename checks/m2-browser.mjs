@@ -308,6 +308,10 @@ try {
     await page.wait(read("#choices button") + "?.disabled === false");
     const picker = '.command-window[aria-label="选择开局英雄"]';
     assert.equal(await page.evaluate(read(picker) + "?.checkVisibility()"), true);
+    assert.ok(await page.evaluate("getComputedStyle(document.querySelector('#opening')).backgroundImage.includes('/opening')"));
+    const srFrame = await readFile(new URL("../src/assets/original-map/ui/sr.png", import.meta.url), "base64");
+    const frameImage = await page.evaluate("getComputedStyle(document.querySelector('#choices button')).backgroundImage");
+    assert.ok(frameImage.includes("/sr") || frameImage.includes(srFrame));
     assert.deepEqual(await page.evaluate(buttons), labels);
     await page.wait(`(async () => (await (${snapshot})).run.openingChoicesUnlocked)()`);
     await page.send("Emulation.setDeviceMetricsOverride", { width: 390, height: 844, deviceScaleFactor: 1, mobile: true });
@@ -830,9 +834,9 @@ try {
     await page.send("Page.bringToFront");
     await page.wait(read("#field") + "?.dataset.ready === 'true' && " + read("#pause") + "?.disabled === false");
     assert.deepEqual(await page.evaluate(`(() => {
-      const { terrainGrid, terrainDoodads, assetError } = document.querySelector("#field").dataset;
-      return [terrainGrid, terrainDoodads, assetError ?? null];
-    })()`), ["96x96", "69+90", null]);
+      const { terrainGrid, terrainDoodads, terrainEnvironment, assetError } = document.querySelector("#field").dataset;
+      return [terrainGrid, terrainDoodads, terrainEnvironment, assetError ?? null];
+    })()`), ["96x96", "69+90", "56+87", null]);
     await click(page, "#pause");
     await page.wait(contains("#pause", "继续"));
     await capture(page, "terrain-oblique");
@@ -842,6 +846,11 @@ try {
     await clickVisible(page, "#view-oblique");
     await page.wait(read("#field") + ".dataset.cameraPitch === '45'");
     await openManagement(page);
+    await page.evaluate(read("#battle-music") + ".scrollIntoView({ block: 'center' })");
+    await clickVisible(page, "#battle-music");
+    await page.wait(read("#battle-music") + "?.getAttribute('aria-pressed') === 'true'");
+    await clickVisible(page, "#battle-music");
+    await page.wait(read("#battle-music") + "?.getAttribute('aria-pressed') === 'false'");
     await click(page, "#builds button");
     await hover(page, 0, 0);
     await page.wait(read("#field") + ".dataset.placement === 'invalid'");
@@ -907,7 +916,7 @@ try {
     assert.deepEqual(await legacy.evaluate(persisted()), oldSave);
     await legacy.close();
     assert.deepEqual(runtimeErrors, []);
-    console.log("M3 terrain: production assets, two camera views, placement, first wave, mobile gestures and prior map save retention passed");
+    console.log("M3 terrain: original atlases, environment, background music, two camera views, placement, first wave, mobile gestures and prior map save retention passed");
   } else if (process.env.M3_COLD_ONLY === "1") {
     assert.ok(m3 && origin, "Cold start requires a production build");
     const runs = [];
@@ -1182,7 +1191,9 @@ try {
     assert.ok(!origin, "Model library inspection needs the local Vite source server");
     const manifest = JSON.parse(await readFile("src/assets/m2/models.json", "utf8"));
     const bindings = JSON.parse(await readFile("src/assets/m2/bindings.json", "utf8"));
-    const entries = Object.entries(manifest).map(([asset, definition]) => ({
+    const onlyOriginal = process.env.M3_ORIGINAL_MODELS_ONLY === "1";
+    const entries = Object.entries(manifest).filter(([asset]) => !onlyOriginal || asset.startsWith("map625-"))
+      .map(([asset, definition]) => ({
       asset, textureCount: Object.keys(definition.textures).length, loop: definition.loop,
       ...(m3 && { actions: definition.static ? [] : ["Stand", ...(!definition.noWalk && !definition.staticStructure ? ["Walk"] : []),
         "Attack", "Death", "Spell"] })
@@ -1231,8 +1242,9 @@ try {
       await page.close();
     }
     assert.deepEqual(runtimeErrors, []);
-    for (const [id, binding] of Object.entries(bindings)) assert.ok(loaded[binding.asset], id);
-    console.log(JSON.stringify({ type: "browser-model-library", assets: loaded, bindings }, null, 2));
+    for (const { asset } of entries) assert.ok(loaded[asset], asset);
+    if (!onlyOriginal) for (const [id, binding] of Object.entries(bindings)) assert.ok(loaded[binding.asset], id);
+    console.log(JSON.stringify({ type: "browser-model-library", assets: loaded, ...(onlyOriginal ? {} : { bindings }) }, null, 2));
     assert.deepEqual(Object.keys(loaded).filter(asset => loaded[asset].error), []);
   } else if (process.env.M2_MODEL_ACTIONS_ONLY === "1") {
     assert.ok(!origin);

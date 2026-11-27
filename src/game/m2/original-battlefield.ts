@@ -27,5 +27,6 @@ export default {
     fly: data.pathing.fly.map(rectangle),
     build: data.pathing.build.map(rectangle),
   },
-  terrain: { columns: data.vertices[0], rows: data.vertices[1], ground: data.ground, height: 0, doodads: data.doodads },
+  terrain: { columns: data.vertices[0], rows: data.vertices[1], ground: data.ground,
+    groundVariation: data.groundVariation, height: 0, doodads: data.doodads },
 } satisfies Battlefield;

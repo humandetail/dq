@@ -1,6 +1,11 @@
 import * as THREE from "three";
 import { gridSize, map, pathing, roadEdges, roadWidth, terrain, type Point, type Rect } from "./game/m2/map.ts";
 import { loadM2ModelSource } from "./m2-models.ts";
+import grassAtlas from "./assets/original-map/terrain/grass.png";
+import rockAtlas from "./assets/original-map/terrain/rock.png";
+import marbleAtlas from "./assets/original-map/terrain/marble.png";
+import leafArt from "./assets/original-map/terrain/leaves.png";
+import glowArt from "./assets/original-map/terrain/glow.png";
 
 const world = (value: number) => value / 100;
 
@@ -46,39 +51,41 @@ async function addDoodads(scene: THREE.Scene, id: "terrain-tree" | "terrain-plan
   }
 }
 
-async function addOriginalTerrain(scene: THREE.Scene, source: NonNullable<typeof terrain>, materials: THREE.CanvasTexture[]) {
+async function addOriginalTerrain(scene: THREE.Scene, source: NonNullable<typeof terrain>) {
   const { columns, rows } = source;
   const samples = atob(source.ground);
+  const variations = atob(source.groundVariation);
+  const atlases = await Promise.all([grassAtlas, rockAtlas, marbleAtlas].map(async url => {
+    const image = new Image();
+    image.src = url;
+    await image.decode();
+    return image;
+  }));
   const pixelsPerTile = 16;
   const width = (columns - 1) * pixelsPerTile, height = (rows - 1) * pixelsPerTile;
   const ground = document.createElement("canvas");
   ground.width = width;
   ground.height = height;
   const paint = ground.getContext("2d")!;
-  const layer = ground.cloneNode() as HTMLCanvasElement;
-  const blend = layer.getContext("2d")!;
-  const samplesCanvas = document.createElement("canvas");
-  samplesCanvas.width = columns;
-  samplesCanvas.height = rows;
-  const sampleContext = samplesCanvas.getContext("2d")!;
-  const alpha = sampleContext.createImageData(columns, rows);
   const pixelsPerUnit = width / (map.bounds.maxX - map.bounds.minX);
-  for (const [index, material] of materials.entries()) {
-    const context = index === 0 ? paint : blend;
-    context.save();
-    if (index > 0) {
-      for (let cell = 0; cell < samples.length; cell++) alpha.data[cell * 4 + 3] = samples.charCodeAt(cell) === index ? 255 : 0;
-      sampleContext.putImageData(alpha, 0, 0);
-      context.clearRect(0, 0, width, height);
-      context.drawImage(samplesCanvas, -pixelsPerTile / 2, -pixelsPerTile / 2, width + pixelsPerTile, height + pixelsPerTile);
-      context.globalCompositeOperation = "source-in";
+  for (let y = 0; y < rows - 1; y++) for (let x = 0; x < columns - 1; x++) {
+    const corner = y * columns + x;
+    const corners = [corner + columns + 1, corner + columns, corner + 1, corner];
+    const masks = [0, 0, 0];
+    corners.forEach((index, bit) => { masks[samples.charCodeAt(index)] |= 1 << bit; });
+    const base = masks.findIndex(mask => mask !== 0);
+    for (let material = base; material < masks.length; material++) {
+      if (!masks[material]) continue;
+      const atlas = atlases[material];
+      const variation = variations.charCodeAt(corner);
+      const extended = atlas.naturalWidth === atlas.naturalHeight * 2;
+      const tile = material !== base ? masks[material] : extended && variation < 16 ? 16 + variation :
+        (extended ? variation === 16 : variation !== 0) ? 15 : 0;
+      const size = atlas.naturalHeight / 4;
+      const column = (tile & 3) + (tile >= 16 ? 4 : 0);
+      paint.drawImage(atlas, column * size, ((tile >> 2) & 3) * size, size, size,
+        x * pixelsPerTile, y * pixelsPerTile, pixelsPerTile, pixelsPerTile);
     }
-    const pattern = context.createPattern(material.image, "repeat")!;
-    pattern.setTransform(new DOMMatrix().scale(pixelsPerTile / material.image.width));
-    context.fillStyle = pattern;
-    context.fillRect(0, 0, width, height);
-    context.restore();
-    if (index > 0) paint.drawImage(layer, 0, 0);
   }
 
   const allowed = new Path2D();
@@ -106,11 +113,43 @@ async function addOriginalTerrain(scene: THREE.Scene, source: NonNullable<typeof
     angle: doodad.angleRadians, scale: doodad.scale,
   }));
   const trees = placements("D005"), plants = placements("D002");
+  const leaves = placements("D006"), lights = placements("D007");
+  const transform = new THREE.Object3D();
+  const loader = new THREE.TextureLoader();
+  const effects = await Promise.all(([{ points: leaves, image: leafArt, leaf: true }, { points: lights, image: glowArt, leaf: false }]).map(async ({ points, image, leaf }) => {
+    const texture = await loader.loadAsync(image);
+    texture.colorSpace = THREE.SRGBColorSpace;
+    const effect = new THREE.InstancedMesh(new THREE.PlaneGeometry(), new THREE.MeshBasicMaterial({
+      map: texture, transparent: true, depthWrite: false, opacity: leaf ? .55 : .26,
+      blending: leaf ? THREE.NormalBlending : THREE.AdditiveBlending,
+    }), points.length);
+    effect.frustumCulled = false;
+    effect.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+    scene.add(effect);
+    return { points, effect, leaf };
+  }));
   await Promise.all([addDoodads(scene, "terrain-tree", trees), addDoodads(scene, "terrain-plant", plants)]);
-  return { cellsX: columns - 1, cellsY: rows - 1, trees: trees.length, plants: plants.length };
+  return { cellsX: columns - 1, cellsY: rows - 1, trees: trees.length, plants: plants.length, leaves: leaves.length, lights: lights.length,
+    animate(camera: THREE.Camera, seconds: number) {
+      for (const { points, effect, leaf } of effects) {
+        for (const [index, point] of points.entries()) {
+          const phase = seconds * (leaf ? .45 : .75) + index * 2.4;
+          const scale = point.scale[0];
+          transform.position.set(world(point.x) + (leaf ? Math.sin(phase) * .5 : 0),
+            point.elevation + (leaf ? .3 + (1 + Math.cos(phase)) * .45 : .4), world(point.y));
+          transform.quaternion.copy(camera.quaternion);
+          if (leaf) transform.rotateZ(phase);
+          transform.scale.setScalar(scale * (leaf ? .58 : 1.15 + .17 * Math.sin(phase)));
+          transform.updateMatrix();
+          effect.setMatrixAt(index, transform.matrix);
+        }
+        effect.instanceMatrix.needsUpdate = true;
+      }
+    } };
 }
 
 export async function addM2Terrain(scene: THREE.Scene) {
+  if (terrain) return addOriginalTerrain(scene, terrain);
   let state = 0x3a7e26;
   function random() {
     state = (Math.imul(state, 1664525) + 1013904223) >>> 0;
@@ -146,7 +185,6 @@ export async function addM2Terrain(scene: THREE.Scene) {
   const clay = texture("#97805d", ["#c4a375", "#61573c", "#b39167", "#786647"]);
   const slate = texture("#597e34", ["#a6a075", "#454f35", "#827659"], true);
   const cliff = texture("#534738", ["#857364", "#38372a", "#637349"], true);
-  if (terrain) return addOriginalTerrain(scene, terrain, [grass, cliff, clay]);
   const water = texture("#29494b", ["#526c59", "#31515a", "#415d5b"]);
   const surface = (image: THREE.Texture, u: number, v: number) => {
     const tiled = image.clone();

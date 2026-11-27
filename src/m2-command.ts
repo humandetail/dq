@@ -273,6 +273,7 @@ export function createCommandUI(options: {
         const description=document.createElement('p');description.textContent=recipes.has(selected.id)?'配方：'+recipes.get(selected.id)!.map(id=>items.get(id)!.name).join(' ＋ '):isActiveTowerEquipment(selected.id)||isTargetedEquipment(selected.id)||isPointTargetedTowerEquipment(selected.id)?'主动装备 · 携带后在物品栏使用。':'携带生效；可交接给英雄或用于合成。';
         const price=document.createElement('p');price.className='detail-price';price.textContent=`${selected.gold} 金${selected.lumber?' · '+selected.lumber+' 木':''}`;
         const buy=button('购买',()=>options.send({type:'buy-item',itemId:selected.id}),!options.writable()||!state||state.gold<selected.gold||state.lumber<selected.lumber);
+        buy.classList.add('original-shop-buy');
         const hint=document.createElement('small');hint.textContent='购买物品送至工人物品栏；满包按既有规则处理。';
         goodsDetail.append(icon,title,source,description,price,buy,hint,pawn);
         showPawn(state, selected.shop);

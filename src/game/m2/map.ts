@@ -19,7 +19,7 @@ export type Battlefield = {
   regions: Rect[];
   pathing?: { ground: Rect[]; fly: Rect[]; build: Rect[] };
   terrain?: {
-    columns: number; rows: number; ground: string; height: number;
+    columns: number; rows: number; ground: string; groundVariation: string; height: number;
     doodads: { id: string; position: number[]; angleRadians: number; scale: number[] }[];
   };
 };
