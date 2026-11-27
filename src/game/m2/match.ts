@@ -1,6 +1,6 @@
 import { advanceEvents, cancelEvent, createEventQueue, scheduleEvent, secondsToMicroseconds as us, type EventQueue } from "../event-queue.ts";
 import { cardTemplates, chestKeys, chestPools, configuration, directBuilds, firelordSkin, firelordSkillSlots, footprintTowers, itemChargeInheritance, itemChargeStacks, itemExclusions, itemFields, items, lumberVouchers, openingChoices, openingResources, ordinaryGoods, pawnGold, prayerBooks, qualificationChains, rarityPools, recipes, recycleRate, summonCards, towerLevels, towerRadius, waveRewards } from "./content.ts";
-import { buildAnchor, buildFootprint, contains, gridSize, map, mapVersion, overlaps, waypointRegions, type Disk, type Point } from "./map.ts";
+import { buildAnchor, buildFootprint, contains, gridSize, map, mapVersion, overlaps, terrainAllowsConstruction, waypointRegions, type Disk, type Point } from "./map.ts";
 import { alchemistForms, beastmasterBoars, beastmasterHawks, dragonForms, lycanFormRanks, lycanForms } from "./content.ts";
 import { completeRouteSpan, effectiveMoveSpeed, movementCandidates, movementRate, moveUnits, movementStepUs, movementSweep, planRouteSpan, routeSpanPoint, routeSpansOverlap, type Mobile, type RoutePlan, type RouteSpan } from "./movement.ts";
 import { movingWaveContacts, waveContact } from "./wave-contact.ts";
@@ -1463,16 +1463,12 @@ export function talentMonsterKillGold(state: Match) {
   return state.talent?.id === "W015" ? talentRules.get("W015")!.goldPerMonsterKill![state.talent.rank - 1] : 0;
 }
 
-function relocationTerrain(point: Point) {
-  return map.buildAreas.some(area => contains(area, point)) && !map.obstacles.some(area => contains(area, point));
-}
-
 function relocation(state: Match, tower: Construction, request: Point = state.worker, terrainFallback = true, combatMovement = false) {
-  if (terrainFallback && !relocationTerrain(request)) {
+  if (terrainFallback && !terrainAllowsConstruction(request)) {
     const fallback = Array.from({ length: 13 }, (_, index) => {
       const angle = index * Math.PI / 6;
       return { x: request.x + 250 * Math.cos(angle), y: request.y + 250 * Math.sin(angle) };
-    }).find(relocationTerrain);
+    }).find(terrainAllowsConstruction);
     if (!fallback) return false;
     request = fallback;
   }
@@ -4386,7 +4382,7 @@ function finishHeroSpell(state: Match, event: Extract<MatchEvent, { type: "hero-
     return;
   }
   if (skillId === "A113") {
-    if (relocationTerrain(point)) tower.wispRelocateTimer =
+    if (terrainAllowsConstruction(point)) tower.wispRelocateTimer =
       scheduleEvent(state.queue, us(.1), { type: "wisp-relocate", towerId: tower.id, point });
     return;
   }
@@ -6360,7 +6356,7 @@ function finishBearCast(state: Match, id: number, skillId: string) {
     for (let step = 0; step < 12; step++) {
       const angle = step * Math.PI / 6;
       const point = { x: owner.x + 120 * Math.cos(angle), y: owner.y + 120 * Math.sin(angle) };
-      if (!relocationTerrain(point)) continue;
+      if (!terrainAllowsConstruction(point)) continue;
       if (relocation(state, bear, point, false)) recordBattleAnimation(state, bear, bear.templateId, "relocation-impact");
       break;
     }
@@ -6723,7 +6719,7 @@ function resolveScepterSwap(state: Match, event: Extract<MatchEvent, { type: "sc
     tower.lastCastTarget = { x: target.x, y: target.y };
     triggerSpellEquipment(state, tower);
     if (state.phase !== "running" || !state.structures.includes(tower)) return;
-    if (event.targetId !== -1 && event.targetId !== circleId && map.buildAreas.some(area => contains(area, target))) {
+    if (event.targetId !== -1 && event.targetId !== circleId && terrainAllowsConstruction(target)) {
       scheduleEvent(state.queue, us(.1), { ...event, stage: "move" });
     }
     if (tower.scepterSwap?.grant === event.grant) tower.scepterSwap.readyUs = adjustedSpellCooldown(state, tower, tower.scepterSwap.readyUs);
@@ -6758,7 +6754,7 @@ function useTeleportEquipment(state: Match, tower: Construction, item: Item, id:
   tower.lastCastUs = now;
   tower.lastCastTarget = { ...point };
   if (id === "i207") item.charges--;
-  if (!relocationTerrain(point)) {
+  if (!terrainAllowsConstruction(point)) {
     if (id === "i230") return { ok: true };
     const firstStaff = towerGear(state, tower).filter(entry => entry.itemId === id)
       .sort((left, right) => left.slot! - right.slot!)[0];
@@ -12228,7 +12224,7 @@ function* dispatchEvent(state: Match, event: MatchEvent, timerId: number): Gener
           const angle = index * Math.PI / 6;
           return { x: event.point.x + 400 * Math.cos(angle), y: event.point.y + 400 * Math.sin(angle) };
         });
-        relocation(state, source, candidates.find(relocationTerrain) ?? candidates[12], false);
+        relocation(state, source, candidates.find(terrainAllowsConstruction) ?? candidates[12], false);
         recordBattleAnimation(state, source, source.templateId, "relocation-impact");
         creditTask(state, "spring", 3);
         break;

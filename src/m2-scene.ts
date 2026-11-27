@@ -1,6 +1,6 @@
 import { appearanceChoice } from "./game/m2/appearance.ts";
 import * as THREE from "three";
-import { map, gridSize, type Point } from "./game/m2/map.ts";
+import { map, gridSize, terrain, type Point } from "./game/m2/map.ts";
 import { heroModelScale } from "./game/m2/hero.ts";
 import { weapons, weaponScheduleRate } from "./game/m2/combat.ts";
 import { canSeeEnemy, diseasePulseTargets, inspectBuildPlacement, troopAuraAffects, troopAuraInRange, troopAuraSkill, type Match, type Action } from "./game/m2/match.ts";
@@ -37,7 +37,7 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
     }
     return requests.get(id)!;
   }
-  await Promise.all((["H021", "H029", "H038", "H044", "n001", "n006", "n021", "m001"] as const).map(requestModel));
+  const coreModels = Promise.all((["H021", "H029", "H038", "H044", "n001", "n006", "n021", "m001"] as const).map(requestModel));
   void requestModel(bindingById.nsha.asset);
   async function preloadMatch(state: Match) {
     const unitIds = new Set([
@@ -75,7 +75,10 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
   const overview = new THREE.OrthographicCamera();
   const tactical = new THREE.PerspectiveCamera(46, 1, .1, 200);
   let camera: THREE.OrthographicCamera | THREE.PerspectiveCamera = tactical;
-  const focus = new THREE.Vector3(0, 0, -1.6);
+  const defaultFocus = terrain
+    ? new THREE.Vector3(toWorld((map.worker.x + map.entry.x) / 2), 0, toWorld((map.worker.y + map.entry.y) / 2))
+    : new THREE.Vector3(0, 0, -1.6);
+  const focus = defaultFocus.clone();
   const offset = new THREE.Vector3();
   const defaultPitch = THREE.MathUtils.degToRad(45);
   const defaultZoom = 1.45;
@@ -94,7 +97,9 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
   const sun = new THREE.DirectionalLight("#fff0c9", 1.35);
   sun.position.set(-8, 14, -6);
   scene.add(sun);
-  addM2Terrain(scene);
+  const [surface] = await Promise.all([addM2Terrain(scene), coreModels]);
+  canvas.dataset.terrainGrid = `${surface.cellsX}x${surface.cellsY}`;
+  canvas.dataset.terrainDoodads = `${surface.trees}+${surface.plants}`;
 
   function project() {
     const overhead = Math.abs(pitch - Math.PI / 2) < 1e-6;
@@ -188,7 +193,7 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
   scene.add(buildLines, gridLines);
   const boundaryMaterial = new THREE.LineBasicMaterial({ color: "#dfd39b", transparent: true, opacity: .8 });
   const gridMaterial = new THREE.LineBasicMaterial({ color: "#c2df91", transparent: true, opacity: .24 });
-  for (const area of map.buildAreas) {
+  for (const area of terrain ? [] : map.buildAreas) {
     const outline = [[area.minX, area.minY], [area.maxX, area.minY], [area.maxX, area.maxY], [area.minX, area.maxY]];
     buildLines.add(new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints(outline.map(([x, y]) =>
       new THREE.Vector3(toWorld(x), .04, toWorld(y)))), boundaryMaterial));
@@ -321,7 +326,7 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
     project();
   }
   function resetView() {
-    focus.set(0, 0, -1.6);
+    focus.copy(defaultFocus);
     zoom = defaultZoom;
     yaw = defaultYaw;
     pitch = defaultPitch;
@@ -332,7 +337,10 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
     const { clientWidth: width, clientHeight: height, offsetLeft: canvasLeft, offsetTop: canvasTop } = canvas;
     renderer.getSize(size);
     if (size.x !== width || size.y !== height) {
-      const halfHeight = Math.max(14.8, 16.5 * height / Math.max(1, width));
+      const halfHeight = terrain ? Math.max(
+        toWorld((map.bounds.maxY - map.bounds.minY) / 2 + 160),
+        toWorld((map.bounds.maxX - map.bounds.minX) / 2 + 160) * height / Math.max(1, width),
+      ) : Math.max(14.8, 16.5 * height / Math.max(1, width));
       const halfWidth = halfHeight * width / Math.max(1, height);
       Object.assign(overview, { left: -halfWidth, right: halfWidth, top: halfHeight, bottom: -halfHeight });
       tactical.aspect = width / Math.max(1, height);
@@ -596,6 +604,8 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
     renderer.resetState();
     renderer.render(scene, camera);
     if (!state) return;
+    // The MDX renderer shares this context but does not manage Three's instanced VAOs.
+    renderer.resetState();
     const elapsed = state.queue.nowUs / 1000;
     const workerId = appearanceChoice("worker", state.appearance?.worker)?.unitId ?? "w001";
     const workerVisual = modelFor(workerId);

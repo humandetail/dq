@@ -6,7 +6,11 @@ import {createChrome} from '/Users/laihanbin/.agents/skills/oil-ui/scripts/chrom
 const mobile = process.env.M2_MOBILE_VERIFY === '1';
 const buttonAudit = process.env.M2_BUTTON_AUDIT === '1';
 const m3 = process.env.M3_VERIFY === '1';
-const server = process.env.M2_ORIGIN ? undefined : await createServer({server:{host:'127.0.0.1',port:0,watch:null}});
+// These saved fixtures use the previous battlefield's exact coordinates.
+const server = process.env.M2_ORIGIN ? undefined : await createServer({
+  server:{host:'127.0.0.1',port:0,watch:null},
+  resolve:{conditions:['td3-legacy-battlefield','module','browser','development|production']},
+});
 await server?.listen();
 const base = (process.env.M2_ORIGIN ?? server.resolvedUrls.local[0]).replace(/\/$/,'');
 const saveFactory = m3 ? 'createM3SaveStore' : 'createM2SaveStore';
@@ -474,6 +478,10 @@ await evaluate(`(async()=>{
 })()`);
 await cmd('Page.navigate',{url:base+'/m2.html'});
 await until('document.querySelector("#field")?.dataset.ready === "true" && document.querySelector(".hero-shortcuts")?.children.length==='+ (buttonAudit ? 3 : 2) + ' && !document.querySelector("#pause").disabled && document.querySelector("#pause").textContent === "继续"');
+assert.deepEqual(await evaluate(`(() => {
+  const {terrainGrid, terrainDoodads, assetError} = document.querySelector('#field').dataset;
+  return [terrainGrid, terrainDoodads, assetError ?? null];
+})()`), ['88x86', '29+29', null]);
 if (buttonAudit) {
   if (await evaluate('!document.querySelector(".command-backdrop").hidden')) {
     await evaluate('document.querySelector(".command-window>nav button:last-child").click()');
@@ -547,6 +555,10 @@ assert.equal(await evaluate('document.querySelector("#field").dataset.attackRang
 await evaluate('document.querySelector("#reset-view").click()');
 await evaluate('document.querySelectorAll(".twelve-slots button")[4].click()');await cmd('Input.dispatchMouseEvent',{type:'mousePressed',x:500,y:130,button:'left',clickCount:1});await cmd('Input.dispatchMouseEvent',{type:'mouseReleased',x:500,y:130,button:'left',clickCount:1});assert.match(await evaluate('document.querySelector("#feedback").textContent'),/请选择/);await key('Escape','Escape');
 await capture('battle.png');
+await evaluate('document.querySelector("#view-top").click()');
+await until('document.querySelector("#field").dataset.cameraPitch === "90"');
+await capture('terrain-overhead.png');
+await evaluate('document.querySelector("#reset-view").click()');
 await evaluate('document.querySelector(".command-tools button").click();document.querySelector(".live-shop input").value="";document.querySelector(".live-shop input").dispatchEvent(new Event("input"))');await capture('shop.png');await key('Escape','Escape');
 await until(`(async () => {
   const { ${saveFactory}: createSaveStore }=await import('/src/game/m2/save.ts');

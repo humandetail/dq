@@ -17,7 +17,7 @@ async function read(id: ModelId, file: string) {
   return response.arrayBuffer();
 }
 
-export async function loadM2Model(id: ModelId, gl: WebGL2RenderingContext | WebGLRenderingContext) {
+export async function loadM2ModelSource<T extends ModelId>(id: T) {
   const entry = manifest[id];
   const [model, textures] = await Promise.all([
     read(id, "model.mdx").then(parseMDX),
@@ -31,7 +31,11 @@ export async function loadM2Model(id: ModelId, gl: WebGL2RenderingContext | WebG
     if (!texture.Image && (texture.ReplaceableId === 1 || texture.ReplaceableId === 2)) continue;
     if (!Object.hasOwn(entry.textures, texture.Image)) throw new Error(`M2 缺少贴图：${id}/${texture.Image}`);
   }
+  return { model, textures, entry };
+}
 
+export async function loadM2Model(id: ModelId, gl: WebGL2RenderingContext | WebGLRenderingContext) {
+  const { model, textures, entry } = await loadM2ModelSource(id);
   const clips = new Map([...new Set(["Stand", "Walk", "Attack", "Death", "Spell", entry.loop])].map(name => {
     const exact = model.Sequences.findIndex(clip => clip.Name.trim().toLowerCase() === name.toLowerCase());
     const index = exact >= 0 ? exact : model.Sequences.findIndex(clip => clip.Name.trim().toLowerCase().startsWith(name.toLowerCase()));
