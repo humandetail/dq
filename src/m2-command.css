@@ -2,3 +2,161 @@
 .command-ui .command-dock,.command-ui .dock-body>section,.command-ui .command-window{margin-top:0;padding-top:0}.command-ui #field{min-height:0}.command-ui main{min-height:0}.command-ui .dock-body>section{border-top:0}.command-ui #structures>div{display:block}.command-ui .recipe-entry{border:1px solid #46533b;padding:15px;margin:10px 0}.command-ui .recipe-entry h3{color:#dfcf91;margin:0 0 8px}.command-ui header{justify-content:flex-start}.command-ui .command-dock{border-top:2px solid #aa9860}.command-ui .unit-commands{min-width:0}.command-ui .unit-inventory{min-width:0}
 .command-ui .skill-cooldown{position:absolute;inset:0;background:#081109b3;display:grid;place-items:center;font:bold 20px Georgia;color:#f2e9c5;pointer-events:none}
 .command-ui .shop-body{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:24px}.command-ui .live-goods{grid-template-columns:repeat(3,minmax(0,1fr));align-content:start}.command-ui .live-goods article{cursor:pointer;min-height:150px}.command-ui .live-goods article.selected{border-color:#d0bc77;background:#35412a}.command-ui .goods-detail{border-top:0;border-left:1px solid #586144;margin:0;padding:0 0 0 24px;display:flex;flex-direction:column;align-items:flex-start;gap:16px;position:sticky;top:0;align-self:start;min-height:420px}.command-ui .goods-detail h2{font:600 23px 'Songti SC',serif;color:#e5d094}.command-ui .goods-detail p{line-height:1.8;color:#bdc7ae}.command-ui .goods-detail .detail-price{margin-top:auto;color:#e5d094}.command-ui .goods-detail button{width:100%;background:linear-gradient(#677044,#3a4b2c);border-color:#a7ad76}.command-ui .goods-detail small{color:#9fab92;font-size:12px}.command-ui .goods-detail .goods-art{width:70px;height:70px}
+
+.command-ui .command-window > #feedback { background: #18241a; border-top: 1px solid #586144; padding: 6px 10px; margin: 0; }
+.command-ui .command-window > #feedback:empty { display: none; }
+.command-ui .touch-tools, .command-ui .touch-actions { display: none; }
+
+@media (max-width: 900px), (pointer: coarse) and (max-height: 600px) {
+  .command-ui {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    height: 100dvh;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+  .command-ui header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 2px 8px;
+    height: auto;
+    padding: 6px 10px;
+  }
+  .command-ui header > div:first-child { display: none; }
+  .command-ui header .controls { grid-column: 2; grid-row: 2; flex-wrap: nowrap; }
+  .command-ui header p { line-height: 1.35; overflow-wrap: anywhere; }
+  .command-ui #resources { grid-column: 1 / -1; font-size: 13px; }
+  .command-ui #wave, .command-ui #boss { font-size: 12px; }
+  .command-ui #boss:not(:empty) { grid-column: 1 / -1; }
+  .command-ui #boss:empty { display: none; }
+  .command-ui button, .command-ui select { min-height: 44px; }
+  .command-ui button { touch-action: manipulation; }
+  .command-ui header button, .command-ui .camera-panel button { min-width: 44px; padding-inline: 5px; }
+  .command-ui main { display: grid; grid-template-rows: minmax(0, 1fr) auto; height: auto; }
+  .command-ui .battlefield { position: relative; inset: auto; overflow: hidden; grid-area: 1 / 1; }
+  .command-tools {
+    grid-area: 1 / 1;
+    align-self: start;
+    justify-self: end;
+    position: relative;
+    inset: auto;
+    margin: 8px 8px 0;
+  }
+  .command-tools button, .command-ui .camera-panel button, .hero-shortcuts button { background-color: #1b291fed; }
+  .hero-shortcuts {
+    grid-area: 1 / 1;
+    align-self: start;
+    justify-self: start;
+    position: relative;
+    inset: auto;
+    margin: 8px;
+    gap: 4px;
+    max-height: calc(100% - 74px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .hero-shortcuts button { flex-shrink: 0; width: 46px; height: 46px; padding: 2px; font-size: 11px; }
+  .command-ui .battlefield-tools { inset: auto 8px 6px auto; z-index: 3; }
+  .command-ui .camera-panel .controls { gap: 4px; }
+  .command-ui .camera-panel button:is(#zoom-in, #zoom-out, #rotate-left, #rotate-right) { display: inline-block; }
+  .command-ui .camera-panel #view-oblique { display: none; }
+  .command-ui .camera-panel button:is(#view-top, #reset-view) { white-space: nowrap; }
+  .command-ui .placement-bar {
+    inset: auto 6px 54px;
+    z-index: 3;
+    justify-content: center;
+    gap: 4px;
+    padding: 0;
+  }
+  .command-ui .placement-bar p {
+    background: #16251de8;
+    padding: 4px 6px;
+    font-size: 12px;
+  }
+  .command-ui #field[data-placement="idle"] ~ .placement-bar:has(button[hidden]) { display: none; }
+  .command-ui .command-dock { position: relative; grid-area: 2 / 1; inset: auto; height: auto; }
+  .selection-strip {
+    align-items: center;
+    height: 48px;
+    padding: 2px 128px 2px 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .selection-strip button { flex-shrink: 0; }
+  .command-ui .touch-tools { display: flex; gap: 4px; position: absolute; top: 2px; right: 8px; }
+  .command-ui .touch-actions {
+    position: absolute;
+    bottom: calc(100% + 54px);
+    inset-inline: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
+    padding: 4px;
+    background: #17241bf5;
+    border: 1px solid var(--gold);
+  }
+  .touch-actions p { flex: 1; padding-inline: 4px; font-size: 13px; }
+  .touch-actions div { display: flex; flex-wrap: wrap; gap: 4px; }
+  .touch-actions div:empty { display: none; }
+  .command-dock[data-touch-mode="more"] :is(.six-slots, .twelve-slots) button:not(.touch-secondary) { opacity: .32; pointer-events: none; }
+  .command-dock[data-touch-mode="more"] .touch-secondary { border-color: var(--gold); }
+  .dock-body {
+    height: auto;
+    grid-template-columns: minmax(92px, 1fr) minmax(188px, 2fr);
+    gap: 6px 8px;
+    padding: 6px 8px 8px;
+  }
+  .dock-body .unit-info { grid-column: 1 / -1; }
+  .dock-body .unit-info > div:last-child { flex: 1; min-width: 0; display: flex; align-items: center; gap: 6px; }
+  .dock-body .unit-info h2 { margin: 0; font-size: 15px; overflow-wrap: anywhere; }
+  .dock-body .unit-info p { flex: 1; margin: 0; font-size: 11px; line-height: 1.3; white-space: normal; }
+  .dock-body .unit-info button { flex-shrink: 0; }
+  .dock-body .unit-portrait { display: none; }
+  .dock-body .unit-inventory, .dock-body .unit-commands { padding: 0; border: 0; }
+  .dock-body .unit-inventory h3, .dock-body .unit-commands h3 { margin-bottom: 3px; font-size: 12px; color: #e4d499; }
+  .dock-body h3 small, .command-ui kbd { display: none; }
+  .six-slots, .twelve-slots { grid-auto-rows: minmax(44px, auto); gap: 4px; }
+  .six-slots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .twelve-slots { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .six-slots button, .twelve-slots button { padding: 5px 1px 4px; line-height: 1.15; overflow-wrap: anywhere; }
+  .command-ui .command-status {
+    position: absolute;
+    inset: auto 6px 54px;
+    padding: 0 4px;
+    z-index: 4;
+  }
+  .command-ui main:has(.touch-actions:not([hidden]), #field:not([data-placement="idle"])) .command-status { bottom: 106px; }
+  .command-ui main:has(.touch-actions:not([hidden]), #field:not([data-placement="idle"])) .command-status #save { display: none; }
+  .command-ui .command-status p:not(:empty) { width: fit-content; max-width: 100%; margin: 2px auto; padding: 1px 4px; background: #132019dd; }
+  .command-ui .command-backdrop { display: block; inset: 0; backdrop-filter: none; }
+  .command-ui .command-window {
+    width: 100%;
+    height: 100%;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    border: 0;
+  }
+  .command-window > nav { flex-shrink: 0; height: auto; gap: 1px; padding: 4px 6px; }
+  .command-window > nav button { flex: 1; padding: 4px; font-size: 14px; }
+  .command-window > nav button:last-child { margin: 0; min-width: 44px; flex: none; }
+  .command-window { animation: none; }
+  .command-content { padding: 10px; overscroll-behavior: contain; overflow-wrap: anywhere; }
+  .command-content input, .command-content select { max-width: 100%; font-size: 16px; }
+  .command-ui .shop-body { display: flex; flex-direction: column; gap: 10px; }
+  .command-ui .goods-detail { position: static; width: 100%; min-height: 0; gap: 6px; border: 1px solid #586144; padding: 10px; }
+  .command-ui .live-shop input { margin-bottom: 8px; }
+  .command-ui .live-goods { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; max-height: min(220px, 30dvh); overflow-y: auto; }
+  .command-ui .live-goods article { min-height: 84px; padding: 5px; gap: 4px; }
+  .goods-art, .command-ui .goods-detail .goods-art { width: 34px; height: 34px; }
+  .live-codex { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (orientation: landscape) and (max-height: 600px) and (pointer: coarse) {
+  .command-ui header { grid-template-columns: auto minmax(0, 1fr) auto; }
+  .command-ui #resources { grid-column: 1; }
+  .command-ui header .controls { grid-column: 3; grid-row: 1; }
+  .command-ui main { grid-template: minmax(0, 1fr) / minmax(0, 1fr) 280px; }
+  .command-ui .command-dock { grid-area: 1 / 2; overflow-y: auto; }
+  .dock-body { grid-template-columns: 92px minmax(0, 1fr); }
+  .twelve-slots { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .command-ui .touch-actions { position: static; }
+}

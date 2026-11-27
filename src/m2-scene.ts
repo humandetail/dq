@@ -97,7 +97,7 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
   function project() {
     const overhead = Math.abs(pitch - Math.PI / 2) < 1e-6;
     camera = overhead ? overview : tactical;
-    camera.zoom = zoom;
+    camera.zoom = overhead ? zoom : zoom * Math.min(1, tactical.aspect / 1.15);
     const cosPitch = Math.cos(pitch), sinPitch = Math.sin(pitch);
     offset.set(Math.sin(yaw) * cosPitch, sinPitch, Math.cos(yaw) * cosPitch).multiplyScalar(cameraDistance);
     // An explicit up vector keeps the exact overhead view stable at any heading.
@@ -112,10 +112,10 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
     const heading = (Math.round(THREE.MathUtils.radToDeg(yaw)) % 360 + 360) % 360;
     canvas.dataset.cameraYaw = String(heading);
     canvas.dataset.cameraPitch = String(THREE.MathUtils.radToDeg(pitch));
-    canvas.dataset.cameraZoom = String(camera.zoom);
+    canvas.dataset.cameraZoom = String(zoom);
     canvas.dataset.cameraFocus = `${focus.x},${focus.z}`;
     canvas.dataset.cameraProjection = new THREE.Matrix4().multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse).elements.join(",");
-    viewChanged({ preset, yaw: heading, zoom: camera.zoom });
+    viewChanged({ preset, yaw: heading, zoom });
   }
 
   const towerGeometry = new THREE.CylinderGeometry(.36, .7, .85, 8);
@@ -161,7 +161,8 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
   combatLines.frustumCulled = false;
   scene.add(combatLines);
   let matchId: string | undefined;
-  let drag: { clientX: number; clientY: number; rotate: boolean } | undefined;
+  let drag: { id: number; clientX: number; clientY: number; rotate: boolean; pendingTouch: boolean } | undefined;
+  let suppressTouchClick = false;
   let pointer: { clientX: number; clientY: number } | undefined;
 
   let hover: Point | undefined;
@@ -207,15 +208,19 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
   }
 
   canvas.addEventListener("pointerdown", event => {
-    if (event.button === 1) {
-      event.preventDefault();
-      drag = { clientX: event.clientX, clientY: event.clientY, rotate: event.shiftKey };
-      canvas.setPointerCapture(event.pointerId);
-    }
+    const touch = event.pointerType === "touch";
+    if (touch ? !event.isPrimary : event.button !== 1) return;
+    if (touch) suppressTouchClick = false;
+    else event.preventDefault();
+    drag = { id: event.pointerId, clientX: event.clientX, clientY: event.clientY,
+      rotate: !touch && event.shiftKey, pendingTouch: touch };
+    canvas.setPointerCapture(event.pointerId);
   });
   canvas.addEventListener("pointermove", event => {
+    if (event.pointerType === "touch" && drag?.id !== event.pointerId) return;
     pointer = { clientX: event.clientX, clientY: event.clientY };
-    if (drag) {
+    if (drag?.id === event.pointerId) {
+      if (drag.pendingTouch && Math.hypot(event.clientX - drag.clientX, event.clientY - drag.clientY) < 8) return;
       if (drag.rotate) {
         yaw += (event.clientX - drag.clientX) * .006;
         pitch = THREE.MathUtils.clamp(pitch + (event.clientY - drag.clientY) * .004, Math.PI / 6, Math.PI / 2);
@@ -227,12 +232,20 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
           focus.z = THREE.MathUtils.clamp(focus.z + (previous.y - next.y) * scale, toWorld(map.bounds.minY), toWorld(map.bounds.maxY));
         }
       }
-      drag = { ...drag, ...pointer };
+      drag = { ...drag, ...pointer, pendingTouch: false };
       project();
     }
     hover = pointAt(event);
   });
-  const endDrag = () => { drag = undefined; };
+  const endDrag = (event: PointerEvent) => {
+    if (drag?.id !== event.pointerId) return;
+    if (event.pointerType === "touch") {
+      suppressTouchClick = !drag.pendingTouch;
+      pointer = undefined;
+      hover = undefined;
+    }
+    drag = undefined;
+  };
   canvas.addEventListener("pointerup", endDrag);
   canvas.addEventListener("pointercancel", endDrag);
   canvas.addEventListener("lostpointercapture", endDrag);
@@ -244,6 +257,11 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
   }, { passive: false });
 
   canvas.addEventListener("pointerleave", () => { pointer = undefined; hover = undefined; });
+  // Stop a pan's click before it can reach either the scene or the command UI.
+  canvas.parentElement!.addEventListener("click", event => {
+    if (event.target === canvas && suppressTouchClick && event instanceof PointerEvent && event.pointerType === "touch")
+      event.stopPropagation();
+  }, true);
   canvas.addEventListener("click", event => {
     if (event.button !== 0) return;
     const point = pointAt(event);
@@ -294,7 +312,7 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
     boundaryMaterial.opacity = build ? 1 : .65;
     canvas.style.cursor = build || wolfId !== undefined || pointPrompt ? "crosshair" : "grab";
     preview.visible = !!build && !!state && !!hover;
-    let message = build ? `正在放置 ${build.label} · 将鼠标移到浅绿建造区` : "选择工人建造或塔卡，再点击浅绿建造区。";
+    let message = build ? `正在放置 ${build.label} · 选择浅绿建造区` : "选择工人建造或塔卡，再点击浅绿建造区。";
     if (build && state && hover) {
       const result = inspectBuildPlacement(state, { ...build.action, point: hover });
       const point = result.ok ? result.disk : { x: Math.round(hover.x / gridSize) * gridSize, y: Math.round(hover.y / gridSize) * gridSize };
@@ -303,7 +321,7 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
       ghost.material.color.set(color);
       preview.position.set(toWorld(point.x), .06, toWorld(point.y));
       canvas.dataset.placement = result.ok ? "valid" : "invalid";
-      message = result.ok ? `${build.label} · 可放置，左键确认；工人会自动接近施工` :
+      message = result.ok ? `${build.label} · 可放置，点击确认；工人会自动接近施工` :
         result.reason === "resources" ? "金币、木材或人口不足 · 换一座塔或补足资源" :
         result.reason === "missing" ? "塔卡已不可用，请重新选择" : "此处不可放置 · 避开道路、障碍及已有塔，并留出完整底座空间";
     } else if (pointPrompt) {
@@ -311,7 +329,7 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
       message = pointPrompt;
     } else if (wolfId !== undefined) {
       canvas.dataset.placement = "wolf";
-      message = `灵兽 #${wolfId} · 左键选取地面目的地，Esc 取消`;
+      message = `灵兽 #${wolfId} · 选择地面目的地`;
     } else canvas.dataset.placement = build ? "selecting" : "idle";
     previewChanged(message);
 

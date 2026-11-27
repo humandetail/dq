@@ -3,6 +3,7 @@ import {mkdir, writeFile} from 'node:fs/promises';
 import {join} from 'node:path';
 import {createServer} from 'vite';
 import {createChrome} from '/Users/laihanbin/.agents/skills/oil-ui/scripts/chrome.mjs';
+const mobile = process.env.M2_MOBILE_VERIFY === '1';
 const m3 = process.env.M3_VERIFY === '1';
 const server = process.env.M2_ORIGIN ? undefined : await createServer({server:{host:'127.0.0.1',port:0,watch:null}});
 await server?.listen();
@@ -39,8 +40,135 @@ async function until(expression) {
   throw new Error('timeout ' + expression, {cause: failure});
 }
 async function key(key,code,modifiers=0){await cmd('Input.dispatchKeyEvent',{type:'keyDown',key,code,modifiers});await cmd('Input.dispatchKeyEvent',{type:'keyUp',key,code,modifiers});}
+async function checkMobile() {
+  const q = selector => 'document.querySelector(' + JSON.stringify(selector) + ')';
+  async function touch(type, point) {
+    await cmd('Input.dispatchTouchEvent', {type, touchPoints: point ? [{...point, id:1}] : []});
+  }
+  async function center(selector) {
+    return evaluate(`(() => {
+      const node = ${q(selector)};
+      node.scrollIntoView({block:'nearest', inline:'nearest'});
+      const rect = node.getBoundingClientRect(), x = rect.x + rect.width/2, y = rect.y + rect.height/2;
+      if (!node.contains(document.elementFromPoint(x, y))) throw new Error(JSON.stringify({selector:${JSON.stringify(selector)},x,y,cover:document.elementFromPoint(x,y)?.outerHTML.slice(0,180),content:document.querySelector('.command-content').getBoundingClientRect(),scroll:document.querySelector('.command-content').scrollTop}));
+      return {x, y};
+    })()`);
+  }
+  async function tap(target) {
+    await touch('touchStart', typeof target === 'string' ? await center(target) : target);
+    await touch('touchEnd');
+  }
+  async function project(x,z,y=0) {
+    return evaluate(`(() => {
+      const field = document.querySelector('#field');
+      const m = field.dataset.cameraProjection.split(',').map(Number);
+      const rect = field.getBoundingClientRect();
+      const x = ${x}/100, y = ${y}, z = ${z}/100;
+      const w = m[3]*x+m[7]*y+m[11]*z+m[15];
+      return {x:rect.left+(1+(m[0]*x+m[4]*y+m[8]*z+m[12])/w)*rect.width/2,
+        y:rect.top+(1-(m[1]*x+m[5]*y+m[9]*z+m[13])/w)*rect.height/2};
+    })()`);
+  }
+  const paused = q('#pause')+'.textContent === "继续"';
+  const feedback = q('#feedback')+'.textContent';
+  async function checkpoint(expression) {
+    await until(`(async () => {
+      const { ${saveFactory}: createSaveStore }=await import('/src/game/m2/save.ts');
+      const {run}=await createSaveStore(()=>true,()=>true).read();
+      return ${expression};
+    })()`);
+  }
+  await capture('battle.png');
+  await tap('.twelve-slots button:first-child');
+  await tap('#builds button:first-child');
+  await until(q('.command-backdrop')+'.hidden && '+q('#cancel-placement')+'.hidden === false');
+  const focus=q('#field')+'.dataset.cameraFocus';
+  const before = await evaluate(focus);
+  await touch('touchStart',{x:190,y:245});
+  await touch('touchMove',{x:239,y:252});
+  await touch('touchEnd');
+  await until(focus+' !== '+JSON.stringify(before));
+  assert.doesNotMatch(await evaluate(feedback), /排队/);
+  assert.equal(await evaluate(q('.selection-box')+'.hidden'), true);
+  await tap('#reset-view');
+  await tap(await project(-192, -128));
+  await until(feedback+'.includes("排队")');
+  await tap('#pause');
+  await until(q('#cancel-placement')+'.hidden');
+  await checkpoint('run.structures.length === 2');
+  await tap('#pause');
+  await until(paused);
+  await tap('.touch-tools button:first-child');
+  await tap(await project(-192,128,1));
+  await until(feedback+'.includes("排队")');
+  await tap('#pause');
+  await checkpoint('run.inventory.some(item => item.id === 903 && item.slot !== null)');
+  await tap('#pause');
+  await until(paused);
+  await tap('.hero-shortcuts button:nth-child(2)');
+  await until(q('.unit-info h2')+'.textContent.includes("小小")');
+  await tap('.touch-tools button:last-child');
+  await tap('[data-skill=A068]');
+  await until(feedback+'.includes("排队")');
+  await tap('#pause');
+  await until('!'+q('[data-skill=A068]')+'.classList.contains("auto")');
+  await tap('#pause');
+  await until(paused);
+  await tap('[data-skill=A068]');
+  await until(feedback+'.includes("排队")');
+  await tap('.twelve-slots button:nth-child(5)');
+  await until(q('.touch-actions p')+'.textContent.includes("集火")');
+  await tap(await project(-192,-128));
+  await until(feedback+'.includes("请选择敌方目标")');
+  await tap('.touch-actions > button');
+  await until(q('.touch-actions')+'.hidden');
+  await tap('.touch-tools button:last-child');
+  await tap('.six-slots button:nth-child(2)');
+  await tap('.touch-actions div button:first-child');
+  await tap('.hero-shortcuts button:first-child');
+  await until(feedback+'.includes("排队")');
+  await tap('.command-tools button:first-child');
+  await tap('.live-shop input');
+  await cmd('Input.insertText',{text:'不存在的商品'});
+  await until(q('.live-goods')+'.textContent === "没有匹配的商品" && '+q('.goods-detail')+'.hidden');
+  await evaluate(q('.live-shop input')+'.select()');
+  await cmd('Input.insertText',{text:'艺人面罩'});
+  await until('document.querySelectorAll(".live-goods article").length===1');
+  await tap('.live-goods article');
+  await capture('shop.png');
+  await tap('.goods-detail button');
+  await until(feedback+'.includes("排队")');
+  assert.equal(await evaluate(q('.command-window > #feedback')+'?.checkVisibility()'),true);
+  await tap('.command-window>nav button:last-child');
+  await tap('#pause');
+  await checkpoint('run.inventory.some(item => item.id >= 1000 && item.itemId === "i101")');
+  await checkpoint('run.structures.find(tower => tower.id === 900)?.treeGrab?.readyUs > 0');
+  await checkpoint('run.inventory.some(item => item.id === 902 && item.towerId === undefined)');
+  await tap('#pause');
+  await until(paused);
+  await checkpoint('run.clock.paused && run.structures.find(tower => tower.id === 900)?.autoModes?.A068 === false');
+  await evaluate(q('#field')+'.dataset.ready = "reloading"');
+  await cmd('Page.reload');
+  await until(q('#field')+'.dataset.ready === "true" && '+paused);
+  await tap('.hero-shortcuts button:nth-child(2)');
+  await until(q('[data-skill=A068]')+' && !'+q('[data-skill=A068]')+'.classList.contains("auto")');
+  await capture('hero.png');
+  for (const [width,height] of [[320,568],[430,932],[844,390]]) {
+    await cmd('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});
+    await until('innerWidth === '+width);
+    assert.equal(await evaluate('document.documentElement.scrollWidth <= innerWidth'),true);
+    await center('.twelve-slots button:first-child');
+    await center('#reset-view');
+    if (width === 320 || width === 844) await capture('battle-'+width+'.png');
+  }
+  assert.deepEqual(errors,[]);
+  console.log('PASSED: touch pan/placement, pickup, auto mode, casting, transfer, shop purchase, save/reload and responsive viewports');
+}
 try{
-await cmd('Runtime.enable');await cmd('Page.enable');await cmd('Emulation.setFocusEmulationEnabled',{enabled:true});await cmd('Emulation.setDeviceMetricsOverride',{width:1440,height:900,deviceScaleFactor:1,mobile:false});
+await cmd('Runtime.enable');await cmd('Page.enable');await cmd('Emulation.setFocusEmulationEnabled',{enabled:true});await cmd('Emulation.setDeviceMetricsOverride',mobile
+  ? {width:390,height:844,deviceScaleFactor:1,mobile:true}
+  : {width:1440,height:900,deviceScaleFactor:1,mobile:false});
+if (mobile) await cmd('Emulation.setTouchEmulationEnabled',{enabled:true,maxTouchPoints:5});
 await cmd('Page.navigate',{url:base+'/src/game/m2/save.ts'});
 await until('location.pathname.endsWith("/save.ts") && document.readyState === "complete"');
 await evaluate(`(async()=>{
@@ -52,11 +180,18 @@ await evaluate(`(async()=>{
  state.structures=[{id:900,templateId:'H021',x:288,y:128,radius:72,population:20,qualification:null,pending:null,hero}];
  state.population=20;state.inventory=[{id:901,itemId:'i109',slot:0,charges:0,point:state.worker,towerId:900},{id:902,itemId:'i193',slot:1,charges:0,point:state.worker,towerId:900}];state.nextId=1000;
  creditTime(state,40000);while(drain(state,10000)==='pending'){}state.clock.paused=true;
+ if (${mobile}) {
+   delete state.structures[0].treeGrab;
+   state.inventory.push({id:903,itemId:'i102',slot:null,charges:0,point:{x:-192,y:128}});
+ }
  const store=createSaveStore(()=>true,()=>true);await store.withWriter(async writer=>{await writer.commit(undefined,{score:0,claims:[]},state${initialMigration});});
  return true;
 })()`);
 await cmd('Page.navigate',{url:base+'/m2.html'});
 await until('document.querySelector("#field")?.dataset.ready === "true" && document.querySelector(".hero-shortcuts")?.children.length===2 && !document.querySelector("#pause").disabled && document.querySelector("#pause").textContent === "继续"');
+if (mobile) {
+  await checkMobile();
+} else {
 await evaluate('document.querySelectorAll(".hero-shortcuts button")[1].click()');
 await until('document.querySelector(".unit-info h2").textContent.includes("小小")');
 const toggleTarget = await evaluate(`(() => {
@@ -102,4 +237,5 @@ await until(`(async () => {
 await evaluate('document.querySelector("#field").dataset.ready="reloading"');await cmd('Page.reload');await until('document.querySelector("#field").dataset.ready === "true" && document.querySelector(".hero-shortcuts").children.length===2');await evaluate('document.querySelectorAll(".hero-shortcuts button")[1].click()');await until('document.querySelector("[data-skill=A068]") !== null');assert.equal(await evaluate('document.querySelector("[data-skill=A068]").classList.contains("auto")'),false);
 assert.equal(await evaluate('document.documentElement.scrollWidth<=innerWidth'),true);
 assert.deepEqual(errors,[]);console.log(`PASSED: live hero selection, auto-mode command/save/reload, learning, central shop search/purchase, ${recipeCount} recipes, codex, modal pause, Escape, viewport, runtime errors`);
+}
 }catch(error){console.error(await evaluate('({feedback:document.querySelector("#feedback")?.textContent,save:document.querySelector("#save")?.textContent,pause:document.querySelector("#pause")?.textContent,skill:document.querySelector("[data-skill=A068]")?.outerHTML})'));throw error;}finally{await browser.stop(ws);await server?.close();}
