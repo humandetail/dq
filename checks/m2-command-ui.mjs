@@ -40,6 +40,22 @@ async function until(expression) {
   throw new Error('timeout ' + expression, {cause: failure});
 }
 async function key(key,code,modifiers=0){await cmd('Input.dispatchKeyEvent',{type:'keyDown',key,code,modifiers});await cmd('Input.dispatchKeyEvent',{type:'keyUp',key,code,modifiers});}
+async function assertClearBattlefield() {
+  const { covering, height, canPointAtCenter } = await evaluate(`(() => {
+    const field = document.querySelector('#field'), bounds = field.getBoundingClientRect();
+    const controls = document.querySelectorAll('.command-tools button, .hero-shortcuts button, .battlefield-tools button, .placement-bar, .command-status, .touch-actions, .command-dock');
+    const covering = [...controls].filter(control => {
+      const rect = control.getBoundingClientRect();
+      return rect.width > 0 && rect.height > 0 &&
+        Math.min(rect.right, bounds.right) - Math.max(rect.left, bounds.left) > 1 &&
+        Math.min(rect.bottom, bounds.bottom) - Math.max(rect.top, bounds.top) > 1;
+    }).map(control => control.className || control.textContent.trim());
+    return { covering, height: bounds.height,
+      canPointAtCenter: document.elementFromPoint(bounds.x + bounds.width / 2, bounds.y + bounds.height / 2) === field };
+  })()`);
+  assert.deepEqual(covering, [], 'Main interface covers the battlefield');
+  assert.ok(height >= 150 && canPointAtCenter, 'Battlefield must have a visible, actionable play area');
+}
 async function checkMobile() {
   const q = selector => 'document.querySelector(' + JSON.stringify(selector) + ')';
   async function touch(type, point) {
@@ -87,6 +103,7 @@ async function checkMobile() {
   await touch('touchStart',{x:190,y:245});
   await touch('touchMove',{x:239,y:252});
   await touch('touchEnd');
+  await assertClearBattlefield();
   await until(focus+' !== '+JSON.stringify(before));
   assert.doesNotMatch(await evaluate(feedback), /排队/);
   assert.equal(await evaluate(q('.selection-box')+'.hidden'), true);
@@ -118,11 +135,15 @@ async function checkMobile() {
   await until(feedback+'.includes("排队")');
   await tap('.twelve-slots button:nth-child(5)');
   await until(q('.touch-actions p')+'.textContent.includes("集火")');
+  await assertClearBattlefield();
+  await capture('aiming.png');
   await tap(await project(-192,-128));
   await until(feedback+'.includes("请选择敌方目标")');
   await tap('.touch-actions > button');
   await until(q('.touch-actions')+'.hidden');
   await tap('.touch-tools button:last-child');
+  await tap('.touch-tools button:nth-child(2)');
+  await assertClearBattlefield();
   await tap('.six-slots button:nth-child(2)');
   await tap('.touch-actions div button:first-child');
   await tap('.hero-shortcuts button:first-child');
@@ -157,6 +178,7 @@ async function checkMobile() {
     await cmd('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:true});
     await until('innerWidth === '+width);
     assert.equal(await evaluate('document.documentElement.scrollWidth <= innerWidth'),true);
+    await assertClearBattlefield();
     await center('.twelve-slots button:first-child');
     await center('#reset-view');
     if (width === 320 || width === 844) await capture('battle-'+width+'.png');
@@ -189,6 +211,7 @@ await evaluate(`(async()=>{
 })()`);
 await cmd('Page.navigate',{url:base+'/m2.html'});
 await until('document.querySelector("#field")?.dataset.ready === "true" && document.querySelector(".hero-shortcuts")?.children.length===2 && !document.querySelector("#pause").disabled && document.querySelector("#pause").textContent === "继续"');
+await assertClearBattlefield();
 if (mobile) {
   await checkMobile();
 } else {
