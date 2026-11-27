@@ -4,6 +4,7 @@ import {join} from 'node:path';
 import {createServer} from 'vite';
 import {createChrome} from '/Users/laihanbin/.agents/skills/oil-ui/scripts/chrome.mjs';
 const mobile = process.env.M2_MOBILE_VERIFY === '1';
+const buttonAudit = process.env.M2_BUTTON_AUDIT === '1';
 const m3 = process.env.M3_VERIFY === '1';
 const server = process.env.M2_ORIGIN ? undefined : await createServer({server:{host:'127.0.0.1',port:0,watch:null}});
 await server?.listen();
@@ -88,6 +89,111 @@ async function assertLongLabelsFit() {
     }).map(([selector]) => selector);
   })()`);
   assert.deepEqual(clipped, [], 'Long labels overflow their containers');
+}
+async function auditButtonLabels() {
+  const issues = new Map();
+  let checked = 0;
+  async function click(selector) {
+    await evaluate(`document.querySelector(${JSON.stringify(selector)}).click()`);
+  }
+  async function scan(viewport, state) {
+    const result = await evaluate(`(() => {
+      const overflow = [];
+      let count = 0;
+      for (const button of document.querySelectorAll('button, [role="button"], summary')) {
+        if (!button.checkVisibility()) continue;
+        const bounds = button.getBoundingClientRect();
+        if (bounds.width === 0 || bounds.height === 0) continue;
+        const walker = document.createTreeWalker(button, NodeFilter.SHOW_TEXT);
+        const range = document.createRange();
+        let text;
+        let hasLabel = false;
+        let clipped = false;
+        while ((text = walker.nextNode())) {
+          if (!text.data.trim() || !text.parentElement.checkVisibility()) continue;
+          range.selectNodeContents(text);
+          const lines = [...range.getClientRects()];
+          hasLabel ||= lines.length > 0;
+          clipped ||= lines.some(line =>
+            line.left < bounds.left - 1 || line.right > bounds.right + 1 ||
+            line.top < bounds.top - 1 || line.bottom > bounds.bottom + 1);
+        }
+        if (!hasLabel) continue;
+        count++;
+        const scrollRow = button.closest('.touch-actions div, .hero-shortcuts, .selection-strip');
+        if (clipped || scrollRow && bounds.width > scrollRow.clientWidth + 1) {
+          overflow.push({label: button.getAttribute('aria-label') ?? button.innerText.trim(),
+            container: button.parentElement.id || button.parentElement.className || button.parentElement.tagName,
+            width: Math.round(bounds.width)});
+        }
+      }
+      return {count, overflow};
+    })()`);
+    checked += result.count;
+    for (const item of result.overflow) {
+      const {label, container} = item;
+      const key = `${container} / ${label}`;
+      const issue = issues.get(key) ?? {label, container, states: []};
+      issue.states.push(`${viewport} ${state} (${item.width}px)`);
+      issues.set(key, issue);
+    }
+  }
+  for (const [width, height, touch] of [[320, 568, true], [360, 640, true], [390, 844, true], [430, 932, true],
+    [280, 653, true], [480, 320, true], [568, 320, true], [844, 390, true], [901, 768, false], [1024, 768, false], [1440, 900, false]]) {
+    await cmd('Emulation.setDeviceMetricsOverride', {width, height, deviceScaleFactor: 1, mobile: touch});
+    await cmd('Emulation.setTouchEmulationEnabled', {enabled: touch});
+    await until('innerWidth === ' + width);
+    const viewport = `${width}×${height}`;
+    await click('.hero-shortcuts button:first-child');
+    await until('document.querySelector(".unit-info h2").textContent === "工人"');
+    await scan(viewport, 'worker');
+    if (touch) {
+      await click('.touch-tools button:nth-child(2)');
+      await scan(viewport, 'worker inventory');
+      await click('.touch-tools button:nth-child(2)');
+    }
+    await click('.hero-shortcuts button:nth-child(2)');
+    await until('document.querySelector("[data-skill=A068]") !== null');
+    await scan(viewport, 'hero');
+    await click('.hero-shortcuts button:nth-child(3)');
+    await until('document.querySelector(".unit-info h2").textContent.includes("食人魔魔法师")');
+    await scan(viewport, 'long hero name');
+    if (width === 280) await capture('long-hero-280.png');
+    await click('.hero-shortcuts button:nth-child(2)');
+    await until('document.querySelector("[data-skill=A068]") !== null');
+    await click('.twelve-slots button:nth-child(4)');
+    await until('document.querySelector(".twelve-slots").textContent.includes("返回")');
+    await scan(viewport, 'skill learning');
+    await click('.twelve-slots button:nth-child(4)');
+    if (touch) {
+      await click('.touch-tools button:nth-child(2)');
+      await scan(viewport, 'hero inventory');
+      await click('.touch-tools button:last-child');
+      await click('.six-slots button:nth-child(3)');
+      await scan(viewport, 'item transfer');
+      if (width === 480) await capture('item-transfer-480.png');
+      await click('.six-slots button:nth-child(2)');
+      assert.equal(await evaluate('document.querySelectorAll(".touch-actions div button").length'), 2);
+      await scan(viewport, 'active item alternatives');
+      await click('.touch-actions > button');
+      await click('.touch-tools button:nth-child(2)');
+    }
+    for (const [index, name] of ['商店', '合成', '图鉴', '对局'].entries()) {
+      await click(`.command-tools button:nth-child(${index + 1})`);
+      await evaluate('document.querySelectorAll(".command-content details").forEach(detail => { detail.open = true; })');
+      await scan(viewport, name);
+    }
+    if (await evaluate('!document.querySelector("#choices").closest("section").hidden')) {
+      await scan(viewport, 'opening hero choices');
+    }
+    await click('#builds button:first-child');
+    await until('!document.querySelector("#cancel-placement").hidden');
+    await scan(viewport, 'tower placement');
+    await click('#cancel-placement');
+  }
+  assert.deepEqual(errors, []);
+  console.log(`Checked ${checked} rendered labels across 11 viewports and battle/menu states`);
+  assert.deepEqual([...issues.values()], [], 'Button labels are clipped or exceed their available width');
 }
 async function checkMobile() {
   const q = selector => 'document.querySelector(' + JSON.stringify(selector) + ')';
@@ -236,6 +342,23 @@ await evaluate(`(async()=>{
  state.structures=[{id:900,templateId:'H021',x:288,y:128,radius:72,population:20,qualification:null,pending:null,hero}];
  state.population=20;state.inventory=[{id:901,itemId:'i109',slot:0,charges:0,point:state.worker,towerId:900},{id:902,itemId:'i193',slot:1,charges:0,point:state.worker,towerId:900}];state.nextId=1000;
  creditTime(state,40000);while(drain(state,10000)==='pending'){}state.clock.paused=true;
+ if (${buttonAudit}) {
+   const { challengeGoods } = await import('/src/game/m2/shops.ts');
+   const ogre = newHero('H018');
+   ogre.level = 18;
+   ogre.points = 4;
+   state.structures.push({id:906,templateId:'H018',x:288,y:-128,radius:72,population:20,qualification:null,pending:null,hero:ogre});
+   state.population += 20;
+   state.inventory.push({id:904,itemId:'i303',slot:2,charges:0,point:state.worker,towerId:900});
+   state.inventory.push({id:905,itemId:'i271',slot:0,charges:0,point:state.worker});
+   state.openingChoicesUnlocked=true;
+   state.overdraftOpen=true;
+   state.mysteryShopOpen=true;
+   state.challengeShopOpen=true;
+   state.qualificationShopOpen=true;
+   state.mysteryStock={i303:4,i311:3};
+   state.challengeStock=Object.fromEntries(challengeGoods.map(id=>[id,1]));
+ }
  if (${mobile}) {
    delete state.structures[0].treeGrab;
    state.inventory.push({id:903,itemId:'i102',slot:null,charges:0,point:{x:-192,y:128}});
@@ -244,11 +367,17 @@ await evaluate(`(async()=>{
  return true;
 })()`);
 await cmd('Page.navigate',{url:base+'/m2.html'});
-await until('document.querySelector("#field")?.dataset.ready === "true" && document.querySelector(".hero-shortcuts")?.children.length===2 && !document.querySelector("#pause").disabled && document.querySelector("#pause").textContent === "继续"');
-await assertClearBattlefield();
-if (mobile) {
+await until('document.querySelector("#field")?.dataset.ready === "true" && document.querySelector(".hero-shortcuts")?.children.length==='+ (buttonAudit ? 3 : 2) + ' && !document.querySelector("#pause").disabled && document.querySelector("#pause").textContent === "继续"');
+if (buttonAudit) {
+  if (await evaluate('!document.querySelector(".command-backdrop").hidden')) {
+    await evaluate('document.querySelector(".command-window>nav button:last-child").click()');
+  }
+  await auditButtonLabels();
+} else if (mobile) {
+  await assertClearBattlefield();
   await checkMobile();
 } else {
+await assertClearBattlefield();
 await assertLongLabelsFit();
 await evaluate('document.querySelectorAll(".hero-shortcuts button")[1].click()');
 await until('document.querySelector(".unit-info h2").textContent.includes("小小")');
