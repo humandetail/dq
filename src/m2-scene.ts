@@ -100,6 +100,8 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
   const [surface] = await Promise.all([addM2Terrain(scene), coreModels]);
   canvas.dataset.terrainGrid = `${surface.cellsX}x${surface.cellsY}`;
   canvas.dataset.terrainDoodads = `${surface.trees}+${surface.plants}`;
+  const environment = "animate" in surface ? surface : undefined;
+  if (environment) canvas.dataset.terrainEnvironment = `${environment.leaves}+${environment.lights}`;
 
   function project() {
     const overhead = Math.abs(pitch - Math.PI / 2) < 1e-6;
@@ -601,6 +603,7 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
       display.style.left = `${canvasLeft + (projectedTitle.x + 1) * width / 2}px`;
       display.style.top = `${canvasTop + (1 - projectedTitle.y) * height / 2}px`;
     }
+    environment?.animate(camera, (state?.queue.nowUs ?? 0) / 1_000_000);
     renderer.resetState();
     renderer.render(scene, camera);
     if (!state) return;

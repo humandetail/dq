@@ -296,6 +296,55 @@
 .command-ui .appearance-options .command-icon-label::before { width: 36px; height: 36px; }
 .command-ui .appearance-options button[aria-pressed="true"] { border-color: var(--gold); background: #35412b; }
 
+.command-ui .command-window {
+  background: linear-gradient(#142019ed, #142019ed), url('./assets/original-map/ui/panel.png') center / 100% 100%;
+}
+.command-ui #opening {
+  background: linear-gradient(#0d152545, #0d1525b8), url('./assets/original-map/ui/opening.png') center / 100% 100%;
+}
+.command-ui :is(#choices, #cards) button[data-rarity] { --card-frame: url('./assets/original-map/ui/normal.png'); }
+.command-ui :is(#choices, #cards) button[data-rarity="SR"] { --card-frame: url('./assets/original-map/ui/sr.png'); }
+.command-ui :is(#choices, #cards) button[data-rarity="SSR"] { --card-frame: url('./assets/original-map/ui/ssr.png'); }
+.command-ui :is(#choices, #cards) button[data-rarity] {
+  background-image: linear-gradient(#14201988, #142019cc), var(--card-frame);
+  background-size: 100% 100%;
+  min-height: 44px;
+}
+.command-ui #choices button .original-icon-inline { width: 32px; height: 32px; }
+.command-ui .twelve-slots button:not(.original-icon-tile, .painted) {
+  background-image: linear-gradient(#141b21a8, #141b21a8), url('./assets/original-map/ui/skill.png');
+  background-size: 100% 100%;
+}
+.command-ui .original-shop-buy {
+  background-image: linear-gradient(#15221b86, #15221b86), url('./assets/original-map/ui/buy.png');
+  background-size: 100% 100%;
+}
+.command-ui .original-shop-buy:hover:not(:disabled) {
+  background-image: linear-gradient(#15221b86, #15221b86), url('./assets/original-map/ui/buyHover.png');
+}
+.command-ui .original-shop-buy:active:not(:disabled) {
+  background-image: linear-gradient(#15221b86, #15221b86), url('./assets/original-map/ui/buyDown.png');
+}
+.command-ui #season-tasks {
+  background: linear-gradient(#15221be8, #15221be8), url('./assets/original-map/ui/task.png') center / 100% 100%;
+  padding-inline: 8px;
+}
+.command-ui #season-tasks p::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-inline-end: 4px;
+  vertical-align: middle;
+  background: url('./assets/original-map/ui/taskReward.png') center / contain no-repeat;
+}
+.command-ui .live-damage {
+  background: linear-gradient(#12150d52, #12150d52), url('./assets/original-map/ui/damage.png') center / 100% 100%;
+  padding-inline: .22em;
+  border-bottom: 1px solid #b75d3f;
+  border-image: url('./assets/original-map/ui/damageBar.png') 1;
+}
+
 .original-map-images {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 256px));

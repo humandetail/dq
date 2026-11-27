@@ -1,5 +1,6 @@
 import type { OverBudgetSlice, SimulationInput, SimulationOutput } from "./m2-simulation-protocol.ts";
 import { createCommandUI } from "./m2-command.ts";
+import battleMusicUrl from "./assets/original-map/audio/BG_1.mp3";
 import { prependOriginalIcon, setCommandIcon } from "./m2-icons.ts";
 import { isDivineBook } from "./game/m2/divine.ts";
 import { appearanceChoice, appearanceChoices, appearanceSlots, appearanceUnlocked, type Appearance, type AppearanceSlot } from "./game/m2/appearance.ts";
@@ -1071,7 +1072,8 @@ function showControls() {
   const choices = el("choices");
   choices.replaceChildren();
   for (const card of run?.openingCandidates ?? []) {
-    addButton(choices, cardName(card), () => send({ type: "choose-opening", card }), locked, card);
+    const choice = addButton(choices, cardName(card), () => send({ type: "choose-opening", card }), locked, card);
+    choice.dataset.rarity = cardTemplates.get(card)!.rarity;
   }
 
   const builds = el("builds");
@@ -1188,10 +1190,12 @@ function showControls() {
   const cards = el("cards");
   cards.replaceChildren();
   for (const card of [...run?.cards ?? []].sort((a, b) => (a.slot ?? 6) - (b.slot ?? 6))) {
-    addButton(cards, card.slot === null ? `拾取 ${cardName(card.card)}` : cardName(card.card), () => {
+    const control = addButton(cards, card.slot === null ? `拾取 ${cardName(card.card)}` : cardName(card.card), () => {
       if (card.slot === null) send({ type: "pick-up-card", cardId: card.id });
       else placeCard(card.id, card.card);
-    }, locked, card.card).setAttribute("aria-pressed", String(build?.key === String(card.id)));
+    }, locked, card.card);
+    control.dataset.rarity = cardTemplates.get(card.card)!.rarity;
+    control.setAttribute("aria-pressed", String(build?.key === String(card.id)));
     if (card.slot !== null) {
       if (!card.bound) addButton(cards, `丢下 ${cardName(card.card)}`, () => send({ type: "drop-card", cardId: card.id }));
       if (talent?.id === "W012" && card.slot !== 0) {
@@ -1584,6 +1588,27 @@ setCommandIcon(el("reset-view"), "recenter", "复位视角");
 setCommandIcon(el("cancel-placement"), "close", "取消放置");
 setCommandIcon(el("cancel-save-wait"), "close", "取消等待");
 setCommandIcon(el("retry-save"), "retry", "重试存档");
+const music = new Audio();
+music.preload = "none";
+music.loop = true;
+music.volume = .3;
+music.src = battleMusicUrl;
+const musicControl = el<HTMLButtonElement>("battle-music");
+music.addEventListener("playing", () => {
+  musicControl.textContent = "静音背景音乐";
+  musicControl.setAttribute("aria-pressed", "true");
+});
+music.addEventListener("pause", () => {
+  musicControl.textContent = "开启背景音乐";
+  musicControl.setAttribute("aria-pressed", "false");
+});
+musicControl.onclick = () => {
+  if (music.error) music.load();
+  if (music.paused) void music.play().catch(() => {
+    if (music.error) musicControl.textContent = "背景音乐加载失败，点按重试";
+  });
+  else music.pause();
+};
 const commandUI = createCommandUI({ match: () => compatibleMap() ? run : undefined, scene: () => draw, send, writable, placeCard,
   refreshManagement: showControls, cancel: clearPlacement, placing: () => !!build || !!pointSpell || !!scoutWard || wolfMoveId !== undefined || artilleryTowerId !== undefined });
 const sceneReady = createM2Scene(el<HTMLCanvasElement>("field"), point => {
