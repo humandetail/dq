@@ -35,7 +35,14 @@
   scrollbar-width: none;
   overscroll-behavior: contain;
 }
-.command-ui .hero-shortcuts button { flex-shrink: 0; width: 48px; height: 44px; padding: 2px; }
+.command-ui .hero-shortcuts button {
+  flex-shrink: 0;
+  width: 48px;
+  min-height: 44px;
+  padding: 2px;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
 .command-ui .battlefield-tools {
   grid-area: camera;
   position: static;
@@ -84,6 +91,17 @@
 .dock-heading { display: flex; align-items: center; border-bottom: 1px solid #4b563e; }
 .dock-heading .selection-strip { flex: 1; min-width: 0; border: 0; overflow-x: auto; scrollbar-width: none; }
 .dock-heading .selection-strip button { flex-shrink: 0; }
+.command-ui header p,
+.command-context p,
+.unit-info > div:last-child,
+.six-slots button,
+.twelve-slots button {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.six-slots, .twelve-slots { align-content: start; max-height: 158px; overflow-y: auto; }
+.six-slots { grid-auto-rows: minmax(64px, auto); }
+.twelve-slots { grid-auto-rows: minmax(45px, auto); }
 
 @media (max-width: 900px), (pointer: coarse) and (max-height: 600px) {
   .command-ui {
@@ -121,6 +139,11 @@
   .command-context { height: 52px; gap: 0; flex-wrap: nowrap; overflow: auto; overscroll-behavior: contain; }
   .command-ui .placement-bar { flex: 2; }
   .command-ui .placement-bar p, .command-ui .command-status p { font-size: 12px; }
+  .command-ui .placement-bar p, .command-ui .command-status, .touch-actions p {
+    max-height: 48px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
   .command-context:has(.touch-actions:not([hidden]), #cancel-placement:not([hidden]), #feedback:not(:empty)) #save { display: none; }
   .command-ui .command-dock { height: auto; }
   .dock-heading .selection-strip { height: auto; align-items: center; padding: 2px 0 2px 6px; }
@@ -136,7 +159,7 @@
   .dock-body .unit-inventory, .dock-body .unit-commands { padding: 0; border: 0; }
   .command-dock:not(.show-inventory) .unit-inventory, .command-dock.show-inventory .unit-commands { display: none; }
   .dock-body h3, .command-ui kbd { display: none; }
-  .six-slots, .twelve-slots { grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: minmax(44px, auto); gap: 4px; }
+  .six-slots, .twelve-slots { grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: minmax(44px, auto); max-height: 104px; gap: 4px; }
   .twelve-slots .empty-command { display: none; }
   .six-slots button, .twelve-slots button { padding: 5px 1px 4px; line-height: 1.15; overflow-wrap: anywhere; }
   .command-ui .command-backdrop { display: block; inset: 0; backdrop-filter: none; }

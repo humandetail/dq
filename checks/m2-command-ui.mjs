@@ -56,6 +56,39 @@ async function assertClearBattlefield() {
   assert.deepEqual(covering, [], 'Main interface covers the battlefield');
   assert.ok(height >= 150 && canPointAtCenter, 'Battlefield must have a visible, actionable play area');
 }
+async function assertLongLabelsFit() {
+  const clipped = await evaluate(`(() => {
+    const labels = {
+      '.hero-shortcuts button:last-child': '熊猫酒仙<SSR>',
+      '.unit-info h2': '大地风暴烈火<SSR>',
+      '.unit-info p': '等级 100 · 经验 123456789 · 技能点 12345 · 射程 750 · 魔法 100000000000000/100000000000000',
+      '.twelve-slots button:first-child': '召唤风暴、烈火和大地之灵',
+      '.touch-actions p': '等待工人完成当前建造，再选择接收装备的友方单位，或取消操作。',
+      '#feedback': '此处不可放置 · 避开道路、障碍及已有塔，并留出完整底座空间。金币、木材或人口不足时，请换一座塔或补足资源。'
+    };
+    return Object.entries(labels).filter(([selector, text]) => {
+      const node = document.querySelector(selector);
+      const actions = node.closest('.touch-actions');
+      const wasHidden = actions?.hidden;
+      if (actions) actions.hidden = false;
+      const label = [...node.childNodes].find(child => child.nodeType === Node.TEXT_NODE);
+      const original = label?.data;
+      const sample = label ?? node.appendChild(document.createTextNode(''));
+      sample.data = text;
+      const range = document.createRange();
+      range.selectNodeContents(sample);
+      const box = node.getBoundingClientRect();
+      const style = getComputedStyle(node);
+      const cropped = [...range.getClientRects()].some(rect => rect.left < box.left - 1 || rect.right > box.right + 1 ||
+        rect.top < box.top - 1 || (style.overflowY !== 'auto' && rect.bottom > box.bottom + 1));
+      if (label) label.data = original;
+      else sample.remove();
+      if (actions) actions.hidden = wasHidden;
+      return cropped;
+    }).map(([selector]) => selector);
+  })()`);
+  assert.deepEqual(clipped, [], 'Long labels overflow their containers');
+}
 async function checkMobile() {
   const q = selector => 'document.querySelector(' + JSON.stringify(selector) + ')';
   async function touch(type, point) {
@@ -179,6 +212,7 @@ async function checkMobile() {
     await until('innerWidth === '+width);
     assert.equal(await evaluate('document.documentElement.scrollWidth <= innerWidth'),true);
     await assertClearBattlefield();
+    await assertLongLabelsFit();
     await center('.twelve-slots button:first-child');
     await center('#reset-view');
     if (width === 320 || width === 844) await capture('battle-'+width+'.png');
@@ -215,6 +249,7 @@ await assertClearBattlefield();
 if (mobile) {
   await checkMobile();
 } else {
+await assertLongLabelsFit();
 await evaluate('document.querySelectorAll(".hero-shortcuts button")[1].click()');
 await until('document.querySelector(".unit-info h2").textContent.includes("小小")');
 const toggleTarget = await evaluate(`(() => {
