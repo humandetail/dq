@@ -1,0 +1,164 @@
+{
+  "version": "m3-dev-1",
+  "configuration": "m3-config-1",
+  "policy": "m3-r02-dragon-knight-1-actual-opening-continuation",
+  "cardId": "i551",
+  "samples": [
+    {
+      "seed": 37,
+      "source": [
+        [
+          "src/game/m2/match.ts",
+          "ecad9038b41fb7473b0aed8386d5948b8284625bd157fd94003a5c8cb0177551"
+        ],
+        [
+          "src/game/m2/content.ts",
+          "0534cdbf3588c3e84e840ead6e2d5db8dcb5c9b5d8bf41d5eb9f3e0929a7889c"
+        ],
+        [
+          "src/game/m2/combat.ts",
+          "d360366e128802e18c1c343e9a6e35183fea3313e11db5229c9b2f97fbb787d0"
+        ],
+        [
+          "src/game/m2/movement.ts",
+          "d8005a8134bd38132e72b6446d225b3b3e38436c1fc02ec2ba8efb72888477df"
+        ],
+        [
+          "src/game/m2/hero-spells.ts",
+          "95bb26fe9320121bff51a88b8f5dd9b0c2d1ff4096a0db9c900444da62d9b40b"
+        ],
+        [
+          "src/game/m2/weapons.json",
+          "8cdf7eb5b89cba10995745ad91494f152e918a61f79ee92071b0b07338ef1a97"
+        ],
+        [
+          "docs/m3-configuration.json",
+          "aafd409af2051dd97a8add1f62f93455253f2b5368f1b09fe835e39157e7aed9"
+        ]
+      ],
+      "initialStateSha256": "2bb6917dcf3f51fe22a978839bf28151175c383e3cf147707539c6988b4fa1ca",
+      "candidates": [
+        "i551",
+        "i565",
+        "i556",
+        "i593"
+      ],
+      "opening": "i551",
+      "heroId": 8,
+      "effects": {
+        "H003/A009": {
+          "atUs": 57557319,
+          "x": -880,
+          "y": 362.4686,
+          "targetId": 19,
+          "casterId": 8,
+          "ownerId": 8,
+          "sourceTemplate": "H003",
+          "amount": 60,
+          "deadUnitId": "m001",
+          "lifeOffset": 7
+        },
+        "H003/A008": {
+          "atUs": 68445641,
+          "x": -684.1496,
+          "y": -16,
+          "targetId": 37,
+          "casterId": 60,
+          "ownerId": 8,
+          "sourceTemplate": "q006",
+          "amount": 60,
+          "deadUnitId": "m001"
+        },
+        "H003/dragon": {
+          "templateId": "E001",
+          "atUs": 90812500
+        },
+        "G077/A009": {
+          "atUs": 111973215,
+          "x": -16,
+          "y": -643.17475,
+          "targetId": 112,
+          "casterId": 8,
+          "ownerId": 8,
+          "sourceTemplate": "G077",
+          "amount": 144,
+          "deadUnitId": "m002",
+          "lifeOffset": 252
+        },
+        "G077/A008": {
+          "atUs": 120479697,
+          "x": -615.75325,
+          "y": -16,
+          "targetId": 107,
+          "casterId": 128,
+          "ownerId": 8,
+          "sourceTemplate": "q006",
+          "amount": 144,
+          "deadUnitId": "m002"
+        },
+        "G077/dragon": {
+          "templateId": "E023",
+          "atUs": 121656250
+        }
+      },
+      "commands": [
+        {
+          "atUs": 1500010,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A008"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 56500011,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A009"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 90500012,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A010"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 111500013,
+          "action": {
+            "type": "choose-skin",
+            "towerId": 8,
+            "choice": "S372"
+          },
+          "result": {
+            "ok": true
+          }
+        }
+      ],
+      "continuation": {
+        "cardInstance": 7,
+        "wave": 0,
+        "prefixInputs": 10,
+        "inputLogSha256": "3ece4f3fbef78c91dd835d8cbf569441a0588625815a85ffe7bd5efc2fe823a8"
+      },
+      "end": {
+        "phase": "running",
+        "wave": 2,
+        "atUs": 122500014
+      },
+      "status": "passed"
+    }
+  ]
+}

@@ -1,0 +1,289 @@
+{
+  "version": "m3-dev-1",
+  "configuration": "m3-config-1",
+  "policy": "m3-r02-morphling-1-actual-draw-continuation",
+  "cardId": "i595",
+  "samples": [
+    {
+      "seed": 14,
+      "source": [
+        [
+          "src/game/m2/match.ts",
+          "2097ca64a182319ac75a59a5f450d6a0b0ee163f0ee5c72b60d0aeff4b385524"
+        ],
+        [
+          "src/game/m2/content.ts",
+          "0534cdbf3588c3e84e840ead6e2d5db8dcb5c9b5d8bf41d5eb9f3e0929a7889c"
+        ],
+        [
+          "src/game/m2/combat.ts",
+          "d360366e128802e18c1c343e9a6e35183fea3313e11db5229c9b2f97fbb787d0"
+        ],
+        [
+          "src/game/m2/movement.ts",
+          "d5aa42e15b296ac21ba6844e8f348ce74f39ead3218226b4af54ebca5b69c1bc"
+        ],
+        [
+          "src/game/m2/hero-spells.ts",
+          "95bb26fe9320121bff51a88b8f5dd9b0c2d1ff4096a0db9c900444da62d9b40b"
+        ],
+        [
+          "src/game/m2/weapons.json",
+          "8cdf7eb5b89cba10995745ad91494f152e918a61f79ee92071b0b07338ef1a97"
+        ],
+        [
+          "docs/m3-configuration.json",
+          "aafd409af2051dd97a8add1f62f93455253f2b5368f1b09fe835e39157e7aed9"
+        ]
+      ],
+      "initialStateSha256": "c9921a278b1e8580f12f041452b56cb8ed6b3565d6da4b7c6b29b30f969fbe1c",
+      "candidates": [
+        "i556",
+        "i567",
+        "i588",
+        "i558"
+      ],
+      "opening": "i556",
+      "heroId": 504,
+      "effects": {
+        "H058/A224": {
+          "atUs": 621324629,
+          "x": -481.1879,
+          "y": -1200,
+          "targetId": 493,
+          "casterId": 504,
+          "ownerId": 504,
+          "sourceTemplate": "H058",
+          "amount": 262.8186781962042,
+          "deadUnitId": "m010",
+          "stun": 0.30454545454545456
+        },
+        "H058/A223": {
+          "atUs": 623245299,
+          "x": -358.62534999999997,
+          "y": -848,
+          "targetId": 517,
+          "casterId": 520,
+          "ownerId": 504,
+          "sourceTemplate": "q057",
+          "amount": 410.79999999999995
+        },
+        "H058/A225/AGI": {
+          "atUs": 624100050,
+          "before": {
+            "STR": 33,
+            "AGI": 63
+          },
+          "after": {
+            "STR": 32,
+            "AGI": 64
+          }
+        },
+        "H058/A225/STR": {
+          "atUs": 625100051,
+          "before": {
+            "STR": 23,
+            "AGI": 73
+          },
+          "after": {
+            "STR": 24,
+            "AGI": 72
+          }
+        },
+        "G075/A225/AGI": {
+          "atUs": 627100054,
+          "before": {
+            "STR": 67,
+            "AGI": 93
+          },
+          "after": {
+            "STR": 66,
+            "AGI": 94
+          }
+        },
+        "G075/A225/STR": {
+          "atUs": 628100055,
+          "before": {
+            "STR": 57,
+            "AGI": 103
+          },
+          "after": {
+            "STR": 58,
+            "AGI": 102
+          }
+        },
+        "G075/A223": {
+          "atUs": 632616270,
+          "x": 170.5639,
+          "y": -848,
+          "targetId": 529,
+          "casterId": 532,
+          "ownerId": 504,
+          "sourceTemplate": "q057",
+          "amount": 424
+        },
+        "G075/A224": {
+          "atUs": 636027335,
+          "x": 278.77313,
+          "y": -432,
+          "targetId": 521,
+          "casterId": 504,
+          "ownerId": 504,
+          "sourceTemplate": "G075",
+          "amount": 78.91702482914405,
+          "deadUnitId": "m011",
+          "stun": 0.46021505376344085
+        }
+      },
+      "commands": [
+        {
+          "atUs": 605500044,
+          "action": {
+            "type": "recycle-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 609500045,
+          "action": {
+            "type": "build-card",
+            "cardId": 500,
+            "point": {
+              "x": 288,
+              "y": -640
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 504
+          }
+        },
+        {
+          "atUs": 612000046,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 504,
+            "skillId": "A223"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 620000047,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 504,
+            "skillId": "A224"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 624000048,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 504,
+            "skillId": "A225"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 624000049,
+          "action": {
+            "type": "toggle-morph",
+            "towerId": 504,
+            "attribute": "AGI"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 625000050,
+          "action": {
+            "type": "toggle-morph",
+            "towerId": 504,
+            "attribute": "STR"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 626000051,
+          "action": {
+            "type": "toggle-morph",
+            "towerId": 504,
+            "attribute": "STR"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 626000052,
+          "action": {
+            "type": "choose-skin",
+            "towerId": 504,
+            "choice": "S352"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 627000053,
+          "action": {
+            "type": "toggle-morph",
+            "towerId": 504,
+            "attribute": "AGI"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 628000054,
+          "action": {
+            "type": "toggle-morph",
+            "towerId": 504,
+            "attribute": "STR"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 629000055,
+          "action": {
+            "type": "toggle-morph",
+            "towerId": 504,
+            "attribute": "STR"
+          },
+          "result": {
+            "ok": true
+          }
+        }
+      ],
+      "continuation": {
+        "cardInstance": 500,
+        "wave": 10,
+        "prefixInputs": 44,
+        "inputLogSha256": "d0705149c1915fb77a3cf3bd71d3416f4c4cc2b75837a77424d01559f00f8e98"
+      },
+      "end": {
+        "phase": "running",
+        "wave": 11,
+        "atUs": 637000056
+      },
+      "status": "passed"
+    }
+  ]
+}

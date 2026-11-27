@@ -1,8 +1,8 @@
 # TD3 Web
 
-M2 试玩发布说明：[Preview 1](docs/m2-preview-1.md)。发布成功后的入口为 [GitHub Pages](https://humandetail.github.io/dq/)，本版仍有已知内容缺口。
+**M2 已通过（2026-11-26，按用户决定将遗留项转入 M3）。** 当前发布为 [m2-core-30-ui-1](docs/m2-preview-ui1.md)，入口为 [GitHub Pages](https://humandetail.github.io/dq/)。后续见 [M3 承接清单与计划草案](docs/development-plan-m3.md)。
 
-TD3 是按已提炼内容与已决 Web 规则开发的单人塔防。当前 M2 目标为新的魔兽式 3D 分岔循环地图、魔兽模型、19 条卡片塔系与 3 条工人塔系、完整绑定技能、装备成长及普通难度 55 波主线。范围、顺序和验收以 [M2 开发计划](docs/development-plan-m2.md)为准，当前预览尚未通过 M2 验收，差距见[开发记录](docs/m2-implementation.md)。
+TD3 是按已提炼内容与已决 Web 规则开发的单人塔防。当前 M2 目标为新的魔兽式 3D 分岔循环地图、魔兽模型、19 条卡片塔系与 3 条工人塔系、完整绑定技能、装备成长及普通难度 55 波主线。范围、顺序和验收以 [M2 开发计划](docs/development-plan-m2.md)为准，原未关闭实现、证据及性能项由 M3 承接；历史实测结果见[验收报告](docs/m2-acceptance-core30-2026-11-26.md)。
 
 M1 是已交付的「灯湾环堤」十波主线与无尽样例；下述首页操作和重放说明适用于 M1。M2 开发预览入口为 `/m2.html`。网页使用 TypeScript、Vite 和 WebGL 2，存档保存在当前浏览器的 IndexedDB。
 

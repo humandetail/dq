@@ -1,0 +1,15 @@
+--- /Volumes/personal/www/td3-m3-r01-qual.XWOtIw/src/game/m2/match.ts	2026-11-26 20:10:55
++++ /Volumes/personal/www/td3-m3-r01-welfare.5KRUc3/src/game/m2/match.ts	2026-11-26 20:24:48
+@@ -2391,7 +2391,11 @@
+   if (skillId === "A134") return mapBoss(enemy) && organicWaveTarget(state, enemy);
+   if (skillId === "A166") return mapBoss(enemy) && !mechanicalEnemy(enemy) &&
+     !enemy.abilities?.some(id => id === "Avul" || id === "Aloc");
+-  if ((skillId === "T317" || skillId === "A198") && (types.includes("hero") || /^[A-Z]/.test(enemy.unitId) || mapBoss(enemy))) return false;
++  if (skillId === "T317" || skillId === "A198") {
++    // Source welfare chest units are N534 sappers. Their runtime templates omit that marker.
++    if (types.includes("hero") || /^[A-Z]/.test(enemy.unitId) || mapBoss(enemy) ||
++        enemy.unitId === "m998" || enemy.unitId === "m999") return false;
++  }
+   if (skillId === "A057") return !enemy.abilities?.some(id => id === "Avul" || id === "Aloc");
+   if (skillId === "A042") return !/^[A-Z]/.test(enemy.unitId) && !(enemy.abilities?.includes("N534") && types.includes("sapper"));
+   if ((skillId === "A051" || skillId === "A092" || skillId === "A104") && !organicWaveTarget(state, enemy)) return false;

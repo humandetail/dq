@@ -1,0 +1,56 @@
+{
+  "kind": "controlled browser",
+  "seed": 811,
+  "before": {
+    "position": {
+      "x": -203.0964425626941,
+      "y": -144
+    },
+    "tick": 250000,
+    "matchId": "6e17c08b-9ecf-465a-b224-c8fcab11b880"
+  },
+  "after": {
+    "position": {
+      "x": -104.65894256269411,
+      "y": -144
+    },
+    "tick": 693300,
+    "matchId": "6e17c08b-9ecf-465a-b224-c8fcab11b880",
+    "contentVersion": "m2-core-14",
+    "configVersion": "m2-config-1",
+    "saveVersion": 2,
+    "revision": 4,
+    "approach": null,
+    "items": [
+      {
+        "id": 900,
+        "itemId": "i308",
+        "charges": 0,
+        "slot": 2,
+        "point": {
+          "x": 288,
+          "y": -160
+        }
+      }
+    ]
+  },
+  "status": "passed",
+  "command": "M2_WORKER_RESUME_ONLY=1 node checks/m2-browser.mjs",
+  "delivery": "Local Vite source entry",
+  "baseSource": "2461caa31ddaa8a63932db12803822321c1d9e7e",
+  "relevantTrackedPatchSha256": "eea8f1a642f6175818a46d12dadede0c39d52cedff6975fedecbc277b42b2820",
+  "relevantFileSha256": {
+    "src/m2.ts": "3a21b8386085628a8b1c474afebdd88aba16648d5a3d4d2f3007a2e9efdec174",
+    "checks/m2-browser.mjs": "0c0f77b1960a5bab941aca8030277b37127f93397884443ed211d77168ccad80",
+    "src/game/m2/match.ts": "9459a1b00168baa4c328ebf050d7b3b7aef1c8cdf196ef78b97ebc7a635a690f",
+    "src/game/m2/content.ts": "c977917b013c561c539a959abaea0d0576c3a9c25f8421698cc8c3ef7d6e1d0a",
+    "docs/m2-configuration.json": "294e04e5eae840e755e4d2f7fb70de6fb7e65a640863a743c53843803dc8ca96"
+  },
+  "input": [
+    "Prepare a pickup approach through the engine, pause and save",
+    "Open the saved run",
+    "Verify the pickup status in the page",
+    "Click Continue and verify completion feedback",
+    "Read updated IndexedDB checkpoint"
+  ]
+}

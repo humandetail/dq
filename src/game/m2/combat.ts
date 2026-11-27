@@ -29,6 +29,33 @@ export type Weapon = {
   splashTargets?: string[];
 };
 
+export type WeaponPhase = {
+  workUs: number;
+  recordedUs: number;
+  dueUs: number;
+  timerId: number;
+};
+
+export type WeaponTiming = {
+  version: 1;
+  slot: number;
+  rawRate: number;
+  cycleUs: number;
+  pointUs: number;
+  recoveryUs: number;
+  cooldown?: WeaponPhase;
+  windup?: WeaponPhase;
+  backswing?: WeaponPhase;
+};
+
+export function weaponPhaseDelay(workUs: number, rate: number) {
+  return workUs > 0 ? Math.max(1, Math.round(workUs / rate)) : 0;
+}
+
+export function weaponScheduleRate(rawRate: number) {
+  return Math.min(5, Math.max(.2, rawRate));
+}
+
 export const weapons: Record<string, Weapon[]> = { ...source };
 for (const base of [122, 132]) for (let rank = 0; rank < 6; rank++) {
   weapons["b" + (base + rank)] = [{
@@ -38,7 +65,14 @@ for (const base of [122, 132]) for (let rank = 0; rank < 6; rank++) {
     base: [40, 70, 100, 130, 160, 200][rank], dice: 0, sides: 0,
   }];
 }
-export const criticalMultipliers = new Map([["n165", 1.5], ["n166", 1.9], ["n167", 2.8], ["n191", 1.5], ["n192", 1.9], ["n193", 2.3], ["n194", 8]]);
+export const criticalMultipliers = new Map([
+  ["n165", 1.5], ["n166", 1.9], ["n167", 2.8], ["n191", 1.5], ["n192", 1.9], ["n193", 2.3], ["n194", 8],
+  ...[1.2, 1.4, 1.6, 1.8, 2, 2.3, 2.6].map((multiple, index) => ["n" + (221 + index), multiple] as const),
+]);
+export const blademasterCriticalChance = [20, 24, 28, 32, 36, 40];
+export const blademasterCriticalMultiplier = [2.3, 2.6, 2.9, 3.2, 3.5, 3.8];
+export const wraithCriticalChance = [10, 12, 14, 16, 18, 21];
+export const wraithCriticalMultiplier = [1.5, 2, 2.5, 3, 4.5, 5];
 export const equipmentAttackSpeed = new Map(attackSpeeds.items.map(row => [row.id, row.webPct / 100]));
 const equipmentAttributes = new Map(itemAttributes.items.map(row => [row.id, row.webStats]));
 export function effectiveAttributes(hero: Hero, items: string[]) {
@@ -57,19 +91,35 @@ export function effectiveAttributes(hero: Hero, items: string[]) {
 export const flatAttack = new Map(items.items.map(row => [row.id, row.webFlatAttack]));
 export const unitBalance = new Map(balances.map(row => [row.unitBalanceID, row]));
 export const unitTargetType = new Map(units.map(row => [row.unitID, row.targType]));
+export const unitMovementType = new Map(units.map(row => [row.unitID, row.movetp]));
 export type WeaponShot = {
   towerId: number;
   sourceTemplate: string;
-  targetId: number;
+  targetId?: number;
+  objectId?: number;
   weapon: Weapon;
   raw: number;
   point: Point;
   destination: Point;
-  summon?: { id: number; green: number; blue: number; attack: number; banner: boolean; skillId?: string };
+  summon?: { id: number; point?: Point; banner: boolean; skillId?: string; illusion?: true; output?: number; criticalRank?: number; trueHit?: number;
+    contract?: { red?: number; green: number; blue: number; baseAttack: number } };
   orbBonus?: number;
   frost?: number;
+  heroFrostRank?: number;
+  arcaneOrbPaid?: true;
   artilleryMiss?: boolean;
+  artilleryCritical?: { multiplier: number; sureHit: boolean; fixedBonus: number };
   corrosion?: number;
+  attackEquipment?: string[];
+  secondary?: true;
+  bounce?: { remaining: number; visited: number[] };
+  wraithCritRank?: number;
+  coupCritRank?: number;
+  doomCritRank?: number;
+  blademasterCritRank?: number;
+  moonGlaiveRank?: number;
+  fixedHitBonus?: number;
+  divineCritical?: { chance: number; multiple: number };
 };
 
 const { positiveArmorCoefficient, negativeArmorExponentialBase } = rules.rules.B01;

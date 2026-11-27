@@ -1,0 +1,235 @@
+{
+  "kind": "normal-recorded-draw-fork",
+  "seed": 73037,
+  "inputLogSha256": "1d07c4ec01e04f05cdda87fec797e5f2ba58b9384d70c84d6b3330d9d7f66527",
+  "forkAt": {
+    "atUs": 813750049,
+    "wave": 15,
+    "draw": {
+      "id": 828,
+      "card": "i571",
+      "slot": 1,
+      "point": {
+        "x": 590.6008300203048,
+        "y": 400
+      },
+      "invulnerable": true,
+      "hp": 20,
+      "charges": 1
+    },
+    "nextInput": 49,
+    "snapshotSha256": "63f56c9daeb6ef4c380fad19150b8765a39d74b5e368e3590c6a900ea849f74c",
+    "progress": {
+      "spring": {
+        "counts": {
+          "7": 666
+        },
+        "points": 40,
+        "nodes": [
+          1,
+          4
+        ],
+        "unlocks": []
+      },
+      "summer": {
+        "counts": {
+          "3": 2,
+          "7": 666
+        },
+        "points": 30,
+        "nodes": [
+          1
+        ],
+        "unlocks": []
+      }
+    }
+  },
+  "follow": [
+    {
+      "atUs": 813750049,
+      "action": {
+        "type": "recycle-tower",
+        "towerId": 9
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 816750050,
+      "action": {
+        "type": "recycle-tower",
+        "towerId": 10
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 819750051,
+      "action": {
+        "type": "build-card",
+        "cardId": 828,
+        "point": {
+          "x": -288,
+          "y": -640
+        }
+      },
+      "result": {
+        "ok": true,
+        "createdId": 835
+      }
+    },
+    {
+      "atUs": 826500052,
+      "action": {
+        "type": "learn-skill",
+        "towerId": 835,
+        "skillId": "A111"
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 826500053,
+      "action": {
+        "type": "buy-book",
+        "bookId": "i128"
+      },
+      "result": {
+        "ok": true,
+        "createdId": 836
+      }
+    },
+    {
+      "atUs": 826500054,
+      "action": {
+        "type": "use-book",
+        "itemId": 836,
+        "towerId": 835
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 826500055,
+      "action": {
+        "type": "cast-hero",
+        "towerId": 835,
+        "skillId": "A111",
+        "targetId": 8
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 829500056,
+      "action": {
+        "type": "learn-skill",
+        "towerId": 835,
+        "skillId": "A113"
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 829500057,
+      "action": {
+        "type": "learn-skill",
+        "towerId": 835,
+        "skillId": "A112"
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 829500058,
+      "action": {
+        "type": "buy-book",
+        "bookId": "i128"
+      },
+      "result": {
+        "ok": true,
+        "createdId": 838
+      }
+    },
+    {
+      "atUs": 829500059,
+      "action": {
+        "type": "use-book",
+        "itemId": 838,
+        "towerId": 835
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 829500060,
+      "action": {
+        "type": "cast-hero",
+        "towerId": 835,
+        "skillId": "A112"
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 829500061,
+      "action": {
+        "type": "cast-hero",
+        "towerId": 835,
+        "skillId": "A113",
+        "point": {
+          "x": -288,
+          "y": -640
+        }
+      },
+      "result": {
+        "ok": true
+      }
+    }
+  ],
+  "wispId": 835,
+  "maxOvercharge": 0,
+  "progress": {
+    "spring": {
+      "counts": {
+        "1": 1,
+        "3": 1,
+        "7": 666
+      },
+      "points": 40,
+      "nodes": [
+        1,
+        4
+      ],
+      "unlocks": []
+    },
+    "summer": {
+      "counts": {
+        "3": 2,
+        "7": 666
+      },
+      "points": 30,
+      "nodes": [
+        1
+      ],
+      "unlocks": []
+    }
+  },
+  "allowRecycling": true,
+  "end": {
+    "phase": "running",
+    "wave": 15,
+    "atUs": 832500062,
+    "population": 50,
+    "limit": 50
+  }
+}

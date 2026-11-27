@@ -1,0 +1,331 @@
+{
+  "seed": 73047,
+  "card": "i563",
+  "template": "H020",
+  "candidates": [
+    "i563",
+    "i572",
+    "i593",
+    "i566"
+  ],
+  "initialStateSha256": "72d59542a8ff9b86a167ff8113d413169a404ac69c562a104b65d9b219221532",
+  "sourceInputSha256": "a2909c3f545349b0d8b95f4c466f996a476d5669e1c2cc374daba779d19c1d08",
+  "openingInstance": 7,
+  "heroId": 8,
+  "heroStartUs": 5500009,
+  "learned": {
+    "A064": {
+      "level": 1,
+      "rank": 1,
+      "atUs": 5500010
+    },
+    "A065": {
+      "level": 2,
+      "rank": 1,
+      "atUs": 45500011
+    },
+    "A066": {
+      "level": 3,
+      "rank": 1,
+      "atUs": 68500014
+    }
+  },
+  "observations": {
+    "A064": {
+      "wave": 1,
+      "atUs": 37340947,
+      "hits": [
+        {
+          "atUs": 37340947,
+          "x": -0.18376485376158325,
+          "y": -1229.6880335923197,
+          "targetId": 13,
+          "casterId": 8,
+          "ownerId": 8,
+          "sourceTemplate": "H020",
+          "amount": 12,
+          "deadUnitId": "m001"
+        }
+      ]
+    },
+    "A066-summon": {
+      "wave": 1,
+      "atUs": 69900016,
+      "summonId": 66,
+      "templateId": "q011"
+    },
+    "A066": {
+      "wave": 1,
+      "atUs": 70919766,
+      "spiritId": 67,
+      "spiritTemplate": "q011",
+      "event": "weapon-impact",
+      "spiritTarget": 65,
+      "damage": {
+        "atUs": 70919766,
+        "x": 16,
+        "y": -1091.8980000000001,
+        "targetId": 65,
+        "casterId": 8,
+        "ownerId": 8,
+        "sourceTemplate": "H020",
+        "amount": 12,
+        "deadUnitId": "m001"
+      }
+    },
+    "A065": {
+      "wave": 2,
+      "atUs": 89800017,
+      "damage": {
+        "atUs": 89800017,
+        "x": -16,
+        "y": -934.5332500000001,
+        "targetId": 83,
+        "casterId": 84,
+        "ownerId": 8,
+        "sourceTemplate": "q013",
+        "amount": 67.4,
+        "deadUnitId": "m002"
+      },
+      "remaining": 5
+    }
+  },
+  "commands": [
+    {
+      "atUs": 0,
+      "wave": 0,
+      "action": {
+        "type": "choose-talent",
+        "choice": "W005"
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 1,
+      "wave": 0,
+      "action": {
+        "type": "use-item",
+        "itemId": 1
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 2,
+      "wave": 0,
+      "action": {
+        "type": "choose-opening",
+        "card": "i563"
+      },
+      "result": {
+        "ok": true,
+        "createdId": 7
+      }
+    },
+    {
+      "atUs": 3,
+      "wave": 0,
+      "action": {
+        "type": "build-card",
+        "cardId": 7,
+        "point": {
+          "x": -288,
+          "y": -1024
+        }
+      },
+      "result": {
+        "ok": true,
+        "createdId": 8
+      }
+    },
+    {
+      "atUs": 2500004,
+      "wave": 0,
+      "action": {
+        "type": "build-worker-tower",
+        "tower": "n021",
+        "point": {
+          "x": 288,
+          "y": -1024
+        }
+      },
+      "result": {
+        "ok": true,
+        "createdId": 9
+      }
+    },
+    {
+      "atUs": 4000005,
+      "wave": 0,
+      "action": {
+        "type": "build-worker-tower",
+        "tower": "n001",
+        "point": {
+          "x": -288,
+          "y": -640
+        }
+      },
+      "result": {
+        "ok": true,
+        "createdId": 10
+      }
+    },
+    {
+      "atUs": 5500006,
+      "wave": 0,
+      "action": {
+        "type": "use-item",
+        "itemId": 2
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 5500007,
+      "wave": 0,
+      "action": {
+        "type": "use-item",
+        "itemId": 4
+      },
+      "result": {
+        "ok": true,
+        "createdId": 12
+      }
+    },
+    {
+      "atUs": 5500008,
+      "wave": 0,
+      "action": {
+        "type": "transfer-item",
+        "itemId": 11,
+        "towerId": 8
+      },
+      "result": {
+        "ok": false,
+        "reason": "equipment"
+      }
+    },
+    {
+      "atUs": 5500009,
+      "wave": 0,
+      "action": {
+        "type": "learn-skill",
+        "towerId": 8,
+        "skillId": "A064"
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 45500010,
+      "wave": 1,
+      "action": {
+        "type": "learn-skill",
+        "towerId": 8,
+        "skillId": "A065"
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 45500011,
+      "wave": 1,
+      "action": {
+        "type": "cast-hero",
+        "towerId": 8,
+        "skillId": "A065",
+        "point": {
+          "x": -6.325251021422004,
+          "y": -1261.0242469357338
+        }
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 56500012,
+      "wave": 1,
+      "action": {
+        "type": "cast-hero",
+        "towerId": 8,
+        "skillId": "A065",
+        "point": {
+          "x": -206.1422,
+          "y": -1200
+        }
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 68500013,
+      "wave": 1,
+      "action": {
+        "type": "learn-skill",
+        "towerId": 8,
+        "skillId": "A066"
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 68500014,
+      "wave": 1,
+      "action": {
+        "type": "cast-hero",
+        "towerId": 8,
+        "skillId": "A065",
+        "point": {
+          "x": -0.0008854377448471462,
+          "y": -1279.9973436867654
+        }
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 69500015,
+      "wave": 1,
+      "action": {
+        "type": "cast-hero",
+        "towerId": 8,
+        "skillId": "A066"
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 88500016,
+      "wave": 2,
+      "action": {
+        "type": "cast-hero",
+        "towerId": 8,
+        "skillId": "A065",
+        "point": {
+          "x": -7.906959061485001,
+          "y": -1256.279122815545
+        }
+      },
+      "result": {
+        "ok": true
+      }
+    }
+  ],
+  "seasonSummer1": 0,
+  "end": {
+    "wave": 2,
+    "phase": "running"
+  },
+  "status": "base-observations-complete"
+}

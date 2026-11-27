@@ -1,0 +1,4231 @@
+{
+  "version": "m3-dev-1",
+  "configuration": "m3-config-1",
+  "cardId": "i703",
+  "chain": [
+    "n199",
+    "n200",
+    "n201",
+    "n202",
+    "n203",
+    "n204",
+    "n205",
+    "n206",
+    "n207",
+    "n208"
+  ],
+  "policy": "m3-r02-rock-golem-1",
+  "samples": [
+    {
+      "seed": 14,
+      "source": [
+        [
+          "src/game/m2/match.ts",
+          "f3c472a07d65ee5577c3b19f1016eb2d84517f104273bc326c66a921652ced3b"
+        ],
+        [
+          "src/game/m2/content.ts",
+          "423ab48a3b12c4e45a091706bd6029d884f815bb0bc65835633b0bd7c305370a"
+        ],
+        [
+          "src/game/m2/combat.ts",
+          "9979ca16bc8dbef9b503f0db0d910dc071f6315519af89b7971b35dfa7e3be60"
+        ],
+        [
+          "src/game/m2/weapons.json",
+          "a85df4355fd2b5488223ac2c1a9e358b717526767ddbead8e0d200afa931619a"
+        ]
+      ],
+      "initialStateSha256": "03d04b054bef03559bca27efcfa03bfdcee67000cc488a5af15656378ffeeb46",
+      "initial": {
+        "gold": 2000,
+        "lumber": 0,
+        "opening": [
+          "i581",
+          "i569",
+          "i565",
+          "i564"
+        ]
+      },
+      "opening": "i564",
+      "elapsedDraws": 12,
+      "levels": [],
+      "effects": {},
+      "end": {
+        "phase": "failed",
+        "wave": 14,
+        "atUs": 759000000,
+        "gold": 7266,
+        "result": {
+          "reason": "capacity",
+          "points": 119,
+          "atUs": 759000000
+        }
+      },
+      "status": "failed",
+      "commands": [
+        {
+          "atUs": 0,
+          "wave": 0,
+          "action": {
+            "type": "choose-talent",
+            "choice": "W005"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 1,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2,
+          "wave": 0,
+          "action": {
+            "type": "choose-opening",
+            "card": "i564"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000,
+          "obtained": "i564"
+        },
+        {
+          "atUs": 3,
+          "wave": 0,
+          "action": {
+            "type": "build-card",
+            "cardId": 7,
+            "point": {
+              "x": -288,
+              "y": -1024
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500004,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 2
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500005,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 4
+          },
+          "result": {
+            "ok": true,
+            "createdId": 10
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500006,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 5
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500007,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 6
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500008,
+          "wave": 0,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 9,
+            "towerId": 8
+          },
+          "result": {
+            "ok": false,
+            "reason": "missing"
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500009,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 9
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500010,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 10
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500011,
+          "wave": 0,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2104
+        },
+        {
+          "atUs": 2500012,
+          "wave": 0,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 12
+          },
+          "goldBefore": 2104,
+          "goldAfter": 1104,
+          "obtained": "i704"
+        },
+        {
+          "atUs": 2500013,
+          "wave": 0,
+          "action": {
+            "type": "drop-card",
+            "cardId": 12
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1104,
+          "goldAfter": 1104
+        },
+        {
+          "atUs": 3500014,
+          "wave": 0,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1104,
+          "goldAfter": 1104
+        },
+        {
+          "atUs": 12500015,
+          "wave": 0,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 14
+          },
+          "goldBefore": 1220,
+          "goldAfter": 220,
+          "obtained": "i711"
+        },
+        {
+          "atUs": 12500016,
+          "wave": 0,
+          "action": {
+            "type": "drop-card",
+            "cardId": 14
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 220,
+          "goldAfter": 220
+        },
+        {
+          "atUs": 49500017,
+          "wave": 1,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 306,
+          "goldAfter": 306
+        },
+        {
+          "atUs": 79500018,
+          "wave": 1,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A069"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 597,
+          "goldAfter": 597
+        },
+        {
+          "atUs": 120500019,
+          "wave": 2,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 130
+          },
+          "goldBefore": 1177,
+          "goldAfter": 177,
+          "obtained": "i715"
+        },
+        {
+          "atUs": 120500020,
+          "wave": 2,
+          "action": {
+            "type": "drop-card",
+            "cardId": 130
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 177,
+          "goldAfter": 177
+        },
+        {
+          "atUs": 122500021,
+          "wave": 2,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 195,
+          "goldAfter": 411
+        },
+        {
+          "atUs": 138500022,
+          "wave": 3,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 534,
+          "goldAfter": 534
+        },
+        {
+          "atUs": 180500023,
+          "wave": 3,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 897,
+          "goldAfter": 897
+        },
+        {
+          "atUs": 194500024,
+          "wave": 4,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 219
+          },
+          "goldBefore": 1008,
+          "goldAfter": 8,
+          "obtained": "i704"
+        },
+        {
+          "atUs": 194500025,
+          "wave": 4,
+          "action": {
+            "type": "drop-card",
+            "cardId": 219
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 8,
+          "goldAfter": 8
+        },
+        {
+          "atUs": 229500026,
+          "wave": 4,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A069"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 403,
+          "goldAfter": 403
+        },
+        {
+          "atUs": 242500027,
+          "wave": 5,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 990,
+          "goldAfter": 1450
+        },
+        {
+          "atUs": 242500028,
+          "wave": 5,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 276
+          },
+          "goldBefore": 1450,
+          "goldAfter": 450,
+          "obtained": "i601"
+        },
+        {
+          "atUs": 242500029,
+          "wave": 5,
+          "action": {
+            "type": "drop-card",
+            "cardId": 276
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 450,
+          "goldAfter": 450
+        },
+        {
+          "atUs": 285500030,
+          "wave": 5,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1050,
+          "goldAfter": 1050
+        },
+        {
+          "atUs": 285500031,
+          "wave": 5,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 292
+          },
+          "goldBefore": 1050,
+          "goldAfter": 50,
+          "obtained": "i609"
+        },
+        {
+          "atUs": 285500032,
+          "wave": 5,
+          "action": {
+            "type": "drop-card",
+            "cardId": 292
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 50,
+          "goldAfter": 50
+        },
+        {
+          "atUs": 360500033,
+          "wave": 6,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 342
+          },
+          "goldBefore": 1147,
+          "goldAfter": 147,
+          "obtained": "i702"
+        },
+        {
+          "atUs": 360500034,
+          "wave": 6,
+          "action": {
+            "type": "drop-card",
+            "cardId": 342
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 147,
+          "goldAfter": 147
+        },
+        {
+          "atUs": 362500035,
+          "wave": 6,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 179,
+          "goldAfter": 515
+        },
+        {
+          "atUs": 416500036,
+          "wave": 7,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 410
+          },
+          "goldBefore": 1013,
+          "goldAfter": 13,
+          "obtained": "i702"
+        },
+        {
+          "atUs": 416500037,
+          "wave": 7,
+          "action": {
+            "type": "drop-card",
+            "cardId": 410
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 13,
+          "goldAfter": 13
+        },
+        {
+          "atUs": 425500038,
+          "wave": 8,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 102,
+          "goldAfter": 102
+        },
+        {
+          "atUs": 480500039,
+          "wave": 9,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 489
+          },
+          "goldBefore": 1763,
+          "goldAfter": 763,
+          "obtained": "i714"
+        },
+        {
+          "atUs": 480500040,
+          "wave": 9,
+          "action": {
+            "type": "drop-card",
+            "cardId": 489
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 763,
+          "goldAfter": 763
+        },
+        {
+          "atUs": 482500041,
+          "wave": 9,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 805,
+          "goldAfter": 1885
+        },
+        {
+          "atUs": 490500042,
+          "wave": 9,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 507
+          },
+          "goldBefore": 1997,
+          "goldAfter": 997,
+          "obtained": "i713"
+        },
+        {
+          "atUs": 490500043,
+          "wave": 9,
+          "action": {
+            "type": "drop-card",
+            "cardId": 507
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 997,
+          "goldAfter": 997
+        },
+        {
+          "atUs": 500500044,
+          "wave": 9,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 523
+          },
+          "goldBefore": 1188,
+          "goldAfter": 188,
+          "obtained": "i709"
+        },
+        {
+          "atUs": 500500045,
+          "wave": 9,
+          "action": {
+            "type": "drop-card",
+            "cardId": 523
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 188,
+          "goldAfter": 188
+        },
+        {
+          "atUs": 521500046,
+          "wave": 9,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A069"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 528,
+          "goldAfter": 528
+        },
+        {
+          "atUs": 547500047,
+          "wave": 10,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 554
+          },
+          "goldBefore": 1012,
+          "goldAfter": 12,
+          "obtained": "i607"
+        },
+        {
+          "atUs": 547500048,
+          "wave": 10,
+          "action": {
+            "type": "drop-card",
+            "cardId": 554
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 12,
+          "goldAfter": 12
+        },
+        {
+          "atUs": 602500049,
+          "wave": 10,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1940,
+          "goldAfter": 3060
+        },
+        {
+          "atUs": 655500050,
+          "wave": 11,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 3658,
+          "goldAfter": 3658
+        },
+        {
+          "atUs": 722500051,
+          "wave": 13,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 5848,
+          "goldAfter": 6680
+        },
+        {
+          "atUs": 756500052,
+          "wave": 13,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 7204,
+          "goldAfter": 7204
+        }
+      ]
+    },
+    {
+      "seed": 47,
+      "source": [
+        [
+          "src/game/m2/match.ts",
+          "f3c472a07d65ee5577c3b19f1016eb2d84517f104273bc326c66a921652ced3b"
+        ],
+        [
+          "src/game/m2/content.ts",
+          "423ab48a3b12c4e45a091706bd6029d884f815bb0bc65835633b0bd7c305370a"
+        ],
+        [
+          "src/game/m2/combat.ts",
+          "9979ca16bc8dbef9b503f0db0d910dc071f6315519af89b7971b35dfa7e3be60"
+        ],
+        [
+          "src/game/m2/weapons.json",
+          "a85df4355fd2b5488223ac2c1a9e358b717526767ddbead8e0d200afa931619a"
+        ]
+      ],
+      "initialStateSha256": "a101d50a42796be07fe80ab09b076c0cd575ad8af403b9bf3465e67c2f9494af",
+      "initial": {
+        "gold": 2000,
+        "lumber": 0,
+        "opening": [
+          "i564",
+          "i565",
+          "i576",
+          "i569"
+        ]
+      },
+      "opening": "i564",
+      "elapsedDraws": 12,
+      "levels": [],
+      "effects": {},
+      "end": {
+        "phase": "failed",
+        "wave": 13,
+        "atUs": 709000000,
+        "gold": 4099,
+        "result": {
+          "reason": "capacity",
+          "points": 101,
+          "atUs": 709000000
+        }
+      },
+      "status": "failed",
+      "commands": [
+        {
+          "atUs": 0,
+          "wave": 0,
+          "action": {
+            "type": "choose-talent",
+            "choice": "W005"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 1,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2,
+          "wave": 0,
+          "action": {
+            "type": "choose-opening",
+            "card": "i564"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000,
+          "obtained": "i564"
+        },
+        {
+          "atUs": 3,
+          "wave": 0,
+          "action": {
+            "type": "build-card",
+            "cardId": 7,
+            "point": {
+              "x": -288,
+              "y": -1024
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500004,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 2
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500005,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 4
+          },
+          "result": {
+            "ok": true,
+            "createdId": 10
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500006,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 5
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500007,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 6
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500008,
+          "wave": 0,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 9,
+            "towerId": 8
+          },
+          "result": {
+            "ok": false,
+            "reason": "missing"
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500009,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 9
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500010,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 10
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500011,
+          "wave": 0,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2084
+        },
+        {
+          "atUs": 2500012,
+          "wave": 0,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 12
+          },
+          "goldBefore": 2084,
+          "goldAfter": 1084,
+          "obtained": "i603"
+        },
+        {
+          "atUs": 2500013,
+          "wave": 0,
+          "action": {
+            "type": "drop-card",
+            "cardId": 12
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1084,
+          "goldAfter": 1084
+        },
+        {
+          "atUs": 3500014,
+          "wave": 0,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1084,
+          "goldAfter": 1084
+        },
+        {
+          "atUs": 12500015,
+          "wave": 0,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 14
+          },
+          "goldBefore": 1200,
+          "goldAfter": 200,
+          "obtained": "i608"
+        },
+        {
+          "atUs": 12500016,
+          "wave": 0,
+          "action": {
+            "type": "drop-card",
+            "cardId": 14
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 200,
+          "goldAfter": 200
+        },
+        {
+          "atUs": 49500017,
+          "wave": 1,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 285,
+          "goldAfter": 285
+        },
+        {
+          "atUs": 87500018,
+          "wave": 2,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A069"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 576,
+          "goldAfter": 576
+        },
+        {
+          "atUs": 120500019,
+          "wave": 2,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 134
+          },
+          "goldBefore": 1186,
+          "goldAfter": 186,
+          "obtained": "i712"
+        },
+        {
+          "atUs": 120500020,
+          "wave": 2,
+          "action": {
+            "type": "drop-card",
+            "cardId": 134
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 186,
+          "goldAfter": 186
+        },
+        {
+          "atUs": 122500021,
+          "wave": 2,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 204,
+          "goldAfter": 380
+        },
+        {
+          "atUs": 128500022,
+          "wave": 2,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 466,
+          "goldAfter": 466
+        },
+        {
+          "atUs": 175500023,
+          "wave": 3,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 798,
+          "goldAfter": 798
+        },
+        {
+          "atUs": 200500024,
+          "wave": 4,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 235
+          },
+          "goldBefore": 1000,
+          "goldAfter": 0,
+          "obtained": "i715"
+        },
+        {
+          "atUs": 200500025,
+          "wave": 4,
+          "action": {
+            "type": "drop-card",
+            "cardId": 235
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 0,
+          "goldAfter": 0
+        },
+        {
+          "atUs": 232500026,
+          "wave": 4,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A069"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 303,
+          "goldAfter": 303
+        },
+        {
+          "atUs": 242500027,
+          "wave": 5,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 913,
+          "goldAfter": 1373
+        },
+        {
+          "atUs": 242500028,
+          "wave": 5,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 278
+          },
+          "goldBefore": 1373,
+          "goldAfter": 373,
+          "obtained": "i704"
+        },
+        {
+          "atUs": 242500029,
+          "wave": 5,
+          "action": {
+            "type": "drop-card",
+            "cardId": 278
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 373,
+          "goldAfter": 373
+        },
+        {
+          "atUs": 286500030,
+          "wave": 5,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 293
+          },
+          "goldBefore": 1012,
+          "goldAfter": 12,
+          "obtained": "i607"
+        },
+        {
+          "atUs": 286500031,
+          "wave": 5,
+          "action": {
+            "type": "drop-card",
+            "cardId": 293
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 12,
+          "goldAfter": 12
+        },
+        {
+          "atUs": 288500032,
+          "wave": 5,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 42,
+          "goldAfter": 42
+        },
+        {
+          "atUs": 360500033,
+          "wave": 6,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 346
+          },
+          "goldBefore": 1219,
+          "goldAfter": 219,
+          "obtained": "i706"
+        },
+        {
+          "atUs": 360500034,
+          "wave": 6,
+          "action": {
+            "type": "drop-card",
+            "cardId": 346
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 219,
+          "goldAfter": 219
+        },
+        {
+          "atUs": 362500035,
+          "wave": 6,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 246,
+          "goldAfter": 750
+        },
+        {
+          "atUs": 395500036,
+          "wave": 7,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 387
+          },
+          "goldBefore": 1008,
+          "goldAfter": 8,
+          "obtained": "i708"
+        },
+        {
+          "atUs": 395500037,
+          "wave": 7,
+          "action": {
+            "type": "drop-card",
+            "cardId": 387
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 8,
+          "goldAfter": 8
+        },
+        {
+          "atUs": 426500038,
+          "wave": 8,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 339,
+          "goldAfter": 339
+        },
+        {
+          "atUs": 480500039,
+          "wave": 9,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 494
+          },
+          "goldBefore": 2081,
+          "goldAfter": 1081,
+          "obtained": "i704"
+        },
+        {
+          "atUs": 480500040,
+          "wave": 9,
+          "action": {
+            "type": "drop-card",
+            "cardId": 494
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1081,
+          "goldAfter": 1081
+        },
+        {
+          "atUs": 482500041,
+          "wave": 9,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1081,
+          "goldAfter": 1657
+        },
+        {
+          "atUs": 490500042,
+          "wave": 9,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 513
+          },
+          "goldBefore": 1773,
+          "goldAfter": 773,
+          "obtained": "i704"
+        },
+        {
+          "atUs": 490500043,
+          "wave": 9,
+          "action": {
+            "type": "drop-card",
+            "cardId": 513
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 773,
+          "goldAfter": 773
+        },
+        {
+          "atUs": 503500044,
+          "wave": 9,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 534
+          },
+          "goldBefore": 1032,
+          "goldAfter": 32,
+          "obtained": "i711"
+        },
+        {
+          "atUs": 503500045,
+          "wave": 9,
+          "action": {
+            "type": "drop-card",
+            "cardId": 534
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 32,
+          "goldAfter": 32
+        },
+        {
+          "atUs": 518500046,
+          "wave": 9,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A069"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 305,
+          "goldAfter": 305
+        },
+        {
+          "atUs": 549500047,
+          "wave": 10,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 564
+          },
+          "goldBefore": 1015,
+          "goldAfter": 15,
+          "obtained": "i717"
+        },
+        {
+          "atUs": 549500048,
+          "wave": 10,
+          "action": {
+            "type": "drop-card",
+            "cardId": 564
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 15,
+          "goldAfter": 15
+        },
+        {
+          "atUs": 602500049,
+          "wave": 10,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1921,
+          "goldAfter": 3121
+        },
+        {
+          "atUs": 675500050,
+          "wave": 12,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 3537,
+          "goldAfter": 3537
+        }
+      ]
+    },
+    {
+      "seed": 811,
+      "source": [
+        [
+          "src/game/m2/match.ts",
+          "f3c472a07d65ee5577c3b19f1016eb2d84517f104273bc326c66a921652ced3b"
+        ],
+        [
+          "src/game/m2/content.ts",
+          "423ab48a3b12c4e45a091706bd6029d884f815bb0bc65835633b0bd7c305370a"
+        ],
+        [
+          "src/game/m2/combat.ts",
+          "9979ca16bc8dbef9b503f0db0d910dc071f6315519af89b7971b35dfa7e3be60"
+        ],
+        [
+          "src/game/m2/weapons.json",
+          "a85df4355fd2b5488223ac2c1a9e358b717526767ddbead8e0d200afa931619a"
+        ]
+      ],
+      "initialStateSha256": "fe8fa03012ac037c6afbda6c8765ff9a430e81de8cd7bc7d8457da8510883a86",
+      "initial": {
+        "gold": 2000,
+        "lumber": 0,
+        "opening": [
+          "i565",
+          "i576",
+          "i569",
+          "i564"
+        ]
+      },
+      "opening": "i564",
+      "elapsedDraws": 12,
+      "levels": [],
+      "effects": {},
+      "end": {
+        "phase": "failed",
+        "wave": 14,
+        "atUs": 759000000,
+        "gold": 7109,
+        "result": {
+          "reason": "capacity",
+          "points": 118,
+          "atUs": 759000000
+        }
+      },
+      "status": "failed",
+      "commands": [
+        {
+          "atUs": 0,
+          "wave": 0,
+          "action": {
+            "type": "choose-talent",
+            "choice": "W005"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 1,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2,
+          "wave": 0,
+          "action": {
+            "type": "choose-opening",
+            "card": "i564"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000,
+          "obtained": "i564"
+        },
+        {
+          "atUs": 3,
+          "wave": 0,
+          "action": {
+            "type": "build-card",
+            "cardId": 7,
+            "point": {
+              "x": -288,
+              "y": -1024
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500004,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 2
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500005,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 4
+          },
+          "result": {
+            "ok": true,
+            "createdId": 10
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500006,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 5
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500007,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 6
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500008,
+          "wave": 0,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 9,
+            "towerId": 8
+          },
+          "result": {
+            "ok": false,
+            "reason": "missing"
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500009,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 9
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500010,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 10
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500011,
+          "wave": 0,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2060
+        },
+        {
+          "atUs": 2500012,
+          "wave": 0,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 12
+          },
+          "goldBefore": 2060,
+          "goldAfter": 1060,
+          "obtained": "i608"
+        },
+        {
+          "atUs": 2500013,
+          "wave": 0,
+          "action": {
+            "type": "drop-card",
+            "cardId": 12
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1060,
+          "goldAfter": 1060
+        },
+        {
+          "atUs": 3500014,
+          "wave": 0,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1060,
+          "goldAfter": 1060
+        },
+        {
+          "atUs": 12500015,
+          "wave": 0,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 14
+          },
+          "goldBefore": 1148,
+          "goldAfter": 148,
+          "obtained": "i603"
+        },
+        {
+          "atUs": 12500016,
+          "wave": 0,
+          "action": {
+            "type": "drop-card",
+            "cardId": 14
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 148,
+          "goldAfter": 148
+        },
+        {
+          "atUs": 49500017,
+          "wave": 1,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 233,
+          "goldAfter": 233
+        },
+        {
+          "atUs": 75500018,
+          "wave": 1,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A069"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 525,
+          "goldAfter": 525
+        },
+        {
+          "atUs": 120500019,
+          "wave": 2,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 130
+          },
+          "goldBefore": 1023,
+          "goldAfter": 23,
+          "obtained": "i711"
+        },
+        {
+          "atUs": 120500020,
+          "wave": 2,
+          "action": {
+            "type": "drop-card",
+            "cardId": 130
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 23,
+          "goldAfter": 23
+        },
+        {
+          "atUs": 122500021,
+          "wave": 2,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 40,
+          "goldAfter": 136
+        },
+        {
+          "atUs": 144500022,
+          "wave": 3,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 297,
+          "goldAfter": 297
+        },
+        {
+          "atUs": 187500023,
+          "wave": 4,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 647,
+          "goldAfter": 647
+        },
+        {
+          "atUs": 220500024,
+          "wave": 4,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 256
+          },
+          "goldBefore": 1010,
+          "goldAfter": 10,
+          "obtained": "i704"
+        },
+        {
+          "atUs": 220500025,
+          "wave": 4,
+          "action": {
+            "type": "drop-card",
+            "cardId": 256
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 10,
+          "goldAfter": 10
+        },
+        {
+          "atUs": 235500026,
+          "wave": 4,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A069"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 182,
+          "goldAfter": 182
+        },
+        {
+          "atUs": 242500027,
+          "wave": 5,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 736,
+          "goldAfter": 1336
+        },
+        {
+          "atUs": 242500028,
+          "wave": 5,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 272
+          },
+          "goldBefore": 1336,
+          "goldAfter": 336,
+          "obtained": "i606"
+        },
+        {
+          "atUs": 242500029,
+          "wave": 5,
+          "action": {
+            "type": "drop-card",
+            "cardId": 272
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 336,
+          "goldAfter": 336
+        },
+        {
+          "atUs": 288500030,
+          "wave": 5,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 979,
+          "goldAfter": 979
+        },
+        {
+          "atUs": 292500031,
+          "wave": 5,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 292
+          },
+          "goldBefore": 1034,
+          "goldAfter": 34,
+          "obtained": "i709"
+        },
+        {
+          "atUs": 292500032,
+          "wave": 5,
+          "action": {
+            "type": "drop-card",
+            "cardId": 292
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 34,
+          "goldAfter": 34
+        },
+        {
+          "atUs": 352500033,
+          "wave": 6,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 333
+          },
+          "goldBefore": 1009,
+          "goldAfter": 9,
+          "obtained": "i708"
+        },
+        {
+          "atUs": 352500034,
+          "wave": 6,
+          "action": {
+            "type": "drop-card",
+            "cardId": 333
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 9,
+          "goldAfter": 9
+        },
+        {
+          "atUs": 362500035,
+          "wave": 6,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 609,
+          "goldAfter": 1233
+        },
+        {
+          "atUs": 362500036,
+          "wave": 6,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 346
+          },
+          "goldBefore": 1233,
+          "goldAfter": 233,
+          "obtained": "i702"
+        },
+        {
+          "atUs": 362500037,
+          "wave": 6,
+          "action": {
+            "type": "drop-card",
+            "cardId": 346
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 233,
+          "goldAfter": 233
+        },
+        {
+          "atUs": 439500038,
+          "wave": 8,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 834,
+          "goldAfter": 834
+        },
+        {
+          "atUs": 447500039,
+          "wave": 8,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 454
+          },
+          "goldBefore": 1008,
+          "goldAfter": 8,
+          "obtained": "i702"
+        },
+        {
+          "atUs": 447500040,
+          "wave": 8,
+          "action": {
+            "type": "drop-card",
+            "cardId": 454
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 8,
+          "goldAfter": 8
+        },
+        {
+          "atUs": 480500041,
+          "wave": 9,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 494
+          },
+          "goldBefore": 1313,
+          "goldAfter": 313,
+          "obtained": "i702"
+        },
+        {
+          "atUs": 480500042,
+          "wave": 9,
+          "action": {
+            "type": "drop-card",
+            "cardId": 494
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 313,
+          "goldAfter": 313
+        },
+        {
+          "atUs": 482500043,
+          "wave": 9,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 328,
+          "goldAfter": 1408
+        },
+        {
+          "atUs": 490500044,
+          "wave": 9,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 513
+          },
+          "goldBefore": 1524,
+          "goldAfter": 524,
+          "obtained": "i716"
+        },
+        {
+          "atUs": 490500045,
+          "wave": 9,
+          "action": {
+            "type": "drop-card",
+            "cardId": 513
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 524,
+          "goldAfter": 524
+        },
+        {
+          "atUs": 526500046,
+          "wave": 9,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A069"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 986,
+          "goldAfter": 986
+        },
+        {
+          "atUs": 527500047,
+          "wave": 10,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 554
+          },
+          "goldBefore": 1006,
+          "goldAfter": 6,
+          "obtained": "i716"
+        },
+        {
+          "atUs": 527500048,
+          "wave": 10,
+          "action": {
+            "type": "drop-card",
+            "cardId": 554
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 6,
+          "goldAfter": 6
+        },
+        {
+          "atUs": 602500049,
+          "wave": 10,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2525,
+          "goldAfter": 3165
+        },
+        {
+          "atUs": 665500050,
+          "wave": 12,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 3557,
+          "goldAfter": 3557
+        },
+        {
+          "atUs": 722500051,
+          "wave": 13,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 5666,
+          "goldAfter": 6446
+        },
+        {
+          "atUs": 754500052,
+          "wave": 13,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 7021,
+          "goldAfter": 7021
+        }
+      ]
+    },
+    {
+      "seed": 1709,
+      "source": [
+        [
+          "src/game/m2/match.ts",
+          "f3c472a07d65ee5577c3b19f1016eb2d84517f104273bc326c66a921652ced3b"
+        ],
+        [
+          "src/game/m2/content.ts",
+          "423ab48a3b12c4e45a091706bd6029d884f815bb0bc65835633b0bd7c305370a"
+        ],
+        [
+          "src/game/m2/combat.ts",
+          "9979ca16bc8dbef9b503f0db0d910dc071f6315519af89b7971b35dfa7e3be60"
+        ],
+        [
+          "src/game/m2/weapons.json",
+          "a85df4355fd2b5488223ac2c1a9e358b717526767ddbead8e0d200afa931619a"
+        ]
+      ],
+      "initialStateSha256": "4dc4854c9214e981e898137dff765f0ec15be575bf493d6cf1126240b17c087e",
+      "initial": {
+        "gold": 2000,
+        "lumber": 0,
+        "opening": [
+          "i569",
+          "i581",
+          "i565",
+          "i576"
+        ]
+      },
+      "opening": "i581",
+      "elapsedDraws": 1,
+      "levels": [
+        {
+          "id": "n199",
+          "atUs": 6000015,
+          "wave": 0
+        },
+        {
+          "id": "n200",
+          "atUs": 39000016,
+          "wave": 1
+        },
+        {
+          "id": "n201",
+          "atUs": 42000017,
+          "wave": 1
+        },
+        {
+          "id": "n202",
+          "atUs": 50000019,
+          "wave": 1
+        },
+        {
+          "id": "n203",
+          "atUs": 148000023,
+          "wave": 3
+        },
+        {
+          "id": "n204",
+          "atUs": 159000024,
+          "wave": 3
+        },
+        {
+          "id": "n205",
+          "atUs": 241000027,
+          "wave": 5
+        },
+        {
+          "id": "n206",
+          "atUs": 289000029,
+          "wave": 5
+        },
+        {
+          "id": "n207",
+          "atUs": 361000031,
+          "wave": 6
+        },
+        {
+          "id": "n208",
+          "atUs": 610000051,
+          "wave": 11
+        }
+      ],
+      "effects": {
+        "n199": {
+          "atUs": 37470000,
+          "skillId": "N076",
+          "targetId": 14,
+          "nativeSlow": {
+            "untilUs": 40470000,
+            "factor": 0.8,
+            "attackPenalty": 0.25
+          }
+        },
+        "n200": {
+          "atUs": 40001250,
+          "skillId": "N077",
+          "targetId": 18,
+          "nativeSlow": {
+            "untilUs": 43001250,
+            "factor": 0.6,
+            "attackPenalty": 0.25
+          }
+        },
+        "n201": {
+          "atUs": 42501250,
+          "skillId": "N078",
+          "targetId": 21,
+          "nativeSlow": {
+            "untilUs": 45501250,
+            "factor": 0.4,
+            "attackPenalty": 0.25
+          }
+        },
+        "n202": {
+          "hit": {
+            "atUs": 146955199,
+            "x": 711.1071379760588,
+            "y": -1200,
+            "targetId": 170,
+            "casterId": 13,
+            "ownerId": 13,
+            "sourceTemplate": "n202",
+            "amount": 22.80000000000001,
+            "deadUnitId": "m002"
+          },
+          "skillId": "N079"
+        },
+        "n203": {
+          "hit": {
+            "atUs": 149112771,
+            "x": 861.1499319403515,
+            "y": -1232,
+            "targetId": 216,
+            "casterId": 13,
+            "ownerId": 13,
+            "sourceTemplate": "n203",
+            "amount": 74.1227436823105,
+            "deadUnitId": "m003"
+          },
+          "skillId": "N080"
+        },
+        "n204": {
+          "hit": {
+            "atUs": 160365331,
+            "x": -549.2751626352635,
+            "y": -1232,
+            "targetId": 243,
+            "casterId": 13,
+            "ownerId": 13,
+            "sourceTemplate": "n204",
+            "amount": 32.96750902527077,
+            "deadUnitId": "m003"
+          },
+          "skillId": "N081"
+        },
+        "n205": {
+          "hit": {
+            "atUs": 242181242,
+            "x": -14.473938850632445,
+            "y": -432.65402620687183,
+            "targetId": 305,
+            "casterId": 350,
+            "ownerId": 13,
+            "sourceTemplate": "q001",
+            "amount": 80
+          },
+          "skillId": "N082"
+        },
+        "n206": {
+          "hit": {
+            "atUs": 290356993,
+            "x": -548.9609461483196,
+            "y": -1200,
+            "targetId": 355,
+            "casterId": 370,
+            "ownerId": 13,
+            "sourceTemplate": "q001",
+            "amount": 240
+          },
+          "skillId": "N083"
+        },
+        "n207": {
+          "hit": {
+            "atUs": 362275831,
+            "x": 848,
+            "y": -502.4198190535568,
+            "targetId": 424,
+            "casterId": 433,
+            "ownerId": 13,
+            "sourceTemplate": "q001",
+            "amount": 400
+          },
+          "skillId": "N084"
+        },
+        "n208": {
+          "hit": {
+            "atUs": 610876250,
+            "x": 588.7046104365317,
+            "y": -816,
+            "targetId": 726,
+            "casterId": 817,
+            "ownerId": 13,
+            "sourceTemplate": "q001",
+            "amount": 560,
+            "deadUnitId": "m009"
+          },
+          "skillId": "N085"
+        }
+      },
+      "end": {
+        "phase": "running",
+        "wave": 11,
+        "atUs": 611000051,
+        "gold": 2450
+      },
+      "status": "passed",
+      "commands": [
+        {
+          "atUs": 0,
+          "wave": 0,
+          "action": {
+            "type": "choose-talent",
+            "choice": "W005"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 1,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2,
+          "wave": 0,
+          "action": {
+            "type": "choose-opening",
+            "card": "i581"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000,
+          "obtained": "i581"
+        },
+        {
+          "atUs": 3,
+          "wave": 0,
+          "action": {
+            "type": "build-card",
+            "cardId": 7,
+            "point": {
+              "x": -288,
+              "y": -1024
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500004,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 2
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500005,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 4
+          },
+          "result": {
+            "ok": true,
+            "createdId": 10
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500006,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 5
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500007,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 6
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500008,
+          "wave": 0,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 9,
+            "towerId": 8
+          },
+          "result": {
+            "ok": false,
+            "reason": "missing"
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500009,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 9
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500010,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 10
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500011,
+          "wave": 0,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2080
+        },
+        {
+          "atUs": 2500012,
+          "wave": 0,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 12
+          },
+          "goldBefore": 2080,
+          "goldAfter": 1080,
+          "obtained": "i703"
+        },
+        {
+          "atUs": 3500013,
+          "wave": 0,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A170"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1080,
+          "goldAfter": 1080
+        },
+        {
+          "atUs": 3500014,
+          "wave": 0,
+          "action": {
+            "type": "build-card",
+            "cardId": 12,
+            "point": {
+              "x": 288,
+              "y": -1024
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 13
+          },
+          "goldBefore": 1080,
+          "goldAfter": 1192
+        },
+        {
+          "atUs": 38000015,
+          "wave": 1,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 13
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1200,
+          "goldAfter": 910
+        },
+        {
+          "atUs": 41000016,
+          "wave": 1,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 13
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 927,
+          "goldAfter": 517
+        },
+        {
+          "atUs": 47000017,
+          "wave": 1,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A171"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 574,
+          "goldAfter": 574
+        },
+        {
+          "atUs": 49000018,
+          "wave": 1,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 13
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 624,
+          "goldAfter": 4
+        },
+        {
+          "atUs": 71000019,
+          "wave": 1,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A172"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 241,
+          "goldAfter": 241
+        },
+        {
+          "atUs": 123000020,
+          "wave": 2,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 954,
+          "goldAfter": 1082
+        },
+        {
+          "atUs": 128000021,
+          "wave": 2,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A170"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1156,
+          "goldAfter": 1156
+        },
+        {
+          "atUs": 147000022,
+          "wave": 3,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 13
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1291,
+          "goldAfter": 611
+        },
+        {
+          "atUs": 158000023,
+          "wave": 3,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 13
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 768,
+          "goldAfter": 18
+        },
+        {
+          "atUs": 164000024,
+          "wave": 3,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A171"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 52,
+          "goldAfter": 52
+        },
+        {
+          "atUs": 233000025,
+          "wave": 4,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A172"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 559,
+          "goldAfter": 559
+        },
+        {
+          "atUs": 240000026,
+          "wave": 4,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 13
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1129,
+          "goldAfter": 149
+        },
+        {
+          "atUs": 243000027,
+          "wave": 5,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 165,
+          "goldAfter": 605
+        },
+        {
+          "atUs": 288000028,
+          "wave": 5,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 13
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1028,
+          "goldAfter": 8
+        },
+        {
+          "atUs": 318000029,
+          "wave": 5,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A170"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 270,
+          "goldAfter": 270
+        },
+        {
+          "atUs": 360000030,
+          "wave": 6,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 13
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1346,
+          "goldAfter": 126
+        },
+        {
+          "atUs": 363000031,
+          "wave": 6,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 152,
+          "goldAfter": 512
+        },
+        {
+          "atUs": 440000032,
+          "wave": 8,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A171"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1223,
+          "goldAfter": 1223
+        },
+        {
+          "atUs": 483000033,
+          "wave": 9,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2749,
+          "goldAfter": 3361
+        },
+        {
+          "atUs": 558000034,
+          "wave": 10,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A172"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 4486,
+          "goldAfter": 4486
+        },
+        {
+          "atUs": 595000035,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 13
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5015,
+          "goldAfter": 5015
+        },
+        {
+          "atUs": 596000036,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 13
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5015,
+          "goldAfter": 5015
+        },
+        {
+          "atUs": 597000037,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 13
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5380,
+          "goldAfter": 5380
+        },
+        {
+          "atUs": 598000038,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 13
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5398,
+          "goldAfter": 5398
+        },
+        {
+          "atUs": 599000039,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 13
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 5398,
+          "goldAfter": 5398
+        },
+        {
+          "atUs": 600000040,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 13
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6466,
+          "goldAfter": 6466
+        },
+        {
+          "atUs": 601000041,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 13
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6466,
+          "goldAfter": 6466
+        },
+        {
+          "atUs": 602000042,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 13
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 6466,
+          "goldAfter": 6466
+        },
+        {
+          "atUs": 603000043,
+          "wave": 10,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 6486,
+          "goldAfter": 7286
+        },
+        {
+          "atUs": 603000044,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 13
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 7286,
+          "goldAfter": 7286
+        },
+        {
+          "atUs": 604000045,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 13
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 7303,
+          "goldAfter": 7303
+        },
+        {
+          "atUs": 605000046,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 13
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 7321,
+          "goldAfter": 7321
+        },
+        {
+          "atUs": 606000047,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 13
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 7349,
+          "goldAfter": 7349
+        },
+        {
+          "atUs": 607000048,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 13
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 7349,
+          "goldAfter": 7349
+        },
+        {
+          "atUs": 608000049,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 13
+          },
+          "result": {
+            "ok": false,
+            "reason": "resources"
+          },
+          "goldBefore": 7349,
+          "goldAfter": 7349
+        },
+        {
+          "atUs": 609000050,
+          "wave": 11,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 13
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 7377,
+          "goldAfter": 2377
+        }
+      ]
+    },
+    {
+      "seed": 20261124,
+      "source": [
+        [
+          "src/game/m2/match.ts",
+          "f3c472a07d65ee5577c3b19f1016eb2d84517f104273bc326c66a921652ced3b"
+        ],
+        [
+          "src/game/m2/content.ts",
+          "423ab48a3b12c4e45a091706bd6029d884f815bb0bc65835633b0bd7c305370a"
+        ],
+        [
+          "src/game/m2/combat.ts",
+          "9979ca16bc8dbef9b503f0db0d910dc071f6315519af89b7971b35dfa7e3be60"
+        ],
+        [
+          "src/game/m2/weapons.json",
+          "a85df4355fd2b5488223ac2c1a9e358b717526767ddbead8e0d200afa931619a"
+        ]
+      ],
+      "initialStateSha256": "e82fbefebf26004a61d531ba997093a31ff5866d179d79ee4a6ddc9d0c0c90cb",
+      "initial": {
+        "gold": 2000,
+        "lumber": 0,
+        "opening": [
+          "i576",
+          "i581",
+          "i564",
+          "i565"
+        ]
+      },
+      "opening": "i564",
+      "elapsedDraws": 9,
+      "levels": [
+        {
+          "id": "n199",
+          "atUs": 446000041,
+          "wave": 8
+        },
+        {
+          "id": "n200",
+          "atUs": 458000042,
+          "wave": 8
+        },
+        {
+          "id": "n201",
+          "atUs": 481000043,
+          "wave": 9
+        },
+        {
+          "id": "n202",
+          "atUs": 483000045,
+          "wave": 9
+        },
+        {
+          "id": "n203",
+          "atUs": 485000046,
+          "wave": 9
+        },
+        {
+          "id": "n204",
+          "atUs": 498000047,
+          "wave": 9
+        },
+        {
+          "id": "n205",
+          "atUs": 550000049,
+          "wave": 10
+        },
+        {
+          "id": "n206",
+          "atUs": 598000050,
+          "wave": 10
+        },
+        {
+          "id": "n207",
+          "atUs": 604000052,
+          "wave": 10
+        },
+        {
+          "id": "n208",
+          "atUs": 727000056,
+          "wave": 13
+        }
+      ],
+      "effects": {
+        "n199": {
+          "atUs": 446970000,
+          "skillId": "N076",
+          "targetId": 427,
+          "nativeSlow": {
+            "untilUs": 449970000,
+            "factor": 0.8,
+            "attackPenalty": 0.25
+          }
+        },
+        "n200": {
+          "atUs": 458501250,
+          "skillId": "N077",
+          "targetId": 404,
+          "nativeSlow": {
+            "untilUs": 461501250,
+            "factor": 0.6,
+            "attackPenalty": 0.25
+          }
+        },
+        "n201": {
+          "atUs": 481499170,
+          "skillId": "N078",
+          "targetId": 382,
+          "nativeSlow": {
+            "untilUs": 484499170,
+            "factor": 0.4,
+            "attackPenalty": 0.25
+          }
+        },
+        "n202": {
+          "hit": {
+            "atUs": 483730115,
+            "x": 464.2630900640262,
+            "y": -1168,
+            "targetId": 375,
+            "casterId": 459,
+            "ownerId": 459,
+            "sourceTemplate": "n202",
+            "amount": 128.77448090012507,
+            "deadUnitId": "m007"
+          },
+          "skillId": "N079"
+        },
+        "n203": {
+          "hit": {
+            "atUs": 485741443,
+            "x": 402.8526423491826,
+            "y": -1232,
+            "targetId": 407,
+            "casterId": 459,
+            "ownerId": 459,
+            "sourceTemplate": "n203",
+            "amount": 252.6745217391304,
+            "deadUnitId": "m007"
+          },
+          "skillId": "N080"
+        },
+        "n204": {
+          "hit": {
+            "atUs": 498683024,
+            "x": 324.1540358415708,
+            "y": -1200,
+            "targetId": 433,
+            "casterId": 459,
+            "ownerId": 459,
+            "sourceTemplate": "n204",
+            "amount": 274.8387826086956,
+            "deadUnitId": "m008"
+          },
+          "skillId": "N081"
+        },
+        "n205": {
+          "hit": {
+            "atUs": 551082570,
+            "x": 240.91674771534088,
+            "y": -464,
+            "targetId": 500,
+            "casterId": 562,
+            "ownerId": 459,
+            "sourceTemplate": "q001",
+            "amount": 80
+          },
+          "skillId": "N082"
+        },
+        "n206": {
+          "hit": {
+            "atUs": 599105314,
+            "x": 276.50631089734964,
+            "y": -432,
+            "targetId": 557,
+            "casterId": 583,
+            "ownerId": 459,
+            "sourceTemplate": "q001",
+            "amount": 240
+          },
+          "skillId": "N083"
+        },
+        "n207": {
+          "hit": {
+            "atUs": 604844075,
+            "x": -16,
+            "y": -884.5527084145988,
+            "targetId": 529,
+            "casterId": 584,
+            "ownerId": 459,
+            "sourceTemplate": "q001",
+            "amount": 369.26818823529413,
+            "deadUnitId": "m009"
+          },
+          "skillId": "N084"
+        },
+        "n208": {
+          "hit": {
+            "atUs": 727711859,
+            "x": 172.6702788888381,
+            "y": -1200,
+            "targetId": 700,
+            "casterId": 803,
+            "ownerId": 459,
+            "sourceTemplate": "q001",
+            "amount": 1200
+          },
+          "skillId": "N085"
+        }
+      },
+      "end": {
+        "phase": "running",
+        "wave": 13,
+        "atUs": 728000056,
+        "gold": 86
+      },
+      "status": "passed",
+      "commands": [
+        {
+          "atUs": 0,
+          "wave": 0,
+          "action": {
+            "type": "choose-talent",
+            "choice": "W005"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 1,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2,
+          "wave": 0,
+          "action": {
+            "type": "choose-opening",
+            "card": "i564"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000,
+          "obtained": "i564"
+        },
+        {
+          "atUs": 3,
+          "wave": 0,
+          "action": {
+            "type": "build-card",
+            "cardId": 7,
+            "point": {
+              "x": -288,
+              "y": -1024
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500004,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 2
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500005,
+          "wave": 0,
+          "action": {
+            "type": "use-item",
+            "itemId": 4
+          },
+          "result": {
+            "ok": true,
+            "createdId": 10
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500006,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 5
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500007,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 6
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500008,
+          "wave": 0,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 9,
+            "towerId": 8
+          },
+          "result": {
+            "ok": false,
+            "reason": "missing"
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500009,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 9
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500010,
+          "wave": 0,
+          "action": {
+            "type": "drop-item",
+            "itemId": 10
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2000
+        },
+        {
+          "atUs": 2500011,
+          "wave": 0,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2000,
+          "goldAfter": 2052
+        },
+        {
+          "atUs": 2500012,
+          "wave": 0,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 12
+          },
+          "goldBefore": 2052,
+          "goldAfter": 1052,
+          "obtained": "i708"
+        },
+        {
+          "atUs": 2500013,
+          "wave": 0,
+          "action": {
+            "type": "drop-card",
+            "cardId": 12
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1052,
+          "goldAfter": 1052
+        },
+        {
+          "atUs": 3500014,
+          "wave": 0,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1052,
+          "goldAfter": 1052
+        },
+        {
+          "atUs": 12500015,
+          "wave": 0,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 14
+          },
+          "goldBefore": 1136,
+          "goldAfter": 136,
+          "obtained": "i709"
+        },
+        {
+          "atUs": 12500016,
+          "wave": 0,
+          "action": {
+            "type": "drop-card",
+            "cardId": 14
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 136,
+          "goldAfter": 136
+        },
+        {
+          "atUs": 48500017,
+          "wave": 1,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 221,
+          "goldAfter": 221
+        },
+        {
+          "atUs": 77500018,
+          "wave": 1,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A069"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 519,
+          "goldAfter": 519
+        },
+        {
+          "atUs": 120500019,
+          "wave": 2,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 132
+          },
+          "goldBefore": 1039,
+          "goldAfter": 39,
+          "obtained": "i609"
+        },
+        {
+          "atUs": 120500020,
+          "wave": 2,
+          "action": {
+            "type": "drop-card",
+            "cardId": 132
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 39,
+          "goldAfter": 39
+        },
+        {
+          "atUs": 122500021,
+          "wave": 2,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 48,
+          "goldAfter": 160
+        },
+        {
+          "atUs": 144500022,
+          "wave": 3,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 368,
+          "goldAfter": 368
+        },
+        {
+          "atUs": 180500023,
+          "wave": 3,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 732,
+          "goldAfter": 732
+        },
+        {
+          "atUs": 209500024,
+          "wave": 4,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 249
+          },
+          "goldBefore": 1003,
+          "goldAfter": 3,
+          "obtained": "i714"
+        },
+        {
+          "atUs": 209500025,
+          "wave": 4,
+          "action": {
+            "type": "drop-card",
+            "cardId": 249
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 3,
+          "goldAfter": 3
+        },
+        {
+          "atUs": 227500026,
+          "wave": 4,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A069"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 225,
+          "goldAfter": 225
+        },
+        {
+          "atUs": 242500027,
+          "wave": 5,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 930,
+          "goldAfter": 1250
+        },
+        {
+          "atUs": 242500028,
+          "wave": 5,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 282
+          },
+          "goldBefore": 1250,
+          "goldAfter": 250,
+          "obtained": "i706"
+        },
+        {
+          "atUs": 242500029,
+          "wave": 5,
+          "action": {
+            "type": "drop-card",
+            "cardId": 282
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 250,
+          "goldAfter": 250
+        },
+        {
+          "atUs": 292500030,
+          "wave": 5,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 810,
+          "goldAfter": 810
+        },
+        {
+          "atUs": 311500031,
+          "wave": 5,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 302
+          },
+          "goldBefore": 1692,
+          "goldAfter": 692,
+          "obtained": "i711"
+        },
+        {
+          "atUs": 311500032,
+          "wave": 5,
+          "action": {
+            "type": "drop-card",
+            "cardId": 302
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 692,
+          "goldAfter": 692
+        },
+        {
+          "atUs": 344500033,
+          "wave": 6,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 332
+          },
+          "goldBefore": 1006,
+          "goldAfter": 6,
+          "obtained": "i604"
+        },
+        {
+          "atUs": 344500034,
+          "wave": 6,
+          "action": {
+            "type": "drop-card",
+            "cardId": 332
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 6,
+          "goldAfter": 6
+        },
+        {
+          "atUs": 362500035,
+          "wave": 6,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 765,
+          "goldAfter": 1293
+        },
+        {
+          "atUs": 362500036,
+          "wave": 6,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 356
+          },
+          "goldBefore": 1293,
+          "goldAfter": 293,
+          "obtained": "i701"
+        },
+        {
+          "atUs": 362500037,
+          "wave": 6,
+          "action": {
+            "type": "drop-card",
+            "cardId": 356
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 293,
+          "goldAfter": 293
+        },
+        {
+          "atUs": 432500038,
+          "wave": 8,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 874,
+          "goldAfter": 874
+        },
+        {
+          "atUs": 442500039,
+          "wave": 8,
+          "action": {
+            "type": "draw",
+            "draw": "i001"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 453
+          },
+          "goldBefore": 1004,
+          "goldAfter": 4,
+          "obtained": "i703"
+        },
+        {
+          "atUs": 443500040,
+          "wave": 8,
+          "action": {
+            "type": "build-card",
+            "cardId": 453,
+            "point": {
+              "x": 288,
+              "y": -1024
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 459
+          },
+          "goldBefore": 33,
+          "goldAfter": 77
+        },
+        {
+          "atUs": 457000041,
+          "wave": 8,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 459
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 291,
+          "goldAfter": 1
+        },
+        {
+          "atUs": 480000042,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 459
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1306,
+          "goldAfter": 896
+        },
+        {
+          "atUs": 482000043,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 459
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 909,
+          "goldAfter": 289
+        },
+        {
+          "atUs": 483000044,
+          "wave": 9,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 303,
+          "goldAfter": 1239
+        },
+        {
+          "atUs": 484000045,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 459
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1268,
+          "goldAfter": 588
+        },
+        {
+          "atUs": 497000046,
+          "wave": 9,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 459
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 758,
+          "goldAfter": 8
+        },
+        {
+          "atUs": 519000047,
+          "wave": 9,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A069"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 349,
+          "goldAfter": 349
+        },
+        {
+          "atUs": 549000048,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 459
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1000,
+          "goldAfter": 20
+        },
+        {
+          "atUs": 597000049,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 459
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1042,
+          "goldAfter": 22
+        },
+        {
+          "atUs": 603000050,
+          "wave": 10,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1127,
+          "goldAfter": 1687
+        },
+        {
+          "atUs": 603000051,
+          "wave": 10,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 459
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 1687,
+          "goldAfter": 467
+        },
+        {
+          "atUs": 620000052,
+          "wave": 11,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 776,
+          "goldAfter": 776
+        },
+        {
+          "atUs": 710000053,
+          "wave": 13,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 2147,
+          "goldAfter": 2147
+        },
+        {
+          "atUs": 723000054,
+          "wave": 13,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 3557,
+          "goldAfter": 4961
+        },
+        {
+          "atUs": 726000055,
+          "wave": 13,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 459
+          },
+          "result": {
+            "ok": true
+          },
+          "goldBefore": 5004,
+          "goldAfter": 4
+        }
+      ]
+    }
+  ]
+}

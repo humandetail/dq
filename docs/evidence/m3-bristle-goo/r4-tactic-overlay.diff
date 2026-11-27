@@ -1,0 +1,94 @@
+--- checks/m2-normal-run.mjs
++++ checks/m2-normal-run.mjs
+@@ -98,7 +98,12 @@
+   assert.ok(!qualificationRealAssignment || m3 && !qualificationTarget, "Use the actual qualification in a separate M3 scenario");
+   const qualificationScenario = qualificationRealAssignment || !!qualificationTarget;
+   const bristleTrial = process.env.M3_R02_BRISTLE === "1" ? {} : undefined;
+-  assert.ok(!bristleTrial || m3 && opening === "i584", "Bristleback normal trace needs its actual opening offer");
++  assert.ok(bristleTrial && m3 && opening === "i584", "Bristleback normal trace needs its actual opening offer");
++  let frostTowerId;
++  const bristleCosts = ordinaryGoods.get("i327").gold;
++  const highLife = actor => match.enemies.filter(enemy => enemy.hp >= 9_000 &&
++    (enemy.x - actor.x) ** 2 + (enemy.y - actor.y) ** 2 <= 800 ** 2)
++    .sort((a, b) => (b.quills?.[actor.id]?.stacks ?? 0) - (a.quills?.[actor.id]?.stacks ?? 0) || b.hp - a.hp)[0];
+   let maxProvider;
+   let assignedQualification;
+   const oracleDraw = process.env.M3_R02_SR === "i577";
+@@ -348,7 +353,14 @@
+           armor: target.bristleGooArmor, slow: target.bristleGooSlow };
+         const hammer = match.recentHits?.find(hit => hit.ownerId === actor.id && hit.sourceTemplate === "q001" &&
+           match.battleAnimations?.some(effect => effect.unitId === "T197" && effect.atUs === hit.atUs && effect.x === hit.x && effect.y === hit.y));
+-        if (hammer) bristleTrial.hammer ??= { wave: match.wave, rank: actor.hero.ranks.A183, ...hammer };
++        if (hammer) {
++          bristleTrial.hammer ??= { wave: match.wave, rank: actor.hero.ranks.A183, ...hammer };
++          if (bristleTrial.octarine && bristleTrial.manual) {
++            const victim = match.enemies.find(unit => unit.id === hammer.targetId);
++            bristleTrial.supportedHammer ??= { wave: match.wave, rank: actor.hero.ranks.A183, ...hammer,
++              quills: victim?.quills?.[actor.id], frost: victim?.frost };
++          }
++        }
+         for (const enemy of match.enemies) {
+           const mark = enemy.quills?.[actor.id];
+           if (!mark) continue;
+@@ -461,6 +473,7 @@
+   }
+ 
+   function acquireAndEquip(id, tower, reserve, keepWithWorker = false) {
++    if (id !== "i327" && match.wave >= 22 && !equipped("i327")) reserve += bristleCosts;
+     if (!keepWithWorker && (!tower || tower.pending || equipped(id) ||
+         match.inventory.filter(item => item.towerId === tower.id && item.slot !== null).length >= 6)) return;
+     if (carriedItem(id)) return keepWithWorker ? undefined : command({ type: "transfer-item", itemId: carriedItem(id).id, towerId: tower.id });
+@@ -541,7 +554,7 @@
+       (!eventEvidence || eventEvidence.opened.length < eventShop.eventBoxOffers.size)) {
+     if (summerChallengeTrail && (match.seasons?.summer.counts[8] || match.wave >= 54)) break;
+     if (stopAfterForge && forgeEvidence?.crossings.length) break;
+-    if (bristleTrial && (bristleTrial.hammer || match.wave >= 33)) break;
++    if (bristleTrial.supportedHammer || match.wave >= 42) break;
+     if (mastery && match.wave >= 44) break;
+     if (mastery?.refusedThird) break;
+     if (ssrTarget && !settlementScenario && (ssrComplete() || match.wave >= (oracleDraw || process.env.M2_SSR_RESERVE ? 38 : 30))) break;
+@@ -597,6 +610,28 @@
+       }
+ 
+       const activeHero = match.structures.find(tower => tower.hero);
++      if (match.wave >= 22 && activeHero && !activeHero.pending) {
++        if (!frostTowerId) {
++          const frost = build({ type: "build-worker-tower", tower: "n006" });
++          if (frost?.ok) frostTowerId = frost.createdId;
++        }
++        const frost = match.structures.find(unit => unit.id === frostTowerId && !unit.pending);
++        if (frost) {
++          const levels = bristleTrial.frostLevels ??= [];
++          if (levels.at(-1)?.id !== frost.templateId) levels.push({ id: frost.templateId, towerId: frost.id, wave: match.wave, atUs: match.queue.nowUs });
++          const target = highLife(activeHero);
++          const range = weapons[frost.templateId][0].max;
++          if (frost.templateId === "n010" && target &&
++              (target.x - frost.x) ** 2 + (target.y - frost.y) ** 2 <= range ** 2 && frost.focusTarget !== target.id)
++            command({ type: "focus-target", towerId: frost.id, targetId: target.id });
++        }
++        if (qualified(match, activeHero.id) && !equipped("i327") && match.gold >= bristleCosts + 1200) {
++          const beforeGold = match.gold;
++          acquireAndEquip("i327", activeHero, 1200);
++          const item = match.inventory.find(item => item.itemId === "i327" && item.towerId === activeHero.id && item.slot !== null);
++          if (item) bristleTrial.octarine = { itemId: item.id, atUs: match.queue.nowUs, wave: match.wave, beforeGold, afterGold: match.gold };
++        }
++      }
+       if (bossSupport && activeHero && qualified(match, activeHero.id) && match.wave >= 38 && !equipped("i217") &&
+           match.gold >= ordinaryGoods.get("i217").gold + (savingForScepter() ? 11_300 : 0)) {
+         openBossItemSlot(activeHero, true);
+@@ -1113,6 +1148,15 @@
+         nextWave.startUs - match.queue.nowUs < second &&
+         containmentPoints(match) + nextWave.points * nextWave.unitsPerBatch > 100) {
+       command({ type: "use-item", itemId: charm.id });
++    }
++    if (bristleTrial.octarine) {
++      const actor = match.structures.find(tower => tower.templateId === "H047" && !tower.pending);
++      const target = actor && highLife(actor);
++      if (target && actor.hero.ranks.A182 && match.queue.nowUs >= Math.max(actor.heroSpellReady?.A182 ?? 0,
++          actor.heroCastUntilUs ?? 0, actor.stunnedUntilUs ?? 0)) {
++        const cast = command({ type: "cast-hero", towerId: actor.id, skillId: "A182" });
++        if (cast?.ok) bristleTrial.manual ??= { atUs: match.queue.nowUs, targetHint: target.id, wave: match.wave };
++      }
+     }
+     advance(second / 2);
+   }

@@ -2,15 +2,16 @@
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TD3 · M2 试玩版 Preview 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="icon" href="data:,">
+    <title>TD3 · M3</title>
     <script type="module" src="/src/m2.ts"></script>
   </head>
   <body>
     <header>
       <div>
-        <h1>TD3 · M2 试玩版 Preview 1</h1>
-        <p>55 波主线试玩，建议桌面 Chrome。部分技能、装备联动与模型动作仍在完善，存档仅保存在当前浏览器。</p>
+        <h1>TD3 · M3</h1>
+        <p>55 波主线，档案保存在当前浏览器。</p>
       </div>
       <div class="controls">
         <button id="pause" disabled>暂停</button>
@@ -31,13 +32,13 @@
               <button id="rotate-right" aria-label="镜头向右旋转 45 度" title="向右旋转 45°" disabled>右转</button>
               <button id="zoom-in" aria-label="拉近镜头" title="拉近镜头" disabled>＋</button>
               <button id="zoom-out" aria-label="拉远镜头" title="拉远镜头" disabled>−</button>
-              <button id="reset-view" disabled>复位视角</button>
+              <button id="reset-view" aria-label="复位视角" title="复位视角" disabled>复位</button>
             </div>
             <p id="camera-status" role="status">斜俯视 · 朝向 180° · 145%</p>
-            <p class="camera-help">右键拖动平移 · 中键或 Shift＋右键拖动旋转／俯仰 · 滚轮缩放</p>
+            <p class="camera-help">中键拖动平移 · Shift＋中键拖动旋转／俯仰 · 滚轮缩放</p>
           </div>
         </div>
-        <div class="placement-bar"><p id="placement-status" role="status">先选择右侧的塔卡或工人塔，再点击金色边界内的浅绿建造区。</p><button id="cancel-placement" hidden>取消放置 · Esc</button></div>
+        <div class="placement-bar"><p id="placement-status" role="status">选择工人建造或塔卡，再点击浅绿建造区。</p><button id="cancel-placement" hidden>取消放置 · Esc</button></div>
       </div>
       <aside>
         <h2>对局</h2>
@@ -49,9 +50,14 @@
         <button id="overdraft" hidden>透支</button>
         <p id="feedback" role="status"></p>
         <p id="save" role="status">正在读取档案</p>
+        <button id="cancel-save-wait" hidden>取消等待</button>
+        <button id="retry-save" hidden>重试</button>
         <details><summary>季节任务与解锁</summary><div id="season-tasks"></div></details>
         <section>
           <h2>工人道具</h2>
+          <div id="worker-benefits" class="controls"></div>
+          <p id="worker-benefit-result" role="status"></p>
+          <div id="worker-appearance" class="controls"></div>
           <div id="worker-items"></div>
         </section>
         <section>
@@ -67,6 +73,15 @@
           <p class="build-help">选一座塔 → 在地图浅绿区域放置</p>
           <div id="builds" class="controls"></div>
         </section>
+        <details id="hero-exchange" hidden>
+          <summary>英雄兑换</summary>
+          <div id="hero-exchange-offers" class="controls"></div>
+        </details>
+        <details>
+          <summary>活动商店</summary>
+          <p id="event-balance"></p>
+          <div id="event-boxes" class="controls"></div>
+        </details>
         <section>
           <h2>抽卡</h2>
           <div id="draws" class="controls"></div>
@@ -107,6 +122,19 @@
           <div id="structures"></div>
           <div id="circle-items"></div>
         </section>
+        <details class="original-map-reference">
+          <summary>原版地图资料</summary>
+          <div class="original-map-images">
+            <figure>
+              <img src="/src/assets/original-icons/war3mapPreview.png" width="256" height="256" loading="lazy" alt="刀圈 TD 6.25 原版地图预览">
+              <figcaption>地图预览</figcaption>
+            </figure>
+            <figure>
+              <img src="/src/assets/original-icons/war3mapMap.png" width="256" height="256" loading="lazy" alt="刀圈 TD 6.25 原版小地图">
+              <figcaption>原版小地图</figcaption>
+            </figure>
+          </div>
+        </details>
       </aside>
     </main>
   </body>

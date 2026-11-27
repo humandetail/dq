@@ -1,4 +1,4 @@
-import { containsDisk, gridSize, map, segmentEntry, type MovementLayer, type Point, type Rect } from "./map.ts";
+import { gridSize, map, segmentEntry, type MovementLayer, type Point, type Rect } from "./map.ts";
 
 const directions = [[1, 0], [0, 1], [-1, 0], [0, -1], [1, 1], [-1, 1], [-1, -1], [1, -1]];
 const columns = (map.bounds.maxX - map.bounds.minX) / gridSize;
@@ -23,14 +23,26 @@ function rectDistanceSquared(start: Point, end: Point, rect: Rect) {
   if (segmentEntry(start, end, rect) !== undefined) return 0;
   const fromPoint = ({ x, y }: Point) => (x - Math.max(rect.minX, Math.min(x, rect.maxX))) ** 2 +
     (y - Math.max(rect.minY, Math.min(y, rect.maxY))) ** 2;
-  return Math.min(fromPoint(start), fromPoint(end), ...[rect.minX, rect.maxX].flatMap(x =>
-    [rect.minY, rect.maxY].map(y => segmentDistanceSquared(start, end, { x, y }))));
+  return Math.min(fromPoint(start), fromPoint(end),
+    segmentDistanceSquared(start, end, { x: rect.minX, y: rect.minY }),
+    segmentDistanceSquared(start, end, { x: rect.minX, y: rect.maxY }),
+    segmentDistanceSquared(start, end, { x: rect.maxX, y: rect.minY }),
+    segmentDistanceSquared(start, end, { x: rect.maxX, y: rect.maxY }));
 }
 
 export function staticSweep(start: Point, end: Point, radius: number, layer: MovementLayer, blocked: readonly Rect[] = []) {
-  if (![start, end].every(point => containsDisk(map.bounds, { ...point, radius }) &&
-    point.x + radius < map.bounds.maxX && point.y + radius < map.bounds.maxY)) return false;
-  return layer === "fly" || [...map.obstacles, ...blocked].every(rect => rectDistanceSquared(start, end, rect) >= radius ** 2);
+  const minX = Math.min(start.x, end.x) - radius, maxX = Math.max(start.x, end.x) + radius;
+  const minY = Math.min(start.y, end.y) - radius, maxY = Math.max(start.y, end.y) + radius;
+  const bounds = map.bounds;
+  if (!(minX >= bounds.minX && minY >= bounds.minY && maxX < bounds.maxX && maxY < bounds.maxY)) return false;
+  if (layer === "fly") return true;
+
+  const radiusSquared = radius ** 2;
+  function clears(rect: Rect) {
+    return maxX <= rect.minX || minX >= rect.maxX || maxY <= rect.minY || minY >= rect.maxY ||
+      rectDistanceSquared(start, end, rect) >= radiusSquared;
+  }
+  return map.obstacles.every(clears) && blocked.every(clears);
 }
 
 type Sweep = (from: Point, to: Point) => boolean;
@@ -77,6 +89,13 @@ function connectors(point: Point, legal: (center: Point) => boolean) {
 }
 
 export function findPath(start: Point, goal: Point, sweep: Sweep) {
+  const search = findPathSteps(start, goal, sweep);
+  let step = search.next();
+  while (!step.done) step = search.next();
+  return step.value;
+}
+
+export function* findPathSteps(start: Point, goal: Point, sweep: Sweep): Generator<void, { points: Point[]; cost: number } | undefined> {
   const starts = connectors(start, point => sweep(start, point));
   const ends = connectors(goal, point => sweep(point, goal));
   if (!starts.length || !ends.length) return;
@@ -97,7 +116,9 @@ export function findPath(start: Point, goal: Point, sweep: Sweep) {
     push(open, { id, cost, h });
   }
   for (const start of starts) offer(start.id, start.cost, -1);
+  let visits = 0;
   while (open.length) {
+    if (++visits % 8 === 0) yield;
     const { id, cost } = pop(open);
     if (cost !== costs[id]) continue;
     if (id === endIndex) {
@@ -121,14 +142,14 @@ export function findPath(start: Point, goal: Point, sweep: Sweep) {
   }
 }
 
-export function nearestSpawn(point: Point, radius: number, layer: MovementLayer) {
-  if (staticSweep(point, point, radius, layer)) return point;
+export function nearestSpawn(point: Point, radius: number, layer: MovementLayer, blocked: readonly Rect[] = []) {
+  if (staticSweep(point, point, radius, layer, blocked)) return point;
   let chosen: Point | undefined;
   let best = Infinity;
   for (let id = 0; id < columns * rows; id++) {
     const candidate = center(id);
     const delta = (candidate.x - point.x) ** 2 + (candidate.y - point.y) ** 2;
-    if (delta < best && staticSweep(candidate, candidate, radius, layer)) {
+    if (delta < best && staticSweep(candidate, candidate, radius, layer, blocked)) {
       best = delta;
       chosen = candidate;
     }
@@ -137,18 +158,32 @@ export function nearestSpawn(point: Point, radius: number, layer: MovementLayer)
   return chosen;
 }
 
-export function findApproachPath(start: Point, target: Point, range: number, sweep: Sweep) {
+export function* findApproachPathSteps(start: Point, target: Point, range: number, sweep: Sweep): Generator<void, Point[] | undefined> {
   const x = Math.floor((target.x - map.bounds.minX) / gridSize);
   const y = Math.floor((target.y - map.bounds.minY) / gridSize);
   const span = Math.ceil(range / gridSize);
-  let best: ReturnType<typeof findPath>;
+  const candidates: { point: Point; order: number; lowerBound: number }[] = [];
   for (let row = y - span; row <= y + span; row++) {
     for (let col = x - span; col <= x + span; col++) {
       if (!inGrid(col, row)) continue;
       const point = center(cell(col, row));
       if (distance(point, target) > range) continue;
-      const path = findPath(start, point, sweep);
-      if (path && (!best || path.cost < best.cost)) best = path;
+      // Grid diagonals cost 14, slightly below their Euclidean cost
+      // 10 * sqrt(2). A conservative bound can only skip a costlier path.
+      const lowerBound = distance(start, point) * gridCost * .98;
+      candidates.push({ point, order: candidates.length, lowerBound });
+    }
+  }
+  candidates.sort((left, right) => left.lowerBound - right.lowerBound || left.order - right.order);
+  let best: ReturnType<typeof findPath>;
+  let bestOrder = Infinity;
+  for (const { point, order, lowerBound } of candidates) {
+    if (best && lowerBound > best.cost) break;
+    yield;
+    const path = yield* findPathSteps(start, point, sweep);
+    if (path && (!best || path.cost < best.cost || path.cost === best.cost && order < bestOrder)) {
+      best = path;
+      bestOrder = order;
     }
   }
   return best?.points;

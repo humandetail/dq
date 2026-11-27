@@ -1,0 +1,733 @@
+{
+  "version": "m3-dev-1",
+  "configuration": "m3-config-1",
+  "policy": "m3-r02-witch-doctor-1",
+  "cardId": "i592",
+  "samples": [
+    {
+      "seed": 14,
+      "source": [
+        [
+          "src/game/m2/match.ts",
+          "efd9a2cd3c652fbc5a0c50c32acfe73114c6244c1061de36fbe5392da2ab326b"
+        ],
+        [
+          "src/game/m2/content.ts",
+          "78d0f560a3b108e54aeeedb27ceb248a400cef235608d7638d77fc58ded01c6b"
+        ],
+        [
+          "src/game/m2/combat.ts",
+          "ec1b02de70391965692a500ab9e7f056d58872848d47ce319b664991ec726fcd"
+        ],
+        [
+          "src/game/m2/movement.ts",
+          "cde8069c27cc0b2ceb03afd708497dee667881575e31edeff30274b4328b4937"
+        ],
+        [
+          "src/game/m2/hero-spells.ts",
+          "93d72ed457e0bc3f9333d5455e79ba7611983e107285a76ad30f4928fe3b9222"
+        ],
+        [
+          "src/game/m2/weapons.json",
+          "66ca87b24e38a3aa1c88d457b74c10323b6141cac4ce331e3bf06d828228dd4f"
+        ],
+        [
+          "docs/m3-configuration.json",
+          "aafd409af2051dd97a8add1f62f93455253f2b5368f1b09fe835e39157e7aed9"
+        ]
+      ],
+      "initialStateSha256": "c388ec720c19e8d8aae0dcf47526b80eea595c89123e5eb4d0635a95f32c0a1b",
+      "candidates": [
+        "i552",
+        "i559",
+        "i574",
+        "i554"
+      ],
+      "opening": "i552",
+      "effects": {},
+      "commands": [
+        {
+          "atUs": 0,
+          "action": {
+            "type": "choose-talent",
+            "choice": "W005"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1,
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 2,
+          "action": {
+            "type": "choose-opening",
+            "card": "i552"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          }
+        }
+      ],
+      "end": {
+        "phase": "running",
+        "wave": 0,
+        "atUs": 3
+      },
+      "status": "candidate-not-offered"
+    },
+    {
+      "seed": 47,
+      "source": [
+        [
+          "src/game/m2/match.ts",
+          "efd9a2cd3c652fbc5a0c50c32acfe73114c6244c1061de36fbe5392da2ab326b"
+        ],
+        [
+          "src/game/m2/content.ts",
+          "78d0f560a3b108e54aeeedb27ceb248a400cef235608d7638d77fc58ded01c6b"
+        ],
+        [
+          "src/game/m2/combat.ts",
+          "ec1b02de70391965692a500ab9e7f056d58872848d47ce319b664991ec726fcd"
+        ],
+        [
+          "src/game/m2/movement.ts",
+          "cde8069c27cc0b2ceb03afd708497dee667881575e31edeff30274b4328b4937"
+        ],
+        [
+          "src/game/m2/hero-spells.ts",
+          "93d72ed457e0bc3f9333d5455e79ba7611983e107285a76ad30f4928fe3b9222"
+        ],
+        [
+          "src/game/m2/weapons.json",
+          "66ca87b24e38a3aa1c88d457b74c10323b6141cac4ce331e3bf06d828228dd4f"
+        ],
+        [
+          "docs/m3-configuration.json",
+          "aafd409af2051dd97a8add1f62f93455253f2b5368f1b09fe835e39157e7aed9"
+        ]
+      ],
+      "initialStateSha256": "6e687cab90d67a5bd0774771ba2409cb4d6230c508e3a8e5ecc20005e34b18b3",
+      "candidates": [
+        "i564",
+        "i592",
+        "i578",
+        "i563"
+      ],
+      "opening": "i592",
+      "heroId": 8,
+      "effects": {
+        "H055/A207": {
+          "atUs": 47613439,
+          "x": 234.15040000000002,
+          "y": -1232,
+          "targetId": 28,
+          "casterId": 8,
+          "ownerId": 8,
+          "sourceTemplate": "H055",
+          "amount": 12,
+          "deadUnitId": "m001",
+          "castId": 30,
+          "jumps": 0
+        },
+        "H055/A209": {
+          "atUs": 70163925,
+          "x": -14.452414329650841,
+          "y": -1230.4524143296508,
+          "targetId": 72,
+          "casterId": 8,
+          "ownerId": 8,
+          "sourceTemplate": "H055",
+          "amount": 12,
+          "deadUnitId": "m001",
+          "wardId": 71
+        },
+        "H055/A208/first": {
+          "atUs": 226487500,
+          "x": -880,
+          "y": -406.2924,
+          "targetId": 283,
+          "casterId": 8,
+          "ownerId": 8,
+          "sourceTemplate": "H055",
+          "amount": 4.07808,
+          "curseId": 288
+        },
+        "H055/A208/second": {
+          "atUs": 230487500,
+          "x": -848,
+          "y": 778.5083,
+          "targetId": 283,
+          "casterId": 8,
+          "ownerId": 8,
+          "sourceTemplate": "H055",
+          "amount": 0.3464736768000023,
+          "curseId": 288
+        }
+      },
+      "commands": [
+        {
+          "atUs": 0,
+          "action": {
+            "type": "choose-talent",
+            "choice": "W005"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1,
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 2,
+          "action": {
+            "type": "choose-opening",
+            "card": "i592"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          }
+        },
+        {
+          "atUs": 3,
+          "action": {
+            "type": "build-card",
+            "cardId": 7,
+            "point": {
+              "x": -288,
+              "y": -1024
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          }
+        },
+        {
+          "atUs": 2500004,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n021",
+            "point": {
+              "x": 288,
+              "y": -1024
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          }
+        },
+        {
+          "atUs": 4000005,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n001",
+            "point": {
+              "x": -288,
+              "y": -640
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 10
+          }
+        },
+        {
+          "atUs": 5500006,
+          "action": {
+            "type": "use-item",
+            "itemId": 2
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 5500007,
+          "action": {
+            "type": "use-item",
+            "itemId": 4
+          },
+          "result": {
+            "ok": true,
+            "createdId": 12
+          }
+        },
+        {
+          "atUs": 5500008,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 11,
+            "towerId": 8
+          },
+          "result": {
+            "ok": false,
+            "reason": "equipment"
+          }
+        },
+        {
+          "atUs": 5500009,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A207"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 45500010,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A208"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 68500011,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A209"
+          },
+          "result": {
+            "ok": true
+          }
+        }
+      ],
+      "end": {
+        "phase": "running",
+        "wave": 4,
+        "atUs": 230500012
+      },
+      "status": "passed"
+    },
+    {
+      "seed": 811,
+      "source": [
+        [
+          "src/game/m2/match.ts",
+          "efd9a2cd3c652fbc5a0c50c32acfe73114c6244c1061de36fbe5392da2ab326b"
+        ],
+        [
+          "src/game/m2/content.ts",
+          "78d0f560a3b108e54aeeedb27ceb248a400cef235608d7638d77fc58ded01c6b"
+        ],
+        [
+          "src/game/m2/combat.ts",
+          "ec1b02de70391965692a500ab9e7f056d58872848d47ce319b664991ec726fcd"
+        ],
+        [
+          "src/game/m2/movement.ts",
+          "cde8069c27cc0b2ceb03afd708497dee667881575e31edeff30274b4328b4937"
+        ],
+        [
+          "src/game/m2/hero-spells.ts",
+          "93d72ed457e0bc3f9333d5455e79ba7611983e107285a76ad30f4928fe3b9222"
+        ],
+        [
+          "src/game/m2/weapons.json",
+          "66ca87b24e38a3aa1c88d457b74c10323b6141cac4ce331e3bf06d828228dd4f"
+        ],
+        [
+          "docs/m3-configuration.json",
+          "aafd409af2051dd97a8add1f62f93455253f2b5368f1b09fe835e39157e7aed9"
+        ]
+      ],
+      "initialStateSha256": "a4b7423d7e991170a3e15f20808d837bd2b86884c125665ca59347906f9e58a4",
+      "candidates": [
+        "i592",
+        "i589",
+        "i578",
+        "i557"
+      ],
+      "opening": "i592",
+      "heroId": 8,
+      "effects": {
+        "H055/A207": {
+          "atUs": 37609783,
+          "x": -16,
+          "y": -1162.5808,
+          "targetId": 13,
+          "casterId": 8,
+          "ownerId": 8,
+          "sourceTemplate": "H055",
+          "amount": 12,
+          "deadUnitId": "m001",
+          "castId": 14,
+          "jumps": 0
+        },
+        "H055/A209": {
+          "atUs": 70310173,
+          "x": 6.2302027684829,
+          "y": -1209.7697972315168,
+          "targetId": 74,
+          "casterId": 8,
+          "ownerId": 8,
+          "sourceTemplate": "H055",
+          "amount": 12,
+          "deadUnitId": "m001",
+          "wardId": 72
+        },
+        "H055/A208/first": {
+          "atUs": 449102223,
+          "x": 725.3973000000001,
+          "y": -1168,
+          "targetId": 476,
+          "casterId": 8,
+          "ownerId": 8,
+          "sourceTemplate": "H055",
+          "amount": 16.558080000000018,
+          "curseId": 508
+        },
+        "H055/A208/second": {
+          "atUs": 453102223,
+          "x": 1200,
+          "y": -542.9935999999999,
+          "targetId": 476,
+          "casterId": 8,
+          "ownerId": 8,
+          "sourceTemplate": "H055",
+          "amount": 1.4279688192000322,
+          "curseId": 508
+        }
+      },
+      "commands": [
+        {
+          "atUs": 0,
+          "action": {
+            "type": "choose-talent",
+            "choice": "W005"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1,
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 2,
+          "action": {
+            "type": "choose-opening",
+            "card": "i592"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          }
+        },
+        {
+          "atUs": 3,
+          "action": {
+            "type": "build-card",
+            "cardId": 7,
+            "point": {
+              "x": -288,
+              "y": -1024
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          }
+        },
+        {
+          "atUs": 2500004,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n021",
+            "point": {
+              "x": 288,
+              "y": -1024
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          }
+        },
+        {
+          "atUs": 4000005,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n001",
+            "point": {
+              "x": -288,
+              "y": -640
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 10
+          }
+        },
+        {
+          "atUs": 5500006,
+          "action": {
+            "type": "use-item",
+            "itemId": 2
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 5500007,
+          "action": {
+            "type": "use-item",
+            "itemId": 4
+          },
+          "result": {
+            "ok": true,
+            "createdId": 12
+          }
+        },
+        {
+          "atUs": 5500008,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 11,
+            "towerId": 8
+          },
+          "result": {
+            "ok": false,
+            "reason": "equipment"
+          }
+        },
+        {
+          "atUs": 5500009,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A207"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 45500010,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A208"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 68500011,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A209"
+          },
+          "result": {
+            "ok": true
+          }
+        }
+      ],
+      "end": {
+        "phase": "running",
+        "wave": 8,
+        "atUs": 453500012
+      },
+      "status": "passed"
+    },
+    {
+      "seed": 1709,
+      "source": [
+        [
+          "src/game/m2/match.ts",
+          "efd9a2cd3c652fbc5a0c50c32acfe73114c6244c1061de36fbe5392da2ab326b"
+        ],
+        [
+          "src/game/m2/content.ts",
+          "78d0f560a3b108e54aeeedb27ceb248a400cef235608d7638d77fc58ded01c6b"
+        ],
+        [
+          "src/game/m2/combat.ts",
+          "ec1b02de70391965692a500ab9e7f056d58872848d47ce319b664991ec726fcd"
+        ],
+        [
+          "src/game/m2/movement.ts",
+          "cde8069c27cc0b2ceb03afd708497dee667881575e31edeff30274b4328b4937"
+        ],
+        [
+          "src/game/m2/hero-spells.ts",
+          "93d72ed457e0bc3f9333d5455e79ba7611983e107285a76ad30f4928fe3b9222"
+        ],
+        [
+          "src/game/m2/weapons.json",
+          "66ca87b24e38a3aa1c88d457b74c10323b6141cac4ce331e3bf06d828228dd4f"
+        ],
+        [
+          "docs/m3-configuration.json",
+          "aafd409af2051dd97a8add1f62f93455253f2b5368f1b09fe835e39157e7aed9"
+        ]
+      ],
+      "initialStateSha256": "661f7a026c089c74b826b0d362aaf7437754eb1be5d313f78c5e85a5bfd958a1",
+      "candidates": [
+        "i563",
+        "i558",
+        "i575",
+        "i572"
+      ],
+      "opening": "i563",
+      "effects": {},
+      "commands": [
+        {
+          "atUs": 0,
+          "action": {
+            "type": "choose-talent",
+            "choice": "W005"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1,
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 2,
+          "action": {
+            "type": "choose-opening",
+            "card": "i563"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          }
+        }
+      ],
+      "end": {
+        "phase": "running",
+        "wave": 0,
+        "atUs": 3
+      },
+      "status": "candidate-not-offered"
+    },
+    {
+      "seed": 20261124,
+      "source": [
+        [
+          "src/game/m2/match.ts",
+          "efd9a2cd3c652fbc5a0c50c32acfe73114c6244c1061de36fbe5392da2ab326b"
+        ],
+        [
+          "src/game/m2/content.ts",
+          "78d0f560a3b108e54aeeedb27ceb248a400cef235608d7638d77fc58ded01c6b"
+        ],
+        [
+          "src/game/m2/combat.ts",
+          "ec1b02de70391965692a500ab9e7f056d58872848d47ce319b664991ec726fcd"
+        ],
+        [
+          "src/game/m2/movement.ts",
+          "cde8069c27cc0b2ceb03afd708497dee667881575e31edeff30274b4328b4937"
+        ],
+        [
+          "src/game/m2/hero-spells.ts",
+          "93d72ed457e0bc3f9333d5455e79ba7611983e107285a76ad30f4928fe3b9222"
+        ],
+        [
+          "src/game/m2/weapons.json",
+          "66ca87b24e38a3aa1c88d457b74c10323b6141cac4ce331e3bf06d828228dd4f"
+        ],
+        [
+          "docs/m3-configuration.json",
+          "aafd409af2051dd97a8add1f62f93455253f2b5368f1b09fe835e39157e7aed9"
+        ]
+      ],
+      "initialStateSha256": "c387950ec53d208f8d8df0dca3a4fcdb28b8e95b9d6db71eb1a001c2e4b5784e",
+      "candidates": [
+        "i565",
+        "i557",
+        "i569",
+        "i566"
+      ],
+      "opening": "i569",
+      "effects": {},
+      "commands": [
+        {
+          "atUs": 0,
+          "action": {
+            "type": "choose-talent",
+            "choice": "W005"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1,
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 2,
+          "action": {
+            "type": "choose-opening",
+            "card": "i569"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          }
+        }
+      ],
+      "end": {
+        "phase": "running",
+        "wave": 0,
+        "atUs": 3
+      },
+      "status": "candidate-not-offered"
+    }
+  ]
+}

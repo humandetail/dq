@@ -1,0 +1,173 @@
+{
+  "version": "m3-dev-1",
+  "configuration": "m3-config-1",
+  "policy": "m3-r02-keeper-light-1-actual-draw-continuation",
+  "cardId": "i586",
+  "samples": [
+    {
+      "seed": 73033,
+      "source": [
+        [
+          "src/game/m2/match.ts",
+          "2097ca64a182319ac75a59a5f450d6a0b0ee163f0ee5c72b60d0aeff4b385524"
+        ],
+        [
+          "src/game/m2/content.ts",
+          "0534cdbf3588c3e84e840ead6e2d5db8dcb5c9b5d8bf41d5eb9f3e0929a7889c"
+        ],
+        [
+          "src/game/m2/combat.ts",
+          "d360366e128802e18c1c343e9a6e35183fea3313e11db5229c9b2f97fbb787d0"
+        ],
+        [
+          "src/game/m2/movement.ts",
+          "d5aa42e15b296ac21ba6844e8f348ce74f39ead3218226b4af54ebca5b69c1bc"
+        ],
+        [
+          "src/game/m2/hero-spells.ts",
+          "95bb26fe9320121bff51a88b8f5dd9b0c2d1ff4096a0db9c900444da62d9b40b"
+        ],
+        [
+          "src/game/m2/weapons.json",
+          "8cdf7eb5b89cba10995745ad91494f152e918a61f79ee92071b0b07338ef1a97"
+        ],
+        [
+          "docs/m3-configuration.json",
+          "aafd409af2051dd97a8add1f62f93455253f2b5368f1b09fe835e39157e7aed9"
+        ]
+      ],
+      "initialStateSha256": "e43591ba076572e244c4118f01cb17ac86abca6f169f70c4562ecb9a7deaf693",
+      "candidates": [
+        "i583",
+        "i579",
+        "i570",
+        "i563"
+      ],
+      "opening": "i583",
+      "heroId": 710,
+      "effects": {
+        "H049/A189": {
+          "atUs": 822475355,
+          "x": 489.48170000000005,
+          "y": -1200,
+          "targetId": 711,
+          "casterId": 712,
+          "ownerId": 710,
+          "sourceTemplate": "q064",
+          "amount": 123.96000000000004,
+          "blindUntilUs": 827475355
+        },
+        "H049/A190": {
+          "atUs": 822643750,
+          "recipientId": 710,
+          "mana": 396,
+          "token": {
+            "id": 713,
+            "untilUs": 847643750
+          }
+        },
+        "H049/A191": {
+          "atUs": 848928400,
+          "x": 16,
+          "y": -1082.31905,
+          "targetId": 720,
+          "casterId": 721,
+          "ownerId": 710,
+          "sourceTemplate": "q001",
+          "amount": 249.84000000000015
+        }
+      },
+      "commands": [
+        {
+          "atUs": 813750050,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 813750051,
+          "action": {
+            "type": "recycle-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 814750052,
+          "action": {
+            "type": "recycle-tower",
+            "towerId": 498
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 815750053,
+          "action": {
+            "type": "build-card",
+            "cardId": 709,
+            "point": {
+              "x": 288,
+              "y": -640
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 710
+          }
+        },
+        {
+          "atUs": 820000054,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 710,
+            "skillId": "A189"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 821000055,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 710,
+            "skillId": "A190"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 831000056,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 710,
+            "skillId": "A191"
+          },
+          "result": {
+            "ok": true
+          }
+        }
+      ],
+      "continuation": {
+        "cardInstance": 709,
+        "wave": 15,
+        "prefixInputs": 50,
+        "inputLogSha256": "32bd1cca41d69b625c4d5be13afbfc71a2b9a0735e5c702d2201cb5d1098dac7"
+      },
+      "end": {
+        "phase": "running",
+        "wave": 15,
+        "atUs": 849000057
+      },
+      "status": "passed"
+    }
+  ]
+}

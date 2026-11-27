@@ -1,0 +1,168 @@
+{
+  "kind": "normal-recorded-draw-fork",
+  "seed": 811,
+  "inputLogSha256": "d17c6feef4c70474eb22dac5119196ceb855f6fa2c703242c01e2a7892a86486",
+  "forkAt": {
+    "atUs": 493500033,
+    "wave": 9,
+    "draw": {
+      "id": 453,
+      "card": "i571",
+      "slot": 2,
+      "point": {
+        "x": 143.50988024632844,
+        "y": -112.49011975367156
+      },
+      "invulnerable": true,
+      "hp": 20,
+      "charges": 1
+    },
+    "nextInput": 33,
+    "snapshotSha256": "75461a99aa6cee6bafc189e7f39e72b5bb83738ddcfad68037da888df6d4b13d",
+    "progress": {
+      "spring": {
+        "counts": {
+          "7": 666
+        },
+        "points": 40,
+        "nodes": [
+          1,
+          4
+        ],
+        "unlocks": []
+      },
+      "summer": {
+        "counts": {
+          "3": 2,
+          "7": 666
+        },
+        "points": 30,
+        "nodes": [
+          1
+        ],
+        "unlocks": []
+      }
+    }
+  },
+  "follow": [
+    {
+      "atUs": 610500033,
+      "action": {
+        "type": "build-card",
+        "cardId": 453,
+        "point": {
+          "x": -288,
+          "y": -640
+        }
+      },
+      "result": {
+        "ok": true,
+        "createdId": 497
+      }
+    },
+    {
+      "atUs": 615250034,
+      "action": {
+        "type": "learn-skill",
+        "towerId": 497,
+        "skillId": "A111"
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 615250035,
+      "action": {
+        "type": "buy-book",
+        "bookId": "i128"
+      },
+      "result": {
+        "ok": true,
+        "createdId": 501
+      }
+    },
+    {
+      "atUs": 615250036,
+      "action": {
+        "type": "use-book",
+        "itemId": 501,
+        "towerId": 497
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 615250037,
+      "action": {
+        "type": "cast-hero",
+        "towerId": 497,
+        "skillId": "A111",
+        "targetId": 8
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 618250038,
+      "action": {
+        "type": "learn-skill",
+        "towerId": 497,
+        "skillId": "A113"
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 618250039,
+      "action": {
+        "type": "cast-hero",
+        "towerId": 497,
+        "skillId": "A113",
+        "point": {
+          "x": -288,
+          "y": -640
+        }
+      },
+      "result": {
+        "ok": true
+      }
+    }
+  ],
+  "wispId": 497,
+  "maxOvercharge": 0,
+  "progress": {
+    "spring": {
+      "counts": {
+        "1": 1,
+        "3": 1,
+        "7": 666
+      },
+      "points": 40,
+      "nodes": [
+        1,
+        4
+      ],
+      "unlocks": []
+    },
+    "summer": {
+      "counts": {
+        "3": 2,
+        "7": 666
+      },
+      "points": 30,
+      "nodes": [
+        1
+      ],
+      "unlocks": []
+    }
+  },
+  "end": {
+    "phase": "running",
+    "wave": 11,
+    "atUs": 621250040
+  }
+}

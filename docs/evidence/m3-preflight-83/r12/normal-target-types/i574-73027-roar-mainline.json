@@ -1,0 +1,122 @@
+{
+  "seed": 73027,
+  "initialStateSha256": "d6d83e33627d23209fb089604ea808e3cf650dcfff18d8075a66bc82af8e332b",
+  "inputLogSha256": "190b30c92b172bfcfc1e5cf86f405043ca5443cae7a76611bfaf5668f5eff90f",
+  "exactPrefix": 28,
+  "candidates": [
+    "i574",
+    "i557",
+    "i570",
+    "i596"
+  ],
+  "cardId": 7,
+  "heroId": 8,
+  "skillRank": 3,
+  "born": {
+    "id": 257,
+    "templateId": "n257",
+    "atUs": 269875029,
+    "ownerId": 8
+  },
+  "proof": {
+    "atUs": 352300031,
+    "ability": "N140",
+    "duration": 1500000,
+    "bearId": 257,
+    "wave": 6,
+    "eligible": [
+      {
+        "id": 291,
+        "unitId": "m006",
+        "layer": "fly",
+        "stunBefore": 0,
+        "stunAfter": 0,
+        "rateBefore": 240,
+        "rateAfter": 0,
+        "untilUs": 353800031
+      }
+    ],
+    "recipient": {
+      "id": 291,
+      "unitId": "m006",
+      "layer": "fly",
+      "stunBefore": 0,
+      "stunAfter": 0,
+      "rateBefore": 240,
+      "rateAfter": 0,
+      "untilUs": 353800031
+    },
+    "stoppedPositions": [
+      {
+        "x": -16,
+        "y": -518.4696,
+        "atUs": 352312500
+      },
+      {
+        "x": -16,
+        "y": -518.4696,
+        "atUs": 352406250
+      }
+    ]
+  },
+  "lastRoar": {
+    "atUs": 352300031,
+    "ability": "N140",
+    "duration": 1500000,
+    "bearId": 257,
+    "wave": 6,
+    "eligible": [
+      {
+        "id": 291,
+        "unitId": "m006",
+        "layer": "fly",
+        "stunBefore": 0,
+        "stunAfter": 0,
+        "rateBefore": 240,
+        "rateAfter": 0,
+        "untilUs": 353800031
+      }
+    ]
+  },
+  "commands": [
+    {
+      "atUs": 269500028,
+      "action": {
+        "type": "cast-hero",
+        "towerId": 8,
+        "skillId": "A125"
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 273750029,
+      "action": {
+        "type": "cast-tower",
+        "towerId": 257,
+        "skillId": "N140"
+      },
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "atUs": 352000030,
+      "action": {
+        "type": "cast-tower",
+        "towerId": 257,
+        "skillId": "N140"
+      },
+      "result": {
+        "ok": true
+      }
+    }
+  ],
+  "end": {
+    "wave": 6,
+    "phase": "running",
+    "atUs": 352500031
+  },
+  "status": "normal-roar-lock-without-stun"
+}

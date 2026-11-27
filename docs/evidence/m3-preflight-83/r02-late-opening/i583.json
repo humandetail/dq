@@ -1,0 +1,183 @@
+{
+  "version": "m3-dev-1",
+  "configuration": "m3-config-1",
+  "policy": "m3-r02-ember-1-actual-opening-continuation",
+  "cardId": "i583",
+  "samples": [
+    {
+      "seed": 6,
+      "source": [
+        [
+          "src/game/m2/match.ts",
+          "ecad9038b41fb7473b0aed8386d5948b8284625bd157fd94003a5c8cb0177551"
+        ],
+        [
+          "src/game/m2/content.ts",
+          "0534cdbf3588c3e84e840ead6e2d5db8dcb5c9b5d8bf41d5eb9f3e0929a7889c"
+        ],
+        [
+          "src/game/m2/combat.ts",
+          "d360366e128802e18c1c343e9a6e35183fea3313e11db5229c9b2f97fbb787d0"
+        ],
+        [
+          "src/game/m2/movement.ts",
+          "d8005a8134bd38132e72b6446d225b3b3e38436c1fc02ec2ba8efb72888477df"
+        ],
+        [
+          "src/game/m2/hero-spells.ts",
+          "95bb26fe9320121bff51a88b8f5dd9b0c2d1ff4096a0db9c900444da62d9b40b"
+        ],
+        [
+          "src/game/m2/weapons.json",
+          "8cdf7eb5b89cba10995745ad91494f152e918a61f79ee92071b0b07338ef1a97"
+        ],
+        [
+          "docs/m3-configuration.json",
+          "aafd409af2051dd97a8add1f62f93455253f2b5368f1b09fe835e39157e7aed9"
+        ]
+      ],
+      "initialStateSha256": "e6b74b399e5918cd80238f2c464db1b0abbacb174843ea55579f350da81d1f0a",
+      "candidates": [
+        "i583",
+        "i594",
+        "i566",
+        "i582"
+      ],
+      "opening": "i583",
+      "heroId": 8,
+      "effects": {
+        "H046/A179": {
+          "atUs": 61885000,
+          "x": 16,
+          "y": -800.7922,
+          "targetId": 45,
+          "casterId": 8,
+          "ownerId": 8,
+          "sourceTemplate": "H046",
+          "amount": 3.294400000000003,
+          "deadUnitId": "m001"
+        },
+        "H046/A180": {
+          "atUs": 92090000,
+          "x": -16,
+          "y": -887.0375,
+          "targetId": 77,
+          "casterId": 8,
+          "ownerId": 8,
+          "sourceTemplate": "H046",
+          "amount": 141.873984,
+          "targetList": [
+            77
+          ],
+          "step": 1
+        },
+        "H046/A178": {
+          "atUs": 110600000,
+          "x": -15.811375155816021,
+          "y": -1232.565874532552,
+          "targetId": 104,
+          "casterId": 8,
+          "ownerId": 8,
+          "sourceTemplate": "H046",
+          "amount": 32.22,
+          "deadUnitId": "m002"
+        },
+        "G065/A179": {
+          "atUs": 113487941,
+          "x": -66.56949999999999,
+          "y": -848,
+          "targetId": 107,
+          "casterId": 8,
+          "ownerId": 8,
+          "sourceTemplate": "G065",
+          "amount": 87.63096000000002,
+          "deadUnitId": "m002"
+        },
+        "G065/A180": {
+          "atUs": 118683750,
+          "x": -1142.7216,
+          "y": -16,
+          "targetId": 39,
+          "casterId": 8,
+          "ownerId": 8,
+          "sourceTemplate": "G065",
+          "amount": 60,
+          "deadUnitId": "m001",
+          "targetList": [
+            39
+          ],
+          "step": 1
+        },
+        "G065/A178": {
+          "atUs": 127770296,
+          "x": 74.03649999999999,
+          "y": -1232,
+          "targetId": 128,
+          "casterId": 8,
+          "ownerId": 8,
+          "sourceTemplate": "G065",
+          "amount": 28.980000000000004,
+          "deadUnitId": "m002"
+        }
+      },
+      "commands": [
+        {
+          "atUs": 1500011,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A178"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 59500012,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A179"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 89500013,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A180"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 111500014,
+          "action": {
+            "type": "choose-skin",
+            "towerId": 8,
+            "choice": "S262"
+          },
+          "result": {
+            "ok": true
+          }
+        }
+      ],
+      "continuation": {
+        "cardInstance": 7,
+        "wave": 0,
+        "prefixInputs": 11,
+        "inputLogSha256": "5c00e78f1310481aa4510052646c0bb73bb07d6baf6f5bf1eed9c8a3d9e30973"
+      },
+      "end": {
+        "phase": "running",
+        "wave": 2,
+        "atUs": 128500015
+      },
+      "status": "passed"
+    }
+  ]
+}

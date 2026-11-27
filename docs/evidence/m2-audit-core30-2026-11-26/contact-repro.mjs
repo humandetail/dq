@@ -1,0 +1,26 @@
+// Run from the repository root. Controlled timing fixture, not a normal match.
+import {scheduleEvent} from '../../../src/game/event-queue.ts';
+import {newMatch,drain,enqueue} from '../../../src/game/m2/match.ts';
+import {newHero} from '../../../src/game/m2/hero.ts';
+import {map} from '../../../src/game/m2/map.ts';
+const state=newMatch('audit-contact',47);
+state.queue.pending=[];
+const advance=time=>{state.clock.targetUs=time;while(drain(state,10000)==='pending') {}};
+scheduleEvent(state.queue,1,{type:'start-wave',index:0});
+advance(1);
+state.queue.pending=[];
+const hero=newHero('H005');
+hero.natural.INT=100;
+hero.ranks.A019=1;
+const tower={...map.worker,id:900,templateId:'H005',population:20,radius:72,pending:null,qualification:null,hero};
+state.structures=[tower];
+const target=state.enemies[0];
+Object.assign(target,{x:tower.x+480,y:tower.y,hp:100000,armor:0,abilities:[]});
+state.enemies=[target];
+enqueue(state,{id:'cast',matchId:state.matchId,action:{type:'cast-hero',towerId:900,skillId:'A019'}});
+advance(2);
+advance(300002);
+advance(600000);
+const expectedContactUs=440002;
+const actualContactUs=state.recentHits[0].atUs;
+console.log(JSON.stringify({fixture:'A019 rank 1, stationary target at 480, radius 200, speed 2000',effectUs:300002,expectedContactUs,actualContactUs,earlyUs:expectedContactUs-actualContactUs,status:actualContactUs===expectedContactUs?'passed':'failed',hit:state.recentHits[0]},null,2));

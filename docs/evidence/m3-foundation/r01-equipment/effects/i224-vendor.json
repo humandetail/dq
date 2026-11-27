@@ -1,0 +1,2800 @@
+{
+  "policy": "m3-r01-effects-1",
+  "version": "m3-dev-1",
+  "configuration": "m3-config-1",
+  "source": [
+    [
+      "checks/m3-normal-equipment.mjs",
+      "db95e0c8048d61ad4de8223cd6e4013a20da424e14bfaee990ac24000c880f80"
+    ],
+    [
+      "src/game/m2/appearance.ts",
+      "78f2c855b9aefcac9637773264ab0a25f7a8d8b22da543de10bac2615383d305"
+    ],
+    [
+      "src/game/m2/combat.ts",
+      "b98ac89e25de72e027bab11ba0c559bc4a5420c12bb6a5347bc182734c662d8e"
+    ],
+    [
+      "src/game/m2/content.ts",
+      "29f9ea19f5fd27e0723cfe0203125ddcd1208f2fb4a6b04c7fd9fde911302970"
+    ],
+    [
+      "src/game/m2/divine.ts",
+      "3c02791a3edc6b5f473aa7236b245d351b5fe3df8fabe80aeb1611c32f883f33"
+    ],
+    [
+      "src/game/m2/enemy-effects.ts",
+      "6af9752331c3aa30a193e2343d347c38add1792d31fdc9c2cffadd3fd70f6986"
+    ],
+    [
+      "src/game/m2/event-boxes.ts",
+      "97f715e7df090e26b8981834dd4dedb71c86debc2cddda63b405b41cea8ead78"
+    ],
+    [
+      "src/game/m2/evidence.ts",
+      "891b650efc30e3ef4f7a3150014f58605a99d5d10c665a23e08297caea613854"
+    ],
+    [
+      "src/game/m2/hero-exchange.ts",
+      "d4e5a40296647bb072620c312b06b48f0874bd41fd97c212fedaad70c8f7780a"
+    ],
+    [
+      "src/game/m2/hero-spells.ts",
+      "38858fd264306fb3a8e1db470e84836702a80ab975aa5a7ad22292ad81090556"
+    ],
+    [
+      "src/game/m2/hero.ts",
+      "fbb5dcca5a1c25aa1c2f9b8cf882defe7795e5d668f91a1650f803943d8c48fc"
+    ],
+    [
+      "src/game/m2/m3-items.json",
+      "2d8f046d6d102b75c12d708d687b1debdfaa0deafb08b0a3ac68a289c1b35b19"
+    ],
+    [
+      "src/game/m2/m3-version.ts",
+      "cb228fca5a3d1ddea47e4fa17892721c788de587be432825f5ba1cc1e5843d31"
+    ],
+    [
+      "src/game/m2/map.ts",
+      "93289696a9f184a23c59d2777a46fd2399d28d17e5aa69689806a022a547f168"
+    ],
+    [
+      "src/game/m2/match.ts",
+      "cec1fa65d00319567acb25a0804278f762dfd7ec0ab0c199cf29c90b29033357"
+    ],
+    [
+      "src/game/m2/movement.ts",
+      "3dfc8d949d0d09340b2b1e602f10a30a7b140a44b7772276d4cbba94cf19e79f"
+    ],
+    [
+      "src/game/m2/pathfinding.ts",
+      "d5ff89734e6ae087bc258466f21de250f1b5bbf1a3c4f35080f45b7631806276"
+    ],
+    [
+      "src/game/m2/save.ts",
+      "9b9740359bbe362a6703008d8cb259687702aaf353ef00116d20564fac34c580"
+    ],
+    [
+      "src/game/m2/seasons.ts",
+      "ecfd7afb9d20e146944e106c0a503b4b5cbab3c98fd7dba64c104a3925e38215"
+    ],
+    [
+      "src/game/m2/shops.ts",
+      "d9689345c7e05b612ad575672258d8a49d89a789445296c25dc050b81f250696"
+    ],
+    [
+      "src/game/m2/talents.ts",
+      "04556712b7904aac9465fda01ee5ee7e2153b801409a46aa738a82a12d6a6d2a"
+    ],
+    [
+      "src/game/m2/tower-spells.ts",
+      "87c7b914a183ea6a544749d58c829a94a52dab5c7ca38c4c3311dae9cb480088"
+    ],
+    [
+      "src/game/m2/wave-contact.ts",
+      "36a48ae409a3396a0b5fe9b99abf67c251c5b7337cb118990232b50bb57d643a"
+    ],
+    [
+      "src/game/m2/waves.ts",
+      "c5dbeeafc5d98199449c377ff6bbc515c8bab606880940a3168b02d27959f103"
+    ],
+    [
+      "src/game/m2/weapons.json",
+      "470278b150efa17427bcba350286e719971f38c9f05afdaa50d06beb64324c2c"
+    ],
+    [
+      "docs/m2-configuration.json",
+      "294e04e5eae840e755e4d2f7fb70de6fb7e65a640863a743c53843803dc8ca96"
+    ],
+    [
+      "docs/m2-item-index.json",
+      "8cc68493a7e44ee916ec1b2736ffa1abd005b50f871f58d94b55495d5821cda0"
+    ],
+    [
+      "docs/m2-runtime-coverage.json",
+      "56e32fe850f1c19a8a0d59c3009089a014b58fbefb18cf3929510545444c4c67"
+    ],
+    [
+      "docs/m3-configuration.json",
+      "aafd409af2051dd97a8add1f62f93455253f2b5368f1b09fe835e39157e7aed9"
+    ],
+    [
+      "docs/m3-target-dependencies.json",
+      "2d211f7eb1cbfd1e58a5669bc387e9c2de97a706f6b750399b28bbc34541ec45"
+    ]
+  ],
+  "scope": {
+    "targetIds": 30,
+    "vendorRoutes": 23,
+    "recipeRoutes": 18
+  },
+  "samples": [
+    {
+      "route": "i224:vendor",
+      "seed": 14,
+      "candidates": [
+        "i576",
+        "i556",
+        "i562",
+        "i552"
+      ],
+      "opening": "i576",
+      "heroId": 8,
+      "initialStateSha256": "4c4a639db60ebe06e54b05a40dce052c0ae9dce207a64f4b446954ccb17a824d",
+      "budget": {
+        "gold": 4500,
+        "lumber": 0
+      },
+      "shopping": [
+        "i224"
+      ],
+      "commands": [
+        {
+          "atUs": 0,
+          "action": {
+            "type": "choose-talent",
+            "choice": "W005"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1,
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 2,
+          "action": {
+            "type": "choose-opening",
+            "card": "i576"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          }
+        },
+        {
+          "atUs": 3,
+          "action": {
+            "type": "build-card",
+            "cardId": 7,
+            "point": {
+              "x": -288,
+              "y": -160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          }
+        },
+        {
+          "atUs": 4,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n021",
+            "point": {
+              "x": 192,
+              "y": -224
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          }
+        },
+        {
+          "atUs": 1250005,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n001",
+            "point": {
+              "x": 192,
+              "y": -32
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 10
+          }
+        },
+        {
+          "atUs": 1500006,
+          "action": {
+            "type": "use-item",
+            "itemId": 2
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500007,
+          "action": {
+            "type": "use-item",
+            "itemId": 4
+          },
+          "result": {
+            "ok": true,
+            "createdId": 12
+          }
+        },
+        {
+          "atUs": 1500008,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 11,
+            "towerId": 8
+          },
+          "result": {
+            "ok": false,
+            "reason": "equipment"
+          }
+        },
+        {
+          "atUs": 1500009,
+          "action": {
+            "type": "drop-item",
+            "itemId": 5
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500010,
+          "action": {
+            "type": "drop-item",
+            "itemId": 6
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500011,
+          "action": {
+            "type": "drop-item",
+            "itemId": 12
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500012,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500013,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A151"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 53500014,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A152"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 61500015,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 85500016,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A153"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 101500017,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 121500018,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 141500019,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A151"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 141500020,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 181500021,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A152"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 189500022,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 217500023,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A153"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 241500024,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 241500025,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 281500026,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A151"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 345500027,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 361500028,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 381500029,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 397500030,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A152"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 429500031,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 469500032,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A153"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 481500033,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 481500034,
+          "action": {
+            "type": "buy-item",
+            "itemId": "i224"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 449
+          }
+        },
+        {
+          "atUs": 481500035,
+          "action": {
+            "type": "drop-item",
+            "itemId": 449
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 481500036,
+          "action": {
+            "type": "pick-up-item",
+            "itemId": 449
+          },
+          "result": {
+            "ok": true,
+            "createdId": 449
+          }
+        },
+        {
+          "atUs": 481500037,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 449,
+            "towerId": 8
+          },
+          "result": {
+            "ok": true,
+            "createdId": 449
+          }
+        },
+        {
+          "atUs": 481500038,
+          "action": {
+            "type": "cast-equipment",
+            "itemId": 449,
+            "towerId": 8,
+            "targetId": 445
+          },
+          "result": {
+            "ok": true
+          }
+        }
+      ],
+      "transactions": [
+        {
+          "atUs": 481500034,
+          "wave": 9,
+          "itemId": "i224",
+          "result": {
+            "ok": true,
+            "createdId": 449
+          },
+          "balanceBefore": {
+            "gold": 4972,
+            "lumber": 451
+          },
+          "balanceAfter": {
+            "gold": 472,
+            "lumber": 451
+          },
+          "cost": {
+            "gold": 4500,
+            "lumber": 0
+          },
+          "stockBefore": [],
+          "stockAfter": [
+            482500035
+          ],
+          "delivered": {
+            "id": 449,
+            "itemId": "i224",
+            "charges": 0,
+            "slot": 0
+          },
+          "consumedOrReduced": []
+        }
+      ],
+      "obtained": {
+        "id": 449,
+        "wave": 9,
+        "atUs": 481500035,
+        "kind": "vendor"
+      },
+      "logistics": {
+        "drop": {
+          "ok": true
+        },
+        "pickup": {
+          "ok": true,
+          "createdId": 449
+        }
+      },
+      "equipped": {
+        "result": {
+          "ok": true,
+          "createdId": 449
+        },
+        "retained": true
+      },
+      "use": {
+        "result": {
+          "ok": true
+        },
+        "before": {
+          "mana": 315.9283478,
+          "position": {
+            "x": -288,
+            "y": -160
+          },
+          "charges": 0
+        },
+        "after": {
+          "mana": 245.92835322499997,
+          "position": {
+            "x": -288,
+            "y": -160
+          },
+          "charges": 0,
+          "soulBurn": {
+            "timerId": 98936,
+            "untilUs": 486500039,
+            "casterId": 8,
+            "casterTemplate": "H038",
+            "casterPoint": {
+              "x": -288,
+              "y": -160
+            },
+            "itemId": "i224",
+            "total": 0
+          }
+        }
+      },
+      "status": "acquired",
+      "end": {
+        "phase": "running",
+        "wave": 9,
+        "atUs": 481650039,
+        "balances": {
+          "gold": 472,
+          "lumber": 451
+        }
+      }
+    },
+    {
+      "route": "i224:vendor",
+      "seed": 47,
+      "candidates": [
+        "i564",
+        "i589",
+        "i565",
+        "i558"
+      ],
+      "opening": "i564",
+      "heroId": 8,
+      "initialStateSha256": "a844cca2bea4d6f5ce53add8d9ba40830ad096cee2a6c24ac404b6e35f317538",
+      "budget": {
+        "gold": 4500,
+        "lumber": 0
+      },
+      "shopping": [
+        "i224"
+      ],
+      "commands": [
+        {
+          "atUs": 0,
+          "action": {
+            "type": "choose-talent",
+            "choice": "W005"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1,
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 2,
+          "action": {
+            "type": "choose-opening",
+            "card": "i564"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          }
+        },
+        {
+          "atUs": 3,
+          "action": {
+            "type": "build-card",
+            "cardId": 7,
+            "point": {
+              "x": -288,
+              "y": -160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          }
+        },
+        {
+          "atUs": 4,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n021",
+            "point": {
+              "x": 192,
+              "y": -224
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          }
+        },
+        {
+          "atUs": 1250005,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n001",
+            "point": {
+              "x": 192,
+              "y": -32
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 10
+          }
+        },
+        {
+          "atUs": 1500006,
+          "action": {
+            "type": "use-item",
+            "itemId": 2
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500007,
+          "action": {
+            "type": "use-item",
+            "itemId": 4
+          },
+          "result": {
+            "ok": true,
+            "createdId": 12
+          }
+        },
+        {
+          "atUs": 1500008,
+          "action": {
+            "type": "use-item",
+            "itemId": 12
+          },
+          "result": {
+            "ok": true,
+            "createdId": 13
+          }
+        },
+        {
+          "atUs": 1500009,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 11,
+            "towerId": 8
+          },
+          "result": {
+            "ok": false,
+            "reason": "equipment"
+          }
+        },
+        {
+          "atUs": 1500010,
+          "action": {
+            "type": "drop-item",
+            "itemId": 5
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500011,
+          "action": {
+            "type": "drop-item",
+            "itemId": 6
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500012,
+          "action": {
+            "type": "drop-card",
+            "cardId": 13
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500013,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500014,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 53500015,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 61500016,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 89500017,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A069"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 93500018,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 121500019,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 137500020,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 141500021,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 173500022,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 189500023,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 217500024,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A069"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 241500025,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 277500026,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 345500027,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 361500028,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 381500029,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 401500030,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 425500031,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 469500032,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A069"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 481500033,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 481500034,
+          "action": {
+            "type": "buy-item",
+            "itemId": "i224"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 480
+          }
+        },
+        {
+          "atUs": 481500035,
+          "action": {
+            "type": "drop-item",
+            "itemId": 480
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 481500036,
+          "action": {
+            "type": "pick-up-item",
+            "itemId": 480
+          },
+          "result": {
+            "ok": true,
+            "createdId": 480
+          }
+        },
+        {
+          "atUs": 481500037,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 480,
+            "towerId": 8
+          },
+          "result": {
+            "ok": true,
+            "createdId": 480
+          }
+        },
+        {
+          "atUs": 481500038,
+          "action": {
+            "type": "cast-equipment",
+            "itemId": 480,
+            "towerId": 8,
+            "targetId": 476
+          },
+          "result": {
+            "ok": true
+          }
+        }
+      ],
+      "transactions": [
+        {
+          "atUs": 481500034,
+          "wave": 9,
+          "itemId": "i224",
+          "result": {
+            "ok": true,
+            "createdId": 480
+          },
+          "balanceBefore": {
+            "gold": 6269,
+            "lumber": 454
+          },
+          "balanceAfter": {
+            "gold": 1769,
+            "lumber": 454
+          },
+          "cost": {
+            "gold": 4500,
+            "lumber": 0
+          },
+          "stockBefore": [],
+          "stockAfter": [
+            482500035
+          ],
+          "delivered": {
+            "id": 480,
+            "itemId": "i224",
+            "charges": 0,
+            "slot": 0
+          },
+          "consumedOrReduced": []
+        }
+      ],
+      "obtained": {
+        "id": 480,
+        "wave": 9,
+        "atUs": 481500035,
+        "kind": "vendor"
+      },
+      "logistics": {
+        "drop": {
+          "ok": true
+        },
+        "pickup": {
+          "ok": true,
+          "createdId": 480
+        }
+      },
+      "equipped": {
+        "result": {
+          "ok": true,
+          "createdId": 480
+        },
+        "retained": true
+      },
+      "use": {
+        "result": {
+          "ok": true
+        },
+        "before": {
+          "mana": 683.7667948400001,
+          "position": {
+            "x": -288,
+            "y": -160
+          },
+          "charges": 0
+        },
+        "after": {
+          "mana": 613.7667996650001,
+          "position": {
+            "x": -288,
+            "y": -160
+          },
+          "charges": 0,
+          "soulBurn": {
+            "timerId": 89761,
+            "untilUs": 486500039,
+            "casterId": 8,
+            "casterTemplate": "H021",
+            "casterPoint": {
+              "x": -288,
+              "y": -160
+            },
+            "itemId": "i224",
+            "total": 0
+          }
+        }
+      },
+      "status": "acquired",
+      "end": {
+        "phase": "running",
+        "wave": 9,
+        "atUs": 481650039,
+        "balances": {
+          "gold": 1769,
+          "lumber": 454
+        }
+      }
+    },
+    {
+      "route": "i224:vendor",
+      "seed": 811,
+      "candidates": [
+        "i589",
+        "i574",
+        "i565",
+        "i554"
+      ],
+      "opening": "i589",
+      "heroId": 8,
+      "initialStateSha256": "db2246d46c64f3c29d0942ca6352e46e605177b6dd9942460f128f68da9621df",
+      "budget": {
+        "gold": 4500,
+        "lumber": 0
+      },
+      "shopping": [
+        "i224"
+      ],
+      "commands": [
+        {
+          "atUs": 0,
+          "action": {
+            "type": "choose-talent",
+            "choice": "W005"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1,
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 2,
+          "action": {
+            "type": "choose-opening",
+            "card": "i589"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          }
+        },
+        {
+          "atUs": 3,
+          "action": {
+            "type": "build-card",
+            "cardId": 7,
+            "point": {
+              "x": -288,
+              "y": -160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          }
+        },
+        {
+          "atUs": 4,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n021",
+            "point": {
+              "x": 192,
+              "y": -224
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          }
+        },
+        {
+          "atUs": 1250005,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n001",
+            "point": {
+              "x": 192,
+              "y": -32
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 10
+          }
+        },
+        {
+          "atUs": 1500006,
+          "action": {
+            "type": "use-item",
+            "itemId": 2
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500007,
+          "action": {
+            "type": "use-item",
+            "itemId": 4
+          },
+          "result": {
+            "ok": true,
+            "createdId": 12
+          }
+        },
+        {
+          "atUs": 1500008,
+          "action": {
+            "type": "use-item",
+            "itemId": 12
+          },
+          "result": {
+            "ok": true,
+            "createdId": 13
+          }
+        },
+        {
+          "atUs": 1500009,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 11,
+            "towerId": 8
+          },
+          "result": {
+            "ok": false,
+            "reason": "equipment"
+          }
+        },
+        {
+          "atUs": 1500010,
+          "action": {
+            "type": "drop-item",
+            "itemId": 5
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500011,
+          "action": {
+            "type": "drop-item",
+            "itemId": 6
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500012,
+          "action": {
+            "type": "drop-card",
+            "cardId": 13
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500013,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500014,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A198"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 53500015,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A199"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 65500016,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 89500017,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A200"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 105500018,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 121500019,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 141500020,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A198"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 141500021,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 173500022,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A199"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 197500023,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 213500024,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A200"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 241500025,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 241500026,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 273500027,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A198"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 313500028,
+          "action": {
+            "type": "buy-item",
+            "itemId": "i224"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 425
+          }
+        },
+        {
+          "atUs": 313500029,
+          "action": {
+            "type": "drop-item",
+            "itemId": 425
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 313500030,
+          "action": {
+            "type": "pick-up-item",
+            "itemId": 425
+          },
+          "result": {
+            "ok": true,
+            "createdId": 425
+          }
+        },
+        {
+          "atUs": 313500031,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 425,
+            "towerId": 8
+          },
+          "result": {
+            "ok": true,
+            "createdId": 425
+          }
+        },
+        {
+          "atUs": 332500032,
+          "action": {
+            "type": "cast-equipment",
+            "itemId": 425,
+            "towerId": 8,
+            "targetId": 440
+          },
+          "result": {
+            "ok": true
+          }
+        }
+      ],
+      "transactions": [
+        {
+          "atUs": 313500028,
+          "wave": 5,
+          "itemId": "i224",
+          "result": {
+            "ok": true,
+            "createdId": 425
+          },
+          "balanceBefore": {
+            "gold": 139893,
+            "lumber": 296
+          },
+          "balanceAfter": {
+            "gold": 135393,
+            "lumber": 296
+          },
+          "cost": {
+            "gold": 4500,
+            "lumber": 0
+          },
+          "stockBefore": [],
+          "stockAfter": [
+            314500029
+          ],
+          "delivered": {
+            "id": 425,
+            "itemId": "i224",
+            "charges": 0,
+            "slot": 0
+          },
+          "consumedOrReduced": []
+        }
+      ],
+      "obtained": {
+        "id": 425,
+        "wave": 5,
+        "atUs": 313500029,
+        "kind": "vendor"
+      },
+      "logistics": {
+        "drop": {
+          "ok": true
+        },
+        "pickup": {
+          "ok": true,
+          "createdId": 425
+        }
+      },
+      "equipped": {
+        "result": {
+          "ok": true,
+          "createdId": 425
+        },
+        "retained": true
+      },
+      "use": {
+        "result": {
+          "ok": true
+        },
+        "before": {
+          "mana": 1183.95881976,
+          "position": {
+            "x": -288,
+            "y": -160
+          },
+          "charges": 0
+        },
+        "after": {
+          "mana": 1130,
+          "position": {
+            "x": -288,
+            "y": -160
+          },
+          "charges": 0,
+          "soulBurn": {
+            "timerId": 57164,
+            "untilUs": 337500033,
+            "casterId": 8,
+            "casterTemplate": "H052",
+            "casterPoint": {
+              "x": -288,
+              "y": -160
+            },
+            "itemId": "i224",
+            "total": 0
+          }
+        }
+      },
+      "status": "acquired",
+      "end": {
+        "phase": "running",
+        "wave": 6,
+        "atUs": 332650033,
+        "balances": {
+          "gold": 135424,
+          "lumber": 298
+        }
+      }
+    },
+    {
+      "route": "i224:vendor",
+      "seed": 1709,
+      "candidates": [
+        "i558",
+        "i555",
+        "i565",
+        "i561"
+      ],
+      "opening": "i558",
+      "heroId": 8,
+      "initialStateSha256": "db3f2dd40607953c6c78b07e5976b86dc5ffba3d0e0f55af97c2bcc05f93468c",
+      "budget": {
+        "gold": 4500,
+        "lumber": 0
+      },
+      "shopping": [
+        "i224"
+      ],
+      "commands": [
+        {
+          "atUs": 0,
+          "action": {
+            "type": "choose-talent",
+            "choice": "W005"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1,
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 2,
+          "action": {
+            "type": "choose-opening",
+            "card": "i558"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          }
+        },
+        {
+          "atUs": 3,
+          "action": {
+            "type": "build-card",
+            "cardId": 7,
+            "point": {
+              "x": -288,
+              "y": -160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          }
+        },
+        {
+          "atUs": 4,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n021",
+            "point": {
+              "x": 192,
+              "y": -224
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          }
+        },
+        {
+          "atUs": 1250005,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n001",
+            "point": {
+              "x": 192,
+              "y": -32
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 10
+          }
+        },
+        {
+          "atUs": 1500006,
+          "action": {
+            "type": "use-item",
+            "itemId": 2
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500007,
+          "action": {
+            "type": "use-item",
+            "itemId": 4
+          },
+          "result": {
+            "ok": true,
+            "createdId": 12
+          }
+        },
+        {
+          "atUs": 1500008,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 11,
+            "towerId": 8
+          },
+          "result": {
+            "ok": false,
+            "reason": "equipment"
+          }
+        },
+        {
+          "atUs": 1500009,
+          "action": {
+            "type": "drop-item",
+            "itemId": 5
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500010,
+          "action": {
+            "type": "drop-item",
+            "itemId": 6
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500011,
+          "action": {
+            "type": "drop-item",
+            "itemId": 12
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500012,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500013,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A043"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 57500014,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A044"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 57500015,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 89500016,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 93500017,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A045"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 121500018,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 137500019,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 149500020,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A043"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 181500021,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A044"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 189500022,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 217500023,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A045"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 241500024,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 281500025,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A043"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 341500026,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 361500027,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 373500028,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 413500029,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A044"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 425500030,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 473500031,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A045"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 473500032,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 481500033,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 481500034,
+          "action": {
+            "type": "buy-item",
+            "itemId": "i224"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 476
+          }
+        },
+        {
+          "atUs": 481500035,
+          "action": {
+            "type": "drop-item",
+            "itemId": 476
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 481500036,
+          "action": {
+            "type": "pick-up-item",
+            "itemId": 476
+          },
+          "result": {
+            "ok": true,
+            "createdId": 476
+          }
+        },
+        {
+          "atUs": 481500037,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 476,
+            "towerId": 8
+          },
+          "result": {
+            "ok": true,
+            "createdId": 476
+          }
+        },
+        {
+          "atUs": 481500038,
+          "action": {
+            "type": "cast-equipment",
+            "itemId": 476,
+            "towerId": 8,
+            "targetId": 448
+          },
+          "result": {
+            "ok": false,
+            "reason": "cooldown"
+          }
+        },
+        {
+          "atUs": 482500039,
+          "action": {
+            "type": "cast-equipment",
+            "itemId": 476,
+            "towerId": 8,
+            "targetId": 448
+          },
+          "result": {
+            "ok": true
+          }
+        }
+      ],
+      "transactions": [
+        {
+          "atUs": 481500034,
+          "wave": 9,
+          "itemId": "i224",
+          "result": {
+            "ok": true,
+            "createdId": 476
+          },
+          "balanceBefore": {
+            "gold": 4714,
+            "lumber": 445
+          },
+          "balanceAfter": {
+            "gold": 214,
+            "lumber": 445
+          },
+          "cost": {
+            "gold": 4500,
+            "lumber": 0
+          },
+          "stockBefore": [],
+          "stockAfter": [
+            482500035
+          ],
+          "delivered": {
+            "id": 476,
+            "itemId": "i224",
+            "charges": 0,
+            "slot": 0
+          },
+          "consumedOrReduced": []
+        }
+      ],
+      "obtained": {
+        "id": 476,
+        "wave": 9,
+        "atUs": 481500035,
+        "kind": "vendor"
+      },
+      "logistics": {
+        "drop": {
+          "ok": true
+        },
+        "pickup": {
+          "ok": true,
+          "createdId": 476
+        }
+      },
+      "equipped": {
+        "result": {
+          "ok": true,
+          "createdId": 476
+        },
+        "retained": true
+      },
+      "use": {
+        "result": {
+          "ok": true
+        },
+        "before": {
+          "mana": 385.57734862,
+          "position": {
+            "x": -288,
+            "y": -160
+          },
+          "charges": 0
+        },
+        "after": {
+          "mana": 320.02735752,
+          "position": {
+            "x": -288,
+            "y": -160
+          },
+          "charges": 0,
+          "soulBurn": {
+            "timerId": 105723,
+            "untilUs": 487500040,
+            "casterId": 8,
+            "casterTemplate": "H013",
+            "casterPoint": {
+              "x": -288,
+              "y": -160
+            },
+            "itemId": "i224",
+            "total": 160.96485196374624
+          }
+        }
+      },
+      "status": "acquired",
+      "end": {
+        "phase": "running",
+        "wave": 9,
+        "atUs": 482650040,
+        "balances": {
+          "gold": 262,
+          "lumber": 448
+        }
+      }
+    },
+    {
+      "route": "i224:vendor",
+      "seed": 20261124,
+      "candidates": [
+        "i559",
+        "i554",
+        "i581",
+        "i560"
+      ],
+      "opening": "i581",
+      "heroId": 8,
+      "initialStateSha256": "5a445ab2f48db85f5c06dabd2e72a2448ae76da6812a124d0f59235d086f99f3",
+      "budget": {
+        "gold": 4500,
+        "lumber": 0
+      },
+      "shopping": [
+        "i224"
+      ],
+      "commands": [
+        {
+          "atUs": 0,
+          "action": {
+            "type": "choose-talent",
+            "choice": "W005"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1,
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 2,
+          "action": {
+            "type": "choose-opening",
+            "card": "i581"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          }
+        },
+        {
+          "atUs": 3,
+          "action": {
+            "type": "build-card",
+            "cardId": 7,
+            "point": {
+              "x": -288,
+              "y": -160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          }
+        },
+        {
+          "atUs": 4,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n021",
+            "point": {
+              "x": 192,
+              "y": -224
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          }
+        },
+        {
+          "atUs": 1250005,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n001",
+            "point": {
+              "x": 192,
+              "y": -32
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 10
+          }
+        },
+        {
+          "atUs": 1500006,
+          "action": {
+            "type": "use-item",
+            "itemId": 2
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500007,
+          "action": {
+            "type": "use-item",
+            "itemId": 4
+          },
+          "result": {
+            "ok": true,
+            "createdId": 12
+          }
+        },
+        {
+          "atUs": 1500008,
+          "action": {
+            "type": "use-item",
+            "itemId": 12
+          },
+          "result": {
+            "ok": true,
+            "createdId": 13
+          }
+        },
+        {
+          "atUs": 1500009,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 11,
+            "towerId": 8
+          },
+          "result": {
+            "ok": false,
+            "reason": "equipment"
+          }
+        },
+        {
+          "atUs": 1500010,
+          "action": {
+            "type": "drop-item",
+            "itemId": 5
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500011,
+          "action": {
+            "type": "drop-item",
+            "itemId": 6
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500012,
+          "action": {
+            "type": "drop-card",
+            "cardId": 13
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500013,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500014,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A170"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 57500015,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A171"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 57500016,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 81500017,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A172"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 121500018,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 121500019,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 133500020,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A170"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 165500021,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A171"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 177500022,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 193500023,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 217500024,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A172"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 241500025,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 241500026,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 277500027,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A170"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 349500028,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 361500029,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 377500030,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 401500031,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A171"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 425500032,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 469500033,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A172"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 481500034,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 489500035,
+          "action": {
+            "type": "buy-item",
+            "itemId": "i224"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 594
+          }
+        },
+        {
+          "atUs": 489500036,
+          "action": {
+            "type": "drop-item",
+            "itemId": 594
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 489500037,
+          "action": {
+            "type": "pick-up-item",
+            "itemId": 594
+          },
+          "result": {
+            "ok": true,
+            "createdId": 594
+          }
+        },
+        {
+          "atUs": 489500038,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 594,
+            "towerId": 8
+          },
+          "result": {
+            "ok": true,
+            "createdId": 594
+          }
+        },
+        {
+          "atUs": 489500039,
+          "action": {
+            "type": "cast-equipment",
+            "itemId": 594,
+            "towerId": 8,
+            "targetId": 559
+          },
+          "result": {
+            "ok": true
+          }
+        }
+      ],
+      "transactions": [
+        {
+          "atUs": 489500035,
+          "wave": 9,
+          "itemId": "i224",
+          "result": {
+            "ok": true,
+            "createdId": 594
+          },
+          "balanceBefore": {
+            "gold": 4525,
+            "lumber": 463
+          },
+          "balanceAfter": {
+            "gold": 25,
+            "lumber": 463
+          },
+          "cost": {
+            "gold": 4500,
+            "lumber": 0
+          },
+          "stockBefore": [],
+          "stockAfter": [
+            490500036
+          ],
+          "delivered": {
+            "id": 594,
+            "itemId": "i224",
+            "charges": 0,
+            "slot": 0
+          },
+          "consumedOrReduced": []
+        }
+      ],
+      "obtained": {
+        "id": 594,
+        "wave": 9,
+        "atUs": 489500036,
+        "kind": "vendor"
+      },
+      "logistics": {
+        "drop": {
+          "ok": true
+        },
+        "pickup": {
+          "ok": true,
+          "createdId": 594
+        }
+      },
+      "equipped": {
+        "result": {
+          "ok": true,
+          "createdId": 594
+        },
+        "retained": true
+      },
+      "use": {
+        "result": {
+          "ok": true
+        },
+        "before": {
+          "mana": 331.17997890999993,
+          "position": {
+            "x": -288,
+            "y": -160
+          },
+          "charges": 0
+        },
+        "after": {
+          "mana": 261.17998650999994,
+          "position": {
+            "x": -288,
+            "y": -160
+          },
+          "charges": 0,
+          "soulBurn": {
+            "timerId": 91575,
+            "untilUs": 494500040,
+            "casterId": 8,
+            "casterTemplate": "H044",
+            "casterPoint": {
+              "x": -288,
+              "y": -160
+            },
+            "itemId": "i224",
+            "total": 0
+          }
+        }
+      },
+      "status": "acquired",
+      "end": {
+        "phase": "running",
+        "wave": 9,
+        "atUs": 489650040,
+        "balances": {
+          "gold": 25,
+          "lumber": 463
+        }
+      }
+    }
+  ]
+}

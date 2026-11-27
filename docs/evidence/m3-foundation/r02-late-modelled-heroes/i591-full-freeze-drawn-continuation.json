@@ -1,0 +1,183 @@
+{
+  "version": "m3-dev-1",
+  "configuration": "m3-config-1",
+  "policy": "m3-r02-razor-1-actual-draw-continuation",
+  "cardId": "i591",
+  "samples": [
+    {
+      "seed": 73018,
+      "source": [
+        [
+          "src/game/m2/match.ts",
+          "2097ca64a182319ac75a59a5f450d6a0b0ee163f0ee5c72b60d0aeff4b385524"
+        ],
+        [
+          "src/game/m2/content.ts",
+          "0534cdbf3588c3e84e840ead6e2d5db8dcb5c9b5d8bf41d5eb9f3e0929a7889c"
+        ],
+        [
+          "src/game/m2/combat.ts",
+          "d360366e128802e18c1c343e9a6e35183fea3313e11db5229c9b2f97fbb787d0"
+        ],
+        [
+          "src/game/m2/movement.ts",
+          "d5aa42e15b296ac21ba6844e8f348ce74f39ead3218226b4af54ebca5b69c1bc"
+        ],
+        [
+          "src/game/m2/hero-spells.ts",
+          "95bb26fe9320121bff51a88b8f5dd9b0c2d1ff4096a0db9c900444da62d9b40b"
+        ],
+        [
+          "src/game/m2/weapons.json",
+          "8cdf7eb5b89cba10995745ad91494f152e918a61f79ee92071b0b07338ef1a97"
+        ],
+        [
+          "docs/m3-configuration.json",
+          "aafd409af2051dd97a8add1f62f93455253f2b5368f1b09fe835e39157e7aed9"
+        ]
+      ],
+      "initialStateSha256": "6f42d4d455f781f2a481bc87f4d585b8f9e4c8ec1f3f34f7af2688a3f49ff06c",
+      "candidates": [
+        "i561",
+        "i554",
+        "i570",
+        "i562"
+      ],
+      "opening": "i561",
+      "heroId": 837,
+      "effects": {
+        "H054/A204": {
+          "atUs": 974507692,
+          "x": 353.234582,
+          "y": -816,
+          "targetId": 808,
+          "casterId": 837,
+          "ownerId": 837,
+          "sourceTemplate": "H054",
+          "amount": 60.92320000000018,
+          "tick": 4
+        },
+        "H054/A205": {
+          "atUs": 977536743,
+          "targetId": 808,
+          "before": 0,
+          "id": 845,
+          "attack": 15,
+          "untilUs": 989536743
+        },
+        "H054/A206": {
+          "atUs": 982999367,
+          "x": -10.717714774671448,
+          "y": -1247.8468556759854,
+          "targetId": 859,
+          "casterId": 837,
+          "ownerId": 837,
+          "sourceTemplate": "H054",
+          "amount": 528.6779005524859,
+          "selectedTargetId": 816
+        }
+      },
+      "commands": [
+        {
+          "atUs": 966750062,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 966750063,
+          "action": {
+            "type": "recycle-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 967750064,
+          "action": {
+            "type": "recycle-tower",
+            "towerId": 730
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 968750065,
+          "action": {
+            "type": "recycle-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 969750066,
+          "action": {
+            "type": "build-card",
+            "cardId": 823,
+            "point": {
+              "x": 288,
+              "y": -640
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 837
+          }
+        },
+        {
+          "atUs": 973250067,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 837,
+            "skillId": "A204"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 976250068,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 837,
+            "skillId": "A205"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 981250069,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 837,
+            "skillId": "A206"
+          },
+          "result": {
+            "ok": true
+          }
+        }
+      ],
+      "continuation": {
+        "cardInstance": 823,
+        "wave": 17,
+        "prefixInputs": 62,
+        "inputLogSha256": "18116457fe384f6b6668f3c5b106b79a61daf43465e47f6cd9f18ae17806c3b8"
+      },
+      "end": {
+        "phase": "running",
+        "wave": 17,
+        "atUs": 983250070
+      },
+      "status": "passed"
+    }
+  ]
+}

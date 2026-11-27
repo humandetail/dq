@@ -1,0 +1,5623 @@
+{
+  "policy": "m3-r01-qualified-1",
+  "version": "m3-dev-1",
+  "configuration": "m3-config-1",
+  "source": [
+    [
+      "checks/m3-normal-equipment.mjs",
+      "1f23a1d7ea65fce15da310a9a1f919b2556ba336e1b171189d6ec1d94851cdec"
+    ],
+    [
+      "src/game/m2/appearance.ts",
+      "78f2c855b9aefcac9637773264ab0a25f7a8d8b22da543de10bac2615383d305"
+    ],
+    [
+      "src/game/m2/combat.ts",
+      "b98ac89e25de72e027bab11ba0c559bc4a5420c12bb6a5347bc182734c662d8e"
+    ],
+    [
+      "src/game/m2/content.ts",
+      "9d98174b31c06813f7a53e19e35da49e18bba1cf990f30f5d33408416401f061"
+    ],
+    [
+      "src/game/m2/divine.ts",
+      "3c02791a3edc6b5f473aa7236b245d351b5fe3df8fabe80aeb1611c32f883f33"
+    ],
+    [
+      "src/game/m2/enemy-effects.ts",
+      "6af9752331c3aa30a193e2343d347c38add1792d31fdc9c2cffadd3fd70f6986"
+    ],
+    [
+      "src/game/m2/event-boxes.ts",
+      "97f715e7df090e26b8981834dd4dedb71c86debc2cddda63b405b41cea8ead78"
+    ],
+    [
+      "src/game/m2/evidence.ts",
+      "891b650efc30e3ef4f7a3150014f58605a99d5d10c665a23e08297caea613854"
+    ],
+    [
+      "src/game/m2/hero-exchange.ts",
+      "d4e5a40296647bb072620c312b06b48f0874bd41fd97c212fedaad70c8f7780a"
+    ],
+    [
+      "src/game/m2/hero-spells.ts",
+      "63b35150cd7d80acf59188e681632c1c70c6a439b19828c24f786a1932b6f558"
+    ],
+    [
+      "src/game/m2/hero.ts",
+      "fbb5dcca5a1c25aa1c2f9b8cf882defe7795e5d668f91a1650f803943d8c48fc"
+    ],
+    [
+      "src/game/m2/m3-items.json",
+      "2d8f046d6d102b75c12d708d687b1debdfaa0deafb08b0a3ac68a289c1b35b19"
+    ],
+    [
+      "src/game/m2/m3-version.ts",
+      "cb228fca5a3d1ddea47e4fa17892721c788de587be432825f5ba1cc1e5843d31"
+    ],
+    [
+      "src/game/m2/map.ts",
+      "93289696a9f184a23c59d2777a46fd2399d28d17e5aa69689806a022a547f168"
+    ],
+    [
+      "src/game/m2/match.ts",
+      "a58cccd2f292a814fa374e4c1c86bbab8343dbe87bb26da93d99b808c0e68eed"
+    ],
+    [
+      "src/game/m2/movement.ts",
+      "3dfc8d949d0d09340b2b1e602f10a30a7b140a44b7772276d4cbba94cf19e79f"
+    ],
+    [
+      "src/game/m2/pathfinding.ts",
+      "d5ff89734e6ae087bc258466f21de250f1b5bbf1a3c4f35080f45b7631806276"
+    ],
+    [
+      "src/game/m2/save.ts",
+      "9b9740359bbe362a6703008d8cb259687702aaf353ef00116d20564fac34c580"
+    ],
+    [
+      "src/game/m2/seasons.ts",
+      "ecfd7afb9d20e146944e106c0a503b4b5cbab3c98fd7dba64c104a3925e38215"
+    ],
+    [
+      "src/game/m2/shops.ts",
+      "d9689345c7e05b612ad575672258d8a49d89a789445296c25dc050b81f250696"
+    ],
+    [
+      "src/game/m2/talents.ts",
+      "04556712b7904aac9465fda01ee5ee7e2153b801409a46aa738a82a12d6a6d2a"
+    ],
+    [
+      "src/game/m2/tower-spells.ts",
+      "87c7b914a183ea6a544749d58c829a94a52dab5c7ca38c4c3311dae9cb480088"
+    ],
+    [
+      "src/game/m2/wave-contact.ts",
+      "36a48ae409a3396a0b5fe9b99abf67c251c5b7337cb118990232b50bb57d643a"
+    ],
+    [
+      "src/game/m2/waves.ts",
+      "c5dbeeafc5d98199449c377ff6bbc515c8bab606880940a3168b02d27959f103"
+    ],
+    [
+      "src/game/m2/weapons.json",
+      "0453b1e0e1c83706cc09e09d6ba75f911255b385b37e7a41586470a3cd2b64ce"
+    ],
+    [
+      "docs/m2-configuration.json",
+      "294e04e5eae840e755e4d2f7fb70de6fb7e65a640863a743c53843803dc8ca96"
+    ],
+    [
+      "docs/m2-item-index.json",
+      "8cc68493a7e44ee916ec1b2736ffa1abd005b50f871f58d94b55495d5821cda0"
+    ],
+    [
+      "docs/m2-runtime-coverage.json",
+      "56e32fe850f1c19a8a0d59c3009089a014b58fbefb18cf3929510545444c4c67"
+    ],
+    [
+      "docs/m3-configuration.json",
+      "aafd409af2051dd97a8add1f62f93455253f2b5368f1b09fe835e39157e7aed9"
+    ],
+    [
+      "docs/m3-target-dependencies.json",
+      "22b1349034d4461deba7e488ba0571eadce0d980d51e29dc2cfaa5b24483663e"
+    ]
+  ],
+  "scope": {
+    "targetIds": 30,
+    "vendorRoutes": 23,
+    "recipeRoutes": 18
+  },
+  "samples": [
+    {
+      "route": "i272:vendor",
+      "seed": 14,
+      "candidates": [
+        "i576",
+        "i556",
+        "i563",
+        "i553"
+      ],
+      "opening": "i576",
+      "heroId": 8,
+      "initialStateSha256": "2cb8cc9ad13b42231328304fbb2c4c48788379ef73070d91c7f530f13e069ef5",
+      "budget": {
+        "gold": 10300,
+        "lumber": 0
+      },
+      "shopping": [
+        "i272"
+      ],
+      "commands": [
+        {
+          "atUs": 0,
+          "action": {
+            "type": "choose-talent",
+            "choice": "W005"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1,
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 2,
+          "action": {
+            "type": "choose-opening",
+            "card": "i576"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          }
+        },
+        {
+          "atUs": 3,
+          "action": {
+            "type": "build-card",
+            "cardId": 7,
+            "point": {
+              "x": -288,
+              "y": -160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          }
+        },
+        {
+          "atUs": 4,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n021",
+            "point": {
+              "x": 192,
+              "y": -224
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          }
+        },
+        {
+          "atUs": 1250005,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n001",
+            "point": {
+              "x": 192,
+              "y": -32
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 10
+          }
+        },
+        {
+          "atUs": 1500006,
+          "action": {
+            "type": "use-item",
+            "itemId": 2
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500007,
+          "action": {
+            "type": "use-item",
+            "itemId": 4
+          },
+          "result": {
+            "ok": true,
+            "createdId": 12
+          }
+        },
+        {
+          "atUs": 1500008,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 11,
+            "towerId": 8
+          },
+          "result": {
+            "ok": false,
+            "reason": "equipment"
+          }
+        },
+        {
+          "atUs": 1500009,
+          "action": {
+            "type": "drop-item",
+            "itemId": 5
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500010,
+          "action": {
+            "type": "drop-item",
+            "itemId": 6
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500011,
+          "action": {
+            "type": "drop-item",
+            "itemId": 12
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500012,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500013,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A151"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 53500014,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A152"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 61500015,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 85500016,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A153"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 101500017,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 121500018,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 141500019,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A151"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 141500020,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 181500021,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A152"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 189500022,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 217500023,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A153"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 241500024,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 241500025,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 281500026,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A151"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 345500027,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 361500028,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 373500029,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 319
+          }
+        },
+        {
+          "atUs": 381500030,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 401500031,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A152"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 473500032,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A153"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 481500033,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 481500034,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 452
+          }
+        },
+        {
+          "atUs": 485500035,
+          "action": {
+            "type": "drop-card",
+            "cardId": 452
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 577500036,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A151"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 577500037,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 510
+          }
+        },
+        {
+          "atUs": 581500038,
+          "action": {
+            "type": "drop-card",
+            "cardId": 510
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 601500039,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 601500040,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 513
+          }
+        },
+        {
+          "atUs": 605500041,
+          "action": {
+            "type": "drop-card",
+            "cardId": 513
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 629500042,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 669500043,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A152"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 721500044,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 721500045,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 636
+          }
+        },
+        {
+          "atUs": 761500046,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A153"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 793500047,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 723
+          }
+        },
+        {
+          "atUs": 797500048,
+          "action": {
+            "type": "drop-card",
+            "cardId": 723
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 841500049,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 841500050,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 738
+          }
+        },
+        {
+          "atUs": 845500051,
+          "action": {
+            "type": "drop-card",
+            "cardId": 738
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 885500052,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 743
+          }
+        },
+        {
+          "atUs": 889500053,
+          "action": {
+            "type": "build-card",
+            "cardId": 743,
+            "point": {
+              "x": -288,
+              "y": 160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 744
+          }
+        },
+        {
+          "atUs": 894750054,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 744
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 906750055,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A151"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 906750056,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 744
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 954750057,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 744
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 958750058,
+          "action": {
+            "type": "drop-card",
+            "cardId": 319
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 958750059,
+          "action": {
+            "type": "drop-card",
+            "cardId": 636
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 962750060,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 994750061,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A152"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1082750062,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1110750063,
+          "action": {
+            "type": "buy-item",
+            "itemId": "i272"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 982
+          }
+        },
+        {
+          "atUs": 1110750064,
+          "action": {
+            "type": "drop-item",
+            "itemId": 982
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1110750065,
+          "action": {
+            "type": "pick-up-item",
+            "itemId": 982
+          },
+          "result": {
+            "ok": true,
+            "createdId": 982
+          }
+        },
+        {
+          "atUs": 1110750066,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 982,
+            "towerId": 8
+          },
+          "result": {
+            "ok": true,
+            "createdId": 982
+          }
+        },
+        {
+          "atUs": 1110750067,
+          "action": {
+            "type": "cast-equipment",
+            "itemId": 982,
+            "towerId": 8
+          },
+          "result": {
+            "ok": true
+          }
+        }
+      ],
+      "transactions": [
+        {
+          "atUs": 1110750063,
+          "wave": 20,
+          "itemId": "i272",
+          "result": {
+            "ok": true,
+            "createdId": 982
+          },
+          "balanceBefore": {
+            "gold": 10378,
+            "lumber": 1017
+          },
+          "balanceAfter": {
+            "gold": 78,
+            "lumber": 1017
+          },
+          "cost": {
+            "gold": 10300,
+            "lumber": 0
+          },
+          "stockBefore": [],
+          "stockAfter": [
+            1111750064
+          ],
+          "delivered": {
+            "id": 982,
+            "itemId": "i272",
+            "charges": 0,
+            "slot": 1
+          },
+          "consumedOrReduced": []
+        }
+      ],
+      "obtained": {
+        "id": 982,
+        "wave": 20,
+        "atUs": 1110750064,
+        "kind": "vendor"
+      },
+      "logistics": {
+        "drop": {
+          "ok": true
+        },
+        "pickup": {
+          "ok": true,
+          "createdId": 982
+        }
+      },
+      "qualification": {
+        "path": "P006",
+        "providerId": 744,
+        "unit": "n167",
+        "atUs": 958750058,
+        "wave": 17
+      },
+      "equipped": {
+        "result": {
+          "ok": true,
+          "createdId": 982
+        },
+        "retained": true
+      },
+      "use": {
+        "result": {
+          "ok": true
+        },
+        "before": {
+          "mana": 319.9160404199998,
+          "position": {
+            "x": -288,
+            "y": -160
+          },
+          "charges": 0
+        },
+        "after": {
+          "mana": 219.9160431599998,
+          "position": {
+            "x": -288,
+            "y": -160
+          },
+          "charges": 0,
+          "mirrorReadyUs": 1125750068,
+          "createdIllusions": [
+            983,
+            984
+          ]
+        }
+      },
+      "status": "acquired",
+      "end": {
+        "phase": "running",
+        "wave": 20,
+        "atUs": 1110900068,
+        "balances": {
+          "gold": 78,
+          "lumber": 1017
+        }
+      }
+    },
+    {
+      "route": "i272:vendor",
+      "seed": 47,
+      "candidates": [
+        "i564",
+        "i589",
+        "i565",
+        "i558"
+      ],
+      "opening": "i564",
+      "heroId": 8,
+      "initialStateSha256": "e90f341c1fcc65182bddf748bb8c12e488794b2e23af0a4be1e76f1203ba9eb2",
+      "budget": {
+        "gold": 10300,
+        "lumber": 0
+      },
+      "shopping": [
+        "i272"
+      ],
+      "commands": [
+        {
+          "atUs": 0,
+          "action": {
+            "type": "choose-talent",
+            "choice": "W005"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1,
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 2,
+          "action": {
+            "type": "choose-opening",
+            "card": "i564"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          }
+        },
+        {
+          "atUs": 3,
+          "action": {
+            "type": "build-card",
+            "cardId": 7,
+            "point": {
+              "x": -288,
+              "y": -160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          }
+        },
+        {
+          "atUs": 4,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n021",
+            "point": {
+              "x": 192,
+              "y": -224
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          }
+        },
+        {
+          "atUs": 1250005,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n001",
+            "point": {
+              "x": 192,
+              "y": -32
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 10
+          }
+        },
+        {
+          "atUs": 1500006,
+          "action": {
+            "type": "use-item",
+            "itemId": 2
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500007,
+          "action": {
+            "type": "use-item",
+            "itemId": 4
+          },
+          "result": {
+            "ok": true,
+            "createdId": 12
+          }
+        },
+        {
+          "atUs": 1500008,
+          "action": {
+            "type": "use-item",
+            "itemId": 12
+          },
+          "result": {
+            "ok": true,
+            "createdId": 13
+          }
+        },
+        {
+          "atUs": 1500009,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 11,
+            "towerId": 8
+          },
+          "result": {
+            "ok": false,
+            "reason": "equipment"
+          }
+        },
+        {
+          "atUs": 1500010,
+          "action": {
+            "type": "drop-item",
+            "itemId": 5
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500011,
+          "action": {
+            "type": "drop-item",
+            "itemId": 6
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500012,
+          "action": {
+            "type": "drop-card",
+            "cardId": 13
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500013,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500014,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 53500015,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 61500016,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 89500017,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A069"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 93500018,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 121500019,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 137500020,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 141500021,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 173500022,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 189500023,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 217500024,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A069"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 241500025,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 277500026,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 345500027,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 361500028,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 373500029,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 335
+          }
+        },
+        {
+          "atUs": 381500030,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 401500031,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 425500032,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 469500033,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A069"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 481500034,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 481500035,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 479
+          }
+        },
+        {
+          "atUs": 577500036,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 597500037,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 550
+          }
+        },
+        {
+          "atUs": 601500038,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 601500039,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 552
+          }
+        },
+        {
+          "atUs": 629500040,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 665500041,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 721500042,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 721500043,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 688
+          }
+        },
+        {
+          "atUs": 749500044,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 729
+          }
+        },
+        {
+          "atUs": 757500045,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A069"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 833500046,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 804
+          }
+        },
+        {
+          "atUs": 841500047,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 885500048,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 816
+          }
+        },
+        {
+          "atUs": 933500049,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 961500050,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 961500051,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 913
+          }
+        },
+        {
+          "atUs": 965500052,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 921
+          }
+        },
+        {
+          "atUs": 1013500053,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1049500054,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1030
+          }
+        },
+        {
+          "atUs": 1081500055,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1081500056,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1080
+          }
+        },
+        {
+          "atUs": 1097500057,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1090
+          }
+        },
+        {
+          "atUs": 1133500058,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A069"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1165500059,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1113
+          }
+        },
+        {
+          "atUs": 1201500060,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1201500061,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1153
+          }
+        },
+        {
+          "atUs": 1233500062,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1191
+          }
+        },
+        {
+          "atUs": 1269500063,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A067"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1305500064,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1288
+          }
+        },
+        {
+          "atUs": 1321500065,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1321500066,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1315
+          }
+        },
+        {
+          "atUs": 1341500067,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1336
+          }
+        },
+        {
+          "atUs": 1365500068,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A068"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1425500069,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1401
+          }
+        },
+        {
+          "atUs": 1441500070,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1441500071,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1407
+          }
+        },
+        {
+          "atUs": 1453500072,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1410
+          }
+        },
+        {
+          "atUs": 1561500073,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1561500074,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1539
+          }
+        },
+        {
+          "atUs": 1565500075,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1542
+          }
+        }
+      ],
+      "transactions": [],
+      "status": "not-acquired",
+      "end": {
+        "phase": "failed",
+        "wave": 28,
+        "atUs": 1567000000,
+        "balances": {
+          "gold": 2933,
+          "lumber": 1351
+        },
+        "result": {
+          "reason": "capacity",
+          "points": 105,
+          "atUs": 1567000000
+        }
+      }
+    },
+    {
+      "route": "i272:vendor",
+      "seed": 811,
+      "candidates": [
+        "i589",
+        "i574",
+        "i565",
+        "i554"
+      ],
+      "opening": "i589",
+      "heroId": 8,
+      "initialStateSha256": "76f4824a5a69dcac2b8db4ecff9e67cb453d53ec1a3b9f92d0f85bacdab658ec",
+      "budget": {
+        "gold": 10300,
+        "lumber": 0
+      },
+      "shopping": [
+        "i272"
+      ],
+      "commands": [
+        {
+          "atUs": 0,
+          "action": {
+            "type": "choose-talent",
+            "choice": "W005"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1,
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 2,
+          "action": {
+            "type": "choose-opening",
+            "card": "i589"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          }
+        },
+        {
+          "atUs": 3,
+          "action": {
+            "type": "build-card",
+            "cardId": 7,
+            "point": {
+              "x": -288,
+              "y": -160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          }
+        },
+        {
+          "atUs": 4,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n021",
+            "point": {
+              "x": 192,
+              "y": -224
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          }
+        },
+        {
+          "atUs": 1250005,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n001",
+            "point": {
+              "x": 192,
+              "y": -32
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 10
+          }
+        },
+        {
+          "atUs": 1500006,
+          "action": {
+            "type": "use-item",
+            "itemId": 2
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500007,
+          "action": {
+            "type": "use-item",
+            "itemId": 4
+          },
+          "result": {
+            "ok": true,
+            "createdId": 12
+          }
+        },
+        {
+          "atUs": 1500008,
+          "action": {
+            "type": "use-item",
+            "itemId": 12
+          },
+          "result": {
+            "ok": true,
+            "createdId": 13
+          }
+        },
+        {
+          "atUs": 1500009,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 11,
+            "towerId": 8
+          },
+          "result": {
+            "ok": false,
+            "reason": "equipment"
+          }
+        },
+        {
+          "atUs": 1500010,
+          "action": {
+            "type": "drop-item",
+            "itemId": 5
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500011,
+          "action": {
+            "type": "drop-item",
+            "itemId": 6
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500012,
+          "action": {
+            "type": "drop-card",
+            "cardId": 13
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500013,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500014,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A198"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 53500015,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A199"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 65500016,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 89500017,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A200"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 105500018,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 121500019,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 141500020,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A198"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 141500021,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 173500022,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A199"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 197500023,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 213500024,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A200"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 241500025,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 241500026,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 273500027,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A198"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 357500028,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 361500029,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 373500030,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 509
+          }
+        },
+        {
+          "atUs": 377500031,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 519
+          }
+        },
+        {
+          "atUs": 381500032,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 529
+          }
+        },
+        {
+          "atUs": 385500033,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 539
+          }
+        },
+        {
+          "atUs": 389500034,
+          "action": {
+            "type": "drop-card",
+            "cardId": 539
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 389500035,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 548
+          }
+        },
+        {
+          "atUs": 389500036,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 393500037,
+          "action": {
+            "type": "drop-card",
+            "cardId": 548
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 393500038,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 561
+          }
+        },
+        {
+          "atUs": 397500039,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A199"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 397500040,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 572
+          }
+        },
+        {
+          "atUs": 433500041,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 465500042,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A200"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 481500043,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 569500044,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A198"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 601500045,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 657500046,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A199"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 721500047,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 745500048,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A200"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 841500049,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 885500050,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A198"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 961500051,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 973500052,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A199"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1081500053,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1081500054,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A200"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1101500055,
+          "action": {
+            "type": "exchange",
+            "qualification": "P008"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1636
+          }
+        },
+        {
+          "atUs": 1105500056,
+          "action": {
+            "type": "build-card",
+            "cardId": 1636,
+            "point": {
+              "x": -288,
+              "y": 160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1640
+          }
+        },
+        {
+          "atUs": 1110750057,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 1640
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1114750058,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 1640
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1118750059,
+          "action": {
+            "type": "buy-item",
+            "itemId": "i272"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1649
+          }
+        },
+        {
+          "atUs": 1118750060,
+          "action": {
+            "type": "drop-item",
+            "itemId": 1649
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1118750061,
+          "action": {
+            "type": "pick-up-item",
+            "itemId": 1649
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1649
+          }
+        },
+        {
+          "atUs": 1118750062,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 1649,
+            "towerId": 8
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1649
+          }
+        },
+        {
+          "atUs": 1118750063,
+          "action": {
+            "type": "cast-equipment",
+            "itemId": 1649,
+            "towerId": 8
+          },
+          "result": {
+            "ok": true
+          }
+        }
+      ],
+      "transactions": [
+        {
+          "atUs": 1118750059,
+          "wave": 20,
+          "itemId": "i272",
+          "result": {
+            "ok": true,
+            "createdId": 1649
+          },
+          "balanceBefore": {
+            "gold": 411531,
+            "lumber": 1062
+          },
+          "balanceAfter": {
+            "gold": 401231,
+            "lumber": 1062
+          },
+          "cost": {
+            "gold": 10300,
+            "lumber": 0
+          },
+          "stockBefore": [],
+          "stockAfter": [
+            1119750060
+          ],
+          "delivered": {
+            "id": 1649,
+            "itemId": "i272",
+            "charges": 0,
+            "slot": 1
+          },
+          "consumedOrReduced": []
+        }
+      ],
+      "obtained": {
+        "id": 1649,
+        "wave": 20,
+        "atUs": 1118750060,
+        "kind": "vendor"
+      },
+      "logistics": {
+        "drop": {
+          "ok": true
+        },
+        "pickup": {
+          "ok": true,
+          "createdId": 1649
+        }
+      },
+      "qualification": {
+        "path": "P008",
+        "providerId": 1640,
+        "unit": "n158",
+        "atUs": 1118750059,
+        "wave": 20
+      },
+      "equipped": {
+        "result": {
+          "ok": true,
+          "createdId": 1649
+        },
+        "retained": true
+      },
+      "use": {
+        "result": {
+          "ok": true
+        },
+        "before": {
+          "mana": 587.6797811400011,
+          "position": {
+            "x": -288,
+            "y": -160
+          },
+          "charges": 0
+        },
+        "after": {
+          "mana": 487.67978628000105,
+          "position": {
+            "x": -288,
+            "y": -160
+          },
+          "charges": 0,
+          "mirrorReadyUs": 1133750064,
+          "createdIllusions": [
+            1650,
+            1651
+          ]
+        }
+      },
+      "status": "acquired",
+      "end": {
+        "phase": "running",
+        "wave": 20,
+        "atUs": 1118900064,
+        "balances": {
+          "gold": 401231,
+          "lumber": 1062
+        }
+      }
+    },
+    {
+      "route": "i272:vendor",
+      "seed": 1709,
+      "candidates": [
+        "i559",
+        "i555",
+        "i565",
+        "i562"
+      ],
+      "opening": "i559",
+      "heroId": 8,
+      "initialStateSha256": "8e0c6fd4112dd5cb872c0490bdb5a6271f4da080d026e5063e6e697746523917",
+      "budget": {
+        "gold": 10300,
+        "lumber": 0
+      },
+      "shopping": [
+        "i272"
+      ],
+      "commands": [
+        {
+          "atUs": 0,
+          "action": {
+            "type": "choose-talent",
+            "choice": "W005"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1,
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 2,
+          "action": {
+            "type": "choose-opening",
+            "card": "i559"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          }
+        },
+        {
+          "atUs": 3,
+          "action": {
+            "type": "build-card",
+            "cardId": 7,
+            "point": {
+              "x": -288,
+              "y": -160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          }
+        },
+        {
+          "atUs": 4,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n021",
+            "point": {
+              "x": 192,
+              "y": -224
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          }
+        },
+        {
+          "atUs": 1250005,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n001",
+            "point": {
+              "x": 192,
+              "y": -32
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 10
+          }
+        },
+        {
+          "atUs": 1500006,
+          "action": {
+            "type": "use-item",
+            "itemId": 2
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500007,
+          "action": {
+            "type": "use-item",
+            "itemId": 4
+          },
+          "result": {
+            "ok": true,
+            "createdId": 12
+          }
+        },
+        {
+          "atUs": 1500008,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 11,
+            "towerId": 8
+          },
+          "result": {
+            "ok": false,
+            "reason": "equipment"
+          }
+        },
+        {
+          "atUs": 1500009,
+          "action": {
+            "type": "drop-item",
+            "itemId": 5
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500010,
+          "action": {
+            "type": "drop-item",
+            "itemId": 6
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500011,
+          "action": {
+            "type": "drop-item",
+            "itemId": 12
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500012,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500013,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A046"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 57500014,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A047"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 61500015,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 77500016,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A048"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 117500017,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 121500018,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 133500019,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A046"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 157500020,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 169500021,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A047"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 209500022,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A048"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 213500023,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 241500024,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 285500025,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A046"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 353500026,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 361500027,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 373500028,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 311
+          }
+        },
+        {
+          "atUs": 377500029,
+          "action": {
+            "type": "drop-card",
+            "cardId": 311
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 385500030,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 397500031,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A047"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 429500032,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 469500033,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A048"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 481500034,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 481500035,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 451
+          }
+        },
+        {
+          "atUs": 485500036,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 557500037,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A046"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 597500038,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 516
+          }
+        },
+        {
+          "atUs": 601500039,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 609500040,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 519
+          }
+        },
+        {
+          "atUs": 661500041,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A047"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 721500042,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 721500043,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 645
+          }
+        },
+        {
+          "atUs": 741500044,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 677
+          }
+        },
+        {
+          "atUs": 745500045,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A048"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 837500046,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 757
+          }
+        },
+        {
+          "atUs": 841500047,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 873500048,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 765
+          }
+        },
+        {
+          "atUs": 897500049,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A046"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 957500050,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 857
+          }
+        },
+        {
+          "atUs": 961500051,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 961500052,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 865
+          }
+        },
+        {
+          "atUs": 981500053,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A047"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1001500054,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 914
+          }
+        },
+        {
+          "atUs": 1081500055,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1081500056,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1032
+          }
+        },
+        {
+          "atUs": 1085500057,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1041
+          }
+        },
+        {
+          "atUs": 1093500058,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A048"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1117500059,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1052
+          }
+        },
+        {
+          "atUs": 1193500060,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A046"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1193500061,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1078
+          }
+        },
+        {
+          "atUs": 1201500062,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1201500063,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1092
+          }
+        },
+        {
+          "atUs": 1209500064,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1107
+          }
+        },
+        {
+          "atUs": 1277500065,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1181
+          }
+        },
+        {
+          "atUs": 1313500066,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A047"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1321500067,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1321500068,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1250
+          }
+        },
+        {
+          "atUs": 1325500069,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1252
+          }
+        },
+        {
+          "atUs": 1373500070,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1316
+          }
+        },
+        {
+          "atUs": 1433500071,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A048"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1433500072,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1331
+          }
+        },
+        {
+          "atUs": 1441500073,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1441500074,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1335
+          }
+        },
+        {
+          "atUs": 1445500075,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1337
+          }
+        },
+        {
+          "atUs": 1457500076,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1341
+          }
+        },
+        {
+          "atUs": 1493500077,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1386
+          }
+        },
+        {
+          "atUs": 1561500078,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1561500079,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1472
+          }
+        },
+        {
+          "atUs": 1565500080,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1474
+          }
+        },
+        {
+          "atUs": 1569500081,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1481
+          }
+        },
+        {
+          "atUs": 1617500082,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "T000"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1661500083,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1617
+          }
+        },
+        {
+          "atUs": 1681500084,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1681500085,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1685500086,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1689500087,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1693500088,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1697500089,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1701500090,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1705500091,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1709500092,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1713500093,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1717500094,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1721500095,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1725500096,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1729500097,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1733500098,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1737500099,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1741500100,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1745500101,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1749500102,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1753500103,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1757500104,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1761500105,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1765500106,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1769500107,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1773500108,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1777500109,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1781500110,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1785500111,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1789500112,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "T000"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1789500113,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1793500114,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1797500115,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1801500116,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1801500117,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1805500118,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1809500119,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1813500120,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1817500121,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1821500122,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1825500123,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1829500124,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1833500125,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1837500126,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1841500127,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1845500128,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1849500129,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1853500130,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1857500131,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1861500132,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1865500133,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1869500134,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1873500135,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1877500136,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1881500137,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1885500138,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1889500139,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1893500140,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1897500141,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1901500142,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1905500143,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1909500144,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1913500145,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1917500146,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1921500147,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1921500148,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1925500149,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1929500150,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1933500151,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1937500152,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1941500153,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1945500154,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1949500155,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1953500156,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1957500157,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1961500158,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1965500159,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1969500160,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1973500161,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1977500162,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1981500163,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1985500164,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1989500165,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1993500166,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 1997500167,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2001500168,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2005500169,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2009500170,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2013500171,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2017500172,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2021500173,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2025500174,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2029500175,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2033500176,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2037500177,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2041500178,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 2041500179,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2045500180,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2049500181,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2053500182,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2057500183,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2061500184,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2065500185,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2069500186,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2073500187,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2077500188,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2081500189,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2085500190,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2089500191,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2093500192,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2097500193,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2101500194,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2105500195,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2109500196,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2113500197,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2117500198,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2121500199,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2125500200,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2129500201,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2133500202,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        },
+        {
+          "atUs": 2137500203,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": false,
+            "reason": "full"
+          }
+        }
+      ],
+      "transactions": [],
+      "status": "not-acquired",
+      "end": {
+        "phase": "running",
+        "wave": 38,
+        "atUs": 2141500204,
+        "balances": {
+          "gold": 50489,
+          "lumber": 1952
+        }
+      }
+    },
+    {
+      "route": "i272:vendor",
+      "seed": 20261124,
+      "candidates": [
+        "i559",
+        "i555",
+        "i581",
+        "i561"
+      ],
+      "opening": "i581",
+      "heroId": 8,
+      "initialStateSha256": "919b592aa6ab5a233adfe147f0dfcf95350b06a7c73d4e9e95c4a4a3ae954cd1",
+      "budget": {
+        "gold": 10300,
+        "lumber": 0
+      },
+      "shopping": [
+        "i272"
+      ],
+      "commands": [
+        {
+          "atUs": 0,
+          "action": {
+            "type": "choose-talent",
+            "choice": "W005"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1,
+          "action": {
+            "type": "use-item",
+            "itemId": 1
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 2,
+          "action": {
+            "type": "choose-opening",
+            "card": "i581"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 7
+          }
+        },
+        {
+          "atUs": 3,
+          "action": {
+            "type": "build-card",
+            "cardId": 7,
+            "point": {
+              "x": -288,
+              "y": -160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 8
+          }
+        },
+        {
+          "atUs": 4,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n021",
+            "point": {
+              "x": 192,
+              "y": -224
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 9
+          }
+        },
+        {
+          "atUs": 1250005,
+          "action": {
+            "type": "build-worker-tower",
+            "tower": "n001",
+            "point": {
+              "x": 192,
+              "y": -32
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 10
+          }
+        },
+        {
+          "atUs": 1500006,
+          "action": {
+            "type": "use-item",
+            "itemId": 2
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500007,
+          "action": {
+            "type": "use-item",
+            "itemId": 4
+          },
+          "result": {
+            "ok": true,
+            "createdId": 12
+          }
+        },
+        {
+          "atUs": 1500008,
+          "action": {
+            "type": "use-item",
+            "itemId": 12
+          },
+          "result": {
+            "ok": true,
+            "createdId": 13
+          }
+        },
+        {
+          "atUs": 1500009,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 11,
+            "towerId": 8
+          },
+          "result": {
+            "ok": false,
+            "reason": "equipment"
+          }
+        },
+        {
+          "atUs": 1500010,
+          "action": {
+            "type": "drop-item",
+            "itemId": 5
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500011,
+          "action": {
+            "type": "drop-item",
+            "itemId": 6
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500012,
+          "action": {
+            "type": "drop-card",
+            "cardId": 13
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500013,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 1500014,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A170"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 57500015,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A171"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 57500016,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 81500017,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A172"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 121500018,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 121500019,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 133500020,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A170"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 165500021,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A171"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 177500022,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 193500023,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 9
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 217500024,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A172"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 241500025,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 241500026,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 277500027,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A170"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 349500028,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 361500029,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 373500030,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 436
+          }
+        },
+        {
+          "atUs": 377500031,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 401500032,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A171"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 473500033,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 10
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 477500034,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A172"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 481500035,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 517500036,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 632
+          }
+        },
+        {
+          "atUs": 569500037,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A170"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 601500038,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 601500039,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 656
+          }
+        },
+        {
+          "atUs": 669500040,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A171"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 721500041,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 721500042,
+          "action": {
+            "type": "draw",
+            "draw": "i002"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 788
+          }
+        },
+        {
+          "atUs": 725500043,
+          "action": {
+            "type": "build-card",
+            "cardId": 788,
+            "point": {
+              "x": -288,
+              "y": 160
+            }
+          },
+          "result": {
+            "ok": true,
+            "createdId": 796
+          }
+        },
+        {
+          "atUs": 730750044,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 796
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 734750045,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 796
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 738750046,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 796
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 742750047,
+          "action": {
+            "type": "upgrade-tower",
+            "towerId": 796
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 746750048,
+          "action": {
+            "type": "drop-card",
+            "cardId": 436
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 746750049,
+          "action": {
+            "type": "drop-card",
+            "cardId": 632
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 746750050,
+          "action": {
+            "type": "drop-card",
+            "cardId": 656
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 762750051,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A172"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 842750052,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 914750053,
+          "action": {
+            "type": "learn-skill",
+            "towerId": 8,
+            "skillId": "A170"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 962750054,
+          "action": {
+            "type": "claim-worker-benefit"
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 962750055,
+          "action": {
+            "type": "buy-item",
+            "itemId": "i272"
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1002
+          }
+        },
+        {
+          "atUs": 962750056,
+          "action": {
+            "type": "drop-item",
+            "itemId": 1002
+          },
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "atUs": 962750057,
+          "action": {
+            "type": "pick-up-item",
+            "itemId": 1002
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1002
+          }
+        },
+        {
+          "atUs": 962750058,
+          "action": {
+            "type": "transfer-item",
+            "itemId": 1002,
+            "towerId": 8
+          },
+          "result": {
+            "ok": true,
+            "createdId": 1002
+          }
+        },
+        {
+          "atUs": 962750059,
+          "action": {
+            "type": "cast-equipment",
+            "itemId": 1002,
+            "towerId": 8
+          },
+          "result": {
+            "ok": true
+          }
+        }
+      ],
+      "transactions": [
+        {
+          "atUs": 962750055,
+          "wave": 17,
+          "itemId": "i272",
+          "result": {
+            "ok": true,
+            "createdId": 1002
+          },
+          "balanceBefore": {
+            "gold": 11006,
+            "lumber": 869
+          },
+          "balanceAfter": {
+            "gold": 706,
+            "lumber": 869
+          },
+          "cost": {
+            "gold": 10300,
+            "lumber": 0
+          },
+          "stockBefore": [],
+          "stockAfter": [
+            963750056
+          ],
+          "delivered": {
+            "id": 1002,
+            "itemId": "i272",
+            "charges": 0,
+            "slot": 1
+          },
+          "consumedOrReduced": []
+        }
+      ],
+      "obtained": {
+        "id": 1002,
+        "wave": 17,
+        "atUs": 962750056,
+        "kind": "vendor"
+      },
+      "logistics": {
+        "drop": {
+          "ok": true
+        },
+        "pickup": {
+          "ok": true,
+          "createdId": 1002
+        }
+      },
+      "qualification": {
+        "path": "P007",
+        "providerId": 796,
+        "unit": "n163",
+        "atUs": 746750048,
+        "wave": 13
+      },
+      "equipped": {
+        "result": {
+          "ok": true,
+          "createdId": 1002
+        },
+        "retained": true
+      },
+      "use": {
+        "result": {
+          "ok": true
+        },
+        "before": {
+          "mana": 337.83200653000006,
+          "position": {
+            "x": -288,
+            "y": -160
+          },
+          "charges": 0
+        },
+        "after": {
+          "mana": 237.83201026000006,
+          "position": {
+            "x": -288,
+            "y": -160
+          },
+          "charges": 0,
+          "mirrorReadyUs": 977750060,
+          "createdIllusions": [
+            1003,
+            1004
+          ]
+        }
+      },
+      "status": "acquired",
+      "end": {
+        "phase": "running",
+        "wave": 17,
+        "atUs": 962900060,
+        "balances": {
+          "gold": 706,
+          "lumber": 869
+        }
+      }
+    }
+  ]
+}

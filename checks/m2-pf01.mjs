@@ -2,12 +2,15 @@ import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { evidenceVersions } from "../src/game/m2/evidence.ts";
+import { m3ConfigVersion, m3ContentVersion, m3SaveFormatVersion } from "../src/game/m2/m3-version.ts";
 import { map } from "../src/game/m2/map.ts";
 import { containmentPoints, drain, enqueue, newMatch } from "../src/game/m2/match.ts";
 import { waves } from "../src/game/m2/waves.ts";
+import { recordPeakSnapshots } from "./m3-peak-snapshots.mjs";
 
 const digest = value => createHash("sha256").update(typeof value === "string" ? value : JSON.stringify(value)).digest("hex");
-const seed = 811;
+const challengeBase = process.argv.includes("--pf02-base");
+const seed = challengeBase ? 8 : 811;
 const run = newMatch("pf01", seed);
 const [opening, wave, next] = waves;
 const beforeFirstBatch = wave.startUs - 1;
@@ -45,9 +48,17 @@ const command = { id: "pf01-build", matchId: run.matchId,
   action: { type: "build-worker-tower", tower: "n001", point: map.worker } };
 const fixtureSha256 = digest(run);
 const originalEnemyIds = run.enemies.map(enemy => enemy.id);
+const inputLogSha256 = digest([command]);
+const peaks = {};
+const peakState = structuredClone(run);
+assert.equal(enqueue(peakState, command), true);
+for (let sampleUs = peakState.queue.nowUs; !challengeBase && sampleUs < next.startUs; sampleUs += 125_000) {
+  advanceTo(peakState, sampleUs);
+  recordPeakSnapshots(peaks, peakState, { caseId: "PF01", seed, inputLogSha256 });
+}
 const attempts = [];
 let expected;
-for (const limit of [10_000, 64, 4]) {
+for (const limit of challengeBase ? [] : [10_000, 64, 4]) {
   const state = JSON.parse(JSON.stringify(run));
   assert.equal(enqueue(state, command), true);
   advanceTo(state, wave.startUs + wave.intervalUs, limit);
@@ -73,9 +84,14 @@ for (const limit of [10_000, 64, 4]) {
 }
 
 const index = readFileSync("dist/m2.html", "utf8");
-const bundle = index.match(/src="(\/assets\/m2-[^"]+\.js)"/)[1];
-console.log(JSON.stringify({ ...evidenceVersions, fixtureId: "PF01", seed, fixtureSha256,
-  source: { controlled: true, addedEnemyIds }, configSha256: digest(readFileSync("docs/m2-configuration.json", "utf8")),
+const bundle = index.match(/src="\.?((?:\/assets\/)m2-[^"]+\.js)"/)?.[1];
+assert.ok(bundle, "Built application bundle missing from dist/m2.html");
+const isM3 = Object.hasOwn(run, "openingCandidates");
+const versions = isM3 ? { ...evidenceVersions, contentVersion: m3ContentVersion, configVersion: m3ConfigVersion,
+  saveFormatVersion: m3SaveFormatVersion } : evidenceVersions;
+const config = isM3 ? "docs/m3-configuration.json" : "docs/m2-configuration.json";
+console.log(JSON.stringify({ ...versions, fixtureId: challengeBase ? "PF02-base" : "PF01", seed, fixtureSha256,
+  source: { controlled: true, addedEnemyIds }, configSha256: digest(readFileSync(config, "utf8")),
   bundle, bundleSha256: createHash("sha256").update(readFileSync("dist" + bundle)).digest("hex"),
-  inputLogSha256: digest([command]), nextCheckUs: next.startUs, start: metrics(run), originalEnemyIds,
-  command, attempts, fixture: run }, null, 2));
+  inputLogSha256, nextCheckUs: next.startUs, start: metrics(run), originalEnemyIds,
+  command, attempts, peaks, fixture: run }, null, 2));

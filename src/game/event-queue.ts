@@ -59,10 +59,11 @@ export function cancelEvent<Payload>(queue: EventQueue<Payload>, timerId: number
 }
 
 // A slice can stop between events at the same time. Resume with the same target
-// before submitting new inputs. A false return from dispatch stops at the event.
+// before submitting new inputs. A yielded dispatch owns its continuation. A false
+// return stops at the current event.
 export function advanceEvents<Payload>(
   queue: EventQueue<Payload>, targetUs: number, limit: number,
-  dispatch: (event: Readonly<TimedEvent<Payload>>) => void | false,
+  dispatch: (event: Readonly<TimedEvent<Payload>>) => void | false | "yield",
   shouldYield?: () => boolean,
 ): "reached" | "pending" | "stopped" {
   requireInteger(targetUs, queue.nowUs);
@@ -77,7 +78,9 @@ export function advanceEvents<Payload>(
     if (event.periodUs > 0) {
       insert(queue, { ...event, dueUs: nextDueUs, sequence: queue.nextSequence++ });
     }
-    if (dispatch(event) === false) return "stopped";
+    const result = dispatch(event);
+    if (result === false) return "stopped";
+    if (result === "yield") return "pending";
   }
   queue.nowUs = targetUs;
   return "reached";
