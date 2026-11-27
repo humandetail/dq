@@ -1047,7 +1047,7 @@ function showControls() {
     addButton(builds, `${workerTowers.get(tower)!.name} · ${directBuilds[tower].gold} 金`, () => {
       clearPlacement();
       build = { key: tower, label: workerTowers.get(tower)!.name, action: { type: "build-worker-tower", tower } };
-      el("feedback").textContent = "建造区已高亮。移动鼠标查看落点，左键放置，Esc 取消。";
+      el("feedback").textContent = "";
     }).setAttribute("aria-pressed", String(build?.key === tower));
   }
 
@@ -1174,7 +1174,7 @@ function showControls() {
       else {
         clearPlacement();
         build = { key: String(card.id), label: cardName(card.card), action: { type: "build-card", cardId: card.id } };
-        el("feedback").textContent = "建造区已高亮。移动鼠标查看落点，左键放置，Esc 取消。";
+        el("feedback").textContent = "";
       }
     }).setAttribute("aria-pressed", String(build?.key === String(card.id)));
     if (card.slot !== null) {
@@ -1259,7 +1259,7 @@ function showControls() {
         addButton(row, "炮击地面", () => {
           clearPlacement();
           artilleryTowerId = tower.id;
-          el("feedback").textContent = "左键选择炮击落点，Esc 取消。";
+          el("feedback").textContent = "选择炮击落点。";
         }, locked).setAttribute("aria-pressed", String(artilleryTowerId === tower.id));
         const targets = artilleryItems(run!, tower.id);
         if (targets.length) {
@@ -1576,7 +1576,7 @@ const sceneReady = createM2Scene(el<HTMLCanvasElement>("field"), point => {
   if (!build || !run || !writable()) return;
   if (pendingBuild) { el("feedback").textContent = "工人正在执行建造指令，请稍候。"; return; }
   const result = inspectBuildPlacement(run, { ...build.action, point });
-  if (!result.ok) { el("feedback").textContent = rejection[result.reason] + "，可移动鼠标重新选位置。"; return; }
+  if (!result.ok) { el("feedback").textContent = rejection[result.reason] + "，请重新选位置。"; return; }
   const commandId = send({ ...build.action, point });
   if (commandId) pendingBuild = { commandId, key: build.key };
 }, message => {
@@ -2023,10 +2023,10 @@ function frame() {
 function paintBattlefield() {
   if (document.hidden || !draw || recoveryStartedMs !== undefined) return false;
   draw(compatibleMap() ? run : undefined, writable() ? build : undefined, wolfMoveId,
-    artilleryTowerId !== undefined ? "炮击地面 · 左键选择落点，Esc 取消" : pointSpell ? `${pointSpell.label} · 左键选择施法地点，Esc 取消` :
-    scoutWard?.mode === "scout" ? "侦查守卫 · 左键选择英雄 500 范围内的位置，Esc 取消" :
-    scoutWard?.mode === "snow" ? "落雪 · 左键选择施法地点，Esc 取消" :
-    scoutWard?.mode === "teleport" ? "传送 · 左键选择落点，Esc 取消" : undefined);
+    artilleryTowerId !== undefined ? "炮击地面 · 选择落点" : pointSpell ? `${pointSpell.label} · 选择施法地点` :
+    scoutWard?.mode === "scout" ? "侦查守卫 · 选择英雄 500 范围内的位置" :
+    scoutWard?.mode === "snow" ? "落雪 · 选择施法地点" :
+    scoutWard?.mode === "teleport" ? "传送 · 选择落点" : undefined);
   return true;
 }
 

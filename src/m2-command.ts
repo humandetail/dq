@@ -40,6 +40,7 @@ export function createCommandUI(options: {
     let target: Target | undefined;
     let carrying: number | undefined;
     let modal = '';
+    let touchMode: 'order' | 'more' | undefined;
     let matchId = '';
     let openingShown = false;
     let lastRender = '';
@@ -85,16 +86,53 @@ export function createCommandUI(options: {
     tools.className = 'command-tools';
     for (const name of ['商店', '合成', '图鉴', '对局'])
         tools.append(button(name, () => open(name)));
-    main.append(tools);
+    const battlefield = main.querySelector('.battlefield')!;
+    const toolbar = document.createElement('div');
+    toolbar.className = 'command-toolbar';
+    battlefield.before(toolbar);
+    const cameraTools = battlefield.querySelector('.battlefield-tools')!;
+    const placementBar = battlefield.querySelector('.placement-bar')!;
+    battlefield.after(cameraTools);
+    const context = document.createElement('div');
+    context.className = 'command-context';
+    cameraTools.after(context);
     const overlay = document.createElement('div');
     overlay.className = 'unit-overlay';
-    main.querySelector('.battlefield')!.append(overlay);
+    battlefield.append(overlay);
     const shortcuts = document.createElement('div');
     shortcuts.className = 'hero-shortcuts';
-    main.append(shortcuts);
+    toolbar.append(shortcuts, tools);
     const dock = document.createElement('section');
     dock.className = 'command-dock';
     dock.innerHTML = '<div class="selection-strip"></div><div class="dock-body"><section class="unit-info"></section><section class="unit-inventory"><h3>物品栏 <small>Alt＋Q/W/E/A/S/D</small></h3><div class="six-slots"></div></section><section class="unit-commands"><h3>指令</h3><div class="twelve-slots"></div></section></div>';
+    const touchTools = document.createElement('div');
+    touchTools.className = 'touch-tools';
+    const orderButton = button('下令', () => setTouchMode(touchMode === 'order' ? undefined : 'order'), true);
+    const moreButton = button('更多', () => setTouchMode(touchMode === 'more' ? undefined : 'more'), true);
+    const inventoryButton = button('物品', () => {
+        const inventory = dock.classList.toggle('show-inventory');
+        inventoryButton.textContent = inventory ? '指令' : '物品';
+    });
+    touchTools.append(orderButton, inventoryButton, moreButton);
+    const heading = document.createElement('div');
+    heading.className = 'dock-heading';
+    heading.append(dock.querySelector('.selection-strip')!, touchTools);
+    dock.prepend(heading);
+    const touchActions = document.createElement('div');
+    touchActions.className = 'touch-actions';
+    const touchPrompt = document.createElement('p');
+    touchPrompt.setAttribute('role', 'status');
+    const touchChoices = document.createElement('div');
+    touchActions.append(touchPrompt, touchChoices, button('取消', cancel));
+    context.append(placementBar, touchActions);
+    function setTouchMode(mode: typeof touchMode) {
+        if (mode && (target || carrying !== undefined || options.placing())) cancel();
+        touchMode = mode;
+        dock.dataset.touchMode = mode ?? '';
+        orderButton.setAttribute('aria-pressed', String(mode === 'order'));
+        moreButton.setAttribute('aria-pressed', String(mode === 'more'));
+        touchChoices.replaceChildren();
+    }
     main.append(dock);
     const backdrop = document.createElement('div');
     backdrop.className = 'command-backdrop';
@@ -107,7 +145,7 @@ export function createCommandUI(options: {
     const tabs = document.createElement('nav');
     for (const name of ['商店', '合成', '图鉴', '对局'])
         tabs.append(button(name, () => open(name)));
-    tabs.append(button('关闭 · Esc', close));
+    tabs.append(button('关闭', close));
     const content = document.createElement('div');
     content.className = 'command-content';
     const shop = document.createElement('section');
@@ -134,7 +172,7 @@ export function createCommandUI(options: {
     const status = document.createElement('div');
     status.className = 'command-status';
     status.append(get('feedback'), get('save'));
-    document.body.append(status);
+    context.append(status);
     // Existing progression and special transactions keep their original event handlers.
     const sections = [...aside.children];
     const sectionTab = new Map<Element, string>();
@@ -168,6 +206,7 @@ export function createCommandUI(options: {
     function showShop() {
         const state = options.match();
         goods.replaceChildren();
+        let selectedVisible = false;
         for (const entry of ordinaryGoods.values()) {
             if (!entry.name.includes(search.value) || !entry.shop || prayerBooks.some(book => book.id === entry.id) || ['i001', 'i002', 'i003', 'i005'].includes(entry.id))
                 continue;
@@ -181,7 +220,9 @@ export function createCommandUI(options: {
             name.textContent = entry.name;
             const price = document.createElement('span');
             price.textContent = `${entry.gold} 金${entry.lumber ? ` · ${entry.lumber} 木` : ''}`;
-            card.classList.toggle('selected', selectedGood === entry.id);
+            const selected = selectedGood === entry.id;
+            if (selected) selectedVisible = true;
+            card.classList.toggle('selected', selected);
             card.tabIndex=0; card.setAttribute('role','button');card.setAttribute('aria-label',entry.name);
             const choose=()=>{selectedGood=entry.id;showShop();};card.onclick=choose;card.onkeydown=event=>{if(event.key==='Enter'){event.preventDefault();choose();}};
             card.append(icon, name, price);
@@ -189,6 +230,8 @@ export function createCommandUI(options: {
         }
         if (!goods.children.length) goods.textContent = '没有匹配的商品';
         goodsDetail.replaceChildren();
+        goodsDetail.hidden = !selectedVisible;
+        if (!selectedVisible) return;
         const selected=ordinaryGoods.get(selectedGood)!;
         const icon=document.createElement('div');icon.className='goods-art';painted(icon,selected.id);
         const title=document.createElement('h2');title.textContent=selected.name;
@@ -202,6 +245,7 @@ export function createCommandUI(options: {
     }
     search.oninput = showShop;
     function open(name: string) {
+        setTouchMode(undefined);
         modal = name;
         backdrop.hidden = false;
         window.setAttribute('aria-label', name);
@@ -213,8 +257,12 @@ export function createCommandUI(options: {
         aside.hidden = name === '图鉴' || name === '合成';
         tabs.querySelectorAll('button').forEach(node => node.classList.toggle('active', node.textContent === name));
         if (name === '对局' || name === '商店') options.refreshManagement();
-        if (name === '商店')
+        if (name === '商店') {
+            window.append(get('feedback'));
             showShop();
+        } else {
+            status.prepend(get('feedback'));
+        }
         if (name === '图鉴') {
             codex.replaceChildren();
             for (const entry of towerLevels.values()) {
@@ -248,14 +296,21 @@ export function createCommandUI(options: {
             // The original worker inventory includes the authoritative use-book transactions.
             recipe.append(button('打开工人物品与制作书', () => { select(-1); open('对局'); get('worker-items').scrollIntoView({ block: 'center' }); }));
         }
+        content.scrollTop = 0;
         (tabs.querySelector('.active') as HTMLButtonElement)?.focus();
     }
-    function close() { modal = ''; backdrop.hidden = true; canvas.focus(); }
+    function close() {
+        modal = '';
+        backdrop.hidden = true;
+        status.prepend(get('feedback'));
+        canvas.focus();
+    }
     backdrop.onclick = event => { if (event.target === backdrop)
         close(); };
     canvas.tabIndex = 0;
     const unit = (id = current) => [...(options.match()?.structures ?? []), ...(options.match()?.summons ?? [])].find(tower => tower.id === id);
     function select(id: number, additive = false) {
+        setTouchMode(undefined);
         if (carrying !== undefined) {
             options.send({ type: 'transfer-item', itemId: carrying, towerId: id === -1 ? undefined : id });
             carrying = undefined;
@@ -278,6 +333,10 @@ export function createCommandUI(options: {
             close();
             return;
         }
+        if (touchMode) {
+            setTouchMode(undefined);
+            return;
+        }
         if (target || carrying !== undefined || options.placing()) {
             target = undefined;
             carrying = undefined;
@@ -295,7 +354,7 @@ export function createCommandUI(options: {
         enemyId = undefined;
         lastRender = '';
     }
-    function aim(value: Target) { target = value; options.cancel(); announce(value.label + ' · 左键选择目标，右键取消'); }
+    function aim(value: Target) { target = value; options.cancel(); announce(''); }
     function useItem(slot: number) {
         const state = options.match();
         const item = state?.inventory?.find(item => item.slot === slot && item.towerId === (current === -1 ? undefined : current));
@@ -358,10 +417,10 @@ export function createCommandUI(options: {
             stats.textContent = `${tower.hero ? `等级 ${tower.hero.level} · 经验 ${tower.hero.xp} · 技能点 ${tower.hero.points}\n` : ''}${attributes ? `力量 ${Math.floor(attributes.STR)}　敏捷 ${Math.floor(attributes.AGI)}　智力 ${Math.floor(attributes.INT)}\n` : ''}射程 ${weapons[tower.templateId]?.[0]?.max ?? 0}${tower.life ? ` · 生命 ${Math.ceil(tower.life.hp)}/${Math.ceil(tower.life.maximum)}` : ''}`;
         }
         else if (current === -1)
-            stats.textContent = '右键移动／拾取 · 自动前往建造与交接';
+            stats.textContent = '自动前往建造与交接';
         if (tower?.mana !== undefined)
             stats.textContent += `\n魔法 ${Math.floor(tower.mana)}/${Math.floor(tower.manaMaximum ?? tower.mana)}`;
-        detail.append(stats, button('详细操作', () => open('对局')));
+        detail.append(stats, button('详情', () => open('对局')));
         info.append(portrait, detail);
         const inventory = dock.querySelector('.six-slots')!;
         inventory.replaceChildren();
@@ -371,6 +430,7 @@ export function createCommandUI(options: {
             const book = current === -1 ? state.books?.find(book=>book.slot===slot) : undefined;
             const name = book ? prayerBooks.find(entry=>entry.id===book.bookId)!.name : item ? (eventBoxes.get(item.itemId) ?? items.get(item.itemId))!.name : card ? cardTemplates.get(card.card)!.name : '';
             const node = button(name, () => card ? (() => { const nodes = [...get('cards').querySelectorAll('button')]; nodes.find(node => node.textContent === `${cardTemplates.get(card.card)!.name} · ${cardTemplates.get(card.card)!.rarity}`)?.click(); })() : useItem(slot), !options.writable() || !!enemy || current === -2);
+            node.classList.toggle('touch-secondary', !!item);
             node.title = name + (item ? '\n左键使用；右键交接；Alt＋右键切换主动装备自动模式' : '');
             if (item) {
                 painted(node, item.itemId);
@@ -379,13 +439,32 @@ export function createCommandUI(options: {
             const key = document.createElement('kbd');
             key.textContent = '⌥' + itemKeys[slot].toUpperCase();
             node.append(key);
-            node.oncontextmenu = event => { event.preventDefault(); if (!item)
-                return; if (event.altKey && tower && (isActiveTowerEquipment(item.itemId) || item.itemId === 'i276' || item.itemId === 'i281' || item.itemId === 'i325'))
-                options.send({ type: 'set-auto-mode', towerId: tower.id, key: item.itemId, enabled: tower.autoModes?.[item.itemId] === false });
-            else {
-                carrying = item.id;
-                announce(`交接${name} · 左键点击目标单位`);
-            } };
+            if (item) {
+                const transfer = () => {
+                    setTouchMode(undefined);
+                    options.cancel();
+                    target = undefined;
+                    carrying = item.id;
+                    announce('');
+                };
+                const toggleAuto = tower && (isActiveTowerEquipment(item.itemId) || item.itemId === 'i276' || item.itemId === 'i281' || item.itemId === 'i325')
+                    ? () => options.send({ type: 'set-auto-mode', towerId: tower.id, key: item.itemId, enabled: tower.autoModes?.[item.itemId] === false })
+                    : undefined;
+                node.oncontextmenu = event => {
+                    event.preventDefault();
+                    if (event.altKey && toggleAuto) toggleAuto();
+                    else transfer();
+                };
+                node.addEventListener('click', event => {
+                    if (touchMode !== 'more') return;
+                    event.stopImmediatePropagation();
+                    touchChoices.replaceChildren(button('交接' + name, transfer));
+                    if (toggleAuto) touchChoices.append(button('切换自动使用', () => {
+                        setTouchMode(undefined);
+                        toggleAuto();
+                    }));
+                }, true);
+            }
             inventory.append(node);
         }
         const grid = dock.querySelector('.twelve-slots')!;
@@ -403,8 +482,16 @@ export function createCommandUI(options: {
                 node.dataset.skill = id;
                 node.classList.toggle('auto', !learning && !!toggle && tower?.autoModes?.[id] !== false);
             }
-            if (toggle)
-                node.oncontextmenu = event => { event.preventDefault(); toggle(); };
+            if (toggle) node.oncontextmenu = event => { event.preventDefault(); toggle(); };
+            if (toggle && !learning) {
+                node.classList.add('touch-secondary');
+                node.addEventListener('click', event => {
+                    if (touchMode !== 'more') return;
+                    event.stopImmediatePropagation();
+                    setTouchMode(undefined);
+                    toggle();
+                }, true);
+            }
             grid.append(node);
             return node;
         };
@@ -549,6 +636,8 @@ export function createCommandUI(options: {
             empty.className = 'empty-command';
             grid.append(empty);
         }
+        orderButton.disabled = !selection.length || !options.writable();
+        moreButton.disabled = !dock.querySelector('.touch-secondary:not(:disabled)');
         shortcuts.replaceChildren();
         for (const id of [-1, ...state.structures.filter(tower => tower.hero).map(tower => tower.id)]) {
             const entry = unit(id);
@@ -581,10 +670,17 @@ export function createCommandUI(options: {
         const point = options.scene()?.pointAt(event);
         if (!point)
             return;
+        if (touchMode === 'order') {
+            event.stopImmediatePropagation();
+            setTouchMode(undefined);
+            issueOrder(hit, point);
+            return;
+        }
+        if (touchMode === 'more' || (carrying !== undefined && hit?.kind !== 'ally')) return;
         if (target) {
             event.stopImmediatePropagation();
             if ((target.kind === 'enemy' && hit?.kind !== 'enemy') || (target.kind === 'ally' && (hit?.kind !== 'ally' || hit.id===-1))) {
-                announce('请选择敌方目标');
+                announce(target.kind === 'ally' ? '请选择友方目标' : '请选择敌方目标');
                 return;
             }
             target.command = options.send(target.action(point, hit?.id));
@@ -603,7 +699,7 @@ export function createCommandUI(options: {
     }, true);
     canvas.addEventListener('contextmenu', event => {
         event.preventDefault();
-        if (modal)
+        if (modal || ('pointerType' in event && event.pointerType === 'touch'))
             return;
         if (target || carrying !== undefined || options.placing()) {
             cancel();
@@ -611,8 +707,9 @@ export function createCommandUI(options: {
         }
         const hit = pick(event);
         const point = options.scene()?.pointAt(event);
-        if (!point)
-            return;
+        if (point) issueOrder(hit, point);
+    });
+    function issueOrder(hit: ReturnType<typeof pick>, point: Point) {
         for (const id of selection) {
             const tower = unit(id);
             if (hit?.kind === 'enemy') {
@@ -624,12 +721,12 @@ export function createCommandUI(options: {
             else if (tower?.summon?.independent)
                 options.send({ type: 'move-wolf', unitId: id, point });
         }
-    });
+    }
     const box = document.createElement('div');
     box.className = 'selection-box';
     box.hidden = true;
     overlay.append(box);
-    canvas.addEventListener('pointerdown', event => { if (event.button === 0 && !target && !options.placing() && !modal)
+    canvas.addEventListener('pointerdown', event => { if (event.pointerType !== 'touch' && event.button === 0 && !target && !options.placing() && !modal)
         dragStart = local(event); });
     canvas.addEventListener('pointermove', event => { if (!dragStart)
         return; const end = local(event); if (Math.hypot(end.x - dragStart.x, end.y - dragStart.y) < 8)
@@ -724,6 +821,7 @@ export function createCommandUI(options: {
                 enemyId = undefined;
                 target = undefined;
                 carrying = undefined;
+                setTouchMode(undefined);
                 groups.clear();
                 openingShown = false;
                 lastRender = '';
@@ -746,8 +844,17 @@ export function createCommandUI(options: {
                     target.command = undefined;
                 }
             }
-            if(!openingShown && canChooseOpening(state)){openingShown=true;open('对局');}
+            if (!openingShown && canChooseOpening(state)) {
+                openingShown = true;
+                open('对局');
+                get('opening').scrollIntoView({ block: 'center' });
+            }
             if (modal === '商店') showPawn(state, ordinaryGoods.get(selectedGood)!.shop);
+            const prompt = target ? target.label + ' · 选择目标' : carrying !== undefined ? '选择接收物品的单位' :
+                touchMode === 'order' ? '点按地面、掉落物或敌人下令' :
+                touchMode === 'more' ? '点按高亮技能或切换物品栏' : learning ? '选择要学习的技能' : '';
+            if (touchPrompt.textContent !== prompt) touchPrompt.textContent = prompt;
+            touchActions.hidden = !prompt;
             renderDock(state);
             const scene = options.scene();
             if (!scene)

@@ -1,4 +1,214 @@
-.command-ui{margin:0;background:#15221b;color:#e3dfcb;font:14px system-ui;overflow:hidden;--gold:#c5b47b} .command-ui *{box-sizing:border-box}.command-ui [hidden]{display:none!important}.command-ui button,.command-ui select,.command-ui input{font:inherit;color:inherit;background:#1e2a1f;border:1px solid #586246;border-radius:0;padding:8px;cursor:pointer}.command-ui button:hover{border-color:var(--gold);background-color:#35412b}.command-ui button:disabled{opacity:.4;cursor:default}.command-ui button:focus-visible{outline:2px solid #d8c98a;outline-offset:2px}.command-ui header{height:54px;padding:0 20px;display:flex;align-items:center;gap:20px;border-bottom:1px solid #85764c;background:linear-gradient(110deg,#252d22,#101b15)}.command-ui header h1{font:700 25px Georgia;color:#e4cd82;margin:0}.command-ui header .controls{order:5;margin-left:auto;display:flex;gap:6px}.command-ui header p{margin:0;font-variant-numeric:tabular-nums}.command-ui #resources{color:#e4d499}.command-ui #wave{font-size:13px}.command-ui main{display:block;height:calc(100dvh - 54px);position:relative;margin:0;padding:0;max-width:none}.command-ui .battlefield{position:absolute;inset:0 0 252px;min-height:0;padding:0;border:0;background:#23373b}.command-ui #field{width:100%;height:100%;display:block;border:0;touch-action:none}.command-ui .battlefield-tools{position:absolute;inset:auto 14px 15px auto;pointer-events:none;background:none;padding:0;border:0}.command-ui .camera-panel{background:none;border:0;padding:0}.command-ui .camera-panel .controls{pointer-events:auto}.command-ui .camera-panel button:not(:is(#reset-view,#view-oblique,#view-top)),.command-ui .camera-help,.command-ui #camera-status,.command-ui .map-key{display:none}.command-ui .placement-bar{position:absolute;bottom:10px;left:100px;right:100px;display:flex;justify-content:center;pointer-events:none;background:none;border:0;color:#e1d8b9;font-size:12px}.command-ui #cancel-placement{pointer-events:auto}.command-tools{position:absolute;top:16px;right:20px;display:flex;gap:6px;z-index:5}.hero-shortcuts{position:absolute;left:18px;top:18px;display:flex;flex-direction:column;gap:8px;z-index:5}.hero-shortcuts button{width:58px;height:61px;font-size:11px;display:flex;align-items:end;justify-content:center;text-shadow:0 1px 3px black}.command-ui .painted{background-image:linear-gradient(transparent,#0005),url('./assets/ui/command-icons.jpg');background-size:400% 400%;text-shadow:0 1px 4px #000,0 1px 3px #000}.command-dock{position:absolute;inset:auto 0 0;height:252px;border-top:2px solid #aa9860;background:repeating-linear-gradient(120deg,#ffffff02 0 1px,transparent 1px 5px),linear-gradient(110deg,#263024,#111c16);z-index:8}.selection-strip{height:34px;display:flex;gap:5px;padding:3px 20px;border-bottom:1px solid #4b563e}.selection-strip button{padding:3px 12px;font-size:12px}.command-ui .active{border-color:#d1bd7c;color:#edda9d}.dock-body{height:216px;display:grid;grid-template-columns:minmax(350px,1.3fr) minmax(240px,.8fr) 320px;gap:25px;padding:16px 22px}.unit-info{display:flex;gap:22px}.unit-portrait{width:120px;height:140px;border:1px solid #a18d5c;flex-shrink:0;background:#1d291d}.unit-info h2{font:600 25px 'Songti SC',serif;margin:0 0 10px;color:#eee6cf}.unit-info p{white-space:pre-line;font-size:13px;line-height:1.9;color:#c3cbb3;margin:0 0 8px}.unit-info button{font-size:12px;padding:3px 8px}.unit-inventory,.unit-commands{border-left:1px solid #4d583f;padding-left:22px}.dock-body h3{font-size:14px;margin:0 0 8px}.dock-body small{font-size:10px;color:#adb79b;font-weight:400}.six-slots{display:grid;grid-template-columns:repeat(3,64px);grid-auto-rows:64px;gap:7px}.six-slots button,.twelve-slots button{position:relative;padding:18px 2px 3px;font-size:11px;display:flex;align-items:end;justify-content:center;text-align:center;overflow:hidden;background-color:#1a271b;box-shadow:inset 0 0 0 2px #0d170f}.twelve-slots{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:45px;gap:5px}.command-ui kbd{position:absolute;top:2px;left:3px;background:#111a10cf;padding:0 2px;font:10px system-ui;color:#e6e0c3}.command-ui .auto{border-color:#d0ba6b!important}.command-ui .auto:after{content:'';position:absolute;top:4px;right:4px;background:#f5d273;width:5px;height:5px;transform:rotate(45deg)}.empty-command{border:1px solid #35432e;background:#18241a;opacity:.5}.command-status{position:fixed;left:100px;bottom:258px;right:100px;pointer-events:none;z-index:15;font-size:12px;text-align:center;text-shadow:0 1px 3px #000}.command-status p{margin:2px}.command-status #save{font-size:10px;opacity:.65}.command-backdrop{position:fixed;inset:54px 0 0;z-index:30;background:#030c0894;backdrop-filter:blur(3px);display:grid;place-items:center}.command-window{width:min(1080px,calc(100vw - 90px));height:min(690px,calc(100dvh - 110px));background:linear-gradient(115deg,#293125,#121d16);border:1px solid #b7a46c;box-shadow:0 0 0 3px #172016,0 20px 70px #0009;display:flex;flex-direction:column}.command-window>nav{height:64px;display:flex;gap:20px;padding:12px 24px;border-bottom:1px solid #5d6648}.command-window>nav button{border:0;background:none;padding:8px 20px;font-size:17px}.command-window>nav button:last-child{margin-left:auto;font-size:13px}.command-content{padding:24px;overflow:auto;flex:1;min-height:0}.command-ui aside{width:auto;max-height:none;border:0;padding:0;background:none;overflow:visible}.command-ui aside>h2,.command-ui aside>#last-hit{display:none}.command-ui .outside-tab{display:none!important}.command-ui aside section{border:1px solid #46533b;padding:15px;margin:12px 0;background:#14201855}.command-ui aside .controls{display:flex;flex-wrap:wrap;gap:7px}.command-ui aside #structures>div{padding:14px;border-bottom:1px solid #506045}.command-ui aside #structures>div>div{margin:6px 0}.live-shop input{width:100%;margin:0 0 18px;padding:10px}.live-goods{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.live-goods article{display:flex;flex-direction:column;gap:9px;align-items:center;text-align:center;padding:14px;border:1px solid #4c593b;background:#172218}.live-goods article span{color:#e4cf8c;font-size:12px}.goods-art{height:55px;width:55px;border:1px solid #928251;display:grid;place-items:center;font-size:18px;background:#30402a}.live-codex{display:grid;grid-template-columns:1fr 1fr;gap:10px}.live-codex article{padding:14px;border:1px solid #46533a;font-size:13px;line-height:1.7}.unit-overlay{position:absolute;inset:0;pointer-events:none;overflow:hidden}.unit-marker{position:absolute;width:35px;height:5px;border:1px solid #121909;background:linear-gradient(to right,#8abf55 var(--hp),#202619 var(--hp));transform:translate(-50%,-28px);box-shadow:0 1px 2px #000}.unit-marker.enemy{width:27px;background:linear-gradient(to right,#bf714e var(--hp),#252219 var(--hp))}.unit-marker.selected{outline:1px solid #e3d68b;outline-offset:2px}.live-damage{position:absolute;font:bold 22px Georgia;color:#edd38a;text-shadow:0 2px 2px #000;transform:translateX(-50%)}.selection-box{position:absolute;border:1px solid #d4dc9c;background:#b7d37322}@media(max-width:1200px){.dock-body{gap:12px;padding:14px;grid-template-columns:minmax(300px,1fr) 225px 285px}.unit-inventory,.unit-commands{padding-left:12px}.unit-portrait{width:95px;height:120px}.unit-info{gap:12px}.six-slots{grid-template-columns:repeat(3,59px);grid-auto-rows:59px}.command-ui header{gap:10px;font-size:12px}.command-ui #wave{font-size:11px}}@media(prefers-reduced-motion:no-preference){.command-window{animation:command-enter .2s ease-out}@keyframes command-enter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}}
+.command-ui{margin:0;background:#15221b;color:#e3dfcb;font:14px system-ui;overflow:hidden;--gold:#c5b47b} .command-ui *{box-sizing:border-box}.command-ui [hidden]{display:none!important}.command-ui button,.command-ui select,.command-ui input{font:inherit;color:inherit;background:#1e2a1f;border:1px solid #586246;border-radius:0;padding:8px;cursor:pointer}.command-ui button:hover{border-color:var(--gold);background-color:#35412b}.command-ui button:disabled{opacity:.4;cursor:default}.command-ui button:focus-visible{outline:2px solid #d8c98a;outline-offset:2px}.command-ui header{height:54px;padding:0 20px;display:flex;align-items:center;gap:20px;border-bottom:1px solid #85764c;background:linear-gradient(110deg,#252d22,#101b15)}.command-ui header h1{font:700 25px Georgia;color:#e4cd82;margin:0}.command-ui header .controls{order:5;margin-left:auto;display:flex;gap:6px}.command-ui header p{margin:0;font-variant-numeric:tabular-nums}.command-ui #resources{color:#e4d499}.command-ui #wave{font-size:13px}.command-ui main{height:calc(100dvh - 54px);position:relative;margin:0;padding:0;max-width:none}.command-ui .battlefield{padding:0;border:0;background:#23373b}.command-ui #field{width:100%;height:100%;display:block;border:0;touch-action:none}.command-ui .battlefield-tools{pointer-events:none;border:0}.command-ui .camera-panel{background:none;border:0;padding:0}.command-ui .camera-panel .controls{pointer-events:auto}.command-ui .camera-panel button:not(:is(#reset-view,#view-oblique,#view-top)),.command-ui .camera-help,.command-ui #camera-status,.command-ui .map-key{display:none}.command-ui .placement-bar{display:flex;pointer-events:none;border:0;color:#e1d8b9;font-size:12px}.command-ui #cancel-placement{pointer-events:auto}.command-tools{display:flex}.hero-shortcuts{display:flex}.hero-shortcuts button{font-size:11px;display:flex;align-items:end;justify-content:center;text-shadow:0 1px 3px black}.command-ui .painted{background-image:linear-gradient(transparent,#0005),url('./assets/ui/command-icons.jpg');background-size:400% 400%;text-shadow:0 1px 4px #000,0 1px 3px #000}.command-dock{height:252px;border-top:2px solid #aa9860;background:repeating-linear-gradient(120deg,#ffffff02 0 1px,transparent 1px 5px),linear-gradient(110deg,#263024,#111c16)}.selection-strip{height:34px;display:flex;gap:5px;padding:3px 20px}.selection-strip button{padding:3px 12px;font-size:12px}.command-ui .active{border-color:#d1bd7c;color:#edda9d}.dock-body{height:216px;display:grid;grid-template-columns:minmax(350px,1.3fr) minmax(240px,.8fr) 320px;gap:25px;padding:16px 22px}.unit-info{display:flex;gap:22px}.unit-portrait{width:120px;height:140px;border:1px solid #a18d5c;flex-shrink:0;background:#1d291d}.unit-info h2{font:600 25px 'Songti SC',serif;margin:0 0 10px;color:#eee6cf}.unit-info p{white-space:pre-line;font-size:13px;line-height:1.9;color:#c3cbb3;margin:0 0 8px}.unit-info button{font-size:12px;padding:3px 8px}.unit-inventory,.unit-commands{border-left:1px solid #4d583f;padding-left:22px}.dock-body h3{font-size:14px;margin:0 0 8px}.dock-body small{font-size:10px;color:#adb79b;font-weight:400}.six-slots{display:grid;grid-template-columns:repeat(3,64px);grid-auto-rows:64px;gap:7px}.six-slots button,.twelve-slots button{position:relative;padding:18px 2px 3px;font-size:11px;display:flex;align-items:end;justify-content:center;text-align:center;overflow:hidden;background-color:#1a271b;box-shadow:inset 0 0 0 2px #0d170f}.twelve-slots{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:45px;gap:5px}.command-ui kbd{position:absolute;top:2px;left:3px;background:#111a10cf;padding:0 2px;font:10px system-ui;color:#e6e0c3}.command-ui .auto{border-color:#d0ba6b!important}.command-ui .auto:after{content:'';position:absolute;top:4px;right:4px;background:#f5d273;width:5px;height:5px;transform:rotate(45deg)}.empty-command{border:1px solid #35432e;background:#18241a;opacity:.5}.command-status{pointer-events:none;font-size:12px}.command-status p{margin:2px}.command-status #save{font-size:10px;opacity:.65}.command-backdrop{position:fixed;inset:54px 0 0;z-index:30;background:#030c0894;backdrop-filter:blur(3px);display:grid;place-items:center}.command-window{width:min(1080px,calc(100vw - 90px));height:min(690px,calc(100dvh - 110px));background:linear-gradient(115deg,#293125,#121d16);border:1px solid #b7a46c;box-shadow:0 0 0 3px #172016,0 20px 70px #0009;display:flex;flex-direction:column}.command-window>nav{height:64px;display:flex;gap:20px;padding:12px 24px;border-bottom:1px solid #5d6648}.command-window>nav button{border:0;background:none;padding:8px 20px;font-size:17px}.command-window>nav button:last-child{margin-left:auto;font-size:13px}.command-content{padding:24px;overflow:auto;flex:1;min-height:0}.command-ui aside{width:auto;max-height:none;border:0;padding:0;background:none;overflow:visible}.command-ui aside>h2,.command-ui aside>#last-hit{display:none}.command-ui .outside-tab{display:none!important}.command-ui aside section{border:1px solid #46533b;padding:15px;margin:12px 0;background:#14201855}.command-ui aside .controls{display:flex;flex-wrap:wrap;gap:7px}.command-ui aside #structures>div{padding:14px;border-bottom:1px solid #506045}.command-ui aside #structures>div>div{margin:6px 0}.live-shop input{width:100%;margin:0 0 18px;padding:10px}.live-goods{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.live-goods article{display:flex;flex-direction:column;gap:9px;align-items:center;text-align:center;padding:14px;border:1px solid #4c593b;background:#172218}.live-goods article span{color:#e4cf8c;font-size:12px}.goods-art{height:55px;width:55px;border:1px solid #928251;display:grid;place-items:center;font-size:18px;background:#30402a}.live-codex{display:grid;grid-template-columns:1fr 1fr;gap:10px}.live-codex article{padding:14px;border:1px solid #46533a;font-size:13px;line-height:1.7}.unit-overlay{position:absolute;inset:0;pointer-events:none;overflow:hidden}.unit-marker{position:absolute;width:35px;height:5px;border:1px solid #121909;background:linear-gradient(to right,#8abf55 var(--hp),#202619 var(--hp));transform:translate(-50%,-28px);box-shadow:0 1px 2px #000}.unit-marker.enemy{width:27px;background:linear-gradient(to right,#bf714e var(--hp),#252219 var(--hp))}.unit-marker.selected{outline:1px solid #e3d68b;outline-offset:2px}.live-damage{position:absolute;font:bold 22px Georgia;color:#edd38a;text-shadow:0 2px 2px #000;transform:translateX(-50%)}.selection-box{position:absolute;border:1px solid #d4dc9c;background:#b7d37322}@media(max-width:1200px){.dock-body{gap:12px;padding:14px;grid-template-columns:minmax(300px,1fr) 225px 285px}.unit-inventory,.unit-commands{padding-left:12px}.unit-portrait{width:95px;height:120px}.unit-info{gap:12px}.six-slots{grid-template-columns:repeat(3,59px);grid-auto-rows:59px}.command-ui header{gap:10px;font-size:12px}.command-ui #wave{font-size:11px}}@media(prefers-reduced-motion:no-preference){.command-window{animation:command-enter .2s ease-out}@keyframes command-enter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}}
 .command-ui .command-dock,.command-ui .dock-body>section,.command-ui .command-window{margin-top:0;padding-top:0}.command-ui #field{min-height:0}.command-ui main{min-height:0}.command-ui .dock-body>section{border-top:0}.command-ui #structures>div{display:block}.command-ui .recipe-entry{border:1px solid #46533b;padding:15px;margin:10px 0}.command-ui .recipe-entry h3{color:#dfcf91;margin:0 0 8px}.command-ui header{justify-content:flex-start}.command-ui .command-dock{border-top:2px solid #aa9860}.command-ui .unit-commands{min-width:0}.command-ui .unit-inventory{min-width:0}
 .command-ui .skill-cooldown{position:absolute;inset:0;background:#081109b3;display:grid;place-items:center;font:bold 20px Georgia;color:#f2e9c5;pointer-events:none}
 .command-ui .shop-body{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:24px}.command-ui .live-goods{grid-template-columns:repeat(3,minmax(0,1fr));align-content:start}.command-ui .live-goods article{cursor:pointer;min-height:150px}.command-ui .live-goods article.selected{border-color:#d0bc77;background:#35412a}.command-ui .goods-detail{border-top:0;border-left:1px solid #586144;margin:0;padding:0 0 0 24px;display:flex;flex-direction:column;align-items:flex-start;gap:16px;position:sticky;top:0;align-self:start;min-height:420px}.command-ui .goods-detail h2{font:600 23px 'Songti SC',serif;color:#e5d094}.command-ui .goods-detail p{line-height:1.8;color:#bdc7ae}.command-ui .goods-detail .detail-price{margin-top:auto;color:#e5d094}.command-ui .goods-detail button{width:100%;background:linear-gradient(#677044,#3a4b2c);border-color:#a7ad76}.command-ui .goods-detail small{color:#9fab92;font-size:12px}.command-ui .goods-detail .goods-art{width:70px;height:70px}
+
+.command-ui .command-window > #feedback { background: #18241a; border-top: 1px solid #586144; padding: 6px 10px; margin: 0; }
+.command-ui .command-window > #feedback:empty { display: none; }
+.command-ui .touch-tools { display: none; }
+
+.command-ui main {
+  display: grid;
+  grid-template: "toolbar" auto "field" minmax(0, 1fr) "camera" auto "context" auto "dock" auto / minmax(0, 1fr);
+}
+.command-ui .battlefield { grid-area: field; position: relative; inset: auto; min-height: 0; overflow: hidden; }
+.command-toolbar {
+  grid-area: toolbar;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 0;
+  padding: 4px 8px;
+  gap: 8px;
+  background: #17241b;
+}
+.command-ui .command-tools, .command-ui .hero-shortcuts {
+  position: static;
+  flex-direction: row;
+  margin: 0;
+  gap: 4px;
+}
+.command-ui .command-tools { flex-shrink: 0; }
+.command-ui .hero-shortcuts {
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  overscroll-behavior: contain;
+}
+.command-ui .hero-shortcuts button {
+  flex-shrink: 0;
+  width: 48px;
+  min-height: 44px;
+  padding: 2px;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+.command-ui .battlefield-tools {
+  grid-area: camera;
+  position: static;
+  justify-content: flex-end;
+  background: #17241b;
+  padding: 4px 8px;
+}
+.command-context {
+  grid-area: context;
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+  background: #17241b;
+}
+.command-ui .touch-actions {
+  display: flex;
+  flex: 2;
+  min-width: 0;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 6px;
+  background: #17241b;
+  border-block: 1px solid #586246;
+}
+.touch-actions p { flex: 1; font-size: 13px; }
+.touch-actions div { display: flex; flex: 1; gap: 4px; min-width: 0; overflow-x: auto; scrollbar-width: none; }
+.touch-actions div button {
+  flex-shrink: 0;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.touch-actions div:empty, .touch-actions:has(div:not(:empty)) p,
+.command-context:has(.touch-actions div:not(:empty)) .command-status { display: none; }
+.command-ui .placement-bar, .command-ui .command-status {
+  position: static;
+  margin: 0;
+  padding: 2px 8px;
+  min-width: 0;
+  text-align: left;
+  text-shadow: none;
+}
+.command-ui .placement-bar { flex: 1; justify-content: space-between; gap: 4px; }
+.command-ui main:has(#field[data-placement="idle"]) .placement-bar:not(:has(button:not([hidden]))) { display: none; }
+.command-ui .command-status { flex: 1; }
+.command-ui .command-status p { margin: 0; }
+.command-ui .command-status p:empty, .command-ui .command-status:not(:has(p:not(:empty))) { display: none; }
+.command-ui .command-dock { grid-area: dock; position: static; inset: auto; }
+.dock-heading { display: flex; align-items: center; border-bottom: 1px solid #4b563e; }
+.dock-heading .selection-strip { flex: 1; min-width: 0; border: 0; overflow-x: auto; scrollbar-width: none; }
+.dock-heading .selection-strip button {
+  flex-shrink: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.command-ui header p,
+.command-context p,
+.unit-info > div:last-child,
+.six-slots button,
+.twelve-slots button {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.six-slots, .twelve-slots { align-content: start; max-height: 158px; overflow-y: auto; }
+.six-slots { grid-auto-rows: minmax(64px, auto); }
+.twelve-slots { grid-auto-rows: minmax(45px, auto); }
+
+@media (max-width: 900px), (pointer: coarse) and (max-height: 600px) {
+  .command-ui {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    height: 100dvh;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+  .command-ui header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 2px 8px;
+    height: auto;
+    padding: 6px 10px;
+  }
+  .command-ui header > div:first-child { display: none; }
+  .command-ui header .controls { grid-column: 2; grid-row: 2; flex-wrap: nowrap; }
+  .command-ui header p { line-height: 1.35; overflow-wrap: anywhere; }
+  .command-ui #resources { grid-column: 1 / -1; font-size: 13px; }
+  .command-ui #wave, .command-ui #boss { font-size: 12px; }
+  .command-ui #boss:not(:empty) { grid-column: 1 / -1; }
+  .command-ui #boss:empty { display: none; }
+  .command-ui button, .command-ui select { min-height: 44px; }
+  .command-ui button { touch-action: manipulation; }
+  .command-ui header button, .command-ui .camera-panel button { min-width: 44px; padding-inline: 5px; }
+  .command-ui main { height: auto; }
+  .command-toolbar { gap: 4px; padding: 2px 6px; }
+  .command-tools button { padding-inline: 6px; }
+  .command-ui .hero-shortcuts button { width: 44px; }
+  .command-ui .battlefield-tools { justify-content: center; padding: 2px; }
+  .command-ui .camera-panel .controls { gap: 2px; }
+  .command-ui .camera-panel button:is(#zoom-in, #zoom-out, #rotate-left, #rotate-right) { display: inline-block; }
+  .command-ui .camera-panel #view-oblique { display: none; }
+  .command-ui .camera-panel button:is(#view-top, #reset-view) { white-space: nowrap; }
+  .command-context { height: 52px; gap: 0; flex-wrap: nowrap; overflow: auto; overscroll-behavior: contain; }
+  .command-ui .placement-bar { flex: 2; }
+  .command-ui .placement-bar p, .command-ui .command-status p { font-size: 12px; }
+  .command-ui .placement-bar p, .command-ui .command-status, .touch-actions p {
+    max-height: 48px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .command-context:has(.touch-actions:not([hidden]), #cancel-placement:not([hidden]), #feedback:not(:empty)) #save { display: none; }
+  .command-ui .command-dock { height: auto; }
+  .dock-heading .selection-strip { height: auto; align-items: center; padding: 2px 0 2px 6px; }
+  .command-ui .touch-tools { display: flex; gap: 4px; flex-shrink: 0; padding: 2px 6px; }
+  .command-dock[data-touch-mode="more"] :is(.six-slots, .twelve-slots) button:not(.touch-secondary) { opacity: .32; pointer-events: none; }
+  .command-dock[data-touch-mode="more"] .touch-secondary { border-color: var(--gold); }
+  .dock-body { height: auto; display: block; padding: 4px 6px 6px; }
+  .dock-body .unit-info > div:last-child { flex: 1; min-width: 0; display: flex; align-items: center; gap: 6px; }
+  .dock-body .unit-info h2 { margin: 0; font-size: 14px; overflow-wrap: anywhere; }
+  .dock-body .unit-info p { flex: 1; margin: 0; font-size: 11px; line-height: 1.3; white-space: normal; }
+  .dock-body .unit-info button, .dock-body .unit-portrait { display: none; }
+  .dock-body .unit-info { margin-bottom: 4px; }
+  .dock-body .unit-inventory, .dock-body .unit-commands { padding: 0; border: 0; }
+  .command-dock:not(.show-inventory) .unit-inventory, .command-dock.show-inventory .unit-commands { display: none; }
+  .dock-body h3, .command-ui kbd { display: none; }
+  .six-slots, .twelve-slots { grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: minmax(44px, auto); max-height: 104px; gap: 4px; }
+  .twelve-slots .empty-command { display: none; }
+  .six-slots button, .twelve-slots button { padding: 5px 1px 4px; line-height: 1.15; overflow-wrap: anywhere; }
+  .command-ui .command-backdrop { display: block; inset: 0; backdrop-filter: none; }
+  .command-ui .command-window {
+    width: 100%;
+    height: 100%;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    border: 0;
+  }
+  .command-window > nav { flex-shrink: 0; height: auto; gap: 1px; padding: 4px 6px; }
+  .command-window > nav button { flex: 1; padding: 4px; font-size: 14px; }
+  .command-window > nav button:last-child { margin: 0; min-width: 44px; flex: none; }
+  .command-window { animation: none; }
+  .command-content { padding: 10px; overscroll-behavior: contain; overflow-wrap: anywhere; }
+  .command-content input, .command-content select { max-width: 100%; font-size: 16px; }
+  .command-ui .shop-body { display: flex; flex-direction: column; gap: 10px; }
+  .command-ui .goods-detail { position: static; width: 100%; min-height: 0; gap: 6px; border: 1px solid #586144; padding: 10px; }
+  .command-ui .live-shop input { margin-bottom: 8px; }
+  .command-ui .live-goods { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; max-height: min(220px, 30dvh); overflow-y: auto; }
+  .command-ui .live-goods article { min-height: 84px; padding: 5px; gap: 4px; }
+  .goods-art, .command-ui .goods-detail .goods-art { width: 34px; height: 34px; }
+  .live-codex { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (orientation: landscape) and (max-height: 600px) and (pointer: coarse) {
+  .command-ui header { grid-template-columns: auto minmax(0, 1fr) auto; }
+  .command-ui #resources { grid-column: 1; }
+  .command-ui header .controls { grid-column: 3; grid-row: 1; }
+  .command-ui main {
+    grid-template: "toolbar dock" auto "field dock" minmax(0, 1fr) "camera dock" auto "context dock" auto / minmax(0, 1fr) clamp(190px, 34vw, 280px);
+  }
+  .command-ui .command-dock { overflow-y: auto; }
+  .six-slots, .twelve-slots { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+@media (orientation: landscape) and (max-width: 680px) and (max-height: 600px) and (pointer: coarse) {
+  .command-ui header { grid-template-columns: minmax(0, 1fr) auto; }
+  .command-ui header .controls { grid-column: 2; grid-row: 1 / 3; }
+  .dock-heading { flex-wrap: wrap; }
+  .dock-heading .selection-strip { flex-basis: 100%; }
+  .command-ui .touch-tools { margin-left: auto; }
+  .six-slots, .twelve-slots { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
