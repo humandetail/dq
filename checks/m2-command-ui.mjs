@@ -215,6 +215,72 @@ async function auditButtonLabels() {
   console.log(`Checked ${checked} labels and ${iconsChecked} icons across 11 viewports`);
   assert.deepEqual([...issues.values()], [], 'Button labels are clipped or exceed their available width');
 }
+async function checkSword() {
+  const press = async (selector, button = 'left') => {
+    const point = await evaluate(`(() => {
+      const rect = document.querySelector(${JSON.stringify(selector)}).getBoundingClientRect();
+      return {x: rect.left + rect.width / 2, y: rect.top + rect.height / 2};
+    })()`);
+    if (mobile) {
+      await cmd('Input.dispatchTouchEvent', {type:'touchStart', touchPoints:[{...point,id:1}]});
+      await cmd('Input.dispatchTouchEvent', {type:'touchEnd', touchPoints:[]});
+    } else {
+      await cmd('Input.dispatchMouseEvent', {type:'mousePressed', ...point, button, clickCount:1});
+      await cmd('Input.dispatchMouseEvent', {type:'mouseReleased', ...point, button, clickCount:1});
+    }
+  };
+  const click = selector => evaluate(`document.querySelector(${JSON.stringify(selector)}).click()`);
+  const checkpoint = expression => until(`(async () => {
+    const { ${saveFactory}: buildStore } = await import('/src/game/m2/save.ts');
+    const {run} = await buildStore(()=>true,()=>true).read();
+    const sword = run.inventory.find(item => item.id === 910);
+    return ${expression};
+  })()`);
+  const swordSlot = '.six-slots button[title^="破损的妖刀村正"]';
+  async function takeSword() {
+    if (mobile && !await evaluate('document.querySelector(".command-dock").classList.contains("show-inventory")')) {
+      await press('.touch-tools button:nth-child(2)');
+    }
+    await until(`document.querySelector(${JSON.stringify(swordSlot)})?.checkVisibility()`);
+    await press(swordSlot, 'right');
+    if (mobile) {
+      await until(`(() => {
+        const button = document.querySelector('.touch-actions div button');
+        return button?.textContent === '拿起' && button.checkVisibility();
+      })()`);
+      await press('.touch-actions div button');
+    }
+    await until('document.querySelector(".touch-actions p").textContent === "选择能量圈吸魂"');
+  }
+  await click('#reset-view');
+  await click('.hero-shortcuts button:first-child');
+  await until('document.querySelector(".unit-info h2").textContent === "工人"');
+  await takeSword();
+  await press('.hero-shortcuts button:nth-child(2)');
+  await until('document.querySelector("#feedback").textContent.includes("排队")');
+  await press('#pause');
+  await checkpoint('sword?.slot === null');
+  await until(`document.querySelector('[data-ground-id="910"]')?.textContent.includes('破损的妖刀村正')`);
+  await capture('sword-drop.png');
+  await press('[data-ground-id="910"]');
+  await checkpoint('sword?.slot !== null && sword.towerId === undefined');
+  await press('#pause');
+  await until('document.querySelector("#pause").textContent === "继续"');
+  await takeSword();
+  await press('[data-ground-id="0"]');
+  await until('document.querySelector("#feedback").textContent.includes("排队")');
+  await press('#pause');
+  await checkpoint('sword?.towerId === 0');
+  await press('[data-ground-id="0"]');
+  await until('document.querySelector(".unit-info h2").textContent === "能量圈"');
+  await click('#speed');
+  await checkpoint('sword.charges > 0');
+  await until('document.querySelector(".unit-info p").textContent.match(/妖刀吸魂 [1-9][0-9]* /)');
+  await capture('sword-energy-circle.png');
+  await press('#pause');
+  await until('document.querySelector("#pause").textContent === "继续"');
+}
+
 async function checkMobile() {
   const q = selector => 'document.querySelector(' + JSON.stringify(selector) + ')';
   async function touch(type, point) {
@@ -257,6 +323,9 @@ async function checkMobile() {
   assert.equal(await evaluate(q('#pause') + '.getAttribute("aria-label")'), '继续');
   await capture('battle.png');
   await tap('.twelve-slots button:first-child');
+  assert.equal(await evaluate(q('.command-window')+'.getAttribute("aria-label")'), '工人建造');
+  assert.equal(await evaluate(q('#choices')+'.checkVisibility()'), false);
+  await capture('worker-builds.png');
   await tap('#builds button:first-child');
   await until(q('.command-backdrop')+'.hidden && '+q('#cancel-placement')+'.hidden === false');
   const focus=q('#field')+'.dataset.cameraFocus';
@@ -268,6 +337,13 @@ async function checkMobile() {
   await until(focus+' !== '+JSON.stringify(before));
   assert.doesNotMatch(await evaluate(feedback), /排队/);
   assert.equal(await evaluate(q('.selection-box')+'.hidden'), true);
+  const field = await evaluate(q('#field')+'.getBoundingClientRect().toJSON()');
+  const y = field.top + field.height / 2, x = field.left + field.width / 2;
+  await cmd('Input.dispatchTouchEvent', {type:'touchStart', touchPoints:[{id:1,x:x-25,y},{id:2,x:x+25,y}]});
+  await cmd('Input.dispatchTouchEvent', {type:'touchMove', touchPoints:[{id:1,x:x-55,y:y-20},{id:2,x:x+55,y:y+20}]});
+  await cmd('Input.dispatchTouchEvent', {type:'touchEnd', touchPoints:[]});
+  await until(q('#field')+'.dataset.cameraYaw !== "180" && Number('+q('#field')+'.dataset.cameraZoom) > 1.45');
+  assert.doesNotMatch(await evaluate(feedback), /排队/);
   await tap('#reset-view');
   await tap(await project(-192, -128));
   await until(feedback+'.includes("排队")');
@@ -277,8 +353,11 @@ async function checkMobile() {
   await checkpoint('run.structures.length === 2');
   await tap('#pause');
   await until(paused);
-  await tap('.touch-tools button:first-child');
-  await tap(await project(-192,128,1));
+  const dropped = await evaluate(`(() => {
+    const rect = document.querySelector('[data-ground-id="903"]').getBoundingClientRect();
+    return {x:rect.left + rect.width / 2, y:rect.top + rect.height / 2};
+  })()`);
+  await tap(dropped);
   await until(feedback+'.includes("排队")');
   await tap('#pause');
   await checkpoint('run.inventory.some(item => item.id === 903 && item.slot !== null)');
@@ -346,8 +425,11 @@ async function checkMobile() {
     await center('#reset-view');
     if (width === 320 || width === 844) await capture('battle-'+width+'.png');
   }
+  await cmd('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});
+  await until('innerWidth === 390');
+  await checkSword();
   assert.deepEqual(errors,[]);
-  console.log('PASSED: touch pan/placement, pickup, auto mode, casting, transfer, shop purchase, save/reload and responsive viewports');
+  console.log('PASSED: touch pan, pinch and rotation during placement, worker panel, pickup, item transfer, sword absorption, casting, shop and save/reload');
 }
 try{
 await cmd('Runtime.enable');await cmd('Page.enable');await cmd('Emulation.setFocusEmulationEnabled',{enabled:true});await cmd('Emulation.setDeviceMetricsOverride',mobile
@@ -386,6 +468,7 @@ await evaluate(`(async()=>{
    delete state.structures[0].treeGrab;
    state.inventory.push({id:903,itemId:'i102',slot:null,charges:0,point:{x:-192,y:128}});
  }
+ if (!${buttonAudit}) state.inventory.push({id:910,itemId:'i131',slot:4,charges:0,point:state.worker});
  const store=createSaveStore(()=>true,()=>true);await store.withWriter(async writer=>{await writer.commit(undefined,{score:0,claims:[]},state${initialMigration});});
  return true;
 })()`);
@@ -404,6 +487,7 @@ await assertClearBattlefield();
 await assertLongLabelsFit();
 await evaluate('document.querySelectorAll(".hero-shortcuts button")[1].click()');
 await until('document.querySelector(".unit-info h2").textContent.includes("小小")');
+await until('document.querySelector("#field").dataset.attackRange === "750"');
 const toggleTarget = await evaluate(`(() => {
   const button = document.querySelector('[data-skill="A068"]');
   const rect = button.getBoundingClientRect();
@@ -454,6 +538,13 @@ await until('document.querySelector(".unit-info h2").textContent.includes("小�
 await key('1','Digit1',2);await evaluate('document.querySelectorAll(".hero-shortcuts button")[0].click()');await key('1','Digit1');await until('document.querySelector(".unit-info h2").textContent.includes("小小")');
 const markerBefore=await evaluate('parseFloat(document.querySelector(".unit-marker").style.left)');
 await cmd('Input.dispatchMouseEvent',{type:'mousePressed',x:600,y:300,button:'middle',clickCount:1});await cmd('Input.dispatchMouseEvent',{type:'mouseMoved',x:680,y:300,button:'middle',buttons:4});await cmd('Input.dispatchMouseEvent',{type:'mouseReleased',x:680,y:300,button:'middle',clickCount:1});await until('Math.abs(parseFloat(document.querySelector(".unit-marker").style.left)-'+markerBefore+')>10');await evaluate('document.querySelector("#reset-view").click()');
+await evaluate('document.querySelector("#orbit-view").click()');
+await cmd('Input.dispatchMouseEvent',{type:'mousePressed',x:600,y:300,button:'left',buttons:1,clickCount:1});
+await cmd('Input.dispatchMouseEvent',{type:'mouseMoved',x:680,y:180,button:'left',buttons:1});
+await cmd('Input.dispatchMouseEvent',{type:'mouseReleased',x:680,y:180,button:'left',clickCount:1});
+await until('Number(document.querySelector("#field").dataset.cameraPitch) < 30 && document.querySelector("#field").dataset.cameraYaw !== "180"');
+assert.equal(await evaluate('document.querySelector("#field").dataset.attackRange'), '750');
+await evaluate('document.querySelector("#reset-view").click()');
 await evaluate('document.querySelectorAll(".twelve-slots button")[4].click()');await cmd('Input.dispatchMouseEvent',{type:'mousePressed',x:500,y:130,button:'left',clickCount:1});await cmd('Input.dispatchMouseEvent',{type:'mouseReleased',x:500,y:130,button:'left',clickCount:1});assert.match(await evaluate('document.querySelector("#feedback").textContent'),/请选择/);await key('Escape','Escape');
 await capture('battle.png');
 await evaluate('document.querySelector(".command-tools button").click();document.querySelector(".live-shop input").value="";document.querySelector(".live-shop input").dispatchEvent(new Event("input"))');await capture('shop.png');await key('Escape','Escape');
@@ -464,6 +555,7 @@ await until(`(async () => {
 })()`);
 await evaluate('document.querySelector("#field").dataset.ready="reloading"');await cmd('Page.reload');await until('document.querySelector("#field").dataset.ready === "true" && document.querySelector(".hero-shortcuts").children.length===2');await evaluate('document.querySelectorAll(".hero-shortcuts button")[1].click()');await until('document.querySelector("[data-skill=A068]") !== null');assert.equal(await evaluate('document.querySelector("[data-skill=A068]").classList.contains("auto")'),false);
 assert.equal(await evaluate('document.documentElement.scrollWidth<=innerWidth'),true);
-assert.deepEqual(errors,[]);console.log(`PASSED: live hero selection, auto-mode command/save/reload, learning, central shop search/purchase, ${recipeCount} recipes, codex, modal pause, Escape, viewport, runtime errors`);
+await checkSword();
+assert.deepEqual(errors,[]);console.log(`PASSED: live hero selection, attack range, free camera, learning, shop, ${recipeCount} recipes, codex, sword drop/pickup/absorption and save/reload`);
 }
 }catch(error){console.error(await evaluate('({feedback:document.querySelector("#feedback")?.textContent,save:document.querySelector("#save")?.textContent,pause:document.querySelector("#pause")?.textContent,skill:document.querySelector("[data-skill=A068]")?.outerHTML})'));throw error;}finally{await browser.stop(ws);await server?.close();}

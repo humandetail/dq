@@ -5,7 +5,7 @@ import { test } from "node:test";
 import m2Configuration from "../docs/m2-configuration.json" with { type: "json" };
 import { configuration, cards, chestPools, items, m2Cards, m2Items, openingChoices, qualificationChains, recipes, seasonTasks, workerTowers } from "../src/game/m2/content.ts";
 import { buildAnchor, chooseWaypoint, map, roadEdges, mapVersion } from "../src/game/m2/map.ts";
-import { canSeeEnemy, circleId, containmentPoints, creditTime, drain, enqueue, grantHeroExperience, newMatch, qualified, removeDeadEnemy, restoreHeroState, talentHeroDamageFactor } from "../src/game/m2/match.ts";
+import { attackRange, canSeeEnemy, circleId, containmentPoints, creditTime, drain, enqueue, grantHeroExperience, newMatch, qualified, removeDeadEnemy, restoreHeroState, talentHeroDamageFactor } from "../src/game/m2/match.ts";
 import { movementSweep, moveAlongRoute, moveUnits } from "../src/game/m2/movement.ts";
 import { findPath, staticSweep } from "../src/game/m2/pathfinding.ts";
 import { challengeTemplates, drawMysteryStock } from "../src/game/m2/shops.ts";
@@ -701,14 +701,53 @@ test("equipment transfer preserves the instance and enforces new admission after
   assert.equal(state.inventory.find(item => item.id === 82).slot, null);
   submit(state, "pick-up-broken", { type: "pick-up-item", itemId: 82 });
   assert.equal(transfer("return-broken", 82, circleId).ok, true);
+  dispatchWave(state, 1);
+  const [slain] = state.enemies;
+  slain.hp = 0;
+  assert.equal(removeDeadEnemy(state, slain.id, 71), true);
+  assert.equal(state.inventory.find(item => item.id === 82).charges, 1);
   assert.equal(submit(state, "recycle-provider", { type: "recycle-tower", towerId: 72 }).ok, true);
   state = JSON.parse(JSON.stringify(state));
   assert.equal(qualified(state, 71), false);
-  assert.deepEqual(state.inventory.map(item => [item.id, item.towerId, item.slot, item.charges]), [[81, 71, 0, 3], [82, 0, 0, 0]]);
+  assert.deepEqual(state.inventory.map(item => [item.id, item.towerId, item.slot, item.charges]), [[81, 71, 0, 3], [82, 0, 0, 1]]);
   assert.equal(transfer("return", 81).ok, true);
   assert.equal(transfer("re-equip", 81, 71).reason, "equipment");
   assert.equal(state.inventory[0].towerId, undefined);
   assert.equal(state.inventory[0].slot, null);
+});
+
+test("the displayed attack range matches acquisition and equipment, with a separate windup buffer", () => {
+  for (const [templateId, radius, lanceRadius] of [["H021", 750, 850], ["H018", 800, 900], ["n001", 1000, 1200]]) {
+    const state = isolatedEconomy();
+    dispatchWave(state, 1);
+    const tower = { ...map.worker, id: 900, templateId, population: 5, radius: 72, pending: null, qualification: null };
+    state.structures = [tower];
+    const [enemy] = state.enemies;
+    Object.assign(enemy, { x: tower.x + radius + 1, y: tower.y, hp: 100_000, armor: 0, abilities: [] });
+    state.enemies = [enemy];
+    const seek = () => {
+      scheduleEvent(state.queue, 1, { type: "weapon-ready", towerId: tower.id });
+      advanceTo(state, state.queue.nowUs + 1);
+    };
+    assert.equal(attackRange(state, tower), radius, templateId);
+    seek();
+    assert.equal(tower.attack?.winding, undefined, templateId);
+    enemy.x--;
+    seek();
+    assert.equal(tower.attack?.winding, true, templateId);
+    enemy.x += 50;
+    advanceTo(state, tower.attack.timing.windup.dueUs);
+    assert.ok(state.recentHits?.length || state.queue.pending.some(event => event.payload.type === "weapon-impact"), templateId);
+    advanceTo(state, state.queue.nowUs + 2_500_000);
+    seek();
+    assert.equal(tower.attack.winding, false, templateId);
+    enemy.x -= 50;
+    seek();
+    assert.equal(tower.attack.winding, true, templateId);
+
+    state.inventory = [{ id: 901, itemId: "i282", towerId: tower.id, slot: 0, point: map.worker, charges: 0 }];
+    assert.equal(attackRange(state, tower), lanceRadius, templateId);
+  }
 });
 
 test("W013 applies only to heroes and W019 grows on an actual level or promotion", () => {

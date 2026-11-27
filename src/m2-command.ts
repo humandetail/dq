@@ -1,12 +1,12 @@
 import { eventBoxes } from "./game/m2/event-boxes.ts";
 import { cardTemplates, items, ordinaryGoods, prayerBooks, recipes, recycleRate, towerLevels } from './game/m2/content.ts';
-import { effectiveAttributes, weapons } from './game/m2/combat.ts';
+import { effectiveAttributes } from './game/m2/combat.ts';
 import { learnableSkills, learningLevel } from './game/m2/hero.ts';
 import { pointTowerSpell, towerSpells } from './game/m2/tower-spells.ts';
 import { heroAutoCastOrder, heroSpellTargetMode, isCastableHeroSkill, heroSpells } from './game/m2/hero-spells.ts';
-import { activeHeroSkill, attackOrb, bearAbilities, canChooseOpening, canSeeEnemy, circleId, doomAbilities, isActiveTowerEquipment, isPointTargetedTowerEquipment, isTargetedEquipment, itemSaleQuote, type Action, type Match } from './game/m2/match.ts';
+import { activeHeroSkill, attackOrb, attackRange, bearAbilities, canChooseOpening, canMoveItem, canSeeEnemy, circleId, doomAbilities, isActiveTowerEquipment, isBrokenSword, isPointTargetedTowerEquipment, isTargetedEquipment, itemSaleQuote, usableWorkerItem, type Action, type Match } from './game/m2/match.ts';
 import type { createM2Scene } from './m2-scene.ts';
-import type { Point } from './game/m2/map.ts';
+import { map, type Point } from './game/m2/map.ts';
 import './m2-command.css';
 import { originalIconUrl, prependOriginalIcon, setCommandIcon } from './m2-icons.ts';
 type Scene = Awaited<ReturnType<typeof createM2Scene>>;
@@ -28,6 +28,7 @@ export function createCommandUI(options: {
     refreshManagement: () => void;
     cancel: () => void;
     placing: () => boolean;
+    placeCard: (id: number, card: string) => void;
 }) {
     const get = (id: string) => document.getElementById(id)!;
     const canvas = get('field') as HTMLCanvasElement;
@@ -40,7 +41,7 @@ export function createCommandUI(options: {
     let target: Target | undefined;
     let carrying: number | undefined;
     let modal = '';
-    let touchMode: 'order' | 'more' | undefined;
+    let touchMode: 'order' | 'more' | 'item' | undefined;
     let matchId = '';
     let openingShown = false;
     let lastRender = '';
@@ -123,11 +124,12 @@ export function createCommandUI(options: {
     touchTools.className = 'touch-tools';
     const orderButton = button('下令', () => setTouchMode(touchMode === 'order' ? undefined : 'order'), true);
     const moreButton = button('更多', () => setTouchMode(touchMode === 'more' ? undefined : 'more'), true);
-    const inventoryButton = button('物品', () => {
-        const inventory = dock.classList.toggle('show-inventory');
+    const inventoryButton = button('物品', () => showInventory(!dock.classList.contains('show-inventory')));
+    function showInventory(inventory: boolean) {
+        dock.classList.toggle('show-inventory', inventory);
         inventoryButton.textContent = inventory ? '指令' : '物品';
         setCommandIcon(inventoryButton, inventory ? 'commands' : 'inventory');
-    });
+    }
     setCommandIcon(orderButton, 'order');
     setCommandIcon(inventoryButton, 'inventory');
     setCommandIcon(moreButton, 'more', '更多操作');
@@ -196,6 +198,12 @@ export function createCommandUI(options: {
     context.append(status);
     // Existing progression and special transactions keep their original event handlers.
     const sections = [...aside.children];
+    const workerPanels = new Map([
+        ['工人建造', get('builds').closest('section')!],
+        ['塔卡', get('cards').closest('section')!],
+        ['抽卡', get('draws').closest('section')!],
+        ['工人天赋', get('talents').closest('section')!],
+    ]);
     const sectionTab = new Map<Element, string>();
     for (const section of sections) {
         const name = section.querySelector('h2')?.textContent;
@@ -276,11 +284,13 @@ export function createCommandUI(options: {
         shop.hidden = name !== '商店';
         recipe.hidden = name !== '合成';
         codex.hidden = name !== '图鉴';
+        const workerPanel = workerPanels.get(name);
+        window.classList.toggle('worker-dialog', !!workerPanel);
         for (const section of sections)
-            section.classList.toggle('outside-tab', sectionTab.get(section) !== name);
+            section.classList.toggle('outside-tab', workerPanel ? section !== workerPanel : sectionTab.get(section) !== name);
         aside.hidden = name === '图鉴' || name === '合成';
         tabs.querySelectorAll('button').forEach(node => node.classList.toggle('active', node.textContent === name));
-        if (name === '对局' || name === '商店') options.refreshManagement();
+        if (workerPanel || name === '对局' || name === '商店') options.refreshManagement();
         if (name === '商店') {
             window.append(get('feedback'));
             showShop();
@@ -341,7 +351,7 @@ export function createCommandUI(options: {
             recipe.append(button('打开工人物品与制作书', () => { select(-1); open('对局'); get('worker-items').scrollIntoView({ block: 'center' }); }));
         }
         content.scrollTop = 0;
-        (tabs.querySelector('.active') as HTMLButtonElement)?.focus();
+        (tabs.querySelector<HTMLButtonElement>('.active') ?? closeWindow).focus();
     }
     function close() {
         modal = '';
@@ -360,6 +370,8 @@ export function createCommandUI(options: {
             carrying = undefined;
             return;
         }
+        if (id === circleId) showInventory(true);
+        else if (current === circleId) showInventory(false);
         enemyId = undefined;
         if (additive) {
             selection = selection.includes(id) ? selection.filter(entry => entry !== id) : [...selection, id];
@@ -375,6 +387,10 @@ export function createCommandUI(options: {
     function cancel() {
         if (modal) {
             close();
+            return;
+        }
+        if (canvas.dataset.orbit === 'true') {
+            get('orbit-view').click();
             return;
         }
         if (touchMode) {
@@ -404,9 +420,11 @@ export function createCommandUI(options: {
         const item = state?.inventory?.find(item => item.slot === slot && item.towerId === (current === -1 ? undefined : current));
         const book = current === -1 ? state?.books?.find(book=>book.slot===slot) : undefined;
         if(book){aim({kind:'ally',label:prayerBooks.find(entry=>entry.id===book.bookId)!.name,action:(_point,id)=>({type:'use-book',itemId:book.id,towerId:id!})});return;}
-        if (!item) return;
+        if (!item || current === circleId) return;
         if (current === -1) {
-            if (item.itemId === 'i256')
+            if (isBrokenSword(item.itemId))
+                announce('放入能量圈吸魂');
+            else if (item.itemId === 'i256')
                 aim({ kind: 'enemy', label: '点金', action: (_point, id) => ({ type: 'use-item', itemId: item.id, targetId: id }) });
             else if (isPointTargetedTowerEquipment(item.itemId))
                 announce('需要交接给可施法的塔');
@@ -423,14 +441,14 @@ export function createCommandUI(options: {
         else
             announce('被动装备');
     }
-    function renderDock(state: Match) {
+    function renderDock(state: Match, range: number) {
         const tower = unit();
         const enemy = state.enemies.find(enemy => enemy.id === enemyId);
         const equipped = state.inventory?.filter(item => item.slot !== null && item.towerId === (current === -1 ? undefined : current));
         const signature = JSON.stringify([state.matchId, selection, current, enemyId, learning, tower?.hero,
             tower?.templateId, tower?.autoModes, tower?.flameArrows, tower?.morphShift?.attribute, equipped,
             current === -1 ? [state.cards, state.books, state.gold, state.lumber] : null,
-            options.writable(), enemy && Math.ceil(enemy.hp), tower?.life && Math.ceil(tower.life.hp), Math.floor(state.queue.nowUs / 1000000)]);
+            options.writable(), range, enemy && Math.ceil(enemy.hp), tower?.life && Math.ceil(tower.life.hp), Math.floor(state.queue.nowUs / 1000000)]);
         if (signature === lastRender)
             return;
         lastRender = signature;
@@ -438,9 +456,9 @@ export function createCommandUI(options: {
         strip.replaceChildren();
         for (const id of selection) {
             const entry = unit(id);
-            const node = button(id === -1 ? '工人' : towerLevels.get(entry?.templateId ?? '')?.name ?? '灵兽', () => select(id));
+            const node = button(id === -1 ? '工人' : id === circleId ? '能量圈' : towerLevels.get(entry?.templateId ?? '')?.name ?? '灵兽', () => select(id));
             node.classList.toggle('active', id === current);
-            node.ondblclick = () => options.scene()?.focusAt(id === -1 ? state.worker : entry!);
+            node.ondblclick = () => options.scene()?.focusAt(id === -1 ? state.worker : id === circleId ? map.energyCircle : entry!);
             strip.append(node);
         }
         const info = dock.querySelector('.unit-info')!;
@@ -450,7 +468,7 @@ export function createCommandUI(options: {
         painted(portrait, current === -1 ? 'nsha' : tower?.templateId ?? '');
         const detail = document.createElement('div');
         const title = document.createElement('h2');
-        title.textContent = enemy ? `${enemy.unitId} #${enemy.id}` : current === -1 ? '工人' : tower ? towerLevels.get(tower.templateId)?.name ?? (tower.bear ? '熊灵' : tower.templateId) : '未选择单位';
+        title.textContent = enemy ? `${enemy.unitId} #${enemy.id}` : current === -1 ? '工人' : current === circleId ? '能量圈' : tower ? towerLevels.get(tower.templateId)?.name ?? (tower.bear ? '熊灵' : tower.templateId) : '未选择单位';
         detail.append(title);
         const stats = document.createElement('p');
         if (enemy)
@@ -458,15 +476,18 @@ export function createCommandUI(options: {
         else if (tower) {
             const gear = state.inventory?.filter(item => item.towerId === tower.id).map(item => item.itemId) ?? [];
             const attributes = tower.hero ? effectiveAttributes(tower.hero, gear) : undefined;
-            stats.textContent = `${tower.hero ? `等级 ${tower.hero.level} · 经验 ${tower.hero.xp} · 技能点 ${tower.hero.points}\n` : ''}${attributes ? `力量 ${Math.floor(attributes.STR)}　敏捷 ${Math.floor(attributes.AGI)}　智力 ${Math.floor(attributes.INT)}\n` : ''}射程 ${weapons[tower.templateId]?.[0]?.max ?? 0}${tower.life ? ` · 生命 ${Math.ceil(tower.life.hp)}/${Math.ceil(tower.life.maximum)}` : ''}`;
+            stats.textContent = `${tower.hero ? `等级 ${tower.hero.level} · 经验 ${tower.hero.xp} · 技能点 ${tower.hero.points}\n` : ''}${attributes ? `力量 ${Math.floor(attributes.STR)}　敏捷 ${Math.floor(attributes.AGI)}　智力 ${Math.floor(attributes.INT)}\n` : ''}射程 ${range}${tower.life ? ` · 生命 ${Math.ceil(tower.life.hp)}/${Math.ceil(tower.life.maximum)}` : ''}`;
         }
-        else if (current === -1)
-            stats.textContent = '自动前往建造与交接';
+        else if (current === circleId) {
+            const sword = equipped?.filter(item => isBrokenSword(item.itemId)).sort((a, b) => a.slot! - b.slot!)[0];
+            stats.textContent = sword ? `妖刀吸魂 ${sword.charges} / 1400` : '破损妖刀在这里吸魂';
+        }
         if (tower?.mana !== undefined)
             stats.textContent += `\n魔法 ${Math.floor(tower.mana)}/${Math.floor(tower.manaMaximum ?? tower.mana)}`;
         const details = button('详情', () => open('对局'));
         setCommandIcon(details, 'info', '详情');
-        detail.append(stats, details);
+        detail.append(stats);
+        if (tower || enemy) detail.append(details);
         info.append(portrait, detail);
         const inventory = dock.querySelector('.six-slots')!;
         inventory.replaceChildren();
@@ -475,9 +496,11 @@ export function createCommandUI(options: {
             const card = current === -1 ? state.cards.find(card => card.slot === slot) : undefined;
             const book = current === -1 ? state.books?.find(book=>book.slot===slot) : undefined;
             const name = book ? prayerBooks.find(entry=>entry.id===book.bookId)!.name : item ? (eventBoxes.get(item.itemId) ?? items.get(item.itemId))!.name : card ? cardTemplates.get(card.card)!.name : '';
-            const node = button(name, () => card ? (() => { const nodes = [...get('cards').querySelectorAll('button')]; nodes.find(node => node.textContent === `${cardTemplates.get(card.card)!.name} · ${cardTemplates.get(card.card)!.rarity}`)?.click(); })() : useItem(slot), !options.writable() || !!enemy || current === -2);
+            const node = button(name, () => card ? options.placeCard(card.id, card.card) : useItem(slot),
+                !name || !options.writable() || !!enemy || current === -2);
             node.classList.toggle('touch-secondary', !!item);
-            node.title = name + (item ? '\n左键使用；右键交接；Alt＋右键切换主动装备自动模式' : '');
+            node.title = name + (item && isBrokenSword(item.itemId) ? '\n放入能量圈吸魂' : '') +
+                (item && canMoveItem(item.itemId) ? '\n右键拿起' : '');
             const iconId = book?.bookId ?? item?.itemId ?? card?.card;
             if (iconId) painted(node, iconId);
             if (item) {
@@ -487,6 +510,10 @@ export function createCommandUI(options: {
             key.textContent = '⌥' + itemKeys[slot].toUpperCase();
             node.append(key);
             if (item) {
+                const movable = canMoveItem(item.itemId);
+                const usable = current === -1 ? usableWorkerItem(item.itemId) :
+                    !!tower && (isTargetedEquipment(item.itemId) || isPointTargetedTowerEquipment(item.itemId) ||
+                        isActiveTowerEquipment(item.itemId) || item.itemId === 'i235');
                 const transfer = () => {
                     setTouchMode(undefined);
                     options.cancel();
@@ -500,15 +527,22 @@ export function createCommandUI(options: {
                 node.oncontextmenu = event => {
                     event.preventDefault();
                     if (event.altKey && toggleAuto) toggleAuto();
-                    else transfer();
+                    else if (movable) transfer();
                 };
                 node.addEventListener('click', event => {
-                    if (touchMode !== 'more') return;
+                    const touch = event instanceof PointerEvent && event.pointerType === 'touch';
+                    if ((!touch && touchMode !== 'more') || (!movable && !toggleAuto && !usable)) return;
                     event.stopImmediatePropagation();
-                    touchChoices.replaceChildren(button('交接' + name, transfer));
+                    const more = touchMode === 'more';
+                    setTouchMode(more ? 'more' : 'item');
+                    if (movable) touchChoices.append(button('拿起', transfer));
                     if (toggleAuto) touchChoices.append(button('切换自动使用', () => {
                         setTouchMode(undefined);
                         toggleAuto();
+                    }));
+                    if (!more && usable) touchChoices.append(button('使用', () => {
+                        setTouchMode(undefined);
+                        useItem(slot);
                     }));
                 }, true);
             }
@@ -677,14 +711,15 @@ export function createCommandUI(options: {
             });
         }
         else if (current === -1) {
-            const build = add('建造', () => { open('对局'); get('builds').scrollIntoView({ block: 'center' }); });
+            const build = add('建造', () => open('工人建造'));
             setCommandIcon(build, 'build');
-            add('塔卡', () => { open('对局'); get('cards').scrollIntoView({ block: 'center' }); });
-            add('抽卡', () => { open('对局'); get('draws').scrollIntoView({ block: 'center' }); });
-            add('天赋', () => { open('对局'); get('talents').scrollIntoView({ block: 'center' }); });
+            add('塔卡', () => open('塔卡'));
+            add('抽卡', () => open('抽卡'));
+            add('天赋', () => open('工人天赋'));
             const move = add('移动', () => aim({ kind: 'point', label: '移动工人', action: point => ({ type: 'move-worker', point }) }));
             setCommandIcon(move, 'move', '移动工人');
             setCommandIcon(add('停止', () => options.send({ type: 'stop-worker' })), 'stop', '停止');
+            add('能量圈', () => select(circleId));
         }
         while (grid.children.length < 12) {
             const empty = document.createElement('div');
@@ -703,7 +738,7 @@ export function createCommandUI(options: {
         }
     }
     function objects(state: Match) {
-        return [{ id: -1, kind: 'ally', point: state.worker }, ...state.structures.map(tower => ({ id: tower.id, kind: 'ally', point: tower })), ...(state.summons ?? []).filter(unit => unit.summon?.independent || unit.bear).map(unit => ({ id: unit.id, kind: 'ally', point: unit })), ...state.enemies.filter(enemy => canSeeEnemy(state, enemy)).map(enemy => ({ id: enemy.id, kind: 'enemy', point: enemy })), ...(state.inventory ?? []).filter(item => item.slot === null).map(item => ({ id: item.id, kind: 'item', point: item.point })), ...state.cards.filter(card => card.slot === null).map(card => ({ id: card.id, kind: 'card', point: card.point }))];
+        return [{ id: -1, kind: 'ally', point: state.worker }, { id: circleId, kind: 'ally', point: map.energyCircle }, ...state.structures.map(tower => ({ id: tower.id, kind: 'ally', point: tower })), ...(state.summons ?? []).filter(unit => unit.summon?.independent || unit.bear).map(unit => ({ id: unit.id, kind: 'ally', point: unit })), ...state.enemies.filter(enemy => canSeeEnemy(state, enemy)).map(enemy => ({ id: enemy.id, kind: 'enemy', point: enemy })), ...(state.inventory ?? []).filter(item => item.slot === null).map(item => ({ id: item.id, kind: 'item', point: item.point })), ...state.cards.filter(card => card.slot === null).map(card => ({ id: card.id, kind: 'card', point: card.point }))];
     }
     const local = (event: MouseEvent) => { const box = canvas.getBoundingClientRect(); return { x: event.clientX - box.left, y: event.clientY - box.top }; };
     function pick(event: MouseEvent) {
@@ -711,7 +746,14 @@ export function createCommandUI(options: {
         if (!state || !scene)
             return;
         const point = local(event);
-        return objects(state).map(object => ({ ...object, screen: scene.screenAt(object.point) })).filter(object => Math.hypot(object.screen.x - point.x, object.screen.y - point.y) < 30).sort((a, b) => Math.hypot(a.screen.x - point.x, a.screen.y - point.y) - Math.hypot(b.screen.x - point.x, b.screen.y - point.y))[0];
+        const candidates = objects(state);
+        for (const object of candidates) {
+            if (object.id !== circleId && (object.kind === 'ally' || object.kind === 'enemy' || current !== -1 || target || carrying !== undefined)) continue;
+            const bounds = markers.get('ground' + object.id)?.getBoundingClientRect();
+            if (bounds && event.clientX >= bounds.left && event.clientX <= bounds.right &&
+                event.clientY >= bounds.top && event.clientY <= bounds.bottom) return object;
+        }
+        return candidates.map(object => ({ ...object, screen: scene.screenAt(object.point) })).filter(object => Math.hypot(object.screen.x - point.x, object.screen.y - point.y) < 30).sort((a, b) => Math.hypot(a.screen.x - point.x, a.screen.y - point.y) - Math.hypot(b.screen.x - point.x, b.screen.y - point.y))[0];
     }
     canvas.addEventListener('click', event => {
         if (suppressClick) {
@@ -743,6 +785,10 @@ export function createCommandUI(options: {
         }
         if (options.placing())
             return;
+        if (current === -1 && options.writable() && (hit?.kind === 'item' || hit?.kind === 'card')) {
+            issueOrder(hit, point);
+            return;
+        }
         if (hit?.kind === 'ally')
             select(hit.id, event.shiftKey);
         else if (hit?.kind === 'enemy') {
@@ -781,7 +827,7 @@ export function createCommandUI(options: {
     box.className = 'selection-box';
     box.hidden = true;
     overlay.append(box);
-    canvas.addEventListener('pointerdown', event => { if (event.pointerType !== 'touch' && event.button === 0 && !target && !options.placing() && !modal)
+    canvas.addEventListener('pointerdown', event => { if (event.pointerType !== 'touch' && event.button === 0 && canvas.dataset.orbit !== 'true' && !target && !options.placing() && !modal)
         dragStart = local(event); });
     canvas.addEventListener('pointermove', event => { if (!dragStart)
         return; const end = local(event); if (Math.hypot(end.x - dragStart.x, end.y - dragStart.y) < 8)
@@ -791,7 +837,7 @@ export function createCommandUI(options: {
             const end = local(event);
             const state = options.match(), scene = options.scene();
             if (state && scene) {
-                const ids = objects(state).filter(object => object.kind === 'ally').filter(object => { const p = scene.screenAt(object.point); return p.x >= Math.min(end.x, dragStart!.x) && p.x <= Math.max(end.x, dragStart!.x) && p.y >= Math.min(end.y, dragStart!.y) && p.y <= Math.max(end.y, dragStart!.y); }).map(object => object.id);
+                const ids = objects(state).filter(object => object.kind === 'ally' && object.id !== circleId).filter(object => { const p = scene.screenAt(object.point); return p.x >= Math.min(end.x, dragStart!.x) && p.x <= Math.max(end.x, dragStart!.x) && p.y >= Math.min(end.y, dragStart!.y) && p.y <= Math.max(end.y, dragStart!.y); }).map(object => object.id);
                 selection = event.shiftKey ? [...new Set([...selection, ...ids])] : ids;
                 current = selection[0] ?? -2;
                 enemyId = undefined;
@@ -865,7 +911,7 @@ export function createCommandUI(options: {
         get(id).addEventListener('click', () => { if (options.placing())
             close(); });
     return {
-        managementVisible: () => modal === '对局' || modal === '商店',
+        managementVisible: () => modal === '对局' || modal === '商店' || workerPanels.has(modal),
         update(state: Match | undefined) {
             if (!state)
                 return;
@@ -886,8 +932,9 @@ export function createCommandUI(options: {
                 for (const entry of floating) entry.node.remove();
                 floating.length = 0;
             }
-            selection = selection.filter(id => id === -1 || unit(id));
-            if (current !== -1 && !unit() && enemyId === undefined) {
+            selection = selection.filter(id => id === -1 || id === circleId || unit(id));
+            const tower = unit();
+            if (current !== -1 && current !== circleId && !tower && enemyId === undefined) {
                 current = selection[0] ?? -2;
                 lastRender = '';
             }
@@ -905,16 +952,55 @@ export function createCommandUI(options: {
                 get('opening').scrollIntoView({ block: 'center' });
             }
             if (modal === '商店') showPawn(state, ordinaryGoods.get(selectedGood)!.shop);
-            const prompt = target ? target.label + ' · 选择目标' : carrying !== undefined ? '选择接收物品的单位' :
+            const held = carrying === undefined ? undefined : state.inventory?.find(item => item.id === carrying);
+            const prompt = target ? target.label + ' · 选择目标' : held ?
+                (isBrokenSword(held.itemId) ? '选择能量圈吸魂' : '选择接收物品的单位') :
                 touchMode === 'order' ? '点按地面、掉落物或敌人下令' :
-                touchMode === 'more' ? '点按高亮技能或切换物品栏' : learning ? '选择要学习的技能' : '';
+                touchMode === 'more' ? '点按高亮技能或切换物品栏' : touchMode === 'item' ? '物品操作' : learning ? '选择要学习的技能' : '';
             if (touchPrompt.textContent !== prompt) touchPrompt.textContent = prompt;
             touchActions.hidden = !prompt;
-            renderDock(state);
+            const range = tower && !tower.pending ? attackRange(state, tower) : 0;
+            renderDock(state, range);
             const scene = options.scene();
             if (!scene)
                 return;
+            scene.showAttackRange(tower, range);
             const live = new Set<string>();
+            const stack = new Map<string, number>();
+            function groundMarker(id: number, point: Point, label: string, iconId?: string) {
+                const key = 'ground' + id;
+                live.add(key);
+                let node = markers.get(key);
+                if (!node) {
+                    node = document.createElement('div');
+                    node.className = 'ground-marker';
+                    node.dataset.groundId = String(id);
+                    node.textContent = label;
+                    overlay.append(node);
+                    markers.set(key, node);
+                }
+                if (iconId && node.dataset.iconId !== iconId) {
+                    node.textContent = label;
+                    prependOriginalIcon(node, iconId);
+                    node.dataset.iconId = iconId;
+                }
+                node.classList.toggle('energy-marker', id === circleId);
+                node.classList.toggle('selected', current === circleId && id === circleId);
+                const p = scene!.screenAt(point);
+                const position = `${point.x},${point.y}`;
+                const index = stack.get(position) ?? 0;
+                stack.set(position, index + 1);
+                node.style.left = p.x + 'px';
+                node.style.top = (p.y + 10 + index * 23) + 'px';
+            }
+            groundMarker(circleId, map.energyCircle, '能量圈');
+            for (const item of state.inventory ?? []) {
+                if (item.slot === null)
+                    groundMarker(item.id, item.point, (eventBoxes.get(item.itemId) ?? items.get(item.itemId))!.name, item.itemId);
+            }
+            for (const card of state.cards) {
+                if (card.slot === null) groundMarker(card.id, card.point, cardTemplates.get(card.card)!.name, card.card);
+            }
             function refreshMarker(key: string, point: Point, ratio: number, enemy: boolean, selected: boolean, title: string) {
                 live.add(key);
                 let node = markers.get(key);

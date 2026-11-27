@@ -962,6 +962,7 @@ export const circleId = 0;
 const circle: Construction = { ...map.energyCircle, id: circleId, radius: 0, templateId: "w000", population: 0, qualification: null, pending: null };
 
 const brokenSwords = new Map([["i131", "i132"], ["i133", "i134"], ["i262", "i263"]]);
+export const isBrokenSword = (itemId: string) => brokenSwords.has(itemId);
 const workerOnlyItems = new Set(["i256", "i329", "i278", "i131", "i133", "i262"]);
 const recycleDestroyedItems = new Set(["i547", "i548", "i549", "i550", "i546", "i330", "i004", "i545"]);
 
@@ -1793,6 +1794,12 @@ function towerGear(state: Match, tower: Construction) {
 
 function weaponRange(weapon: Weapon, gear: Item[], tower: Construction) {
   return (tower.dragonShape ?? tower.alchemistShape ?? tower.lycanShape)?.rangeDelta ?? (gear.some(item => item.itemId === "i282") ? weapon.kind === "normal" ? 100 : 200 : 0);
+}
+
+export function attackRange(state: Match, tower: Construction) {
+  const gear = towerGear(state, tower);
+  return Math.max(0, ...(weapons[tower.templateId] ?? []).map(weapon =>
+    Math.min(weapon.acquire, weapon.max) + weaponRange(weapon, gear, tower)));
 }
 
 function groundObjectLife(object: Card | Item) {

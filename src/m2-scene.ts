@@ -79,11 +79,13 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
   const offset = new THREE.Vector3();
   const defaultPitch = THREE.MathUtils.degToRad(45);
   const defaultZoom = 1.45;
+  const minPitch = THREE.MathUtils.degToRad(18);
   const defaultYaw = Math.PI;
   let zoom = defaultZoom;
   const cameraDistance = Math.hypot(28, 15);
   let yaw = defaultYaw;
   let pitch = defaultPitch;
+  let orbit = false;
   const ray = new THREE.Raycaster();
   const ground = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
   const size = new THREE.Vector2();
@@ -160,8 +162,17 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
   }));
   combatLines.frustumCulled = false;
   scene.add(combatLines);
+  const rangePoints = Array.from({ length: 96 }, (_, i) => {
+    const angle = i * 2 * Math.PI / 96;
+    return new THREE.Vector3(Math.cos(angle), 0, Math.sin(angle));
+  });
+  const rangeRing = new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints(rangePoints),
+    new THREE.LineBasicMaterial({ color: "#f6d88e", transparent: true, opacity: .8, depthTest: false }));
+  rangeRing.visible = false;
+  scene.add(rangeRing);
   let matchId: string | undefined;
   let drag: { id: number; clientX: number; clientY: number; rotate: boolean; pendingTouch: boolean } | undefined;
+  const touches = new Map<number, { clientX: number; clientY: number }>();
   let suppressTouchClick = false;
   let pointer: { clientX: number; clientY: number } | undefined;
 
@@ -209,21 +220,42 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
 
   canvas.addEventListener("pointerdown", event => {
     const touch = event.pointerType === "touch";
-    if (touch ? !event.isPrimary : event.button !== 1) return;
-    if (touch) suppressTouchClick = false;
-    else event.preventDefault();
+    if (touch) {
+      touches.set(event.pointerId, event);
+      canvas.setPointerCapture(event.pointerId);
+      if (touches.size > 1) {
+        suppressTouchClick = true;
+        return;
+      }
+      suppressTouchClick = false;
+    } else {
+      if (event.button !== 1 && !(orbit && event.button === 0)) return;
+      event.preventDefault();
+      canvas.setPointerCapture(event.pointerId);
+    }
     drag = { id: event.pointerId, clientX: event.clientX, clientY: event.clientY,
-      rotate: !touch && event.shiftKey, pendingTouch: touch };
-    canvas.setPointerCapture(event.pointerId);
+      rotate: !touch && (event.button === 0 || event.shiftKey), pendingTouch: touch };
   });
   canvas.addEventListener("pointermove", event => {
-    if (event.pointerType === "touch" && drag?.id !== event.pointerId) return;
+    if (event.pointerType === "touch") {
+      if (!touches.has(event.pointerId)) return;
+      const [beforeA, beforeB] = touches.values();
+      touches.set(event.pointerId, event);
+      if (beforeB) {
+        const [a, b] = touches.values();
+        const oldX = beforeB.clientX - beforeA.clientX, oldY = beforeB.clientY - beforeA.clientY;
+        const x = b.clientX - a.clientX, y = b.clientY - a.clientY;
+        yaw += Math.atan2(y, x) - Math.atan2(oldY, oldX);
+        zoomView(Math.hypot(x, y) / Math.max(1, Math.hypot(oldX, oldY)));
+        return;
+      }
+    }
     pointer = { clientX: event.clientX, clientY: event.clientY };
     if (drag?.id === event.pointerId) {
       if (drag.pendingTouch && Math.hypot(event.clientX - drag.clientX, event.clientY - drag.clientY) < 8) return;
       if (drag.rotate) {
         yaw += (event.clientX - drag.clientX) * .006;
-        pitch = THREE.MathUtils.clamp(pitch + (event.clientY - drag.clientY) * .004, Math.PI / 6, Math.PI / 2);
+        pitch = THREE.MathUtils.clamp(pitch + (event.clientY - drag.clientY) * .006, minPitch, Math.PI / 2);
       } else {
         // Pan in the ground plane under the current camera, including after rotation.
         const previous = pointAt(drag), next = pointAt(event);
@@ -238,13 +270,17 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
     hover = pointAt(event);
   });
   const endDrag = (event: PointerEvent) => {
-    if (drag?.id !== event.pointerId) return;
     if (event.pointerType === "touch") {
-      suppressTouchClick = !drag.pendingTouch;
+      if (!touches.delete(event.pointerId)) return;
+      if (drag?.id === event.pointerId && !drag.pendingTouch) suppressTouchClick = true;
+      const next = touches.entries().next().value;
+      drag = next ? { id: next[0], clientX: next[1].clientX, clientY: next[1].clientY,
+        rotate: false, pendingTouch: false } : undefined;
       pointer = undefined;
       hover = undefined;
+    } else if (drag?.id === event.pointerId) {
+      drag = undefined;
     }
-    drag = undefined;
   };
   canvas.addEventListener("pointerup", endDrag);
   canvas.addEventListener("pointercancel", endDrag);
@@ -259,7 +295,8 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
   canvas.addEventListener("pointerleave", () => { pointer = undefined; hover = undefined; });
   // Stop a pan's click before it can reach either the scene or the command UI.
   canvas.parentElement!.addEventListener("click", event => {
-    if (event.target === canvas && suppressTouchClick && event instanceof PointerEvent && event.pointerType === "touch")
+    if (event.target === canvas && event instanceof PointerEvent &&
+        (event.pointerType === "touch" ? suppressTouchClick : orbit))
       event.stopPropagation();
   }, true);
   canvas.addEventListener("click", event => {
@@ -280,7 +317,7 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
     project();
   }
   function zoomView(factor: number) {
-    zoom = THREE.MathUtils.clamp(zoom * factor, .55, 2.5);
+    zoom = THREE.MathUtils.clamp(zoom * factor, .4, 4);
     project();
   }
   function resetView() {
@@ -310,7 +347,7 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
     choosingPoint = !!pointPrompt;
     gridLines.visible = !!build;
     boundaryMaterial.opacity = build ? 1 : .65;
-    canvas.style.cursor = build || wolfId !== undefined || pointPrompt ? "crosshair" : "grab";
+    canvas.style.cursor = orbit ? "move" : build || wolfId !== undefined || pointPrompt ? "crosshair" : "grab";
     preview.visible = !!build && !!state && !!hover;
     let message = build ? `正在放置 ${build.label} · 选择浅绿建造区` : "选择工人建造或塔卡，再点击浅绿建造区。";
     if (build && state && hover) {
@@ -1012,6 +1049,16 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
     canvas.dataset.castingEnemies = [...castingEnemies].join(",");
   };
   return Object.assign(render, { resetView, setView, rotateView, zoomView, pointAt, preloadMatch,
+    setOrbit(active: boolean) { orbit = active; canvas.dataset.orbit = String(active); },
+    showAttackRange(point: Point | undefined, range: number) {
+      rangeRing.visible = !!point && range > 0;
+      if (point && range > 0) {
+        rangeRing.position.set(toWorld(point.x), .12, toWorld(point.y));
+        rangeRing.scale.setScalar(toWorld(range));
+      }
+      const value = String(range);
+      if (canvas.dataset.attackRange !== value) canvas.dataset.attackRange = value;
+    },
     focusAt(point: Point) { focus.set(toWorld(point.x), 0, toWorld(point.y)); project(); },
     screenAt(point: Point) {
       projectedPoint.set(toWorld(point.x), 1, toWorld(point.y)).project(camera);

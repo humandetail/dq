@@ -885,6 +885,12 @@ function cardName(id: string) {
   return card ? `${card.name} · ${card.rarity}` : id;
 }
 
+function placeCard(id: number, card: string) {
+  clearPlacement();
+  build = { key: String(id), label: cardName(card), action: { type: "build-card", cardId: id } };
+  el("feedback").textContent = "";
+}
+
 function structureName(id: string) {
   return towerLevels.get(id)?.name ?? id;
 }
@@ -1175,11 +1181,7 @@ function showControls() {
   for (const card of [...run?.cards ?? []].sort((a, b) => (a.slot ?? 6) - (b.slot ?? 6))) {
     addButton(cards, card.slot === null ? `拾取 ${cardName(card.card)}` : cardName(card.card), () => {
       if (card.slot === null) send({ type: "pick-up-card", cardId: card.id });
-      else {
-        clearPlacement();
-        build = { key: String(card.id), label: cardName(card.card), action: { type: "build-card", cardId: card.id } };
-        el("feedback").textContent = "";
-      }
+      else placeCard(card.id, card.card);
     }, locked, card.card).setAttribute("aria-pressed", String(build?.key === String(card.id)));
     if (card.slot !== null) {
       if (!card.bound) addButton(cards, `丢下 ${cardName(card.card)}`, () => send({ type: "drop-card", cardId: card.id }));
@@ -1545,7 +1547,17 @@ function cancelPlacement() {
   el("feedback").textContent = choosingPoint ? "已取消选择目的地。" : "已取消选塔。";
 }
 el("cancel-placement").onclick = cancelPlacement;
-el("reset-view").onclick = () => draw?.resetView();
+const orbitControl = el<HTMLButtonElement>("orbit-view");
+orbitControl.onclick = () => {
+  const active = orbitControl.getAttribute("aria-pressed") !== "true";
+  orbitControl.setAttribute("aria-pressed", String(active));
+  draw?.setOrbit(active);
+};
+el("reset-view").onclick = () => {
+  orbitControl.setAttribute("aria-pressed", "false");
+  draw?.setOrbit(false);
+  draw?.resetView();
+};
 el("view-oblique").onclick = () => draw?.setView("oblique");
 el("view-top").onclick = () => draw?.setView("top");
 el("rotate-left").onclick = () => draw?.rotateView(-1);
@@ -1563,7 +1575,7 @@ setCommandIcon(el("reset-view"), "recenter", "复位视角");
 setCommandIcon(el("cancel-placement"), "close", "取消放置");
 setCommandIcon(el("cancel-save-wait"), "close", "取消等待");
 setCommandIcon(el("retry-save"), "retry", "重试存档");
-const commandUI = createCommandUI({ match: () => compatibleMap() ? run : undefined, scene: () => draw, send, writable,
+const commandUI = createCommandUI({ match: () => compatibleMap() ? run : undefined, scene: () => draw, send, writable, placeCard,
   refreshManagement: showControls, cancel: clearPlacement, placing: () => !!build || !!pointSpell || !!scoutWard || wolfMoveId !== undefined || artilleryTowerId !== undefined });
 const sceneReady = createM2Scene(el<HTMLCanvasElement>("field"), point => {
   if (artilleryTowerId !== undefined && writable()) {
