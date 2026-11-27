@@ -1,0 +1,19 @@
+--- a/checks/m2-normal-run.mjs
++++ b/checks/m2-normal-run.mjs
+@@ -610,8 +610,15 @@
+   mapVersion, bundlePath, bundleSha256, runs: [] };
+ if (process.env.M2_REPLAY) {
+   const saved = JSON.parse(await readFile(process.env.M2_REPLAY, "utf8"));
+-  for (const key of ["contentVersion", "configurationVersion", "configSha256", "mapVersion", "bundleSha256"]) {
++  for (const key of ["configurationVersion", "configSha256", "mapVersion"]) {
+     assert.equal(saved[key], summary[key], key);
++  }
++  if (process.env.M2_REPLAY_BASELINE === "1") {
++    assert.ok(!process.env.M2_RESUME_PEAK, "Cross-build replay must start from a normal new match");
++    summary.baseline = { contentVersion: saved.contentVersion, bundleSha256: saved.bundleSha256,
++      inputLogSha256: saved.runs.map(record => ({ seed: record.seed, sha256: record.inputLogSha256 })) };
++  } else {
++    for (const key of ["contentVersion", "bundleSha256"]) assert.equal(saved[key], summary[key], key);
+   }
+   if (process.env.M2_RESUME_PEAK) {
+     const { selected } = JSON.parse(await readFile(process.env.M2_RESUME_PEAK, "utf8"));

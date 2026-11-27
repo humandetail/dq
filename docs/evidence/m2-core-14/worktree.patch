@@ -1,0 +1,1632 @@
+diff --git a/checks/m2-browser.mjs b/checks/m2-browser.mjs
+index d8e088b..c4476dd 100644
+--- a/checks/m2-browser.mjs
++++ b/checks/m2-browser.mjs
+@@ -1,7 +1,7 @@
+ // Run with CHROME_BIN set to the local Chrome executable.
+ import assert from "node:assert/strict";
+ import { spawn } from "node:child_process";
+-import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
++import { mkdir, mkdtemp, readFile, rename, rm, symlink, writeFile } from "node:fs/promises";
+ import os from "node:os";
+ import path from "node:path";
+ import { setTimeout as delay } from "node:timers/promises";
+@@ -188,7 +188,278 @@ try {
+     assert.equal(await page.evaluate(contains("#structures", "学习山崩 Lv2")), true);
+     assert.equal(await page.evaluate(skin + " === undefined"), true);
+   }
+-  if (process.env.M2_COMPLEX_ONLY === "1") {
++  if (process.env.M2_UPDATE_ROOT) {
++    assert.ok(origin && new URL(origin).hostname === "127.0.0.1");
++    const { configuration, contentVersion } = await import("../src/game/m2/content.ts");
++    const { database, slot } = configuration.persistence;
++    const root = path.resolve(process.env.M2_UPDATE_ROOT);
++    const preview = path.resolve(process.env.M2_PREVIEW1_DIST);
++    const candidate = path.resolve(process.env.M2_CANDIDATE_DIST);
++    async function switchBuild(directory) {
++      const next = root + ".next";
++      await symlink(directory, next, "dir");
++      await rename(next, root);
++    }
++    const snapshot = `(async () => {
++      const db = await new Promise((resolve, reject) => {
++        const request = indexedDB.open(${JSON.stringify(database)}, 1);
++        request.onsuccess = () => resolve(request.result);
++        request.onerror = () => reject(request.error);
++      });
++      return new Promise((resolve, reject) => {
++        const request = db.transaction("profiles", "readonly").objectStore("profiles").get(${JSON.stringify(slot)});
++        request.onsuccess = () => { db.close(); resolve(request.result); };
++        request.onerror = () => { db.close(); reject(request.error); };
++      });
++    })()`;
++    async function readWhen(page, condition) {
++      return page.wait(`(async () => {
++        const current = await (${snapshot});
++        return current && (${condition}) ? current : null;
++      })()`);
++    }
++    await switchBuild(preview);
++    const page = await openTab(url);
++    await page.wait(read('[data-item-id="i004"]') + "?.disabled === false");
++    await click(page, '[data-item-id="i004"]');
++    await page.wait(read("#choices button") + "?.disabled === false");
++    await click(page, "#choices button");
++    const played = await readWhen(page, "current.run.openingCard === 'i564'");
++    assert.equal(played.contentVersion, "m2-core-12");
++    await click(page, "#pause");
++    const before = await readWhen(page, "current.run.clock.paused && current.run.queue.nowUs === current.run.clock.targetUs");
++
++    await switchBuild(candidate);
++    await page.send("Page.reload", { ignoreCache: true });
++    await page.wait(read("#speed") + "?.disabled === false");
++    await click(page, "#speed");
++    const updated = await readWhen(page, `current.contentVersion === ${JSON.stringify(contentVersion)} && current.run.clock.speed === 4`);
++    assert.equal(updated.activeMatchId, before.activeMatchId);
++    assert.equal(updated.run.queue.nowUs, before.run.queue.nowUs);
++    assert.deepEqual(updated.run.commandResults, before.run.commandResults);
++    assert.deepEqual(updated.profile, before.profile);
++
++    await switchBuild(preview);
++    await page.send("Page.reload", { ignoreCache: true });
++    await page.wait(contains("#save", "不兼容"));
++    assert.equal(await page.evaluate(read("#restart") + ".disabled"), true);
++    const rollback = await page.evaluate(snapshot);
++    assert.deepEqual(rollback, updated);
++
++    await switchBuild(candidate);
++    await page.send("Page.reload", { ignoreCache: true });
++    await page.wait(read("#speed") + "?.disabled === false");
++    assert.deepEqual(await page.evaluate(snapshot), updated);
++    await page.close();
++    assert.deepEqual(runtimeErrors, []);
++    console.log(JSON.stringify({ type: "controlled-same-origin-build-rehearsal", url,
++      preview: before.contentVersion, candidate: updated.contentVersion, slot,
++      matchId: updated.activeMatchId, revisions: [before.revision, updated.revision, rollback.revision],
++      rollbackRetainedOriginal: true, resumedAfterRestoringCandidate: true }, null, 2));
++  } else if (process.env.M2_MODEL_ACTIONS_ONLY === "1") {
++    assert.ok(!origin);
++    const review = JSON.parse(await readFile("docs/evidence/m2-core-13/model-action-substitutes.json", "utf8"));
++    const entries = review.entries.map(({ id, missingNativeActions }) => ({ id, missingNativeActions }));
++    const setup = await openTab(base + "/src/game/m2/save.ts");
++    await setup.wait("location.pathname.endsWith('/save.ts') && document.readyState === 'complete'");
++    await setup.evaluate(`(async () => {
++      const { createM2SaveStore } = await import("/src/game/m2/save.ts");
++      const { newMatch, drain } = await import("/src/game/m2/match.ts");
++      const { scheduleEvent } = await import("/src/game/event-queue.ts");
++      const valid = value => value && typeof value === "object";
++      const run = newMatch(crypto.randomUUID(), 811);
++      run.queue.pending.length = 0;
++      scheduleEvent(run.queue, 1, { type: "start-wave", index: 0 });
++      run.clock.targetUs = 1;
++      drain(run, 10_000);
++      const [enemy] = run.enemies;
++      run.enemies = [Object.assign(enemy, { x: 0, y: 0, hp: 1e9, maxHp: 1e9, speed: 0 })];
++      run.queue.pending.length = 0;
++      for (const [index, entry] of ${JSON.stringify(entries)}.entries()) {
++        run.structures.push({ id: 900 + index, templateId: entry.id, x: 160 * (index % 6 - 2.5),
++          y: 150 * (Math.floor(index / 6) - 1.5), population: 1, radius: 0, pending: null, qualification: null });
++      }
++      run.population = run.structures.length;
++      scheduleEvent(run.queue, 31_250, { type: "movement" }, 31_250);
++      run.clock.paused = true;
++      await createM2SaveStore(valid, valid).withWriter(session => session.commit(undefined, { score: 0, claims: [] }, run));
++    })()`);
++    await setup.close();
++    const page = await openTab(url);
++    await page.wait(read("#pause") + "?.disabled === false && " + contains("#pause", "继续"));
++    await page.wait(`(() => {
++      const rendered = new Set(document.querySelector("#field").dataset.renderedTowers?.split(","));
++      return ${JSON.stringify(entries.map(entry => entry.id))}.every(id => rendered.has(id));
++    })()`);
++    await page.evaluate(`window.verifiedM2Actions = {};
++      const field = document.querySelector("#field");
++      new MutationObserver(() => {
++        for (const entry of (field.dataset.towerActionSubstitutes ?? "").split(",")) {
++          const [id, action, progress] = entry.split(":");
++          if (Number(progress) > 0) window.verifiedM2Actions[id + ":" + action] ??= Number(progress);
++        }
++      }).observe(field, { attributes: true, attributeFilter: ["data-tower-action-substitutes"] });
++      true`);
++    const keys = action => JSON.stringify(entries.filter(entry => entry.missingNativeActions.includes(action))
++      .map(entry => entry.id + ":" + action));
++    await click(page, "#pause");
++    await page.wait(keys("Attack") + ".every(key => window.verifiedM2Actions[key])");
++    await capture(page, "model-action-substitutes");
++    await page.evaluate(`[...document.querySelectorAll("#structures button")].filter(button => button.textContent === "回收")
++      .forEach(button => button.click())`);
++    await page.wait(keys("Death") + ".every(key => window.verifiedM2Actions[key])");
++    const actions = await page.evaluate("window.verifiedM2Actions");
++    await page.close();
++    assert.deepEqual(runtimeErrors, []);
++    console.log(JSON.stringify({ type: "controlled-browser-model-action-substitutes", seed: 811,
++      attack: "ordinary weapon", death: "UI recycle", actions }, null, 2));
++  } else if (process.env.M2_WOLF_RAIN_ONLY === "1") {
++    assert.ok(!origin);
++    const setup = await openTab(base + "/src/game/m2/save.ts");
++    await setup.wait("location.pathname.endsWith('/save.ts') && document.readyState === 'complete'");
++    const matchId = await setup.evaluate(`(async () => {
++      const { createM2SaveStore } = await import("/src/game/m2/save.ts");
++      const { newMatch, drain } = await import("/src/game/m2/match.ts");
++      const { scheduleEvent } = await import("/src/game/event-queue.ts");
++      const valid = value => value && typeof value === "object";
++      const run = newMatch(crypto.randomUUID(), 811);
++      run.queue.pending.length = 0;
++      scheduleEvent(run.queue, 1, { type: "start-wave", index: 0 });
++      run.clock.targetUs = 1;
++      drain(run, 10_000);
++      const [enemy] = run.enemies;
++      Object.assign(enemy, { x: 500, y: 280, hp: 1_000_000, maxHp: 1_000_000, speed: 0 });
++      run.enemies = [enemy];
++      run.queue.pending.length = 0;
++      const tower = (id, templateId, x, y) => ({
++        id, templateId, x, y, pending: null, qualification: null, population: 5, radius: 72,
++      });
++      run.structures.push(tower(900, "n173", -225, 0), tower(901, "n174", 380, 455),
++        tower(902, "n001", -50, 355), tower(903, "n006", 105, 390), tower(904, "n021", -170, -350));
++      run.population = 25;
++      scheduleEvent(run.queue, 31_250, { type: "movement" }, 31_250);
++      run.clock.paused = true;
++      await createM2SaveStore(valid, valid).withWriter(session => session.commit(undefined, { score: 0, claims: [] }, run));
++      return run.matchId;
++    })()`);
++    await setup.close();
++    const page = await openTab(url);
++    await page.wait(read("#field") + "?.dataset.ready === 'true'");
++    await page.wait(read("#pause") + "?.disabled === false && " + contains("#pause", "继续"));
++    await click(page, "#pause");
++    const [arrows, impacts, ...attackSubstitutes] = await Promise.all([
++      page.wait("Number(" + read("#field") + "?.dataset.swordRainArrows) || null"),
++      page.wait("Number(" + read("#field") + "?.dataset.swordRainImpacts) || null"),
++      ...["n001", "n006"].map(id => page.wait(`(() => {
++        const source = document.querySelector("#field").dataset.towerActionSubstitutes ?? "";
++        const match = source.split(",").find(entry => entry.startsWith("${id}:Attack:"));
++        return match && Number(match.split(":")[2]) > 0 ? match : null;
++      })()`)),
++    ]);
++    await capture(page, "sword-rain");
++    const wolfSelector = "[data-wolf-id]";
++    await page.wait(read(wolfSelector));
++    const wolfId = await page.evaluate(read(wolfSelector) + ".dataset.wolfId");
++    const wolfRow = `[data-wolf-id="${wolfId}"]`;
++    await click(page, wolfRow + " button");
++    await page.wait(read("#field") + "?.dataset.placement === 'wolf'");
++    await click(page, "#rotate-right");
++    await place(page, 225, 0);
++    await page.wait(read("#field") + "?.dataset.walkingWolves.split(',').includes(" + JSON.stringify(wolfId) + ") && " +
++      read("#field") + "?.dataset.renderedTowers.includes('b103')");
++    const attack = `[...document.querySelectorAll('${wolfRow} button')].find(button => button.textContent === "攻击目标")`;
++    await page.wait(attack + "?.disabled === false");
++    await page.evaluate(attack + ".click()");
++    await page.wait(contains(wolfRow, "追击"));
++    await click(page, "#pause");
++    await page.wait(contains("#pause", "继续"));
++    const readOrder = `(async () => {
++      const { createM2SaveStore } = await import("/src/game/m2/save.ts");
++      const valid = value => value && typeof value === "object";
++      const row = await createM2SaveStore(valid, valid).read();
++      const unit = row.run.summons?.find(entry => entry.id === Number(${JSON.stringify(wolfId)}));
++      return row.run.clock.paused && unit?.wolfOrder?.type === "attack"
++        ? { matchId: row.run.matchId, order: unit.wolfOrder.type, targetId: unit.wolfOrder.targetId,
++            contentVersion: row.contentVersion } : null;
++    })()`;
++    const stored = await page.wait(readOrder);
++    await capture(page, "wolf-order");
++    assert.equal(stored.matchId, matchId);
++    await page.send("Page.reload");
++    await page.wait(contains(wolfRow, "追击"));
++    const restored = await page.wait(readOrder);
++    assert.deepEqual(restored, stored);
++    const stop = `[...document.querySelectorAll('${wolfRow} button')].find(button => button.textContent === "停止灵兽")`;
++    await page.wait(stop + "?.disabled === false");
++    await page.evaluate(stop + ".click()");
++    await click(page, "#pause");
++    await page.wait(contains(wolfRow, "待命"));
++    await click(page, wolfRow + " button");
++    await page.wait(read("#field") + "?.dataset.placement === 'wolf'");
++    await page.wait("!(" + read(wolfRow) + ")");
++    assert.equal(await page.evaluate(read("#field") + "?.dataset.placement"), "idle");
++    const removalSubstitutes = [];
++    for (const id of ["n001", "n006", "n021"]) {
++      const recycle = `[...document.querySelectorAll("#structures > div")].find(row => row.firstElementChild?.textContent.includes(" · ${id}"))
++        ?.querySelector("button:last-child")`;
++      await page.wait(recycle + "?.textContent === '回收'");
++      await page.evaluate(recycle + ".click()");
++      removalSubstitutes.push(await page.wait(`(() => {
++        const source = document.querySelector("#field").dataset.towerActionSubstitutes ?? "";
++        const match = source.split(",").find(entry => entry.startsWith("${id}:Death:"));
++        return match && Number(match.split(":")[2]) > 0 ? match : null;
++      })()`));
++    }
++    await page.close();
++    assert.deepEqual(runtimeErrors, []);
++    console.log(JSON.stringify({ type: "controlled-browser-wolf-rain", wolfId: Number(wolfId), visual: { arrows, impacts }, stored, restored,
++      movement: "rotated map click and Walk", stopped: true, expiredSelectionCleared: true,
++      attackSubstitutes, removalSubstitutes }, null, 2));
++  } else if (process.env.M2_WORKER_RESUME_ONLY === "1") {
++    assert.equal(origin, undefined, "The worker resume fixture requires the local Vite server");
++    const setup = await openTab(base + "/");
++    const before = await setup.evaluate(`(async () => {
++      const { createM2SaveStore } = await import("/src/game/m2/save.ts");
++      const { drain, enqueue, newMatch } = await import("/src/game/m2/match.ts");
++      const valid = value => value && typeof value === "object";
++      const run = newMatch(crypto.randomUUID(), 811);
++      const start = run.worker;
++      run.inventory.push({ id: 900, itemId: "i308", charges: 0, slot: null, point: { x: 288, y: -160 } });
++      enqueue(run, { id: "worker-pickup", matchId: run.matchId, action: { type: "pick-up-item", itemId: 900 } });
++      run.clock.targetUs = 250_000;
++      while (drain(run, 1000) === "pending") {}
++      if (run.approach?.command.id !== "worker-pickup" || run.worker.x === start.x) {
++        throw new Error("Worker did not reach an in-progress pickup before the checkpoint");
++      }
++      run.clock.paused = true;
++      await createM2SaveStore(valid, valid).withWriter(session => session.commit(undefined, { score: 0, claims: [] }, run));
++      return { position: run.worker, tick: run.queue.nowUs, matchId: run.matchId };
++    })()`);
++    await setup.close();
++    const page = await openTab(url);
++    await page.wait(contains("#pause", "继续") + " && " + read("#pause") + "?.disabled === false");
++    await page.wait(contains("#placement-status", "工人正在前往拾取物品。"));
++    await click(page, "#pause");
++    await page.wait(contains("#feedback", "操作已执行。"));
++    await page.wait("!" + contains("#placement-status", "工人正在前往拾取物品。"));
++    const after = await page.wait(`(async () => {
++      const { createM2SaveStore } = await import("/src/game/m2/save.ts");
++      const valid = value => value && typeof value === "object";
++      const row = await createM2SaveStore(valid, valid).read();
++      if (!row?.run.commandResults["worker-pickup"]?.ok) return;
++      const { run } = row;
++      return { position: run.worker, tick: run.queue.nowUs, matchId: run.matchId,
++        contentVersion: row.contentVersion, configVersion: row.configVersion, saveVersion: row.formatVersion, revision: row.revision,
++        approach: run.approach, items: run.inventory.filter(item => item.id === 900) };
++    })()`);
++    assert.equal(after.matchId, before.matchId);
++    assert.ok(after.tick > before.tick && after.position.x > before.position.x);
++    assert.equal(after.approach, null);
++    assert.equal(after.items.length, 1);
++    assert.ok(Number.isInteger(after.items[0].slot));
++    console.log(JSON.stringify({ kind: "controlled browser", seed: 811, before, after, status: "passed" }));
++    await page.close();
++  } else if (process.env.M2_COMPLEX_ONLY === "1") {
+     assert.ok(!origin);
+     const setup = await openTab(base + "/src/game/m2/save.ts");
+     await setup.wait("location.pathname.endsWith('/save.ts') && document.readyState === 'complete'");
+@@ -578,9 +849,13 @@ try {
+     await material.wait(read("#field") + "?.dataset.enemyModelFrame !== " + JSON.stringify(sample));
+     assert.match(await material.evaluate(read("#wave") + ".textContent"), /第 1\/55 波/);
+     await material.wait(contains("#last-hit", "伤害"));
+-    await material.wait("Number(" + read("#field") + ".dataset.visibleShots) > 0");
++    const projectileSources = await material.wait(`(() => {
++      const sources = document.querySelector("#field").dataset.projectileSources;
++      return sources === "n001" ? sources : false;
++    })()`);
+     await material.wait("Number(" + read("#field") + ".dataset.visibleHits) > 0");
+     await material.wait(read("#field") + "?.dataset.towerModelClip === 'Attack'");
++    assert.ok(!(await material.evaluate(read("#field") + ".dataset.projectileSources")).split(",").includes("H021"));
+     if (process.env.M2_SCREENSHOT) {
+       await material.evaluate(`new Promise((resolve, reject) => {
+         const field = document.querySelector("#field");
+@@ -621,7 +896,7 @@ try {
+     await capture(material, "draw-tower-model");
+     assert.equal(await material.evaluate(read("#field") + ".dataset.assetError"), undefined);
+     assert.deepEqual(runtimeErrors, []);
+-    console.log(JSON.stringify({ url, seed: 811, frames, firstWalkFrame: sample, secondWave, drawnCard, drawTower, status: "passed" }));
++    console.log(JSON.stringify({ url, seed: 811, frames, firstWalkFrame: sample, projectileSources, secondWave, drawnCard, drawTower, status: "passed" }));
+     await material.close();
+   } else {
+     const a = await openTab(url);
+@@ -761,6 +1036,17 @@ try {
+     await b.evaluate("[...document.querySelectorAll('#structures button')].find(b => b.textContent === '使用经验书').click()");
+     await b.wait(contains("#structures", "等级 7 · 经验 1400"));
+     await b.wait(contains("#resources", "1200 金"));
++    const learnBuff = `[...document.querySelectorAll("#structures button")]
++      .find(button => button.textContent.startsWith("学习战棍"))`;
++    const castBuff = `[...document.querySelectorAll("#structures button")]
++      .find(button => button.textContent === "施放战棍")`;
++    await b.wait(learnBuff + "?.disabled === false");
++    await b.evaluate(learnBuff + ".click()");
++    await b.wait(castBuff + "?.disabled === false");
++    await b.evaluate(castBuff + ".click()");
++    await b.wait(contains("#feedback", "操作已执行。"));
++    await b.evaluate(castBuff + ".click()");
++    await b.wait(contains("#feedback", "操作仍在冷却"));
+     await click(b, "#speed");
+     await b.wait(contains("#speed", "4×"));
+     const displayedTime = () => b.evaluate(`(() => {
+diff --git a/checks/m2-normal-run.mjs b/checks/m2-normal-run.mjs
+index c411366..3d111db 100644
+--- a/checks/m2-normal-run.mjs
++++ b/checks/m2-normal-run.mjs
+@@ -35,7 +35,7 @@ const roadSamples = map.waypoints.flatMap(waypoint => waypoint.next.flatMap(inde
+ }));
+ 
+ const buildIndex = await readFile(new URL("../dist/m2.html", import.meta.url), "utf8").catch(() => "");
+-const bundlePath = buildIndex.match(/src="(\/assets\/m2-[^"]+\.js)"/)?.[1];
++const bundlePath = buildIndex.match(/src="\.?((?:\/assets\/)m2-[^"]+\.js)"/)?.[1];
+ const bundle = bundlePath && await readFile(new URL("../dist" + bundlePath, import.meta.url));
+ const bundleSha256 = bundle && sha256(bundle);
+ 
+@@ -58,6 +58,9 @@ function run(seed) {
+   const challengeBankWave = Number(process.env.M2_A17_BANK_WAVE ?? 28);
+   const challengeMaterialWave = Number(process.env.M2_A17_MATERIAL_WAVE ?? Infinity);
+   const seekChest = process.env.M2_A18 === "1";
++  const settlementScenario = process.env.M2_A11;
++  assert.ok(!settlementScenario || ["charm", "timeout"].includes(settlementScenario));
++  let charmSettlement;
+   const challengeUnits = ["m521", "m522", "m523"];
+   const challengeEvidence = [];
+   let challengeProduct;
+@@ -347,6 +350,10 @@ function run(seed) {
+         if (match.wave >= 29) acquireAndEquip("i228", archer, 1200);
+         if (match.wave >= 36) acquireAndEquip("i206", archer, 1700);
+       }
++      if (settlementScenario === "charm" && process.env.M2_A11_ITEM && match.wave >= 49) {
++        const archer = match.structures.find(tower => tower.templateId === "n005");
++        acquireAndEquip(process.env.M2_A11_ITEM, archer, 0);
++      }
+       if (!savingChallengeGold && activeHero && match.wave >= 26 && !equipped("i138") && !savingForScepter()) acquireAndEquip("i137", activeHero, 100);
+       if (hasActiveProvider) {
+         for (const id of ["i132", "i134", "i263"]) {
+@@ -487,7 +494,12 @@ function run(seed) {
+     }
+     const nextWave = mainline[match.wave];
+     const charm = carriedItem("i278");
+-    if (charm && match.wave >= 45 && match.wave < 55 && nextWave &&
++    if (settlementScenario === "charm" && charm && match.wave === 55 && !charmSettlement &&
++        match.enemies.some(enemy => enemy.unitId === "mBOS")) {
++      const before = { kills: match.kills ?? 0, gold: match.gold, score: match.killScore ?? 0 };
++      command({ type: "use-item", itemId: charm.id });
++      charmSettlement = { itemId: charm.id, before, input: inputs.at(-1) };
++    } else if (settlementScenario !== "charm" && charm && match.wave >= 45 && match.wave < 55 && nextWave &&
+         nextWave.startUs - match.queue.nowUs < second &&
+         containmentPoints(match) + nextWave.points * nextWave.unitsPerBatch > 100) {
+       command({ type: "use-item", itemId: charm.id });
+@@ -506,6 +518,9 @@ function run(seed) {
+   const designatedExchange = providerBuild && inputs.find(entry => entry.action.type === "exchange" &&
+     entry.outcome?.createdId === providerBuild.action.cardId);
+   return { seed, opening, strategy: scepterPlan ? "scepter" : "default", layout: entryOpening ? "entry" : "center",
++    ...(settlementScenario ? { settlementEvidence: { scenario: settlementScenario, charm: charmSettlement ?? null,
++      charmRemaining: !!carriedItem("i278"), phase: match.phase, killScore: match.killScore ?? 0,
++      bossAtEnd: match.enemies.some(enemy => enemy.unitId === "mBOS") } } : {}),
+     ...(seekChallenge ? { challengeEvidence, challengeProduct: challengeProduct ?? null, challengeMaterials, challengeMysteryStock } : {}),
+     ...(seekChest ? { chestEvidence } : {}),
+     ...(ssrTarget ? { ssrEvidence: { requested: ssrTarget, ...ssrRun, completed: !!ssrComplete() } } : {}),
+diff --git a/src/game/m2/content.ts b/src/game/m2/content.ts
+index 507a9d6..c2949ea 100644
+--- a/src/game/m2/content.ts
++++ b/src/game/m2/content.ts
+@@ -13,8 +13,8 @@ import rewardPacks from "../../../docs/rules/item-reward-packs-batch-01.json" wi
+ import sessions from "../../../docs/rules/session-and-task-state.json" with { type: "json" };
+ 
+ export { configuration };
+-export const contentVersion = "m2-core-12";
+-export const previousContentVersions = ["m2-core-2", "m2-core-3", "m2-core-4", "m2-core-5", "m2-core-6", "m2-core-7", "m2-core-8", "m2-core-9", "m2-core-10", "m2-core-11"] as const;
++export const contentVersion = "m2-core-14";
++export const previousContentVersions = ["m2-core-2", "m2-core-3", "m2-core-4", "m2-core-5", "m2-core-6", "m2-core-7", "m2-core-8", "m2-core-9", "m2-core-10", "m2-core-11", "m2-core-12", "m2-core-13"] as const;
+ export const saveFormatVersion = 2;
+ 
+ const cardRoots: Record<string, string> = {
+diff --git a/src/game/m2/hero-spells.ts b/src/game/m2/hero-spells.ts
+index 09f9a02..29eb3ff 100644
+--- a/src/game/m2/hero-spells.ts
++++ b/src/game/m2/hero-spells.ts
+@@ -14,6 +14,11 @@ export const heroSpells = {
+   A152: { range: 1000, autoRange: 1000, mana: [20, 35, 50, 65, 80, 95], cooldown: [14, 13, 12, 11, 10, 9], damage: [500, 1000, 1500, 2000, 2500, 3000] },
+ } as const;
+ export type HeroSpell = keyof typeof heroSpells;
++export type CastableHeroSkill = HeroSpell | "A068" | "A149";
++
++export function isCastableHeroSkill(skillId: string): skillId is CastableHeroSkill {
++  return skillId === "A068" || skillId === "A149" || Object.hasOwn(heroSpells, skillId);
++}
+ 
+ export type SpellSweep = {
+   towerId: number;
+diff --git a/src/game/m2/match.ts b/src/game/m2/match.ts
+index b9c3013..38b4100 100644
+--- a/src/game/m2/match.ts
++++ b/src/game/m2/match.ts
+@@ -2,7 +2,7 @@ import { advanceEvents, cancelEvent, createEventQueue, scheduleEvent, secondsToM
+ import { cardTemplates, chestKeys, chestPools, configuration, directBuilds, firelordSkin, firelordSkillSlots, footprintTowers, itemChargeInheritance, itemChargeStacks, itemExclusions, itemFields, items, lumberVouchers, openingChoices, openingResources, ordinaryGoods, prayerBooks, qualificationChains, rarityPools, recipes, recycleRate, summonCards, towerLevels, towerRadius, waveRewards } from "./content.ts";
+ import { buildAnchor, buildFootprint, contains, gridSize, map, mapVersion, overlaps, type Disk, type Point } from "./map.ts";
+ import { moveUnits, movementStepUs, movementSweep, type Mobile } from "./movement.ts";
+-import { findApproachPath, nearestSpawn, segmentDistanceSquared } from "./pathfinding.ts";
++import { findApproachPath, findPath, nearestSpawn, segmentDistanceSquared, staticSweep } from "./pathfinding.ts";
+ import { addHeroExperience, bookExperience, learnHeroSkill, newHero, type Hero } from "./hero.ts";
+ import { creditSeason, type Season, type Seasons } from "./seasons.ts";
+ import { towerSpells } from "./tower-spells.ts";
+@@ -10,7 +10,7 @@ import { talentChoices, talentRules, promotionWaves } from "./talents.ts";
+ import { challengeGoods, challengeTemplates, drawMysteryStock, mysteryWaves } from "./shops.ts";
+ import { criticalMultipliers, effectiveAttributes, equipmentAttackSpeed, flatAttack, killExperience, physicalDamage, unitBalance, unitTargetType, weapons, welfareGold, type Weapon, type WeaponShot } from "./combat.ts";
+ import { enemySpells, type EnemySpellId } from "./enemy-effects.ts";
+-import { heroSpells, type HeroSpell, type SpellSweep } from "./hero-spells.ts";
++import { heroSpells, type CastableHeroSkill, type HeroSpell, type SpellSweep } from "./hero-spells.ts";
+ import itemResources from "../../../docs/rules/item-resources-batch-01.json" with { type: "json" };
+ import itemRegeneration from "../../../docs/rules/item-regeneration-batch-01.json" with { type: "json" };
+ import { waves, welfareTemplates } from "./waves.ts";
+@@ -42,8 +42,11 @@ export type Action =
+   | { type: "learn-skill"; towerId: number; skillId: string }
+   | { type: "cast-tower"; towerId: number; skillId: string }
+   | { type: "stop-tower-cast"; towerId: number }
++  | { type: "move-wolf"; unitId: number; point: Point }
++  | { type: "attack-with-wolf"; unitId: number; targetId: number }
++  | { type: "stop-wolf"; unitId: number }
+   | { type: "cast-flame-arrow"; towerId: number; targetId: number }
+-  | { type: "cast-hero"; towerId: number; skillId: HeroSpell }
++  | { type: "cast-hero"; towerId: number; skillId: CastableHeroSkill }
+   | { type: "cast-equipment"; itemId: number; towerId: number }
+   | { type: "choose-skin"; towerId: number; choice: string }
+   | { type: "toggle-flame-arrows"; towerId: number }
+@@ -140,7 +143,7 @@ type Construction = Disk & {
+   population: number;
+   qualification: string | null;
+   hero?: Hero;
+-  attack?: { targetId: number; readyUs: number; winding: boolean; startedUs: number; flameBonus?: number };
++  attack?: { targetId: number; readyUs: number; winding: boolean; startedUs: number; flameBonus?: number; manualFlame?: true };
+   lastAttackUs?: number;
+   lastAttackTarget?: Point;
+   multishotReadyUs?: number;
+@@ -164,6 +167,9 @@ type Construction = Disk & {
+   leashToken?: number;
+   summon?: { ownerId: number; attack: number; speed: number; green: number; blue: number; skillId?: string;
+     independent?: true; projectileGroup?: { extra: number; range: number; speed: number } };
++  wolfOrder?: { type: "move"; point: Point; path: Point[] } | { type: "attack"; targetId: number; path: Point[] };
++  spawnOverlaps?: number[];
++  walkDirection?: Point;
+   necromancyReadyUs?: number;
+   manaPotionUntilUs?: number;
+   manaPotionReadyUs?: number;
+@@ -243,6 +249,7 @@ export type Match = {
+   welfareDamage?: number;
+   lastWelfareGold?: number;
+   finalHit?: { towerId?: number; sourceTemplate?: string; targetId: number; amount: number; hpBefore: number; atUs: number; skillId?: string };
++  swordRainImpacts?: (Point & { atUs: number })[];
+   overdraftOpen: boolean;
+   overdraftPoints?: number;
+   activeOverdraft?: number;
+@@ -969,13 +976,25 @@ function flameTargetable(state: Match, tower: Construction, enemy: Enemy, range:
+     canSeeEnemy(state, enemy) && (enemy.x - tower.x) ** 2 + (enemy.y - tower.y) ** 2 <= range ** 2;
+ }
+ 
++function flameWeapon(state: Match, tower: Construction, enemy: Enemy, range: number) {
++  if (!flameTargetable(state, tower, enemy, range)) return undefined;
++  const distance = Math.hypot(enemy.x - tower.x, enemy.y - tower.y);
++  return weapons[tower.templateId]?.find(slot => distance >= slot.min && targetable(enemy, slot.targets, state.queue.nowUs));
++}
++
+ export function flameArrowTargets(state: Match, towerId: number) {
+   const tower = state.structures.find(entry => entry.id === towerId);
+   const effect = tower && flameArrow(tower);
+   if (!tower || !effect || tower.pending) return undefined;
+-  const gear = towerGear(state, tower);
+-  return state.enemies.filter(enemy => flameTargetable(state, tower, enemy, effect.range) &&
+-    weapons[tower.templateId]?.some(slot => inWeaponRange(tower, enemy, slot, weaponRange(slot, gear), false, state.queue.nowUs)));
++  return state.enemies.filter(enemy => flameWeapon(state, tower, enemy, effect.range));
++}
++
++export function wolfTargets(state: Match, unitId: number) {
++  const wolf = state.summons?.find(unit => unit.id === unitId && unit.summon?.independent);
++  const weapon = wolf && weapons[wolf.templateId]?.[0];
++  if (!weapon) return [];
++  return state.enemies.filter(enemy => targetable(enemy, weapon.targets, state.queue.nowUs) &&
++    canSeeEnemy(state, enemy) && !enemy.abilities?.some(id => id === "Aloc" || id === "Avul" || id === "Aeth"));
+ }
+ 
+ function canSeeEnemy(state: Match, enemy: Enemy) {
+@@ -1115,18 +1134,23 @@ function syncMana(state: Match, tower: Construction) {
+   tower.manaRegen = ((stats?.regenMana ?? 0) + 0.03 * intelligence) * (1 + percent) + aura;
+ }
+ 
+-function activateTreeGrab(state: Match, tower: Construction) {
+-  const rank = tower.hero?.ranks[tower.templateId === "G059" ? "A149" : "A068"] ?? 0;
+-  if (rank < 1 || state.queue.nowUs < (tower.treeGrab?.readyUs ?? 0)) return;
++function activateTreeGrab(state: Match, tower: Construction, skillId = tower.templateId === "G059" ? "A149" : "A068"): Result {
++  if (tower.pending || skillId !== (tower.templateId === "G059" ? "A149" : "A068")) return { ok: false, reason: "missing" };
++  const rank = tower.hero?.ranks[skillId] ?? 0;
++  if (rank < 1) return { ok: false, reason: "missing" };
++  if (state.queue.nowUs < Math.max(tower.treeGrab?.readyUs ?? 0, tower.stunnedUntilUs ?? 0, tower.heroCastUntilUs ?? 0)) {
++    return { ok: false, reason: "cooldown" };
++  }
+   syncMana(state, tower);
+   const cost = [10, 15, 20, 25, 30, 40][rank - 1];
+-  if (tower.mana! < cost) return;
++  if (tower.mana! < cost) return { ok: false, reason: "resources" };
+   tower.mana! -= cost;
+   const status = tower.treeGrab ??= { readyUs: 0, cleaveUntilUs: 0, strength: {} };
+   const buffId = scheduleEvent(state.queue, us(6), { type: "tree-grab-expire", towerId: tower.id, buffId: state.queue.nextSequence });
+   status.strength[buffId] = [20, 35, 50, 65, 80, 100][rank - 1];
+   status.readyUs = state.queue.nowUs + us(15);
+   status.cleaveUntilUs = state.queue.nowUs + us(6);
++  return { ok: true };
+ }
+ 
+ function spellTarget(state: Match, tower: Construction, range: number, skillId?: HeroSpell) {
+@@ -1271,8 +1295,13 @@ function advanceSwordRain(state: Match, event: Extract<MatchEvent, { type: "swor
+   }
+   if (first < Infinity) {
+     const impact = { x: origin.x + direction.x * first, y: origin.y + direction.y * first };
+-    for (const enemy of state.enemies.filter(enemy => eligible(enemy) && (enemy.x - impact.x) ** 2 + (enemy.y - impact.y) ** 2 <= 100 ** 2)) {
++    const recent = state.swordRainImpacts?.filter(effect => now - effect.atUs < 300_000) ?? [];
++    state.swordRainImpacts = [...recent, { ...impact, atUs: now }];
++    const victims = state.enemies.filter(enemy => eligible(enemy) && (enemy.x - impact.x) ** 2 + (enemy.y - impact.y) ** 2 <= 100 ** 2)
++      .sort((a, b) => a.id - b.id);
++    for (const enemy of victims) {
+       if (state.phase !== "running") break;
++      if (!state.enemies.includes(enemy) || !eligible(enemy)) continue;
+       damageEnemy(state, tower, tower.templateId, enemy, event.amount * .8, "magic", event.skillId);
+     }
+   } else if (event.distance < event.length) {
+@@ -1443,8 +1472,16 @@ function summonModifiers(gear: string[]) {
+ 
+ function spawnSummon(state: Match, point: Point, templateId: string, behavior: NonNullable<Construction["summon"]>, duration: number) {
+   const id = state.nextId++;
+-  (state.summons ??= []).push({ x: point.x, y: point.y, id, templateId, pending: null, radius: 0,
+-    qualification: null, population: 0, summon: behavior });
++  const unit: Construction = { x: point.x, y: point.y, id, templateId, pending: null,
++    radius: behavior.independent ? unitBalance.get(templateId)?.collision ?? 0 : 0,
++    qualification: null, population: 0, summon: behavior };
++  if (behavior.independent) {
++    unit.spawnOverlaps = wolfOccupants(state).filter(other => overlaps(unit, other)).map(other => other.id);
++    for (const enemy of state.enemies) {
++      if (unit.spawnOverlaps.includes(enemy.id)) enemy.initialOverlaps.push(id);
++    }
++  }
++  (state.summons ??= []).push(unit);
+   scheduleEvent(state.queue, us(duration), { type: "summon-expire", unitId: id });
+   return id;
+ }
+@@ -1667,11 +1704,15 @@ function startWeapon(state: Match, tower: Construction) {
+   if (tower.pending || tower.attack?.winding || now < Math.max(tower.attack?.readyUs ?? 0, tower.stunnedUntilUs ?? 0, tower.heroCastUntilUs ?? 0)) return;
+   const slots = weapons[tower.templateId];
+   if (!slots?.length) return;
++  if (tower.wolfOrder?.type === "move") return;
++  const wolfOrder = tower.wolfOrder;
++  const commanded = wolfOrder?.type === "attack" ?
++    wolfTargets(state, tower.id).find(enemy => enemy.id === wolfOrder.targetId) : undefined;
++  if (wolfOrder?.type === "attack" && !commanded) delete tower.wolfOrder;
+   const gear = towerGear(state, tower);
+   const flame = flameArrow(tower);
+   const manual = flame && state.enemies.find(enemy => enemy.id === tower.flameTarget &&
+-    flameTargetable(state, tower, enemy, flame.range) &&
+-    slots.some(slot => inWeaponRange(tower, enemy, slot, weaponRange(slot, gear), false, now)));
++    flameWeapon(state, tower, enemy, flame.range));
+   if (!manual) delete tower.flameTarget;
+   for (const spell of towerSpells.get(tower.templateId) ?? []) {
+     if ((spell.effect.kind === "wolves" || spell.effect.kind === "sword-rain") &&
+@@ -1681,9 +1722,10 @@ function startWeapon(state: Match, tower: Construction) {
+   if (!current && tower.tauntedTarget !== undefined) delete tower.tauntedTarget;
+   let target: Enemy | undefined;
+   let weapon: Weapon | undefined;
+-  for (const enemy of current ? [current, ...state.enemies] : state.enemies) {
++  for (const enemy of commanded ? [commanded] : current ? [current, ...state.enemies] : state.enemies) {
+     if (!canSeeEnemy(state, enemy)) continue;
+-    weapon = slots.find(slot => inWeaponRange(tower, enemy, slot, weaponRange(slot, gear), false, now));
++    weapon = enemy === manual && flame ? flameWeapon(state, tower, enemy, flame.range) :
++      slots.find(slot => inWeaponRange(tower, enemy, slot, weaponRange(slot, gear), false, now));
+     if (weapon) {
+       target = enemy;
+       break;
+@@ -1695,7 +1737,7 @@ function startWeapon(state: Match, tower: Construction) {
+   const ring = gear.find(item => item.itemId === "i238");
+   if (ring) useRestoration(state, tower, ring);
+   const hero = tower.hero;
+-  if (hero) {
++  if (hero && !manual) {
+     for (const skillId of Object.keys(heroSpells) as HeroSpell[]) {
+       if (hero.ranks[skillId] && beginHeroSpell(state, tower, skillId, true).ok) return;
+     }
+@@ -1730,12 +1772,9 @@ function startWeapon(state: Match, tower: Construction) {
+   tower.attack = { targetId: target.id, readyUs: now + cycleUs, winding: true, startedUs: now };
+   if (flame && (!flame.cost || manual) && (manual || tower.flameArrows === true) &&
+       flameTargetable(state, tower, target, flame.range)) {
+-    if (flame.cost) syncMana(state, tower);
+-    if (!flame.cost || tower.mana! >= flame.cost) {
+-      if (flame.cost) tower.mana! -= flame.cost;
+-      tower.attack.flameBonus = flame.bonus;
+-      delete tower.flameTarget;
+-    }
++    tower.attack.flameBonus = flame.bonus;
++    if (manual) tower.attack.manualFlame = true;
++    delete tower.flameTarget;
+   }
+   scheduleEvent(state.queue, windupUs, { type: "weapon-fire", towerId: tower.id, targetId: target.id, slot: weapon.slot, startedUs: now });
+   scheduleEvent(state.queue, cycleUs, { type: "weapon-ready", towerId: tower.id });
+@@ -2324,7 +2363,15 @@ function fireWeapon(state: Match, towerId: number, targetId: number, slot: numbe
+   const target = state.enemies.find(enemy => enemy.id === targetId);
+   const weapon = weapons[tower.templateId]?.find(entry => entry.slot === slot);
+   const gear = towerGear(state, tower);
+-  if (!target || !weapon || !canSeeEnemy(state, target) || !inWeaponRange(tower, target, weapon, weaponRange(weapon, gear), true, state.queue.nowUs)) return;
++  const manual = tower.attack.manualFlame ? flameArrow(tower) : undefined;
++  if (!target || !weapon || !canSeeEnemy(state, target) ||
++      (tower.attack.manualFlame ? !manual || !flameWeapon(state, tower, target, manual.range) :
++        !inWeaponRange(tower, target, weapon, weaponRange(weapon, gear), true, state.queue.nowUs))) return;
++  if (manual?.cost) {
++    syncMana(state, tower);
++    if (tower.mana! < manual.cost) return;
++    tower.mana! -= manual.cost;
++  }
+   const hero = tower.hero;
+   const primary = unitBalance.get(tower.templateId)?.Primary;
+   const attr: keyof Hero["natural"] | undefined = primary === "STR" || primary === "AGI" || primary === "INT" ? primary : undefined;
+@@ -2560,6 +2607,24 @@ function execute(state: Match, action: Action): Result {
+       stopSwordRain(tower, state.queue.nowUs);
+       return { ok: true };
+     }
++    case "move-wolf":
++    case "attack-with-wolf":
++    case "stop-wolf": {
++      const wolf = state.summons?.find(unit => unit.id === action.unitId && unit.summon?.independent);
++      if (!wolf) return { ok: false, reason: "missing" };
++      if (action.type === "move-wolf") {
++        if (!staticSweep(action.point, action.point, wolf.radius, "ground")) return { ok: false, reason: "placement" };
++        wolf.wolfOrder = { type: "move", point: { ...action.point }, path: [] };
++      } else if (action.type === "attack-with-wolf") {
++        if (!wolfTargets(state, wolf.id).some(enemy => enemy.id === action.targetId)) return { ok: false, reason: "range" };
++        wolf.wolfOrder = { type: "attack", targetId: action.targetId, path: [] };
++      } else {
++        delete wolf.wolfOrder;
++      }
++      if (wolf.attack) wolf.attack.winding = false;
++      delete wolf.walkDirection;
++      return { ok: true };
++    }
+     case "cast-flame-arrow": {
+       const tower = state.structures.find(entry => entry.id === action.towerId);
+       const effect = tower && flameArrow(tower);
+@@ -2567,6 +2632,10 @@ function execute(state: Match, action: Action): Result {
+       if (!flameArrowTargets(state, tower.id)?.some(enemy => enemy.id === action.targetId)) {
+         return { ok: false, reason: "range" };
+       }
++      if (effect.cost) {
++        syncMana(state, tower);
++        if (tower.mana! < effect.cost) return { ok: false, reason: "resources" };
++      }
+       tower.flameTarget = action.targetId;
+       return { ok: true };
+     }
+@@ -2586,7 +2655,11 @@ function execute(state: Match, action: Action): Result {
+     }
+     case "cast-hero": {
+       const tower = state.structures.find(entry => entry.id === action.towerId);
+-      return tower ? beginHeroSpell(state, tower, action.skillId, false) : { ok: false, reason: "missing" };
++      if (!tower) return { ok: false, reason: "missing" };
++      const { skillId } = action;
++      return skillId === "A068" || skillId === "A149"
++        ? activateTreeGrab(state, tower, skillId)
++        : beginHeroSpell(state, tower, skillId, false);
+     }
+     case "learn-skill": {
+       const tower = state.structures.find(tower => tower.id === action.towerId);
+@@ -2762,6 +2835,73 @@ function moveWorker(state: Match) {
+   }
+ }
+ 
++function groundAllies(state: Match) {
++  return [
++    ...state.structures.map(tower => ({ ...tower, layer: "ground" as const })),
++    ...(state.summons ?? []).filter(unit => unit.summon?.independent)
++      .map(unit => ({ ...unit, radius: unitBalance.get(unit.templateId)?.collision ?? unit.radius, layer: "ground" as const })),
++  ];
++}
++
++function wolfOccupants(state: Match) {
++  return [
++    ...groundAllies(state),
++    ...state.enemies.filter(enemy => enemy.layer === "ground" && enemy.hp > 0 &&
++      state.queue.nowUs >= (enemy.phaseUntilUs ?? 0) && !enemy.abilities?.includes("Aloc")),
++  ];
++}
++
++function moveWolf(state: Match, wolf: Construction) {
++  delete wolf.walkDirection;
++  const order = wolf.wolfOrder;
++  if (!order || state.queue.nowUs < (wolf.stunnedUntilUs ?? 0)) return;
++  const target = order.type === "attack" ? wolfTargets(state, wolf.id).find(enemy => enemy.id === order.targetId) : undefined;
++  const weapon = weapons[wolf.templateId]?.[0];
++  if (order.type === "attack" && (!target || !weapon)) {
++    delete wolf.wolfOrder;
++    return;
++  }
++  if (target && weapon && inWeaponRange(wolf, target, weapon, 0, false, state.queue.nowUs)) return;
++  let goal: Point;
++  if (order.type === "move") {
++    goal = order.point;
++  } else {
++    const direction = spellDirection(target!, wolf);
++    const reach = Math.min(weapon!.max, weapon!.acquire) - gridSize;
++    goal = { x: target!.x + direction.dx * reach, y: target!.y + direction.dy * reach };
++  }
++  const speed = unitBalance.get(wolf.templateId)?.spd ?? 320;
++  const unit: Mobile = { ...wolf, radius: unitBalance.get(wolf.templateId)?.collision ?? wolf.radius, speed,
++    waypoint: 0, previousWaypoint: null, layer: "ground", initialOverlaps: wolf.spawnOverlaps ?? [] };
++  const occupants = wolfOccupants(state).filter(other => other.id !== target?.id);
++  const blocked = state.structures.filter(tower => footprintTowers.has(tower.templateId)).map(buildFootprint);
++  const sweep = movementSweep(unit, occupants, blocked);
++  const end = order.path.at(-1);
++  if (!end || !sweep(unit, order.path[0]) ||
++      (target && Math.hypot(goal.x - end.x, goal.y - end.y) >= gridSize)) {
++    const direct = sweep(unit, goal) ? [goal] : findPath(unit, goal, sweep)?.points;
++    order.path = direct ?? (target ? findPath(unit, target, sweep)?.points : undefined) ?? [];
++  }
++  let budget = speed / 32;
++  while (order.path.length && budget > 0) {
++    const next = order.path[0];
++    if (!sweep(wolf, next)) break;
++    const dx = next.x - wolf.x;
++    const dy = next.y - wolf.y;
++    const length = Math.hypot(dx, dy);
++    const step = Math.min(length, budget);
++    if (step > 0) {
++      wolf.walkDirection = { x: dx / length, y: dy / length };
++      wolf.x += wolf.walkDirection.x * step;
++      wolf.y += wolf.walkDirection.y * step;
++      budget -= step;
++    }
++    if (step === length) order.path.shift();
++  }
++  wolf.spawnOverlaps = unit.initialOverlaps.filter(id => occupants.some(other => other.id === id && overlaps({ ...wolf, radius: unit.radius }, other)));
++  if (order.type === "move" && Math.hypot(wolf.x - goal.x, wolf.y - goal.y) <= 1e-8) delete wolf.wolfOrder;
++}
++
+ export function enqueue(state: Match, command: Command) {
+   if (state.phase !== "running" || state.matchId !== command.matchId) return false;
+   if (Object.hasOwn(state.commandResults, command.id) || state.approach?.command.id === command.id || state.queue.pending.some(
+@@ -2800,12 +2940,15 @@ export function drain(state: Match, eventLimit: number, shouldYield?: () => bool
+         if (state.enemies.some(enemy => enemy.layer === "ground")) {
+           moveUnits(state.enemies, () => roll(state),
+             state.structures.filter(tower => footprintTowers.has(tower.templateId)).map(buildFootprint),
+-            state.structures.map(tower => ({ ...tower, layer: "ground" })));
++            groundAllies(state));
+         } else {
+           moveUnits(state.enemies, () => roll(state));
+         }
+         for (const tower of state.structures) startWeapon(state, tower);
+-        for (const summon of state.summons ?? []) startWeapon(state, summon);
++        for (const summon of state.summons ?? []) {
++          if (summon.summon?.independent) moveWolf(state, summon);
++          startWeapon(state, summon);
++        }
+         break;
+       case "hero-spell": finishHeroSpell(state, event); break;
+       case "tower-spell": resolveTowerSpell(state, event); break;
+diff --git a/src/game/m2/movement.ts b/src/game/m2/movement.ts
+index cd7e544..28f0cfe 100644
+--- a/src/game/m2/movement.ts
++++ b/src/game/m2/movement.ts
+@@ -94,7 +94,7 @@ export function moveUnits(units: Mobile[], roll: () => number, blocked: readonly
+     moveAlongRoute(unit, others, roll, blocked);
+     if (unit.initialOverlaps.length) {
+       unit.initialOverlaps = unit.initialOverlaps.filter(id => {
+-        const other = units.find(candidate => candidate.id === id);
++        const other = others.find(candidate => candidate.id === id);
+         return other !== undefined && overlaps(unit, other);
+       });
+     }
+diff --git a/src/m2-models.ts b/src/m2-models.ts
+index 93c1036..57d3548 100644
+--- a/src/m2-models.ts
++++ b/src/m2-models.ts
+@@ -44,6 +44,7 @@ export async function loadM2Model(id: ModelId, gl: WebGL2RenderingContext | WebG
+   for (const [name, image] of textures) renderer.setTextureImageData(name, [image]);
+   const nativeUp = new THREE.Matrix4().makeRotationX(-Math.PI / 2);
+   const rotation = new THREE.Matrix4();
++  const tilt = new THREE.Matrix4();
+   const view = new THREE.Matrix4();
+   const eye = new THREE.Vector3();
+   const degrees = new THREE.Quaternion();
+@@ -55,8 +56,14 @@ export async function loadM2Model(id: ModelId, gl: WebGL2RenderingContext | WebG
+     const requested = clips.get(clip ?? entry.loop)!;
+     const index = requested >= 0 ? requested : clips.get(entry.loop)!;
+     const [start, end] = model.Sequences[index].Interval;
++    const substitute = requested < 0 && "staticStructure" in entry && (clip === "Attack" || clip === "Death") ? clip : undefined;
++    const progress = substitute ? THREE.MathUtils.clamp(elapsedMs / (substitute === "Attack" ? 500 : 720), 0, 1) : undefined;
++    const recoil = substitute === "Attack" ? Math.sin(progress! * Math.PI) : 0;
++    const height = substitute === "Death" ? Math.max(.03, 1 - progress!) : 1;
+     modelSize.setScalar(modelScale * size);
+-    rotation.makeRotationY(facing).multiply(nativeUp).scale(modelSize).setPosition(x, .035 - floor * size, z);
++    modelSize.z *= height;
++    rotation.makeRotationY(facing).multiply(tilt.makeRotationX(recoil * .14)).multiply(nativeUp)
++      .scale(modelSize).setPosition(x, .035 - floor * size * height, z);
+     view.multiplyMatrices(camera.matrixWorldInverse, rotation);
+     eye.copy(camera.position).applyMatrix4(rotation.clone().invert());
+     degrees.setFromRotationMatrix(camera.matrixWorld);
+@@ -66,6 +73,6 @@ export async function loadM2Model(id: ModelId, gl: WebGL2RenderingContext | WebG
+       elapsedMs % Math.max(1, end - start)));
+     renderer.update(0);
+     renderer.render(view.elements as unknown as Matrix, camera.projectionMatrix.elements as unknown as Matrix, {});
+-    return renderer.getFrame();
++    return { frame: renderer.getFrame(), substitute, progress };
+   };
+ }
+diff --git a/src/m2-scene.ts b/src/m2-scene.ts
+index 90d0d70..fc24152 100644
+--- a/src/m2-scene.ts
++++ b/src/m2-scene.ts
+@@ -108,7 +108,10 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
+ 
+   let hover: Point | undefined;
+   let selection: BuildSelection | undefined;
++  let selectedWolf: number | undefined;
+   let current: Match | undefined;
++  const knownTowers = new Map<number, Point & { templateId: string }>();
++  const towerExits: (Point & { id: number; templateId: string; atUs: number })[] = [];
+   const buildLines = new THREE.Group();
+   const gridLines = new THREE.Group();
+   scene.add(buildLines, gridLines);
+@@ -185,7 +188,7 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
+   canvas.addEventListener("click", event => {
+     if (event.button !== 0) return;
+     const point = pointAt(event);
+-    if (selection && current && point) place(point);
++    if ((selection || selectedWolf !== undefined) && current && point) place(point);
+   });
+ 
+   function setView(preset: "oblique" | "top") {
+@@ -211,7 +214,7 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
+     project();
+   }
+   project();
+-  const render = (state: Match | undefined, build?: BuildSelection) => {
++  const render = (state: Match | undefined, build?: BuildSelection, wolfId?: number) => {
+     const width = canvas.clientWidth, height = canvas.clientHeight;
+     renderer.getSize(size);
+     if (size.x !== width || size.y !== height) {
+@@ -225,9 +228,10 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
+ 
+     current = state;
+     selection = build;
++    selectedWolf = wolfId;
+     gridLines.visible = !!build;
+     boundaryMaterial.opacity = build ? 1 : .65;
+-    canvas.style.cursor = build ? "crosshair" : "grab";
++    canvas.style.cursor = build || wolfId !== undefined ? "crosshair" : "grab";
+     preview.visible = !!build && !!state && !!hover;
+     let message = build ? `正在放置 ${build.label} · 将鼠标移到浅绿建造区` : "先选择右侧的塔卡或工人塔，再点击金色边界内的浅绿建造区。";
+     if (build && state && hover) {
+@@ -241,12 +245,17 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
+       message = result.ok ? `${build.label} · 可放置，左键确认；工人会自动接近施工` :
+         result.reason === "resources" ? "金币、木材或人口不足 · 换一座塔或补足资源" :
+         result.reason === "missing" ? "塔卡已不可用，请重新选择" : "此处不可放置 · 避开道路、障碍及已有塔，并留出完整底座空间";
++    } else if (wolfId !== undefined) {
++      canvas.dataset.placement = "wolf";
++      message = `灵兽 #${wolfId} · 左键选取地面目的地，Esc 取消`;
+     } else canvas.dataset.placement = build ? "selecting" : "idle";
+     previewChanged(message);
+ 
+     if (matchId !== state?.matchId) {
+       for (const mesh of meshes.values()) scene.remove(mesh);
+       meshes.clear();
++      knownTowers.clear();
++      towerExits.length = 0;
+       matchId = state?.matchId;
+     }
+     const visible = new Set<number>();
+@@ -282,22 +291,50 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
+     if (state) workerMarker.position.set(toWorld(state.worker.x), .09, toWorld(state.worker.y));
+     let vertex = 0;
+     let shots = 0;
++    const projectileSources = new Set<string>();
+     let hits = 0;
++    let rainArrows = 0;
++    let rainImpacts = 0;
+     function line(x1: number, y1: number, h1: number, x2: number, y2: number, h2: number) {
+       if (vertex + 2 > combatPositions.count) return;
+       combatPositions.setXYZ(vertex++, toWorld(x1), h1, toWorld(y1));
+       combatPositions.setXYZ(vertex++, toWorld(x2), h2, toWorld(y2));
+     }
+     if (state) {
+-      for (const tower of state.structures) {
+-        const target = tower.lastAttackTarget;
+-        const age = (state.queue.nowUs - (tower.lastAttackUs ?? -Infinity)) / state.clock.speed;
+-        if (!target || age < 0 || age >= 210_000) continue;
+-        const travel = Math.min(1, age / 150_000);
+-        const tail = Math.max(0, travel - .35);
+-        line(tower.x + (target.x - tower.x) * tail, tower.y + (target.y - tower.y) * tail, 1.1 - .6 * tail,
+-          tower.x + (target.x - tower.x) * travel, tower.y + (target.y - tower.y) * travel, 1.1 - .6 * travel);
+-        shots++;
++      for (const { dueUs, payload } of state.queue.pending) {
++        if (payload.type === "weapon-impact" && vertex + 2 <= combatPositions.count) {
++          const { shot, travelUs } = payload;
++          const dx = shot.destination.x - shot.point.x, dy = shot.destination.y - shot.point.y;
++          const distance = Math.hypot(dx, dy);
++          if (!distance || shot.weapon.speed <= 0 || travelUs <= 0) continue;
++          const elapsedUs = travelUs - (dueUs - state.queue.nowUs);
++          const head = Math.min(distance, shot.weapon.speed * elapsedUs / 1_000_000);
++          if (head <= 0) continue;
++          const tail = Math.max(0, head - 55);
++          line(shot.point.x + dx * tail / distance, shot.point.y + dy * tail / distance, .7,
++            shot.point.x + dx * head / distance, shot.point.y + dy * head / distance, .7);
++          shots++;
++          projectileSources.add(shot.sourceTemplate);
++          continue;
++        }
++        if (payload.type !== "sword-rain-travel" || vertex + 2 > combatPositions.count) continue;
++        const { origin, direction, distance, from } = payload;
++        const head = Math.max(from, distance - 700 * Math.max(0, dueUs - state.queue.nowUs) / 1_000_000);
++        const tail = Math.max(0, head - 55);
++        line(origin.x + direction.x * tail, origin.y + direction.y * tail, .7,
++          origin.x + direction.x * head, origin.y + direction.y * head, .35);
++        rainArrows++;
++      }
++      for (const impact of state.swordRainImpacts ?? []) {
++        const age = state.queue.nowUs - impact.atUs;
++        if (age < 0 || age >= 300_000 || vertex + 16 > combatPositions.count) continue;
++        const radius = 100 * Math.min(1, .35 + age / 160_000);
++        for (let segment = 0; segment < 8; segment++) {
++          const angle = segment * Math.PI / 4, next = angle + Math.PI / 4;
++          line(impact.x + radius * Math.cos(angle), impact.y + radius * Math.sin(angle), .24,
++            impact.x + radius * Math.cos(next), impact.y + radius * Math.sin(next), .24);
++        }
++        rainImpacts++;
+       }
+       for (const hit of state.recentHits ?? []) {
+         const age = (state.queue.nowUs - hit.atUs) / state.clock.speed;
+@@ -312,28 +349,60 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
+     combatGeometry.setDrawRange(0, vertex);
+     if (vertex) combatPositions.needsUpdate = true;
+     canvas.dataset.visibleShots = String(shots);
++    canvas.dataset.projectileSources = [...projectileSources].join(",");
+     canvas.dataset.visibleHits = String(hits);
++    canvas.dataset.swordRainArrows = String(rainArrows);
++    canvas.dataset.swordRainImpacts = String(rainImpacts);
+     renderer.resetState();
+     renderer.render(scene, camera);
+     if (!state) return;
+     const elapsed = state.queue.nowUs / 1000;
+     const renderedTowers = [];
++    const walkingWolves = [];
++    const substituteActions = [];
++    const standingTowers = new Set(state.structures.map(tower => tower.id));
++    for (const [id, last] of knownTowers) {
++      if (standingTowers.has(id)) continue;
++      knownTowers.delete(id);
++      towerExits.push({ id, ...last, atUs: state.queue.nowUs });
++    }
++    for (const tower of state.structures) {
++      if (tower.pending && !tower.pending.upgradeTo) continue;
++      knownTowers.set(tower.id, { templateId: tower.templateId, x: tower.x, y: tower.y });
++    }
+     for (const tower of [...state.structures, ...(state.summons ?? [])]) {
+       const visuals = modelFor(tower.templateId);
+       if (!visuals || tower.pending && !tower.pending.upgradeTo) continue;
+       const attackTime = tower.lastAttackUs === undefined ? Infinity : elapsed - tower.lastAttackUs / 1000;
+-      const attacking = attackTime >= 0 && attackTime < 500;
++      const walking = tower.walkDirection !== undefined;
++      const attacking = !walking && attackTime >= 0 && attackTime < 500;
+       const target = tower.lastAttackTarget;
+-      const facing = target ? Math.atan2(tower.y - target.y, target.x - tower.x) : .6;
+-      const frame = visuals.model(camera, toWorld(tower.x), toWorld(tower.y), facing,
+-        attacking ? attackTime : elapsed, attacking ? "Attack" : "Stand", visuals.size);
++      const facing = tower.walkDirection ? Math.atan2(-tower.walkDirection.y, tower.walkDirection.x) :
++        target ? Math.atan2(tower.y - target.y, target.x - tower.x) : .6;
++      const action = visuals.model(camera, toWorld(tower.x), toWorld(tower.y), facing,
++        attacking ? attackTime : elapsed, walking ? "Walk" : attacking ? "Attack" : "Stand", visuals.size);
+       renderedTowers.push(tower.templateId);
++      if (walking) walkingWolves.push(tower.id);
++      if (action.substitute) substituteActions.push(`${tower.templateId}:${action.substitute}:${action.progress}`);
+       if (tower.templateId === "H021") {
+         canvas.dataset.towerModelClip = attacking ? "Attack" : "Stand";
+-        canvas.dataset.towerModelFrame = String(frame);
++        canvas.dataset.towerModelFrame = String(action.frame);
++      }
++    }
++    for (let index = towerExits.length - 1; index >= 0; index--) {
++      const exit = towerExits[index];
++      const age = elapsed - exit.atUs / 1000;
++      if (age >= 720) {
++        towerExits.splice(index, 1);
++        continue;
+       }
++      const visuals = modelFor(exit.templateId);
++      const action = visuals?.model(camera, toWorld(exit.x), toWorld(exit.y), 0, age, "Death", visuals.size);
++      if (action?.substitute) substituteActions.push(`${exit.templateId}:${action.substitute}:${action.progress}`);
+     }
+     canvas.dataset.renderedTowers = renderedTowers.join(",");
++    canvas.dataset.walkingWolves = walkingWolves.join(",");
++    canvas.dataset.towerActionSubstitutes = substituteActions.join(",");
+     const renderedEnemies = new Set<string>();
+     for (const enemy of state.enemies) {
+       if (state.queue.nowUs < (enemy.phaseUntilUs ?? 0)) continue;
+@@ -342,9 +411,9 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
+       const target = enemy.path?.[0] ?? map.waypoints[enemy.waypoint];
+       const facing = Math.atan2(enemy.y - target.y, target.x - enemy.x);
+       const clip = enemy.stunUntilUs && state.queue.nowUs < enemy.stunUntilUs ? "Stand" : "Walk";
+-      const frame = visuals.model(camera, toWorld(enemy.x), toWorld(enemy.y), facing,
++      const action = visuals.model(camera, toWorld(enemy.x), toWorld(enemy.y), facing,
+         elapsed + enemy.id * 87, clip, visuals.size);
+-      if (enemy.unitId === "m001") canvas.dataset.enemyModelFrame = String(frame);
++      if (enemy.unitId === "m001") canvas.dataset.enemyModelFrame = String(action.frame);
+       renderedEnemies.add(enemy.unitId);
+     }
+     for (const hit of state.recentHits ?? []) {
+diff --git a/src/m2.ts b/src/m2.ts
+index 85ef16b..96f9cf2 100644
+--- a/src/m2.ts
++++ b/src/m2.ts
+@@ -1,12 +1,12 @@
+ import { configuration, cardTemplates, directBuilds, firelordSkin, itemFields, items, openingChoices, ordinaryGoods, prayerBooks, qualificationChains, towerLevels, waveRewards, workerTowers } from "./game/m2/content.ts";
+-import { canChooseOpening, canMoveItem, circleId, containmentPoints, flameArrowTargets, inspectBuildPlacement, isActiveTowerEquipment, creditTime, drain, enqueue, newMatch, qualified, restoreHeroState, transmuteTargets, usableWorkerItem, type Action, type Match } from "./game/m2/match.ts";
++import { canChooseOpening, canMoveItem, circleId, containmentPoints, flameArrowTargets, inspectBuildPlacement, isActiveTowerEquipment, creditTime, drain, enqueue, newMatch, qualified, restoreHeroState, transmuteTargets, usableWorkerItem, wolfTargets, type Action, type Match } from "./game/m2/match.ts";
+ import { createM2SaveStore, StaleM2Checkpoint, type Checkpoint } from "./game/m2/save.ts";
+ import { learnableSkills, learningLevel } from "./game/m2/hero.ts";
+ import { talentChoices, talentRules } from "./game/m2/talents.ts";
+ import { challengeTemplates } from "./game/m2/shops.ts";
+ import { emptySeasons, seasonDefinitions, seasonNames, startSeasons, type Seasons } from "./game/m2/seasons.ts";
+ import { towerSpells } from "./game/m2/tower-spells.ts";
+-import { heroSpells, type HeroSpell } from "./game/m2/hero-spells.ts";
++import { isCastableHeroSkill } from "./game/m2/hero-spells.ts";
+ import { waves } from "./game/m2/waves.ts";
+ import { mapVersion } from "./game/m2/map.ts";
+ import { createM2Scene } from "./m2-scene.ts";
+@@ -83,6 +83,8 @@ function validRun(value: unknown): value is Match {
+     (value.recentHits === undefined || Array.isArray(value.recentHits) && value.recentHits.length <= 64 &&
+       value.recentHits.every(hit => record(hit) && point(hit) && finite(hit.amount) &&
+         [hit.atUs, hit.targetId, hit.casterId].every(nonnegativeInteger))) &&
++    (value.swordRainImpacts === undefined || Array.isArray(value.swordRainImpacts) && value.swordRainImpacts.every(entry =>
++      record(entry) && point(entry) && nonnegativeInteger(entry.atUs))) &&
+     (value.challengeReadyUs === undefined || nonnegativeInteger(value.challengeReadyUs)) &&
+     (value.challengeStages === undefined || Array.isArray(value.challengeStages) && value.challengeStages.length === 8 &&
+       value.challengeStages.every(stage => nonnegativeInteger(stage) && stage <= 3)) &&
+@@ -116,6 +118,12 @@ function validRun(value: unknown): value is Match {
+       typeof summon.templateId === "string" && /^(?:b10[3-9]|b110|b12[2-7]|b13[2-7])$/.test(summon.templateId) &&
+       record(summon.summon) && nonnegativeInteger(summon.summon.ownerId) &&
+       (summon.summon.independent === undefined || summon.summon.independent === true && /^b10[3-6]$/.test(summon.templateId)) &&
++      (summon.wolfOrder === undefined || summon.summon.independent === true && record(summon.wolfOrder) &&
++        Array.isArray(summon.wolfOrder.path) && summon.wolfOrder.path.every(point) &&
++        (summon.wolfOrder.type === "move" && point(summon.wolfOrder.point) ||
++          summon.wolfOrder.type === "attack" && nonnegativeInteger(summon.wolfOrder.targetId))) &&
++      (summon.walkDirection === undefined || point(summon.walkDirection)) &&
++      (summon.spawnOverlaps === undefined || Array.isArray(summon.spawnOverlaps) && summon.spawnOverlaps.every(nonnegativeInteger)) &&
+       [summon.summon.attack, summon.summon.speed, summon.summon.green, summon.summon.blue].every(finite))) &&
+     (value.detectors === undefined || Array.isArray(value.detectors) && value.detectors.every(detector =>
+       record(detector) && point(detector) && nonnegativeInteger(detector.id) && nonnegativeInteger(detector.ownerId))) &&
+@@ -155,7 +163,8 @@ let lastSave = previousTime;
+ let jobs: Promise<unknown> = Promise.resolve();
+ let lastControls = "";
+ let pendingCommand: string | undefined;
+-let pendingBuildKey: string | undefined;
++let pendingBuild: { commandId: string; key: string } | undefined;
++let wolfMoveId: number | undefined;
+ const compatibleMap = () => !!run && run.mapVersion === mapVersion;
+ let releaseWriter: (() => void) | undefined;
+ 
+@@ -170,6 +179,7 @@ function send(action: Action) {
+   if (enqueue(run, { id, matchId: run.matchId, action })) {
+     pendingCommand = id;
+     el("feedback").textContent = run.clock.paused ? "指令已排队，继续后执行。" : "指令已排队。";
++    return id;
+   }
+ }
+ 
+@@ -228,6 +238,9 @@ function showSeasonTasks() {
+ 
+ function showControls() {
+   showSeasonTasks();
++  const wolves = run?.summons?.filter(unit => unit.summon?.independent) ?? [];
++  if (!writable() || !wolves.some(unit => unit.id === wolfMoveId)) wolfMoveId = undefined;
++  const availableWolfTargets = wolves.map(unit => wolfTargets(run!, unit.id));
+   const arrowTargets = new Map(run?.structures.flatMap(tower => {
+     const targets = flameArrowTargets(run!, tower.id);
+     return targets ? [[tower.id, targets] as const] : [];
+@@ -242,7 +255,9 @@ function showControls() {
+   const key = JSON.stringify([
+     goldTargets?.map(enemy => enemy.id), goldReady, run?.talent, talentReady, challengeReady, run?.challengeShopOpen, run?.challengeStages, run?.challengeStock,
+     run?.waveRewardSlots, run?.overdraftOpen, run?.overdraftPoints, run?.mysteryShopOpen, run?.mysteryRefreshed, run?.mysteryStock, run?.matchId, run?.phase, run?.openingCard, run?.openingChoicesUnlocked, run?.inventory, run?.qualificationShopOpen, run?.cards, run?.books, run?.structures.map(({ id, x, y, templateId, pending, qualification, hero, flameArrows, swordRainToken }) =>
+-      [id, x, y, templateId, pending, qualification, hero, flameArrows, swordRainToken, arrowTargets.get(id)?.map(enemy => enemy.id)]), writer !== undefined, busy, build?.key,
++      [id, x, y, templateId, pending, qualification, hero, flameArrows, swordRainToken, arrowTargets.get(id)?.map(enemy => enemy.id)]),
++    wolves.map((unit, index) => [unit.id, unit.wolfOrder?.type, availableWolfTargets[index].map(enemy => enemy.id)]),
++    writer !== undefined, busy, build?.key, wolfMoveId,
+   ]);
+   if (lastControls === key) return;
+   lastControls = key;
+@@ -319,6 +334,7 @@ function showControls() {
+   for (const tower of Object.keys(directBuilds) as Array<keyof typeof directBuilds>) {
+     addButton(builds, `${workerTowers.get(tower)!.name} · ${directBuilds[tower].gold} 金`, () => {
+       build = { key: tower, label: workerTowers.get(tower)!.name, action: { type: "build-worker-tower", tower } };
++      wolfMoveId = undefined;
+       el("feedback").textContent = "建造区已高亮。移动鼠标查看落点，左键放置，Esc 取消。";
+     }).setAttribute("aria-pressed", String(build?.key === tower));
+   }
+@@ -392,6 +408,7 @@ function showControls() {
+       if (card.slot === null) send({ type: "pick-up-card", cardId: card.id });
+       else {
+         build = { key: String(card.id), label: cardName(card.card), action: { type: "build-card", cardId: card.id } };
++        wolfMoveId = undefined;
+         el("feedback").textContent = "建造区已高亮。移动鼠标查看落点，左键放置，Esc 取消。";
+       }
+     }).setAttribute("aria-pressed", String(build?.key === String(card.id)));
+@@ -459,8 +476,9 @@ function showControls() {
+             `学习${skill.name} Lv${rank + 1}（需 ${required} 级）`;
+           addButton(skills, label, () => send({ type: "learn-skill", towerId: tower.id, skillId: skill.skillId }),
+             locked || hero.points < 1 || required === undefined || hero.level < required);
+-          if (rank && Object.hasOwn(heroSpells, skill.skillId)) {
+-            addButton(skills, `施放${skill.name}`, () => send({ type: "cast-hero", towerId: tower.id, skillId: skill.skillId as HeroSpell }));
++          const { skillId } = skill;
++          if (rank && isCastableHeroSkill(skillId)) {
++            addButton(skills, `施放${skill.name}`, () => send({ type: "cast-hero", towerId: tower.id, skillId }));
+           }
+         }
+         if (tower.templateId === firelordSkin.from) {
+@@ -506,6 +524,32 @@ function showControls() {
+     }
+     structures.append(row);
+   }
++  for (const [index, wolf] of wolves.entries()) {
++    const row = document.createElement("div");
++    row.dataset.wolfId = String(wolf.id);
++    const label = document.createElement("span");
++    const order = wolf.wolfOrder?.type;
++    label.textContent = `灵兽 Lv${Number(wolf.templateId.slice(1)) - 102} #${wolf.id} · ${order === "move" ? "移动" : order === "attack" ? "追击" : "待命"}`;
++    row.append(label);
++    addButton(row, wolfMoveId === wolf.id ? "选取目的地" : "移动灵兽", () => {
++      build = undefined;
++      wolfMoveId = wolf.id;
++    }, locked);
++    const select = document.createElement("select");
++    select.setAttribute("aria-label", "灵兽攻击目标");
++    const targets = availableWolfTargets[index];
++    for (const enemy of targets) select.append(new Option(`${enemy.unitId} #${enemy.id}`, String(enemy.id)));
++    row.append(select);
++    addButton(row, "攻击目标", () => {
++      wolfMoveId = undefined;
++      send({ type: "attack-with-wolf", unitId: wolf.id, targetId: Number(select.value) });
++    }, locked || targets.length === 0);
++    addButton(row, "停止灵兽", () => {
++      wolfMoveId = undefined;
++      send({ type: "stop-wolf", unitId: wolf.id });
++    }, locked);
++    structures.append(row);
++  }
+ }
+ 
+ const goodsSelect = el<HTMLSelectElement>("ordinary-goods");
+@@ -532,8 +576,10 @@ el("exchange").onclick = () => send({ type: "exchange", qualification: select.va
+ 
+ let draw: Awaited<ReturnType<typeof createM2Scene>> | undefined;
+ function cancelPlacement() {
++  const movingWolf = wolfMoveId !== undefined;
++  wolfMoveId = undefined;
+   build = undefined;
+-  el("feedback").textContent = "已取消选塔。";
++  el("feedback").textContent = movingWolf ? "已取消选择目的地。" : "已取消选塔。";
+ }
+ el("cancel-placement").onclick = cancelPlacement;
+ el("reset-view").onclick = () => draw?.resetView();
+@@ -545,15 +591,26 @@ el("zoom-in").onclick = () => draw?.zoomView(1.2);
+ el("zoom-out").onclick = () => draw?.zoomView(1 / 1.2);
+ window.addEventListener("keydown", event => { if (event.key === "Escape") cancelPlacement(); });
+ void createM2Scene(el<HTMLCanvasElement>("field"), point => {
++  if (wolfMoveId !== undefined && writable()) {
++    const unitId = wolfMoveId;
++    wolfMoveId = undefined;
++    send({ type: "move-wolf", unitId, point });
++    return;
++  }
+   if (!build || !run || !writable()) return;
+-  if (pendingCommand) { el("feedback").textContent = "工人正在执行建造指令，请稍候。"; return; }
++  if (pendingBuild) { el("feedback").textContent = "工人正在执行建造指令，请稍候。"; return; }
+   const result = inspectBuildPlacement(run, { ...build.action, point });
+   if (!result.ok) { el("feedback").textContent = rejection[result.reason] + "，可移动鼠标重新选位置。"; return; }
+-  pendingBuildKey = build.key;
+-  send({ ...build.action, point });
++  const commandId = send({ ...build.action, point });
++  if (commandId) pendingBuild = { commandId, key: build.key };
+ }, message => {
++  const approach = run?.approach?.command.action.type;
++  const workerStatus = approach === "pick-up-card" ? "工人正在前往拾取塔卡。" :
++    approach === "pick-up-item" ? "工人正在前往拾取物品。" :
++    approach === "transfer-item" ? "工人正在前往交接物品。" :
++    approach ? "工人正在前往建造位置，到达后开始施工。" : undefined;
+   const status = !compatibleMap() && run ? "旧地图存档已保留，请点击重开进入新地图。" :
+-    run?.approach ? "工人正在前往建造位置，到达后开始施工。" : message;
++    workerStatus ?? message;
+   if (el("placement-status").textContent !== status) el("placement-status").textContent = status;
+ }, view => {
+   el("view-oblique").setAttribute("aria-pressed", String(view.preset === "oblique"));
+@@ -585,6 +642,10 @@ function createMatch() {
+ function restore(checkpoint: Saved | undefined) {
+   if (!checkpoint) return;
+   head = { revision: checkpoint.revision, activeMatchId: checkpoint.activeMatchId };
++  if (run?.matchId !== checkpoint.run.matchId) {
++    pendingCommand = undefined;
++    pendingBuild = undefined;
++  }
+   run = checkpoint.run;
+   profile = { ...checkpoint.profile, score: checkpoint.profile.score - matchScore(run) };
+   run.seasons ??= structuredClone(profile.seasons ?? emptySeasons());
+@@ -643,7 +704,9 @@ el("restart").onclick = () => {
+     profile = latestProfile;
+     run = fresh;
+     build = undefined;
++    wolfMoveId = undefined;
+     pendingCommand = undefined;
++    pendingBuild = undefined;
+     recycleConfirmation = undefined;
+     el("feedback").textContent = "已重开。";
+     el("save").textContent = `已保存 · 修订 ${head.revision}`;
+@@ -706,14 +769,20 @@ function frame() {
+     const wave = run.wave;
+     const constructions = run.structures.filter(tower => tower.pending).length;
+     const seasonRevision = run.seasonRevision;
++    const workerCommand = run.approach?.command.id;
+     const deadline = performance.now() + 7;
+     drain(run, 32_000, () => performance.now() >= deadline);
+-    if (run && pendingCommand && Object.hasOwn(run.commandResults, pendingCommand)) {
+-      const outcome = run.commandResults[pendingCommand];
+-      el("feedback").textContent = outcome.ok ? "操作已执行。" : rejection[outcome.reason];
+-      if (outcome.ok && pendingBuildKey === build?.key) build = undefined;
+-      pendingBuildKey = undefined;
+-      pendingCommand = undefined;
++    const results = run.commandResults;
++    const completed = [...new Set([workerCommand, pendingBuild?.commandId, pendingCommand])].filter(
++      (id): id is string => id !== undefined && Object.hasOwn(results, id));
++    if (completed.length) {
++      const outcomes = completed.map(id => results[id]);
++      el("feedback").textContent = outcomes.map(outcome => outcome.ok ? "操作已执行。" : rejection[outcome.reason]).join(" ");
++      if (pendingBuild && completed.includes(pendingBuild.commandId)) {
++        if (run.commandResults[pendingBuild.commandId].ok && pendingBuild.key === build?.key) build = undefined;
++        pendingBuild = undefined;
++      }
++      if (pendingCommand && completed.includes(pendingCommand)) pendingCommand = undefined;
+     }
+     if (run.phase !== phase || run.wave !== wave || run.seasonRevision !== seasonRevision || Object.keys(run.commandResults).length !== before ||
+       run.structures.filter(tower => tower.pending).length !== constructions ||
+@@ -742,9 +811,10 @@ function frame() {
+     el("speed").textContent = `${run.clock.speed}×`;
+   }
+   showControls();
+-  el("cancel-placement").hidden = !build;
+-  el("field").classList.toggle("placing", !!build);
+-  if (!document.hidden) draw?.(compatibleMap() ? run : undefined, writable() ? build : undefined);
++  el("cancel-placement").hidden = !build && wolfMoveId === undefined;
++  el("cancel-placement").textContent = wolfMoveId === undefined ? "取消放置" : "取消选择";
++  el("field").classList.toggle("placing", !!build || wolfMoveId !== undefined);
++  if (!document.hidden) draw?.(compatibleMap() ? run : undefined, writable() ? build : undefined, wolfMoveId);
+   scheduleFrame();
+ }
+ document.addEventListener("visibilitychange", scheduleFrame);
+diff --git a/test/m2.test.mjs b/test/m2.test.mjs
+index 0a88e9c..4867c94 100644
+--- a/test/m2.test.mjs
++++ b/test/m2.test.mjs
+@@ -1224,6 +1224,54 @@ test("N041 through N044 summon two independent wolves with tiered Feedback and f
+   }
+ });
+ 
++test("a single wolf takes a routed move, an explicit attack and a stop across a saved order", () => {
++  const state = isolatedEconomy(811);
++  const tower = { x: -225, y: 0, id: 901, templateId: "n173", population: 5, radius: 72, pending: null, qualification: null };
++  state.structures.push(tower);
++  assert.ok(submit(state, "summon", { type: "cast-tower", towerId: tower.id, skillId: "N041" }).ok);
++  advanceTo(state, 500_001);
++  const [wolf, partner] = state.summons;
++  assert.equal(wolf.radius, 25);
++  assert.equal(submit(state, "invalid-order", { type: "move-wolf", unitId: wolf.id, point: { x: 0, y: 0 } }).reason, "placement");
++  const point = { x: 225, y: 0 };
++  assert.ok(submit(state, "move", { type: "move-wolf", unitId: wolf.id, point }).ok);
++  scheduleEvent(state.queue, 31_250, { type: "movement" }, 31_250);
++  const stalled = structuredClone(state);
++  stalled.structures.push({ ...tower, id: 902, ...point });
++  advanceTo(stalled, second);
++  assert.deepEqual([stalled.summons[0].x, stalled.summons[0].y], [wolf.x, wolf.y]);
++  stalled.structures.pop();
++  advanceTo(stalled, 4 * second);
++  assert.equal(stalled.summons[0].x, point.x);
++  advanceTo(state, 1_000_000);
++  assert.ok(wolf.wolfOrder.path.length > 1);
++  const restored = JSON.parse(JSON.stringify(state));
++  advanceTo(state, 4 * second);
++  advanceTo(restored, 4 * second, 3);
++  assert.deepEqual(restored, state);
++  assert.deepEqual({ x: wolf.x, y: wolf.y }, point);
++  assert.deepEqual([partner.x, partner.y], [-225, 30]);
++  assert.equal(wolf.wolfOrder, undefined);
++
++  const enemy = { id: 3_000, unitId: "m001", points: 1, x: -1050, y: 0, layer: "ground",
++    hp: 200_000, mana: 40, armor: 0, wave: 1, radius: 1, speed: 0, initialOverlaps: [], waypoint: 0, previousWaypoint: null };
++  const decoy = { ...enemy, id: 3001, x: 350 };
++  state.enemies = [decoy, enemy];
++  assert.ok(submit(state, "attack", { type: "attack-with-wolf", unitId: wolf.id, targetId: enemy.id }).ok);
++  advanceTo(state, 8 * second);
++  assert.ok(state.recentHits.some(hit => hit.casterId === wolf.id && hit.targetId === enemy.id));
++  assert.ok(!state.recentHits.some(hit => hit.casterId === wolf.id && hit.targetId === decoy.id));
++  state.enemies = [decoy];
++  advanceTo(state, state.queue.nowUs + 31_250);
++  assert.equal(wolf.wolfOrder, undefined);
++  assert.equal(submit(state, "missing-target", { type: "attack-with-wolf", unitId: wolf.id, targetId: enemy.id }).reason, "range");
++  assert.ok(submit(state, "new-target", { type: "attack-with-wolf", unitId: wolf.id, targetId: decoy.id }).ok);
++  assert.ok(submit(state, "stop", { type: "stop-wolf", unitId: wolf.id }).ok);
++  assert.equal(wolf.wolfOrder, undefined);
++  advanceTo(state, 15_501_000);
++  assert.equal(submit(state, "expired", { type: "stop-wolf", unitId: wolf.id }).reason, "missing");
++});
++
+ test("A18 real death dispatch drops the four-tier chest or key once at the death point", () => {
+   for (const expected of ["i404", "i414"]) {
+     const state = isolatedEconomy();
+@@ -1291,6 +1339,32 @@ test("N045 through N047 retain a fixed field, stage 120 arrows, and resume deter
+   }
+ });
+ 
++test("sword rain hits enemy structures and unit debris without destroying terrain or hitting air", async () => {
++  const { unitTargetType } = await import("../src/game/m2/combat.ts");
++  const state = isolatedEconomy(811);
++  const tower = { ...map.worker, id: 901, templateId: "n174", population: 5, radius: 72, pending: null, qualification: null };
++  state.structures.push(tower);
++  const origin = { x: -100, y: 0 };
++  const enemy = { ...origin, x: 50, id: 102, unitId: "hbar", hp: 1000, armor: 0, mana: 0, layer: "ground",
++    radius: 1, speed: 0, initialOverlaps: [], waypoint: 0, previousWaypoint: null, wave: 1, points: 1 };
++  const debris = { ...enemy, y: 25, id: 101, unitId: "test-debris" };
++  const air = { ...enemy, id: 100, unitId: "echm", layer: "fly" };
++  const originalTerrain = structuredClone(map.obstacles);
++  unitTargetType.set(debris.unitId, "debris");
++  try {
++    state.enemies = [enemy, debris, air];
++    scheduleEvent(state.queue, 31_250, { type: "sword-rain-travel", towerId: tower.id, skillId: "N045", origin,
++      direction: { x: 1, y: 0 }, amount: 240, from: 0, distance: 120, length: 300 });
++    advanceTo(state, 31_250);
++    assert.deepEqual(state.recentHits.map(hit => hit.targetId), [101, 102]);
++    assert.equal(air.hp, 1000);
++    assert.equal(state.swordRainImpacts.length, 1);
++    assert.deepEqual(map.obstacles, originalTerrain);
++  } finally {
++    unitTargetType.delete(debris.unitId);
++  }
++});
++
+ test("Q20 transforms a real Tiny tower in place and persists the skill slots and equipment transaction", async () => {
+   const { newHero, learnableSkills } = await import("../src/game/m2/hero.ts");
+   const state = isolatedEconomy();
+@@ -1345,6 +1419,48 @@ test("Max Necromancy uses live gear and mana, shares the cooldown and expires it
+   assert.equal(restored.summons.length, 0);
+ });
+ 
++test("manual self-buff settles without a target and shares automatic cooldown after restore", async () => {
++  const { newHero } = await import("../src/game/m2/hero.ts");
++  const { unitBalance } = await import("../src/game/m2/combat.ts");
++  for (const [templateId, skillId, wrongSkill] of [["H021", "A068", "A149"], ["G059", "A149", "A068"]]) {
++    const state = isolatedEconomy();
++    dispatchWave(state, 1);
++    const [enemy] = state.enemies.splice(0);
++    const hero = newHero(templateId);
++    const towerId = 900;
++    const tower = { ...map.worker, id: towerId, templateId, population: 20, radius: 72,
++      qualification: null, pending: null, hero, mana: 9, manaLastUs: state.queue.nowUs,
++      manaMaximum: (unitBalance.get(templateId)?.manaN ?? 0) + hero.natural.INT * 12 };
++    state.structures.push(tower);
++    const command = { type: "cast-hero", towerId, skillId };
++    assert.equal(submit(state, "unlearned", command).reason, "missing");
++    hero.ranks[skillId] = 1;
++    assert.equal(submit(state, "wrong-form", { ...command, skillId: wrongSkill }).reason, "missing");
++    assert.equal(submit(state, "no-mana", command).reason, "resources");
++    assert.equal(tower.treeGrab, undefined);
++    tower.mana = 100;
++    assert.ok(submit(state, "cast", command).ok);
++    assert.ok(Math.abs(tower.mana - 90) < .001);
++    assert.deepEqual(Object.values(tower.treeGrab.strength), [20]);
++    const restored = JSON.parse(JSON.stringify(state));
++    const current = restored.structures[0];
++    const { cleaveUntilUs, readyUs } = current.treeGrab;
++    assert.equal(submit(restored, "cooldown", command).reason, "cooldown");
++    advanceTo(restored, cleaveUntilUs);
++    assert.deepEqual(current.treeGrab.strength, {});
++    assert.equal(current.treeGrab.readyUs, readyUs);
++    Object.assign(enemy, { x: current.x + 720, y: current.y, hp: 100_000, abilities: [] });
++    restored.enemies = [enemy];
++    scheduleEvent(restored.queue, readyUs - restored.queue.nowUs, { type: "weapon-ready", towerId });
++    advanceTo(restored, readyUs);
++    assert.equal(current.attack.targetId, enemy.id);
++    assert.equal(current.attack.winding, true);
++    assert.deepEqual(Object.values(current.treeGrab.strength), [20]);
++    assert.equal(current.treeGrab.readyUs, readyUs + 15 * second);
++    assert.equal(submit(restored, "auto-used-cooldown", command).reason, "cooldown");
++  }
++});
++
+ test("mana restoration settles charges and independent Soul Ring debt across a snapshot", async () => {
+   const { newHero } = await import("../src/game/m2/hero.ts");
+   const state = isolatedEconomy();
+@@ -1441,3 +1557,38 @@ test("H012 ranks drive arrow costs, Strafe duration and Devour's independent tim
+     }
+   }
+ });
++
++test("H012 manual orb uses its 1300 range and charges only after a valid windup", async () => {
++  const { newHero } = await import("../src/game/m2/hero.ts");
++  const makeRun = () => {
++    const state = isolatedEconomy();
++    dispatchWave(state, 1);
++    const hero = newHero("H012");
++    hero.ranks.A040 = 1;
++    const tower = { ...map.worker, id: 900, templateId: "H012", population: 15, radius: 72,
++      pending: null, qualification: null, hero };
++    state.structures.push(tower);
++    const [enemy] = state.enemies;
++    Object.assign(enemy, { x: tower.x + 1300, y: tower.y, hp: 20_000, armor: 0, abilities: [] });
++    state.enemies = [enemy];
++    return { state, tower, enemy };
++  };
++  for (const movement of [0, 1]) {
++    const { state, tower, enemy } = makeRun();
++    const manual = { type: "cast-flame-arrow", towerId: tower.id, targetId: enemy.id };
++    enemy.x++;
++    assert.equal(submit(state, "out-of-range", manual).reason, "range");
++    enemy.x--;
++    assert.equal(submit(state, "arrow", manual).ok, true);
++    scheduleEvent(state.queue, 1, { type: "weapon-ready", towerId: tower.id });
++    advanceTo(state, state.queue.nowUs + 1);
++    assert.equal(tower.attack.manualFlame, true);
++    assert.equal(tower.mana, tower.manaMaximum);
++    enemy.x += movement;
++    const due = state.queue.pending.find(event => event.payload.type === "weapon-fire").dueUs;
++    advanceTo(state, due);
++    assert.equal(tower.mana, tower.manaMaximum - (movement === 0 ? 3 : 0));
++    const impact = state.queue.pending.find(event => event.payload.type === "weapon-impact");
++    assert.equal(impact?.payload.shot.orbBonus, movement === 0 ? 500 : undefined);
++  }
++});
+diff --git a/tools/build-m2-runtime-coverage.mjs b/tools/build-m2-runtime-coverage.mjs
+index 41bb4a3..d4f6d6e 100644
+--- a/tools/build-m2-runtime-coverage.mjs
++++ b/tools/build-m2-runtime-coverage.mjs
+@@ -5,7 +5,11 @@ import { cards, configuration, contentVersion, items, ordinaryGoods, recipes, wo
+   chestKeys } from "../src/game/m2/content.ts";
+ import { heroSpells } from "../src/game/m2/hero-spells.ts";
+ import { towerSpells } from "../src/game/m2/tower-spells.ts";
++import { enemySpells } from "../src/game/m2/enemy-effects.ts";
++import { waves, welfareTemplates } from "../src/game/m2/waves.ts";
++import { challengeTemplates } from "../src/game/m2/shops.ts";
+ import itemRules from "../docs/rules/item-effect-coverage.json" with { type: "json" };
++import enemyRules from "../docs/rules/enemy-ability-coverage.json" with { type: "json" };
+ 
+ const match = name => `src/game/m2/match.ts#${name}`;
+ const combat = name => `src/game/m2/combat.ts#${name}`;
+@@ -19,23 +23,28 @@ const ordinarySpells = [...new Set([...towerSpells.values()].flatMap(spells => s
+ skillsAt(ordinarySpells, match("resolveTowerSpell"), "需逐级核对目标、控制和手动施法。");
+ skillsAt(["N001", "N002"], match("fireWeapon"), "已验手动指定、独立开关、锁定加伤、追踪和闪避；通用 ATTACKED／EFFECT 跨装备联动及完整正常浏览器流程待验。",
+   ["test/m2.test.mjs#N001 and N002"]);
+-skillsAt(range(41, 44), match("resolveTowerSpell"), "已验四档双灵兽、实际来源、无召唤塔归因、反馈及到期；独立移动、寻路与目标控制待补。",
+-  ["test/m2.test.mjs#N041 through N044"]);
+-skillsAt(range(45, 47), match("emitSwordRain"), "已验三档伤害配置、锁定场地、120 枚上限、停止、魔免排除与分块恢复；动态单位接触、独立地物和完整 B03 联动仍待验。",
+-  ["test/m2.test.mjs#N045 through N047"]);
++skillsAt(range(41, 44), match("resolveTowerSpell"), "已验四档双灵兽、反馈、独立移动及指令恢复。待验全类目标、全部 B03 来源组合及最终候选。",
++  ["test/m2.test.mjs#N041 through N044", "test/m2.test.mjs#a single wolf takes a routed move",
++    "docs/evidence/m2-core-13/wolf-rain-browser.json"]);
++skillsAt(range(45, 47), match("emitSwordRain"), "已验发射、停止、魔免、地面／建筑／debris 碰撞及分块恢复。场景弹道和爆炸接入，最终候选播放及完整 B03 联动待验。",
++  ["test/m2.test.mjs#N045 through N047", "test/m2.test.mjs#sword rain hits enemy structures",
++    "docs/evidence/m2-core-13/wolf-rain-browser.json"]);
+ skillsAt(["N116"], match("resolveTowerSpell"), "未实测正式对局的全 Buff 组合、显示及目标交互。",
+   ["test/m2.test.mjs#N116 commits the target at effect time"]);
+ skillsAt(Object.keys(heroSpells), match("finishHeroSpell"), "需逐目标核对施法、载体、神杖、来源分派及临时状态。");
+ skillsAt(["A019", "A020"], match("finishHeroSpell"), "已确认正常局施法；各目标、等级、神杖及伤害分派待核。",
+-  ["docs/evidence/m2-core-11/ssr-i502-normal.json"]);
++  ["docs/evidence/m2-core-13/ssr-normal.json"]);
+ skillsAt(["A041", "A042"], match("finishHeroSpell"), "已确认正常局施法；各目标、等级、神杖及伤害分派待核。",
+-  ["docs/evidence/m2-core-11/ssr-i503-normal.json"]);
++  ["docs/evidence/m2-core-13/ssr-normal.json"]);
+ skillsAt(["A094"], match("createSerpentWards"), "待验神杖换型、全部契约装备和召唤者移除。",
+   ["test/m2.test.mjs#Shadow Shaman casts eight independent wards"]);
+-skillsAt(["A067", "A068", "A069", "A148", "A149"], match("startWeapon"), "待验手动及形态相关联动。");
++skillsAt(["A067", "A069", "A148"], match("startWeapon"), "待验形态相关联动；A069 永久累计仍缺失。");
++skillsAt(["A068", "A149"], match("activateTreeGrab"), "手动和自动共用结算；仍需核对完整伤害分派、驱散及换型组合。",
++  ["test/m2.test.mjs#manual self-buff settles without a target"]);
+ skillsAt(["A021", "P000", "N159"], match("damageEnemy"), "待验完整伤害阶段和合法来源分派。");
+ skillsAt(["A153"], match("attackAura"), "待验多来源、形态和撤销。");
+-skillsAt(["A040"], match("fireWeapon"), "自动附伤、开关及手动指定已接入；还需正常局验证逐等级的实际伤害、耗蓝及其他来源组合。");
++skillsAt(["A040"], match("fireWeapon"), "手动采用技能射程，发箭时复验并付蓝。物品法球优先、正常局逐档及其他来源组合待验。",
++  ["test/m2.test.mjs#H012 ranks drive arrow costs", "test/m2.test.mjs#H012 manual orb"]);
+ skillsAt(["T000", "T101"], combat("effectiveAttributes"), "待验各装备、变形和跨波组合。");
+ skillsAt(range(3, 5), match("applyWeaponDamage"), "待验抵抗皮肤和各类目标适配。");
+ skillsAt(range(7, 11), match("fireWeapon"), "待验装备副箭与攻击生效顺序。");
+@@ -90,8 +99,8 @@ for (const [ids, entry, uncovered] of [
+   [["i261","i423"], match("deliverItem"), "即时购买已运行，其他合法取得或重复结算待验。"],
+   [["i131","i133","i262"], match("forgeSword"), "已接炼魂与任务，正式 A18 刷新路径待验。"],
+   [["i401","i402","i403","i404","i414"], match("useWorkerItem"), "开箱及 dropDeathChest 死亡箱钥掉落已接入；逐档正常取得、开箱和浏览器刷新待验。"],
+-  [["i266"], match("buySpecial"), "正式三阶段后购买、重新确认库存及刷新待验。"],
+-  [["i265"], match("finishPickup"), "夹具中已验证 i266 与 i308 合成，完整正常经济与实战装备效果待验。"],
++  [["i266"], match("buySpecial"), "core-12 正常三阶段后购入已验收，最终候选的阶段、库存、刷新及使用仍待验。"],
++  [["i265"], match("finishPickup"), "core-12 正常经济合成已验收，最终候选合成与装备实战效果仍待验。"],
+ ]) for (const id of ids) itemEntry.set(id, { entry, uncovered });
+ const statEntries = {
+   "item-attributes/AIab": combat("effectiveAttributes"),
+@@ -111,6 +120,7 @@ const itemRows = [...items.values()].map(item => {
+   }
+   return {
+     id, name: item.name, acquisition: item.sourceAcquisitionText, inOrdinaryShop: ordinaryGoods.has(id),
++    verification: "按游戏命令触发本项取得、入槽和每个效果。覆盖非法目标、实际费用与冷却、移出和快照恢复。",
+     ingredients: recipes.get(id) ?? [],
+     rules: [...new Set([...item.effectRules.map(rule => "docs/rules/" + rule + ".md"),
+       ...(["i401","i402","i403","i404","i414"].includes(id) ? ["docs/rules/workbook-coverage-readiness.md"] : [])])],
+@@ -118,9 +128,10 @@ const itemRows = [...items.values()].map(item => {
+     components: source.components.map(component => {
+       const entry = component.kind === "recipe" ? match("finishPickup") :
+         statEntries[`${component.rule}/${component.code}`] ?? null;
+-      return { type: component.kind, source: component.path ?? component.entry ?? component.results,
++      return { type: component.kind, code: component.code, source: component.path ?? component.entry ?? component.results,
+         rule: component.rule, entry, uncovered: entry ? "需逐对象验收。"
+-          : runtime ? "整件存在运行入口，此组件须独立验收。" : "暂无确认的组件运行入口。" };
++          : runtime ? "整件存在运行入口，此组件须独立验收。" : "暂无确认的组件运行入口。",
++        status: entry ? "已实现待验" : "未实现" };
+     }),
+     uncovered: runtime?.uncovered ?? "除所列组件与生命周期之外，整件效果待核。",
+     evidence: id === "i196" ? ["test/m2.test.mjs#Max Necromancy uses live gear"]
+@@ -128,17 +139,74 @@ const itemRows = [...items.values()].map(item => {
+       : ["i131","i132","i133","i134","i262","i263","i404","i414"].includes(id)
+         ? ["test/m2.test.mjs#A18 fixture distinguishes",
+           ...(["i404", "i414"].includes(id) ? ["test/m2.test.mjs#A18 real death dispatch"] : [])] : ["i265","i266"].includes(id)
+-          ? ["test/m2.test.mjs#m523 reward book purchases once"] : [],
++          ? ["test/m2.test.mjs#m523 reward book purchases once",
++            "docs/evidence/m2-core-13/a17-normal-seed-14.json", "docs/evidence/m2-core-13/a17-browser.json"] : [],
+   };
+ });
++const enemyHosts = new Map();
++for (const unit of [...waves, ...welfareTemplates, ...challengeTemplates]) {
++  for (const id of unit.abilities ?? []) {
++    const hosts = enemyHosts.get(id) ?? new Set();
++    hosts.add(unit.unitId);
++    enemyHosts.set(id, hosts);
++  }
++}
++const runtimeByEnemyAbility = {
++  N512: "spawn", N516: "startEnemyReaction", N521: "damageEnemy", N523: "ordinaryMiss", N524: "ordinaryMiss",
++  N525: "damageEnemy", N533: "damageEnemy", N534: "spawn", N535: "consumeEnemySpellShield",
++  N574: "purgeEnemyDebuffs", N579: "purgeEnemyDebuffs",
++};
++const enemySkills = [...enemyHosts.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([id, hosts]) => {
++  const source = enemyRules.abilities[id];
++  const handler = Object.hasOwn(enemySpells, id) ? "finishEnemyReaction" : runtimeByEnemyAbility[id];
++  return { id, hosts: [...hosts], entry: handler ? match(handler) : null, source: source?.readyEvidence ?? null,
++    status: handler ? "已实现待验" : "未实现",
++    uncovered: handler ? "逐波核对能力的目标、效果、来源、冷却、阶段撤销和读档。" : "尚无确认的运行处理器。",
++    verification: "以对应正式模板触发本能力，核对其触发门槛、实际状态与恢复。", evidence: [] };
++});
++const namedSubcases = new Map();
++for (const [ids, behavior, entry, evidence] of [
++  [["N001", "N002"], "手动选取、独立开关、前摇前锁定和物理弹道", "fireWeapon",
++    ["test/m2.test.mjs#N001 and N002"]],
++  [range(41, 44), "四档召唤及反馈，单体绕障、指定攻击、停止与到期", "moveWolf",
++    ["test/m2.test.mjs#N041 through N044", "docs/evidence/m2-core-13/wolf-rain-browser.json"]],
++  [range(45, 47), "三档发射、停止、单位掩码、弹道状态与局部恢复", "advanceSwordRain",
++    ["test/m2.test.mjs#N045 through N047", "test/m2.test.mjs#sword rain hits enemy structures",
++      "docs/evidence/m2-core-13/wolf-rain-browser.json"]],
++  [["A019", "A020", "A041", "A042"], "对应 SSR 正常获取、完成建造与实际施法", "finishHeroSpell",
++    ["docs/evidence/m2-core-13/ssr-normal.json"]],
++  [["A040"], "手动箭的射程、有效出手与实际耗蓝", "fireWeapon", ["test/m2.test.mjs#H012 manual orb"]],
++  [["A068", "A149"], "受控引擎下无目标手动施放、扣蓝、冷却共享、效果到期及快照恢复",
++    "activateTreeGrab", ["test/m2.test.mjs#manual self-buff settles without a target"]],
++]) for (const id of ids) namedSubcases.set(id, [{ status: "已验收", behavior, entry: match(entry), evidence }]);
++for (const [ids, behavior] of [
++  [["N001", "N002"], "公共攻击／施法回调及多个装备法球的实际优先次序"],
++  [range(20, 22), "独立世界物体的交互及撤销"],
++  [range(61, 63), "施加和撤销攻速时重计正在进行的攻击周期"],
++]) for (const id of ids) {
++  const cases = namedSubcases.get(id) ?? [];
++  cases.push({ status: "未实现", behavior, entry: null, evidence: [] });
++  namedSubcases.set(id, cases);
++}
+ assert.equal(itemRows.length, 202);
+ assert.equal(cards.size + workerTowers.size, 22);
+-const output = JSON.stringify({ contentVersion, scope: "m2-config-1", definitions: "入口按实际代码登记，全部条目保留待验范围。",
+-  skills: [...skillRows.values()].sort((a, b) => a.id.localeCompare(b.id)),
++const output = JSON.stringify({ contentVersion, scope: "m2-config-1",
++  definitions: "状态针对本行剩余行为。已有执行入口的行为仍按验收证据登记。未实现包含尚未映射到确认入口的行为。",
++  skills: [...skillRows.values()].sort((a, b) => a.id.localeCompare(b.id)).map(row => ({
++    ...row, status: row.entry ? "已实现待验" : "未实现",
++    subcases: namedSubcases.get(row.id) ?? [],
++    verification: "逐档从已登记入口触发，验证自动／手动条件、目标、资源、冷却、组合及恢复。",
++  })),
+   dependencies: [{ ids: range(120, 122), units: ["b103", "b104", "b105", "b106"],
+     rule: "docs/rules/creep-skill-family-next.md", entry: match("applyWeaponDamage"),
+-    evidence: ["test/m2.test.mjs#N041 through N044"], uncovered: "通用 B03 来源组合、全类目标和独立移动待验。" }],
+-  forms: formRows, items: itemRows }, null, 2) + "\n";
++    evidence: ["test/m2.test.mjs#N041 through N044"], uncovered: "通用 B03 来源组合和全类目标待验。" }],
++  enemySkills, forms: formRows, items: itemRows.map(row => ({ ...row,
++    subcases: row.id === "i310" ? [{ status: "未实现", behavior: "通用实际能力授予、撤销及换型",
++      rule: "docs/rules/scepter-lifecycle.md" }]
++      : ["i330", "i332"].includes(row.id) ? [{ status: "未实现", behavior: "双向切换、周期伤害、生命消耗及成长",
++        rule: "docs/rules/item-final-batch-01.md" }] : [],
++    status: row.entry || row.components.some(component => component.entry) ? "已实现待验" : "未实现",
++  })) }, null, 2) + "\n";
+ const destination = "docs/m2-runtime-coverage.json";
+ if (process.argv.includes("--check")) assert.equal(readFileSync(destination, "utf8"), output);
+ else writeFileSync(destination, output);
