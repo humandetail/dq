@@ -93,6 +93,7 @@ async function assertLongLabelsFit() {
 async function auditButtonLabels() {
   const issues = new Map();
   let checked = 0;
+  let iconsChecked = 0;
   async function click(selector) {
     await evaluate(`document.querySelector(${JSON.stringify(selector)}).click()`);
   }
@@ -100,17 +101,28 @@ async function auditButtonLabels() {
     const result = await evaluate(`(() => {
       const overflow = [];
       let count = 0;
+      let icons = 0;
       for (const button of document.querySelectorAll('button, [role="button"], summary')) {
         if (!button.checkVisibility()) continue;
         const bounds = button.getBoundingClientRect();
         if (bounds.width === 0 || bounds.height === 0) continue;
+        if (button.dataset.commandIcon) {
+          icons++;
+          const graphic = getComputedStyle(button, '::before');
+          const iconOnly = button.classList.contains('command-icon-only');
+          if (graphic.maskImage === 'none' || parseFloat(graphic.width) <= 0 ||
+            iconOnly && (!button.getAttribute('aria-label') || getComputedStyle(button).fontSize !== '0px')) {
+            overflow.push({label: button.textContent.trim(), container: 'invalid icon button', width: Math.round(bounds.width)});
+          }
+        }
         const walker = document.createTreeWalker(button, NodeFilter.SHOW_TEXT);
         const range = document.createRange();
         let text;
         let hasLabel = false;
         let clipped = false;
         while ((text = walker.nextNode())) {
-          if (!text.data.trim() || !text.parentElement.checkVisibility()) continue;
+          if (!text.data.trim() || !text.parentElement.checkVisibility() ||
+            getComputedStyle(text.parentElement).fontSize === '0px') continue;
           range.selectNodeContents(text);
           const lines = [...range.getClientRects()];
           hasLabel ||= lines.length > 0;
@@ -127,9 +139,10 @@ async function auditButtonLabels() {
             width: Math.round(bounds.width)});
         }
       }
-      return {count, overflow};
+      return {count, icons, overflow};
     })()`);
     checked += result.count;
+    iconsChecked += result.icons;
     for (const item of result.overflow) {
       const {label, container} = item;
       const key = `${container} / ${label}`;
@@ -192,7 +205,8 @@ async function auditButtonLabels() {
     await click('#cancel-placement');
   }
   assert.deepEqual(errors, []);
-  console.log(`Checked ${checked} rendered labels across 11 viewports and battle/menu states`);
+  assert.ok(iconsChecked > 0, 'Icon controls must appear in the audit');
+  console.log(`Checked ${checked} labels and ${iconsChecked} icons across 11 viewports`);
   assert.deepEqual([...issues.values()], [], 'Button labels are clipped or exceed their available width');
 }
 async function checkMobile() {
@@ -233,6 +247,8 @@ async function checkMobile() {
       return ${expression};
     })()`);
   }
+  assert.equal(await evaluate(q('#pause') + '.dataset.commandIcon'), 'play');
+  assert.equal(await evaluate(q('#pause') + '.getAttribute("aria-label")'), '继续');
   await capture('battle.png');
   await tap('.twelve-slots button:first-child');
   await tap('#builds button:first-child');
@@ -250,6 +266,7 @@ async function checkMobile() {
   await tap(await project(-192, -128));
   await until(feedback+'.includes("排队")');
   await tap('#pause');
+  await until(q('#pause') + '.dataset.commandIcon === "pause" && ' + q('#pause') + '.getAttribute("aria-label") === "暂停"');
   await until(q('#cancel-placement')+'.hidden');
   await checkpoint('run.structures.length === 2');
   await tap('#pause');

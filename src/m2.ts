@@ -1,5 +1,6 @@
 import type { OverBudgetSlice, SimulationInput, SimulationOutput } from "./m2-simulation-protocol.ts";
 import { createCommandUI } from "./m2-command.ts";
+import { setCommandIcon } from "./m2-icons.ts";
 import { isDivineBook } from "./game/m2/divine.ts";
 import { appearanceChoice, appearanceChoices, appearanceSlots, appearanceUnlocked, type Appearance, type AppearanceSlot } from "./game/m2/appearance.ts";
 import { configuration, cardTemplates, directBuilds, firelordSkin, itemFields, items, openingChoices, ordinaryGoods, prayerBooks, qualificationChains, towerLevels, waveRewards, workerTowers } from "./game/m2/content.ts";
@@ -1546,6 +1547,17 @@ el("rotate-left").onclick = () => draw?.rotateView(-1);
 el("rotate-right").onclick = () => draw?.rotateView(1);
 el("zoom-in").onclick = () => draw?.zoomView(1.2);
 el("zoom-out").onclick = () => draw?.zoomView(1 / 1.2);
+setCommandIcon(el("pause"), "pause", "暂停");
+setCommandIcon(el("view-oblique"), "oblique", "斜俯视");
+setCommandIcon(el("view-top"), "overhead", "俯视");
+setCommandIcon(el("rotate-left"), "rotate-left", "镜头向左旋转 45 度");
+setCommandIcon(el("rotate-right"), "rotate-right", "镜头向右旋转 45 度");
+setCommandIcon(el("zoom-in"), "zoom-in", "拉近镜头");
+setCommandIcon(el("zoom-out"), "zoom-out", "拉远镜头");
+setCommandIcon(el("reset-view"), "recenter", "复位视角");
+setCommandIcon(el("cancel-placement"), "close", "取消放置");
+setCommandIcon(el("cancel-save-wait"), "close", "取消等待");
+setCommandIcon(el("retry-save"), "retry", "重试存档");
 const commandUI = createCommandUI({ match: () => compatibleMap() ? run : undefined, scene: () => draw, send, writable,
   refreshManagement: showControls, cancel: clearPlacement, placing: () => !!build || !!pointSpell || !!scoutWard || wolfMoveId !== undefined || artilleryTowerId !== undefined });
 const sceneReady = createM2Scene(el<HTMLCanvasElement>("field"), point => {
@@ -1981,7 +1993,12 @@ function frame() {
     const label = el("worker-benefit-result");
     showText(label, benefit && run.queue.nowUs - benefit.atUs < 8_000_000 ?
       `${benefit.source === "J006" ? "自动发放福利" : "领取福利"} · +${benefit.amount} 金` : "");
-    showText(el("pause"), run.clock.paused ? "继续" : "暂停");
+    const pauseButton = el("pause");
+    const pauseLabel = run.clock.paused ? "继续" : "暂停";
+    if (pauseButton.textContent !== pauseLabel) {
+      showText(pauseButton, pauseLabel);
+      setCommandIcon(pauseButton, run.clock.paused ? "play" : "pause", pauseLabel);
+    }
     showText(el("speed"), `${run.clock.speed}×`);
   }
   const selectedBuild = build?.action;
@@ -2005,7 +2022,11 @@ function frame() {
   const controlMs = performanceFlag ? performance.now() - controlStarted : 0;
   const choosingPoint = wolfMoveId !== undefined || Boolean(pointSpell) || Boolean(scoutWard) || artilleryTowerId !== undefined;
   el("cancel-placement").hidden = !build && !choosingPoint;
-  el("cancel-placement").textContent = choosingPoint ? "取消选择" : "取消放置";
+  const cancelLabel = choosingPoint ? "取消选择" : "取消放置";
+  if (el("cancel-placement").textContent !== cancelLabel) {
+    showText(el("cancel-placement"), cancelLabel);
+    setCommandIcon(el("cancel-placement"), "close", cancelLabel);
+  }
   el("field").classList.toggle("placing", !!build || choosingPoint);
   const renderStarted = performanceFlag ? performance.now() : 0;
   const presented = paintBattlefield();
