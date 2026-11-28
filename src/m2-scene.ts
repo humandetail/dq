@@ -225,6 +225,16 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
     return ray.ray.intersectPlane(ground, hit) ? { x: hit.x / scale, y: hit.z / scale } : undefined;
   }
 
+  function panView(deltaX: number, deltaY: number) {
+    const box = canvas.getBoundingClientRect();
+    const previous = pointAt({ clientX: box.left + box.width / 2, clientY: box.top + box.height / 2 });
+    const next = pointAt({ clientX: box.left + box.width / 2 + deltaX, clientY: box.top + box.height / 2 + deltaY });
+    if (!previous || !next) return;
+    focus.x = THREE.MathUtils.clamp(focus.x + (previous.x - next.x) * scale, toWorld(map.bounds.minX), toWorld(map.bounds.maxX));
+    focus.z = THREE.MathUtils.clamp(focus.z + (previous.y - next.y) * scale, toWorld(map.bounds.minY), toWorld(map.bounds.maxY));
+    project();
+  }
+
   canvas.addEventListener("pointerdown", event => {
     const touch = event.pointerType === "touch";
     if (touch) {
@@ -296,8 +306,31 @@ export async function createM2Scene(canvas: HTMLCanvasElement, place: (point: Po
   canvas.addEventListener("wheel", event => {
     event.preventDefault();
     pointer = { clientX: event.clientX, clientY: event.clientY };
-    zoomView(Math.exp(-event.deltaY * .001));
+    const unit = event.deltaMode === WheelEvent.DOM_DELTA_LINE ? 16 :
+      event.deltaMode === WheelEvent.DOM_DELTA_PAGE ? canvas.clientHeight : 1;
+    if (event.ctrlKey || event.metaKey || event.shiftKey) {
+      zoomView(Math.exp(-event.deltaY * unit * .01));
+    } else {
+      panView(-event.deltaX * unit, -event.deltaY * unit);
+    }
   }, { passive: false });
+
+  globalThis.addEventListener("keydown", event => {
+    if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.altKey ||
+        (event.target instanceof HTMLElement && event.target.closest('input, select, textarea, [contenteditable="true"]')) ||
+        document.querySelector('.command-backdrop:not([hidden])')) return;
+    switch (event.key) {
+      case "ArrowLeft": panView(48, 0); break;
+      case "ArrowRight": panView(-48, 0); break;
+      case "ArrowUp": panView(0, 48); break;
+      case "ArrowDown": panView(0, -48); break;
+      case "+": case "=": zoomView(1.15); break;
+      case "-": case "_": zoomView(1 / 1.15); break;
+      case "Home": resetView(); break;
+      default: return;
+    }
+    event.preventDefault();
+  });
 
   canvas.addEventListener("pointerleave", () => { pointer = undefined; hover = undefined; });
   // Stop a pan's click before it can reach either the scene or the command UI.

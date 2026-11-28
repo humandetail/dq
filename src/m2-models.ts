@@ -113,7 +113,7 @@ export async function loadM2Model(id: ModelId, gl: WebGL2RenderingContext | WebG
       }) }));
     }
     model.Materials = translucent ? translucentMaterials! : opaqueMaterials;
-    const frame = start + (clip === "Death" ? Math.min(Math.max(0, elapsedMs), end - start) :
+    const frame = start + ((clip === "Death" || clip === "Attack") ? Math.min(Math.max(0, elapsedMs), end - start) :
       elapsedMs % Math.max(1, end - start));
     if (renderer.getSequence() !== index) renderer.setSequence(index);
     renderer.setFrame(frame);

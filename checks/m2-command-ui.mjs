@@ -254,7 +254,7 @@ async function checkSword() {
       })()`);
       await press('.touch-actions div button');
     }
-    await until('document.querySelector(".touch-actions p").textContent === "选择能量圈吸魂"');
+    await until('document.querySelector(".touch-actions p").textContent.startsWith("选择能量圈吸魂")');
   }
   await click('#reset-view');
   await click('.hero-shortcuts button:first-child');

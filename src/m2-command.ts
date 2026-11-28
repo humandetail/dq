@@ -1,10 +1,11 @@
+import skillDescriptions from "./game/m2/skill-descriptions.json" with { type: "json" };
 import { eventBoxes } from "./game/m2/event-boxes.ts";
-import { cardTemplates, items, ordinaryGoods, prayerBooks, recipes, recycleRate, towerLevels } from './game/m2/content.ts';
+import { cardTemplates, items, ordinaryGoods, prayerBooks, qualificationChains, recipes, recycleRate, summonCards, towerLevels } from './game/m2/content.ts';
 import { effectiveAttributes } from './game/m2/combat.ts';
 import { learnableSkills, learningLevel } from './game/m2/hero.ts';
 import { pointTowerSpell, towerSpells } from './game/m2/tower-spells.ts';
 import { heroAutoCastOrder, heroSpellTargetMode, isCastableHeroSkill, heroSpells } from './game/m2/hero-spells.ts';
-import { activeHeroSkill, attackOrb, attackRange, bearAbilities, canChooseOpening, canMoveItem, canSeeEnemy, circleId, doomAbilities, isActiveTowerEquipment, isBrokenSword, isPointTargetedTowerEquipment, isTargetedEquipment, itemSaleQuote, usableWorkerItem, type Action, type Match } from './game/m2/match.ts';
+import { activeHeroSkill, attackOrb, attackRange, bearAbilities, canChooseOpening, canMoveItem, canSeeEnemy, circleId, doomAbilities, isActiveTowerEquipment, isBrokenSword, isPointTargetedTowerEquipment, isTargetedEquipment, itemSaleQuote, qualified, usableWorkerItem, type Action, type Match } from './game/m2/match.ts';
 import type { createM2Scene } from './m2-scene.ts';
 import { map, type Point } from './game/m2/map.ts';
 import './m2-command.css';
@@ -107,16 +108,16 @@ export function createCommandUI(options: {
     battlefield.before(toolbar);
     const cameraTools = battlefield.querySelector('.battlefield-tools')!;
     const placementBar = battlefield.querySelector('.placement-bar')!;
-    battlefield.after(cameraTools);
+    toolbar.append(cameraTools);
     const context = document.createElement('div');
     context.className = 'command-context';
-    cameraTools.after(context);
+    battlefield.after(context);
     const overlay = document.createElement('div');
     overlay.className = 'unit-overlay';
     battlefield.append(overlay);
     const shortcuts = document.createElement('div');
     shortcuts.className = 'hero-shortcuts';
-    toolbar.append(shortcuts, tools);
+    toolbar.append(shortcuts, cameraTools, tools);
     const dock = document.createElement('section');
     dock.className = 'command-dock';
     dock.innerHTML = '<div class="selection-strip"></div><div class="dock-body"><section class="unit-info"></section><section class="unit-inventory"><h3>物品栏 <small>Alt＋Q/W/E/A/S/D</small></h3><div class="six-slots"></div></section><section class="unit-commands"><h3>指令</h3><div class="twelve-slots"></div></section></div>';
@@ -136,8 +137,75 @@ export function createCommandUI(options: {
     touchTools.append(orderButton, inventoryButton, moreButton);
     const heading = document.createElement('div');
     heading.className = 'dock-heading';
-    heading.append(dock.querySelector('.selection-strip')!, touchTools);
+    const cameraHint = document.createElement('span');
+    cameraHint.className = 'camera-hint';
+    cameraHint.textContent = '双指平移 · 捏合缩放 · 方向键移动';
+    cameraHint.title = 'Shift＋滚轮缩放；＋／－缩放；Home 复位；空格暂停；Esc 取消';
+    const dockBody = dock.querySelector<HTMLElement>('.dock-body')!;
+    dockBody.id = 'command-dock-body';
+    const collapseDock = button('收起面板', () => {
+        skillTooltip.hidden = true;
+        dockBody.hidden = !dockBody.hidden;
+        dock.classList.toggle('collapsed', dockBody.hidden);
+        collapseDock.textContent = dockBody.hidden ? '展开指令' : '收起面板';
+        collapseDock.setAttribute('aria-expanded', String(!dockBody.hidden));
+    });
+    collapseDock.id = 'toggle-dock';
+    collapseDock.setAttribute('aria-controls', dockBody.id);
+    collapseDock.setAttribute('aria-expanded', 'true');
+    heading.append(dock.querySelector('.selection-strip')!, cameraHint, touchTools, collapseDock);
     dock.prepend(heading);
+    const skillTooltip = document.createElement('div');
+    skillTooltip.id = 'skill-tooltip';
+    skillTooltip.className = 'skill-tooltip';
+    skillTooltip.setAttribute('role', 'tooltip');
+    skillTooltip.hidden = true;
+    document.body.append(skillTooltip);
+    let tooltipSkill = '';
+    let hoverPoint: { x: number; y: number } | undefined;
+    function refreshSkillTooltip() {
+        const focused = document.activeElement;
+        const hovered = hoverPoint && document.elementFromPoint(hoverPoint.x, hoverPoint.y);
+        const node = ((hovered && skillTooltip.contains(hovered)
+            ? dock.querySelector<HTMLElement>(`[data-skill="${tooltipSkill}"]`)
+            : hovered?.closest<HTMLElement>('[data-skill]')) ??
+            (focused instanceof HTMLElement && focused.closest<HTMLElement>('[data-skill]'))) || undefined;
+        if (!node || modal || dockBody.hidden) {
+            skillTooltip.hidden = true;
+            return;
+        }
+        tooltipSkill = node.dataset.skill!;
+        const text = node.dataset.tooltip!;
+        if (skillTooltip.textContent !== text) skillTooltip.textContent = text;
+        node.setAttribute('aria-describedby', skillTooltip.id);
+        skillTooltip.hidden = false;
+        const bounds = node.getBoundingClientRect();
+        const aboveDock = Math.min(bounds.top, dock.getBoundingClientRect().top);
+        const beside = aboveDock < skillTooltip.offsetHeight + 8 && bounds.left >= skillTooltip.offsetWidth + 16;
+        const left = beside ? bounds.left - skillTooltip.offsetWidth - 8 : bounds.right - skillTooltip.offsetWidth;
+        const top = beside ? Math.min(bounds.top, innerHeight - skillTooltip.offsetHeight - 8) : aboveDock - skillTooltip.offsetHeight - 8;
+        skillTooltip.style.left = `${Math.max(8, Math.min(left, innerWidth - skillTooltip.offsetWidth - 8))}px`;
+        skillTooltip.style.top = `${Math.max(8, top)}px`;
+    }
+    dock.addEventListener('pointermove', event => {
+        if (event.pointerType === 'touch') return;
+        hoverPoint = { x: event.clientX, y: event.clientY };
+        refreshSkillTooltip();
+    });
+    dock.addEventListener('pointerleave', event => {
+        if (event.relatedTarget instanceof Node && skillTooltip.contains(event.relatedTarget)) return;
+        hoverPoint = undefined;
+        refreshSkillTooltip();
+    });
+    skillTooltip.addEventListener('pointerleave', event => {
+        if (event.relatedTarget instanceof Node && dock.contains(event.relatedTarget)) return;
+        hoverPoint = undefined;
+        skillTooltip.hidden = true;
+    });
+    dock.addEventListener('focusin', refreshSkillTooltip);
+    dock.addEventListener('focusout', () => { skillTooltip.hidden = true; });
+    globalThis.addEventListener('blur', () => { hoverPoint = undefined; skillTooltip.hidden = true; });
+    globalThis.addEventListener('resize', refreshSkillTooltip);
     const touchActions = document.createElement('div');
     touchActions.className = 'touch-actions';
     const touchPrompt = document.createElement('p');
@@ -197,6 +265,9 @@ export function createCommandUI(options: {
     status.append(get('feedback'), get('save'));
     context.append(status);
     // Existing progression and special transactions keep their original event handlers.
+    const qualificationPanel = document.createElement('section');
+    qualificationPanel.id = 'hero-qualification';
+    aside.append(qualificationPanel);
     const sections = [...aside.children];
     const openingPanel = '选择开局英雄';
     const workerPanels = new Map([
@@ -205,12 +276,14 @@ export function createCommandUI(options: {
         ['塔卡', get('cards').closest('section')!],
         ['抽卡', get('draws').closest('section')!],
         ['工人天赋', get('talents').closest('section')!],
+        ['突破条件', qualificationPanel],
     ]);
     const sectionTab = new Map<Element, string>();
     for (const section of sections) {
         const name = section.querySelector('h2')?.textContent;
         sectionTab.set(section, name === '商店' ? 'legacy' : name === '神秘商店' || name === '挑战商店' ? '商店' : '对局');
     }
+    sectionTab.set(qualificationPanel, '突破条件');
     function showPawn(state: Match | undefined, shopName: string) {
         const writable = options.writable();
         const offers = state?.inventory?.flatMap(item => {
@@ -280,6 +353,8 @@ export function createCommandUI(options: {
     }
     search.oninput = showShop;
     function open(name: string) {
+        lastRender = '';
+        skillTooltip.hidden = true;
         setTouchMode(undefined);
         modal = name;
         backdrop.hidden = false;
@@ -390,6 +465,8 @@ export function createCommandUI(options: {
         lastRender = '';
     }
     function cancel() {
+        hoverPoint = undefined;
+        skillTooltip.hidden = true;
         if (modal) {
             close();
             return;
@@ -450,7 +527,13 @@ export function createCommandUI(options: {
         const tower = unit();
         const enemy = state.enemies.find(enemy => enemy.id === enemyId);
         const equipped = state.inventory?.filter(item => item.slot !== null && item.towerId === (current === -1 ? undefined : current));
+        const chain = qualificationChains.get(tower?.qualification ?? '');
+        const breakthroughReady = !!tower?.hero && qualified(state, tower.id);
+        const providers = chain ? state.structures.filter(provider =>
+            chain.levels.some(level => level.id === provider.templateId) && (provider.life?.hp ?? 1) > 0) : [];
         const signature = JSON.stringify([state.matchId, selection, current, enemyId, learning, tower?.hero,
+            tower?.qualification, breakthroughReady, providers.map(provider => [provider.templateId, provider.pending]),
+            modal === '突破条件' ? [state.cards, state.qualificationShopOpen] : null,
             tower?.templateId, tower?.autoModes, tower?.flameArrows, tower?.morphShift?.attribute, equipped,
             current === -1 ? [state.cards, state.books, state.gold, state.lumber] : null,
             options.writable(), range, enemy && Math.ceil(enemy.hp), tower?.life && Math.ceil(tower.life.hp), Math.floor(state.queue.nowUs / 1000000)]);
@@ -492,6 +575,36 @@ export function createCommandUI(options: {
         const details = button('详情', () => open('对局'));
         setCommandIcon(details, 'info', '详情');
         detail.append(stats);
+        if (tower?.hero) {
+            const condition = button(`突破条件 · ${breakthroughReady ? '已满足' : '未满足'}`, () => open('突破条件'));
+            condition.className = 'hero-qualification';
+            condition.title = chain ? `需要场上保有 ${towerLevels.get(chain.requireUnit)!.name}` : '当前英雄尚未分配突破资格';
+            detail.append(condition);
+            const heading = document.createElement('h2');
+            heading.textContent = `${title.textContent} · 突破条件`;
+            qualificationPanel.replaceChildren(heading);
+            const requirements = document.createElement('p');
+            if (chain) {
+                const target = towerLevels.get(chain.requireUnit)!.name;
+                const best = providers.sort((a, b) => chain.levels.findIndex(level => level.id === b.templateId) - chain.levels.findIndex(level => level.id === a.templateId))[0];
+                const progress = best ? `${towerLevels.get(best.templateId)!.name}${best.pending ? '（建造或升级中）' : ''}` : '尚未建造';
+                requirements.textContent = `需要场上保有：${target}\n当前进度：${progress}\n${breakthroughReady ? '已满足，可以突破 20 级；继续获得经验升级。' : '未满足，英雄等级上限为 20 级。'}\n资格生效后可装备橙色及以上品质装备；所需塔被回收或死亡后资格会失效。`;
+                const route = document.createElement('p');
+                route.textContent = `升级路线：${chain.levels.map(level => level.name).join(' → ')}`;
+                const materials = state.cards.filter(card => card.slot !== null && summonCards.get(card.card)?.itemFields.Level === 12).length;
+                const exchange = document.createElement('p');
+                exchange.textContent = `资格兑换${state.qualificationShopOpen ? '已开放' : '于第 20 波开放'}，消耗 5 张背包 R 卡（当前 ${materials}/5）。兑换对应塔卡后，建造并升级至 ${target}。`;
+                const go = button('前往资格兑换', () => {
+                    (get('qualification') as HTMLSelectElement).value = chain.id;
+                    open('对局');
+                    get('exchanges').scrollIntoView({ block: 'start' });
+                }, !state.qualificationShopOpen);
+                qualificationPanel.append(requirements, route, exchange, go);
+            } else {
+                requirements.textContent = '当前英雄尚未分配突破资格。';
+                qualificationPanel.append(requirements);
+            }
+        }
         if (tower || enemy) detail.append(details);
         info.append(portrait, detail);
         const inventory = dock.querySelector('.six-slots')!;
@@ -540,7 +653,10 @@ export function createCommandUI(options: {
                     event.stopImmediatePropagation();
                     const more = touchMode === 'more';
                     setTouchMode(more ? 'more' : 'item');
-                    if (movable) touchChoices.append(button('拿起', transfer));
+                    if (movable) touchChoices.append(button('拿起', transfer), button('放到脚下', () => {
+                        setTouchMode(undefined);
+                        options.send({ type: 'drop-item', itemId: item.id });
+                    }));
                     if (toggleAuto) touchChoices.append(button('切换自动使用', () => {
                         setTouchMode(undefined);
                         toggleAuto();
@@ -554,6 +670,8 @@ export function createCommandUI(options: {
             inventory.append(node);
         }
         const grid = dock.querySelector('.twelve-slots')!;
+        const focusedSkill = document.activeElement instanceof HTMLElement
+            ? document.activeElement.closest<HTMLElement>('[data-skill]')?.dataset.skill : undefined;
         grid.replaceChildren();
         commands = [];
         const add = (label: string, action: () => void, disabled = false, id?: string, toggle?: () => void) => {
@@ -615,7 +733,7 @@ export function createCommandUI(options: {
                         enabled: skill.skillId === 'A091' ? tower.autoModes?.A091 !== true : tower.autoModes?.[skill.skillId] === false }) : undefined);
                 if (orb) node.classList.toggle('auto', !learning && (tower.flameArrows ?? orb.defaultAuto));
                 if (skill.skillId === 'A091') node.classList.toggle('auto', !learning && tower.autoModes?.A091 === true);
-                node.title = `${skill.name} · ${castable || orb ? '主动' : '被动'} · 等级 ${rank}${required !== undefined ? `\n下一级需要英雄 ${required} 级` : ''}`;
+                node.title = `${skill.name} · ${castable || orb ? '主动' : '被动'} · ${rank ? `等级 ${rank}` : '未学习'}${required !== undefined ? `\n下一级需要英雄 ${required} 级` : ''}`;
                 const ready = tower.heroSpellReady?.[skill.skillId as keyof typeof heroSpells] ?? tower.towerSpellReady?.[skill.skillId] ?? ((skill.skillId === 'A068' || skill.skillId === 'A149') ? tower.treeGrab?.readyUs : 0) ?? 0;
                 if (!learning && ready > state.queue.nowUs) {
                     const timer = document.createElement('span');
@@ -624,7 +742,7 @@ export function createCommandUI(options: {
                     node.append(timer);
                 }
                 if (learning && skill.skillId === 'A067')
-                    node.title += `\n名义伤害 ${[0, 150, 275, 420, 650, 860, 1120][rank]} → ${[0, 150, 275, 420, 650, 860, 1120][Math.min(6, rank + 1)]}`;
+                    node.title += `\n伤害 ${[0, 150, 275, 420, 650, 860, 1120][rank]} → ${[0, 150, 275, 420, 650, 860, 1120][Math.min(6, rank + 1)]}`;
                 if (learning && skill.skillId === 'A069')
                     node.title += `\n累计攻击加成 ${rank * 90} → ${(rank + 1) * 90}`;
                 const profile = heroSpells[skill.skillId as keyof typeof heroSpells];
@@ -722,8 +840,8 @@ export function createCommandUI(options: {
             add('抽卡', () => open('抽卡'));
             add('天赋', () => open('工人天赋'));
             const move = add('移动', () => aim({ kind: 'point', label: '移动工人', action: point => ({ type: 'move-worker', point }) }));
-            setCommandIcon(move, 'move', '移动工人');
-            setCommandIcon(add('停止', () => options.send({ type: 'stop-worker' })), 'stop', '停止');
+            setCommandIcon(move, 'move');
+            setCommandIcon(add('停止', () => options.send({ type: 'stop-worker' })), 'stop');
             add('能量圈', () => select(circleId));
         }
         while (grid.children.length < 12) {
@@ -731,6 +849,31 @@ export function createCommandUI(options: {
             empty.className = 'empty-command';
             grid.append(empty);
         }
+        // One description path covers learned, unlearned, borrowed and tower skills.
+        for (const node of grid.querySelectorAll<HTMLButtonElement>('[data-skill]')) {
+            const id = node.dataset.skill!;
+            const rank = tower?.hero?.ranks[id] ?? (/^A22[6-9]$/.test(id) ? tower?.hero?.ranks.A225 : undefined) ?? doomAbilities(tower!).find(ability => ability.id === id)?.rank ?? 0;
+            const binding = towerLevels.get(tower!.templateId)?.bindings.find(skill => skill.skillId === id);
+            const description = (skillDescriptions as Record<string, { effect: string; ranks: Record<string, string> }>)[id];
+            const level = Math.max(1, rank);
+            const profile = heroSpells[id as keyof typeof heroSpells];
+            const spell = towerSpells.get(tower!.templateId)?.find(spell => spell.id === id);
+            const bear = bearAbilities(tower!).find(ability => ability.id === id);
+            const lines = [node.title || `${binding?.name ?? node.childNodes[0].textContent} · ${rank ? `等级 ${rank}` : tower!.hero ? '未学习' : '技能'}`];
+            if (description) {
+                lines.push(description.effect);
+                if (description.ranks[level]) lines.push(`${rank ? '当前' : '1 级效果'}：${description.ranks[level]}`);
+                if (learning && rank && description.ranks[rank + 1]) lines.push(`下一级：${description.ranks[rank + 1]}`);
+            }
+            if (profile) lines.push(`耗蓝 ${profile.mana[Math.min(level - 1, profile.mana.length - 1)]} · 冷却 ${profile.cooldown[Math.min(level - 1, profile.cooldown.length - 1)]} 秒 · 施法距离 ${profile.range}`);
+            else if (spell) lines.push(`耗蓝 ${spell.cost} · 冷却 ${spell.cooldown} 秒`);
+            else if (bear) lines.push(`耗蓝 ${bear.mana} · 冷却 ${bear.cooldown} 秒`);
+            lines.push(`快捷键 ${node.querySelector('kbd')!.textContent}${node.oncontextmenu ? ' · 右键切换自动施法' : ''}`);
+            node.dataset.tooltip = lines.filter(Boolean).join('\n\n');
+            node.removeAttribute('title');
+        }
+        if (focusedSkill) grid.querySelector<HTMLButtonElement>(`[data-skill="${focusedSkill}"]`)?.focus({ preventScroll: true });
+        refreshSkillTooltip();
         orderButton.disabled = !selection.length || !options.writable();
         moreButton.disabled = !dock.querySelector('.touch-secondary:not(:disabled)');
         shortcuts.replaceChildren();
@@ -778,7 +921,16 @@ export function createCommandUI(options: {
             issueOrder(hit, point);
             return;
         }
-        if (touchMode === 'more' || (carrying !== undefined && hit?.kind !== 'ally')) return;
+        if (carrying !== undefined && hit?.kind !== 'ally') {
+            event.stopImmediatePropagation();
+            if (!hit) {
+                options.send({ type: 'drop-item', itemId: carrying });
+                carrying = undefined;
+                announce('物品放到持有者脚下。');
+            } else announce('请选择友方单位，或点击空地放到脚下。');
+            return;
+        }
+        if (touchMode === 'more') return;
         if (target) {
             event.stopImmediatePropagation();
             if ((target.kind === 'enemy' && hit?.kind !== 'enemy') || (target.kind === 'ally' && (hit?.kind !== 'ally' || hit.id===-1))) {
@@ -965,7 +1117,7 @@ export function createCommandUI(options: {
             if (modal === '商店') showPawn(state, ordinaryGoods.get(selectedGood)!.shop);
             const held = carrying === undefined ? undefined : state.inventory?.find(item => item.id === carrying);
             const prompt = target ? target.label + ' · 选择目标' : held ?
-                (isBrokenSword(held.itemId) ? '选择能量圈吸魂' : '选择接收物品的单位') :
+                (isBrokenSword(held.itemId) ? '选择能量圈吸魂' : '选择接收物品的单位') + ' · 点击空地放到脚下' :
                 touchMode === 'order' ? '点按地面、掉落物或敌人下令' :
                 touchMode === 'more' ? '点按高亮技能或切换物品栏' : touchMode === 'item' ? '物品操作' : learning ? '选择要学习的技能' : '';
             if (touchPrompt.textContent !== prompt) touchPrompt.textContent = prompt;
